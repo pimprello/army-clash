@@ -122,6 +122,39 @@ const RVB = (() => {
   };
   // Grass decorations shared by the medieval page background and battlefield.
   const FLOWER_COLS = ['#FF9EC7', '#FFF6E0', '#FFE066', '#C9A2FF'];
+  // Five small cartoon flower kinds, all about the same size (r ~ 3-5 px), each with a soft outline.
+  function drawFlower(g, x, y, r, kind) {
+    const edge = 'rgba(20,30,20,0.45)';
+    g.lineWidth = Math.max(0.8, r * 0.22); g.strokeStyle = edge;
+    const dot = (cx, cy, rr, col) => { g.fillStyle = col; g.beginPath(); g.arc(cx, cy, rr, 0, TAU); g.fill(); g.stroke(); };
+    if (kind === 0) {
+      // daisy: thin white petals, yellow middle
+      g.fillStyle = '#FFFFFF';
+      for (let p = 0; p < 8; p++) { const a = p / 8 * TAU; g.beginPath(); g.ellipse(x + Math.cos(a) * r * 0.8, y + Math.sin(a) * r * 0.8, r * 0.55, r * 0.25, a, 0, TAU); g.fill(); g.stroke(); }
+      dot(x, y, r * 0.42, '#FFC93C');
+    } else if (kind === 1) {
+      // tulip: a little cup of three petals on a short stem
+      g.strokeStyle = '#2E7A2E'; g.lineWidth = Math.max(1, r * 0.3);
+      g.beginPath(); g.moveTo(x, y + r * 0.4); g.lineTo(x, y + r * 1.6); g.stroke();
+      g.strokeStyle = edge; g.lineWidth = Math.max(0.8, r * 0.22);
+      g.fillStyle = '#FF6F91';
+      g.beginPath(); g.moveTo(x - r * 0.9, y - r * 0.7); g.lineTo(x - r * 0.45, y - r * 0.1); g.lineTo(x, y - r * 0.8); g.lineTo(x + r * 0.45, y - r * 0.1); g.lineTo(x + r * 0.9, y - r * 0.7);
+      g.quadraticCurveTo(x + r * 0.95, y + r * 0.7, x, y + r * 0.7); g.quadraticCurveTo(x - r * 0.95, y + r * 0.7, x - r * 0.9, y - r * 0.7); g.closePath(); g.fill(); g.stroke();
+    } else if (kind === 2) {
+      // violet: five round purple petals, pale centre
+      for (let p = 0; p < 5; p++) { const a = p / 5 * TAU - Math.PI / 2; dot(x + Math.cos(a) * r * 0.62, y + Math.sin(a) * r * 0.62, r * 0.5, '#B48CFF'); }
+      dot(x, y, r * 0.32, '#FFF3C4');
+    } else if (kind === 3) {
+      // buttercup: glossy yellow petals, orange centre
+      for (let p = 0; p < 5; p++) { const a = p / 5 * TAU; dot(x + Math.cos(a) * r * 0.6, y + Math.sin(a) * r * 0.6, r * 0.5, '#FFE45C'); }
+      dot(x, y, r * 0.34, '#FF9F1C');
+    } else {
+      // clover blossom: a fluffy pink puff
+      for (const [dx, dy] of [[0, -0.45], [-0.45, 0.2], [0.45, 0.2], [0, 0.1]]) dot(x + dx * r, y + dy * r, r * 0.5, '#FFB3D1');
+    }
+    // tiny highlight
+    g.fillStyle = 'rgba(255,255,255,0.6)'; g.beginPath(); g.arc(x - r * 0.25, y - r * 0.3, r * 0.14, 0, TAU); g.fill();
+  }
   function grassDecor(g, W, H, n, R, scale, alpha, y0 = 0, flowers = true) {
     g.save();
     g.globalAlpha = alpha;
@@ -136,11 +169,7 @@ const RVB = (() => {
         g.lineTo(x + 1 * scale, y - 9 * scale); g.moveTo(x, y); g.lineTo(x + 6 * scale, y - 6 * scale);
         g.stroke();
       } else if (flowers && k < 0.86) {
-        // flower
-        const r = R.range(3.2, 4.6) * scale, col = FLOWER_COLS[(k * 97 | 0) % FLOWER_COLS.length];
-        g.fillStyle = col;
-        for (let p = 0; p < 5; p++) { const a = p / 5 * TAU; g.beginPath(); g.arc(x + Math.cos(a) * r, y + Math.sin(a) * r, r * 0.75, 0, TAU); g.fill(); }
-        g.fillStyle = '#F2B53A'; g.beginPath(); g.arc(x, y, r * 0.55, 0, TAU); g.fill();
+        drawFlower(g, x, y, R.range(3.2, 4.6) * scale, (k * 997 | 0) % 5);
       } else {
         // small stone
         g.fillStyle = '#9EA39A'; g.beginPath(); g.ellipse(x, y, 6 * scale, 4 * scale, R.range(0, 3), 0, TAU); g.fill();
@@ -157,8 +186,9 @@ const RVB = (() => {
     const lin = g.createLinearGradient(0, 0, 0, VH);
     if (key === 'medieval') {
       // same style as the classic background, in dark green
-      lin.addColorStop(0, '#0F2616');
-      lin.addColorStop(1, '#050C07');
+      lin.addColorStop(0, '#1E5A34');
+      lin.addColorStop(0.45, '#123D22');
+      lin.addColorStop(1, '#071A0E');
       g.fillStyle = lin;
       g.fillRect(0, 0, VW, VH);
     } else {
@@ -1273,33 +1303,7 @@ const RVB = (() => {
       for (let x = T; x < AR.w; x += T) { g.moveTo(x, 0); g.lineTo(x, AR.h); }
       for (let y = T; y < AR.h; y += T) { g.moveTo(0, y); g.lineTo(AR.w, y); }
       g.stroke();
-      grassDecor(g, AR.w, AR.h, 110, D, 1, 0.85, 0, false);
-      // five small cartoon logs, spaced well apart and away from the midline
-      const logs = [];
-      for (let tries = 0; logs.length < 5 && tries < 200; tries++) {
-        const lx = D.range(90, AR.w - 90), ly = D.range(90, AR.h - 90);
-        if (Math.abs(ly - AR.h / 2) < 90) continue;
-        if (logs.some(([ox, oy]) => Math.hypot(ox - lx, oy - ly) < 260)) continue;
-        logs.push([lx, ly]);
-      }
-      for (const [lx, ly] of logs) {
-        const len = D.range(48, 66), rad = D.range(9, 11), ang = D.range(-0.5, 0.5) + (D.next() < 0.5 ? 0 : Math.PI / 2);
-        g.save(); g.translate(lx, ly); g.rotate(ang);
-        g.fillStyle = 'rgba(0,0,0,0.25)'; g.beginPath(); g.ellipse(3, rad + 2, len / 2 + 8, rad * 0.5, 0, 0, TAU); g.fill();
-        // bark: a rounded capsule with a thick dark outline
-        g.lineJoin = 'round';
-        g.fillStyle = '#9A6538'; g.strokeStyle = '#2A1A0C'; g.lineWidth = 4;
-        g.beginPath(); g.moveTo(-len / 2, -rad); g.lineTo(len / 2, -rad); g.arc(len / 2, 0, rad, -Math.PI / 2, Math.PI / 2); g.lineTo(-len / 2, rad); g.closePath(); g.fill(); g.stroke();
-        // highlight stripe
-        g.strokeStyle = 'rgba(255,220,170,0.35)'; g.lineWidth = 3; g.lineCap = 'round';
-        g.beginPath(); g.moveTo(-len / 2 + 6, -rad * 0.45); g.lineTo(len / 2 - 4, -rad * 0.45); g.stroke();
-        // cut end with a ring
-        g.fillStyle = '#E8C48A'; g.strokeStyle = '#2A1A0C'; g.lineWidth = 4;
-        g.beginPath(); g.ellipse(-len / 2, 0, rad * 0.62, rad, 0, 0, TAU); g.fill(); g.stroke();
-        g.strokeStyle = '#B07D45'; g.lineWidth = 2;
-        g.beginPath(); g.ellipse(-len / 2, 0, rad * 0.28, rad * 0.45, 0, 0, TAU); g.stroke();
-        g.restore();
-      }
+      grassDecor(g, AR.w, AR.h, 140, D, 1, 0.95);
       // dashed midline like the classic map
       g.strokeStyle = 'rgba(255,255,255,0.14)'; g.setLineDash([18, 14]); g.lineWidth = 3;
       g.beginPath(); g.moveTo(0, AR.h / 2); g.lineTo(AR.w, AR.h / 2); g.stroke();
