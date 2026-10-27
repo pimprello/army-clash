@@ -2,8 +2,8 @@ name: Post Army Clash
 
 on:
   schedule:
-    # Every 15 minutes: 96 Shorts a day, just under YouTube's API limit of 100 uploads a day per project.
-    - cron: '*/15 * * * *'
+    # Every 5 minutes. YouTube's API allows 100 uploads a day per project, so runs fail once that is reached.
+    - cron: '*/5 * * * *'
   workflow_dispatch:
     inputs:
       privacy:
