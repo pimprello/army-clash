@@ -70,11 +70,13 @@
     {
       "top": "SWARM",
       "bottom": "ARCHERS",
-      "crossbowmen": true
+      "crossbowmen": true,
+      "balance": 1.03
     },
     {
       "top": "KNIGHTS",
-      "bottom": "GIANT"
+      "bottom": "GIANT",
+      "balance": 0.99
     },
     {
       "top": "BALANCED",

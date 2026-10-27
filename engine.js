@@ -1440,6 +1440,12 @@ const RVB = (() => {
                 this.damage(t, U.dmg * this.dmgMul, u);
                 this.snd('clash', { pan: (u.x - AR.x) / AR.w * 1.4 - 0.7 });
               }
+              if (u.type === 'swordsman') {
+                // swing from the side the sword rests on to the other side
+                const side = u.swordSide || -1;
+                u.swingFrom = side; u.swordSide = -side; u.swing = 1;
+                this.snd('swish', { pan: (u.x - AR.x) / AR.w * 1.4 - 0.7 });
+              }
               if (this.FX.chance(0.5)) this.burst((u.x + t.x) / 2, (u.y + t.y) / 2, COL.white, 2, 180, 0.2, 5);
             }
           }
@@ -1572,7 +1578,7 @@ const RVB = (() => {
       ctx.textBaseline = 'alphabetic';
     }
     cosmetic(dt) {
-      for (const u of this.units) { u.flash = Math.max(0, u.flash - dt * 6); u.lunge = Math.max(0, u.lunge - dt * 6); }
+      for (const u of this.units) { u.flash = Math.max(0, u.flash - dt * 6); u.lunge = Math.max(0, u.lunge - dt * 6); if (u.swing) u.swing = Math.max(0, u.swing - dt * 3.2); }
       const a0 = this.alive[0] + this.reserve[0], a1 = this.alive[1] + this.reserve[1];
       this.dispRatio += ((a0 + a1 ? a0 / (a0 + a1) : 0.5) - this.dispRatio) * Math.min(1, dt * 8);
       if (this.stains) {
@@ -1634,7 +1640,14 @@ const RVB = (() => {
       for (const u of this.units) {
         const tm = TEAMS[u.team];
         if (u.fade !== undefined) { if (u.fade <= 0) continue; ctx.globalAlpha = u.fade; }
-        const lx = Math.cos(u.face) * u.lunge * 6, ly = Math.sin(u.face) * u.lunge * 6;
+        let lx = Math.cos(u.face) * u.lunge * 6, ly = Math.sin(u.face) * u.lunge * 6;
+        if (u.type === 'swordsman') {
+          const p = 1 - (u.swing || 0), on = u.swing > 0;
+          const fwd = on ? Math.sin(Math.PI * p) * 7 : 0;
+          const side = on ? (p - 0.5) * 5 * -(u.swingFrom || -1) : 0;
+          lx = Math.cos(u.face) * fwd - Math.sin(u.face) * side;
+          ly = Math.sin(u.face) * fwd + Math.cos(u.face) * side;
+        }
         const hop = u.team === cheer ? -Math.abs(Math.sin(this.outroT * 9 + u.x * 0.05)) * 6 : 0;
         const x = u.x + lx, y = u.y + ly + hop;
         if (u.type === 'archer') {
@@ -1658,16 +1671,25 @@ const RVB = (() => {
             ctx.lineWidth = 3; ctx.strokeStyle = COL.steel; ctx.beginPath(); ctx.moveTo(bx1 + px * 11 - fx * 5, by1 + py * 11 - fy * 5); ctx.lineTo(bx1, by1); ctx.lineTo(bx1 - px * 11 - fx * 5, by1 - py * 11 - fy * 5); ctx.stroke();
           }
           if (u.type === 'swordsman') {
-            // sword held ready to one side; on each attack it sweeps across the front (driven by u.lunge 1 -> 0)
-            const swinging = u.lunge > 0.02;
-            const ang = u.face + (swinging ? -1.0 + (1 - u.lunge) * 2.2 : -1.0);
+            // The sword rests to one side. Each attack sweeps it smoothly across to the other side
+            // (ease in and out over ~0.3 s), leaving a fading swish trail behind the blade.
+            const SW = 1.05, on = u.swing > 0, p = 1 - (u.swing || 0);
+            const e = p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
+            const from = (u.swingFrom || -1) * SW, rest = (u.swordSide || -1) * SW;
+            const off = on ? from + (rest - from) * e : rest;
+            const ang = u.face + off;
+            if (on && u.swing > 0.08) {
+              const span = off - from, steps = 6;
+              for (let k = 0; k < steps; k++) {
+                const a0 = u.face + from + span * (k / steps), a1 = u.face + from + span * ((k + 1) / steps);
+                ctx.beginPath(); ctx.arc(x, y, u.r + 15, Math.min(a0, a1), Math.max(a0, a1));
+                ctx.lineWidth = 3 + 8 * ((k + 1) / steps);
+                ctx.strokeStyle = `rgba(255,255,255,${(0.08 + 0.5 * ((k + 1) / steps)) * Math.min(1, u.swing * 1.6)})`;
+                ctx.stroke();
+              }
+            }
             const fx = Math.cos(ang), fy = Math.sin(ang), px = -fy, py = fx;
             const bx0 = x + fx * (u.r - 2), by0 = y + fy * (u.r - 2), tx = x + fx * (u.r + 22), ty = y + fy * (u.r + 22);
-            if (swinging) {
-              // swoosh trail behind the blade
-              ctx.beginPath(); ctx.arc(x, y, u.r + 16, u.face - 1.0, ang);
-              ctx.lineWidth = 9; ctx.strokeStyle = `rgba(255,255,255,${0.45 * u.lunge + 0.15})`; ctx.stroke();
-            }
             ctx.lineWidth = 7; ctx.strokeStyle = COL.ink; ctx.beginPath(); ctx.moveTo(bx0, by0); ctx.lineTo(tx, ty); ctx.stroke();
             ctx.lineWidth = 4; ctx.strokeStyle = COL.steel; ctx.beginPath(); ctx.moveTo(bx0, by0); ctx.lineTo(tx, ty); ctx.stroke();
             ctx.lineWidth = 4; ctx.strokeStyle = COL.gold; ctx.beginPath(); ctx.moveTo(bx0 + px * 7, by0 + py * 7); ctx.lineTo(bx0 - px * 7, by0 - py * 7); ctx.stroke();
@@ -1784,6 +1806,7 @@ const RVB = (() => {
           this.voice(t, { dur: 1.2, gain: 0.7, pan, partials: [{ f: 110, f2: 34, glide: 0.25, decay: 0.4 }], noise: { a: 0.9, decay: 0.25, lp: 0.12 } });
           this.voice(t, { dur: 0.8, gain: 0.18, pan, partials: [{ f: 520, decay: 0.35 }, { f: 1206, a: 0.5, decay: 0.22 }, { f: 1981, a: 0.3, decay: 0.14 }] });
           return;
+        case 'swish': if (this.gate('swish', 0.05, t)) this.voice(t, { dur: 0.2, gain: 0.05, pan, partials: [{ f: 950, f2: 320, glide: 0.07, decay: 0.06, a: 0.25 }], noise: { a: 0.9, decay: 0.07, lp: 0.45, hp: true } }); return;
         case 'clash': if (this.gate('clash', 0.028, t)) this.voice(t, { dur: 0.07, gain: 0.07, pan, partials: [{ f: 1800 + this.noise() * 200, decay: 0.02 }, { f: 2750, a: 0.6, decay: 0.015 }], noise: { a: 0.4, decay: 0.006, lp: 0.9, hp: true } }); return;
         case 'pop': {
           if (!this.gate('pop', 0.03, t)) return;
