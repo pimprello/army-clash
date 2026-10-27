@@ -1,11 +1,43 @@
 {
   "teamPairs": [
-    { "teams": ["RED", "BLUE"], "weight": 3 },
-    { "teams": ["GREEN", "PURPLE"], "weight": 1 },
-    { "teams": ["BLUE", "PURPLE"], "weight": 1 }
+    {
+      "teams": [
+        "RED",
+        "BLUE"
+      ],
+      "weight": 3
+    },
+    {
+      "teams": [
+        "GREEN",
+        "PURPLE"
+      ],
+      "weight": 1
+    },
+    {
+      "teams": [
+        "BLUE",
+        "PURPLE"
+      ],
+      "weight": 1
+    }
   ],
   "swordsmen": {
     "chancePerVideo": 0.4,
     "shareOfArmy": 0.15
+  },
+  "maps": [
+    {
+      "name": "classic",
+      "weight": 1
+    },
+    {
+      "name": "medieval",
+      "weight": 1
+    }
+  ],
+  "crossbowmen": {
+    "chancePerVideo": 0.35,
+    "shareOfArmy": 0.12
   }
 }

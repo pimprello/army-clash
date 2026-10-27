@@ -32,6 +32,9 @@ if (pick.next() < 0.5) pair.reverse();
 RVB.setTeams(pair[0], pair[1]);
 const sw = rules.swordsmen || {};
 const swordsmen = pick.next() < (sw.chancePerVideo ?? 0) ? (sw.shareOfArmy ?? 0.15) : 0;
+const cb = rules.crossbowmen || {};
+const crossbowmen = pick.next() < (cb.chancePerVideo ?? 0) ? (cb.shareOfArmy ?? 0.12) : 0;
+const map = weighted(rules.maps || [{ name: 'classic' }]).name;
 fs.mkdirSync(OUT, { recursive: true });
 
 function ffmpeg(args) {
@@ -60,7 +63,7 @@ const titleCase = s => s.charAt(0) + s.slice(1).toLowerCase();
 
 async function main() {
   const t0 = Date.now();
-  const game = new RVB.Army(seed, { target: SECS, fixedLength: SECS, swordsmen });
+  const game = new RVB.Army(seed, { target: SECS, fixedLength: SECS, swordsmen, crossbowmen, map });
   const synth = new RVB.Synth(SR, SECS + 4);
   synth.reset(seed);
   const canvas = createCanvas(W, H);
@@ -122,6 +125,8 @@ async function main() {
     tags: [`${n0.toLowerCase()} vs ${n1.toLowerCase()}`, 'army battle', 'battle simulation', 'army simulation', 'who wins', 'army clash', `${red.toLowerCase()} vs ${blue.toLowerCase()}`, 'shorts'],
     teams: pair,
     swordsmen: swordsmen > 0,
+    crossbowmen: crossbowmen > 0,
+    map,
     winner: game.headline,
   };
   fs.writeFileSync(path.join(OUT, 'meta.json'), JSON.stringify(meta, null, 2));

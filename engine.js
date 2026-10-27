@@ -1114,6 +1114,7 @@ const RVB = (() => {
   const UNIT = {
     soldier: { r: 12, hp: 7, dmg: 1, cd: 0.55, reach: 4, speed: 92, cost: 1, rank: 2, armor: 1 },
     archer: { r: 11, hp: 4, dmg: 1, cd: 1.35, range: 300, speed: 84, cost: 1.4, ranged: true, rank: 3, armor: 1 },
+    crossbowman: { r: 12, hp: 6, dmg: 4, cd: 2.4, range: 380, speed: 76, cost: 2.4, ranged: true, bolt: 1300, rank: 3, armor: 0.9 },
     swordsman: { r: 14, hp: 13, dmg: 2, cd: 0.6, reach: 6, speed: 86, cost: 2, rank: 1, armor: 0.8 },
     knight: { r: 18, hp: 24, dmg: 2, cd: 0.8, reach: 5, speed: 70, cost: 3.2, rank: 1, armor: 0.4 },
     giant: { r: 36, hp: 110, dmg: 5, cd: 1.25, reach: 6, speed: 46, cost: 22, splash: 48, rank: 0, armor: 0.5 },
@@ -1173,6 +1174,8 @@ const RVB = (() => {
       this.speedMul = 1;
       // opts.swordsmen: share of each army that are swordsmen (0 = none in this video).
       this.swordShare = this.opts.swordsmen || 0;
+      // opts.crossbowmen: share of each army that are crossbowmen (0 = none).
+      this.crossShare = this.opts.crossbowmen || 0;
       for (let team = 0; team < 2; team++) {
         const list = this.recruit(this.doc[team], budget * (F ? this.doc[team].budget60 : this.doc[team].budget) * R.range(0.95, 1.05));
         this.start[team] = list.length;
@@ -1191,6 +1194,7 @@ const RVB = (() => {
       if (this.ground) this.paintGround();
     }
     paintGround() {
+      if (this.opts.map === 'medieval') return this.paintMedieval();
       const g = this.ground.getContext('2d');
       g.fillStyle = COL.floor; g.fillRect(0, 0, AR.w, AR.h);
       g.strokeStyle = COL.grid; g.lineWidth = 2;
@@ -1210,6 +1214,55 @@ const RVB = (() => {
       zone(true, rgba(TEAMS[0].c, 0.12));
       zone(false, rgba(TEAMS[1].c, 0.12));
     }
+    // Medieval map: checkered grass on the same 60px grid, a river across the middle with two
+    // wooden bridges, stone banks and tinted team zones. Same size as the classic map; purely visual.
+    paintMedieval() {
+      const g = this.ground.getContext('2d');
+      const T = 60;
+      for (let i = 0; i * T < AR.w; i++) for (let j = 0; j * T < AR.h; j++) {
+        g.fillStyle = (i + j) % 2 ? '#2F5E2B' : '#376B31';
+        g.fillRect(i * T, j * T, T, T);
+      }
+      g.strokeStyle = 'rgba(0,0,0,0.16)'; g.lineWidth = 2;
+      g.beginPath();
+      for (let x = T; x < AR.w; x += T) { g.moveTo(x, 0); g.lineTo(x, AR.h); }
+      for (let y = T; y < AR.h; y += T) { g.moveTo(0, y); g.lineTo(AR.w, y); }
+      g.stroke();
+      // river
+      const ry = AR.h / 2 - 30, rh = 60;
+      g.fillStyle = '#1F5C8E'; g.fillRect(0, ry, AR.w, rh);
+      g.strokeStyle = 'rgba(140,200,255,0.45)'; g.lineWidth = 3;
+      for (let k = 0; k < 2; k++) {
+        g.beginPath();
+        for (let x = 0; x <= AR.w; x += 8) { const y = ry + 18 + k * 22 + Math.sin(x / 34 + k * 2) * 4; x ? g.lineTo(x, y) : g.moveTo(x, y); }
+        g.stroke();
+      }
+      // stone banks
+      for (const y of [ry - 8, ry + rh]) {
+        for (let x = 0; x < AR.w; x += 30) {
+          g.fillStyle = (x / 30) % 2 ? '#8E949E' : '#A3A9B2';
+          g.fillRect(x, y, 30, 8);
+        }
+      }
+      // two wooden bridges
+      for (const bx of [3 * T, AR.w - 5 * T]) {
+        g.fillStyle = '#7A5A3A'; g.fillRect(bx, ry - 14, 2 * T, rh + 28);
+        g.strokeStyle = '#4E3824'; g.lineWidth = 3;
+        for (let y = ry - 14 + 12; y < ry + rh + 14; y += 12) { g.beginPath(); g.moveTo(bx, y); g.lineTo(bx + 2 * T, y); g.stroke(); }
+        g.fillStyle = '#5B4430'; g.fillRect(bx - 6, ry - 18, 8, rh + 36); g.fillRect(bx + 2 * T - 2, ry - 18, 8, rh + 36);
+      }
+      // team zones
+      const zone = (top, color) => {
+        const y0 = top ? 0 : AR.h - 220;
+        const lg = g.createLinearGradient(0, top ? 0 : AR.h, 0, top ? 220 : AR.h - 220);
+        lg.addColorStop(0, color); lg.addColorStop(1, 'rgba(0,0,0,0)');
+        g.fillStyle = lg; g.fillRect(0, y0, AR.w, 220);
+      };
+      zone(true, rgba(TEAMS[0].c, 0.22));
+      zone(false, rgba(TEAMS[1].c, 0.22));
+      // darken slightly so units stay easy to see
+      g.fillStyle = 'rgba(5,8,14,0.18)'; g.fillRect(0, 0, AR.w, AR.h);
+    }
     recruit(doc, budget) {
       const R = this.R;
       const list = [];
@@ -1220,6 +1273,7 @@ const RVB = (() => {
         let x = R.next(), k = keys[0];
         for (const key of keys) { x -= doc.mix[key]; if (x <= 0) { k = key; break; } }
         if (this.swordShare && R.chance(this.swordShare)) k = 'swordsman';
+        else if (this.crossShare && R.chance(this.crossShare)) k = 'crossbowman';
         if (UNIT[k].cost > left) k = 'soldier';
         list.push(k); left -= UNIT[k].cost;
       }
@@ -1315,9 +1369,9 @@ const RVB = (() => {
             else if (d < U.range * 0.45 && this.pushStage < 2) { dvx = -nx * spd * 0.6; dvy = -ny * spd * 0.6; }
             if (d <= U.range && u.cd <= 0) {
               u.cd = U.cd * R.range(0.85, 1.15);
-              const lead = d / 600;
+              const v = U.bolt || 600, lead = d / v;
               const ax = t.x + t.vx * lead - u.x, ay = t.y + t.vy * lead - u.y, al = Math.hypot(ax, ay) || 1;
-              this.arrows.push({ team: u.team, x: u.x + (ax / al) * (u.r + 4), y: u.y + (ay / al) * (u.r + 4), vx: (ax / al) * 600, vy: (ay / al) * 600, life: (U.range / 600) * 1.35 });
+              this.arrows.push({ team: u.team, x: u.x + (ax / al) * (u.r + 4), y: u.y + (ay / al) * (u.r + 4), vx: (ax / al) * v, vy: (ay / al) * v, life: (U.range / v) * 1.35, dmg: U.dmg, bolt: !!U.bolt });
               this.snd('volley', { pan: (u.x - AR.x) / AR.w * 1.4 - 0.7 });
             }
           } else {
@@ -1378,7 +1432,7 @@ const RVB = (() => {
             if (!b) continue;
             for (const o of b) if (!o.dead && o.team !== a.team && (o.x - a.x) ** 2 + (o.y - a.y) ** 2 < (o.r + 3) ** 2) { hitU = o; break; }
           }
-          if (hitU) { this.damage(hitU, UNIT.archer.dmg * UNIT[hitU.type].armor * this.dmgMul); this.snd('thunk', { pan: (a.x - AR.x) / AR.w * 1.4 - 0.7, quiet: true }); continue; }
+          if (hitU) { const arm = UNIT[hitU.type].armor; this.damage(hitU, (a.dmg || UNIT.archer.dmg) * (a.bolt ? Math.max(arm, 0.75) : arm) * this.dmgMul); this.snd('thunk', { pan: (a.x - AR.x) / AR.w * 1.4 - 0.7, quiet: true }); continue; }
           keep.push(a);
         }
         this.arrows = keep;
@@ -1512,6 +1566,14 @@ const RVB = (() => {
       ctx.lineCap = 'round';
       for (const a of this.arrows) {
         const l = Math.hypot(a.vx, a.vy) || 1, ux = a.vx / l, uy = a.vy / l;
+        if (a.bolt) {
+          // crossbow bolt: thicker, longer, with a gold streak
+          ctx.lineWidth = 8; ctx.strokeStyle = 'rgba(255,210,63,0.35)';
+          ctx.beginPath(); ctx.moveTo(a.x - ux * 44, a.y - uy * 44); ctx.lineTo(a.x, a.y); ctx.stroke();
+          ctx.lineWidth = 4.5; ctx.strokeStyle = COL.steel;
+          ctx.beginPath(); ctx.moveTo(a.x - ux * 24, a.y - uy * 24); ctx.lineTo(a.x + ux * 6, a.y + uy * 6); ctx.stroke();
+          continue;
+        }
         ctx.lineWidth = 3; ctx.strokeStyle = COL.steel;
         ctx.beginPath(); ctx.moveTo(a.x - ux * 18, a.y - uy * 18); ctx.lineTo(a.x + ux * 4, a.y + uy * 4); ctx.stroke();
       }
@@ -1530,9 +1592,19 @@ const RVB = (() => {
           ctx.restore();
         } else {
           ctx.beginPath(); ctx.arc(x, y, u.r, 0, TAU);
-          ctx.fillStyle = u.type === 'soldier' ? tm.c : tm.d; ctx.fill();
+          ctx.fillStyle = u.type === 'soldier' || u.type === 'crossbowman' ? tm.c : tm.d; ctx.fill();
           ctx.lineWidth = u.type === 'giant' ? 5 : 3; ctx.strokeStyle = COL.ink; ctx.stroke();
           if (u.type === 'knight') { ctx.beginPath(); ctx.arc(x, y, u.r - 4.5, 0, TAU); ctx.lineWidth = 3.5; ctx.strokeStyle = tm.l; ctx.stroke(); }
+          if (u.type === 'crossbowman') {
+            // a crossbow held out front: stock along the facing, bow across it
+            const fx = Math.cos(u.face), fy = Math.sin(u.face), px = -fy, py = fx;
+            const sx0 = x + fx * (u.r - 4), sy0 = y + fy * (u.r - 4), ex = x + fx * (u.r + 12), ey = y + fy * (u.r + 12);
+            ctx.lineWidth = 7; ctx.strokeStyle = COL.ink; ctx.beginPath(); ctx.moveTo(sx0, sy0); ctx.lineTo(ex, ey); ctx.stroke();
+            ctx.lineWidth = 4; ctx.strokeStyle = COL.wood; ctx.beginPath(); ctx.moveTo(sx0, sy0); ctx.lineTo(ex, ey); ctx.stroke();
+            const bx1 = ex - fx * 4, by1 = ey - fy * 4;
+            ctx.lineWidth = 6; ctx.strokeStyle = COL.ink; ctx.beginPath(); ctx.moveTo(bx1 + px * 11 - fx * 5, by1 + py * 11 - fy * 5); ctx.lineTo(bx1, by1); ctx.lineTo(bx1 - px * 11 - fx * 5, by1 - py * 11 - fy * 5); ctx.stroke();
+            ctx.lineWidth = 3; ctx.strokeStyle = COL.steel; ctx.beginPath(); ctx.moveTo(bx1 + px * 11 - fx * 5, by1 + py * 11 - fy * 5); ctx.lineTo(bx1, by1); ctx.lineTo(bx1 - px * 11 - fx * 5, by1 - py * 11 - fy * 5); ctx.stroke();
+          }
           if (u.type === 'swordsman') {
             // a sword pointing where the swordsman faces
             const fx = Math.cos(u.face), fy = Math.sin(u.face), px = -fy, py = fx;

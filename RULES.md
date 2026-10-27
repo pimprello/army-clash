@@ -7,6 +7,8 @@ Every new video reads `rules.json` when it is made, so a change here applies to 
 - **`teamPairs`**: which colours fight. Each video picks one pair at random. `weight` makes a pair more or less common: weight 3 comes up three times as often as weight 1. Which colour gets the top half is random.
   Colours available: `RED`, `BLUE`, `GREEN`, `PURPLE`, `ORANGE`, `YELLOW`.
 - **`swordsmen.chancePerVideo`**: how often a video includes swordsmen (0.4 = about 4 in 10 videos, 0 = never, 1 = always).
+- **`maps`**: which battlefield each video uses. `classic` is the dark grid; `medieval` is checkered grass with a river and two wooden bridges (same size and grid). `weight` works like it does for colours.
+- **`crossbowmen.chancePerVideo`** / **`crossbowmen.shareOfArmy`**: the same as for swordsmen, for crossbowmen.
 - **`swordsmen.shareOfArmy`**: in those videos, roughly what share of each army is swordsmen (0.15 = about 15%).
 
 ## Titles
@@ -20,6 +22,7 @@ Titles stay short: team emojis, the two colours and a short hook, for example `ð
 | Soldier | small circle | cheap, most common |
 | Archer | triangle | shoots from range |
 | Swordsman | circle with a sword | tougher than a soldier, only in some videos |
+| Crossbowman | circle holding a crossbow | slow to reload, but fires fast, hard-hitting bolts that punch through armour; only in some videos |
 | Knight | big ringed circle | heavy armour |
 | Giant | huge circle with a crown | one per army, "Giant" armies only |
 
