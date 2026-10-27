@@ -1,0 +1,16 @@
+{
+  "name": "army-clash-uploader",
+  "version": "1.0.0",
+  "description": "Makes a 60-second red vs blue Army Clash Short and uploads it to YouTube",
+  "scripts": {
+    "render": "node render.js",
+    "upload": "node upload.js"
+  },
+  "dependencies": {
+    "canvas": "3.1.0"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  }
+}
