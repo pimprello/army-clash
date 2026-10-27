@@ -82,27 +82,32 @@
       "top": "BALANCED",
       "bottom": "SWARM",
       "swordsmen": true,
-      "crossbowmen": true
+      "crossbowmen": true,
+      "balance": 0.92
     },
     {
       "top": "ARCHERS",
       "bottom": "GIANT",
-      "swordsmen": true
+      "swordsmen": true,
+      "balance": 1.09
     },
     {
       "top": "KNIGHTS",
       "bottom": "BALANCED",
-      "crossbowmen": true
+      "crossbowmen": true,
+      "balance": 1.01
     },
     {
       "top": "GIANT",
       "bottom": "ARCHERS",
-      "crossbowmen": true
+      "crossbowmen": true,
+      "balance": 1.01
     },
     {
       "top": "SWARM",
       "bottom": "BALANCED",
-      "swordsmen": true
+      "swordsmen": true,
+      "balance": 1.07
     }
   ]
 }
