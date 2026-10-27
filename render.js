@@ -102,14 +102,16 @@ async function main() {
 
   const [n0, n1] = RVB.TEAMS.map(t => titleCase(t.name));
   const red = `${n0} ${titleCase(game.doc[0].name)}`, blue = `${n1} ${titleCase(game.doc[1].name)}`;
-  const hooks = ['Only One Army Survives', 'Who Wins This War?', 'Can You Guess the Winner?', 'Pick Your Side Before It Ends', 'Who Takes the Battlefield?'];
+  // Short titles: team emoji + colour names + a short hook with an emoji. Army types go in the description.
+  const EMOJI = { RED: '🔴', BLUE: '🔵', GREEN: '🟢', PURPLE: '🟣', ORANGE: '🟠', YELLOW: '🟡' };
+  const [e0, e1] = RVB.TEAMS.map(t => EMOJI[t.name] || '⚔️');
+  const hooks = ['Who Wins? ⚔️', 'Pick a Side! 👇', 'Only One Survives 💀', 'Guess the Winner 🤔', 'Epic Battle 🔥', 'Who Takes It? 🏆'];
   const hook = hooks[seed % hooks.length];
   const meta = {
     seed,
-    // Searchable keywords first ("army battle"), then a curiosity hook. Kept under 70 characters.
-    title: `${red} vs ${blue} Army Battle | ${hook} #shorts`,
+    title: `${e0} ${n0} vs ${n1} ${e1} | ${hook} #shorts`,
     description: [
-      `${red} (${game.start[0]} units) vs ${blue} (${game.start[1]} units). Who wins? Pick your side and tell us in the comments before the end.`,
+      `${e0} ${red} (${game.start[0]} units) vs ${blue} (${game.start[1]} units) ${e1}. Who wins? Pick your side and tell us in the comments before the end.`,
       '',
       'A 60-second battle simulation. The outcome comes from the game\'s rules and chance, not real footage.',
       '',

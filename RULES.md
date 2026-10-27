@@ -9,6 +9,10 @@ Every new video reads `rules.json` when it is made, so a change here applies to 
 - **`swordsmen.chancePerVideo`**: how often a video includes swordsmen (0.4 = about 4 in 10 videos, 0 = never, 1 = always).
 - **`swordsmen.shareOfArmy`**: in those videos, roughly what share of each army is swordsmen (0.15 = about 15%).
 
+## Titles
+
+Titles stay short: team emojis, the two colours and a short hook, for example `🟢 Green vs Purple 🟣 | Who Wins? ⚔️ #shorts`. The army types (Swarm, Knights and so on) go in the description. Hooks are listed in `render.js`.
+
 ## Units
 
 | Unit | Looks like | Notes |
