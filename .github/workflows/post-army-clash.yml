@@ -2,8 +2,8 @@ name: Post Army Clash
 
 on:
   schedule:
-    # Three Shorts a day, at 08:23, 13:23 and 19:23 UTC (UK time in winter, one hour earlier in summer).
-    - cron: '23 8,13,19 * * *'
+    # Every 15 minutes: 96 Shorts a day, just under YouTube's API limit of 100 uploads a day per project.
+    - cron: '*/15 * * * *'
   workflow_dispatch:
     inputs:
       privacy:
