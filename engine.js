@@ -111,24 +111,66 @@ const RVB = (() => {
   }
 
   // Background layer is identical for every match: render once per output size.
-  let bgCache = null;
+  let bgCache = {};
   api.setTeams = (a, b) => {
     [a, b].forEach((name, i) => {
       const pal = PALETTES[name];
       if (!pal) throw new Error(`Unknown team colour ${name}. Use one of: ${Object.keys(PALETTES).join(', ')}`);
       Object.assign(TEAMS[i], { name }, pal);
     });
-    bgCache = null;
+    bgCache = {};
   };
-  function background() {
-    if (bgCache || !api.makeCanvas) return bgCache;
+  // Grass decorations shared by the medieval page background and battlefield.
+  const FLOWER_COLS = ['#FF9EC7', '#FFF6E0', '#FFE066', '#C9A2FF'];
+  function grassDecor(g, W, H, n, R, scale, alpha) {
+    g.save();
+    g.globalAlpha = alpha;
+    g.lineCap = 'round';
+    for (let i = 0; i < n; i++) {
+      const x = R.range(0, W), y = R.range(0, H), k = R.next();
+      if (k < 0.55) {
+        // grass tuft
+        g.strokeStyle = 'rgba(20,60,20,0.55)'; g.lineWidth = 2.2 * scale;
+        g.beginPath();
+        g.moveTo(x - 5 * scale, y - 7 * scale); g.lineTo(x, y);
+        g.lineTo(x + 1 * scale, y - 9 * scale); g.moveTo(x, y); g.lineTo(x + 6 * scale, y - 6 * scale);
+        g.stroke();
+      } else if (k < 0.92) {
+        // flower
+        const r = R.range(3.2, 4.6) * scale, col = FLOWER_COLS[(k * 97 | 0) % FLOWER_COLS.length];
+        g.fillStyle = col;
+        for (let p = 0; p < 5; p++) { const a = p / 5 * TAU; g.beginPath(); g.arc(x + Math.cos(a) * r, y + Math.sin(a) * r, r * 0.75, 0, TAU); g.fill(); }
+        g.fillStyle = '#F2B53A'; g.beginPath(); g.arc(x, y, r * 0.55, 0, TAU); g.fill();
+      } else {
+        // small stone
+        g.fillStyle = '#9EA39A'; g.beginPath(); g.ellipse(x, y, 6 * scale, 4 * scale, R.range(0, 3), 0, TAU); g.fill();
+        g.fillStyle = 'rgba(255,255,255,0.25)'; g.beginPath(); g.ellipse(x - 1.5 * scale, y - 1.2 * scale, 2.5 * scale, 1.5 * scale, 0, 0, TAU); g.fill();
+      }
+    }
+    g.restore();
+  }
+  function background(map) {
+    const key = map || 'classic';
+    if (bgCache[key] || !api.makeCanvas) return bgCache[key] || null;
     const c = api.makeCanvas(VW, VH);
     const g = c.getContext('2d');
     const lin = g.createLinearGradient(0, 0, 0, VH);
-    lin.addColorStop(0, COL.bg0);
-    lin.addColorStop(1, COL.bg1);
-    g.fillStyle = lin;
-    g.fillRect(0, 0, VW, VH);
+    if (key === 'medieval') {
+      // dark meadow: deep green with big soft checker tiles and dim flowers, matching the battlefield
+      lin.addColorStop(0, '#17331B');
+      lin.addColorStop(1, '#0A170D');
+      g.fillStyle = lin;
+      g.fillRect(0, 0, VW, VH);
+      for (let i = 0; i * 120 < VW; i++) for (let j = 0; j * 120 < VH; j++) {
+        if ((i + j) % 2) { g.fillStyle = 'rgba(255,255,255,0.025)'; g.fillRect(i * 120, j * 120, 120, 120); }
+      }
+      grassDecor(g, VW, VH, 260, rng(4242), 1.3, 0.35);
+    } else {
+      lin.addColorStop(0, COL.bg0);
+      lin.addColorStop(1, COL.bg1);
+      g.fillStyle = lin;
+      g.fillRect(0, 0, VW, VH);
+    }
     const glow = (x, y, rad, color) => {
       const rg = g.createRadialGradient(x, y, 0, x, y, rad);
       rg.addColorStop(0, color);
@@ -139,7 +181,7 @@ const RVB = (() => {
     glow(-60, 300, 760, rgba(TEAMS[0].c, 0.22));
     glow(VW + 60, 300, 760, rgba(TEAMS[1].c, 0.22));
     glow(VW / 2, AR.y + AR.h / 2, 900, 'rgba(120,140,200,0.06)');
-    bgCache = c;
+    bgCache[key] = c;
     return c;
   }
 
@@ -231,7 +273,7 @@ const RVB = (() => {
 
     // ----- shared drawing -----
     drawBG(ctx) {
-      const bg = background();
+      const bg = background(this.opts && this.opts.map);
       if (bg) ctx.drawImage(bg, 0, 0, VW, VH);
       else { ctx.fillStyle = COL.bg1; ctx.fillRect(0, 0, VW, VH); }
     }
@@ -1214,54 +1256,38 @@ const RVB = (() => {
       zone(true, rgba(TEAMS[0].c, 0.12));
       zone(false, rgba(TEAMS[1].c, 0.12));
     }
-    // Medieval map: checkered grass on the same 60px grid, a river across the middle with two
-    // wooden bridges, stone banks and tinted team zones. Same size as the classic map; purely visual.
+    // Medieval map: soft checkered grass on the same 60px grid, with flowers, tufts and stones,
+    // and tinted team zones. Same size as the classic map; purely visual.
     paintMedieval() {
       const g = this.ground.getContext('2d');
-      const T = 60;
+      const T = 60, D = rng(9001);
       for (let i = 0; i * T < AR.w; i++) for (let j = 0; j * T < AR.h; j++) {
-        g.fillStyle = (i + j) % 2 ? '#2F5E2B' : '#376B31';
+        const light = (i + j) % 2 === 0, v = D.range(-5, 5);
+        g.fillStyle = light ? `rgb(${70 + v},${138 + v},${60 + v})` : `rgb(${60 + v},${124 + v},${52 + v})`;
         g.fillRect(i * T, j * T, T, T);
+        // gentle highlight on the top edge of each light tile
+        if (light) { g.fillStyle = 'rgba(255,255,255,0.05)'; g.fillRect(i * T, j * T, T, 6); }
       }
-      g.strokeStyle = 'rgba(0,0,0,0.16)'; g.lineWidth = 2;
+      g.strokeStyle = 'rgba(10,40,10,0.18)'; g.lineWidth = 2;
       g.beginPath();
       for (let x = T; x < AR.w; x += T) { g.moveTo(x, 0); g.lineTo(x, AR.h); }
       for (let y = T; y < AR.h; y += T) { g.moveTo(0, y); g.lineTo(AR.w, y); }
       g.stroke();
-      // river
-      const ry = AR.h / 2 - 30, rh = 60;
-      g.fillStyle = '#1F5C8E'; g.fillRect(0, ry, AR.w, rh);
-      g.strokeStyle = 'rgba(140,200,255,0.45)'; g.lineWidth = 3;
-      for (let k = 0; k < 2; k++) {
-        g.beginPath();
-        for (let x = 0; x <= AR.w; x += 8) { const y = ry + 18 + k * 22 + Math.sin(x / 34 + k * 2) * 4; x ? g.lineTo(x, y) : g.moveTo(x, y); }
-        g.stroke();
-      }
-      // stone banks
-      for (const y of [ry - 8, ry + rh]) {
-        for (let x = 0; x < AR.w; x += 30) {
-          g.fillStyle = (x / 30) % 2 ? '#8E949E' : '#A3A9B2';
-          g.fillRect(x, y, 30, 8);
-        }
-      }
-      // two wooden bridges
-      for (const bx of [3 * T, AR.w - 5 * T]) {
-        g.fillStyle = '#7A5A3A'; g.fillRect(bx, ry - 14, 2 * T, rh + 28);
-        g.strokeStyle = '#4E3824'; g.lineWidth = 3;
-        for (let y = ry - 14 + 12; y < ry + rh + 14; y += 12) { g.beginPath(); g.moveTo(bx, y); g.lineTo(bx + 2 * T, y); g.stroke(); }
-        g.fillStyle = '#5B4430'; g.fillRect(bx - 6, ry - 18, 8, rh + 36); g.fillRect(bx + 2 * T - 2, ry - 18, 8, rh + 36);
-      }
-      // team zones
+      grassDecor(g, AR.w, AR.h, 340, D, 1, 0.9);
+      // dashed midline like the classic map
+      g.strokeStyle = 'rgba(255,255,255,0.14)'; g.setLineDash([18, 14]); g.lineWidth = 3;
+      g.beginPath(); g.moveTo(0, AR.h / 2); g.lineTo(AR.w, AR.h / 2); g.stroke();
+      g.setLineDash([]);
       const zone = (top, color) => {
         const y0 = top ? 0 : AR.h - 220;
         const lg = g.createLinearGradient(0, top ? 0 : AR.h, 0, top ? 220 : AR.h - 220);
         lg.addColorStop(0, color); lg.addColorStop(1, 'rgba(0,0,0,0)');
         g.fillStyle = lg; g.fillRect(0, y0, AR.w, 220);
       };
-      zone(true, rgba(TEAMS[0].c, 0.22));
-      zone(false, rgba(TEAMS[1].c, 0.22));
-      // darken slightly so units stay easy to see
-      g.fillStyle = 'rgba(5,8,14,0.18)'; g.fillRect(0, 0, AR.w, AR.h);
+      zone(true, rgba(TEAMS[0].c, 0.2));
+      zone(false, rgba(TEAMS[1].c, 0.2));
+      // slight shade so the troops stay easy to see
+      g.fillStyle = 'rgba(5,10,6,0.14)'; g.fillRect(0, 0, AR.w, AR.h);
     }
     recruit(doc, budget) {
       const R = this.R;

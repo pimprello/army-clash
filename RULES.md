@@ -7,7 +7,7 @@ Every new video reads `rules.json` when it is made, so a change here applies to 
 - **`teamPairs`**: which colours fight. Each video picks one pair at random. `weight` makes a pair more or less common: weight 3 comes up three times as often as weight 1. Which colour gets the top half is random.
   Colours available: `RED`, `BLUE`, `GREEN`, `PURPLE`, `ORANGE`, `YELLOW`.
 - **`swordsmen.chancePerVideo`**: how often a video includes swordsmen (0.4 = about 4 in 10 videos, 0 = never, 1 = always).
-- **`maps`**: which battlefield each video uses. `classic` is the dark grid; `medieval` is checkered grass with a river and two wooden bridges (same size and grid). `weight` works like it does for colours.
+- **`maps`**: which battlefield each video uses. `classic` is the dark grid; `medieval` is checkered grass with flowers, tufts and stones, and a matching meadow background (same size and grid). `weight` works like it does for colours.
 - **`crossbowmen.chancePerVideo`** / **`crossbowmen.shareOfArmy`**: the same as for swordsmen, for crossbowmen.
 - **`swordsmen.shareOfArmy`**: in those videos, roughly what share of each army is swordsmen (0.15 = about 15%).
 
