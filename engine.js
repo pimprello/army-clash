@@ -161,15 +161,30 @@ const RVB = (() => {
     g.lineCap = 'round';
     for (let i = 0; i < n; i++) {
       const x = R.range(0, W), y = y0 + R.range(0, H), k = R.next();
-      if (k < 0.62) {
+      if (k < 0.5) {
         // grass tuft
         g.strokeStyle = 'rgba(20,60,20,0.55)'; g.lineWidth = 2.2 * scale;
         g.beginPath();
         g.moveTo(x - 5 * scale, y - 7 * scale); g.lineTo(x, y);
         g.lineTo(x + 1 * scale, y - 9 * scale); g.moveTo(x, y); g.lineTo(x + 6 * scale, y - 6 * scale);
         g.stroke();
-      } else if (flowers && k < 0.86) {
+      } else if (flowers && k < 0.72) {
         drawFlower(g, x, y, R.range(3.2, 4.6) * scale, (k * 997 | 0) % 5);
+      } else if (k < 0.82) {
+        // fallen leaf with a midrib
+        const a = R.range(0, TAU), col = R.next() < 0.5 ? '#7DBA4A' : '#C9B04A';
+        g.save(); g.translate(x, y); g.rotate(a);
+        g.fillStyle = col; g.strokeStyle = 'rgba(20,30,20,0.4)'; g.lineWidth = 1 * scale;
+        g.beginPath(); g.ellipse(0, 0, 5 * scale, 2.6 * scale, 0, 0, TAU); g.fill(); g.stroke();
+        g.strokeStyle = 'rgba(40,60,20,0.55)'; g.beginPath(); g.moveTo(-5 * scale, 0); g.lineTo(5 * scale, 0); g.stroke();
+        g.restore();
+      } else if (k < 0.9) {
+        // twig with a small fork
+        const a = R.range(0, TAU), L = R.range(9, 13) * scale;
+        g.save(); g.translate(x, y); g.rotate(a);
+        g.strokeStyle = '#6E4A2A'; g.lineWidth = 2 * scale; g.lineCap = 'round';
+        g.beginPath(); g.moveTo(-L / 2, 0); g.lineTo(L / 2, 0); g.moveTo(L * 0.05, 0); g.lineTo(L * 0.3, -L * 0.28); g.stroke();
+        g.restore();
       } else {
         // small stone
         g.fillStyle = '#9EA39A'; g.beginPath(); g.ellipse(x, y, 6 * scale, 4 * scale, R.range(0, 3), 0, TAU); g.fill();
@@ -186,9 +201,9 @@ const RVB = (() => {
     const lin = g.createLinearGradient(0, 0, 0, VH);
     if (key === 'medieval') {
       // same style as the classic background, in dark green
-      lin.addColorStop(0, '#1E5A34');
-      lin.addColorStop(0.45, '#123D22');
-      lin.addColorStop(1, '#071A0E');
+      lin.addColorStop(0, '#174A2A');
+      lin.addColorStop(0.45, '#0E321C');
+      lin.addColorStop(1, '#05140A');
       g.fillStyle = lin;
       g.fillRect(0, 0, VW, VH);
     } else {
@@ -1303,7 +1318,7 @@ const RVB = (() => {
       for (let x = T; x < AR.w; x += T) { g.moveTo(x, 0); g.lineTo(x, AR.h); }
       for (let y = T; y < AR.h; y += T) { g.moveTo(0, y); g.lineTo(AR.w, y); }
       g.stroke();
-      grassDecor(g, AR.w, AR.h, 140, D, 1, 0.95);
+      grassDecor(g, AR.w, AR.h, 150, D, 1.3, 0.95);
       // dashed midline like the classic map
       g.strokeStyle = 'rgba(255,255,255,0.14)'; g.setLineDash([18, 14]); g.lineWidth = 3;
       g.beginPath(); g.moveTo(0, AR.h / 2); g.lineTo(AR.w, AR.h / 2); g.stroke();
