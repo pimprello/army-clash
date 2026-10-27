@@ -122,7 +122,7 @@ const RVB = (() => {
   };
   // Grass decorations shared by the medieval page background and battlefield.
   const FLOWER_COLS = ['#FF9EC7', '#FFF6E0', '#FFE066', '#C9A2FF'];
-  function grassDecor(g, W, H, n, R, scale, alpha, y0 = 0) {
+  function grassDecor(g, W, H, n, R, scale, alpha, y0 = 0, flowers = true) {
     g.save();
     g.globalAlpha = alpha;
     g.lineCap = 'round';
@@ -135,7 +135,7 @@ const RVB = (() => {
         g.moveTo(x - 5 * scale, y - 7 * scale); g.lineTo(x, y);
         g.lineTo(x + 1 * scale, y - 9 * scale); g.moveTo(x, y); g.lineTo(x + 6 * scale, y - 6 * scale);
         g.stroke();
-      } else if (k < 0.86) {
+      } else if (flowers && k < 0.86) {
         // flower
         const r = R.range(3.2, 4.6) * scale, col = FLOWER_COLS[(k * 97 | 0) % FLOWER_COLS.length];
         g.fillStyle = col;
@@ -156,48 +156,11 @@ const RVB = (() => {
     const g = c.getContext('2d');
     const lin = g.createLinearGradient(0, 0, 0, VH);
     if (key === 'medieval') {
-      // evening sky with a castle silhouette in the distance above the battlefield, meadow below it
-      lin.addColorStop(0, '#16223D');
-      lin.addColorStop(0.24, '#2E4370');
-      lin.addColorStop(0.27, '#1C3022');
-      lin.addColorStop(1, '#0A170D');
+      // same style as the classic background, in dark green
+      lin.addColorStop(0, '#0F2616');
+      lin.addColorStop(1, '#050C07');
       g.fillStyle = lin;
       g.fillRect(0, 0, VW, VH);
-      const S = rng(777);
-      // faint stars and soft clouds high up
-      g.fillStyle = 'rgba(255,255,255,0.5)';
-      for (let i = 0; i < 40; i++) { g.beginPath(); g.arc(S.range(0, VW), S.range(0, 250), S.range(0.8, 1.8), 0, TAU); g.fill(); }
-      g.fillStyle = 'rgba(255,255,255,0.05)';
-      for (const [cx, cy, w] of [[200, 120, 180], [860, 170, 220], [520, 60, 140]]) {
-        for (let k = 0; k < 4; k++) { g.beginPath(); g.ellipse(cx + (k - 1.5) * w * 0.28, cy + (k % 2) * 8, w * 0.22, w * 0.11, 0, 0, TAU); g.fill(); }
-      }
-      // rolling hills on the horizon
-      const hz = 470;
-      g.fillStyle = '#1B2E3A';
-      g.beginPath(); g.moveTo(0, hz - 20);
-      for (let x = 0; x <= VW; x += 40) g.lineTo(x, hz - 30 - Math.sin(x / 160) * 22 - Math.sin(x / 63) * 6);
-      g.lineTo(VW, hz + 60); g.lineTo(0, hz + 60); g.closePath(); g.fill();
-      // distant castle silhouette, centred behind the VS badge
-      const cx = VW / 2, base = hz - 10, sil = '#24324F';
-      g.fillStyle = sil;
-      g.fillRect(cx - 170, base - 110, 340, 110);                      // wall
-      for (let x = cx - 170; x < cx + 170; x += 34) g.fillRect(x, base - 128, 20, 18); // battlements
-      g.fillRect(cx - 70, base - 175, 140, 175);                        // keep
-      for (let x = cx - 70; x < cx + 70; x += 35) g.fillRect(x, base - 193, 21, 18);
-      for (const sx of [-1, 1]) {
-        const tx = cx + sx * 150;
-        g.fillRect(tx - 34, base - 205, 68, 205);                       // towers
-        g.beginPath(); g.moveTo(tx - 42, base - 205); g.lineTo(tx, base - 275); g.lineTo(tx + 42, base - 205); g.closePath(); g.fill();
-        g.fillRect(tx - 1.5, base - 305, 3, 32);                        // flag pole
-        g.fillStyle = rgba(TEAMS[sx < 0 ? 0 : 1].c, 0.55);
-        g.beginPath(); g.moveTo(tx + 1.5, base - 305); g.lineTo(tx + 28, base - 296); g.lineTo(tx + 1.5, base - 287); g.closePath(); g.fill();
-        g.fillStyle = sil;
-      }
-      // a few warm lit windows
-      g.fillStyle = 'rgba(255,200,110,0.55)';
-      for (const [wx, wy] of [[cx - 10, base - 140], [cx + 4, base - 140], [cx - 155, base - 160], [cx + 145, base - 120], [cx - 100, base - 60], [cx + 90, base - 70]]) g.fillRect(wx, wy, 8, 12);
-      // meadow below the battlefield, with a few dim flowers
-      grassDecor(g, VW, VH - 1480, 70, S, 1.3, 0.35, 1480);
     } else {
       lin.addColorStop(0, COL.bg0);
       lin.addColorStop(1, COL.bg1);
@@ -1306,7 +1269,24 @@ const RVB = (() => {
       for (let x = T; x < AR.w; x += T) { g.moveTo(x, 0); g.lineTo(x, AR.h); }
       for (let y = T; y < AR.h; y += T) { g.moveTo(0, y); g.lineTo(AR.w, y); }
       g.stroke();
-      grassDecor(g, AR.w, AR.h, 140, D, 1, 0.85);
+      grassDecor(g, AR.w, AR.h, 110, D, 1, 0.85, 0, false);
+      // a few fallen logs lying on the grass
+      for (let i = 0; i < 6; i++) {
+        const lx = D.range(80, AR.w - 80), ly = D.range(80, AR.h - 80);
+        if (Math.abs(ly - AR.h / 2) < 50) continue;
+        const len = D.range(70, 120), rad = D.range(11, 15), ang = D.range(0, Math.PI);
+        g.save(); g.translate(lx, ly); g.rotate(ang);
+        g.fillStyle = 'rgba(0,0,0,0.22)'; g.beginPath(); g.ellipse(4, rad * 0.9, len / 2 + 6, rad * 0.55, 0, 0, TAU); g.fill();
+        g.fillStyle = '#7A5230'; g.strokeStyle = '#3B2614'; g.lineWidth = 3;
+        g.beginPath(); g.moveTo(-len / 2, -rad); g.lineTo(len / 2, -rad); g.arc(len / 2, 0, rad, -Math.PI / 2, Math.PI / 2); g.lineTo(-len / 2, rad); g.closePath(); g.fill(); g.stroke();
+        g.strokeStyle = 'rgba(59,38,20,0.6)'; g.lineWidth = 2;
+        for (const dy of [-rad * 0.35, rad * 0.3]) { g.beginPath(); g.moveTo(-len / 2 + 8, dy); g.lineTo(len / 2 - 10, dy + 1); g.stroke(); }
+        g.fillStyle = '#C9A06A'; g.strokeStyle = '#3B2614'; g.lineWidth = 3;
+        g.beginPath(); g.ellipse(-len / 2, 0, rad * 0.55, rad, 0, 0, TAU); g.fill(); g.stroke();
+        g.strokeStyle = '#8A6238'; g.lineWidth = 1.5;
+        g.beginPath(); g.ellipse(-len / 2, 0, rad * 0.28, rad * 0.5, 0, 0, TAU); g.stroke();
+        g.restore();
+      }
       // dashed midline like the classic map
       g.strokeStyle = 'rgba(255,255,255,0.14)'; g.setLineDash([18, 14]); g.lineWidth = 3;
       g.beginPath(); g.moveTo(0, AR.h / 2); g.lineTo(AR.w, AR.h / 2); g.stroke();
