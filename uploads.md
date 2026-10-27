@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-10-27 23:08 | Red Knights vs Blue Giant Army Battle \| Can You Guess the Winner? #shorts | Blue wins | https://youtube.com/shorts/DhYHI8vleGQ |
 | 2026-10-27 23:03 | Red Giant vs Blue Balanced Army Battle \| Only One Army Survives #shorts | Red wins | https://youtube.com/shorts/CadpDZaORbM |
 | 2026-10-27 22:58 | Red Giant vs Blue Balanced Army Battle \| Can You Guess the Winner? #shorts | Blue wins | https://youtube.com/shorts/co2jY_2-ntU |
 | 2026-10-27 22:46 | Red Knights vs Blue Archers Army Battle \| Pick Your Side Before It Ends #shorts | Red wins | https://youtube.com/shorts/zy8zrg3d4oU |
