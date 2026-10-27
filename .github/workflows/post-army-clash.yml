@@ -14,6 +14,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: post-army-clash
@@ -24,6 +25,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 40
     steps:
+      - name: Note the start time
+        run: echo "START=$(date +%s)" >> "$GITHUB_ENV"
+
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
@@ -71,3 +75,14 @@ jobs:
           name: army-clash-video
           path: out/
           retention-days: 3
+
+      # GitHub's schedule timer is unreliable, so each run queues the next one itself.
+      # If several runs end up queued, the concurrency group keeps only the newest.
+      - name: Queue the next post in 5 minutes
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          wait=$(( 300 - ($(date +%s) - START) ))
+          if [ "$wait" -gt 0 ]; then sleep "$wait"; fi
+          gh api -X POST "repos/${{ github.repository }}/actions/workflows/post-army-clash.yml/dispatches" -f ref=main -f 'inputs[privacy]=public'
