@@ -1,4 +1,4 @@
-// Renders one 60-second Red vs Blue Army Clash Short: 1080x1920, 60 fps, H.264 + AAC sound.
+// Renders one 60-second Army Clash Short (team colours from rules.json): 1080x1920, 60 fps, H.264 + AAC sound.
 // Output: out/army-clash.mp4 and out/meta.json (title, description and tags for the upload).
 'use strict';
 const { createCanvas, registerFont } = require('canvas');
@@ -17,6 +17,21 @@ RVB.makeCanvas = (w, h) => createCanvas(w, h);
 const FPS = 60, SECS = 60, TOTAL = FPS * SECS, W = 1080, H = 1920, SR = 48000;
 const OUT = path.join(__dirname, 'out');
 const seed = process.env.SEED ? Number(process.env.SEED) >>> 0 : crypto.randomBytes(4).readUInt32LE(0);
+
+// Video rules live in rules.json (team colours, how often swordsmen appear). See RULES.md.
+const rules = JSON.parse(fs.readFileSync(path.join(__dirname, 'rules.json'), 'utf8'));
+const pick = RVB.rng(seed ^ 0x5bd1e995);
+function weighted(list) {
+  const total = list.reduce((t, x) => t + (x.weight ?? 1), 0);
+  let r = pick.next() * total;
+  for (const x of list) if ((r -= x.weight ?? 1) <= 0) return x;
+  return list[list.length - 1];
+}
+const pair = weighted(rules.teamPairs).teams.slice();
+if (pick.next() < 0.5) pair.reverse();
+RVB.setTeams(pair[0], pair[1]);
+const sw = rules.swordsmen || {};
+const swordsmen = pick.next() < (sw.chancePerVideo ?? 0) ? (sw.shareOfArmy ?? 0.15) : 0;
 fs.mkdirSync(OUT, { recursive: true });
 
 function ffmpeg(args) {
@@ -45,7 +60,7 @@ const titleCase = s => s.charAt(0) + s.slice(1).toLowerCase();
 
 async function main() {
   const t0 = Date.now();
-  const game = new RVB.Army(seed, { target: SECS, fixedLength: SECS });
+  const game = new RVB.Army(seed, { target: SECS, fixedLength: SECS, swordsmen });
   const synth = new RVB.Synth(SR, SECS + 4);
   synth.reset(seed);
   const canvas = createCanvas(W, H);
@@ -85,23 +100,26 @@ async function main() {
   await ffmpeg(['-i', silent, '-i', wav, '-map', '0:v:0', '-map', '1:a:0', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '160k', '-t', String(SECS), '-movflags', '+faststart', final]).done;
   fs.rmSync(silent); fs.rmSync(wav);
 
-  const red = titleCase(game.doc[0].name), blue = titleCase(game.doc[1].name);
+  const [n0, n1] = RVB.TEAMS.map(t => titleCase(t.name));
+  const red = `${n0} ${titleCase(game.doc[0].name)}`, blue = `${n1} ${titleCase(game.doc[1].name)}`;
   const hooks = ['Only One Army Survives', 'Who Wins This War?', 'Can You Guess the Winner?', 'Pick Your Side Before It Ends', 'Who Takes the Battlefield?'];
   const hook = hooks[seed % hooks.length];
   const meta = {
     seed,
     // Searchable keywords first ("army battle"), then a curiosity hook. Kept under 70 characters.
-    title: `Red ${red} vs Blue ${blue} Army Battle | ${hook} #shorts`,
+    title: `${red} vs ${blue} Army Battle | ${hook} #shorts`,
     description: [
-      `Red ${red} (${game.start[0]} units) vs Blue ${blue} (${game.start[1]} units). Who wins? Pick your side and tell us in the comments before the end.`,
+      `${red} (${game.start[0]} units) vs ${blue} (${game.start[1]} units). Who wins? Pick your side and tell us in the comments before the end.`,
       '',
       'A 60-second battle simulation. The outcome comes from the game\'s rules and chance, not real footage.',
       '',
       'Subscribe for a new battle every day.',
       '',
-      '#shorts #redvsblue #battlesimulation',
+      `#shorts #${n0.toLowerCase()}vs${n1.toLowerCase()} #battlesimulation`,
     ].join('\n'),
-    tags: ['red vs blue', 'army battle', 'battle simulation', 'army simulation', 'who wins', 'army clash', `${red.toLowerCase()} vs ${blue.toLowerCase()}`, 'shorts'],
+    tags: [`${n0.toLowerCase()} vs ${n1.toLowerCase()}`, 'army battle', 'battle simulation', 'army simulation', 'who wins', 'army clash', `${red.toLowerCase()} vs ${blue.toLowerCase()}`, 'shorts'],
+    teams: pair,
+    swordsmen: swordsmen > 0,
     winner: game.headline,
   };
   fs.writeFileSync(path.join(OUT, 'meta.json'), JSON.stringify(meta, null, 2));

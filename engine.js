@@ -16,10 +16,20 @@ const RVB = (() => {
     { name: 'RED', c: COL.red, d: COL.redD, l: COL.redL },
     { name: 'BLUE', c: COL.blue, d: COL.blueD, l: COL.blueL },
   ];
+  // Colour sets a team can use. setTeams('GREEN', 'PURPLE') switches the two teams before a match is made.
+  const PALETTES = {
+    RED: { c: COL.red, d: COL.redD, l: COL.redL },
+    BLUE: { c: COL.blue, d: COL.blueD, l: COL.blueL },
+    GREEN: { c: '#2ECC55', d: '#11702B', l: '#B4F2C4' },
+    PURPLE: { c: '#A64DFF', d: '#5A1A99', l: '#E0C4FF' },
+    ORANGE: { c: '#FF8A1F', d: '#9A4A05', l: '#FFD2A6' },
+    YELLOW: { c: '#FFD23F', d: '#9A7A0A', l: '#FFF0B3' },
+  };
+  const rgba = (hex, a) => { const n = parseInt(hex.slice(1), 16); return `rgba(${n >> 16},${(n >> 8) & 255},${n & 255},${a})`; };
   const FONT = '"Barlow Condensed", "Arial Narrow", "Roboto Condensed", "Helvetica Neue", Arial, sans-serif';
   const TAU = Math.PI * 2;
 
-  const api = { VW, VH, AR, COL, TEAMS, FONT, makeCanvas: null };
+  const api = { VW, VH, AR, COL, TEAMS, PALETTES, FONT, makeCanvas: null };
 
   // ---------- helpers ----------
   const clamp = (v, a, b) => (v < a ? a : v > b ? b : v);
@@ -102,6 +112,14 @@ const RVB = (() => {
 
   // Background layer is identical for every match: render once per output size.
   let bgCache = null;
+  api.setTeams = (a, b) => {
+    [a, b].forEach((name, i) => {
+      const pal = PALETTES[name];
+      if (!pal) throw new Error(`Unknown team colour ${name}. Use one of: ${Object.keys(PALETTES).join(', ')}`);
+      Object.assign(TEAMS[i], { name }, pal);
+    });
+    bgCache = null;
+  };
   function background() {
     if (bgCache || !api.makeCanvas) return bgCache;
     const c = api.makeCanvas(VW, VH);
@@ -118,8 +136,8 @@ const RVB = (() => {
       g.fillStyle = rg;
       g.fillRect(0, 0, VW, VH);
     };
-    glow(-60, 300, 760, 'rgba(255,49,73,0.22)');
-    glow(VW + 60, 300, 760, 'rgba(47,124,255,0.22)');
+    glow(-60, 300, 760, rgba(TEAMS[0].c, 0.22));
+    glow(VW + 60, 300, 760, rgba(TEAMS[1].c, 0.22));
     glow(VW / 2, AR.y + AR.h / 2, 900, 'rgba(120,140,200,0.06)');
     bgCache = c;
     return c;
@@ -231,8 +249,8 @@ const RVB = (() => {
 
       spaced(ctx, 4);
       ctx.font = font(42, 800);
-      ctx.textAlign = 'left'; ctx.fillStyle = COL.red; ctx.fillText('RED', 70, 274);
-      ctx.textAlign = 'right'; ctx.fillStyle = COL.blue; ctx.fillText('BLUE', VW - 70, 274);
+      ctx.textAlign = 'left'; ctx.fillStyle = TEAMS[0].c; ctx.fillText(TEAMS[0].name, 70, 274);
+      ctx.textAlign = 'right'; ctx.fillStyle = TEAMS[1].c; ctx.fillText(TEAMS[1].name, VW - 70, 274);
 
       spaced(ctx, 0);
       ctx.font = font(128, 800);
@@ -261,8 +279,8 @@ const RVB = (() => {
       const split = bx + bw * clamp(h.ratio, 0, 1);
       ctx.save();
       roundRect(ctx, bx, by, bw, bh, bh / 2); ctx.clip();
-      ctx.fillStyle = COL.blue; ctx.fillRect(bx, by, bw, bh);
-      ctx.fillStyle = COL.red; ctx.fillRect(bx, by, split - bx, bh);
+      ctx.fillStyle = TEAMS[1].c; ctx.fillRect(bx, by, bw, bh);
+      ctx.fillStyle = TEAMS[0].c; ctx.fillRect(bx, by, split - bx, bh);
       ctx.fillStyle = 'rgba(255,255,255,0.18)'; ctx.fillRect(bx, by, bw, 5);
       ctx.restore();
       ctx.fillStyle = COL.white;
@@ -410,7 +428,7 @@ const RVB = (() => {
       this.audioGain = 2.4;
       this.label = 'Territory War';
       this.title = 'TERRITORY WAR';
-      this.hook = R.pick(['WHO TAKES THE BOARD?', 'WHICH COLOR WINS?', 'RED OR BLUE?', 'PICK A SIDE NOW']);
+      this.hook = R.pick(['WHO TAKES THE BOARD?', 'WHICH COLOR WINS?', `${TEAMS[0].name} OR ${TEAMS[1].name}?`, 'PICK A SIDE NOW']);
       this.N = R.pick([12, 14, 16, 16, 20]);
       this.cs = AR.w / this.N;
       this.grid = new Uint8Array(this.N * this.N);
@@ -1096,6 +1114,7 @@ const RVB = (() => {
   const UNIT = {
     soldier: { r: 12, hp: 7, dmg: 1, cd: 0.55, reach: 4, speed: 92, cost: 1, rank: 2, armor: 1 },
     archer: { r: 11, hp: 4, dmg: 1, cd: 1.35, range: 300, speed: 84, cost: 1.4, ranged: true, rank: 3, armor: 1 },
+    swordsman: { r: 14, hp: 13, dmg: 2, cd: 0.6, reach: 6, speed: 86, cost: 2, rank: 1, armor: 0.8 },
     knight: { r: 18, hp: 24, dmg: 2, cd: 0.8, reach: 5, speed: 70, cost: 3.2, rank: 1, armor: 0.4 },
     giant: { r: 36, hp: 110, dmg: 5, cd: 1.25, reach: 6, speed: 46, cost: 22, splash: 48, rank: 0, armor: 0.5 },
   };
@@ -1115,7 +1134,7 @@ const RVB = (() => {
       this.audioGain = 3.0;
       this.label = 'Army Clash';
       this.title = 'ARMY CLASH';
-      this.hook = R.pick(['WHICH ARMY SURVIVES?', 'WHO WINS THE WAR?', 'PICK YOUR ARMY', 'RED OR BLUE?']);
+      this.hook = R.pick(['WHICH ARMY SURVIVES?', 'WHO WINS THE WAR?', 'PICK YOUR ARMY', `${TEAMS[0].name} OR ${TEAMS[1].name}?`]);
       const d0 = R.pick(DOCTRINES);
       let d1 = R.pick(DOCTRINES);
       if (d1 === d0 && R.chance(0.75)) while (d1 === d0) d1 = R.pick(DOCTRINES);
@@ -1152,6 +1171,8 @@ const RVB = (() => {
         this.pushSpeed = [1];
       }
       this.speedMul = 1;
+      // opts.swordsmen: share of each army that are swordsmen (0 = none in this video).
+      this.swordShare = this.opts.swordsmen || 0;
       for (let team = 0; team < 2; team++) {
         const list = this.recruit(this.doc[team], budget * (F ? this.doc[team].budget60 : this.doc[team].budget) * R.range(0.95, 1.05));
         this.start[team] = list.length;
@@ -1186,8 +1207,8 @@ const RVB = (() => {
         lg.addColorStop(0, color); lg.addColorStop(1, 'rgba(0,0,0,0)');
         g.fillStyle = lg; g.fillRect(0, y0, AR.w, 220);
       };
-      zone(true, 'rgba(255,49,73,0.12)');
-      zone(false, 'rgba(47,124,255,0.12)');
+      zone(true, rgba(TEAMS[0].c, 0.12));
+      zone(false, rgba(TEAMS[1].c, 0.12));
     }
     recruit(doc, budget) {
       const R = this.R;
@@ -1198,6 +1219,7 @@ const RVB = (() => {
       while (left >= 1) {
         let x = R.next(), k = keys[0];
         for (const key of keys) { x -= doc.mix[key]; if (x <= 0) { k = key; break; } }
+        if (this.swordShare && R.chance(this.swordShare)) k = 'swordsman';
         if (UNIT[k].cost > left) k = 'soldier';
         list.push(k); left -= UNIT[k].cost;
       }
@@ -1511,6 +1533,14 @@ const RVB = (() => {
           ctx.fillStyle = u.type === 'soldier' ? tm.c : tm.d; ctx.fill();
           ctx.lineWidth = u.type === 'giant' ? 5 : 3; ctx.strokeStyle = COL.ink; ctx.stroke();
           if (u.type === 'knight') { ctx.beginPath(); ctx.arc(x, y, u.r - 4.5, 0, TAU); ctx.lineWidth = 3.5; ctx.strokeStyle = tm.l; ctx.stroke(); }
+          if (u.type === 'swordsman') {
+            // a sword pointing where the swordsman faces
+            const fx = Math.cos(u.face), fy = Math.sin(u.face), px = -fy, py = fx;
+            const bx0 = x + fx * (u.r - 2), by0 = y + fy * (u.r - 2), tx = x + fx * (u.r + 20), ty = y + fy * (u.r + 20);
+            ctx.lineWidth = 7; ctx.strokeStyle = COL.ink; ctx.beginPath(); ctx.moveTo(bx0, by0); ctx.lineTo(tx, ty); ctx.stroke();
+            ctx.lineWidth = 4; ctx.strokeStyle = COL.steel; ctx.beginPath(); ctx.moveTo(bx0, by0); ctx.lineTo(tx, ty); ctx.stroke();
+            ctx.lineWidth = 4; ctx.strokeStyle = COL.gold; ctx.beginPath(); ctx.moveTo(bx0 + px * 7, by0 + py * 7); ctx.lineTo(bx0 - px * 7, by0 - py * 7); ctx.stroke();
+          }
           if (u.type === 'giant') {
             ctx.beginPath(); ctx.arc(x, y, u.r - 9, 0, TAU); ctx.fillStyle = tm.c; ctx.fill();
             ctx.fillStyle = COL.gold; ctx.beginPath();
