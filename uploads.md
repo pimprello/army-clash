@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-10-27 23:34 | 🔵 Blue vs Red 🔴 \| Guess the Winner 🤔 #shorts | Red wins | https://youtube.com/shorts/u_HBGCwnW6c |
 | 2026-10-27 23:28 | 🔴 Red vs Blue 🔵 \| Who Takes It? 🏆 #shorts | Red wins | https://youtube.com/shorts/w_KuKow-y4Y |
 | 2026-10-27 23:24 | Purple Giant vs Blue Archers Army Battle \| Pick Your Side Before It Ends #shorts | Purple wins | https://youtube.com/shorts/L3iWz7zB8h4 |
 | 2026-10-27 23:18 | Red Archers vs Blue Balanced Army Battle \| Can You Guess the Winner? #shorts | Blue wins | https://youtube.com/shorts/3ml6b3zgEpg |
