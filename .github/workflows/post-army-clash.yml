@@ -49,12 +49,20 @@ jobs:
 
       - name: Add it to uploads.md
         run: |
-          node log-upload.js
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add uploads.md
-          git commit -q -m "Posted: $(node -p "require('./out/uploaded.json').title")"
-          for i in 1 2 3; do git pull --rebase -q && git push -q && break; sleep 5; done
+          pushed=0
+          for i in 1 2 3; do
+            # Start from the latest main every time, so an older checkout can't cause a merge conflict.
+            git fetch -q origin main
+            git checkout -q -B main origin/main
+            node log-upload.js
+            git add uploads.md
+            git commit -q -m "Posted: $(node -p "require('./out/uploaded.json').title")" || true
+            if git push -q origin main; then pushed=1; break; fi
+            sleep 5
+          done
+          test "$pushed" = 1 || { echo "Could not record the upload in uploads.md"; exit 1; }
 
       - name: Keep the video if the upload failed
         if: failure()
