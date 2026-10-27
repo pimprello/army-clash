@@ -86,17 +86,22 @@ async function main() {
   fs.rmSync(silent); fs.rmSync(wav);
 
   const red = titleCase(game.doc[0].name), blue = titleCase(game.doc[1].name);
-  const hooks = ['Which Army Survives?', 'Who Wins This War?', 'Pick Your Side!', 'Can You Guess the Winner?', 'Who Takes the Battlefield?'];
+  const hooks = ['Only One Army Survives', 'Who Wins This War?', 'Can You Guess the Winner?', 'Pick Your Side Before It Ends', 'Who Takes the Battlefield?'];
   const hook = hooks[seed % hooks.length];
   const meta = {
     seed,
-    title: `Red ${red} vs Blue ${blue} ⚔️ ${hook} #shorts`,
+    // Searchable keywords first ("army battle"), then a curiosity hook. Kept under 70 characters.
+    title: `Red ${red} vs Blue ${blue} Army Battle | ${hook} #shorts`,
     description: [
-      `Red ${red} (${game.start[0]} units) vs Blue ${blue} (${game.start[1]} units). Pick your side before the end and comment who you chose!`,
+      `Red ${red} (${game.start[0]} units) vs Blue ${blue} (${game.start[1]} units). Who wins? Pick your side and tell us in the comments before the end.`,
       '',
-      '#shorts #simulation #redvsblue #armyclash #battlesimulation',
+      'A 60-second battle simulation. The outcome comes from the game\'s rules and chance, not real footage.',
+      '',
+      'Subscribe for a new battle every day.',
+      '',
+      '#shorts #redvsblue #battlesimulation',
     ].join('\n'),
-    tags: ['red vs blue', 'army clash', 'battle simulation', 'army simulation', 'simulation', 'shorts', `${red.toLowerCase()} vs ${blue.toLowerCase()}`],
+    tags: ['red vs blue', 'army battle', 'battle simulation', 'army simulation', 'who wins', 'army clash', `${red.toLowerCase()} vs ${blue.toLowerCase()}`, 'shorts'],
     winner: game.headline,
   };
   fs.writeFileSync(path.join(OUT, 'meta.json'), JSON.stringify(meta, null, 2));
