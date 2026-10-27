@@ -8,7 +8,6 @@ Every new video reads `rules.json` when it is made, so a change here applies to 
   Colours available: `RED`, `BLUE`, `GREEN`, `PURPLE`, `ORANGE`, `YELLOW`.
 - **`swordsmen.chancePerVideo`**: how often a video includes swordsmen (0.4 = about 4 in 10 videos, 0 = never, 1 = always).
 - **`maps`**: which battlefield each video uses. `classic` is the dark grid; `medieval` is checkered grass with tufts, small stones and a few fallen logs, on a plain dark-green background (same size and grid as classic). `weight` works like it does for colours.
-- **`crossbowmen.chancePerVideo`** / **`crossbowmen.shareOfArmy`**: the same as for swordsmen, for crossbowmen.
 - **`swordsmen.shareOfArmy`**: in those videos, roughly what share of each army is swordsmen (0.15 = about 15%).
 
 ## Titles

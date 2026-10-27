@@ -1178,6 +1178,8 @@ const RVB = (() => {
       let d1 = R.pick(DOCTRINES);
       if (d1 === d0 && R.chance(0.75)) while (d1 === d0) d1 = R.pick(DOCTRINES);
       this.doc = [d0, d1];
+      // opts.doctrines = ['SWARM', 'KNIGHTS'] picks the two army types instead of chance.
+      if (this.opts.doctrines) this.doc = this.opts.doctrines.map(n => DOCTRINES.find(d => d.name === n) || d0);
       // fixedLength: the whole video runs exactly this long (fight + outro), with four reinforcement waves.
       this.fixed = this.opts.fixedLength || 0;
       const F = this.fixed;
@@ -1215,7 +1217,9 @@ const RVB = (() => {
       // opts.crossbowmen: share of each army that are crossbowmen (0 = none).
       this.crossShare = this.opts.crossbowmen || 0;
       for (let team = 0; team < 2; team++) {
-        const list = this.recruit(this.doc[team], budget * (F ? this.doc[team].budget60 : this.doc[team].budget) * R.range(0.95, 1.05));
+        // opts.budgetMul = [top, bottom] scales each army's size (used to balance fixed match-ups).
+        const bm = this.opts.budgetMul ? this.opts.budgetMul[team] : 1;
+        const list = this.recruit(this.doc[team], budget * bm * (F ? this.doc[team].budget60 : this.doc[team].budget) * R.range(0.95, 1.05));
         this.start[team] = list.length;
         const parts = waveAt.map(() => []).concat([[]]), seen = {};
         for (const k of list) { const i = seen[k] = (seen[k] || 0) + 1; parts[k === 'giant' ? 0 : waveOf(i)].push(k); }
@@ -1270,21 +1274,30 @@ const RVB = (() => {
       for (let y = T; y < AR.h; y += T) { g.moveTo(0, y); g.lineTo(AR.w, y); }
       g.stroke();
       grassDecor(g, AR.w, AR.h, 110, D, 1, 0.85, 0, false);
-      // a few fallen logs lying on the grass
-      for (let i = 0; i < 6; i++) {
-        const lx = D.range(80, AR.w - 80), ly = D.range(80, AR.h - 80);
-        if (Math.abs(ly - AR.h / 2) < 50) continue;
-        const len = D.range(70, 120), rad = D.range(11, 15), ang = D.range(0, Math.PI);
+      // five small cartoon logs, spaced well apart and away from the midline
+      const logs = [];
+      for (let tries = 0; logs.length < 5 && tries < 200; tries++) {
+        const lx = D.range(90, AR.w - 90), ly = D.range(90, AR.h - 90);
+        if (Math.abs(ly - AR.h / 2) < 90) continue;
+        if (logs.some(([ox, oy]) => Math.hypot(ox - lx, oy - ly) < 260)) continue;
+        logs.push([lx, ly]);
+      }
+      for (const [lx, ly] of logs) {
+        const len = D.range(48, 66), rad = D.range(9, 11), ang = D.range(-0.5, 0.5) + (D.next() < 0.5 ? 0 : Math.PI / 2);
         g.save(); g.translate(lx, ly); g.rotate(ang);
-        g.fillStyle = 'rgba(0,0,0,0.22)'; g.beginPath(); g.ellipse(4, rad * 0.9, len / 2 + 6, rad * 0.55, 0, 0, TAU); g.fill();
-        g.fillStyle = '#7A5230'; g.strokeStyle = '#3B2614'; g.lineWidth = 3;
+        g.fillStyle = 'rgba(0,0,0,0.25)'; g.beginPath(); g.ellipse(3, rad + 2, len / 2 + 8, rad * 0.5, 0, 0, TAU); g.fill();
+        // bark: a rounded capsule with a thick dark outline
+        g.lineJoin = 'round';
+        g.fillStyle = '#9A6538'; g.strokeStyle = '#2A1A0C'; g.lineWidth = 4;
         g.beginPath(); g.moveTo(-len / 2, -rad); g.lineTo(len / 2, -rad); g.arc(len / 2, 0, rad, -Math.PI / 2, Math.PI / 2); g.lineTo(-len / 2, rad); g.closePath(); g.fill(); g.stroke();
-        g.strokeStyle = 'rgba(59,38,20,0.6)'; g.lineWidth = 2;
-        for (const dy of [-rad * 0.35, rad * 0.3]) { g.beginPath(); g.moveTo(-len / 2 + 8, dy); g.lineTo(len / 2 - 10, dy + 1); g.stroke(); }
-        g.fillStyle = '#C9A06A'; g.strokeStyle = '#3B2614'; g.lineWidth = 3;
-        g.beginPath(); g.ellipse(-len / 2, 0, rad * 0.55, rad, 0, 0, TAU); g.fill(); g.stroke();
-        g.strokeStyle = '#8A6238'; g.lineWidth = 1.5;
-        g.beginPath(); g.ellipse(-len / 2, 0, rad * 0.28, rad * 0.5, 0, 0, TAU); g.stroke();
+        // highlight stripe
+        g.strokeStyle = 'rgba(255,220,170,0.35)'; g.lineWidth = 3; g.lineCap = 'round';
+        g.beginPath(); g.moveTo(-len / 2 + 6, -rad * 0.45); g.lineTo(len / 2 - 4, -rad * 0.45); g.stroke();
+        // cut end with a ring
+        g.fillStyle = '#E8C48A'; g.strokeStyle = '#2A1A0C'; g.lineWidth = 4;
+        g.beginPath(); g.ellipse(-len / 2, 0, rad * 0.62, rad, 0, 0, TAU); g.fill(); g.stroke();
+        g.strokeStyle = '#B07D45'; g.lineWidth = 2;
+        g.beginPath(); g.ellipse(-len / 2, 0, rad * 0.28, rad * 0.45, 0, 0, TAU); g.stroke();
         g.restore();
       }
       // dashed midline like the classic map
@@ -1645,9 +1658,16 @@ const RVB = (() => {
             ctx.lineWidth = 3; ctx.strokeStyle = COL.steel; ctx.beginPath(); ctx.moveTo(bx1 + px * 11 - fx * 5, by1 + py * 11 - fy * 5); ctx.lineTo(bx1, by1); ctx.lineTo(bx1 - px * 11 - fx * 5, by1 - py * 11 - fy * 5); ctx.stroke();
           }
           if (u.type === 'swordsman') {
-            // a sword pointing where the swordsman faces
-            const fx = Math.cos(u.face), fy = Math.sin(u.face), px = -fy, py = fx;
-            const bx0 = x + fx * (u.r - 2), by0 = y + fy * (u.r - 2), tx = x + fx * (u.r + 20), ty = y + fy * (u.r + 20);
+            // sword held ready to one side; on each attack it sweeps across the front (driven by u.lunge 1 -> 0)
+            const swinging = u.lunge > 0.02;
+            const ang = u.face + (swinging ? -1.0 + (1 - u.lunge) * 2.2 : -1.0);
+            const fx = Math.cos(ang), fy = Math.sin(ang), px = -fy, py = fx;
+            const bx0 = x + fx * (u.r - 2), by0 = y + fy * (u.r - 2), tx = x + fx * (u.r + 22), ty = y + fy * (u.r + 22);
+            if (swinging) {
+              // swoosh trail behind the blade
+              ctx.beginPath(); ctx.arc(x, y, u.r + 16, u.face - 1.0, ang);
+              ctx.lineWidth = 9; ctx.strokeStyle = `rgba(255,255,255,${0.45 * u.lunge + 0.15})`; ctx.stroke();
+            }
             ctx.lineWidth = 7; ctx.strokeStyle = COL.ink; ctx.beginPath(); ctx.moveTo(bx0, by0); ctx.lineTo(tx, ty); ctx.stroke();
             ctx.lineWidth = 4; ctx.strokeStyle = COL.steel; ctx.beginPath(); ctx.moveTo(bx0, by0); ctx.lineTo(tx, ty); ctx.stroke();
             ctx.lineWidth = 4; ctx.strokeStyle = COL.gold; ctx.beginPath(); ctx.moveTo(bx0 + px * 7, by0 + py * 7); ctx.lineTo(bx0 - px * 7, by0 - py * 7); ctx.stroke();

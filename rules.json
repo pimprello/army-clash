@@ -23,7 +23,6 @@
     }
   ],
   "swordsmen": {
-    "chancePerVideo": 0.4,
     "shareOfArmy": 0.15
   },
   "maps": [
@@ -37,7 +36,71 @@
     }
   ],
   "crossbowmen": {
-    "chancePerVideo": 0.35,
     "shareOfArmy": 0.12
-  }
+  },
+  "matchups": [
+    {
+      "top": "SWARM",
+      "bottom": "KNIGHTS",
+      "balance": 1.11
+    },
+    {
+      "top": "ARCHERS",
+      "bottom": "BALANCED",
+      "swordsmen": true,
+      "balance": 1.05
+    },
+    {
+      "top": "GIANT",
+      "bottom": "SWARM",
+      "balance": 1.05
+    },
+    {
+      "top": "KNIGHTS",
+      "bottom": "ARCHERS",
+      "crossbowmen": true,
+      "balance": 1.07
+    },
+    {
+      "top": "BALANCED",
+      "bottom": "GIANT",
+      "swordsmen": true,
+      "balance": 0.94
+    },
+    {
+      "top": "SWARM",
+      "bottom": "ARCHERS",
+      "crossbowmen": true
+    },
+    {
+      "top": "KNIGHTS",
+      "bottom": "GIANT"
+    },
+    {
+      "top": "BALANCED",
+      "bottom": "SWARM",
+      "swordsmen": true,
+      "crossbowmen": true
+    },
+    {
+      "top": "ARCHERS",
+      "bottom": "GIANT",
+      "swordsmen": true
+    },
+    {
+      "top": "KNIGHTS",
+      "bottom": "BALANCED",
+      "crossbowmen": true
+    },
+    {
+      "top": "GIANT",
+      "bottom": "ARCHERS",
+      "crossbowmen": true
+    },
+    {
+      "top": "SWARM",
+      "bottom": "BALANCED",
+      "swordsmen": true
+    }
+  ]
 }

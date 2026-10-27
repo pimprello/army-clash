@@ -30,11 +30,18 @@ function weighted(list) {
 const pair = weighted(rules.teamPairs).teams.slice();
 if (pick.next() < 0.5) pair.reverse();
 RVB.setTeams(pair[0], pair[1]);
-const sw = rules.swordsmen || {};
-const swordsmen = pick.next() < (sw.chancePerVideo ?? 0) ? (sw.shareOfArmy ?? 0.15) : 0;
-const cb = rules.crossbowmen || {};
-const crossbowmen = pick.next() < (cb.chancePerVideo ?? 0) ? (cb.shareOfArmy ?? 0.12) : 0;
-const map = weighted(rules.maps || [{ name: 'classic' }]).name;
+// Troop line-up: not random. Videos go through rules.matchups in order, one per video,
+// using how many videos are already in uploads.md to know where we are in the list.
+const posted = fs.existsSync(path.join(__dirname, 'uploads.md'))
+  ? (fs.readFileSync(path.join(__dirname, 'uploads.md'), 'utf8').match(/^\| \d{4}-/gm) || []).length : 0;
+const matchups = rules.matchups || [];
+const mu = matchups.length ? matchups[(process.env.MATCHUP ? Number(process.env.MATCHUP) : posted) % matchups.length] : null;
+const swordsmen = mu && mu.swordsmen ? ((rules.swordsmen || {}).shareOfArmy ?? 0.15) : 0;
+const crossbowmen = mu && mu.crossbowmen ? ((rules.crossbowmen || {}).shareOfArmy ?? 0.12) : 0;
+const doctrines = mu ? [mu.top, mu.bottom] : undefined;
+// balance: bottom army size relative to the top, tuned so each match-up is close to 50/50.
+const budgetMul = mu ? [1, mu.balance ?? 1] : undefined;
+const map = process.env.MAP || weighted(rules.maps || [{ name: 'classic' }]).name;
 fs.mkdirSync(OUT, { recursive: true });
 
 function ffmpeg(args) {
@@ -63,7 +70,7 @@ const titleCase = s => s.charAt(0) + s.slice(1).toLowerCase();
 
 async function main() {
   const t0 = Date.now();
-  const game = new RVB.Army(seed, { target: SECS, fixedLength: SECS, swordsmen, crossbowmen, map });
+  const game = new RVB.Army(seed, { target: SECS, fixedLength: SECS, swordsmen, crossbowmen, map, doctrines, budgetMul });
   const synth = new RVB.Synth(SR, SECS + 4);
   synth.reset(seed);
   const canvas = createCanvas(W, H);
