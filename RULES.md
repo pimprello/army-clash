@@ -8,7 +8,6 @@ Every new video reads `rules.json` when it is made, so a change here applies to 
   Colours available: `RED`, `BLUE`, `GREEN`, `PURPLE`, `ORANGE`, `YELLOW`.
 - **`teamStyles`**: a colour can fight its own way. `ORANGE` armies are about 60% swordsmen (`swordsmenShare`), with a slightly smaller army (`budget` 0.96) so they still win about half their battles.
 - **`swordsmen.chancePerVideo`**: how often a video includes swordsmen (0.4 = about 4 in 10 videos, 0 = never, 1 = always).
-- **`maps`**: which battlefield each video uses. `classic` is the dark grid; `medieval` is checkered grass with small flowers, leaves, twigs and stones, and every troop wears cartoon knight armour (a black helm with a T-shaped visor, shoulder plates and a team-colour plume). The background is the same as classic. `weight` works like it does for colours.
 - **`swordsmen.shareOfArmy`**: in those videos, roughly what share of each army is swordsmen (0.15 = about 15%).
 
 ## Titles

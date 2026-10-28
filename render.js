@@ -41,7 +41,7 @@ const crossbowmen = mu && mu.crossbowmen ? ((rules.crossbowmen || {}).shareOfArm
 const doctrines = mu ? [mu.top, mu.bottom] : undefined;
 // balance: bottom army size relative to the top, tuned so each match-up is close to 50/50.
 const budgetMul = mu ? [1, mu.balance ?? 1] : undefined;
-const map = process.env.MAP || weighted(rules.maps || [{ name: 'classic' }]).name;
+const map = 'classic';
 fs.mkdirSync(OUT, { recursive: true });
 
 function ffmpeg(args) {
@@ -138,7 +138,6 @@ async function main() {
     teams: pair,
     swordsmen: swordsmen > 0,
     crossbowmen: crossbowmen > 0,
-    map,
     winner: game.headline,
   };
   fs.writeFileSync(path.join(OUT, 'meta.json'), JSON.stringify(meta, null, 2));

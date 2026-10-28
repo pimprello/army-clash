@@ -120,79 +120,6 @@ const RVB = (() => {
     });
     bgCache = {};
   };
-  // Grass decorations shared by the medieval page background and battlefield.
-  const FLOWER_COLS = ['#FF9EC7', '#FFF6E0', '#FFE066', '#C9A2FF'];
-  // Five small cartoon flower kinds, all about the same size (r ~ 3-5 px), each with a soft outline.
-  function drawFlower(g, x, y, r, kind) {
-    const edge = 'rgba(20,30,20,0.45)';
-    g.lineWidth = Math.max(0.8, r * 0.22); g.strokeStyle = edge;
-    const dot = (cx, cy, rr, col) => { g.fillStyle = col; g.beginPath(); g.arc(cx, cy, rr, 0, TAU); g.fill(); g.stroke(); };
-    if (kind === 0) {
-      // daisy: thin white petals, yellow middle
-      g.fillStyle = '#FFFFFF';
-      for (let p = 0; p < 8; p++) { const a = p / 8 * TAU; g.beginPath(); g.ellipse(x + Math.cos(a) * r * 0.8, y + Math.sin(a) * r * 0.8, r * 0.55, r * 0.25, a, 0, TAU); g.fill(); g.stroke(); }
-      dot(x, y, r * 0.42, '#FFC93C');
-    } else if (kind === 1) {
-      // tulip: a little cup of three petals on a short stem
-      g.strokeStyle = '#2E7A2E'; g.lineWidth = Math.max(1, r * 0.3);
-      g.beginPath(); g.moveTo(x, y + r * 0.4); g.lineTo(x, y + r * 1.6); g.stroke();
-      g.strokeStyle = edge; g.lineWidth = Math.max(0.8, r * 0.22);
-      g.fillStyle = '#FF6F91';
-      g.beginPath(); g.moveTo(x - r * 0.9, y - r * 0.7); g.lineTo(x - r * 0.45, y - r * 0.1); g.lineTo(x, y - r * 0.8); g.lineTo(x + r * 0.45, y - r * 0.1); g.lineTo(x + r * 0.9, y - r * 0.7);
-      g.quadraticCurveTo(x + r * 0.95, y + r * 0.7, x, y + r * 0.7); g.quadraticCurveTo(x - r * 0.95, y + r * 0.7, x - r * 0.9, y - r * 0.7); g.closePath(); g.fill(); g.stroke();
-    } else if (kind === 2) {
-      // violet: five round purple petals, pale centre
-      for (let p = 0; p < 5; p++) { const a = p / 5 * TAU - Math.PI / 2; dot(x + Math.cos(a) * r * 0.62, y + Math.sin(a) * r * 0.62, r * 0.5, '#B48CFF'); }
-      dot(x, y, r * 0.32, '#FFF3C4');
-    } else if (kind === 3) {
-      // buttercup: glossy yellow petals, orange centre
-      for (let p = 0; p < 5; p++) { const a = p / 5 * TAU; dot(x + Math.cos(a) * r * 0.6, y + Math.sin(a) * r * 0.6, r * 0.5, '#FFE45C'); }
-      dot(x, y, r * 0.34, '#FF9F1C');
-    } else {
-      // clover blossom: a fluffy pink puff
-      for (const [dx, dy] of [[0, -0.45], [-0.45, 0.2], [0.45, 0.2], [0, 0.1]]) dot(x + dx * r, y + dy * r, r * 0.5, '#FFB3D1');
-    }
-    // tiny highlight
-    g.fillStyle = 'rgba(255,255,255,0.6)'; g.beginPath(); g.arc(x - r * 0.25, y - r * 0.3, r * 0.14, 0, TAU); g.fill();
-  }
-  function grassDecor(g, W, H, n, R, scale, alpha, y0 = 0, flowers = true) {
-    g.save();
-    g.globalAlpha = alpha;
-    g.lineCap = 'round';
-    for (let i = 0; i < n; i++) {
-      const x = R.range(0, W), y = y0 + R.range(0, H), k = R.next();
-      if (k < 0.5) {
-        // grass tuft
-        g.strokeStyle = 'rgba(20,60,20,0.55)'; g.lineWidth = 2.2 * scale;
-        g.beginPath();
-        g.moveTo(x - 5 * scale, y - 7 * scale); g.lineTo(x, y);
-        g.lineTo(x + 1 * scale, y - 9 * scale); g.moveTo(x, y); g.lineTo(x + 6 * scale, y - 6 * scale);
-        g.stroke();
-      } else if (flowers && k < 0.72) {
-        drawFlower(g, x, y, R.range(3.2, 4.6) * scale, (k * 997 | 0) % 5);
-      } else if (k < 0.82) {
-        // fallen leaf with a midrib
-        const a = R.range(0, TAU), col = R.next() < 0.5 ? '#7DBA4A' : '#C9B04A';
-        g.save(); g.translate(x, y); g.rotate(a);
-        g.fillStyle = col; g.strokeStyle = 'rgba(20,30,20,0.4)'; g.lineWidth = 1 * scale;
-        g.beginPath(); g.ellipse(0, 0, 5 * scale, 2.6 * scale, 0, 0, TAU); g.fill(); g.stroke();
-        g.strokeStyle = 'rgba(40,60,20,0.55)'; g.beginPath(); g.moveTo(-5 * scale, 0); g.lineTo(5 * scale, 0); g.stroke();
-        g.restore();
-      } else if (k < 0.9) {
-        // twig with a small fork
-        const a = R.range(0, TAU), L = R.range(9, 13) * scale;
-        g.save(); g.translate(x, y); g.rotate(a);
-        g.strokeStyle = '#6E4A2A'; g.lineWidth = 2 * scale; g.lineCap = 'round';
-        g.beginPath(); g.moveTo(-L / 2, 0); g.lineTo(L / 2, 0); g.moveTo(L * 0.05, 0); g.lineTo(L * 0.3, -L * 0.28); g.stroke();
-        g.restore();
-      } else {
-        // small stone
-        g.fillStyle = '#9EA39A'; g.beginPath(); g.ellipse(x, y, 6 * scale, 4 * scale, R.range(0, 3), 0, TAU); g.fill();
-        g.fillStyle = 'rgba(255,255,255,0.25)'; g.beginPath(); g.ellipse(x - 1.5 * scale, y - 1.2 * scale, 2.5 * scale, 1.5 * scale, 0, 0, TAU); g.fill();
-      }
-    }
-    g.restore();
-  }
   function background(map) {
     const key = 'classic';
     if (bgCache[key] || !api.makeCanvas) return bgCache[key] || null;
@@ -1274,7 +1201,6 @@ const RVB = (() => {
       if (this.ground) this.paintGround();
     }
     paintGround() {
-      if (this.opts.map === 'medieval') return this.paintMedieval();
       const g = this.ground.getContext('2d');
       g.fillStyle = COL.floor; g.fillRect(0, 0, AR.w, AR.h);
       g.strokeStyle = COL.grid; g.lineWidth = 2;
@@ -1293,39 +1219,6 @@ const RVB = (() => {
       };
       zone(true, rgba(TEAMS[0].c, 0.12));
       zone(false, rgba(TEAMS[1].c, 0.12));
-    }
-    // Medieval map: soft checkered grass on the same 60px grid, with flowers, tufts and stones,
-    // and tinted team zones. Same size as the classic map; purely visual.
-    paintMedieval() {
-      const g = this.ground.getContext('2d');
-      const T = 60, D = rng(9001);
-      for (let i = 0; i * T < AR.w; i++) for (let j = 0; j * T < AR.h; j++) {
-        const light = (i + j) % 2 === 0, v = D.range(-5, 5);
-        g.fillStyle = light ? `rgb(${70 + v},${138 + v},${60 + v})` : `rgb(${60 + v},${124 + v},${52 + v})`;
-        g.fillRect(i * T, j * T, T, T);
-        // gentle highlight on the top edge of each light tile
-        if (light) { g.fillStyle = 'rgba(255,255,255,0.05)'; g.fillRect(i * T, j * T, T, 6); }
-      }
-      g.strokeStyle = 'rgba(10,40,10,0.18)'; g.lineWidth = 2;
-      g.beginPath();
-      for (let x = T; x < AR.w; x += T) { g.moveTo(x, 0); g.lineTo(x, AR.h); }
-      for (let y = T; y < AR.h; y += T) { g.moveTo(0, y); g.lineTo(AR.w, y); }
-      g.stroke();
-      grassDecor(g, AR.w, AR.h, 150, D, 1.3, 0.95);
-      // dashed midline like the classic map
-      g.strokeStyle = 'rgba(255,255,255,0.14)'; g.setLineDash([18, 14]); g.lineWidth = 3;
-      g.beginPath(); g.moveTo(0, AR.h / 2); g.lineTo(AR.w, AR.h / 2); g.stroke();
-      g.setLineDash([]);
-      const zone = (top, color) => {
-        const y0 = top ? 0 : AR.h - 220;
-        const lg = g.createLinearGradient(0, top ? 0 : AR.h, 0, top ? 220 : AR.h - 220);
-        lg.addColorStop(0, color); lg.addColorStop(1, 'rgba(0,0,0,0)');
-        g.fillStyle = lg; g.fillRect(0, y0, AR.w, 220);
-      };
-      zone(true, rgba(TEAMS[0].c, 0.2));
-      zone(false, rgba(TEAMS[1].c, 0.2));
-      // slight shade so the troops stay easy to see
-      g.fillStyle = 'rgba(5,10,6,0.14)'; g.fillRect(0, 0, AR.w, AR.h);
     }
     recruit(doc, team, budget) {
       const swordShare = this.swordShareT ? this.swordShareT[team] : this.swordShare;
@@ -1653,7 +1546,6 @@ const RVB = (() => {
       }
       // units by type for fewer state changes
       const cheer = this.phase === 'outro' ? this.winner : -1;
-      const armour = this.opts.map === 'medieval'; // on the medieval map every troop wears knight armour
       for (const u of this.units) {
         const tm = TEAMS[u.team];
         if (u.fade !== undefined) { if (u.fade <= 0) continue; ctx.globalAlpha = u.fade; }
@@ -1674,37 +1566,12 @@ const RVB = (() => {
           ctx.save(); ctx.translate(x, y); ctx.rotate(u.face);
           ctx.beginPath(); ctx.moveTo(u.r * 1.5, 0); ctx.lineTo(-u.r, -u.r * 1.05); ctx.lineTo(-u.r, u.r * 1.05); ctx.closePath();
           ctx.fillStyle = tm.c; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = COL.ink; ctx.stroke();
-          if (armour) { ctx.beginPath(); ctx.arc(-u.r * 0.1, 0, u.r * 0.5, 0, TAU); ctx.fillStyle = COL.steel; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = COL.ink; ctx.stroke();
-            ctx.beginPath(); ctx.moveTo(u.r * 0.18, -u.r * 0.28); ctx.lineTo(u.r * 0.18, u.r * 0.28); ctx.lineWidth = 2.5; ctx.stroke(); }
           ctx.restore();
         } else {
           ctx.beginPath(); ctx.arc(x, y, u.r, 0, TAU);
           ctx.fillStyle = u.type === 'soldier' || u.type === 'crossbowman' ? tm.c : tm.d; ctx.fill();
           ctx.lineWidth = u.type === 'giant' ? 5 : 3; ctx.strokeStyle = COL.ink; ctx.stroke();
           if (u.type === 'knight') { ctx.beginPath(); ctx.arc(x, y, u.r - 4.5, 0, TAU); ctx.lineWidth = 3.5; ctx.strokeStyle = tm.l; ctx.stroke(); }
-          if (armour && u.type !== 'giant') {
-            // cartoon knight armour from above: flat black helm with a T-shaped visor facing the enemy,
-            // a simple shine, black shoulder plates and a team-colour plume
-            const fx = Math.cos(u.face), fy = Math.sin(u.face), px = -fy, py = fx, hr = u.r * 0.7;
-            const HELM = '#262A33', VISOR = '#C9D1DC';
-            ctx.lineWidth = 2; ctx.strokeStyle = COL.ink;
-            for (const sd of [-1, 1]) {
-              const sx = x + px * sd * u.r * 0.72 - fx * u.r * 0.1, sy = y + py * sd * u.r * 0.72 - fy * u.r * 0.1;
-              ctx.beginPath(); ctx.ellipse(sx, sy, u.r * 0.34, u.r * 0.24, u.face, 0, TAU);
-              ctx.fillStyle = HELM; ctx.fill(); ctx.stroke();
-            }
-            ctx.beginPath(); ctx.arc(x, y, hr, 0, TAU); ctx.fillStyle = HELM; ctx.fill(); ctx.lineWidth = 2.4; ctx.stroke();
-            // shine
-            ctx.beginPath(); ctx.arc(x, y, hr * 0.68, u.face + 2.3, u.face + 3.5);
-            ctx.lineWidth = Math.max(1.5, hr * 0.18); ctx.lineCap = 'round'; ctx.strokeStyle = 'rgba(255,255,255,0.45)'; ctx.stroke();
-            // T visor: a bar across the front and a short slit back toward the middle
-            const vx = x + fx * hr * 0.5, vy = y + fy * hr * 0.5, w = hr * 0.55;
-            ctx.lineWidth = Math.max(2, hr * 0.2); ctx.strokeStyle = VISOR;
-            ctx.beginPath(); ctx.moveTo(vx - px * w, vy - py * w); ctx.lineTo(vx + px * w, vy + py * w);
-            ctx.moveTo(vx, vy); ctx.lineTo(x + fx * hr * 0.05, y + fy * hr * 0.05); ctx.stroke();
-            ctx.beginPath(); ctx.arc(x - fx * hr * 0.62, y - fy * hr * 0.62, hr * 0.28, 0, TAU); ctx.fillStyle = tm.c; ctx.fill();
-            ctx.lineWidth = 1.5; ctx.strokeStyle = COL.ink; ctx.stroke();
-          }
           if (u.type === 'crossbowman') {
             // a crossbow held out front: stock along the facing, bow across it
             const fx = Math.cos(u.face), fy = Math.sin(u.face), px = -fy, py = fx;

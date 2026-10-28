@@ -39,16 +39,6 @@
   "swordsmen": {
     "shareOfArmy": 0.15
   },
-  "maps": [
-    {
-      "name": "classic",
-      "weight": 1
-    },
-    {
-      "name": "medieval",
-      "weight": 1
-    }
-  ],
   "crossbowmen": {
     "shareOfArmy": 0.12
   },
