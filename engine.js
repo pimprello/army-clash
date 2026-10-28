@@ -1678,16 +1678,30 @@ const RVB = (() => {
           ctx.lineWidth = u.type === 'giant' ? 5 : 3; ctx.strokeStyle = COL.ink; ctx.stroke();
           if (u.type === 'knight') { ctx.beginPath(); ctx.arc(x, y, u.r - 4.5, 0, TAU); ctx.lineWidth = 3.5; ctx.strokeStyle = tm.l; ctx.stroke(); }
           if (armour && u.type !== 'giant') {
-            // knight armour: a steel helmet seen from above, with a dark visor slit facing the enemy and a team-colour plume
-            const fx = Math.cos(u.face), fy = Math.sin(u.face), hr = u.r * 0.62;
-            ctx.beginPath(); ctx.arc(x, y, hr, 0, TAU); ctx.fillStyle = COL.steel; ctx.fill();
-            ctx.lineWidth = 2; ctx.strokeStyle = COL.ink; ctx.stroke();
-            ctx.beginPath(); ctx.arc(x - fx * hr * 0.15, y - fy * hr * 0.15, hr * 0.55, 0, TAU); ctx.fillStyle = 'rgba(255,255,255,0.35)'; ctx.fill();
-            const vx = x + fx * hr * 0.45, vy = y + fy * hr * 0.45;
-            ctx.beginPath(); ctx.moveTo(vx - fy * hr * 0.6, vy + fx * hr * 0.6); ctx.lineTo(vx + fy * hr * 0.6, vy - fx * hr * 0.6);
-            ctx.lineWidth = 2.5; ctx.strokeStyle = COL.ink; ctx.stroke();
-            ctx.beginPath(); ctx.arc(x - fx * hr * 0.55, y - fy * hr * 0.55, hr * 0.28, 0, TAU); ctx.fillStyle = tm.l; ctx.fill();
-            ctx.lineWidth = 1.5; ctx.stroke();
+            // knight armour seen from above: silver shoulder plates, a polished steel helm with a centre ridge,
+            // visor slits facing the enemy and a team-colour plume at the back
+            const fx = Math.cos(u.face), fy = Math.sin(u.face), px = -fy, py = fx, hr = u.r * 0.7;
+            const silver = (cx, cy, rr) => {
+              const gr = ctx.createRadialGradient(cx - rr * 0.35, cy - rr * 0.4, rr * 0.1, cx, cy, rr);
+              gr.addColorStop(0, '#FFFFFF'); gr.addColorStop(0.45, '#D9DEE6'); gr.addColorStop(1, '#8C96A6');
+              return gr;
+            };
+            for (const sd of [-1, 1]) {
+              const sx = x + px * sd * u.r * 0.72 - fx * u.r * 0.1, sy = y + py * sd * u.r * 0.72 - fy * u.r * 0.1;
+              ctx.beginPath(); ctx.ellipse(sx, sy, u.r * 0.36, u.r * 0.26, u.face, 0, TAU);
+              ctx.fillStyle = silver(sx, sy, u.r * 0.36); ctx.fill(); ctx.lineWidth = 1.8; ctx.strokeStyle = COL.ink; ctx.stroke();
+            }
+            ctx.beginPath(); ctx.arc(x, y, hr, 0, TAU); ctx.fillStyle = silver(x, y, hr); ctx.fill();
+            ctx.lineWidth = 2.2; ctx.strokeStyle = COL.ink; ctx.stroke();
+            ctx.beginPath(); ctx.moveTo(x - fx * hr * 0.85, y - fy * hr * 0.85); ctx.lineTo(x + fx * hr * 0.2, y + fy * hr * 0.2);
+            ctx.lineWidth = 1.6; ctx.strokeStyle = 'rgba(70,80,95,0.8)'; ctx.stroke();
+            for (const k of [0.38, 0.62]) {
+              const vx = x + fx * hr * k, vy = y + fy * hr * k, w = hr * (0.62 - (k - 0.38) * 0.6);
+              ctx.beginPath(); ctx.moveTo(vx - px * w, vy - py * w); ctx.lineTo(vx + px * w, vy + py * w);
+              ctx.lineWidth = 2; ctx.strokeStyle = COL.ink; ctx.stroke();
+            }
+            ctx.beginPath(); ctx.arc(x - fx * hr * 0.62, y - fy * hr * 0.62, hr * 0.26, 0, TAU); ctx.fillStyle = tm.c; ctx.fill();
+            ctx.lineWidth = 1.5; ctx.strokeStyle = COL.ink; ctx.stroke();
           }
           if (u.type === 'crossbowman') {
             // a crossbow held out front: stock along the facing, bow across it
