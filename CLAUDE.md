@@ -1,6 +1,6 @@
 # Notes for Claude
 
-This repo auto-posts 60-second Army Clash Shorts to YouTube for Rellz. `.github/workflows/post-army-clash.yml` renders with `render.js` + `engine.js` and uploads with `upload.js`. Each run queues the next one about 5 minutes later, because GitHub's cron didn't fire reliably.
+This repo auto-posts 60-second Army Clash Shorts to YouTube for Rellz. `.github/workflows/post-army-clash.yml` renders with `render.js` + `engine.js` and uploads with `upload.js`. Each run queues the next one 15 minutes after it started (96 a day, evenly spaced, under YouTube's 100-upload daily limit), because GitHub's cron didn't fire reliably. If an upload fails, the reason is shown as a GitHub annotation (readable via the check-runs annotations API).
 
 When Rellz asks to change future videos ("add a unit", "use these colours", "make X rarer"):
 1. Prefer editing `rules.json`. Add a new rule there if the request is a dial he'll likely want to turn again, then document it in `RULES.md`.

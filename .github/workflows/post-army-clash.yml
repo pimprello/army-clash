@@ -2,8 +2,9 @@ name: Post Army Clash
 
 on:
   schedule:
-    # Every 5 minutes. YouTube's API allows 100 uploads a day per project, so runs fail once that is reached.
-    - cron: '*/5 * * * *'
+    # Backup timer only: the self-queuing step below does the real scheduling. Every 15 minutes = 96 Shorts a day,
+    # evenly spaced and just under YouTube's limit of 100 uploads a day.
+    - cron: '7,22,37,52 * * * *'
   workflow_dispatch:
     inputs:
       privacy:
@@ -78,11 +79,11 @@ jobs:
 
       # GitHub's schedule timer is unreliable, so each run queues the next one itself.
       # If several runs end up queued, the concurrency group keeps only the newest.
-      - name: Queue the next post in 5 minutes
+      - name: Queue the next post 15 minutes after this one started
         if: always()
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          wait=$(( 300 - ($(date +%s) - START) ))
+          wait=$(( 900 - ($(date +%s) - START) ))
           if [ "$wait" -gt 0 ]; then sleep "$wait"; fi
           gh api -X POST "repos/${{ github.repository }}/actions/workflows/post-army-clash.yml/dispatches" -f ref=main -f 'inputs[privacy]=public'

@@ -1,6 +1,6 @@
 # Army Clash auto-uploader
 
-Every run makes a brand-new 60-second **Red vs Blue Army Clash** Short (1080 × 1920, 60 fps, with sound) and posts it to your YouTube channel. GitHub runs it for you every 5 minutes, so you don't have to press anything.
+Every run makes a brand-new 60-second **Red vs Blue Army Clash** Short (1080 × 1920, 60 fps, with sound) and posts it to your YouTube channel. GitHub runs it for you every 15 minutes (96 a day, evenly spaced), so you don't have to press anything.
 
 ## One-time setup (about 15 minutes, easiest on a computer)
 
@@ -39,7 +39,7 @@ In this repository open **Settings → Secrets and variables → Actions → New
 
 Open the **Actions** tab → **Post Army Clash** → **Run workflow**. Pick `private` the first time if you want to check the video before anyone sees it. After about five minutes it appears on your channel.
 
-From then on it posts automatically every 5 minutes, until YouTube's daily limit of 100 uploads is reached.
+From then on it posts automatically every 15 minutes, around the clock: 96 a day, just under YouTube's limit of 100.
 
 ## Changing things
 
@@ -51,6 +51,6 @@ From then on it posts automatically every 5 minutes, until YouTube's daily limit
 
 - Every posted video is added to `uploads.md` with its link. That small commit also keeps the schedule running, because GitHub pauses schedules in public repositories after 60 days without changes.
 - The repository can stay public: your keys live in GitHub Secrets and are never shown in the code or the logs. Public repositories also get Actions minutes for free.
-- YouTube's API allows 100 uploads a day per project. Once that's reached, runs fail until the limit resets at midnight Pacific time.
+- YouTube's API allows 100 uploads a day per project. Posting every 15 minutes stays just under that. Failed upload attempts may also count, so going faster makes most runs fail.
 - If a run fails, the Actions tab shows why, and the video is kept there for 3 days.
 - The font is Barlow Condensed (SIL Open Font License, included in `fonts/`).

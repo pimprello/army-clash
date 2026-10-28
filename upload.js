@@ -76,7 +76,8 @@ async function main() {
     } catch (e) {
       const retry = attempt < 3 && /\((5\d\d)\b/.test(e.message);
       console.error(`Attempt ${attempt}: ${e.message}`);
-      if (!retry) throw e;
+      // also show the reason as a GitHub annotation, so it can be read without opening the logs
+      if (!retry) { console.log(`::error title=YouTube upload failed::${e.message.replace(/\s+/g, ' ').slice(0, 600)}`); throw e; }
       await new Promise(r => setTimeout(r, 15000 * attempt));
     }
   }
