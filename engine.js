@@ -24,6 +24,8 @@ const RVB = (() => {
     PURPLE: { c: '#A64DFF', d: '#5A1A99', l: '#E0C4FF' },
     ORANGE: { c: '#FF8A1F', d: '#C9600E', l: '#FFD2A6' },
     YELLOW: { c: '#FFD23F', d: '#9A7A0A', l: '#FFF0B3' },
+    PINK: { c: '#FF5FB4', d: '#A3146A', l: '#FFC2E3' },
+    CYAN: { c: '#22D3EE', d: '#0E7490', l: '#B5F1FA' },
   };
   const rgba = (hex, a) => { const n = parseInt(hex.slice(1), 16); return `rgba(${n >> 16},${(n >> 8) & 255},${n & 255},${a})`; };
   const FONT = '"Barlow Condensed", "Arial Narrow", "Roboto Condensed", "Helvetica Neue", Arial, sans-serif';
@@ -1117,9 +1119,19 @@ const RVB = (() => {
     archer: { r: 11, hp: 4, dmg: 1, cd: 1.35, range: 300, speed: 84, cost: 1.4, ranged: true, rank: 3, armor: 1 },
     crossbowman: { r: 12, hp: 6, dmg: 4, cd: 2.4, range: 380, speed: 76, cost: 2.4, ranged: true, bolt: 1300, rank: 3, armor: 0.9 },
     swordsman: { r: 14, hp: 13, dmg: 2, cd: 0.6, reach: 6, speed: 86, cost: 2, rank: 1, armor: 0.8 },
+    // spearman: long reach, so he can stab from the second rank
+    spearman: { r: 12, hp: 8, dmg: 2, cd: 0.9, reach: 18, speed: 84, cost: 1.8, rank: 2, armor: 0.9 },
+    // shieldbearer: slow wall; arrows barely hurt him and his shield blocks 40% of melee damage
+    shieldbearer: { r: 16, hp: 26, dmg: 1, cd: 0.8, reach: 4, speed: 66, cost: 2.4, rank: 1, armor: 0.25, block: 0.6 },
+    // berserker: fast and hits hard with an axe, but fragile
+    berserker: { r: 13, hp: 10, dmg: 3, cd: 0.5, reach: 5, speed: 112, cost: 2.4, rank: 1, armor: 1 },
+    // healer: never attacks; stays behind the line and patches up the most hurt ally nearby
+    healer: { r: 11, hp: 6, dmg: 0, cd: 1.6, range: 170, speed: 80, cost: 2, healer: true, heal: 4, healRange: 130, rank: 3, armor: 1 },
     knight: { r: 18, hp: 24, dmg: 2, cd: 0.8, reach: 5, speed: 70, cost: 3.2, rank: 1, armor: 0.4 },
     giant: { r: 36, hp: 110, dmg: 5, cd: 1.25, reach: 6, speed: 46, cost: 22, splash: 48, rank: 0, armor: 0.5 },
   };
+  // troops drawn in the bright team colour (the rest use the darker shade)
+  const LIGHT_FILL = { soldier: 1, crossbowman: 1, spearman: 1, berserker: 1, healer: 1 };
   const DOCTRINES = [
     { name: 'SWARM', mix: { soldier: 0.8, archer: 0.12, knight: 0.08 }, budget: 1.04, budget60: 1.08 },
     { name: 'ARCHERS', mix: { soldier: 0.35, archer: 0.55, knight: 0.1 }, budget: 1.03, budget60: 1.03 },
@@ -1181,6 +1193,8 @@ const RVB = (() => {
       this.swordShareT = this.opts.swordsmenByTeam || [this.swordShare, this.swordShare];
       // opts.crossbowmen: share of each army that are crossbowmen (0 = none).
       this.crossShare = this.opts.crossbowmen || 0;
+      // opts.extras: other optional troops, e.g. [{ type: 'spearman', share: 0.15 }]
+      this.extras = (this.opts.extras || []).filter(e => UNIT[e.type] && e.share > 0);
       for (let team = 0; team < 2; team++) {
         // opts.budgetMul = [top, bottom] scales each army's size (used to balance fixed match-ups).
         const bm = this.opts.budgetMul ? this.opts.budgetMul[team] : 1;
@@ -1232,6 +1246,7 @@ const RVB = (() => {
         for (const key of keys) { x -= doc.mix[key]; if (x <= 0) { k = key; break; } }
         if (swordShare && R.chance(swordShare)) k = 'swordsman';
         else if (this.crossShare && R.chance(this.crossShare)) k = 'crossbowman';
+        else if (this.extras && this.extras.length) { for (const ex of this.extras) if (R.chance(ex.share)) { k = ex.type; break; } }
         if (UNIT[k].cost > left) k = 'soldier';
         list.push(k); left -= UNIT[k].cost;
       }
@@ -1324,7 +1339,25 @@ const RVB = (() => {
           // turn smoothly toward the target: ease in, and never faster than 9 rad/s, however fast the target moves
           { let df = Math.atan2(dy, dx) - u.face; df = Math.atan2(Math.sin(df), Math.cos(df)); const cap = 9 * h; u.face += clamp(df * Math.min(1, h * 12), -cap, cap); }
           const spd = U.speed * this.speedMul * (u.pace || 1);
-          if (U.ranged) {
+          if (U.healer) {
+            // keep a safe distance behind the fighting, following the army
+            if (d < U.range * 0.85) { dvx = -nx * spd * 0.7; dvy = -ny * spd * 0.7; }
+            else if (d > U.range * 1.5) { dvx = nx * spd * 0.8; dvy = ny * spd * 0.8; }
+            if (u.cd <= 0) {
+              let best = null, worst = 0.999;
+              for (const o of this.units) {
+                if (o.dead || o.team !== u.team || o === u) continue;
+                const fr = o.hp / o.max;
+                if (fr < worst && (o.x - u.x) ** 2 + (o.y - u.y) ** 2 < U.healRange * U.healRange) { worst = fr; best = o; }
+              }
+              if (best) {
+                best.hp = Math.min(best.max, best.hp + U.heal); best.healFlash = 1; u.healFx = 1; u.healTo = best;
+                u.cd = U.cd * R.range(0.9, 1.1);
+                this.burst(best.x, best.y, '#7CFFB0', 5, 120, 0.5, 5, -60);
+                this.snd('heal', { pan: (u.x - AR.x) / AR.w * 1.4 - 0.7 });
+              } else u.cd = 0.3;
+            }
+          } else if (U.ranged) {
             if (d > U.range) { dvx = nx * spd; dvy = ny * spd; }
             else if (d < U.range * 0.45 && this.pushStage < 2) { dvx = -nx * spd * 0.6; dvy = -ny * spd * 0.6; }
             if (d <= U.range && u.cd <= 0) {
@@ -1345,8 +1378,8 @@ const RVB = (() => {
                 this.shake(8); this.snd('stomp', { pan: (u.x - AR.x) / AR.w * 1.4 - 0.7 });
                 this.burst(t.x, t.y, COL.muted, 10, 300, 0.4, 7);
               } else {
-                this.damage(t, U.dmg * this.dmgMul, u);
-                this.snd('clash', { pan: (u.x - AR.x) / AR.w * 1.4 - 0.7 });
+                this.damage(t, U.dmg * this.dmgMul * (UNIT[t.type].block || 1), u);
+                this.snd(UNIT[t.type].block ? 'thunk' : 'clash', { pan: (u.x - AR.x) / AR.w * 1.4 - 0.7 });
               }
               if (u.type === 'swordsman') {
                 // swing from the side the sword rests on to the other side
@@ -1487,7 +1520,7 @@ const RVB = (() => {
       ctx.textBaseline = 'alphabetic';
     }
     cosmetic(dt) {
-      for (const u of this.units) { u.flash = Math.max(0, u.flash - dt * 6); u.lunge = Math.max(0, u.lunge - dt * 6); if (u.swing) u.swing = Math.max(0, u.swing - dt * 2.6); }
+      for (const u of this.units) { u.flash = Math.max(0, u.flash - dt * 6); u.lunge = Math.max(0, u.lunge - dt * 6); if (u.swing) u.swing = Math.max(0, u.swing - dt * 2.6); if (u.healFx) u.healFx = Math.max(0, u.healFx - dt * 2.5); if (u.healFlash) u.healFlash = Math.max(0, u.healFlash - dt * 3); }
       const a0 = this.alive[0] + this.reserve[0], a1 = this.alive[1] + this.reserve[1];
       this.dispRatio += ((a0 + a1 ? a0 / (a0 + a1) : 0.5) - this.dispRatio) * Math.min(1, dt * 8);
       if (this.stains) {
@@ -1569,7 +1602,7 @@ const RVB = (() => {
           ctx.restore();
         } else {
           ctx.beginPath(); ctx.arc(x, y, u.r, 0, TAU);
-          ctx.fillStyle = u.type === 'soldier' || u.type === 'crossbowman' ? tm.c : tm.d; ctx.fill();
+          ctx.fillStyle = LIGHT_FILL[u.type] ? tm.c : tm.d; ctx.fill();
           ctx.lineWidth = u.type === 'giant' ? 5 : 3; ctx.strokeStyle = COL.ink; ctx.stroke();
           if (u.type === 'knight') { ctx.beginPath(); ctx.arc(x, y, u.r - 4.5, 0, TAU); ctx.lineWidth = 3.5; ctx.strokeStyle = tm.l; ctx.stroke(); }
           if (u.type === 'crossbowman') {
@@ -1581,6 +1614,54 @@ const RVB = (() => {
             const bx1 = ex - fx * 4, by1 = ey - fy * 4;
             ctx.lineWidth = 6; ctx.strokeStyle = COL.ink; ctx.beginPath(); ctx.moveTo(bx1 + px * 11 - fx * 5, by1 + py * 11 - fy * 5); ctx.lineTo(bx1, by1); ctx.lineTo(bx1 - px * 11 - fx * 5, by1 - py * 11 - fy * 5); ctx.stroke();
             ctx.lineWidth = 3; ctx.strokeStyle = COL.steel; ctx.beginPath(); ctx.moveTo(bx1 + px * 11 - fx * 5, by1 + py * 11 - fy * 5); ctx.lineTo(bx1, by1); ctx.lineTo(bx1 - px * 11 - fx * 5, by1 - py * 11 - fy * 5); ctx.stroke();
+          }
+          if (u.type === 'spearman') {
+            // long spear pointing at the enemy; it thrusts forward on each attack
+            const fx = Math.cos(u.face), fy = Math.sin(u.face), px = -fy, py = fx;
+            const reach = u.r + 26 + (u.lunge || 0) * 12;
+            const bx0 = x - fx * (u.r * 0.6), by0 = y - fy * (u.r * 0.6), tx = x + fx * reach, ty = y + fy * reach;
+            ctx.lineCap = 'round';
+            ctx.lineWidth = 6; ctx.strokeStyle = COL.ink; ctx.beginPath(); ctx.moveTo(bx0, by0); ctx.lineTo(tx, ty); ctx.stroke();
+            ctx.lineWidth = 3; ctx.strokeStyle = COL.wood; ctx.beginPath(); ctx.moveTo(bx0, by0); ctx.lineTo(tx, ty); ctx.stroke();
+            ctx.beginPath(); ctx.moveTo(tx + fx * 11, ty + fy * 11); ctx.lineTo(tx + px * 5, ty + py * 5); ctx.lineTo(tx - px * 5, ty - py * 5); ctx.closePath();
+            ctx.fillStyle = COL.steel; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = COL.ink; ctx.stroke();
+          }
+          if (u.type === 'shieldbearer') {
+            // a big tower shield held in front, with a gold boss
+            const fx = Math.cos(u.face), fy = Math.sin(u.face), px = -fy, py = fx;
+            const cx0 = x + fx * (u.r * 0.85), cy0 = y + fy * (u.r * 0.85), hw = u.r * 0.95, ht = 5;
+            ctx.beginPath();
+            ctx.moveTo(cx0 + px * hw - fx * ht, cy0 + py * hw - fy * ht); ctx.lineTo(cx0 + px * hw + fx * ht, cy0 + py * hw + fy * ht);
+            ctx.lineTo(cx0 - px * hw + fx * ht, cy0 - py * hw + fy * ht); ctx.lineTo(cx0 - px * hw - fx * ht, cy0 - py * hw - fy * ht); ctx.closePath();
+            ctx.fillStyle = tm.l; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = COL.ink; ctx.stroke();
+            ctx.beginPath(); ctx.arc(cx0 + fx * 2, cy0 + fy * 2, 3.5, 0, TAU); ctx.fillStyle = COL.gold; ctx.fill(); ctx.lineWidth = 1.5; ctx.stroke();
+          }
+          if (u.type === 'berserker') {
+            // an axe that chops down across the front on each attack
+            const chop = u.lunge || 0, ang = u.face + 0.9 - (1 - chop) * 0.15 - chop * 1.2;
+            const fx = Math.cos(ang), fy = Math.sin(ang), px = -fy, py = fx;
+            const bx0 = x + fx * (u.r - 3), by0 = y + fy * (u.r - 3), hx = x + fx * (u.r + 17), hy = y + fy * (u.r + 17);
+            ctx.lineCap = 'round';
+            ctx.lineWidth = 6; ctx.strokeStyle = COL.ink; ctx.beginPath(); ctx.moveTo(bx0, by0); ctx.lineTo(hx, hy); ctx.stroke();
+            ctx.lineWidth = 3; ctx.strokeStyle = COL.wood; ctx.beginPath(); ctx.moveTo(bx0, by0); ctx.lineTo(hx, hy); ctx.stroke();
+            ctx.beginPath(); ctx.arc(hx - fx * 3, hy - fy * 3, 8, ang - Math.PI / 2 + 0.2, ang + Math.PI / 2 - 0.2, true);
+            ctx.closePath(); ctx.fillStyle = COL.steel; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = COL.ink; ctx.stroke();
+            // red war paint stripe
+            ctx.beginPath(); ctx.moveTo(x - px * u.r * 0.55, y - py * u.r * 0.55); ctx.lineTo(x + px * u.r * 0.55, y + py * u.r * 0.55);
+            ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(20,0,0,0.55)'; ctx.stroke();
+          }
+          if (u.type === 'healer') {
+            // white cross on the body; a green ring pulses out when he heals, with a beam to the patient
+            ctx.lineCap = 'butt'; ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 4;
+            ctx.beginPath(); ctx.moveTo(x - u.r * 0.55, y); ctx.lineTo(x + u.r * 0.55, y); ctx.moveTo(x, y - u.r * 0.55); ctx.lineTo(x, y + u.r * 0.55); ctx.stroke();
+            if (u.healFx > 0) {
+              ctx.beginPath(); ctx.arc(x, y, u.r + 4 + (1 - u.healFx) * 18, 0, TAU);
+              ctx.lineWidth = 3; ctx.strokeStyle = `rgba(124,255,176,${u.healFx * 0.8})`; ctx.stroke();
+              if (u.healTo && !u.healTo.dead) {
+                ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(u.healTo.x, u.healTo.y);
+                ctx.lineWidth = 2.5; ctx.strokeStyle = `rgba(124,255,176,${u.healFx * 0.55})`; ctx.stroke();
+              }
+            }
           }
           if (u.type === 'swordsman') {
             // The sword rests to one side. Each attack sweeps it smoothly across to the other side
@@ -1619,8 +1700,9 @@ const RVB = (() => {
             ctx.lineWidth = 2.5; ctx.strokeStyle = COL.ink; ctx.stroke();
           }
         }
+        if (u.healFlash > 0) { ctx.beginPath(); ctx.arc(x, y, u.r + 2, 0, TAU); ctx.lineWidth = 3; ctx.strokeStyle = `rgba(124,255,176,${u.healFlash * 0.9})`; ctx.stroke(); }
         if (u.flash > 0) { ctx.beginPath(); ctx.arc(x, y, u.r, 0, TAU); ctx.fillStyle = `rgba(255,255,255,${u.flash * 0.8})`; ctx.fill(); }
-        if ((u.type === 'knight' || u.type === 'giant') && u.hp < u.max) {
+        if ((u.type === 'knight' || u.type === 'giant' || u.type === 'shieldbearer') && u.hp < u.max) {
           const w = u.r * 2;
           ctx.fillStyle = COL.ink; ctx.fillRect(x - w / 2 - 2, y - u.r - 13, w + 4, 8);
           ctx.fillStyle = tm.l; ctx.fillRect(x - w / 2, y - u.r - 11, w * clamp(u.hp / u.max, 0, 1), 4);
@@ -1724,6 +1806,7 @@ const RVB = (() => {
           this.voice(t, { dur: 1.2, gain: 0.7, pan, partials: [{ f: 110, f2: 34, glide: 0.25, decay: 0.4 }], noise: { a: 0.9, decay: 0.25, lp: 0.12 } });
           this.voice(t, { dur: 0.8, gain: 0.18, pan, partials: [{ f: 520, decay: 0.35 }, { f: 1206, a: 0.5, decay: 0.22 }, { f: 1981, a: 0.3, decay: 0.14 }] });
           return;
+        case 'heal': if (this.gate('heal', 0.12, t)) this.voice(t, { dur: 0.3, gain: 0.05, pan, partials: [{ f: 1320, f2: 1760, glide: 0.12, decay: 0.12 }, { f: 2640, a: 0.3, decay: 0.06 }] }); return;
         case 'swish': if (this.gate('swish', 0.05, t)) this.voice(t, { dur: 0.2, gain: 0.05, pan, partials: [{ f: 950, f2: 320, glide: 0.07, decay: 0.06, a: 0.25 }], noise: { a: 0.9, decay: 0.07, lp: 0.45, hp: true } }); return;
         case 'clash': if (this.gate('clash', 0.028, t)) this.voice(t, { dur: 0.07, gain: 0.07, pan, partials: [{ f: 1800 + this.noise() * 200, decay: 0.02 }, { f: 2750, a: 0.6, decay: 0.015 }], noise: { a: 0.4, decay: 0.006, lp: 0.9, hp: true } }); return;
         case 'pop': {

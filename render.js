@@ -36,8 +36,13 @@ const posted = fs.existsSync(path.join(__dirname, 'uploads.md'))
   ? (fs.readFileSync(path.join(__dirname, 'uploads.md'), 'utf8').match(/^\| \d{4}-/gm) || []).length : 0;
 const matchups = rules.matchups || [];
 const mu = matchups.length ? matchups[(process.env.MATCHUP ? Number(process.env.MATCHUP) : posted) % matchups.length] : null;
-const swordsmen = mu && mu.swordsmen ? ((rules.swordsmen || {}).shareOfArmy ?? 0.15) : 0;
-const crossbowmen = mu && mu.crossbowmen ? ((rules.crossbowmen || {}).shareOfArmy ?? 0.12) : 0;
+// Optional troops for this line-up, e.g. "troops": ["spearman", "healer"]; shares come from rules.troopShares.
+const shares = rules.troopShares || {};
+const troops = (mu && mu.troops) || [];
+const shareOf = type => (troops.includes(type) ? (shares[type] ?? 0.12) : 0);
+const swordsmen = shareOf('swordsman');
+const crossbowmen = shareOf('crossbowman');
+const extras = troops.filter(t => t !== 'swordsman' && t !== 'crossbowman').map(type => ({ type, share: shareOf(type) }));
 const doctrines = mu ? [mu.top, mu.bottom] : undefined;
 // balance: bottom army size relative to the top, tuned so each match-up is close to 50/50.
 const budgetMul = mu ? [1, mu.balance ?? 1] : undefined;
@@ -75,7 +80,7 @@ async function main() {
   const swordsmenByTeam = pair.map(name => (styles[name] && styles[name].swordsmenShare !== undefined) ? styles[name].swordsmenShare : swordsmen);
   // a style's budget scales that army's size so the style stays fair (tested over many battles)
   const bm = (budgetMul || [1, 1]).map((v, i) => v * ((styles[pair[i]] && styles[pair[i]].budget) || 1));
-  const game = new RVB.Army(seed, { target: SECS, fixedLength: SECS, swordsmen, crossbowmen, map, doctrines, budgetMul: bm, swordsmenByTeam });
+  const game = new RVB.Army(seed, { target: SECS, fixedLength: SECS, swordsmen, crossbowmen, map, doctrines, budgetMul: bm, swordsmenByTeam, extras });
   const synth = new RVB.Synth(SR, SECS + 4);
   synth.reset(seed);
   const canvas = createCanvas(W, H);
@@ -118,7 +123,7 @@ async function main() {
   const [n0, n1] = RVB.TEAMS.map(t => titleCase(t.name));
   const red = `${n0} ${titleCase(game.doc[0].name)}`, blue = `${n1} ${titleCase(game.doc[1].name)}`;
   // Short titles: team emoji + colour names + a short hook with an emoji. Army types go in the description.
-  const EMOJI = { RED: '🔴', BLUE: '🔵', GREEN: '🟢', PURPLE: '🟣', ORANGE: '🟠', YELLOW: '🟡' };
+  const EMOJI = { RED: '🔴', BLUE: '🔵', GREEN: '🟢', PURPLE: '🟣', ORANGE: '🟠', YELLOW: '🟡', PINK: '🩷', CYAN: '🩵' };
   const [e0, e1] = RVB.TEAMS.map(t => EMOJI[t.name] || '⚔️');
   const hooks = ['Who Wins? ⚔️', 'Pick a Side! 👇', 'Only One Survives 💀', 'Guess the Winner 🤔', 'Epic Battle 🔥', 'Who Takes It? 🏆'];
   const hook = hooks[seed % hooks.length];
@@ -136,8 +141,7 @@ async function main() {
     ].join('\n'),
     tags: [`${n0.toLowerCase()} vs ${n1.toLowerCase()}`, 'army battle', 'battle simulation', 'army simulation', 'who wins', 'army clash', `${red.toLowerCase()} vs ${blue.toLowerCase()}`, 'shorts'],
     teams: pair,
-    swordsmen: swordsmen > 0,
-    crossbowmen: crossbowmen > 0,
+    troops,
     winner: game.headline,
   };
   fs.writeFileSync(path.join(OUT, 'meta.json'), JSON.stringify(meta, null, 2));
