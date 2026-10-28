@@ -1425,7 +1425,8 @@ const RVB = (() => {
         if (t) {
           const dx = t.x - u.x, dy = t.y - u.y, d = Math.hypot(dx, dy) || 1;
           const nx = dx / d, ny = dy / d;
-          u.face = Math.atan2(dy, dx);
+          // turn smoothly toward the target: ease in, and never faster than 9 rad/s, however fast the target moves
+          { let df = Math.atan2(dy, dx) - u.face; df = Math.atan2(Math.sin(df), Math.cos(df)); const cap = 9 * h; u.face += clamp(df * Math.min(1, h * 12), -cap, cap); }
           const spd = U.speed * this.speedMul * (u.pace || 1);
           if (U.ranged) {
             if (d > U.range) { dvx = nx * spd; dvy = ny * spd; }
@@ -1455,6 +1456,7 @@ const RVB = (() => {
                 // swing from the side the sword rests on to the other side
                 const side = u.swordSide || -1;
                 u.swingFrom = side; u.swordSide = -side; u.swing = 1;
+                u.swingStart = u.swordOff === undefined ? side * 1.05 : u.swordOff; // start the swing from wherever the sword is now
                 this.snd('swish', { pan: (u.x - AR.x) / AR.w * 1.4 - 0.7 });
               }
               if (this.FX.chance(0.5)) this.burst((u.x + t.x) / 2, (u.y + t.y) / 2, COL.white, 2, 180, 0.2, 5);
@@ -1553,7 +1555,7 @@ const RVB = (() => {
           const dir = u.team === 0 ? -1 : 1;
           u.vy += (dir * 320 - u.vy) * Math.min(1, dt * 4); u.vx *= 0.9;
           u.x += u.vx * dt; u.y += u.vy * dt;
-          u.face = dir > 0 ? Math.PI / 2 : -Math.PI / 2;
+          { let df = (dir > 0 ? Math.PI / 2 : -Math.PI / 2) - u.face; df = Math.atan2(Math.sin(df), Math.cos(df)); const cap = 9 * dt; u.face += clamp(df * Math.min(1, dt * 12), -cap, cap); }
           u.fade = clamp(1 - this.outroT / 1.6, 0, 1);
         } else { u.vx *= 0.9; u.vy *= 0.9; }
       }
@@ -1589,7 +1591,7 @@ const RVB = (() => {
       ctx.textBaseline = 'alphabetic';
     }
     cosmetic(dt) {
-      for (const u of this.units) { u.flash = Math.max(0, u.flash - dt * 6); u.lunge = Math.max(0, u.lunge - dt * 6); if (u.swing) u.swing = Math.max(0, u.swing - dt * 3.2); }
+      for (const u of this.units) { u.flash = Math.max(0, u.flash - dt * 6); u.lunge = Math.max(0, u.lunge - dt * 6); if (u.swing) u.swing = Math.max(0, u.swing - dt * 2.6); }
       const a0 = this.alive[0] + this.reserve[0], a1 = this.alive[1] + this.reserve[1];
       this.dispRatio += ((a0 + a1 ? a0 / (a0 + a1) : 0.5) - this.dispRatio) * Math.min(1, dt * 8);
       if (this.stains) {
@@ -1715,13 +1717,14 @@ const RVB = (() => {
             // (ease in and out over ~0.3 s), leaving a fading swish trail behind the blade.
             const SW = 1.05, on = u.swing > 0, p = 1 - (u.swing || 0);
             const e = p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
-            const from = (u.swingFrom || -1) * SW, rest = (u.swordSide || -1) * SW;
-            let off = on ? from + (rest - from) * e : rest;
+            const rest = (u.swordSide || -1) * SW;
+            const from = on ? (u.swingStart === undefined ? (u.swingFrom || -1) * SW : u.swingStart) : rest;
             const running = !on && Math.hypot(u.vx, u.vy) > 18;
-            if (running) {
-              // running: sword held low and loose, swaying with each stride, roughly pointing at the enemy
-              off = (u.swordSide || -1) * 0.45 + Math.sin(this.fightT * 11 + u.gait) * 0.4;
-            }
+            // where the sword wants to be: resting to one side, or low and swaying while running toward the enemy
+            const want = running ? (u.swordSide || -1) * 0.45 + Math.sin(this.fightT * 11 + u.gait) * 0.4 : rest;
+            // during a swing the eased curve drives it; otherwise glide toward 'want' so it never snaps
+            let off = on ? from + (rest - from) * e : (u.swordOff === undefined ? want : u.swordOff + clamp((want - u.swordOff) * 0.18, -0.1, 0.1));
+            u.swordOff = off;
             const ang = u.face + off;
             if (on && u.swing > 0.08) {
               const span = off - from, steps = 6;
