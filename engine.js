@@ -1383,7 +1383,8 @@ const RVB = (() => {
       const U = UNIT[type];
       const R = this.R;
       const hp = U.hp * (this.hpScale || 1);
-      this.units.push({ team, type, x, y, vx: 0, vy: 0, r: U.r, hp, max: hp, cd: R.range(0, U.cd), retarget: R.range(0, 0.3), target: null, flash: 0, lunge: 0, face: team === 0 ? Math.PI / 2 : -Math.PI / 2, dead: false, m: U.r * U.r });
+      const pace = 1 + (R.chance(0.5) ? 1 : -1) * R.range(0.03, 0.07);
+      this.units.push({ team, type, x, y, pace, gait: R.range(0, TAU), vx: 0, vy: 0, r: U.r, hp, max: hp, cd: R.range(0, U.cd), retarget: R.range(0, 0.3), target: null, flash: 0, lunge: 0, face: team === 0 ? Math.PI / 2 : -Math.PI / 2, dead: false, m: U.r * U.r });
       this.alive[team]++;
     }
     reinforce(team, wave) {
@@ -1434,7 +1435,7 @@ const RVB = (() => {
           const dx = t.x - u.x, dy = t.y - u.y, d = Math.hypot(dx, dy) || 1;
           const nx = dx / d, ny = dy / d;
           u.face = Math.atan2(dy, dx);
-          const spd = U.speed * this.speedMul;
+          const spd = U.speed * this.speedMul * (u.pace || 1);
           if (U.ranged) {
             if (d > U.range) { dvx = nx * spd; dvy = ny * spd; }
             else if (d < U.range * 0.45 && this.pushStage < 2) { dvx = -nx * spd * 0.6; dvy = -ny * spd * 0.6; }
@@ -1660,7 +1661,10 @@ const RVB = (() => {
         const tm = TEAMS[u.team];
         if (u.fade !== undefined) { if (u.fade <= 0) continue; ctx.globalAlpha = u.fade; }
         let lx = Math.cos(u.face) * u.lunge * 6, ly = Math.sin(u.face) * u.lunge * 6;
-        if (u.type === 'swordsman') {
+        if (u.type === 'swordsman' && !(u.swing > 0) && Math.hypot(u.vx, u.vy) > 18) {
+          const sway = Math.sin(this.fightT * 11 + u.gait) * 2.2;
+          lx = -Math.sin(u.face) * sway; ly = Math.cos(u.face) * sway;
+        } else if (u.type === 'swordsman') {
           const p = 1 - (u.swing || 0), on = u.swing > 0;
           const fwd = on ? Math.sin(Math.PI * p) * 7 : 0;
           const side = on ? (p - 0.5) * 5 * -(u.swingFrom || -1) : 0;
@@ -1695,7 +1699,12 @@ const RVB = (() => {
             const SW = 1.05, on = u.swing > 0, p = 1 - (u.swing || 0);
             const e = p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
             const from = (u.swingFrom || -1) * SW, rest = (u.swordSide || -1) * SW;
-            const off = on ? from + (rest - from) * e : rest;
+            let off = on ? from + (rest - from) * e : rest;
+            const running = !on && Math.hypot(u.vx, u.vy) > 18;
+            if (running) {
+              // running: sword held low and loose, swaying with each stride, roughly pointing at the enemy
+              off = (u.swordSide || -1) * 0.45 + Math.sin(this.fightT * 11 + u.gait) * 0.4;
+            }
             const ang = u.face + off;
             if (on && u.swing > 0.08) {
               const span = off - from, steps = 6;
