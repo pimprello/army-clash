@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-10-28 06:42 | 🩷 Pink vs Cyan 🩵 \| Who Takes It? 🏆 #shorts | Pink wins | https://youtube.com/shorts/NyfEcWrPd-o |
 | 2026-10-28 06:37 | 🟡 Yellow vs Purple 🟣 \| Only One Survives 💀 #shorts | Purple wins | https://youtube.com/shorts/pSXdAQrvqVk |
 | 2026-10-28 06:31 | 🔵 Blue vs Red 🔴 \| Epic Battle 🔥 #shorts | Blue wins | https://youtube.com/shorts/wsGVB2W67eo |
 | 2026-10-28 06:26 | 🩷 Pink vs Cyan 🩵 \| Only One Survives 💀 #shorts | Cyan wins | https://youtube.com/shorts/Up2MDka2jAQ |
