@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-10-28 04:53 | 🔴 Red vs Blue 🔵 \| Guess the Winner 🤔 #shorts | Blue wins | https://youtube.com/shorts/Kgj_HiA7i9E |
 | 2026-10-28 04:48 | 🔵 Blue vs Red 🔴 \| Guess the Winner 🤔 #shorts | Red wins | https://youtube.com/shorts/qfLVZ_hbDkY |
 | 2026-10-28 04:43 | 🟠 Orange vs Blue 🔵 \| Who Wins? ⚔️ #shorts | Orange wins | https://youtube.com/shorts/-2MKU7JCmH4 |
 | 2026-10-28 04:38 | 🔴 Red vs Blue 🔵 \| Guess the Winner 🤔 #shorts | Blue wins | https://youtube.com/shorts/_Qr_iIkzY5U |
