@@ -194,24 +194,15 @@ const RVB = (() => {
     g.restore();
   }
   function background(map) {
-    const key = map || 'classic';
+    const key = 'classic';
     if (bgCache[key] || !api.makeCanvas) return bgCache[key] || null;
     const c = api.makeCanvas(VW, VH);
     const g = c.getContext('2d');
     const lin = g.createLinearGradient(0, 0, 0, VH);
-    if (key === 'medieval') {
-      // same style as the classic background, in dark green
-      lin.addColorStop(0, '#174A2A');
-      lin.addColorStop(0.45, '#0E321C');
-      lin.addColorStop(1, '#05140A');
-      g.fillStyle = lin;
-      g.fillRect(0, 0, VW, VH);
-    } else {
       lin.addColorStop(0, COL.bg0);
       lin.addColorStop(1, COL.bg1);
       g.fillStyle = lin;
       g.fillRect(0, 0, VW, VH);
-    }
     const glow = (x, y, rad, color) => {
       const rg = g.createRadialGradient(x, y, 0, x, y, rad);
       rg.addColorStop(0, color);
@@ -314,7 +305,7 @@ const RVB = (() => {
 
     // ----- shared drawing -----
     drawBG(ctx) {
-      const bg = background(this.opts && this.opts.map);
+      const bg = background(); // same background on every map
       if (bg) ctx.drawImage(bg, 0, 0, VW, VH);
       else { ctx.fillStyle = COL.bg1; ctx.fillRect(0, 0, VW, VH); }
     }
@@ -1657,6 +1648,7 @@ const RVB = (() => {
       }
       // units by type for fewer state changes
       const cheer = this.phase === 'outro' ? this.winner : -1;
+      const armour = this.opts.map === 'medieval'; // on the medieval map every troop wears knight armour
       for (const u of this.units) {
         const tm = TEAMS[u.team];
         if (u.fade !== undefined) { if (u.fade <= 0) continue; ctx.globalAlpha = u.fade; }
@@ -1677,12 +1669,26 @@ const RVB = (() => {
           ctx.save(); ctx.translate(x, y); ctx.rotate(u.face);
           ctx.beginPath(); ctx.moveTo(u.r * 1.5, 0); ctx.lineTo(-u.r, -u.r * 1.05); ctx.lineTo(-u.r, u.r * 1.05); ctx.closePath();
           ctx.fillStyle = tm.c; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = COL.ink; ctx.stroke();
+          if (armour) { ctx.beginPath(); ctx.arc(-u.r * 0.1, 0, u.r * 0.5, 0, TAU); ctx.fillStyle = COL.steel; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = COL.ink; ctx.stroke();
+            ctx.beginPath(); ctx.moveTo(u.r * 0.18, -u.r * 0.28); ctx.lineTo(u.r * 0.18, u.r * 0.28); ctx.lineWidth = 2.5; ctx.stroke(); }
           ctx.restore();
         } else {
           ctx.beginPath(); ctx.arc(x, y, u.r, 0, TAU);
           ctx.fillStyle = u.type === 'soldier' || u.type === 'crossbowman' ? tm.c : tm.d; ctx.fill();
           ctx.lineWidth = u.type === 'giant' ? 5 : 3; ctx.strokeStyle = COL.ink; ctx.stroke();
           if (u.type === 'knight') { ctx.beginPath(); ctx.arc(x, y, u.r - 4.5, 0, TAU); ctx.lineWidth = 3.5; ctx.strokeStyle = tm.l; ctx.stroke(); }
+          if (armour && u.type !== 'giant') {
+            // knight armour: a steel helmet seen from above, with a dark visor slit facing the enemy and a team-colour plume
+            const fx = Math.cos(u.face), fy = Math.sin(u.face), hr = u.r * 0.62;
+            ctx.beginPath(); ctx.arc(x, y, hr, 0, TAU); ctx.fillStyle = COL.steel; ctx.fill();
+            ctx.lineWidth = 2; ctx.strokeStyle = COL.ink; ctx.stroke();
+            ctx.beginPath(); ctx.arc(x - fx * hr * 0.15, y - fy * hr * 0.15, hr * 0.55, 0, TAU); ctx.fillStyle = 'rgba(255,255,255,0.35)'; ctx.fill();
+            const vx = x + fx * hr * 0.45, vy = y + fy * hr * 0.45;
+            ctx.beginPath(); ctx.moveTo(vx - fy * hr * 0.6, vy + fx * hr * 0.6); ctx.lineTo(vx + fy * hr * 0.6, vy - fx * hr * 0.6);
+            ctx.lineWidth = 2.5; ctx.strokeStyle = COL.ink; ctx.stroke();
+            ctx.beginPath(); ctx.arc(x - fx * hr * 0.55, y - fy * hr * 0.55, hr * 0.28, 0, TAU); ctx.fillStyle = tm.l; ctx.fill();
+            ctx.lineWidth = 1.5; ctx.stroke();
+          }
           if (u.type === 'crossbowman') {
             // a crossbow held out front: stock along the facing, bow across it
             const fx = Math.cos(u.face), fy = Math.sin(u.face), px = -fy, py = fx;
