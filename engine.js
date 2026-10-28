@@ -22,7 +22,7 @@ const RVB = (() => {
     BLUE: { c: COL.blue, d: COL.blueD, l: COL.blueL },
     GREEN: { c: '#2ECC55', d: '#11702B', l: '#B4F2C4' },
     PURPLE: { c: '#A64DFF', d: '#5A1A99', l: '#E0C4FF' },
-    ORANGE: { c: '#FF8A1F', d: '#9A4A05', l: '#FFD2A6' },
+    ORANGE: { c: '#FF8A1F', d: '#C9600E', l: '#FFD2A6' },
     YELLOW: { c: '#FFD23F', d: '#9A7A0A', l: '#FFF0B3' },
   };
   const rgba = (hex, a) => { const n = parseInt(hex.slice(1), 16); return `rgba(${n >> 16},${(n >> 8) & 255},${n & 255},${a})`; };
@@ -1250,12 +1250,14 @@ const RVB = (() => {
       this.speedMul = 1;
       // opts.swordsmen: share of each army that are swordsmen (0 = none in this video).
       this.swordShare = this.opts.swordsmen || 0;
+      // opts.swordsmenByTeam = [top, bottom] overrides the share per team (e.g. an orange army that fights mostly with swords).
+      this.swordShareT = this.opts.swordsmenByTeam || [this.swordShare, this.swordShare];
       // opts.crossbowmen: share of each army that are crossbowmen (0 = none).
       this.crossShare = this.opts.crossbowmen || 0;
       for (let team = 0; team < 2; team++) {
         // opts.budgetMul = [top, bottom] scales each army's size (used to balance fixed match-ups).
         const bm = this.opts.budgetMul ? this.opts.budgetMul[team] : 1;
-        const list = this.recruit(this.doc[team], budget * bm * (F ? this.doc[team].budget60 : this.doc[team].budget) * R.range(0.95, 1.05));
+        const list = this.recruit(this.doc[team], team, budget * bm * (F ? this.doc[team].budget60 : this.doc[team].budget) * R.range(0.95, 1.05));
         this.start[team] = list.length;
         const parts = waveAt.map(() => []).concat([[]]), seen = {};
         for (const k of list) { const i = seen[k] = (seen[k] || 0) + 1; parts[k === 'giant' ? 0 : waveOf(i)].push(k); }
@@ -1325,7 +1327,8 @@ const RVB = (() => {
       // slight shade so the troops stay easy to see
       g.fillStyle = 'rgba(5,10,6,0.14)'; g.fillRect(0, 0, AR.w, AR.h);
     }
-    recruit(doc, budget) {
+    recruit(doc, team, budget) {
+      const swordShare = this.swordShareT ? this.swordShareT[team] : this.swordShare;
       const R = this.R;
       const list = [];
       let left = budget;
@@ -1334,7 +1337,7 @@ const RVB = (() => {
       while (left >= 1) {
         let x = R.next(), k = keys[0];
         for (const key of keys) { x -= doc.mix[key]; if (x <= 0) { k = key; break; } }
-        if (this.swordShare && R.chance(this.swordShare)) k = 'swordsman';
+        if (swordShare && R.chance(swordShare)) k = 'swordsman';
         else if (this.crossShare && R.chance(this.crossShare)) k = 'crossbowman';
         if (UNIT[k].cost > left) k = 'soldier';
         list.push(k); left -= UNIT[k].cost;

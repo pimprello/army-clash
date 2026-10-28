@@ -70,7 +70,12 @@ const titleCase = s => s.charAt(0) + s.slice(1).toLowerCase();
 
 async function main() {
   const t0 = Date.now();
-  const game = new RVB.Army(seed, { target: SECS, fixedLength: SECS, swordsmen, crossbowmen, map, doctrines, budgetMul });
+  // teamStyles: a colour can have its own fighting style, e.g. ORANGE armies are mostly swordsmen.
+  const styles = rules.teamStyles || {};
+  const swordsmenByTeam = pair.map(name => (styles[name] && styles[name].swordsmenShare !== undefined) ? styles[name].swordsmenShare : swordsmen);
+  // a style's budget scales that army's size so the style stays fair (tested over many battles)
+  const bm = (budgetMul || [1, 1]).map((v, i) => v * ((styles[pair[i]] && styles[pair[i]].budget) || 1));
+  const game = new RVB.Army(seed, { target: SECS, fixedLength: SECS, swordsmen, crossbowmen, map, doctrines, budgetMul: bm, swordsmenByTeam });
   const synth = new RVB.Synth(SR, SECS + 4);
   synth.reset(seed);
   const canvas = createCanvas(W, H);
