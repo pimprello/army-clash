@@ -105,11 +105,11 @@
     {"top": "KNIGHTS", "bottom": "BALANCED", "troops": ["crossbowman"], "balance": 1.01},
     {"top": "GIANT", "bottom": "ARCHERS", "troops": ["crossbowman"], "balance": 1.01},
     {"top": "SWARM", "bottom": "BALANCED", "troops": ["swordsman"], "balance": 1.07},
-    {"top": "KNIGHTS", "bottom": "SWARM", "troops": ["spearman"], "balance": 1},
-    {"top": "ARCHERS", "bottom": "KNIGHTS", "troops": ["shieldbearer", "healer"], "balance": 1},
-    {"top": "BALANCED", "bottom": "BALANCED", "troops": ["berserker", "spearman"], "balance": 1},
-    {"top": "SWARM", "bottom": "GIANT", "troops": ["healer", "swordsman"], "balance": 1},
-    {"top": "GIANT", "bottom": "KNIGHTS", "troops": ["berserker", "crossbowman"], "balance": 1},
-    {"top": "BALANCED", "bottom": "ARCHERS", "troops": ["shieldbearer", "spearman", "berserker"], "balance": 1}
+    {"top": "KNIGHTS", "bottom": "SWARM", "troops": ["spearman"], "balance": 0.89},
+    {"top": "ARCHERS", "bottom": "KNIGHTS", "troops": ["shieldbearer", "healer"], "balance": 1.07},
+    {"top": "BALANCED", "bottom": "BALANCED", "troops": ["berserker", "spearman"], "balance": 0.99},
+    {"top": "SWARM", "bottom": "GIANT", "troops": ["healer", "swordsman"], "balance": 0.92},
+    {"top": "GIANT", "bottom": "KNIGHTS", "troops": ["berserker", "crossbowman"], "balance": 1.02},
+    {"top": "BALANCED", "bottom": "ARCHERS", "troops": ["shieldbearer", "spearman", "berserker"], "balance": 0.96}
   ]
 }
