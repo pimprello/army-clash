@@ -89,6 +89,9 @@ async function main() {
   const swordsmenByTeam = pair.map(name => (style(name) && style(name).swordsmenShare !== undefined) ? style(name).swordsmenShare : swordsmen);
   // a style's budget scales that army's size so the style stays fair (tested over many battles)
   const bm = (budgetMul || [1, 1]).map((v, i) => v * ((style(pair[i]) && style(pair[i]).budget) || 1));
+  // formationBudget: slightly smaller armies for formations that tested stronger than a line, bigger for weaker ones
+  const fbud = rules.formationBudget || {};
+  formations.forEach((f, i) => { bm[i] *= fbud[f] ?? 1; });
   const game = new RVB.Army(seed, { target: SECS, fixedLength: SECS, swordsmen, crossbowmen, map, doctrines, budgetMul: bm, swordsmenByTeam, extras, era, formations });
   const synth = new RVB.Synth(SR, SECS + 4);
   synth.reset(seed);

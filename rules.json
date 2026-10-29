@@ -142,6 +142,7 @@
     "flanks",
     "block"
   ],
+  "formationBudget": {"line": 1, "wedge": 0.985, "columns": 0.99, "crescent": 1.005, "flanks": 1, "block": 1.005},
   "matchups": [
     {"top": "SWARM", "bottom": "KNIGHTS", "balance": 1.11},
     {"top": "ARCHERS", "bottom": "BALANCED", "troops": ["swordsman"], "balance": 1.05},
