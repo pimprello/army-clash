@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-10-29 12:32 | 🟣 Purple vs Blue 🔵 \| Who Takes It? 🏆 #shorts | Blue wins | https://youtube.com/shorts/H7quf9r6lB8 |
 | 2026-10-29 12:17 | 🟣 Purple vs White ⚪ \| Who Takes It? 🏆 #shorts | Purple wins | https://youtube.com/shorts/XBxyh4WBvd0 |
 | 2026-10-29 12:01 | 🔵 Blue vs Purple 🟣 \| Guess the Winner 🤔 #shorts | Purple wins | https://youtube.com/shorts/7SF_6NsXoTQ |
 | 2026-10-29 11:47 | 🟡 Yellow vs Purple 🟣 \| Modern War 🪖 #shorts | Yellow wins | https://youtube.com/shorts/FSJ7ktMq9Rg |
