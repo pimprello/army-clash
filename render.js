@@ -150,7 +150,7 @@ async function main() {
       '',
       `#shorts #${n0.toLowerCase()}vs${n1.toLowerCase()} #battlesimulation`,
     ].join('\n'),
-    tags: [`${n0.toLowerCase()} vs ${n1.toLowerCase()}`, 'army battle', 'battle simulation', 'army simulation', 'who wins', 'army clash', `${red.toLowerCase()} vs ${blue.toLowerCase()}`, 'shorts'].concat(era === 'modern' ? ['modern warfare', 'tank battle'] : []),
+    tags: [`${n0.toLowerCase()} vs ${n1.toLowerCase()}`, 'army battle', 'battle simulation', 'army simulation', 'who wins', 'army clash', `${red.toLowerCase()} vs ${blue.toLowerCase()}`, 'shorts'].concat(era === 'modern' ? ['modern warfare'] : []).concat(game.doc.some(d => d.tank) ? ['tank battle'] : []),
     teams: pair,
     troops,
     era,
