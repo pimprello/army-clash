@@ -26,6 +26,8 @@ const RVB = (() => {
     YELLOW: { c: '#FFD23F', d: '#9A7A0A', l: '#FFF0B3' },
     PINK: { c: '#FF5FB4', d: '#A3146A', l: '#FFC2E3' },
     CYAN: { c: '#22D3EE', d: '#0E7490', l: '#B5F1FA' },
+    WHITE: { c: '#EEF2F7', d: '#8E9AAD', l: '#FFFFFF' },
+    BROWN: { c: '#B5651D', d: '#6E3B10', l: '#E9C9A0' },
   };
   const rgba = (hex, a) => { const n = parseInt(hex.slice(1), 16); return `rgba(${n >> 16},${(n >> 8) & 255},${n & 255},${a})`; };
   const FONT = '"Barlow Condensed", "Arial Narrow", "Roboto Condensed", "Helvetica Neue", Arial, sans-serif';
@@ -1127,11 +1129,24 @@ const RVB = (() => {
     berserker: { r: 13, hp: 10, dmg: 3, cd: 0.5, reach: 5, speed: 112, cost: 2.4, rank: 1, armor: 1 },
     // healer: never attacks; stays behind the line and patches up the most hurt ally nearby
     healer: { r: 11, hp: 6, dmg: 0, cd: 1.6, range: 170, speed: 80, cost: 2, healer: true, heal: 4, healRange: 130, rank: 3, armor: 1 },
+    // ----- modern warfare -----
+    // rifleman: the modern basic troop, fires single shots
+    rifleman: { r: 11, hp: 6, dmg: 1.4, cd: 0.9, range: 330, speed: 80, cost: 1.3, ranged: true, bullet: 1600, rank: 3, armor: 1 },
+    // machine gunner: rapid, inaccurate bursts
+    gunner: { r: 13, hp: 9, dmg: 0.6, cd: 0.16, range: 300, speed: 62, cost: 2.6, ranged: true, bullet: 1700, spread: 0.12, rank: 2, armor: 0.9 },
+    // sniper: very long range, slow, one hard hit that cuts through armour
+    sniper: { r: 11, hp: 5, dmg: 7, cd: 3.0, range: 560, speed: 70, cost: 2.6, ranged: true, bullet: 2600, pierce: 0.6, rank: 4, armor: 1 },
+    // grenadier: lobs grenades that explode over an area
+    grenadier: { r: 12, hp: 7, dmg: 3, cd: 2.6, range: 260, speed: 76, cost: 2.4, ranged: true, lob: 'grenade', bullet: 520, splash: 42, rank: 3, armor: 1 },
+    // tank: armoured, slow, fires shells that blow up groups (one per ARMORED army, like the giant)
+    tank: { r: 30, hp: 90, dmg: 6, cd: 2.2, range: 340, speed: 44, cost: 18, ranged: true, lob: 'shell', bullet: 900, splash: 54, rank: 0, armor: 0.2 },
     knight: { r: 18, hp: 24, dmg: 2, cd: 0.8, reach: 5, speed: 70, cost: 3.2, rank: 1, armor: 0.4 },
     giant: { r: 36, hp: 110, dmg: 5, cd: 1.25, reach: 6, speed: 46, cost: 22, splash: 48, rank: 0, armor: 0.5 },
   };
   // troops drawn in the bright team colour (the rest use the darker shade)
-  const LIGHT_FILL = { soldier: 1, crossbowman: 1, spearman: 1, berserker: 1, healer: 1 };
+  // gun sizes for drawing modern infantry
+  const MODERN_INF = { rifleman: { len: 14, w: 3.5 }, gunner: { len: 18, w: 5.5 }, sniper: { len: 26, w: 3 }, grenadier: {} };
+  const LIGHT_FILL = { soldier: 1, crossbowman: 1, spearman: 1, berserker: 1, healer: 1, rifleman: 1, sniper: 1, grenadier: 1 };
   const DOCTRINES = [
     { name: 'SWARM', mix: { soldier: 0.8, archer: 0.12, knight: 0.08 }, budget: 1.04, budget60: 1.08 },
     { name: 'ARCHERS', mix: { soldier: 0.35, archer: 0.55, knight: 0.1 }, budget: 1.03, budget60: 1.03 },
@@ -1139,6 +1154,25 @@ const RVB = (() => {
     { name: 'BALANCED', mix: { soldier: 0.5, archer: 0.3, knight: 0.2 }, budget: 1.02, budget60: 0.99 },
     { name: 'GIANT', mix: { soldier: 0.55, archer: 0.3, knight: 0.15 }, giant: true, budget: 0.89, budget60: 0.92 },
   ];
+
+  // Modern-warfare army types (used when a line-up has "era": "modern"). base = filler troop.
+  const MODERN_DOCTRINES = [
+    { name: 'INFANTRY', base: 'rifleman', mix: { rifleman: 0.75, gunner: 0.15, grenadier: 0.1 }, budget: 1, budget60: 1 },
+    { name: 'ASSAULT', base: 'rifleman', mix: { rifleman: 0.45, gunner: 0.3, grenadier: 0.25 }, budget: 1, budget60: 1 },
+    { name: 'SNIPERS', base: 'rifleman', mix: { rifleman: 0.45, sniper: 0.4, gunner: 0.15 }, budget: 1, budget60: 1 },
+    { name: 'ARMORED', base: 'rifleman', mix: { rifleman: 0.6, gunner: 0.25, grenadier: 0.15 }, tank: true, budget: 1, budget60: 1 },
+    { name: 'COMBINED', base: 'rifleman', mix: { rifleman: 0.5, gunner: 0.2, sniper: 0.15, grenadier: 0.15 }, budget: 1, budget60: 1 },
+  ];
+  // Starting formations. segs(row) gives the row's segments as [left, right] offsets from the centre;
+  // bend(dx) pulls a unit toward the enemy. 'line' reproduces the original layout exactly.
+  const FORMATIONS = {
+    line: { segs: () => [[-330, 330]] },
+    wedge: { segs: k => { const w = Math.min(660, 100 + k * 120); return [[-w / 2, w / 2]]; } },
+    block: { segs: () => [[-240, 240]] },
+    columns: { segs: () => [[-345, -125], [-110, 110], [125, 345]] },
+    flanks: { segs: () => [[-360, -110], [110, 360]] },
+    crescent: { segs: () => [[-330, 330]], bend: dx => 70 * (dx / 330) ** 2 },
+  };
 
   class Army extends Match {
     constructor(seed, opts) {
@@ -1148,13 +1182,16 @@ const RVB = (() => {
       this.audioGain = 3.0;
       this.label = 'Army Clash';
       this.title = 'ARMY CLASH';
-      this.hook = R.pick(['WHICH ARMY SURVIVES?', 'WHO WINS THE WAR?', 'PICK YOUR ARMY', `${TEAMS[0].name} OR ${TEAMS[1].name}?`]);
+      this.hook = R.pick(this.opts.era === 'modern'
+        ? ['WHO WINS THE FIREFIGHT?', 'WHO HOLDS THE LINE?', 'PICK YOUR SQUAD', `${TEAMS[0].name} OR ${TEAMS[1].name}?`]
+        : ['WHICH ARMY SURVIVES?', 'WHO WINS THE WAR?', 'PICK YOUR ARMY', `${TEAMS[0].name} OR ${TEAMS[1].name}?`]);
+      this.booms = [];
       const d0 = R.pick(DOCTRINES);
       let d1 = R.pick(DOCTRINES);
       if (d1 === d0 && R.chance(0.75)) while (d1 === d0) d1 = R.pick(DOCTRINES);
       this.doc = [d0, d1];
       // opts.doctrines = ['SWARM', 'KNIGHTS'] picks the two army types instead of chance.
-      if (this.opts.doctrines) this.doc = this.opts.doctrines.map(n => DOCTRINES.find(d => d.name === n) || d0);
+      if (this.opts.doctrines) this.doc = this.opts.doctrines.map(n => DOCTRINES.concat(MODERN_DOCTRINES).find(d => d.name === n) || d0);
       // fixedLength: the whole video runs exactly this long (fight + outro), with four reinforcement waves.
       this.fixed = this.opts.fixedLength || 0;
       const F = this.fixed;
@@ -1201,7 +1238,7 @@ const RVB = (() => {
         const list = this.recruit(this.doc[team], team, budget * bm * (F ? this.doc[team].budget60 : this.doc[team].budget) * R.range(0.95, 1.05));
         this.start[team] = list.length;
         const parts = waveAt.map(() => []).concat([[]]), seen = {};
-        for (const k of list) { const i = seen[k] = (seen[k] || 0) + 1; parts[k === 'giant' ? 0 : waveOf(i)].push(k); }
+        for (const k of list) { const i = seen[k] = (seen[k] || 0) + 1; parts[k === 'giant' || k === 'tank' ? 0 : waveOf(i)].push(k); }
         this.deploy(team, parts[0], 'front');
         for (let w = 1; w < parts.length; w++) if (parts[w].length) { this.waves[team].push({ at: waveAt[w - 1], list: parts[w] }); this.reserve[team] += parts[w].length; }
       }
@@ -1240,6 +1277,7 @@ const RVB = (() => {
       const list = [];
       let left = budget;
       if (doc.giant) { list.push('giant'); left -= UNIT.giant.cost; }
+      if (doc.tank) { list.push('tank'); left -= UNIT.tank.cost; }
       const keys = Object.keys(doc.mix);
       while (left >= 1) {
         let x = R.next(), k = keys[0];
@@ -1247,7 +1285,7 @@ const RVB = (() => {
         if (swordShare && R.chance(swordShare)) k = 'swordsman';
         else if (this.crossShare && R.chance(this.crossShare)) k = 'crossbowman';
         else if (this.extras && this.extras.length) { for (const ex of this.extras) if (R.chance(ex.share)) { k = ex.type; break; } }
-        if (UNIT[k].cost > left) k = 'soldier';
+        if (UNIT[k].cost > left) k = doc.base || 'soldier';
         list.push(k); left -= UNIT[k].cost;
       }
       return list.sort((a, b) => UNIT[a].rank - UNIT[b].rank);
@@ -1260,25 +1298,31 @@ const RVB = (() => {
       let dir, rowY, order;
       if (mode === 'front') { dir = own; rowY = mid + own * 95; order = list; }
       else { dir = -own; rowY = team === 0 ? AR.y + 6 : AR.y + AR.h - 6; order = list.slice().reverse(); }
-      const maxW = 660;
-      let i = 0;
+      const form = (mode === 'front' && FORMATIONS[(this.opts.formations || [])[team]]) || FORMATIONS.line;
+      const cx = AR.x + AR.w / 2;
+      let i = 0, rowNo = 0;
       while (i < order.length) {
-        const row = [];
-        let width = 0, maxR = 0;
-        while (i < order.length) {
-          const r = UNIT[order[i]].r;
-          if (width + r * 2 + 8 > maxW && row.length) break;
-          row.push(order[i]); width += r * 2 + 8; maxR = Math.max(maxR, r); i++;
+        // fill this row's segments left to right, then centre each segment's troops in it
+        const segs = form.segs(rowNo).map(([a, b]) => ({ a, b, units: [], w: 0 }));
+        let maxR = 0, si = 0;
+        while (i < order.length && si < segs.length) {
+          const r = UNIT[order[i]].r, seg = segs[si];
+          if (seg.w + r * 2 + 8 > seg.b - seg.a && seg.units.length) { si++; continue; }
+          seg.units.push(order[i]); seg.w += r * 2 + 8; maxR = Math.max(maxR, r); i++;
         }
         rowY += dir * maxR;
-        let x = AR.x + AR.w / 2 - width / 2;
-        for (const k of row) {
-          const r = UNIT[k].r;
-          x += r + 4;
-          this.addUnit(team, k, x + R.range(-3, 3), clamp(rowY + R.range(-3, 3), AR.y + r + 2, AR.y + AR.h - r - 2));
-          x += r + 4;
+        for (const seg of segs) {
+          let x = cx + (seg.a + seg.b) / 2 - seg.w / 2;
+          for (const k of seg.units) {
+            const r = UNIT[k].r;
+            x += r + 4;
+            const bend = form.bend ? form.bend(x - cx) : 0;
+            this.addUnit(team, k, x + R.range(-3, 3), clamp(rowY - dir * bend + R.range(-3, 3), AR.y + r + 2, AR.y + AR.h - r - 2));
+            x += r + 4;
+          }
         }
         rowY += dir * (maxR + 8);
+        rowNo++;
       }
     }
     addUnit(team, type, x, y) {
@@ -1293,6 +1337,20 @@ const RVB = (() => {
       wave.done = true;
       this.reserve[team] -= wave.list.length;
       this.deploy(team, wave.list, 'back');
+    }
+    // A grenade or shell lands: damage every enemy in the blast, more near the middle.
+    explode(a) {
+      const big = a.kind === 'shell';
+      for (const o of this.units) {
+        if (o.dead || o.team === a.team) continue;
+        const d = Math.hypot(o.x - a.x, o.y - a.y), reach = a.splash + o.r;
+        if (d < reach) this.damage(o, a.dmg * (1 - 0.5 * d / reach) * Math.max(UNIT[o.type].armor, 0.5) * this.dmgMul);
+      }
+      this.booms.push({ x: a.x, y: a.y, r: a.splash, t: 0 });
+      this.burst(a.x, a.y, '#FF9F1C', big ? 16 : 9, big ? 420 : 300, 0.45, big ? 8 : 6);
+      this.burst(a.x, a.y, '#7A7F88', big ? 10 : 5, 160, 0.8, 9, -40);
+      this.shake(big ? 7 : 3);
+      this.snd('blast', { pan: (a.x - AR.x) / AR.w * 1.4 - 0.7, big });
     }
     nearest(u) {
       let best = null, bd = Infinity;
@@ -1316,9 +1374,11 @@ const RVB = (() => {
       if (u.hp <= 0 && !u.dead) {
         u.dead = true;
         this.alive[u.team]--;
-        this.burst(u.x, u.y, TEAMS[u.team].c, u.type === 'giant' ? 40 : 9, u.type === 'giant' ? 700 : 300, 0.5, u.type === 'giant' ? 12 : 7);
+        const huge = u.type === 'giant' || u.type === 'tank';
+        this.burst(u.x, u.y, TEAMS[u.team].c, huge ? 40 : 9, huge ? 700 : 300, 0.5, huge ? 12 : 7);
         if (this.stains) this.splats.push(u);
         this.snd('pop', { pan: (u.x - AR.x) / AR.w * 1.4 - 0.7, big: u.type === 'giant' || u.type === 'knight' });
+        if (u.type === 'tank') { this.shake(20); this.booms.push({ x: u.x, y: u.y, r: 70, t: 0 }); this.snd('boom', { gain: 0.6 }); this.banner(`${TEAMS[u.team].name} TANK DESTROYED`, TEAMS[1 - u.team].c); }
         if (u.type === 'giant') { this.shake(20); this.snd('boom', { gain: 0.6 }); this.banner(`${TEAMS[u.team].name} GIANT FALLS`, TEAMS[1 - u.team].c); }
       }
     }
@@ -1362,10 +1422,27 @@ const RVB = (() => {
             else if (d < U.range * 0.45 && this.pushStage < 2) { dvx = -nx * spd * 0.6; dvy = -ny * spd * 0.6; }
             if (d <= U.range && u.cd <= 0) {
               u.cd = U.cd * R.range(0.85, 1.15);
-              const v = U.bolt || 600, lead = d / v;
-              const ax = t.x + t.vx * lead - u.x, ay = t.y + t.vy * lead - u.y, al = Math.hypot(ax, ay) || 1;
-              this.arrows.push({ team: u.team, x: u.x + (ax / al) * (u.r + 4), y: u.y + (ay / al) * (u.r + 4), vx: (ax / al) * v, vy: (ay / al) * v, life: (U.range / v) * 1.35, dmg: U.dmg, bolt: !!U.bolt });
-              this.snd('volley', { pan: (u.x - AR.x) / AR.w * 1.4 - 0.7 });
+              const pan = (u.x - AR.x) / AR.w * 1.4 - 0.7;
+              if (U.lob) {
+                // grenade or tank shell: flies to where the target is heading and explodes there
+                const v = U.bullet, lead = d / v;
+                let tx = t.x + t.vx * lead, ty = t.y + t.vy * lead;
+                if (U.lob === 'grenade') { tx += R.range(-14, 14); ty += R.range(-14, 14); }
+                const T = Math.max(0.15, Math.hypot(tx - u.x, ty - u.y) / v);
+                this.arrows.push({ team: u.team, kind: U.lob, x: u.x, y: u.y, sx: u.x, sy: u.y, tx, ty, t: 0, T, dmg: U.dmg, splash: U.splash, vx: (tx - u.x) / T, vy: (ty - u.y) / T });
+                if (U.lob === 'grenade') u.lunge = 1;
+                u.muzzle = 1;
+                this.snd(U.lob === 'shell' ? 'cannon' : 'swish', { pan });
+                if (U.lob === 'shell') this.shake(3);
+              } else {
+                const v = U.bolt || U.bullet || 600, lead = d / v;
+                let ax = t.x + t.vx * lead - u.x, ay = t.y + t.vy * lead - u.y;
+                if (U.spread) { const j = R.range(-U.spread, U.spread), c = Math.cos(j), sn = Math.sin(j); [ax, ay] = [ax * c - ay * sn, ax * sn + ay * c]; }
+                const al = Math.hypot(ax, ay) || 1;
+                this.arrows.push({ team: u.team, x: u.x + (ax / al) * (u.r + 4), y: u.y + (ay / al) * (u.r + 4), vx: (ax / al) * v, vy: (ay / al) * v, life: (U.range / v) * 1.35, dmg: U.dmg, bolt: !!U.bolt, kind: U.bullet ? (U.pierce ? 'sniper' : 'bullet') : undefined, pierce: U.pierce || 0 });
+                if (U.bullet) u.muzzle = 1;
+                this.snd(U.bullet ? (u.type === 'sniper' ? 'snipe' : u.type === 'gunner' ? 'mg' : 'shot') : 'volley', { pan });
+              }
             }
           } else {
             const edge = d - u.r - t.r;
@@ -1423,16 +1500,34 @@ const RVB = (() => {
       if (this.arrows.length) {
         const keep = [];
         for (const a of this.arrows) {
-          a.x += a.vx * h; a.y += a.vy * h; a.life -= h;
-          if (a.life <= 0 || a.x < AR.x || a.x > AR.x + AR.w || a.y < AR.y || a.y > AR.y + AR.h) continue;
-          const ci = (a.x - AR.x) / 64 | 0, cj = (a.y - AR.y) / 64 | 0;
-          let hitU = null;
-          for (let di = -1; di <= 1 && !hitU; di++) for (let dj = -1; dj <= 1 && !hitU; dj++) {
-            const b = this.grid.get((ci + di) * 64 + cj + dj);
-            if (!b) continue;
-            for (const o of b) if (!o.dead && o.team !== a.team && (o.x - a.x) ** 2 + (o.y - a.y) ** 2 < (o.r + 3) ** 2) { hitU = o; break; }
+          if (a.kind === 'grenade' || a.kind === 'shell') {
+            a.t += h;
+            const p = Math.min(1, a.t / a.T);
+            a.x = a.sx + (a.tx - a.sx) * p; a.y = a.sy + (a.ty - a.sy) * p;
+            if (p >= 1) this.explode(a); else keep.push(a);
+            continue;
           }
-          if (hitU) { const arm = UNIT[hitU.type].armor; this.damage(hitU, (a.dmg || UNIT.archer.dmg) * (a.bolt ? Math.max(arm, 0.75) : arm) * this.dmgMul); this.snd('thunk', { pan: (a.x - AR.x) / AR.w * 1.4 - 0.7, quiet: true }); continue; }
+          // fast bullets move in short hops so they can't skip past a target
+          const hops = Math.max(1, Math.ceil(Math.hypot(a.vx, a.vy) * h / 10));
+          let hitU = null, gone = false;
+          for (let s = 0; s < hops && !hitU && !gone; s++) {
+            a.x += a.vx * h / hops; a.y += a.vy * h / hops;
+            if (a.x < AR.x || a.x > AR.x + AR.w || a.y < AR.y || a.y > AR.y + AR.h) { gone = true; break; }
+            const ci = (a.x - AR.x) / 64 | 0, cj = (a.y - AR.y) / 64 | 0;
+            for (let di = -1; di <= 1 && !hitU; di++) for (let dj = -1; dj <= 1 && !hitU; dj++) {
+              const b = this.grid.get((ci + di) * 64 + cj + dj);
+              if (!b) continue;
+              for (const o of b) if (!o.dead && o.team !== a.team && (o.x - a.x) ** 2 + (o.y - a.y) ** 2 < (o.r + 3) ** 2) { hitU = o; break; }
+            }
+          }
+          a.life -= h;
+          if (gone || a.life <= 0) continue;
+          if (hitU) {
+            const arm = UNIT[hitU.type].armor, floor = a.bolt ? 0.75 : a.pierce || 0;
+            this.damage(hitU, (a.dmg || UNIT.archer.dmg) * Math.max(arm, floor) * this.dmgMul);
+            this.snd('thunk', { pan: (a.x - AR.x) / AR.w * 1.4 - 0.7, quiet: true });
+            continue;
+          }
           keep.push(a);
         }
         this.arrows = keep;
@@ -1520,7 +1615,8 @@ const RVB = (() => {
       ctx.textBaseline = 'alphabetic';
     }
     cosmetic(dt) {
-      for (const u of this.units) { u.flash = Math.max(0, u.flash - dt * 6); u.lunge = Math.max(0, u.lunge - dt * 6); if (u.swing) u.swing = Math.max(0, u.swing - dt * 2.6); if (u.healFx) u.healFx = Math.max(0, u.healFx - dt * 2.5); if (u.healFlash) u.healFlash = Math.max(0, u.healFlash - dt * 3); }
+      for (const u of this.units) { u.flash = Math.max(0, u.flash - dt * 6); u.lunge = Math.max(0, u.lunge - dt * 6); if (u.swing) u.swing = Math.max(0, u.swing - dt * 2.6); if (u.healFx) u.healFx = Math.max(0, u.healFx - dt * 2.5); if (u.healFlash) u.healFlash = Math.max(0, u.healFlash - dt * 3); if (u.muzzle) u.muzzle = Math.max(0, u.muzzle - dt * 12); }
+      if (this.booms && this.booms.length) this.booms = this.booms.filter(b => (b.t += dt) < 0.45);
       const a0 = this.alive[0] + this.reserve[0], a1 = this.alive[1] + this.reserve[1];
       this.dispRatio += ((a0 + a1 ? a0 / (a0 + a1) : 0.5) - this.dispRatio) * Math.min(1, dt * 8);
       if (this.stains) {
@@ -1566,6 +1662,27 @@ const RVB = (() => {
       ctx.lineCap = 'round';
       for (const a of this.arrows) {
         const l = Math.hypot(a.vx, a.vy) || 1, ux = a.vx / l, uy = a.vy / l;
+        if (a.kind === 'grenade') {
+          // arcs up and down on the way: shadow on the ground, grenade above it
+          const p = a.t / a.T, hgt = Math.sin(Math.PI * p) * 38;
+          ctx.beginPath(); ctx.ellipse(a.x, a.y, 5, 3, 0, 0, TAU); ctx.fillStyle = 'rgba(0,0,0,0.35)'; ctx.fill();
+          ctx.beginPath(); ctx.arc(a.x, a.y - hgt, 5, 0, TAU); ctx.fillStyle = '#4A6B2E'; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = COL.ink; ctx.stroke();
+          continue;
+        }
+        if (a.kind === 'shell') {
+          ctx.lineWidth = 6; ctx.strokeStyle = 'rgba(255,159,28,0.45)';
+          ctx.beginPath(); ctx.moveTo(a.x - ux * 26, a.y - uy * 26); ctx.lineTo(a.x, a.y); ctx.stroke();
+          ctx.beginPath(); ctx.arc(a.x, a.y, 5, 0, TAU); ctx.fillStyle = '#2B2F36'; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = COL.ink; ctx.stroke();
+          continue;
+        }
+        if (a.kind === 'bullet' || a.kind === 'sniper') {
+          // tracer
+          const len = a.kind === 'sniper' ? 46 : 20;
+          if (a.kind === 'sniper') { ctx.lineWidth = 6; ctx.strokeStyle = 'rgba(255,240,180,0.25)'; ctx.beginPath(); ctx.moveTo(a.x - ux * len * 1.6, a.y - uy * len * 1.6); ctx.lineTo(a.x, a.y); ctx.stroke(); }
+          ctx.lineWidth = a.kind === 'sniper' ? 3 : 2.5; ctx.strokeStyle = a.kind === 'sniper' ? '#FFFFFF' : '#FFE27A';
+          ctx.beginPath(); ctx.moveTo(a.x - ux * len, a.y - uy * len); ctx.lineTo(a.x, a.y); ctx.stroke();
+          continue;
+        }
         if (a.bolt) {
           // crossbow bolt: thicker, longer, with a gold streak
           ctx.lineWidth = 8; ctx.strokeStyle = 'rgba(255,210,63,0.35)';
@@ -1576,6 +1693,13 @@ const RVB = (() => {
         }
         ctx.lineWidth = 3; ctx.strokeStyle = COL.steel;
         ctx.beginPath(); ctx.moveTo(a.x - ux * 18, a.y - uy * 18); ctx.lineTo(a.x + ux * 4, a.y + uy * 4); ctx.stroke();
+      }
+      // explosions: a quick orange fireball with a bright ring
+      for (const b of this.booms || []) {
+        const p = b.t / 0.45, rr = b.r * (0.45 + 0.8 * p);
+        ctx.beginPath(); ctx.arc(b.x, b.y, rr, 0, TAU); ctx.fillStyle = `rgba(255,150,40,${(1 - p) * 0.5})`; ctx.fill();
+        ctx.lineWidth = 4; ctx.strokeStyle = `rgba(255,230,150,${1 - p})`; ctx.stroke();
+        if (p < 0.25) { ctx.beginPath(); ctx.arc(b.x, b.y, rr * 0.5, 0, TAU); ctx.fillStyle = `rgba(255,255,230,${(0.25 - p) * 3})`; ctx.fill(); }
       }
       // units by type for fewer state changes
       const cheer = this.phase === 'outro' ? this.winner : -1;
@@ -1595,7 +1719,25 @@ const RVB = (() => {
         }
         const hop = u.team === cheer ? -Math.abs(Math.sin(this.outroT * 9 + u.x * 0.05)) * 6 : 0;
         const x = u.x + lx, y = u.y + ly + hop;
-        if (u.type === 'archer') {
+        if (u.type === 'tank') {
+          // hull with tracks, turned the way the tank faces; turret and barrel on top, recoiling when it fires
+          ctx.save(); ctx.translate(x, y); ctx.rotate(u.face);
+          ctx.lineWidth = 3; ctx.strokeStyle = COL.ink; ctx.fillStyle = '#2A2F38';
+          roundRect(ctx, -u.r * 1.05, -u.r * 0.98, u.r * 2.1, u.r * 0.42, 6); ctx.fill(); ctx.stroke();
+          roundRect(ctx, -u.r * 1.05, u.r * 0.56, u.r * 2.1, u.r * 0.42, 6); ctx.fill(); ctx.stroke();
+          ctx.strokeStyle = 'rgba(255,255,255,0.18)'; ctx.lineWidth = 2;
+          for (let k = -4; k <= 4; k++) { ctx.beginPath(); ctx.moveTo(k * u.r * 0.22, -u.r * 0.95); ctx.lineTo(k * u.r * 0.22, -u.r * 0.6); ctx.moveTo(k * u.r * 0.22, u.r * 0.6); ctx.lineTo(k * u.r * 0.22, u.r * 0.95); ctx.stroke(); }
+          roundRect(ctx, -u.r * 0.95, -u.r * 0.62, u.r * 1.9, u.r * 1.24, 8);
+          ctx.fillStyle = tm.d; ctx.fill(); ctx.lineWidth = 4; ctx.strokeStyle = COL.ink; ctx.stroke();
+          const rec = (u.muzzle || 0) * 7;
+          ctx.lineCap = 'round';
+          ctx.lineWidth = 11; ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(u.r * 1.35 - rec, 0); ctx.stroke();
+          ctx.lineWidth = 6; ctx.strokeStyle = '#5B6472'; ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(u.r * 1.35 - rec, 0); ctx.stroke();
+          if (u.muzzle > 0) { ctx.beginPath(); ctx.arc(u.r * 1.45 - rec, 0, 9 * u.muzzle, 0, TAU); ctx.fillStyle = `rgba(255,220,120,${u.muzzle})`; ctx.fill(); }
+          ctx.beginPath(); ctx.arc(-rec * 0.3, 0, u.r * 0.5, 0, TAU); ctx.fillStyle = tm.c; ctx.fill(); ctx.lineWidth = 3.5; ctx.strokeStyle = COL.ink; ctx.stroke();
+          ctx.beginPath(); ctx.arc(-u.r * 0.15 - rec * 0.3, 0, u.r * 0.18, 0, TAU); ctx.fillStyle = tm.l; ctx.fill(); ctx.lineWidth = 2; ctx.stroke();
+          ctx.restore();
+        } else if (u.type === 'archer') {
           ctx.save(); ctx.translate(x, y); ctx.rotate(u.face);
           ctx.beginPath(); ctx.moveTo(u.r * 1.5, 0); ctx.lineTo(-u.r, -u.r * 1.05); ctx.lineTo(-u.r, u.r * 1.05); ctx.closePath();
           ctx.fillStyle = tm.c; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = COL.ink; ctx.stroke();
@@ -1614,6 +1756,27 @@ const RVB = (() => {
             const bx1 = ex - fx * 4, by1 = ey - fy * 4;
             ctx.lineWidth = 6; ctx.strokeStyle = COL.ink; ctx.beginPath(); ctx.moveTo(bx1 + px * 11 - fx * 5, by1 + py * 11 - fy * 5); ctx.lineTo(bx1, by1); ctx.lineTo(bx1 - px * 11 - fx * 5, by1 - py * 11 - fy * 5); ctx.stroke();
             ctx.lineWidth = 3; ctx.strokeStyle = COL.steel; ctx.beginPath(); ctx.moveTo(bx1 + px * 11 - fx * 5, by1 + py * 11 - fy * 5); ctx.lineTo(bx1, by1); ctx.lineTo(bx1 - px * 11 - fx * 5, by1 - py * 11 - fy * 5); ctx.stroke();
+          }
+          if (MODERN_INF[u.type]) {
+            // modern infantry from above: a helmet, and a gun held to the right pointing at the enemy
+            const fx = Math.cos(u.face), fy = Math.sin(u.face), px = -fy, py = fx;
+            ctx.beginPath(); ctx.arc(x - fx * 1.5, y - fy * 1.5, u.r * 0.58, 0, TAU); ctx.fillStyle = tm.d; ctx.fill();
+            ctx.lineWidth = 2; ctx.strokeStyle = COL.ink; ctx.stroke();
+            ctx.beginPath(); ctx.arc(x - fx * 3 - px * 2, y - fy * 3 - py * 2, u.r * 0.2, 0, TAU); ctx.fillStyle = 'rgba(255,255,255,0.3)'; ctx.fill();
+            if (u.type === 'grenadier') {
+              // grenade in hand, ready to throw
+              const gx = x + fx * (u.r + 2) + px * u.r * 0.55, gy = y + fy * (u.r + 2) + py * u.r * 0.55;
+              ctx.beginPath(); ctx.arc(gx, gy, 4.5, 0, TAU); ctx.fillStyle = '#4A6B2E'; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = COL.ink; ctx.stroke();
+            } else {
+              const G = MODERN_INF[u.type], sx = x + px * u.r * 0.4, sy = y + py * u.r * 0.4;
+              const tx = sx + fx * (u.r + G.len), ty = sy + fy * (u.r + G.len);
+              ctx.lineCap = 'butt';
+              ctx.lineWidth = G.w + 3; ctx.strokeStyle = COL.ink; ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(tx, ty); ctx.stroke();
+              ctx.lineWidth = G.w; ctx.strokeStyle = '#3A3F47'; ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(tx, ty); ctx.stroke();
+              if (u.type === 'sniper') { const mx = sx + fx * u.r * 0.9, my = sy + fy * u.r * 0.9; ctx.beginPath(); ctx.arc(mx, my, 3.2, 0, TAU); ctx.fillStyle = '#9FD3FF'; ctx.fill(); ctx.lineWidth = 1.5; ctx.stroke(); }
+              if (u.type === 'gunner') { ctx.fillStyle = '#6B5A2E'; ctx.fillRect(x - fx * u.r * 0.9 - 5, y - fy * u.r * 0.9 - 5, 10, 10); ctx.lineWidth = 1.5; ctx.strokeRect(x - fx * u.r * 0.9 - 5, y - fy * u.r * 0.9 - 5, 10, 10); }
+              if (u.muzzle > 0) { ctx.beginPath(); ctx.arc(tx + fx * 3, ty + fy * 3, (u.type === 'sniper' ? 8 : 5) * u.muzzle, 0, TAU); ctx.fillStyle = `rgba(255,226,122,${u.muzzle})`; ctx.fill(); }
+            }
           }
           if (u.type === 'spearman') {
             // long spear pointing at the enemy; it thrusts forward on each attack
@@ -1652,7 +1815,7 @@ const RVB = (() => {
           }
           if (u.type === 'healer') {
             // white cross on the body; a green ring pulses out when he heals, with a beam to the patient
-            ctx.lineCap = 'butt'; ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 4;
+            ctx.lineCap = 'butt'; ctx.strokeStyle = tm.name === 'WHITE' ? '#E5484D' : '#FFFFFF'; ctx.lineWidth = 4;
             ctx.beginPath(); ctx.moveTo(x - u.r * 0.55, y); ctx.lineTo(x + u.r * 0.55, y); ctx.moveTo(x, y - u.r * 0.55); ctx.lineTo(x, y + u.r * 0.55); ctx.stroke();
             if (u.healFx > 0) {
               ctx.beginPath(); ctx.arc(x, y, u.r + 4 + (1 - u.healFx) * 18, 0, TAU);
@@ -1702,7 +1865,7 @@ const RVB = (() => {
         }
         if (u.healFlash > 0) { ctx.beginPath(); ctx.arc(x, y, u.r + 2, 0, TAU); ctx.lineWidth = 3; ctx.strokeStyle = `rgba(124,255,176,${u.healFlash * 0.9})`; ctx.stroke(); }
         if (u.flash > 0) { ctx.beginPath(); ctx.arc(x, y, u.r, 0, TAU); ctx.fillStyle = `rgba(255,255,255,${u.flash * 0.8})`; ctx.fill(); }
-        if ((u.type === 'knight' || u.type === 'giant' || u.type === 'shieldbearer') && u.hp < u.max) {
+        if ((u.type === 'knight' || u.type === 'giant' || u.type === 'shieldbearer' || u.type === 'tank') && u.hp < u.max) {
           const w = u.r * 2;
           ctx.fillStyle = COL.ink; ctx.fillRect(x - w / 2 - 2, y - u.r - 13, w + 4, 8);
           ctx.fillStyle = tm.l; ctx.fillRect(x - w / 2, y - u.r - 11, w * clamp(u.hp / u.max, 0, 1), 4);
@@ -1806,6 +1969,11 @@ const RVB = (() => {
           this.voice(t, { dur: 1.2, gain: 0.7, pan, partials: [{ f: 110, f2: 34, glide: 0.25, decay: 0.4 }], noise: { a: 0.9, decay: 0.25, lp: 0.12 } });
           this.voice(t, { dur: 0.8, gain: 0.18, pan, partials: [{ f: 520, decay: 0.35 }, { f: 1206, a: 0.5, decay: 0.22 }, { f: 1981, a: 0.3, decay: 0.14 }] });
           return;
+        case 'shot': if (this.gate('shot', 0.035, t)) this.voice(t, { dur: 0.1, gain: 0.07, pan, partials: [{ f: 190, f2: 90, glide: 0.03, decay: 0.03, a: 0.5 }], noise: { a: 1, decay: 0.025, lp: 0.5 } }); return;
+        case 'mg': if (this.gate('mg', 0.05, t)) this.voice(t, { dur: 0.07, gain: 0.055, pan, noise: { a: 1, decay: 0.014, lp: 0.6 } }); return;
+        case 'snipe': this.voice(t, { dur: 0.3, gain: 0.13, pan, partials: [{ f: 1400, f2: 260, glide: 0.05, decay: 0.07, a: 0.35 }], noise: { a: 1, decay: 0.05, lp: 0.7 } }); return;
+        case 'cannon': this.voice(t, { dur: 0.6, gain: 0.3, pan, partials: [{ f: 95, f2: 38, glide: 0.14, decay: 0.22 }], noise: { a: 0.8, decay: 0.09, lp: 0.25 } }); return;
+        case 'blast': if (this.gate('blast', 0.06, t)) this.voice(t, { dur: 0.5, gain: ev.big ? 0.3 : 0.2, pan, partials: [{ f: 110, f2: 42, glide: 0.12, decay: 0.18 }], noise: { a: 0.9, decay: ev.big ? 0.16 : 0.1, lp: 0.15 } }); return;
         case 'heal': if (this.gate('heal', 0.12, t)) this.voice(t, { dur: 0.3, gain: 0.05, pan, partials: [{ f: 1320, f2: 1760, glide: 0.12, decay: 0.12 }, { f: 2640, a: 0.3, decay: 0.06 }] }); return;
         case 'swish': if (this.gate('swish', 0.05, t)) this.voice(t, { dur: 0.2, gain: 0.05, pan, partials: [{ f: 950, f2: 320, glide: 0.07, decay: 0.06, a: 0.25 }], noise: { a: 0.9, decay: 0.07, lp: 0.45, hp: true } }); return;
         case 'clash': if (this.gate('clash', 0.028, t)) this.voice(t, { dur: 0.07, gain: 0.07, pan, partials: [{ f: 1800 + this.noise() * 200, decay: 0.02 }, { f: 2750, a: 0.6, decay: 0.015 }], noise: { a: 0.4, decay: 0.006, lp: 0.9, hp: true } }); return;

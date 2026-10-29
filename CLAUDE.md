@@ -9,4 +9,6 @@ When Rellz asks to change future videos ("add a unit", "use these colours", "mak
 4. Don't send Rellz preview videos (he asked not to; they take too long). Test with still frames instead.
 5. Commit and push to `main`. The next run checks out `main`, so the change applies from the next video. Say plainly that already-posted videos don't change.
 
+Line-ups, formations and eras (medieval/modern) all rotate deterministically from the number of rows in `uploads.md`; nothing about the troop mix is random per video except colours.
+
 Limits to remember: YouTube allows 100 API uploads a day per project, and the repo must stay active (each upload commits to `uploads.md`).

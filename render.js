@@ -35,7 +35,14 @@ RVB.setTeams(pair[0], pair[1]);
 const posted = fs.existsSync(path.join(__dirname, 'uploads.md'))
   ? (fs.readFileSync(path.join(__dirname, 'uploads.md'), 'utf8').match(/^\| \d{4}-/gm) || []).length : 0;
 const matchups = rules.matchups || [];
-const mu = matchups.length ? matchups[(process.env.MATCHUP ? Number(process.env.MATCHUP) : posted) % matchups.length] : null;
+const slot = process.env.MATCHUP ? Number(process.env.MATCHUP) : posted;
+const mu = matchups.length ? matchups[slot % matchups.length] : null;
+// era: 'medieval' (swords and bows) or 'modern' (rifles, machine guns, snipers, grenades, tanks)
+const era = (mu && mu.era) || 'medieval';
+// Formations also rotate, shifting by one each time the line-up list starts over, so pairings keep changing.
+const forms = rules.formations || ['line'];
+const shift = Math.floor(slot / Math.max(1, matchups.length));
+const formations = [forms[(slot + shift) % forms.length], forms[(slot * 5 + 2 + shift) % forms.length]];
 // Optional troops for this line-up, e.g. "troops": ["spearman", "healer"]; shares come from rules.troopShares.
 const shares = rules.troopShares || {};
 const troops = (mu && mu.troops) || [];
@@ -77,10 +84,12 @@ async function main() {
   const t0 = Date.now();
   // teamStyles: a colour can have its own fighting style, e.g. ORANGE armies are mostly swordsmen.
   const styles = rules.teamStyles || {};
-  const swordsmenByTeam = pair.map(name => (styles[name] && styles[name].swordsmenShare !== undefined) ? styles[name].swordsmenShare : swordsmen);
+  // (colour styles are about medieval troops, so they're ignored in modern battles)
+  const style = name => (era === 'modern' ? null : styles[name]);
+  const swordsmenByTeam = pair.map(name => (style(name) && style(name).swordsmenShare !== undefined) ? style(name).swordsmenShare : swordsmen);
   // a style's budget scales that army's size so the style stays fair (tested over many battles)
-  const bm = (budgetMul || [1, 1]).map((v, i) => v * ((styles[pair[i]] && styles[pair[i]].budget) || 1));
-  const game = new RVB.Army(seed, { target: SECS, fixedLength: SECS, swordsmen, crossbowmen, map, doctrines, budgetMul: bm, swordsmenByTeam, extras });
+  const bm = (budgetMul || [1, 1]).map((v, i) => v * ((style(pair[i]) && style(pair[i]).budget) || 1));
+  const game = new RVB.Army(seed, { target: SECS, fixedLength: SECS, swordsmen, crossbowmen, map, doctrines, budgetMul: bm, swordsmenByTeam, extras, era, formations });
   const synth = new RVB.Synth(SR, SECS + 4);
   synth.reset(seed);
   const canvas = createCanvas(W, H);
@@ -123,25 +132,29 @@ async function main() {
   const [n0, n1] = RVB.TEAMS.map(t => titleCase(t.name));
   const red = `${n0} ${titleCase(game.doc[0].name)}`, blue = `${n1} ${titleCase(game.doc[1].name)}`;
   // Short titles: team emoji + colour names + a short hook with an emoji. Army types go in the description.
-  const EMOJI = { RED: '🔴', BLUE: '🔵', GREEN: '🟢', PURPLE: '🟣', ORANGE: '🟠', YELLOW: '🟡', PINK: '🩷', CYAN: '🩵' };
+  const EMOJI = { RED: '🔴', BLUE: '🔵', GREEN: '🟢', PURPLE: '🟣', ORANGE: '🟠', YELLOW: '🟡', PINK: '🩷', CYAN: '🩵', WHITE: '⚪', BROWN: '🟤' };
   const [e0, e1] = RVB.TEAMS.map(t => EMOJI[t.name] || '⚔️');
-  const hooks = ['Who Wins? ⚔️', 'Pick a Side! 👇', 'Only One Survives 💀', 'Guess the Winner 🤔', 'Epic Battle 🔥', 'Who Takes It? 🏆'];
+  const hooks = era === 'modern'
+    ? ['Who Wins? 💥', 'Pick a Side! 🎯', 'Only One Survives 💀', 'Modern War 🪖', 'Who Holds the Line? 🛡️', 'Who Takes It? 🏆']
+    : ['Who Wins? ⚔️', 'Pick a Side! 👇', 'Only One Survives 💀', 'Guess the Winner 🤔', 'Epic Battle 🔥', 'Who Takes It? 🏆'];
   const hook = hooks[seed % hooks.length];
   const meta = {
     seed,
     title: `${e0} ${n0} vs ${n1} ${e1} | ${hook} #shorts`,
     description: [
-      `${e0} ${red} (${game.start[0]} units) vs ${blue} (${game.start[1]} units) ${e1}. Who wins? Pick your side and tell us in the comments before the end.`,
+      `${e0} ${red} (${formations[0]} formation, ${game.start[0]} units) vs ${blue} (${formations[1]} formation, ${game.start[1]} units) ${e1}. Who wins? Pick your side and tell us in the comments before the end.`,
       '',
-      'A 60-second battle simulation. The outcome comes from the game\'s rules and chance, not real footage.',
+      `A 60-second ${era === 'modern' ? 'modern warfare ' : ''}battle simulation. The outcome comes from the game's rules and chance, not real footage.`,
       '',
       'Subscribe for a new battle every day.',
       '',
       `#shorts #${n0.toLowerCase()}vs${n1.toLowerCase()} #battlesimulation`,
     ].join('\n'),
-    tags: [`${n0.toLowerCase()} vs ${n1.toLowerCase()}`, 'army battle', 'battle simulation', 'army simulation', 'who wins', 'army clash', `${red.toLowerCase()} vs ${blue.toLowerCase()}`, 'shorts'],
+    tags: [`${n0.toLowerCase()} vs ${n1.toLowerCase()}`, 'army battle', 'battle simulation', 'army simulation', 'who wins', 'army clash', `${red.toLowerCase()} vs ${blue.toLowerCase()}`, 'shorts'].concat(era === 'modern' ? ['modern warfare', 'tank battle'] : []),
     teams: pair,
     troops,
+    era,
+    formations,
     winner: game.headline,
   };
   fs.writeFileSync(path.join(OUT, 'meta.json'), JSON.stringify(meta, null, 2));

@@ -5,7 +5,7 @@ Every new video reads `rules.json` when it is made, so a change here applies to 
 ## What you can change in `rules.json`
 
 - **`teamPairs`**: which colours fight. Each video picks one pair at random. `weight` makes a pair more or less common: weight 3 comes up three times as often as weight 1. Which colour gets the top half is random.
-  Colours available: `RED`, `BLUE`, `GREEN`, `PURPLE`, `ORANGE`, `YELLOW`, `PINK`, `CYAN`.
+  Colours available: `RED`, `BLUE`, `GREEN`, `PURPLE`, `ORANGE`, `YELLOW`, `PINK`, `CYAN`, `WHITE`, `BROWN`.
 - **`teamStyles`**: a colour can fight its own way. `ORANGE` armies are about 60% swordsmen (`swordsmenShare`), with a slightly smaller army (`budget` 0.96) so they still win about half their battles.
 - **`swordsmen.chancePerVideo`**: how often a video includes swordsmen (0.4 = about 4 in 10 videos, 0 = never, 1 = always).
 - **`swordsmen.shareOfArmy`**: in those videos, roughly what share of each army is swordsmen (0.15 = about 15%).
@@ -27,6 +27,12 @@ Titles stay short: team emojis, the two colours and a short hook, for example `ð
 | Berserker | circle with an axe and war paint | very fast, hits hard, dies quickly |
 | Healer | circle with a white cross | never attacks; stays back and heals the most hurt ally nearby (green beam and ring) |
 | Knight | big ringed circle | heavy armour |
+| *Modern:* Rifleman | circle with helmet and rifle | basic modern troop, single shots with yellow tracers |
+| *Modern:* Machine gunner | darker circle, big gun, ammo box | rapid, spread-out bursts |
+| *Modern:* Sniper | circle with long scoped rifle | very long range, one hard shot that cuts through armour |
+| *Modern:* Grenadier | circle holding a grenade | lobs grenades in an arc that blow up groups |
+| *Modern:* Tank | tracked hull with turret | one per ARMORED army; slow, armoured, fires explosive shells |
+| *Modern:* Medic | circle with a white cross | the healer, in modern battles |
 | Giant | huge circle with a crown | one per army, "Giant" armies only |
 
 ## Changing anything else
