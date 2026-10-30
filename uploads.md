@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-10-30 01:10 | 🩵 Cyan vs Red 🔴 \| Who Takes It? 🏆 #shorts | Red wins | https://youtube.com/shorts/dTIcc1cQbXo |
 | 2026-10-30 00:54 | 🩵 Cyan vs Red 🔴 \| Pick a Side! 🎯 #shorts | Red wins | https://youtube.com/shorts/nOdpv74tQiU |
 | 2026-10-30 00:39 | ⚪ White vs Orange 🟠 \| Epic Battle 🔥 #shorts | White wins | https://youtube.com/shorts/WBBDyP0tRPM |
 | 2026-10-30 00:24 | 🔴 Red vs Blue 🔵 \| Who Wins? ⚔️ #shorts | Red wins | https://youtube.com/shorts/EFGTVJAOXuw |
