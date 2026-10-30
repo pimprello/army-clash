@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-10-30 18:04 | 🟠 Orange vs White ⚪ \| Who Takes It? 🏆 #shorts | White wins | https://youtube.com/shorts/byNDwjy7hPg |
 | 2026-10-30 17:49 | 🩷 Pink vs Yellow 🟡 \| Pick a Side! 👇 #shorts | Yellow wins | https://youtube.com/shorts/tCCARfiw-zM |
 | 2026-10-30 17:34 | 🔵 Blue vs Red 🔴 \| Only One Survives 💀 #shorts | Blue wins | https://youtube.com/shorts/CWiBvn1dUFA |
 | 2026-10-30 17:19 | 🟠 Orange vs Blue 🔵 \| Guess the Winner 🤔 #shorts | Orange wins | https://youtube.com/shorts/5938D4aKtx4 |
