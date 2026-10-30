@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-10-30 21:06 | 🟡 Yellow vs Purple 🟣 \| Who Holds the Line? 🛡️ #shorts | Yellow wins | https://youtube.com/shorts/mqi7xI3jlxw |
 | 2026-10-30 20:51 | ⚪ White vs Purple 🟣 \| Pick a Side! 👇 #shorts | White wins | https://youtube.com/shorts/Sk8-2PQjPqw |
 | 2026-10-30 20:37 | 🔴 Red vs Blue 🔵 \| Guess the Winner 🤔 #shorts | Blue wins | https://youtube.com/shorts/TTKvZ4RLYOU |
 | 2026-10-30 20:21 | 🩵 Cyan vs Orange 🟠 \| Pick a Side! 👇 #shorts | Orange wins | https://youtube.com/shorts/l5XozwJA_h8 |
