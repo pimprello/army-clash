@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-10-31 17:03 | 🔵 Blue vs Orange 🟠 \| Who Wins? ⚔️ #shorts | Orange wins | https://youtube.com/shorts/gLInPdGORi0 |
 | 2026-10-31 16:47 | 🟢 Green vs Brown 🟤 \| Only One Survives 💀 #shorts | Green wins | https://youtube.com/shorts/8gIUTR3RzJ4 |
 | 2026-10-31 16:32 | 🩵 Cyan vs Orange 🟠 \| Who Wins? ⚔️ #shorts | Orange wins | https://youtube.com/shorts/g_oXyh2ZuC4 |
 | 2026-10-31 16:17 | 🟣 Purple vs Blue 🔵 \| Modern War 🪖 #shorts | Blue wins | https://youtube.com/shorts/zpxOYit96Jw |
