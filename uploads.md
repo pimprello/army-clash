@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-10-31 21:19 | 🥈 Mega Legion vs Ultra Bots 🔴 \| Only One Survives 💀 #shorts | Red wins | https://youtube.com/shorts/fP1iJ4ZBJ-8 |
 | 2026-10-31 21:04 | 🟢 Green vs Brown 🟤 \| Who Wins? ⚔️ #shorts | Green wins | https://youtube.com/shorts/C4BHyAmebKY |
 | 2026-10-31 20:52 | 🔴 Iron Gunners vs Thunder Bolts 🔵 \| Anything Goes 🎲 #shorts | Red wins | https://youtube.com/shorts/pTcX8HUrLdE |
 | 2026-10-31 20:34 | 🔵 Blue vs Purple 🟣 \| Epic Battle 🔥 #shorts | Blue wins | https://youtube.com/shorts/aHAWfFNKdB8 |
