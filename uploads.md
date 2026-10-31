@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-10-31 01:09 | 🩵 Cyan vs Pink 🩷 \| Modern War 🪖 #shorts | Cyan wins | https://youtube.com/shorts/9ar8vyWK2Nw |
 | 2026-10-31 00:53 | 🔴 Red vs Cyan 🩵 \| Pick a Side! 👇 #shorts | Cyan wins | https://youtube.com/shorts/bdl8DotQlHg |
 | 2026-10-31 00:38 | 🟢 Green vs Pink 🩷 \| Only One Survives 💀 #shorts | Pink wins | https://youtube.com/shorts/wkcaFskCWnY |
 | 2026-10-31 00:23 | 🔵 Blue vs Purple 🟣 \| Only One Survives 💀 #shorts | Purple wins | https://youtube.com/shorts/m_dpg0K0UeU |
