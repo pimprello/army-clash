@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-10-31 20:23 | 🇦🇺 Solar Rifles vs Storm Pirates 🇳🇿 \| Craziest Matchup? 💥 #shorts | Australia wins | https://youtube.com/shorts/n9LsWclBsto |
 | 2026-10-31 20:06 | 🥇 Gold vs Purple 🟣 \| Only One Survives 💀 #shorts | Purple wins | https://youtube.com/shorts/15bWb3S355k |
 | 2026-10-31 19:53 | 🩵 Toxic Rifles vs Cyber Spears 🟠 \| Anything Goes 🎲 #shorts | Cyan wins | https://youtube.com/shorts/wO7nUAhUXUo |
 | 2026-10-31 19:37 | 🩷 Pink vs Green 🟢 \| Pick a Side! 🎯 #shorts | Green wins | https://youtube.com/shorts/Ra7ZA3NRzLg |
