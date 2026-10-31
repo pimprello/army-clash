@@ -62,12 +62,30 @@ jobs:
             git fetch -q origin main
             git checkout -q -B main origin/main
             node log-upload.js
-            git add uploads.md
+            git add uploads.md videos.jsonl
             git commit -q -m "Posted: $(node -p "require('./out/uploaded.json').title")" || true
             if git push -q origin main; then pushed=1; break; fi
             sleep 5
           done
           test "$pushed" = 1 || { echo "Could not record the upload in uploads.md"; exit 1; }
+
+      # Once a day, fetch view counts for every posted video into stats/ (used by the autopilot to learn what works).
+      - name: Update view stats (once a day)
+        continue-on-error: true
+        env:
+          YT_API_KEY: ${{ secrets.YT_API_KEY }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+        run: |
+          node stats.js || true
+          if [ -n "$(git status --porcelain stats)" ]; then
+            for i in 1 2 3; do
+              git add stats && git commit -q -m "View stats update" || true
+              git pull -q --rebase origin main && git push -q origin main && break
+              sleep 5
+            done
+          fi
 
       - name: Keep the video if the upload failed
         if: failure()

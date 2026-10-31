@@ -28,6 +28,17 @@ const RVB = (() => {
     CYAN: { c: '#22D3EE', d: '#0E7490', l: '#B5F1FA' },
     WHITE: { c: '#EEF2F7', d: '#8E9AAD', l: '#FFFFFF' },
     BROWN: { c: '#B5651D', d: '#6E3B10', l: '#E9C9A0' },
+    // Nations: the main colour from the flag, plus an accent colour (a) drawn as an inner ring on each troop.
+    UK: { c: '#E0263C', d: '#8C0F1F', l: '#FFB3BC', a: '#FFFFFF' },
+    USA: { c: '#2F6BFF', d: '#13307A', l: '#B6CCFF', a: '#FFFFFF' },
+    FRANCE: { c: '#3B5BFF', d: '#172E8A', l: '#BBC7FF', a: '#FF4B5C' },
+    GERMANY: { c: '#FFCE1F', d: '#8F6D00', l: '#FFEFA8', a: '#111111' },
+    ITALY: { c: '#1FB25A', d: '#0B5E2D', l: '#B3F0C8', a: '#FFFFFF' },
+    BRAZIL: { c: '#1DB954', d: '#0A6B2C', l: '#B5F2C9', a: '#FFDF00' },
+    ARGENTINA: { c: '#6CB4EE', d: '#2F6E9E', l: '#D4EBFF', a: '#FFFFFF' },
+    CANADA: { c: '#E8222F', d: '#8A0F17', l: '#FFB8BD', a: '#FFFFFF' },
+    SPAIN: { c: '#E8202F', d: '#8A0E19', l: '#FFB8BE', a: '#FFC400' },
+    PORTUGAL: { c: '#13A050', d: '#075A2C', l: '#B0EBC8', a: '#E8202F' },
   };
   const rgba = (hex, a) => { const n = parseInt(hex.slice(1), 16); return `rgba(${n >> 16},${(n >> 8) & 255},${n & 255},${a})`; };
   const FONT = '"Barlow Condensed", "Arial Narrow", "Roboto Condensed", "Helvetica Neue", Arial, sans-serif';
@@ -1140,13 +1151,24 @@ const RVB = (() => {
     grenadier: { r: 12, hp: 7, dmg: 3, cd: 2.6, range: 260, speed: 76, cost: 2.4, ranged: true, lob: 'grenade', bullet: 520, splash: 42, rank: 3, armor: 1 },
     // tank: armoured, slow, fires shells that blow up groups (one per ARMORED army, like the giant)
     tank: { r: 30, hp: 90, dmg: 6, cd: 2.2, range: 340, speed: 44, cost: 18, ranged: true, lob: 'shell', bullet: 900, splash: 54, rank: 0, armor: 0.2 },
+    // ----- fantasy -----
+    // wizard: hurls fireballs that burst over an area
+    wizard: { r: 12, hp: 6, dmg: 3.5, cd: 2.2, range: 300, speed: 74, cost: 2.6, ranged: true, lob: 'fireball', bullet: 620, splash: 40, rank: 3, armor: 1 },
+    // dragon: one per DRAGON army; flies over everything and breathes fire in a cone
+    dragon: { r: 34, hp: 95, dmg: 2.4, cd: 0.35, reach: 60, speed: 60, cost: 20, breath: 120, rank: 0, armor: 0.45, flying: true },
+    // orc: tough brute with a club
+    orc: { r: 15, hp: 16, dmg: 2.5, cd: 0.7, reach: 5, speed: 88, cost: 2.2, rank: 1, armor: 0.9 },
+    // skeleton: cheap and fast; arrows and bullets mostly pass through the bones
+    skeleton: { r: 11, hp: 4, dmg: 1, cd: 0.6, reach: 4, speed: 96, cost: 0.6, rank: 2, armor: 0.6 },
+    // elf: quick archer with long range
+    elf: { r: 11, hp: 5, dmg: 1.3, cd: 0.8, range: 360, speed: 100, cost: 1.8, ranged: true, rank: 3, armor: 1 },
     knight: { r: 18, hp: 24, dmg: 2, cd: 0.8, reach: 5, speed: 70, cost: 3.2, rank: 1, armor: 0.4 },
     giant: { r: 36, hp: 110, dmg: 5, cd: 1.25, reach: 6, speed: 46, cost: 22, splash: 48, rank: 0, armor: 0.5 },
   };
   // troops drawn in the bright team colour (the rest use the darker shade)
   // gun sizes for drawing modern infantry
   const MODERN_INF = { rifleman: { len: 14, w: 3.5 }, gunner: { len: 18, w: 5.5 }, sniper: { len: 26, w: 3 }, grenadier: {} };
-  const LIGHT_FILL = { soldier: 1, crossbowman: 1, spearman: 1, berserker: 1, healer: 1, rifleman: 1, sniper: 1, grenadier: 1 };
+  const LIGHT_FILL = { soldier: 1, crossbowman: 1, spearman: 1, berserker: 1, healer: 1, rifleman: 1, sniper: 1, grenadier: 1, orc: 1, elf: 1, wizard: 1 };
   const DOCTRINES = [
     { name: 'SWARM', mix: { soldier: 0.8, archer: 0.12, knight: 0.08 }, budget: 1.04, budget60: 1.08 },
     { name: 'ARCHERS', mix: { soldier: 0.35, archer: 0.55, knight: 0.1 }, budget: 1.03, budget60: 1.03 },
@@ -1163,6 +1185,17 @@ const RVB = (() => {
     { name: 'ARMORED', base: 'rifleman', mix: { rifleman: 0.6, gunner: 0.25, grenadier: 0.15 }, tank: true, budget: 1, budget60: 1 },
     { name: 'COMBINED', base: 'rifleman', mix: { rifleman: 0.5, gunner: 0.2, sniper: 0.15, grenadier: 0.15 }, budget: 1, budget60: 1 },
   ];
+  // Fantasy army types (skeleton is the cheap filler).
+  const FANTASY_DOCTRINES = [
+    { name: 'HORDE', base: 'skeleton', mix: { skeleton: 0.6, orc: 0.3, wizard: 0.1 }, budget: 1, budget60: 1 },
+    { name: 'ORCS', base: 'skeleton', mix: { orc: 0.7, skeleton: 0.2, wizard: 0.1 }, budget: 1, budget60: 1 },
+    { name: 'ELVES', base: 'skeleton', mix: { elf: 0.6, swordsman: 0.25, wizard: 0.15 }, budget: 1, budget60: 1 },
+    { name: 'MAGES', base: 'skeleton', mix: { wizard: 0.5, orc: 0.3, elf: 0.2 }, budget: 1, budget60: 1 },
+    { name: 'DRAGON', base: 'skeleton', mix: { orc: 0.4, elf: 0.3, wizard: 0.3 }, dragon: true, budget: 1, budget60: 1 },
+  ];
+  const ALL_DOCTRINES = () => DOCTRINES.concat(MODERN_DOCTRINES, FANTASY_DOCTRINES);
+  // which era an army type belongs to ('medieval', 'modern' or 'fantasy')
+  const eraOf = name => (MODERN_DOCTRINES.some(d => d.name === name) ? 'modern' : FANTASY_DOCTRINES.some(d => d.name === name) ? 'fantasy' : 'medieval');
   // Starting formations. segs(row) gives the row's segments as [left, right] offsets from the centre;
   // bend(dx) pulls a unit toward the enemy. 'line' reproduces the original layout exactly.
   const FORMATIONS = {
@@ -1174,6 +1207,37 @@ const RVB = (() => {
     crescent: { segs: () => [[-330, 330]], bend: dx => 70 * (dx / 330) ** 2 },
   };
 
+  // Battlefield maps. Coordinates are relative to the arena centre (the arena is 960 x 960).
+  // Every map is mirrored top-to-bottom so both armies face the same ground.
+  // c = round obstacle [x, y, r], b = box obstacle [x, y, w, h] (x, y = top-left corner), d = decoration only.
+  const mirrorMap = list => list.flatMap(o => {
+    if (o.c) return o.c[1] === 0 ? [o] : [o, { ...o, c: [o.c[0], -o.c[1], o.c[2]] }];
+    if (o.b) { const [x, y, w, h] = o.b; return y + h / 2 === 0 ? [o] : [o, { ...o, b: [x, -y - h, w, h] }]; }
+    if (o.d) return o.d[1] === 0 ? [o] : [o, { ...o, d: [o.d[0], -o.d[1], o.d[2]] }];
+    return [o];
+  });
+  const MAPS = {
+    open: [],
+    rocks: mirrorMap([
+      { c: [0, 0, 42], kind: 'rock' }, { c: [-300, -70, 34], kind: 'rock' }, { c: [300, -70, 34], kind: 'rock' },
+      { c: [-160, -215, 26], kind: 'rock' }, { c: [170, -205, 24], kind: 'rock' }, { c: [-410, -240, 22], kind: 'rock' }, { c: [405, -255, 20], kind: 'rock' },
+    ]),
+    ruins: mirrorMap([
+      { b: [-70, -14, 140, 28], kind: 'wall' },
+      { c: [-160, -70, 22], kind: 'pillar' }, { c: [160, -70, 22], kind: 'pillar' }, { c: [-340, -70, 22], kind: 'pillar' }, { c: [340, -70, 22], kind: 'pillar' },
+      { b: [-380, -240, 100, 24], kind: 'wall' }, { b: [280, -240, 100, 24], kind: 'wall' },
+    ]),
+    trenches: mirrorMap([
+      { b: [-440, -96, 260, 24], kind: 'sandbags' }, { b: [-100, -96, 200, 24], kind: 'sandbags' }, { b: [180, -96, 260, 24], kind: 'sandbags' },
+      { d: [-250, 0, 30], kind: 'crater' }, { d: [240, 0, 26], kind: 'crater' }, { d: [10, -200, 22], kind: 'crater' },
+    ]),
+    city: mirrorMap([
+      { b: [-390, -75, 150, 150], kind: 'building' }, { b: [240, -75, 150, 150], kind: 'building' }, { b: [-55, -45, 110, 90], kind: 'building' },
+      { b: [-172, -252, 44, 44], kind: 'crate' }, { b: [128, -252, 44, 44], kind: 'crate' },
+      { d: [-140, 0, 22], kind: 'crater' }, { d: [140, 0, 22], kind: 'crater' },
+    ]),
+  };
+
   class Army extends Match {
     constructor(seed, opts) {
       super(seed, opts);
@@ -1182,16 +1246,28 @@ const RVB = (() => {
       this.audioGain = 3.0;
       this.label = 'Army Clash';
       this.title = 'ARMY CLASH';
-      this.hook = R.pick(this.opts.era === 'modern'
+      this.hook = R.pick(this.opts.era === 'fantasy'
+        ? ['WHO RULES THE REALM?', 'PICK YOUR FACTION', 'MAGIC OR MIGHT?', `${TEAMS[0].name} OR ${TEAMS[1].name}?`]
+        : this.opts.era === 'mixed'
+        ? ['OLD VS NEW?', 'SWORDS OR GUNS?', 'CAN THE PAST WIN?', `${TEAMS[0].name} OR ${TEAMS[1].name}?`]
+        : this.opts.era === 'modern'
         ? ['WHO WINS THE FIREFIGHT?', 'WHO HOLDS THE LINE?', 'PICK YOUR SQUAD', `${TEAMS[0].name} OR ${TEAMS[1].name}?`]
         : ['WHICH ARMY SURVIVES?', 'WHO WINS THE WAR?', 'PICK YOUR ARMY', `${TEAMS[0].name} OR ${TEAMS[1].name}?`]);
       this.booms = [];
+      // opts.map picks the battlefield (see MAPS); obstacles block movement, bullets and arrows
+      const cx0 = AR.x + AR.w / 2, cy0 = AR.y + AR.h / 2;
+      this.obstacles = []; this.decor = [];
+      for (const o of MAPS[this.opts.map] || []) {
+        if (o.c) this.obstacles.push({ kind: o.kind, circle: true, x: cx0 + o.c[0], y: cy0 + o.c[1], r: o.c[2] });
+        else if (o.b) this.obstacles.push({ kind: o.kind, x0: cx0 + o.b[0], y0: cy0 + o.b[1], x1: cx0 + o.b[0] + o.b[2], y1: cy0 + o.b[1] + o.b[3] });
+        else if (o.d) this.decor.push({ kind: o.kind, x: cx0 + o.d[0], y: cy0 + o.d[1], r: o.d[2] });
+      }
       const d0 = R.pick(DOCTRINES);
       let d1 = R.pick(DOCTRINES);
       if (d1 === d0 && R.chance(0.75)) while (d1 === d0) d1 = R.pick(DOCTRINES);
       this.doc = [d0, d1];
       // opts.doctrines = ['SWARM', 'KNIGHTS'] picks the two army types instead of chance.
-      if (this.opts.doctrines) this.doc = this.opts.doctrines.map(n => DOCTRINES.concat(MODERN_DOCTRINES).find(d => d.name === n) || d0);
+      if (this.opts.doctrines) this.doc = this.opts.doctrines.map(n => ALL_DOCTRINES().find(d => d.name === n) || d0);
       // fixedLength: the whole video runs exactly this long (fight + outro), with four reinforcement waves.
       this.fixed = this.opts.fixedLength || 0;
       const F = this.fixed;
@@ -1232,13 +1308,15 @@ const RVB = (() => {
       this.crossShare = this.opts.crossbowmen || 0;
       // opts.extras: other optional troops, e.g. [{ type: 'spearman', share: 0.15 }]
       this.extras = (this.opts.extras || []).filter(e => UNIT[e.type] && e.share > 0);
+      // opts.extrasByTeam = [[...top extras], [...bottom extras]] gives each side its own extra troops
+      this.extrasT = this.opts.extrasByTeam ? this.opts.extrasByTeam.map(l => (l || []).filter(e => UNIT[e.type] && e.share > 0)) : null;
       for (let team = 0; team < 2; team++) {
         // opts.budgetMul = [top, bottom] scales each army's size (used to balance fixed match-ups).
         const bm = this.opts.budgetMul ? this.opts.budgetMul[team] : 1;
         const list = this.recruit(this.doc[team], team, budget * bm * (F ? this.doc[team].budget60 : this.doc[team].budget) * R.range(0.95, 1.05));
         this.start[team] = list.length;
         const parts = waveAt.map(() => []).concat([[]]), seen = {};
-        for (const k of list) { const i = seen[k] = (seen[k] || 0) + 1; parts[k === 'giant' || k === 'tank' ? 0 : waveOf(i)].push(k); }
+        for (const k of list) { const i = seen[k] = (seen[k] || 0) + 1; parts[k === 'giant' || k === 'tank' || k === 'dragon' ? 0 : waveOf(i)].push(k); }
         this.deploy(team, parts[0], 'front');
         for (let w = 1; w < parts.length; w++) if (parts[w].length) { this.waves[team].push({ at: waveAt[w - 1], list: parts[w] }); this.reserve[team] += parts[w].length; }
       }
@@ -1250,6 +1328,62 @@ const RVB = (() => {
       this.stains = api.makeCanvas ? api.makeCanvas(AR.w, AR.h) : null;
       this.stainFade = 0;
       if (this.ground) this.paintGround();
+    }
+    // Obstacles and decoration, painted once in the same dark cartoon style as the arena.
+    paintMap() {
+      this.mapLayer = api.makeCanvas(AR.w, AR.h);
+      const g = this.mapLayer.getContext('2d'), ox = AR.x, oy = AR.y, INK = COL.ink;
+      g.lineJoin = 'round';
+      for (const d of this.decor) {
+        // crater: a dark scorched hollow with a lighter rim
+        const x = d.x - ox, y = d.y - oy;
+        g.beginPath(); g.ellipse(x, y, d.r * 1.2, d.r, 0, 0, TAU); g.fillStyle = '#070A12'; g.fill();
+        g.lineWidth = 4; g.strokeStyle = '#1E2638'; g.stroke();
+        g.beginPath(); g.ellipse(x + 3, y + 3, d.r * 0.6, d.r * 0.45, 0, 0, TAU); g.fillStyle = 'rgba(30,38,56,0.6)'; g.fill();
+      }
+      for (const o of this.obstacles) {
+        g.save();
+        if (o.circle) {
+          const x = o.x - ox, y = o.y - oy;
+          g.beginPath(); g.ellipse(x + 5, y + 7, o.r, o.r * 0.9, 0, 0, TAU); g.fillStyle = 'rgba(0,0,0,0.38)'; g.fill();
+          if (o.kind === 'pillar') {
+            g.beginPath(); g.arc(x, y, o.r, 0, TAU); g.fillStyle = '#4A5368'; g.fill(); g.lineWidth = 3.5; g.strokeStyle = INK; g.stroke();
+            g.beginPath(); g.arc(x, y, o.r * 0.68, 0, TAU); g.fillStyle = '#5E6880'; g.fill(); g.lineWidth = 2; g.stroke();
+            g.beginPath(); g.arc(x - o.r * 0.2, y - o.r * 0.25, o.r * 0.22, 0, TAU); g.fillStyle = 'rgba(255,255,255,0.18)'; g.fill();
+          } else {
+            // boulder: a lumpy rounded rock with a highlight and a crack
+            g.beginPath();
+            for (let k = 0; k <= 9; k++) { const a = k / 9 * TAU, rr = o.r * (0.9 + 0.12 * Math.sin(k * 2.3 + o.x)); const px = x + Math.cos(a) * rr, py = y + Math.sin(a) * rr; k ? g.lineTo(px, py) : g.moveTo(px, py); }
+            g.closePath(); g.fillStyle = '#3B4357'; g.fill(); g.lineWidth = 3.5; g.strokeStyle = INK; g.stroke();
+            g.beginPath(); g.arc(x - o.r * 0.25, y - o.r * 0.3, o.r * 0.45, Math.PI * 1.05, Math.PI * 1.75); g.lineWidth = o.r * 0.16; g.lineCap = 'round'; g.strokeStyle = 'rgba(255,255,255,0.16)'; g.stroke();
+            g.beginPath(); g.moveTo(x + o.r * 0.1, y - o.r * 0.1); g.lineTo(x + o.r * 0.35, y + o.r * 0.2); g.lineTo(x + o.r * 0.3, y + o.r * 0.45); g.lineWidth = 2; g.strokeStyle = 'rgba(4,6,11,0.6)'; g.stroke();
+          }
+        } else {
+          const x = o.x0 - ox, y = o.y0 - oy, w = o.x1 - o.x0, h = o.y1 - o.y0;
+          g.fillStyle = 'rgba(0,0,0,0.38)'; roundRect(g, x + 5, y + 7, w, h, 6); g.fill();
+          if (o.kind === 'sandbags') {
+            // a row of khaki sandbags
+            const n = Math.max(2, Math.round(w / 26)), bw = w / n;
+            for (let i = 0; i < n; i++) { roundRect(g, x + i * bw + 1, y, bw - 2, h, h / 2.2); g.fillStyle = i % 2 ? '#7E6E4C' : '#8A7A56'; g.fill(); g.lineWidth = 2.5; g.strokeStyle = INK; g.stroke(); }
+          } else if (o.kind === 'building') {
+            // flat roof with a raised edge, a vent and an AC unit
+            roundRect(g, x, y, w, h, 6); g.fillStyle = '#2C3344'; g.fill(); g.lineWidth = 4; g.strokeStyle = INK; g.stroke();
+            roundRect(g, x + 9, y + 9, w - 18, h - 18, 4); g.fillStyle = '#353D51'; g.fill(); g.lineWidth = 2; g.strokeStyle = 'rgba(4,6,11,0.7)'; g.stroke();
+            g.fillStyle = '#4A5368'; g.fillRect(x + w * 0.18, y + h * 0.22, w * 0.2, h * 0.16); g.strokeRect(x + w * 0.18, y + h * 0.22, w * 0.2, h * 0.16);
+            g.beginPath(); g.arc(x + w * 0.7, y + h * 0.68, Math.min(w, h) * 0.1, 0, TAU); g.fillStyle = '#4A5368'; g.fill(); g.stroke();
+          } else if (o.kind === 'crate') {
+            roundRect(g, x, y, w, h, 3); g.fillStyle = '#6B5233'; g.fill(); g.lineWidth = 3; g.strokeStyle = INK; g.stroke();
+            g.beginPath(); g.moveTo(x + 4, y + 4); g.lineTo(x + w - 4, y + h - 4); g.moveTo(x + w - 4, y + 4); g.lineTo(x + 4, y + h - 4); g.lineWidth = 2.5; g.strokeStyle = '#4A3822'; g.stroke();
+          } else {
+            // stone wall: blocks with mortar lines
+            roundRect(g, x, y, w, h, 3); g.fillStyle = '#4A5368'; g.fill(); g.lineWidth = 3.5; g.strokeStyle = INK; g.stroke();
+            g.lineWidth = 1.5; g.strokeStyle = 'rgba(4,6,11,0.55)'; g.beginPath(); g.moveTo(x, y + h / 2); g.lineTo(x + w, y + h / 2);
+            for (let bx = x + 22; bx < x + w; bx += 22) { g.moveTo(bx, y); g.lineTo(bx, y + h / 2); g.moveTo(bx - 11, y + h / 2); g.lineTo(bx - 11, y + h); }
+            g.stroke();
+          }
+        }
+        g.restore();
+      }
     }
     paintGround() {
       const g = this.ground.getContext('2d');
@@ -1278,13 +1412,14 @@ const RVB = (() => {
       let left = budget;
       if (doc.giant) { list.push('giant'); left -= UNIT.giant.cost; }
       if (doc.tank) { list.push('tank'); left -= UNIT.tank.cost; }
+      if (doc.dragon) { list.push('dragon'); left -= UNIT.dragon.cost; }
       const keys = Object.keys(doc.mix);
       while (left >= 1) {
         let x = R.next(), k = keys[0];
         for (const key of keys) { x -= doc.mix[key]; if (x <= 0) { k = key; break; } }
         if (swordShare && R.chance(swordShare)) k = 'swordsman';
         else if (this.crossShare && R.chance(this.crossShare)) k = 'crossbowman';
-        else if (this.extras && this.extras.length) { for (const ex of this.extras) if (R.chance(ex.share)) { k = ex.type; break; } }
+        else { const ex0 = this.extrasT ? this.extrasT[team] : this.extras; if (ex0 && ex0.length) { for (const ex of ex0) if (R.chance(ex.share)) { k = ex.type; break; } } }
         if (UNIT[k].cost > left) k = doc.base || 'soldier';
         list.push(k); left -= UNIT[k].cost;
       }
@@ -1330,13 +1465,67 @@ const RVB = (() => {
       const R = this.R;
       const hp = U.hp * (this.hpScale || 1);
       const pace = 1 + (R.chance(0.5) ? 1 : -1) * R.range(0.03, 0.07);
-      this.units.push({ team, type, x, y, pace, gait: R.range(0, TAU), vx: 0, vy: 0, r: U.r, hp, max: hp, cd: R.range(0, U.cd), retarget: R.range(0, 0.3), target: null, flash: 0, lunge: 0, face: team === 0 ? Math.PI / 2 : -Math.PI / 2, dead: false, m: U.r * U.r });
+      if (this.obstacles && this.obstacles.length && !U.flying) { const p = { x, y, r: U.r }; for (let k = 0; k < 3; k++) this.pushOut(p); x = p.x; y = p.y; }
+      this.units.push({ team, type, x, y, flying: !!U.flying, pace, gait: R.range(0, TAU), vx: 0, vy: 0, r: U.r, hp, max: hp, cd: R.range(0, U.cd), retarget: R.range(0, 0.3), target: null, flash: 0, lunge: 0, face: team === 0 ? Math.PI / 2 : -Math.PI / 2, dead: false, m: U.r * U.r });
       this.alive[team]++;
     }
     reinforce(team, wave) {
       wave.done = true;
       this.reserve[team] -= wave.list.length;
       this.deploy(team, wave.list, 'back');
+    }
+    // ----- obstacles -----
+    // closest point on an obstacle to (x, y)
+    closestOn(o, x, y) {
+      if (o.circle) { const dx = x - o.x, dy = y - o.y, d = Math.hypot(dx, dy) || 1; return { x: o.x + dx / d * o.r, y: o.y + dy / d * o.r, inside: d < o.r }; }
+      const cx = clamp(x, o.x0, o.x1), cy = clamp(y, o.y0, o.y1);
+      return { x: cx, y: cy, inside: x > o.x0 && x < o.x1 && y > o.y0 && y < o.y1 };
+    }
+    inObstacle(x, y) {
+      for (const o of this.obstacles) {
+        if (o.circle ? (x - o.x) ** 2 + (y - o.y) ** 2 < o.r * o.r : x > o.x0 && x < o.x1 && y > o.y0 && y < o.y1) return o;
+      }
+      return null;
+    }
+    // move a unit (anything with x, y, r) out of any obstacle it overlaps
+    pushOut(u) {
+      for (const o of this.obstacles) {
+        if (o.circle) {
+          const dx = u.x - o.x, dy = u.y - o.y, d = Math.hypot(dx, dy), m = o.r + u.r;
+          if (d < m) { const nx = d > 1e-6 ? dx / d : 0, ny = d > 1e-6 ? dy / d : 1; u.x = o.x + nx * m; u.y = o.y + ny * m; }
+        } else {
+          const p = this.closestOn(o, u.x, u.y);
+          if (p.inside) {
+            // inside the box: leave by the nearest side
+            const l = u.x - o.x0, rgt = o.x1 - u.x, t = u.y - o.y0, b = o.y1 - u.y, mn = Math.min(l, rgt, t, b);
+            if (mn === l) u.x = o.x0 - u.r; else if (mn === rgt) u.x = o.x1 + u.r; else if (mn === t) u.y = o.y0 - u.r; else u.y = o.y1 + u.r;
+          } else {
+            const dx = u.x - p.x, dy = u.y - p.y, d = Math.hypot(dx, dy);
+            if (d < u.r && d > 1e-6) { u.x = p.x + dx / d * u.r; u.y = p.y + dy / d * u.r; }
+          }
+        }
+      }
+    }
+    // is the straight line between two points clear of obstacles?
+    clearShot(x0, y0, x1, y1) {
+      if (!this.obstacles.length) return true;
+      const L = Math.hypot(x1 - x0, y1 - y0), n = Math.max(1, Math.ceil(L / 12));
+      for (let i = 1; i < n; i++) { const f = i / n; if (this.inObstacle(x0 + (x1 - x0) * f, y0 + (y1 - y0) * f)) return false; }
+      return true;
+    }
+    // bend a desired velocity around obstacles in the way, so troops walk around instead of pushing into them
+    steer(u, dvx, dvy) {
+      for (const o of this.obstacles) {
+        const p = this.closestOn(o, u.x, u.y), ax = p.x - u.x, ay = p.y - u.y, d = Math.hypot(ax, ay) || 1, near = u.r + 34;
+        if (d > near) continue;
+        const nx = ax / d, ny = ay / d, into = dvx * nx + dvy * ny;
+        if (into <= 0) continue;
+        // drop the part of the motion that goes into the obstacle and slide along it instead
+        let tx = -ny, ty = nx; if (tx * dvx + ty * dvy < 0) { tx = -tx; ty = -ty; }
+        const w = 1 - d / near, sp = Math.hypot(dvx, dvy);
+        dvx = dvx - nx * into * w + tx * sp * 0.8 * w; dvy = dvy - ny * into * w + ty * sp * 0.8 * w;
+      }
+      return [dvx, dvy];
     }
     // A grenade or shell lands: damage every enemy in the blast, more near the middle.
     explode(a) {
@@ -1346,8 +1535,10 @@ const RVB = (() => {
         const d = Math.hypot(o.x - a.x, o.y - a.y), reach = a.splash + o.r;
         if (d < reach) this.damage(o, a.dmg * (1 - 0.5 * d / reach) * Math.max(UNIT[o.type].armor, 0.5) * this.dmgMul);
       }
-      this.booms.push({ x: a.x, y: a.y, r: a.splash, t: 0 });
-      this.burst(a.x, a.y, '#FF9F1C', big ? 16 : 9, big ? 420 : 300, 0.45, big ? 8 : 6);
+      this.booms.push({ x: a.x, y: a.y, r: a.splash, t: 0, magic: a.kind === 'fireball' });
+      const fire = a.kind === 'fireball';
+      if (fire) { this.burst(a.x, a.y, '#C084FC', 10, 320, 0.45, 7); this.burst(a.x, a.y, '#FF9F1C', 6, 260, 0.35, 6); }
+      else this.burst(a.x, a.y, '#FF9F1C', big ? 16 : 9, big ? 420 : 300, 0.45, big ? 8 : 6);
       this.burst(a.x, a.y, '#7A7F88', big ? 10 : 5, 160, 0.8, 9, -40);
       this.shake(big ? 7 : 3);
       this.snd('blast', { pan: (a.x - AR.x) / AR.w * 1.4 - 0.7, big });
@@ -1374,10 +1565,11 @@ const RVB = (() => {
       if (u.hp <= 0 && !u.dead) {
         u.dead = true;
         this.alive[u.team]--;
-        const huge = u.type === 'giant' || u.type === 'tank';
+        const huge = u.type === 'giant' || u.type === 'tank' || u.type === 'dragon';
         this.burst(u.x, u.y, TEAMS[u.team].c, huge ? 40 : 9, huge ? 700 : 300, 0.5, huge ? 12 : 7);
         if (this.stains) this.splats.push(u);
         this.snd('pop', { pan: (u.x - AR.x) / AR.w * 1.4 - 0.7, big: u.type === 'giant' || u.type === 'knight' });
+        if (u.type === 'dragon') { this.shake(20); this.snd('boom', { gain: 0.6 }); this.banner(`${TEAMS[u.team].name} DRAGON SLAIN`, TEAMS[1 - u.team].c); }
         if (u.type === 'tank') { this.shake(20); this.booms.push({ x: u.x, y: u.y, r: 70, t: 0 }); this.snd('boom', { gain: 0.6 }); this.banner(`${TEAMS[u.team].name} TANK DESTROYED`, TEAMS[1 - u.team].c); }
         if (u.type === 'giant') { this.shake(20); this.snd('boom', { gain: 0.6 }); this.banner(`${TEAMS[u.team].name} GIANT FALLS`, TEAMS[1 - u.team].c); }
       }
@@ -1420,7 +1612,9 @@ const RVB = (() => {
           } else if (U.ranged) {
             if (d > U.range) { dvx = nx * spd; dvy = ny * spd; }
             else if (d < U.range * 0.45 && this.pushStage < 2) { dvx = -nx * spd * 0.6; dvy = -ny * spd * 0.6; }
-            if (d <= U.range && u.cd <= 0) {
+            const blocked = d <= U.range && this.obstacles.length && u.cd <= 0 && !this.clearShot(u.x, u.y, t.x, t.y);
+            if (blocked) { dvx = nx * spd; dvy = ny * spd; u.cd = 0.15; }
+            if (!blocked && d <= U.range && u.cd <= 0) {
               u.cd = U.cd * R.range(0.85, 1.15);
               const pan = (u.x - AR.x) / AR.w * 1.4 - 0.7;
               if (U.lob) {
@@ -1432,15 +1626,23 @@ const RVB = (() => {
                 this.arrows.push({ team: u.team, kind: U.lob, x: u.x, y: u.y, sx: u.x, sy: u.y, tx, ty, t: 0, T, dmg: U.dmg, splash: U.splash, vx: (tx - u.x) / T, vy: (ty - u.y) / T });
                 if (U.lob === 'grenade') u.lunge = 1;
                 u.muzzle = 1;
-                this.snd(U.lob === 'shell' ? 'cannon' : 'swish', { pan });
+                this.snd(U.lob === 'shell' ? 'cannon' : U.lob === 'fireball' ? 'flame' : 'swish', { pan });
                 if (U.lob === 'shell') this.shake(3);
               } else {
                 const v = U.bolt || U.bullet || 600, lead = d / v;
                 let ax = t.x + t.vx * lead - u.x, ay = t.y + t.vy * lead - u.y;
                 if (U.spread) { const j = R.range(-U.spread, U.spread), c = Math.cos(j), sn = Math.sin(j); [ax, ay] = [ax * c - ay * sn, ax * sn + ay * c]; }
                 const al = Math.hypot(ax, ay) || 1;
-                this.arrows.push({ team: u.team, x: u.x + (ax / al) * (u.r + 4), y: u.y + (ay / al) * (u.r + 4), vx: (ax / al) * v, vy: (ay / al) * v, life: (U.range / v) * 1.35, dmg: U.dmg, bolt: !!U.bolt, kind: U.bullet ? (U.pierce ? 'sniper' : 'bullet') : undefined, pierce: U.pierce || 0 });
+                // too many bullets in the air: fold this shot's damage into the next one instead of adding another
+                if (U.bullet && this.arrows.length > 160) { u.bank = (u.bank || 0) + U.dmg; u.muzzle = 1; }
+                else {
+                const shotDmg = U.dmg + (u.bank || 0); u.bank = 0;
+                // machine guns show a tracer on every third round, like real tracer ammo, so bursts stay readable
+                u.shots = (u.shots || 0) + 1;
+                const tracer = u.type !== 'gunner' || u.shots % 3 === 0;
+                this.arrows.push({ tracer, team: u.team, x: u.x + (ax / al) * (u.r + 4), y: u.y + (ay / al) * (u.r + 4), vx: (ax / al) * v, vy: (ay / al) * v, life: (U.range / v) * 1.35, dmg: shotDmg, bolt: !!U.bolt, kind: U.bullet ? (U.pierce ? 'sniper' : 'bullet') : undefined, pierce: U.pierce || 0 });
                 if (U.bullet) u.muzzle = 1;
+                }
                 this.snd(U.bullet ? (u.type === 'sniper' ? 'snipe' : u.type === 'gunner' ? 'mg' : 'shot') : 'volley', { pan });
               }
             }
@@ -1450,7 +1652,22 @@ const RVB = (() => {
             else if (u.cd <= 0) {
               u.cd = U.cd * R.range(0.85, 1.15);
               u.lunge = 1;
-              if (U.splash) {
+              if (U.breath) {
+                // fire breath: everyone in a cone in front of the dragon gets burned
+                for (const o of this.units) {
+                  if (o.dead || o.team === u.team) continue;
+                  const ex = o.x - u.x, ey = o.y - u.y, ed = Math.hypot(ex, ey);
+                  if (ed > U.breath + u.r + o.r) continue;
+                  let da = Math.atan2(ey, ex) - u.face; da = Math.atan2(Math.sin(da), Math.cos(da));
+                  if (Math.abs(da) < 0.5) this.damage(o, U.dmg * Math.max(UNIT[o.type].armor, 0.6) * this.dmgMul, u);
+                }
+                const F = this.FX;
+                for (let i = 0; i < 9; i++) {
+                  const a = u.face + F.range(-0.45, 0.45), v = F.range(260, 480);
+                  this.parts.push({ x: u.x + Math.cos(u.face) * u.r, y: u.y + Math.sin(u.face) * u.r, vx: Math.cos(a) * v, vy: Math.sin(a) * v, life: F.range(0.25, 0.4), age: 0, size: F.range(7, 13), color: F.chance(0.5) ? '#FF9F1C' : '#FFD23F', grav: 0 });
+                }
+                this.snd('flame', { pan: (u.x - AR.x) / AR.w * 1.4 - 0.7 });
+              } else if (U.splash) {
                 for (const o of this.units) if (!o.dead && o.team !== u.team && Math.hypot(o.x - t.x, o.y - t.y) < U.splash + o.r) this.damage(o, U.dmg * this.dmgMul, u);
                 this.shake(8); this.snd('stomp', { pan: (u.x - AR.x) / AR.w * 1.4 - 0.7 });
                 this.burst(t.x, t.y, COL.muted, 10, 300, 0.4, 7);
@@ -1469,6 +1686,7 @@ const RVB = (() => {
             }
           }
         }
+        if (this.obstacles.length && !u.flying && (dvx || dvy)) [dvx, dvy] = this.steer(u, dvx, dvy);
         const k = Math.min(1, 7 * h);
         u.vx += (dvx - u.vx) * k; u.vy += (dvy - u.vy) * k;
         u.x += u.vx * h; u.y += u.vy * h;
@@ -1482,6 +1700,7 @@ const RVB = (() => {
           if (!b) continue;
           for (const o of b) {
             if (o === u || o.dead || o.x < u.x || (o.x === u.x && o.y <= u.y)) continue;
+            if (u.flying !== o.flying) continue; // a dragon flies over the troops below it
             const dx = o.x - u.x, dy = o.y - u.y, d2 = dx * dx + dy * dy, m = u.r + o.r;
             if (d2 < m * m && d2 > 1e-6) {
               const d = Math.sqrt(d2), push = (m - d), nx = dx / d, ny = dy / d;
@@ -1492,6 +1711,7 @@ const RVB = (() => {
           }
         }
       }
+      if (this.obstacles.length) for (const u of this.units) if (!u.dead && !u.flying) this.pushOut(u);
       for (const u of this.units) {
         if (u.dead) continue;
         u.x = clamp(u.x, AR.x + u.r, AR.x + AR.w - u.r);
@@ -1500,7 +1720,7 @@ const RVB = (() => {
       if (this.arrows.length) {
         const keep = [];
         for (const a of this.arrows) {
-          if (a.kind === 'grenade' || a.kind === 'shell') {
+          if (a.kind === 'grenade' || a.kind === 'shell' || a.kind === 'fireball') {
             a.t += h;
             const p = Math.min(1, a.t / a.T);
             a.x = a.sx + (a.tx - a.sx) * p; a.y = a.sy + (a.ty - a.sy) * p;
@@ -1513,6 +1733,7 @@ const RVB = (() => {
           for (let s = 0; s < hops && !hitU && !gone; s++) {
             a.x += a.vx * h / hops; a.y += a.vy * h / hops;
             if (a.x < AR.x || a.x > AR.x + AR.w || a.y < AR.y || a.y > AR.y + AR.h) { gone = true; break; }
+            if (this.obstacles.length && this.inObstacle(a.x, a.y)) { gone = true; if (this.FX.chance(0.35)) this.burst(a.x, a.y, '#AEB6C6', 2, 120, 0.25, 4); break; }
             const ci = (a.x - AR.x) / 64 | 0, cj = (a.y - AR.y) / 64 | 0;
             for (let di = -1; di <= 1 && !hitU; di++) for (let dj = -1; dj <= 1 && !hitU; dj++) {
               const b = this.grid.get((ci + di) * 64 + cj + dj);
@@ -1658,10 +1879,19 @@ const RVB = (() => {
       if (this.ground) ctx.drawImage(this.ground, AR.x, AR.y, AR.w, AR.h);
       else { ctx.fillStyle = COL.floor; ctx.fillRect(AR.x, AR.y, AR.w, AR.h); }
       if (this.stains) ctx.drawImage(this.stains, AR.x, AR.y, AR.w, AR.h);
+      if ((this.obstacles.length || this.decor.length) && api.makeCanvas) { if (!this.mapLayer) this.paintMap(); ctx.drawImage(this.mapLayer, AR.x, AR.y, AR.w, AR.h); }
       // arrows
       ctx.lineCap = 'round';
+      const tracers = [], snipes = [];
       for (const a of this.arrows) {
         const l = Math.hypot(a.vx, a.vy) || 1, ux = a.vx / l, uy = a.vy / l;
+        if (a.kind === 'fireball') {
+          // a glowing purple-orange ball on a low arc
+          const p = a.t / a.T, hgt = Math.sin(Math.PI * p) * 22;
+          ctx.beginPath(); ctx.arc(a.x, a.y - hgt, 11, 0, TAU); ctx.fillStyle = 'rgba(192,132,252,0.35)'; ctx.fill();
+          ctx.beginPath(); ctx.arc(a.x, a.y - hgt, 6, 0, TAU); ctx.fillStyle = '#FFB347'; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = '#7C3AED'; ctx.stroke();
+          continue;
+        }
         if (a.kind === 'grenade') {
           // arcs up and down on the way: shadow on the ground, grenade above it
           const p = a.t / a.T, hgt = Math.sin(Math.PI * p) * 38;
@@ -1676,11 +1906,8 @@ const RVB = (() => {
           continue;
         }
         if (a.kind === 'bullet' || a.kind === 'sniper') {
-          // tracer
-          const len = a.kind === 'sniper' ? 46 : 20;
-          if (a.kind === 'sniper') { ctx.lineWidth = 6; ctx.strokeStyle = 'rgba(255,240,180,0.25)'; ctx.beginPath(); ctx.moveTo(a.x - ux * len * 1.6, a.y - uy * len * 1.6); ctx.lineTo(a.x, a.y); ctx.stroke(); }
-          ctx.lineWidth = a.kind === 'sniper' ? 3 : 2.5; ctx.strokeStyle = a.kind === 'sniper' ? '#FFFFFF' : '#FFE27A';
-          ctx.beginPath(); ctx.moveTo(a.x - ux * len, a.y - uy * len); ctx.lineTo(a.x, a.y); ctx.stroke();
+          // collected here and drawn together below (one stroke per kind keeps busy firefights fast and tidy)
+          if (a.tracer !== false) (a.kind === 'sniper' ? snipes : tracers).push(a.x, a.y, ux, uy);
           continue;
         }
         if (a.bolt) {
@@ -1694,16 +1921,30 @@ const RVB = (() => {
         ctx.lineWidth = 3; ctx.strokeStyle = COL.steel;
         ctx.beginPath(); ctx.moveTo(a.x - ux * 18, a.y - uy * 18); ctx.lineTo(a.x + ux * 4, a.y + uy * 4); ctx.stroke();
       }
+      if (tracers.length) {
+        ctx.beginPath();
+        for (let i = 0; i < tracers.length; i += 4) { ctx.moveTo(tracers[i] - tracers[i + 2] * 16, tracers[i + 1] - tracers[i + 3] * 16); ctx.lineTo(tracers[i], tracers[i + 1]); }
+        ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(255,226,122,0.85)'; ctx.stroke();
+      }
+      if (snipes.length) {
+        ctx.beginPath();
+        for (let i = 0; i < snipes.length; i += 4) { ctx.moveTo(snipes[i] - snipes[i + 2] * 60, snipes[i + 1] - snipes[i + 3] * 60); ctx.lineTo(snipes[i], snipes[i + 1]); }
+        ctx.lineWidth = 6; ctx.strokeStyle = 'rgba(255,240,180,0.22)'; ctx.stroke();
+        ctx.beginPath();
+        for (let i = 0; i < snipes.length; i += 4) { ctx.moveTo(snipes[i] - snipes[i + 2] * 40, snipes[i + 1] - snipes[i + 3] * 40); ctx.lineTo(snipes[i], snipes[i + 1]); }
+        ctx.lineWidth = 3; ctx.strokeStyle = '#FFFFFF'; ctx.stroke();
+      }
       // explosions: a quick orange fireball with a bright ring
       for (const b of this.booms || []) {
         const p = b.t / 0.45, rr = b.r * (0.45 + 0.8 * p);
-        ctx.beginPath(); ctx.arc(b.x, b.y, rr, 0, TAU); ctx.fillStyle = `rgba(255,150,40,${(1 - p) * 0.5})`; ctx.fill();
+        ctx.beginPath(); ctx.arc(b.x, b.y, rr, 0, TAU); ctx.fillStyle = b.magic ? `rgba(168,85,247,${(1 - p) * 0.5})` : `rgba(255,150,40,${(1 - p) * 0.5})`; ctx.fill();
         ctx.lineWidth = 4; ctx.strokeStyle = `rgba(255,230,150,${1 - p})`; ctx.stroke();
         if (p < 0.25) { ctx.beginPath(); ctx.arc(b.x, b.y, rr * 0.5, 0, TAU); ctx.fillStyle = `rgba(255,255,230,${(0.25 - p) * 3})`; ctx.fill(); }
       }
       // units by type for fewer state changes
       const cheer = this.phase === 'outro' ? this.winner : -1;
-      for (const u of this.units) {
+      const drawOrder = this.units.some(u => u.flying) ? this.units.filter(u => !u.flying).concat(this.units.filter(u => u.flying)) : this.units;
+      for (const u of drawOrder) {
         const tm = TEAMS[u.team];
         if (u.fade !== undefined) { if (u.fade <= 0) continue; ctx.globalAlpha = u.fade; }
         let lx = Math.cos(u.face) * u.lunge * 6, ly = Math.sin(u.face) * u.lunge * 6;
@@ -1719,7 +1960,26 @@ const RVB = (() => {
         }
         const hop = u.team === cheer ? -Math.abs(Math.sin(this.outroT * 9 + u.x * 0.05)) * 6 : 0;
         const x = u.x + lx, y = u.y + ly + hop;
-        if (u.type === 'tank') {
+        if (u.type === 'dragon') {
+          // seen from above: a shadow on the ground, flapping wings, a long body, tail and horned head
+          const flap = 0.75 + 0.25 * Math.sin(this.t * 7 + u.gait), r = u.r;
+          ctx.beginPath(); ctx.ellipse(x + 10, y + 26, r * 1.1, r * 0.7, u.face, 0, TAU); ctx.fillStyle = 'rgba(0,0,0,0.3)'; ctx.fill();
+          ctx.save(); ctx.translate(x, y); ctx.rotate(u.face);
+          ctx.lineJoin = 'round'; ctx.lineWidth = 3; ctx.strokeStyle = COL.ink;
+          for (const sd of [-1, 1]) {
+            ctx.beginPath(); ctx.moveTo(r * 0.35, sd * r * 0.3); ctx.lineTo(-r * 0.2, sd * r * 1.75 * flap); ctx.lineTo(-r * 0.75, sd * r * 1.25 * flap); ctx.lineTo(-r * 0.55, sd * r * 0.3); ctx.closePath();
+            ctx.fillStyle = tm.d; ctx.fill(); ctx.stroke();
+            ctx.beginPath(); ctx.moveTo(r * 0.1, sd * r * 0.35); ctx.lineTo(-r * 0.45, sd * r * 1.3 * flap); ctx.lineWidth = 1.5; ctx.strokeStyle = tm.l; ctx.stroke(); ctx.lineWidth = 3; ctx.strokeStyle = COL.ink;
+          }
+          ctx.beginPath(); ctx.moveTo(-r * 0.7, -r * 0.18); ctx.quadraticCurveTo(-r * 1.4, 0, -r * 1.75, Math.sin(this.t * 4 + u.gait) * r * 0.25); ctx.quadraticCurveTo(-r * 1.4, 0, -r * 0.7, r * 0.18); ctx.closePath();
+          ctx.fillStyle = tm.c; ctx.fill(); ctx.stroke();
+          ctx.beginPath(); ctx.ellipse(0, 0, r * 0.85, r * 0.5, 0, 0, TAU); ctx.fillStyle = tm.c; ctx.fill(); ctx.stroke();
+          ctx.beginPath(); ctx.arc(r * 0.95, 0, r * 0.36, 0, TAU); ctx.fillStyle = tm.c; ctx.fill(); ctx.stroke();
+          ctx.fillStyle = '#E9E2D0';
+          for (const sd of [-1, 1]) { ctx.beginPath(); ctx.moveTo(r * 0.8, sd * r * 0.22); ctx.lineTo(r * 0.55, sd * r * 0.5); ctx.lineTo(r * 0.92, sd * r * 0.3); ctx.closePath(); ctx.fill(); ctx.lineWidth = 1.5; ctx.stroke(); }
+          ctx.fillStyle = '#FFD23F'; for (const sd of [-1, 1]) { ctx.beginPath(); ctx.arc(r * 1.08, sd * r * 0.14, r * 0.07, 0, TAU); ctx.fill(); }
+          ctx.restore();
+        } else if (u.type === 'tank') {
           // hull with tracks, turned the way the tank faces; turret and barrel on top, recoiling when it fires
           ctx.save(); ctx.translate(x, y); ctx.rotate(u.face);
           ctx.lineWidth = 3; ctx.strokeStyle = COL.ink; ctx.fillStyle = '#2A2F38';
@@ -1744,7 +2004,7 @@ const RVB = (() => {
           ctx.restore();
         } else {
           ctx.beginPath(); ctx.arc(x, y, u.r, 0, TAU);
-          ctx.fillStyle = LIGHT_FILL[u.type] ? tm.c : tm.d; ctx.fill();
+          ctx.fillStyle = u.type === 'skeleton' ? '#E8E2D0' : LIGHT_FILL[u.type] ? tm.c : tm.d; ctx.fill();
           ctx.lineWidth = u.type === 'giant' ? 5 : 3; ctx.strokeStyle = COL.ink; ctx.stroke();
           if (u.type === 'knight') { ctx.beginPath(); ctx.arc(x, y, u.r - 4.5, 0, TAU); ctx.lineWidth = 3.5; ctx.strokeStyle = tm.l; ctx.stroke(); }
           if (u.type === 'crossbowman') {
@@ -1756,6 +2016,42 @@ const RVB = (() => {
             const bx1 = ex - fx * 4, by1 = ey - fy * 4;
             ctx.lineWidth = 6; ctx.strokeStyle = COL.ink; ctx.beginPath(); ctx.moveTo(bx1 + px * 11 - fx * 5, by1 + py * 11 - fy * 5); ctx.lineTo(bx1, by1); ctx.lineTo(bx1 - px * 11 - fx * 5, by1 - py * 11 - fy * 5); ctx.stroke();
             ctx.lineWidth = 3; ctx.strokeStyle = COL.steel; ctx.beginPath(); ctx.moveTo(bx1 + px * 11 - fx * 5, by1 + py * 11 - fy * 5); ctx.lineTo(bx1, by1); ctx.lineTo(bx1 - px * 11 - fx * 5, by1 - py * 11 - fy * 5); ctx.stroke();
+          }
+          if (tm.a && u.type !== 'giant') { ctx.beginPath(); ctx.arc(x, y, u.r - 4, 0, TAU); ctx.lineWidth = 2.5; ctx.strokeStyle = tm.a; ctx.stroke(); }
+          if (u.type === 'skeleton') {
+            // bone-white skull with dark eye sockets, wearing the team colour as a ring
+            const fx = Math.cos(u.face), fy = Math.sin(u.face), px = -fy, py = fx;
+            ctx.beginPath(); ctx.arc(x, y, u.r - 1.5, 0, TAU); ctx.lineWidth = 3; ctx.strokeStyle = tm.c; ctx.stroke();
+            ctx.fillStyle = '#1A1A22';
+            for (const sd of [-1, 1]) { ctx.beginPath(); ctx.arc(x + fx * u.r * 0.3 + px * sd * u.r * 0.32, y + fy * u.r * 0.3 + py * sd * u.r * 0.32, u.r * 0.2, 0, TAU); ctx.fill(); }
+          }
+          if (u.type === 'orc') {
+            // two white tusks and a wooden club
+            const fx = Math.cos(u.face), fy = Math.sin(u.face), px = -fy, py = fx;
+            ctx.fillStyle = '#F4F1E6'; ctx.lineWidth = 1.5; ctx.strokeStyle = COL.ink;
+            for (const sd of [-1, 1]) { const bx = x + fx * u.r * 0.75 + px * sd * u.r * 0.35, by = y + fy * u.r * 0.75 + py * sd * u.r * 0.35; ctx.beginPath(); ctx.moveTo(bx - px * 3, by - py * 3); ctx.lineTo(bx + fx * 7, by + fy * 7); ctx.lineTo(bx + px * 3, by + py * 3); ctx.closePath(); ctx.fill(); ctx.stroke(); }
+            const ang = u.face + 0.8 - (u.lunge || 0) * 1.1, cfx = Math.cos(ang), cfy = Math.sin(ang);
+            ctx.lineCap = 'round'; ctx.lineWidth = 9; ctx.strokeStyle = COL.ink; ctx.beginPath(); ctx.moveTo(x + cfx * u.r * 0.6, y + cfy * u.r * 0.6); ctx.lineTo(x + cfx * (u.r + 16), y + cfy * (u.r + 16)); ctx.stroke();
+            ctx.lineWidth = 6; ctx.strokeStyle = '#7A5230'; ctx.stroke();
+          }
+          if (u.type === 'elf') {
+            // green hood and a curved bow held out front
+            const fx = Math.cos(u.face), fy = Math.sin(u.face);
+            ctx.beginPath(); ctx.arc(x - fx * 2, y - fy * 2, u.r * 0.6, 0, TAU); ctx.fillStyle = '#2E7D4F'; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = COL.ink; ctx.stroke();
+            ctx.beginPath(); ctx.arc(x + fx * (u.r - 2), y + fy * (u.r - 2), u.r * 0.85, u.face - 1.1, u.face + 1.1); ctx.lineWidth = 4; ctx.strokeStyle = COL.ink; ctx.stroke(); ctx.lineWidth = 2.2; ctx.strokeStyle = '#C79A5B'; ctx.stroke();
+          }
+          if (u.type === 'wizard') {
+            // pointed hat seen from above (a star of folds) and a staff with a glowing orb
+            const fx = Math.cos(u.face), fy = Math.sin(u.face), px = -fy, py = fx;
+            ctx.beginPath();
+            for (let k = 0; k < 10; k++) { const a = k / 10 * TAU, rr = k % 2 ? u.r * 0.35 : u.r * 0.78; const hx = x + Math.cos(a) * rr, hy = y + Math.sin(a) * rr; k ? ctx.lineTo(hx, hy) : ctx.moveTo(hx, hy); }
+            ctx.closePath(); ctx.fillStyle = tm.d; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = COL.ink; ctx.stroke();
+            ctx.beginPath(); ctx.arc(x, y, u.r * 0.18, 0, TAU); ctx.fillStyle = '#FFD23F'; ctx.fill();
+            const sx = x + px * u.r * 0.6, sy = y + py * u.r * 0.6, ex = sx + fx * (u.r + 12), ey = sy + fy * (u.r + 12);
+            ctx.lineCap = 'round'; ctx.lineWidth = 6; ctx.strokeStyle = COL.ink; ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(ex, ey); ctx.stroke();
+            ctx.lineWidth = 3; ctx.strokeStyle = '#8A6A49'; ctx.stroke();
+            const glow = 0.6 + 0.4 * (u.muzzle || 0);
+            ctx.beginPath(); ctx.arc(ex, ey, 5 + 4 * (u.muzzle || 0), 0, TAU); ctx.fillStyle = `rgba(192,132,252,${glow})`; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = COL.ink; ctx.stroke();
           }
           if (MODERN_INF[u.type]) {
             // modern infantry from above: a helmet, and a gun held to the right pointing at the enemy
@@ -1865,7 +2161,7 @@ const RVB = (() => {
         }
         if (u.healFlash > 0) { ctx.beginPath(); ctx.arc(x, y, u.r + 2, 0, TAU); ctx.lineWidth = 3; ctx.strokeStyle = `rgba(124,255,176,${u.healFlash * 0.9})`; ctx.stroke(); }
         if (u.flash > 0) { ctx.beginPath(); ctx.arc(x, y, u.r, 0, TAU); ctx.fillStyle = `rgba(255,255,255,${u.flash * 0.8})`; ctx.fill(); }
-        if ((u.type === 'knight' || u.type === 'giant' || u.type === 'shieldbearer' || u.type === 'tank') && u.hp < u.max) {
+        if ((u.type === 'knight' || u.type === 'giant' || u.type === 'shieldbearer' || u.type === 'tank' || u.type === 'dragon') && u.hp < u.max) {
           const w = u.r * 2;
           ctx.fillStyle = COL.ink; ctx.fillRect(x - w / 2 - 2, y - u.r - 13, w + 4, 8);
           ctx.fillStyle = tm.l; ctx.fillRect(x - w / 2, y - u.r - 11, w * clamp(u.hp / u.max, 0, 1), 4);
@@ -1974,6 +2270,7 @@ const RVB = (() => {
         case 'snipe': this.voice(t, { dur: 0.3, gain: 0.13, pan, partials: [{ f: 1400, f2: 260, glide: 0.05, decay: 0.07, a: 0.35 }], noise: { a: 1, decay: 0.05, lp: 0.7 } }); return;
         case 'cannon': this.voice(t, { dur: 0.6, gain: 0.3, pan, partials: [{ f: 95, f2: 38, glide: 0.14, decay: 0.22 }], noise: { a: 0.8, decay: 0.09, lp: 0.25 } }); return;
         case 'blast': if (this.gate('blast', 0.06, t)) this.voice(t, { dur: 0.5, gain: ev.big ? 0.3 : 0.2, pan, partials: [{ f: 110, f2: 42, glide: 0.12, decay: 0.18 }], noise: { a: 0.9, decay: ev.big ? 0.16 : 0.1, lp: 0.15 } }); return;
+        case 'flame': if (this.gate('flame', 0.12, t)) this.voice(t, { dur: 0.4, gain: 0.12, pan, noise: { a: 1, decay: 0.2, lp: 0.3 } }); return;
         case 'heal': if (this.gate('heal', 0.12, t)) this.voice(t, { dur: 0.3, gain: 0.05, pan, partials: [{ f: 1320, f2: 1760, glide: 0.12, decay: 0.12 }, { f: 2640, a: 0.3, decay: 0.06 }] }); return;
         case 'swish': if (this.gate('swish', 0.05, t)) this.voice(t, { dur: 0.2, gain: 0.05, pan, partials: [{ f: 950, f2: 320, glide: 0.07, decay: 0.06, a: 0.25 }], noise: { a: 0.9, decay: 0.07, lp: 0.45, hp: true } }); return;
         case 'clash': if (this.gate('clash', 0.028, t)) this.voice(t, { dur: 0.07, gain: 0.07, pan, partials: [{ f: 1800 + this.noise() * 200, decay: 0.02 }, { f: 2750, a: 0.6, decay: 0.015 }], noise: { a: 0.4, decay: 0.006, lp: 0.9, hp: true } }); return;
@@ -1995,7 +2292,7 @@ const RVB = (() => {
   }
 
   const GAMES = { territory: Territory, duel: Duel, army: Army };
-  Object.assign(api, { rng, Match, Territory, Duel, Army, Synth, GAMES, WEAPONS, DOCTRINES, UNIT, fmtTime });
+  Object.assign(api, { rng, Match, Territory, Duel, Army, Synth, GAMES, WEAPONS, DOCTRINES, MODERN_DOCTRINES, FANTASY_DOCTRINES, MAPS, UNIT, eraOf, fmtTime });
   return api;
 })();
 if (typeof module !== 'undefined') module.exports = RVB;

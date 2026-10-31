@@ -34,11 +34,13 @@ RVB.setTeams(pair[0], pair[1]);
 // using how many videos are already in uploads.md to know where we are in the list.
 const posted = fs.existsSync(path.join(__dirname, 'uploads.md'))
   ? (fs.readFileSync(path.join(__dirname, 'uploads.md'), 'utf8').match(/^\| \d{4}-/gm) || []).length : 0;
-const matchups = rules.matchups || [];
+// line-ups marked "pending" are still being balanced and stay out of the rotation until then
+const matchups = (rules.matchups || []).filter(m => !m.pending);
 const slot = process.env.MATCHUP ? Number(process.env.MATCHUP) : posted;
 const mu = matchups.length ? matchups[slot % matchups.length] : null;
-// era: 'medieval' (swords and bows) or 'modern' (rifles, machine guns, snipers, grenades, tanks)
-const era = (mu && mu.era) || 'medieval';
+// era comes from the two army types: 'medieval', 'modern', 'fantasy', or 'mixed' when they're from different eras
+const eras = mu ? [RVB.eraOf(mu.top), RVB.eraOf(mu.bottom)] : ['medieval', 'medieval'];
+const era = eras[0] === eras[1] ? eras[0] : 'mixed';
 // Formations also rotate, shifting by one each time the line-up list starts over, so pairings keep changing.
 const forms = rules.formations || ['line'];
 const shift = Math.floor(slot / Math.max(1, matchups.length));
@@ -50,10 +52,15 @@ const shareOf = type => (troops.includes(type) ? (shares[type] ?? 0.12) : 0);
 const swordsmen = shareOf('swordsman');
 const crossbowmen = shareOf('crossbowman');
 const extras = troops.filter(t => t !== 'swordsman' && t !== 'crossbowman').map(type => ({ type, share: shareOf(type) }));
+// topTroops / bottomTroops give one side its own extra troops (any troop type, from any era)
+const sideTroops = mu ? [mu.topTroops || [], mu.bottomTroops || []] : [[], []];
+const extrasByTeam = sideTroops.some(l => l.length) ? sideTroops.map(l => extras.concat(l.map(type => ({ type, share: shares[type] ?? 0.12 })))) : undefined;
 const doctrines = mu ? [mu.top, mu.bottom] : undefined;
 // balance: bottom army size relative to the top, tuned so each match-up is close to 50/50.
 const budgetMul = mu ? [1, mu.balance ?? 1] : undefined;
-const map = 'classic';
+// Maps rotate too, among the ones allowed for this era (see rules.maps).
+const mapList = (rules.maps || [{ name: 'open' }]).filter(m => !m.eras || m.eras.includes(era));
+const map = process.env.MAP || (mapList.length ? mapList[(slot * 7 + 3 + shift) % mapList.length].name : 'open');
 fs.mkdirSync(OUT, { recursive: true });
 
 function ffmpeg(args) {
@@ -85,14 +92,14 @@ async function main() {
   // teamStyles: a colour can have its own fighting style, e.g. ORANGE armies are mostly swordsmen.
   const styles = rules.teamStyles || {};
   // (colour styles are about medieval troops, so they're ignored in modern battles)
-  const style = name => (era === 'modern' ? null : styles[name]);
-  const swordsmenByTeam = pair.map(name => (style(name) && style(name).swordsmenShare !== undefined) ? style(name).swordsmenShare : swordsmen);
+  const style = (name, i) => (eras[i] === 'medieval' ? styles[name] : null);
+  const swordsmenByTeam = pair.map((name, i) => (style(name, i) && style(name, i).swordsmenShare !== undefined) ? style(name, i).swordsmenShare : swordsmen);
   // a style's budget scales that army's size so the style stays fair (tested over many battles)
-  const bm = (budgetMul || [1, 1]).map((v, i) => v * ((style(pair[i]) && style(pair[i]).budget) || 1));
+  const bm = (budgetMul || [1, 1]).map((v, i) => v * ((style(pair[i], i) && style(pair[i], i).budget) || 1));
   // formationBudget: slightly smaller armies for formations that tested stronger than a line, bigger for weaker ones
   const fbud = rules.formationBudget || {};
   formations.forEach((f, i) => { bm[i] *= fbud[f] ?? 1; });
-  const game = new RVB.Army(seed, { target: SECS, fixedLength: SECS, swordsmen, crossbowmen, map, doctrines, budgetMul: bm, swordsmenByTeam, extras, era, formations });
+  const game = new RVB.Army(seed, { target: SECS, fixedLength: SECS, swordsmen, crossbowmen, map, doctrines, budgetMul: bm, swordsmenByTeam, extras, extrasByTeam, era, formations });
   const synth = new RVB.Synth(SR, SECS + 4);
   synth.reset(seed);
   const canvas = createCanvas(W, H);
@@ -132,12 +139,19 @@ async function main() {
   await ffmpeg(['-i', silent, '-i', wav, '-map', '0:v:0', '-map', '1:a:0', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '160k', '-t', String(SECS), '-movflags', '+faststart', final]).done;
   fs.rmSync(silent); fs.rmSync(wav);
 
-  const [n0, n1] = RVB.TEAMS.map(t => titleCase(t.name));
+  // nations keep their usual short names (UK, USA); colours are title-cased
+  const NATION = { UK: 'UK', USA: 'USA', FRANCE: 'France', GERMANY: 'Germany', ITALY: 'Italy', BRAZIL: 'Brazil', ARGENTINA: 'Argentina', CANADA: 'Canada', SPAIN: 'Spain', PORTUGAL: 'Portugal' };
+  const [n0, n1] = RVB.TEAMS.map(t => NATION[t.name] || titleCase(t.name));
   const red = `${n0} ${titleCase(game.doc[0].name)}`, blue = `${n1} ${titleCase(game.doc[1].name)}`;
   // Short titles: team emoji + colour names + a short hook with an emoji. Army types go in the description.
-  const EMOJI = { RED: '🔴', BLUE: '🔵', GREEN: '🟢', PURPLE: '🟣', ORANGE: '🟠', YELLOW: '🟡', PINK: '🩷', CYAN: '🩵', WHITE: '⚪', BROWN: '🟤' };
+  const EMOJI = { RED: '🔴', BLUE: '🔵', GREEN: '🟢', PURPLE: '🟣', ORANGE: '🟠', YELLOW: '🟡', PINK: '🩷', CYAN: '🩵', WHITE: '⚪', BROWN: '🟤',
+    UK: '🇬🇧', USA: '🇺🇸', FRANCE: '🇫🇷', GERMANY: '🇩🇪', ITALY: '🇮🇹', BRAZIL: '🇧🇷', ARGENTINA: '🇦🇷', CANADA: '🇨🇦', SPAIN: '🇪🇸', PORTUGAL: '🇵🇹' };
   const [e0, e1] = RVB.TEAMS.map(t => EMOJI[t.name] || '⚔️');
-  const hooks = era === 'modern'
+  const hooks = era === 'fantasy'
+    ? ['Who Rules? 👑', 'Pick a Faction! 🧙', 'Magic vs Might ✨', 'Only One Survives 💀', 'Epic Battle 🔥', 'Who Takes It? 🏆']
+    : era === 'mixed'
+    ? ['Old vs New 🕰️', 'Who Wins? 💥', 'Pick a Side! 👇', 'Only One Survives 💀', 'Can the Past Win? ⚔️', 'Who Takes It? 🏆']
+    : era === 'modern'
     ? ['Who Wins? 💥', 'Pick a Side! 🎯', 'Only One Survives 💀', 'Modern War 🪖', 'Who Holds the Line? 🛡️', 'Who Takes It? 🏆']
     : ['Who Wins? ⚔️', 'Pick a Side! 👇', 'Only One Survives 💀', 'Guess the Winner 🤔', 'Epic Battle 🔥', 'Who Takes It? 🏆'];
   const hook = hooks[seed % hooks.length];
@@ -147,17 +161,21 @@ async function main() {
     description: [
       `${e0} ${red} (${formations[0]} formation, ${game.start[0]} units) vs ${blue} (${formations[1]} formation, ${game.start[1]} units) ${e1}. Who wins? Pick your side and tell us in the comments before the end.`,
       '',
-      `A 60-second ${era === 'modern' ? 'modern warfare ' : ''}battle simulation. The outcome comes from the game's rules and chance, not real footage.`,
+      `A 60-second ${{ modern: 'modern warfare ', fantasy: 'fantasy ', mixed: 'old vs new ' }[era] || ''}battle simulation on the ${map} map. The outcome comes from the game's rules and chance, not real footage.`,
       '',
       'Subscribe for a new battle every day.',
       '',
       `#shorts #${n0.toLowerCase()}vs${n1.toLowerCase()} #battlesimulation`,
     ].join('\n'),
-    tags: [`${n0.toLowerCase()} vs ${n1.toLowerCase()}`, 'army battle', 'battle simulation', 'army simulation', 'who wins', 'army clash', `${red.toLowerCase()} vs ${blue.toLowerCase()}`, 'shorts'].concat(era === 'modern' ? ['modern warfare'] : []).concat(game.doc.some(d => d.tank) ? ['tank battle'] : []),
+    tags: [`${n0.toLowerCase()} vs ${n1.toLowerCase()}`, 'army battle', 'battle simulation', 'army simulation', 'who wins', 'army clash', `${red.toLowerCase()} vs ${blue.toLowerCase()}`, 'shorts'].concat(era === 'modern' ? ['modern warfare'] : era === 'fantasy' ? ['fantasy battle', 'dragon'] : era === 'mixed' ? ['old vs new', 'swords vs guns'] : []).concat(game.doc.some(d => d.tank) ? ['tank battle'] : []),
     teams: pair,
     troops,
     era,
+    map,
     formations,
+    armies: game.doc.map(d => d.name),
+    hook,
+    slot,
     winner: game.headline,
   };
   fs.writeFileSync(path.join(OUT, 'meta.json'), JSON.stringify(meta, null, 2));

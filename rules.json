@@ -118,6 +118,48 @@
         "PINK"
       ],
       "weight": 1
+    },
+    {
+      "teams": [
+        "UK",
+        "USA"
+      ],
+      "weight": 1
+    },
+    {
+      "teams": [
+        "UK",
+        "FRANCE"
+      ],
+      "weight": 1
+    },
+    {
+      "teams": [
+        "BRAZIL",
+        "ARGENTINA"
+      ],
+      "weight": 1
+    },
+    {
+      "teams": [
+        "USA",
+        "CANADA"
+      ],
+      "weight": 1
+    },
+    {
+      "teams": [
+        "GERMANY",
+        "ITALY"
+      ],
+      "weight": 1
+    },
+    {
+      "teams": [
+        "SPAIN",
+        "PORTUGAL"
+      ],
+      "weight": 1
     }
   ],
   "teamStyles": {
@@ -142,31 +184,80 @@
     "flanks",
     "block"
   ],
-  "formationBudget": {"line": 1, "wedge": 0.985, "columns": 0.99, "crescent": 1.005, "flanks": 1, "block": 1.005},
+  "formationBudget": {
+    "line": 1,
+    "wedge": 0.985,
+    "columns": 0.99,
+    "crescent": 1.005,
+    "flanks": 1,
+    "block": 1.005
+  },
+  "maps": [
+    {
+      "name": "open"
+    },
+    {
+      "name": "rocks"
+    },
+    {
+      "name": "ruins",
+      "eras": [
+        "medieval",
+        "fantasy",
+        "mixed"
+      ]
+    },
+    {
+      "name": "trenches",
+      "eras": [
+        "modern",
+        "mixed"
+      ]
+    },
+    {
+      "name": "city",
+      "eras": [
+        "modern",
+        "mixed"
+      ]
+    }
+  ],
   "matchups": [
     {"top": "SWARM", "bottom": "KNIGHTS", "balance": 1.11},
     {"top": "ARCHERS", "bottom": "BALANCED", "troops": ["swordsman"], "balance": 1.05},
+    {"top": "HORDE", "bottom": "ELVES", "balance": 1, "pending": true},
     {"top": "GIANT", "bottom": "SWARM", "balance": 1.05},
     {"era": "modern", "top": "INFANTRY", "bottom": "ASSAULT", "balance": 1.08},
+    {"top": "KNIGHTS", "bottom": "INFANTRY", "topTroops": ["shieldbearer"], "balance": 1, "pending": true},
     {"top": "KNIGHTS", "bottom": "ARCHERS", "troops": ["crossbowman"], "balance": 1.07},
     {"top": "BALANCED", "bottom": "GIANT", "troops": ["swordsman"], "balance": 0.94},
+    {"top": "ORCS", "bottom": "MAGES", "balance": 1, "pending": true},
     {"top": "SWARM", "bottom": "ARCHERS", "troops": ["crossbowman"], "balance": 1.03},
     {"era": "modern", "top": "ARMORED", "bottom": "SNIPERS", "balance": 1.24},
+    {"top": "ARMORED", "bottom": "GIANT", "balance": 1, "pending": true},
     {"top": "KNIGHTS", "bottom": "GIANT", "balance": 0.99},
     {"top": "BALANCED", "bottom": "SWARM", "troops": ["swordsman", "crossbowman"], "balance": 0.92},
+    {"top": "DRAGON", "bottom": "ORCS", "balance": 1, "pending": true},
     {"top": "ARCHERS", "bottom": "GIANT", "troops": ["swordsman"], "balance": 1.09},
     {"era": "modern", "top": "COMBINED", "bottom": "INFANTRY", "troops": ["healer"], "balance": 0.96},
+    {"top": "ARCHERS", "bottom": "SNIPERS", "balance": 1, "pending": true},
     {"top": "KNIGHTS", "bottom": "BALANCED", "troops": ["crossbowman"], "balance": 1.01},
     {"top": "GIANT", "bottom": "ARCHERS", "troops": ["crossbowman"], "balance": 1.01},
+    {"top": "ELVES", "bottom": "ORCS", "balance": 1, "pending": true},
     {"top": "SWARM", "bottom": "BALANCED", "troops": ["swordsman"], "balance": 1.07},
     {"era": "modern", "top": "SNIPERS", "bottom": "ASSAULT", "troops": ["healer"], "balance": 0.92},
+    {"top": "DRAGON", "bottom": "ARMORED", "balance": 1, "pending": true},
     {"top": "KNIGHTS", "bottom": "SWARM", "troops": ["spearman"], "balance": 0.89},
     {"top": "ARCHERS", "bottom": "KNIGHTS", "troops": ["shieldbearer", "healer"], "balance": 1.07},
+    {"top": "MAGES", "bottom": "HORDE", "balance": 1, "pending": true},
     {"top": "BALANCED", "bottom": "BALANCED", "troops": ["berserker", "spearman"], "balance": 0.99},
     {"era": "modern", "top": "ASSAULT", "bottom": "ARMORED", "balance": 0.8},
+    {"top": "SWARM", "bottom": "ASSAULT", "topTroops": ["healer"], "balance": 1, "pending": true},
     {"top": "SWARM", "bottom": "GIANT", "troops": ["healer", "swordsman"], "balance": 0.92},
     {"top": "GIANT", "bottom": "KNIGHTS", "troops": ["berserker", "crossbowman"], "balance": 1.02},
+    {"top": "DRAGON", "bottom": "KNIGHTS", "balance": 1, "pending": true},
     {"top": "BALANCED", "bottom": "ARCHERS", "troops": ["shieldbearer", "spearman", "berserker"], "balance": 0.96},
-    {"era": "modern", "top": "COMBINED", "bottom": "ARMORED", "troops": ["healer"], "balance": 0.92}
+    {"era": "modern", "top": "COMBINED", "bottom": "ARMORED", "troops": ["healer"], "balance": 0.92},
+    {"top": "HORDE", "bottom": "INFANTRY", "balance": 1, "pending": true}
   ]
 }

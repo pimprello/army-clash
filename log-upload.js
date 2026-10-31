@@ -16,4 +16,10 @@ if (fs.existsSync(file)) {
 const cell = s => String(s).replace(/\|/g, '\\|').replace(/\n/g, ' ');
 const result = info.winner ? info.winner.charAt(0) + info.winner.slice(1).toLowerCase() : '';
 fs.writeFileSync(file, head + `| ${cell(info.date)} | ${cell(info.title)} | ${cell(result)} | ${info.url} |\n` + rows);
-console.log('uploads.md updated');
+// Also keep a machine-readable record of what each video was, so view counts can be matched to its settings.
+let meta = {};
+try { meta = JSON.parse(fs.readFileSync(path.join(__dirname, 'out', 'meta.json'), 'utf8')); } catch (e) { /* older render */ }
+const record = { date: info.date, id: info.id, title: info.title, seed: meta.seed, slot: meta.slot, era: meta.era, map: meta.map,
+  teams: meta.teams, armies: meta.armies, formations: meta.formations, troops: meta.troops, hook: meta.hook, winner: meta.winner };
+fs.appendFileSync(path.join(__dirname, 'videos.jsonl'), JSON.stringify(record) + '\n');
+console.log('uploads.md and videos.jsonl updated');

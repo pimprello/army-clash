@@ -11,4 +11,6 @@ When Rellz asks to change future videos ("add a unit", "use these colours", "mak
 
 Line-ups, formations and eras (medieval/modern) all rotate deterministically from the number of rows in `uploads.md`; nothing about the troop mix is random per video except colours.
 
+A daily scheduled autopilot run follows `AUTOPILOT.md` (health check, learn from `stats/summary.md`, add one new thing, log it in `CHANGELOG.md`). Keep that file's guardrails in sync with Rellz's instructions, and log manual changes in `CHANGELOG.md` too.
+
 Limits to remember: YouTube allows 100 API uploads a day per project, and the repo must stay active (each upload commits to `uploads.md`).

@@ -6,11 +6,14 @@ Every new video reads `rules.json` when it is made, so a change here applies to 
 
 - **`teamPairs`**: which colours fight. Each video picks one pair at random. `weight` makes a pair more or less common: weight 3 comes up three times as often as weight 1. Which colour gets the top half is random.
   Colours available: `RED`, `BLUE`, `GREEN`, `PURPLE`, `ORANGE`, `YELLOW`, `PINK`, `CYAN`, `WHITE`, `BROWN`.
+  Nations (flag colours, flag emojis in titles, an accent ring on each troop): `UK`, `USA`, `FRANCE`, `GERMANY`, `ITALY`, `BRAZIL`, `ARGENTINA`, `CANADA`, `SPAIN`, `PORTUGAL`. Only friendly rivalries: never pair countries in an active or recent war, or with a painful wartime history.
 - **`teamStyles`**: a colour can fight its own way. `ORANGE` armies are about 60% swordsmen (`swordsmenShare`), with a slightly smaller army (`budget` 0.96) so they still win about half their battles.
 - **`matchups`**: the troop line-ups, used in order, one per video, then starting again from the top (24 at the moment). Each has a `top` and `bottom` army type, optional `troops` (extra troop types to mix in, e.g. `["spearman", "healer"]`), optional `"era": "modern"` for a modern-warfare battle (every fourth line-up), and `balance`: the bottom army's size compared with the top, tuned by test battles so each line-up is close to 50/50.
-  Medieval army types: `SWARM`, `ARCHERS`, `KNIGHTS`, `BALANCED`, `GIANT`. Modern army types: `INFANTRY`, `ASSAULT`, `SNIPERS`, `ARMORED` (has a tank), `COMBINED`.
+  Medieval army types: `SWARM`, `ARCHERS`, `KNIGHTS`, `BALANCED`, `GIANT`. Modern: `INFANTRY`, `ASSAULT`, `SNIPERS`, `ARMORED` (has a tank), `COMBINED`. Fantasy: `HORDE`, `ORCS`, `ELVES`, `MAGES`, `DRAGON` (has a dragon). Any two can meet: when they come from different eras the video is an "old vs new" (mixed) battle.
+  `topTroops` / `bottomTroops` give one side its own extra troops, from any era. `"pending": true` keeps a line-up out of the rotation until it has been balanced.
 - **`troopShares`**: in line-ups that include an extra troop, roughly what share of each army it makes up (0.15 = about 15%).
 - **`formations`**: how each army lines up at the start. Each video takes the next formation for each side from this list (the two sides usually differ), shifting each time the line-up list starts over. Available: `line`, `wedge` (narrow tip at the front), `columns` (three columns), `crescent` (ends curve forward), `flanks` (two groups with a gap in the middle), `block` (narrow and deep).
+- **`maps`**: the battlefields, rotating like the line-ups among those allowed for the battle's era (`eras`; no list = every era). `open` (no obstacles), `rocks` (boulders), `ruins` (stone pillars and walls), `trenches` (sandbag lines and craters), `city` (rooftops and crates). Obstacles block movement, bullets and arrows; grenades, shells and fireballs fly over them, and dragons fly over everything. Every map is mirrored so both sides get the same ground.
 - **`formationBudget`**: army size per formation, so no formation wins more often than a plain line. In test battles wedge and columns won more (58% vs 47%) and crescent and block won less (36%), so their armies are nudged by 0.5 to 1.5%.
 
 ## Titles
@@ -36,8 +39,21 @@ Titles stay short: team emojis, the two colours and a short hook, for example `ð
 | *Modern:* Grenadier | circle holding a grenade | lobs grenades in an arc that blow up groups |
 | *Modern:* Tank | tracked hull with turret | one per ARMORED army; slow, armoured, fires explosive shells |
 | *Modern:* Medic | circle with a white cross | the healer, in modern battles |
+| *Fantasy:* Skeleton | bone-white circle with eye sockets | cheap and fast; arrows and bullets mostly pass through |
+| *Fantasy:* Orc | circle with tusks and a club | tough brute |
+| *Fantasy:* Elf | circle with a green hood and a bow | quick archer with long range |
+| *Fantasy:* Wizard | star-shaped hat and a staff with a glowing orb | throws fireballs that burst over an area |
+| *Fantasy:* Dragon | winged dragon with a shadow beneath | one per DRAGON army; flies over everything and breathes fire in a cone |
 | Giant | huge circle with a crown | one per army, "Giant" armies only |
 
 ## Changing anything else
 
 Ask Claude in a session with this repository and describe the rule in plain words, such as "make knights rarer" or "add yellow vs orange". Claude edits the code or `rules.json`, tests it and pushes it, and the next video follows the new rule.
+
+## Bullets
+
+Machine guns show a tracer on every third round, like real tracer ammo, and all tracers are drawn together so busy firefights stay readable and fast. If more than 160 bullets are ever in the air at once, extra shots fold their damage into the next bullet instead of adding more.
+
+## Stats and the autopilot
+
+Every posted video's settings are logged to `videos.jsonl`. Once a day the post workflow fetches view counts into `stats/summary.md` (needs a `YT_API_KEY` GitHub secret). A daily autopilot run (see `AUTOPILOT.md`) reads those stats, adds new content and tunes these rules; every change is listed in `CHANGELOG.md`.
