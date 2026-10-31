@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-10-31 23:19 | ⚪ Frost Mages vs Titan Rifles 🟣 \| Craziest Matchup? 💥 #shorts | White wins | https://youtube.com/shorts/-pzsNAt4UGg |
 | 2026-10-31 23:04 | 🇳🇴 Norway vs Sweden 🇸🇪 \| Who Wins? 💥 #shorts | Sweden wins | https://youtube.com/shorts/iI3-pCGYbv8 |
 | 2026-10-31 22:50 | 🟠 Giant Pirates vs Dragon Mages 🟣 \| Pick a Side! 👇 #shorts | Purple wins | https://youtube.com/shorts/nf0i7tf1N3w |
 | 2026-10-31 22:34 | 🟣 Purple vs Teal 🌊 \| Who Holds the Line? 🛡️ #shorts | Teal wins | https://youtube.com/shorts/MbraKl0PbrQ |
