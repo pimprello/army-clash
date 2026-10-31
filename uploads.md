@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-10-31 00:38 | 🟢 Green vs Pink 🩷 \| Only One Survives 💀 #shorts | Pink wins | https://youtube.com/shorts/wkcaFskCWnY |
 | 2026-10-31 00:23 | 🔵 Blue vs Purple 🟣 \| Only One Survives 💀 #shorts | Purple wins | https://youtube.com/shorts/m_dpg0K0UeU |
 | 2026-10-31 00:09 | 🔵 Blue vs Red 🔴 \| Modern War 🪖 #shorts | Red wins | https://youtube.com/shorts/7mSRSw0t8T8 |
 | 2026-10-30 23:53 | 🔵 Blue vs Red 🔴 \| Pick a Side! 👇 #shorts | Blue wins | https://youtube.com/shorts/NMAsWvllvrQ |
