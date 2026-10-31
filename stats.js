@@ -58,13 +58,15 @@ function groupBy(list, keyFn) {
   // only judge videos at least a day old, so new uploads don't drag the numbers down
   const day = 24 * 3600 * 1000, now = Date.now();
   const mature = out.filter(v => v.date && now - Date.parse(v.date.replace(' ', 'T') + 'Z') > day);
-  const nation = t => (t && t.some(x => ['UK', 'USA', 'FRANCE', 'GERMANY', 'ITALY', 'BRAZIL', 'ARGENTINA', 'CANADA', 'SPAIN', 'PORTUGAL'].includes(x)) ? 'nations' : 'colours');
+  const nation = t => (t && t.some(x => ['UK', 'USA', 'FRANCE', 'GERMANY', 'ITALY', 'BRAZIL', 'ARGENTINA', 'CANADA', 'SPAIN', 'PORTUGAL', 'AUSTRALIA', 'NEWZEALAND', 'NETHERLANDS', 'BELGIUM', 'SWEDEN', 'NORWAY'].includes(x)) ? 'nations' : 'colours');
   const table = (title, rows) => [`### ${title}`, '', '| Group | Videos | Median views | Average views |', '| --- | --- | --- | --- |',
     ...rows.slice(0, 15).map(r => `| ${r.k} | ${r.n} | ${r.median} | ${r.avg} |`), ''].join('\n');
   const md = [
     '# View stats', '', `Updated ${new Date().toISOString().slice(0, 16).replace('T', ' ')} UTC. ${out.length} videos, ${mature.length} at least a day old (used below). Groups need 3+ videos.`, '',
     `Total views: ${out.reduce((s, v) => s + v.views, 0)}. Median views per video: ${median(mature.map(v => v.views))}.`, '',
     table('By era', groupBy(mature, v => v.era)),
+    table('Creative (invented) vs list line-ups', groupBy(mature, v => (v.wild ? 'creative' : 'list'))),
+    table('Cinematic camera', groupBy(mature, v => (v.cinematic ? 'on' : 'off'))),
     table('By map', groupBy(mature, v => v.map)),
     table('By team type', groupBy(mature, v => v.teams && nation(v.teams))),
     table('By colour pair', groupBy(mature, v => v.teams && v.teams.slice().sort().join(' vs '))),

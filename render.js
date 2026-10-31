@@ -12,6 +12,7 @@ registerFont(path.join(__dirname, 'fonts/BarlowCondensed-ExtraBoldItalic.ttf'), 
 registerFont(path.join(__dirname, 'fonts/BarlowCondensed-Bold.ttf'), { family: 'Barlow Condensed', weight: '700', style: 'normal' });
 
 const RVB = require('./engine.js');
+const C = require('./creative.js');
 RVB.makeCanvas = (w, h) => createCanvas(w, h);
 
 const FPS = 60, SECS = 60, TOTAL = FPS * SECS, W = 1080, H = 1920, SR = 48000;
@@ -36,11 +37,23 @@ const posted = fs.existsSync(path.join(__dirname, 'uploads.md'))
   ? (fs.readFileSync(path.join(__dirname, 'uploads.md'), 'utf8').match(/^\| \d{4}-/gm) || []).length : 0;
 // line-ups marked "pending" are still being balanced and stay out of the rotation until then
 const matchups = (rules.matchups || []).filter(m => !m.pending);
-const slot = process.env.MATCHUP ? Number(process.env.MATCHUP) : posted;
-const mu = matchups.length ? matchups[slot % matchups.length] : null;
-// era comes from the two army types: 'medieval', 'modern', 'fantasy', or 'mixed' when they're from different eras
+// Creative slots: every Nth video (rules.creative.every) is a brand-new match-up invented from the seed, balanced on the spot.
+// MATCHUP=<n> forces line-up n from the list; WILD=1 forces a creative one.
+const creative = rules.creative || {};
+const every = creative.every || 0;
+const forced = process.env.MATCHUP !== undefined && process.env.MATCHUP !== '';
+const slot = forced ? Number(process.env.MATCHUP) : posted;
+const wild = process.env.WILD === '1' || (!forced && every > 1 && slot % every === every - 1);
+const listSlot = forced || every < 2 ? slot : slot - Math.floor((slot + 1) / every);
+const mu = wild ? C.invent(seed) : matchups.length ? matchups[listSlot % matchups.length] : null;
+// era (genre) comes from the two sides: 'medieval', 'modern', 'fantasy', 'scifi', 'pirate', 'horror', 'samurai',
+// 'mixed' when two army types come from different genres, 'wild' for teams that mix genres themselves
 const eras = mu ? [RVB.eraOf(mu.top), RVB.eraOf(mu.bottom)] : ['medieval', 'medieval'];
-const era = eras[0] === eras[1] ? eras[0] : 'mixed';
+const custom = !!mu && (typeof mu.top === 'object' || typeof mu.bottom === 'object');
+// two genres from different times (knights vs tanks) are an "old vs new" battle; other mixes (zombies vs infantry) count as wild match-ups
+const OLD = ['medieval', 'fantasy', 'samurai', 'pirate'], NEW = ['modern', 'scifi'];
+const oldVsNew = (OLD.includes(eras[0]) && NEW.includes(eras[1])) || (OLD.includes(eras[1]) && NEW.includes(eras[0]));
+const era = wild || (custom && !(eras[0] === eras[1] && eras[0] !== 'mixed')) ? 'wild' : eras[0] === eras[1] ? eras[0] : oldVsNew ? 'mixed' : 'wild';
 // Formations also rotate, shifting by one each time the line-up list starts over, so pairings keep changing.
 const forms = rules.formations || ['line'];
 const shift = Math.floor(slot / Math.max(1, matchups.length));
@@ -85,21 +98,34 @@ function writeWav(file, L, R, frames) {
   fs.writeFileSync(file, buf);
 }
 
-const titleCase = s => s.charAt(0) + s.slice(1).toLowerCase();
+const titleCase = s => s.split(' ').map(w => w.charAt(0) + w.slice(1).toLowerCase()).join(' ');
 
 async function main() {
   const t0 = Date.now();
   // teamStyles: a colour can have its own fighting style, e.g. ORANGE armies are mostly swordsmen.
   const styles = rules.teamStyles || {};
   // (colour styles are about medieval troops, so they're ignored in modern battles)
-  const style = (name, i) => (eras[i] === 'medieval' ? styles[name] : null);
+  const style = (name, i) => (eras[i] === 'medieval' && !(doctrines && typeof doctrines[i] === 'object') ? styles[name] : null);
   const swordsmenByTeam = pair.map((name, i) => (style(name, i) && style(name, i).swordsmenShare !== undefined) ? style(name, i).swordsmenShare : swordsmen);
   // a style's budget scales that army's size so the style stays fair (tested over many battles)
   const bm = (budgetMul || [1, 1]).map((v, i) => v * ((style(pair[i], i) && style(pair[i], i).budget) || 1));
   // formationBudget: slightly smaller armies for formations that tested stronger than a line, bigger for weaker ones
   const fbud = rules.formationBudget || {};
   formations.forEach((f, i) => { bm[i] *= fbud[f] ?? 1; });
-  const game = new RVB.Army(seed, { target: SECS, fixedLength: SECS, swordsmen, crossbowmen, map, doctrines, budgetMul: bm, swordsmenByTeam, extras, extrasByTeam, era, formations });
+  // battle events (rules.events): supply drops, airstrikes, meteor showers
+  const events = Array.isArray(rules.events) && rules.events.length ? rules.events : undefined;
+  const optsFor = mul => ({ target: SECS, fixedLength: SECS, swordsmen, crossbowmen, map, doctrines, budgetMul: [bm[0], bm[1] * mul], swordsmenByTeam, extras, extrasByTeam, era, formations, events });
+  // a creative match-up is new, so balance it now with quick test battles on this map and these formations
+  let wildMul = 1, wildRate = null;
+  if (wild) {
+    const b = await C.balance(optsFor, { sims: creative.balanceBattles || 8, steps: creative.balanceSteps || 6, seed, log: console.log });
+    wildMul = b.balance; wildRate = b.rate;
+    console.log(`Creative match-up ${mu.top.name} vs ${mu.bottom.name}: bottom army x${wildMul}, top won ${(b.rate * 100).toFixed(0)}% of test battles (${((Date.now() - t0) / 1000).toFixed(0)} s)`);
+  }
+  const game = new RVB.Army(seed, optsFor(wildMul));
+  // the cinematic director: camera moves, close-ups and slow motion (rules.cinematic, on unless set to false)
+  const cinematic = rules.cinematic !== false && process.env.CINEMATIC !== '0';
+  const director = cinematic ? new RVB.Director(game, { seed }) : null;
   const synth = new RVB.Synth(SR, SECS + 4);
   synth.reset(seed);
   const canvas = createCanvas(W, H);
@@ -119,7 +145,7 @@ async function main() {
     game.draw(ctx);
     const frame = canvas.toBuffer('raw');
     if (!enc.p.stdin.write(frame)) await once(enc.p.stdin, 'drain');
-    game.frame(1 / FPS);
+    if (director) director.advance(1 / FPS); else game.frame(1 / FPS);
     for (const ev of game.sfx) synth.play(ev, (i + 1) / FPS);
     game.sfx.length = 0;
     if ((i + 1) % (FPS * 6) === 0) console.log(`frame ${i + 1}/${TOTAL} (${(((i + 1) / TOTAL) * 100).toFixed(0)}%) after ${((Date.now() - t0) / 1000).toFixed(0)} s`);
@@ -140,14 +166,28 @@ async function main() {
   fs.rmSync(silent); fs.rmSync(wav);
 
   // nations keep their usual short names (UK, USA); colours are title-cased
-  const NATION = { UK: 'UK', USA: 'USA', FRANCE: 'France', GERMANY: 'Germany', ITALY: 'Italy', BRAZIL: 'Brazil', ARGENTINA: 'Argentina', CANADA: 'Canada', SPAIN: 'Spain', PORTUGAL: 'Portugal' };
-  const [n0, n1] = RVB.TEAMS.map(t => NATION[t.name] || titleCase(t.name));
-  const red = `${n0} ${titleCase(game.doc[0].name)}`, blue = `${n1} ${titleCase(game.doc[1].name)}`;
+  const NATION = { UK: 'UK', USA: 'USA', FRANCE: 'France', GERMANY: 'Germany', ITALY: 'Italy', BRAZIL: 'Brazil', ARGENTINA: 'Argentina', CANADA: 'Canada', SPAIN: 'Spain', PORTUGAL: 'Portugal',
+    AUSTRALIA: 'Australia', NEWZEALAND: 'New Zealand', NETHERLANDS: 'Netherlands', BELGIUM: 'Belgium', SWEDEN: 'Sweden', NORWAY: 'Norway' };
+  const [n0, n1] = pair.map(k => NATION[k] || titleCase(k));
+  const armyName = i => titleCase(game.doc[i].name);
+  const red = `${n0} ${armyName(0)}`, blue = `${n1} ${armyName(1)}`;
   // Short titles: team emoji + colour names + a short hook with an emoji. Army types go in the description.
   const EMOJI = { RED: '🔴', BLUE: '🔵', GREEN: '🟢', PURPLE: '🟣', ORANGE: '🟠', YELLOW: '🟡', PINK: '🩷', CYAN: '🩵', WHITE: '⚪', BROWN: '🟤',
-    UK: '🇬🇧', USA: '🇺🇸', FRANCE: '🇫🇷', GERMANY: '🇩🇪', ITALY: '🇮🇹', BRAZIL: '🇧🇷', ARGENTINA: '🇦🇷', CANADA: '🇨🇦', SPAIN: '🇪🇸', PORTUGAL: '🇵🇹' };
-  const [e0, e1] = RVB.TEAMS.map(t => EMOJI[t.name] || '⚔️');
-  const hooks = era === 'fantasy'
+    LIME: '💚', TEAL: '🌊', GOLD: '🥇', SILVER: '🥈', INDIGO: '🫐', CORAL: '🪸',
+    UK: '🇬🇧', USA: '🇺🇸', FRANCE: '🇫🇷', GERMANY: '🇩🇪', ITALY: '🇮🇹', BRAZIL: '🇧🇷', ARGENTINA: '🇦🇷', CANADA: '🇨🇦', SPAIN: '🇪🇸', PORTUGAL: '🇵🇹',
+    AUSTRALIA: '🇦🇺', NEWZEALAND: '🇳🇿', NETHERLANDS: '🇳🇱', BELGIUM: '🇧🇪', SWEDEN: '🇸🇪', NORWAY: '🇳🇴' };
+  const [e0, e1] = pair.map(k => EMOJI[k] || '⚔️');
+  const hooks = era === 'wild'
+    ? ['Dream Team Battle 🤯', 'Who Wins This? 🤔', 'Anything Goes 🎲', 'Craziest Matchup? 💥', 'Pick a Side! 👇', 'Only One Survives 💀']
+    : era === 'scifi'
+    ? ['Who Wins? 🚀', 'Lasers vs Steel ⚡', 'Pick a Side! 👇', 'Only One Survives 💀', 'Future War 🤖', 'Who Takes It? 🏆']
+    : era === 'pirate'
+    ? ['Who Rules the Seas? 🏴‍☠️', 'Pick a Crew! 👇', 'Only One Survives 💀', 'Cannons Ready 💣', 'Epic Battle 🔥', 'Who Takes It? 🏆']
+    : era === 'horror'
+    ? ['Can They Survive? 🧟', "Don't Get Bitten 🧟", 'The Dead Rise 💀', 'Pick a Side! 👇', 'Who Survives? 😱', 'Epic Battle 🔥']
+    : era === 'samurai'
+    ? ['Who Has Honor? ⚔️', 'Blade vs Blade 🗡️', 'Pick a Clan! 👇', 'Only One Survives 💀', 'Epic Battle 🔥', 'Who Takes It? 🏆']
+    : era === 'fantasy'
     ? ['Who Rules? 👑', 'Pick a Faction! 🧙', 'Magic vs Might ✨', 'Only One Survives 💀', 'Epic Battle 🔥', 'Who Takes It? 🏆']
     : era === 'mixed'
     ? ['Old vs New 🕰️', 'Who Wins? 💥', 'Pick a Side! 👇', 'Only One Survives 💀', 'Can the Past Win? ⚔️', 'Who Takes It? 🏆']
@@ -155,25 +195,39 @@ async function main() {
     ? ['Who Wins? 💥', 'Pick a Side! 🎯', 'Only One Survives 💀', 'Modern War 🪖', 'Who Holds the Line? 🛡️', 'Who Takes It? 🏆']
     : ['Who Wins? ⚔️', 'Pick a Side! 👇', 'Only One Survives 💀', 'Guess the Winner 🤔', 'Epic Battle 🔥', 'Who Takes It? 🏆'];
   const hook = hooks[seed % hooks.length];
+  const MAP_NAME = { open: 'open field', rocks: 'rocky field', ruins: 'ruins', trenches: 'trenches', city: 'city rooftops', forest: 'forest', bombed: 'bombed city', enchanted: 'fantasy land' };
+  const GENRE = { modern: 'modern warfare ', fantasy: 'fantasy ', mixed: 'old vs new ', scifi: 'sci-fi ', pirate: 'pirate ', horror: 'zombie ', samurai: 'samurai ', wild: 'mixed-genre ' };
+  // custom teams get their own names in the title ("Storm Mages vs Dragon Bones"); army types stay in the description otherwise
+  const showNames = era === 'wild';
+  const who = i => (showNames ? `${armyName(i)} (${C.describeSide(game.doc[i])}, ` : `${[red, blue][i]} (`);
+  const heavyIn = k => game.doc.some(d => d[k] || (d.heavy || []).includes(k));
+  const unique = (list) => [...new Set(list)];
   const meta = {
     seed,
-    title: `${e0} ${n0} vs ${n1} ${e1} | ${hook} #shorts`,
+    title: showNames ? `${e0} ${armyName(0)} vs ${armyName(1)} ${e1} | ${hook} #shorts` : `${e0} ${n0} vs ${n1} ${e1} | ${hook} #shorts`,
     description: [
-      `${e0} ${red} (${formations[0]} formation, ${game.start[0]} units) vs ${blue} (${formations[1]} formation, ${game.start[1]} units) ${e1}. Who wins? Pick your side and tell us in the comments before the end.`,
+      `${e0} ${who(0)}${formations[0]} formation, ${game.start[0]} units) vs ${who(1)}${formations[1]} formation, ${game.start[1]} units) ${e1}. Who wins? Pick your side and tell us in the comments before the end.`,
       '',
-      `A 60-second ${{ modern: 'modern warfare ', fantasy: 'fantasy ', mixed: 'old vs new ' }[era] || ''}battle simulation on the ${map} map. The outcome comes from the game's rules and chance, not real footage.`,
+      `A 60-second ${GENRE[era] || ''}battle simulation on the ${MAP_NAME[map] || map} map${showNames ? `, ${n0} vs ${n1}` : ''}. The outcome comes from the game's rules and chance, not real footage.`,
       '',
       'Subscribe for a new battle every day.',
       '',
-      `#shorts #${n0.toLowerCase()}vs${n1.toLowerCase()} #battlesimulation`,
+      `#shorts #${n0.toLowerCase().replace(/ /g, '')}vs${n1.toLowerCase().replace(/ /g, '')} #battlesimulation`,
     ].join('\n'),
-    tags: [`${n0.toLowerCase()} vs ${n1.toLowerCase()}`, 'army battle', 'battle simulation', 'army simulation', 'who wins', 'army clash', `${red.toLowerCase()} vs ${blue.toLowerCase()}`, 'shorts'].concat(era === 'modern' ? ['modern warfare'] : era === 'fantasy' ? ['fantasy battle', 'dragon'] : era === 'mixed' ? ['old vs new', 'swords vs guns'] : []).concat(game.doc.some(d => d.tank) ? ['tank battle'] : []),
+    tags: unique([`${n0.toLowerCase()} vs ${n1.toLowerCase()}`, 'army battle', 'battle simulation', 'army simulation', 'who wins', 'army clash', `${(showNames ? armyName(0) : red).toLowerCase()} vs ${(showNames ? armyName(1) : blue).toLowerCase()}`, 'shorts']
+      .concat({ modern: ['modern warfare'], fantasy: ['fantasy battle', 'dragon'], mixed: ['old vs new', 'swords vs guns'], scifi: ['sci fi battle', 'robots', 'lasers'], pirate: ['pirate battle', 'pirates'],
+        horror: ['zombie battle', 'zombies'], samurai: ['samurai battle', 'ninja'], wild: ['dream team', 'crazy matchup'] }[era] || [])
+      .concat(heavyIn('tank') ? ['tank battle'] : []).concat(heavyIn('dragon') ? ['dragon'] : []).concat(heavyIn('mech') ? ['mech'] : [])),
     teams: pair,
     troops,
     era,
     map,
     formations,
     armies: game.doc.map(d => d.name),
+    sides: doctrines,
+    wild: wild || undefined,
+    balance: wild ? wildMul : mu ? mu.balance : undefined,
+    cinematic,
     hook,
     slot,
     winner: game.headline,
@@ -181,6 +235,7 @@ async function main() {
   fs.writeFileSync(path.join(OUT, 'meta.json'), JSON.stringify(meta, null, 2));
   const mb = (fs.statSync(final).size / 1048576).toFixed(1);
   console.log(`Done in ${((Date.now() - t0) / 1000).toFixed(0)} s: ${final} (${mb} MB) | ${meta.title} | ${game.headline}, ${game.detail}`);
+  if (director) console.log(`Camera: ${director.shots.map(x => `${x.kind}@${x.t}`).join(' ')}`);
 }
 
 main().catch(err => { console.error(err); process.exit(1); });

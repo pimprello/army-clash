@@ -1,6 +1,6 @@
 # Army Clash auto-uploader
 
-Every run makes a brand-new 60-second **Red vs Blue Army Clash** Short (1080 × 1920, 60 fps, with sound) and posts it to your YouTube channel. GitHub runs it for you every 15 minutes (96 a day, evenly spaced), so you don't have to press anything.
+Every run makes a brand-new 60-second **Red vs Blue Army Clash** Short (1080 × 1920, 60 fps, with sound) and posts it to your YouTube channel. GitHub runs it for you about every 14½ minutes (98 a day, evenly spaced), so you don't have to press anything.
 
 ## One-time setup (about 15 minutes, easiest on a computer)
 
@@ -39,11 +39,11 @@ In this repository open **Settings → Secrets and variables → Actions → New
 
 Open the **Actions** tab → **Post Army Clash** → **Run workflow**. Pick `private` the first time if you want to check the video before anyone sees it. After about five minutes it appears on your channel.
 
-From then on it posts automatically every 15 minutes, around the clock: 96 a day, just under YouTube's limit of 100.
+From then on it posts automatically about every 14½ minutes, around the clock: 98 a day, just under YouTube's limit of 100.
 
 ## Changing things
 
-- **How often it posts:** edit the `cron` line in `.github/workflows/post-army-clash.yml`. For one a day at 18:00 UTC use `'0 18 * * *'`.
+- **How often it posts:** each run queues the next one; the gap is the `wait=$(( 873 - ...` line in `.github/workflows/post-army-clash.yml` (873 seconds plus about 7 seconds of GitHub start-up = one post every ~880 seconds). Don't go below about 870: YouTube allows 100 uploads a day.
 - **Titles and description:** edit the `meta` section at the end of `render.js`.
 - **Try it on your computer:** `npm install`, then `node render.js` makes `out/army-clash.mp4` (needs ffmpeg). `DRY_RUN=1 node upload.js` shows what would be uploaded without posting it.
 
@@ -51,6 +51,6 @@ From then on it posts automatically every 15 minutes, around the clock: 96 a day
 
 - Every posted video is added to `uploads.md` with its link. That small commit also keeps the schedule running, because GitHub pauses schedules in public repositories after 60 days without changes.
 - The repository can stay public: your keys live in GitHub Secrets and are never shown in the code or the logs. Public repositories also get Actions minutes for free.
-- YouTube's API allows 100 uploads a day per project. Posting every 15 minutes stays just under that. Failed upload attempts may also count, so going faster makes most runs fail.
+- YouTube's API allows 100 uploads a day per project. One post every ~880 seconds (98 a day) stays just under that. Failed upload attempts may also count, so going faster makes runs fail. Using several Google projects to get around the limit breaks YouTube's API rules, so the channel stays at 98.
 - If a run fails, the Actions tab shows why, and the video is kept there for 3 days.
 - The font is Barlow Condensed (SIL Open Font License, included in `fonts/`).

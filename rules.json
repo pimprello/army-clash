@@ -160,6 +160,90 @@
         "PORTUGAL"
       ],
       "weight": 1
+    },
+    {
+      "teams": [
+        "GOLD",
+        "SILVER"
+      ],
+      "weight": 2
+    },
+    {
+      "teams": [
+        "LIME",
+        "INDIGO"
+      ],
+      "weight": 1
+    },
+    {
+      "teams": [
+        "CORAL",
+        "TEAL"
+      ],
+      "weight": 1
+    },
+    {
+      "teams": [
+        "LIME",
+        "PINK"
+      ],
+      "weight": 1
+    },
+    {
+      "teams": [
+        "INDIGO",
+        "ORANGE"
+      ],
+      "weight": 1
+    },
+    {
+      "teams": [
+        "GOLD",
+        "PURPLE"
+      ],
+      "weight": 1
+    },
+    {
+      "teams": [
+        "SILVER",
+        "RED"
+      ],
+      "weight": 1
+    },
+    {
+      "teams": [
+        "TEAL",
+        "PURPLE"
+      ],
+      "weight": 1
+    },
+    {
+      "teams": [
+        "CORAL",
+        "BLUE"
+      ],
+      "weight": 1
+    },
+    {
+      "teams": [
+        "AUSTRALIA",
+        "NEWZEALAND"
+      ],
+      "weight": 1
+    },
+    {
+      "teams": [
+        "NETHERLANDS",
+        "BELGIUM"
+      ],
+      "weight": 1
+    },
+    {
+      "teams": [
+        "SWEDEN",
+        "NORWAY"
+      ],
+      "weight": 1
     }
   ],
   "teamStyles": {
@@ -204,60 +288,508 @@
       "eras": [
         "medieval",
         "fantasy",
-        "mixed"
+        "mixed",
+        "samurai",
+        "pirate",
+        "horror",
+        "wild"
       ]
     },
     {
       "name": "trenches",
       "eras": [
         "modern",
-        "mixed"
+        "mixed",
+        "wild"
       ]
     },
     {
       "name": "city",
       "eras": [
         "modern",
-        "mixed"
+        "mixed",
+        "scifi",
+        "horror",
+        "wild"
+      ]
+    },
+    {
+      "name": "forest",
+      "eras": [
+        "medieval",
+        "fantasy",
+        "mixed",
+        "samurai",
+        "pirate",
+        "horror",
+        "wild"
+      ]
+    },
+    {
+      "name": "bombed",
+      "eras": [
+        "modern",
+        "mixed",
+        "scifi",
+        "horror",
+        "wild"
+      ]
+    },
+    {
+      "name": "enchanted",
+      "eras": [
+        "fantasy",
+        "mixed",
+        "scifi",
+        "samurai",
+        "wild"
       ]
     }
   ],
   "matchups": [
-    {"top": "SWARM", "bottom": "KNIGHTS", "balance": 1.11},
-    {"top": "ARCHERS", "bottom": "BALANCED", "troops": ["swordsman"], "balance": 1.05},
-    {"top": "HORDE", "bottom": "ELVES", "balance": 0.86},
-    {"top": "GIANT", "bottom": "SWARM", "balance": 1.05},
-    {"era": "modern", "top": "INFANTRY", "bottom": "ASSAULT", "balance": 1.08},
-    {"top": "KNIGHTS", "bottom": "INFANTRY", "topTroops": ["shieldbearer"], "balance": 1.08},
-    {"top": "KNIGHTS", "bottom": "ARCHERS", "troops": ["crossbowman"], "balance": 1.07},
-    {"top": "BALANCED", "bottom": "GIANT", "troops": ["swordsman"], "balance": 0.94},
-    {"top": "ORCS", "bottom": "MAGES", "balance": 0.82},
-    {"top": "SWARM", "bottom": "ARCHERS", "troops": ["crossbowman"], "balance": 1.03},
-    {"era": "modern", "top": "ARMORED", "bottom": "SNIPERS", "balance": 1.24},
-    {"top": "ARMORED", "bottom": "GIANT", "balance": 1.39},
-    {"top": "KNIGHTS", "bottom": "GIANT", "balance": 0.99},
-    {"top": "BALANCED", "bottom": "SWARM", "troops": ["swordsman", "crossbowman"], "balance": 0.92},
-    {"top": "DRAGON", "bottom": "ORCS", "balance": 1.55},
-    {"top": "ARCHERS", "bottom": "GIANT", "troops": ["swordsman"], "balance": 1.09},
-    {"era": "modern", "top": "COMBINED", "bottom": "INFANTRY", "troops": ["healer"], "balance": 0.96},
-    {"top": "ARCHERS", "bottom": "SNIPERS", "balance": 0.845},
-    {"top": "KNIGHTS", "bottom": "BALANCED", "troops": ["crossbowman"], "balance": 1.01},
-    {"top": "GIANT", "bottom": "ARCHERS", "troops": ["crossbowman"], "balance": 1.01},
-    {"top": "ELVES", "bottom": "ORCS", "balance": 1.24},
-    {"top": "SWARM", "bottom": "BALANCED", "troops": ["swordsman"], "balance": 1.07},
-    {"era": "modern", "top": "SNIPERS", "bottom": "ASSAULT", "troops": ["healer"], "balance": 0.92},
-    {"top": "DRAGON", "bottom": "ARMORED", "balance": 1.08},
-    {"top": "KNIGHTS", "bottom": "SWARM", "troops": ["spearman"], "balance": 0.89},
-    {"top": "ARCHERS", "bottom": "KNIGHTS", "troops": ["shieldbearer", "healer"], "balance": 1.07},
-    {"top": "MAGES", "bottom": "HORDE", "balance": 1.34},
-    {"top": "BALANCED", "bottom": "BALANCED", "troops": ["berserker", "spearman"], "balance": 0.99},
-    {"era": "modern", "top": "ASSAULT", "bottom": "ARMORED", "balance": 0.8},
-    {"top": "SWARM", "bottom": "ASSAULT", "topTroops": ["healer"], "balance": 0.76},
-    {"top": "SWARM", "bottom": "GIANT", "troops": ["healer", "swordsman"], "balance": 0.92},
-    {"top": "GIANT", "bottom": "KNIGHTS", "troops": ["berserker", "crossbowman"], "balance": 1.02},
-    {"top": "DRAGON", "bottom": "KNIGHTS", "balance": 1.65},
-    {"top": "BALANCED", "bottom": "ARCHERS", "troops": ["shieldbearer", "spearman", "berserker"], "balance": 0.96},
-    {"era": "modern", "top": "COMBINED", "bottom": "ARMORED", "troops": ["healer"], "balance": 0.92},
-    {"top": "HORDE", "bottom": "INFANTRY", "balance": 0.99}
+    {
+      "top": "SWARM",
+      "bottom": "KNIGHTS",
+      "balance": 1.11
+    },
+    {
+      "top": "ARCHERS",
+      "bottom": "BALANCED",
+      "troops": [
+        "swordsman"
+      ],
+      "balance": 1.05
+    },
+    {
+      "top": "TROOPERS",
+      "bottom": "ROBOTS",
+      "pending": true,
+      "new": true
+    },
+    {
+      "top": "HORDE",
+      "bottom": "ELVES",
+      "balance": 0.86
+    },
+    {
+      "top": "GIANT",
+      "bottom": "SWARM",
+      "balance": 1.05
+    },
+    {
+      "top": "MECHS",
+      "bottom": "DRAGON",
+      "pending": true,
+      "new": true
+    },
+    {
+      "era": "modern",
+      "top": "INFANTRY",
+      "bottom": "ASSAULT",
+      "balance": 1.08
+    },
+    {
+      "top": "KNIGHTS",
+      "bottom": "INFANTRY",
+      "topTroops": [
+        "shieldbearer"
+      ],
+      "balance": 1.08
+    },
+    {
+      "top": {
+        "name": "SPELLGUNS",
+        "mix": {
+          "wizard": 0.35,
+          "rifleman": 0.45,
+          "gunner": 0.2
+        },
+        "heavy": [
+          "tank"
+        ]
+      },
+      "bottom": {
+        "name": "DRAGON ARMOR",
+        "mix": {
+          "orc": 0.5,
+          "rifleman": 0.5
+        },
+        "heavy": [
+          "dragon",
+          "dragon",
+          "tank"
+        ]
+      },
+      "pending": true,
+      "new": true
+    },
+    {
+      "top": "KNIGHTS",
+      "bottom": "ARCHERS",
+      "troops": [
+        "crossbowman"
+      ],
+      "balance": 1.07
+    },
+    {
+      "top": "BALANCED",
+      "bottom": "GIANT",
+      "troops": [
+        "swordsman"
+      ],
+      "balance": 0.94
+    },
+    {
+      "top": "PIRATES",
+      "bottom": "BUCCANEERS",
+      "pending": true,
+      "new": true
+    },
+    {
+      "top": "ORCS",
+      "bottom": "MAGES",
+      "balance": 0.82
+    },
+    {
+      "top": "SWARM",
+      "bottom": "ARCHERS",
+      "troops": [
+        "crossbowman"
+      ],
+      "balance": 1.03
+    },
+    {
+      "top": "NINJAS",
+      "bottom": "SNIPERS",
+      "pending": true,
+      "new": true
+    },
+    {
+      "era": "modern",
+      "top": "ARMORED",
+      "bottom": "SNIPERS",
+      "balance": 1.24
+    },
+    {
+      "top": "ARMORED",
+      "bottom": "GIANT",
+      "balance": 1.39
+    },
+    {
+      "top": "ZOMBIES",
+      "bottom": "INFANTRY",
+      "pending": true,
+      "new": true
+    },
+    {
+      "top": "KNIGHTS",
+      "bottom": "GIANT",
+      "balance": 0.99
+    },
+    {
+      "top": "BALANCED",
+      "bottom": "SWARM",
+      "troops": [
+        "swordsman",
+        "crossbowman"
+      ],
+      "balance": 0.92
+    },
+    {
+      "top": "SAMURAI",
+      "bottom": "NINJAS",
+      "pending": true,
+      "new": true
+    },
+    {
+      "top": "DRAGON",
+      "bottom": "ORCS",
+      "balance": 1.55
+    },
+    {
+      "top": "ARCHERS",
+      "bottom": "GIANT",
+      "troops": [
+        "swordsman"
+      ],
+      "balance": 1.09
+    },
+    {
+      "top": {
+        "name": "ROBO PIRATES",
+        "mix": {
+          "pirate": 0.5,
+          "robot": 0.3,
+          "musketeer": 0.2
+        },
+        "heavy": [
+          "cannon"
+        ]
+      },
+      "bottom": {
+        "name": "WIZARD GANG",
+        "mix": {
+          "wizard": 0.45,
+          "berserker": 0.35,
+          "healer": 0.2
+        }
+      },
+      "pending": true,
+      "new": true
+    },
+    {
+      "era": "modern",
+      "top": "COMBINED",
+      "bottom": "INFANTRY",
+      "troops": [
+        "healer"
+      ],
+      "balance": 0.96
+    },
+    {
+      "top": "ARCHERS",
+      "bottom": "SNIPERS",
+      "balance": 0.845
+    },
+    {
+      "top": "BUCCANEERS",
+      "bottom": "ARMORED",
+      "pending": true,
+      "new": true
+    },
+    {
+      "top": "KNIGHTS",
+      "bottom": "BALANCED",
+      "troops": [
+        "crossbowman"
+      ],
+      "balance": 1.01
+    },
+    {
+      "top": "GIANT",
+      "bottom": "ARCHERS",
+      "troops": [
+        "crossbowman"
+      ],
+      "balance": 1.01
+    },
+    {
+      "top": "MECHS",
+      "bottom": "TROOPERS",
+      "pending": true,
+      "new": true
+    },
+    {
+      "top": "ELVES",
+      "bottom": "ORCS",
+      "balance": 1.24
+    },
+    {
+      "top": "SWARM",
+      "bottom": "BALANCED",
+      "troops": [
+        "swordsman"
+      ],
+      "balance": 1.07
+    },
+    {
+      "top": "SAMURAI",
+      "bottom": "KNIGHTS",
+      "pending": true,
+      "new": true
+    },
+    {
+      "era": "modern",
+      "top": "SNIPERS",
+      "bottom": "ASSAULT",
+      "troops": [
+        "healer"
+      ],
+      "balance": 0.92
+    },
+    {
+      "top": "DRAGON",
+      "bottom": "ARMORED",
+      "balance": 1.08
+    },
+    {
+      "top": "ZOMBIES",
+      "bottom": "SWARM",
+      "pending": true,
+      "new": true
+    },
+    {
+      "top": "KNIGHTS",
+      "bottom": "SWARM",
+      "troops": [
+        "spearman"
+      ],
+      "balance": 0.89
+    },
+    {
+      "top": "ARCHERS",
+      "bottom": "KNIGHTS",
+      "troops": [
+        "shieldbearer",
+        "healer"
+      ],
+      "balance": 1.07
+    },
+    {
+      "top": {
+        "name": "TANK ZOMBIES",
+        "mix": {
+          "zombie": 0.8,
+          "gunner": 0.2
+        },
+        "heavy": [
+          "tank"
+        ]
+      },
+      "bottom": {
+        "name": "HOLY KNIGHTS",
+        "mix": {
+          "knight": 0.4,
+          "swordsman": 0.45,
+          "healer": 0.15
+        },
+        "heavy": [
+          "giant"
+        ]
+      },
+      "pending": true,
+      "new": true
+    },
+    {
+      "top": "MAGES",
+      "bottom": "HORDE",
+      "balance": 1.34
+    },
+    {
+      "top": "BALANCED",
+      "bottom": "BALANCED",
+      "troops": [
+        "berserker",
+        "spearman"
+      ],
+      "balance": 0.99
+    },
+    {
+      "top": "PIRATES",
+      "bottom": "ORCS",
+      "pending": true,
+      "new": true
+    },
+    {
+      "era": "modern",
+      "top": "ASSAULT",
+      "bottom": "ARMORED",
+      "balance": 0.8
+    },
+    {
+      "top": "SWARM",
+      "bottom": "ASSAULT",
+      "topTroops": [
+        "healer"
+      ],
+      "balance": 0.76
+    },
+    {
+      "top": "ROBOTS",
+      "bottom": "GIANT",
+      "pending": true,
+      "new": true
+    },
+    {
+      "top": "SWARM",
+      "bottom": "GIANT",
+      "troops": [
+        "healer",
+        "swordsman"
+      ],
+      "balance": 0.92
+    },
+    {
+      "top": "GIANT",
+      "bottom": "KNIGHTS",
+      "troops": [
+        "berserker",
+        "crossbowman"
+      ],
+      "balance": 1.02
+    },
+    {
+      "top": "TROOPERS",
+      "bottom": "ARCHERS",
+      "pending": true,
+      "new": true
+    },
+    {
+      "top": "DRAGON",
+      "bottom": "KNIGHTS",
+      "balance": 1.65
+    },
+    {
+      "top": "BALANCED",
+      "bottom": "ARCHERS",
+      "troops": [
+        "shieldbearer",
+        "spearman",
+        "berserker"
+      ],
+      "balance": 0.96
+    },
+    {
+      "top": {
+        "name": "NINJA BOTS",
+        "mix": {
+          "ninja": 0.55,
+          "robot": 0.45
+        }
+      },
+      "bottom": {
+        "name": "SKY SNIPERS",
+        "mix": {
+          "sniper": 0.4,
+          "elf": 0.6
+        },
+        "heavy": [
+          "dragon"
+        ]
+      },
+      "pending": true,
+      "new": true
+    },
+    {
+      "era": "modern",
+      "top": "COMBINED",
+      "bottom": "ARMORED",
+      "troops": [
+        "healer"
+      ],
+      "balance": 0.92
+    },
+    {
+      "top": "HORDE",
+      "bottom": "INFANTRY",
+      "balance": 0.99
+    },
+    {
+      "top": "UNDEAD",
+      "bottom": "TROOPERS",
+      "pending": true,
+      "new": true
+    }
+  ],
+  "cinematic": true,
+  "creative": {
+    "every": 2,
+    "balanceBattles": 8,
+    "balanceSteps": 6
+  },
+  "events": [
+    "airdrop",
+    "airstrike",
+    "meteors"
   ]
 }
