@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-10-31 20:52 | 🔴 Iron Gunners vs Thunder Bolts 🔵 \| Anything Goes 🎲 #shorts | Red wins | https://youtube.com/shorts/pTcX8HUrLdE |
 | 2026-10-31 20:34 | 🔵 Blue vs Purple 🟣 \| Epic Battle 🔥 #shorts | Blue wins | https://youtube.com/shorts/aHAWfFNKdB8 |
 | 2026-10-31 20:23 | 🇦🇺 Solar Rifles vs Storm Pirates 🇳🇿 \| Craziest Matchup? 💥 #shorts | Australia wins | https://youtube.com/shorts/n9LsWclBsto |
 | 2026-10-31 20:06 | 🥇 Gold vs Purple 🟣 \| Only One Survives 💀 #shorts | Purple wins | https://youtube.com/shorts/15bWb3S355k |
