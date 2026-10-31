@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-10-31 22:03 | 🟣 Purple vs Teal 🌊 \| Who Wins? ⚔️ #shorts | Purple wins | https://youtube.com/shorts/8XYgmhwzEtM |
 | 2026-10-31 21:50 | 🩵 Storm Muskets vs Cannon Orcs 🩷 \| Only One Survives 💀 #shorts | Cyan wins | https://youtube.com/shorts/x-AcisrCmxc |
 | 2026-10-31 21:35 | 🩷 Dragon vs Knights 🟡 \| Pick a Side! 👇 #shorts | Pink wins | https://youtube.com/shorts/XuXR69k5sX4 |
 | 2026-10-31 21:19 | 🥈 Mega Legion vs Ultra Bots 🔴 \| Only One Survives 💀 #shorts | Red wins | https://youtube.com/shorts/fP1iJ4ZBJ-8 |
