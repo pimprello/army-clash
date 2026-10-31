@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-10-31 22:50 | 🟠 Giant Pirates vs Dragon Mages 🟣 \| Pick a Side! 👇 #shorts | Purple wins | https://youtube.com/shorts/nf0i7tf1N3w |
 | 2026-10-31 22:34 | 🟣 Purple vs Teal 🌊 \| Who Holds the Line? 🛡️ #shorts | Teal wins | https://youtube.com/shorts/MbraKl0PbrQ |
 | 2026-10-31 22:20 | 🩷 Lunar Pirates vs Mega Spears 🟢 \| Only One Survives 💀 #shorts | Green wins | https://youtube.com/shorts/iMhy17hNEfQ |
 | 2026-10-31 22:03 | 🟣 Purple vs Teal 🌊 \| Who Wins? ⚔️ #shorts | Purple wins | https://youtube.com/shorts/8XYgmhwzEtM |
