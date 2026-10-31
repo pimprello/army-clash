@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-10-31 21:35 | 🩷 Dragon vs Knights 🟡 \| Pick a Side! 👇 #shorts | Pink wins | https://youtube.com/shorts/XuXR69k5sX4 |
 | 2026-10-31 21:19 | 🥈 Mega Legion vs Ultra Bots 🔴 \| Only One Survives 💀 #shorts | Red wins | https://youtube.com/shorts/fP1iJ4ZBJ-8 |
 | 2026-10-31 21:04 | 🟢 Green vs Brown 🟤 \| Who Wins? ⚔️ #shorts | Green wins | https://youtube.com/shorts/C4BHyAmebKY |
 | 2026-10-31 20:52 | 🔴 Iron Gunners vs Thunder Bolts 🔵 \| Anything Goes 🎲 #shorts | Red wins | https://youtube.com/shorts/pTcX8HUrLdE |
