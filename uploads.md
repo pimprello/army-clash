@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 23:01 | Giant Army vs SOLDIERS ⚔️ | Purple wins | https://youtube.com/shorts/N6_1fKyrBxo |
 | 2026-11-01 22:46 | They Were OUTNUMBERED... 😳 | Green wins | https://youtube.com/shorts/rrBRn9XdVwU |
 | 2026-11-01 22:32 | Skeletons vs ELVES 🏹 | White wins | https://youtube.com/shorts/9ReZcBWGK_M |
 | 2026-11-01 22:16 | 3 Armies, Only 1 SURVIVES 💀 | Usa wins | https://youtube.com/shorts/NSHuUJOQBME |
