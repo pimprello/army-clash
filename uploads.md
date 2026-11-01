@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 00:17 | 🩷 Giant Mages vs Mech Zombies 🩵 \| Who Wins This? 🤔 #shorts | Cyan wins | https://youtube.com/shorts/aMRBJ0qJDyE |
 | 2026-11-01 00:03 | ⚪ White vs Red 🔴 \| Epic Battle 🔥 #shorts | White wins | https://youtube.com/shorts/kCuYRSns8-w |
 | 2026-10-31 23:47 | 🇦🇷 Lunar Samurai vs Solar Zombies 🇧🇷 \| Only One Survives 💀 #shorts | Argentina wins | https://youtube.com/shorts/IbVb1g80iAU |
 | 2026-10-31 23:36 | 🇨🇦 Canada vs USA 🇺🇸 \| Only One Survives 💀 #shorts | Canada wins | https://youtube.com/shorts/74UNYAKJQdQ |
