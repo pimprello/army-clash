@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 21:18 | 3 Armies, Only 1 SURVIVES 💀 | Blue wins | https://youtube.com/shorts/hFhQCRjt0Ys |
 | 2026-11-01 21:03 | Soldiers vs KNIGHTS 🛡️ | Blue wins | https://youtube.com/shorts/5K3ZVaVW-2U |
 | 2026-11-01 20:49 | METEORS Hit Mid-Battle ☄️ | Orange wins | https://youtube.com/shorts/2ozCSKqV_cE |
 | 2026-11-01 20:34 | The Airdrop Had a SURPRISE Inside 📦 | Purple wins | https://youtube.com/shorts/eMIbjafjR1U |
