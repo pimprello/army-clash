@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 06:40 | 🫐 Dragon Rifles vs Ghost Gunners 💚 \| Only One Survives 💀 #shorts | Lime wins | https://youtube.com/shorts/dPhesTojgn8 |
 | 2026-11-01 06:26 | 🔴 Red vs White ⚪ \| Only One Survives 💀 #shorts | Red wins | https://youtube.com/shorts/0TrXNjleoI0 |
 | 2026-11-01 06:09 | 🩵 Rogue Bots vs Iron Troopers 🩷 \| Pick a Side! 👇 #shorts | Pink wins | https://youtube.com/shorts/97mmlriY5mE |
 | 2026-11-01 05:54 | 🟠 Orange vs Indigo 🫐 \| Only One Survives 💀 #shorts | Orange wins | https://youtube.com/shorts/Z4QsTP5l6dA |
