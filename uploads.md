@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 02:14 | 🔵 Neon Gunners vs Storm Bots 🔴 \| Pick a Side! 👇 #shorts | Red wins | https://youtube.com/shorts/hrzTiM2rgvE |
 | 2026-11-01 02:00 | 🇬🇧 UK vs France 🇫🇷 \| Only One Survives 💀 #shorts | France wins | https://youtube.com/shorts/zK9DYU7Ad3Y |
 | 2026-11-01 01:43 | 🔵 Cannon Spears vs Omega Archers 🪸 \| Only One Survives 💀 #shorts | Blue wins | https://youtube.com/shorts/O6_uTsmp5EU |
 | 2026-11-01 01:40 | 🩷 Pink vs Cyan 🩵 \| Pick a Side! 🎯 #shorts | Cyan wins | https://youtube.com/shorts/bG-ktpBeWBE |
