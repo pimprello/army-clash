@@ -88,17 +88,26 @@ function makeRunner(threads) {
   } catch (e) { workers = []; }
   let next = 0;
   const pending = new Map();
-  for (const w of workers) w.on('message', ({ id, top }) => { const p = pending.get(id); pending.delete(id); p(top); });
+  for (const w of workers) w.on('message', ({ id, top, wins, soft }) => { const p = pending.get(id); pending.delete(id); p({ top, wins, soft }); });
   const run = (opts, seeds) => new Promise(resolve => {
-    if (!workers.length) { resolve(require('./sim-worker.js').topWins(opts, seeds)); return; }
+    if (!workers.length) { const sw = require('./sim-worker.js'); const top = sw.topWins(opts, seeds); resolve({ top, wins: sw.topWins.last, soft: sw.topWins.soft }); return; }
     const id = next++; pending.set(id, resolve);
     workers[id % workers.length].postMessage({ id, opts, seeds });
   });
   return {
     async topRate(opts, seeds) {
       const parts = workers.length ? workers.map((_, i) => seeds.filter((_, j) => j % workers.length === i)).filter(p => p.length) : [seeds];
-      const wins = await Promise.all(parts.map(p => run(opts, p)));
-      return wins.reduce((a, b) => a + b, 0) / seeds.length;
+      const res = await Promise.all(parts.map(p => run(opts, p)));
+      return res.reduce((a, b) => a + b.top, 0) / seeds.length;
+    },
+    // share of battles each of three armies won
+    async rates3(opts, seeds) {
+      const parts = workers.length ? workers.map((_, i) => seeds.filter((_, j) => j % workers.length === i)).filter(p => p.length) : [seeds];
+      const res = await Promise.all(parts.map(p => run(opts, p)));
+      const rates = [0, 1, 2].map(t => res.reduce((a, b) => a + b.wins[t], 0) / seeds.length);
+      // soft: each army's average share of a score for how long it lasted and how many it had left (smoother than wins)
+      rates.soft = [0, 1, 2].map(t => res.reduce((a, b) => a + (b.soft ? b.soft[t] : 0), 0) / seeds.length);
+      return rates;
     },
     close() { for (const w of workers) w.terminate(); },
   };
@@ -124,4 +133,41 @@ async function balance(optsFor, { sims = 8, steps = 6, seed = 1, lo = 0.35, hi =
   } finally { runner.close(); }
 }
 
-module.exports = { invent, describeSide, balance, makeRunner, TROOP_NAME, NOUN };
+// A three-way creative match-up: three made-up teams that each lead with a different troop.
+function invent3(seed) {
+  const R = RVB.rng((seed ^ 0x3A3A3A) >>> 0);
+  const sides = [];
+  for (let t = 0; t < 3; t++) {
+    let s = inventSide(R, sides.map(x => Object.keys(x.mix)[0]));
+    for (let k = 0; k < 6 && sides.some(x => x.name.split(' ')[0] === s.name.split(' ')[0] || x.name === s.name); k++) s = inventSide(R, sides.map(x => Object.keys(x.mix)[0]));
+    sides.push(s);
+  }
+  return { three: sides, wild: true };
+}
+
+// Balance three armies: repeatedly grow the ones that win too rarely and shrink the ones that win too often,
+// using the same test battles each round. optsFor(muls) builds the options for army sizes muls = [a, b, c].
+async function balance3(optsFor, { sims = 12, rounds = 5, seed = 1, threads, log, start } = {}) {
+  const runner = makeRunner(threads);
+  try {
+    const seeds = Array.from({ length: sims }, (_, i) => (((seed >>> 0) * 2246822519 + i * 3266489917 + 7) >>> 0) || 1);
+    // steer by the smooth score (how long each army lasts and how many it keeps), and keep the sizes whose wins and scores are both closest to even
+    let muls = (start || [1, 1, 1]).slice(), best = { muls: muls.slice(), err: Infinity, rates: [1 / 3, 1 / 3, 1 / 3] };
+    const gain = [0.75, 0.75, 0.75], sgn = [0, 0, 0];
+    for (let r = 0; r < rounds; r++) {
+      const rates = await runner.rates3(optsFor(muls), seeds), soft = rates.soft;
+      const err = Math.max(...rates.map(x => Math.abs(x - 1 / 3))) * 0.5 + Math.max(...soft.map(x => Math.abs(x - 1 / 3))) * 1.5;
+      if (err < best.err) best = { muls: muls.slice(), err, rates: rates.slice() };
+      if (log) log(`  round ${r + 1}: sizes ${muls.map(m => m.toFixed(2)).join('/')} -> wins ${rates.map(x => (x * 100).toFixed(0) + '%').join('/')}, score ${soft.map(x => (x * 100).toFixed(0) + '%').join('/')}`);
+      if (Math.max(...soft.map(x => Math.abs(x - 1 / 3))) < 0.035 && Math.max(...rates.map(x => Math.abs(x - 1 / 3))) < 0.2) break;
+      // three-way battles snowball (a small edge wins outright), so each army's step is halved whenever its score swings past even
+      for (let t = 0; t < 3; t++) { const sg = Math.sign(soft[t] - 1 / 3); if (sgn[t] && sg && sg !== sgn[t]) gain[t] *= 0.5; if (sg) sgn[t] = sg; }
+      muls = muls.map((m, t) => m * Math.pow((1 / 3) / Math.max(soft[t], 0.04), gain[t]) * Math.pow((1 / 3 + 0.1) / (rates[t] + 0.1), 0.1));
+      const mean = (muls[0] + muls[1] + muls[2]) / 3; muls = muls.map(m => clamp3(m / mean));
+    }
+    return { balance: best.muls.map(m => Math.round(m * 1000) / 1000), rates: best.rates };
+  } finally { runner.close(); }
+}
+
+const clamp3 = m => Math.min(3, Math.max(0.25, m));
+module.exports = { invent, invent3, describeSide, balance, balance3, makeRunner, TROOP_NAME, NOUN };

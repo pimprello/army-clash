@@ -798,5 +798,162 @@
     "tornado",
     "blizzard",
     "earthquake"
-  ]
+  ],
+  "threeWay": {
+    "every": 4,
+    "maps": [
+      "open",
+      "canyon"
+    ],
+    "balanceBattles": 12,
+    "balanceRounds": 6,
+    "teamTriples": [
+      {
+        "teams": [
+          "RED",
+          "BLUE",
+          "GREEN"
+        ],
+        "weight": 3
+      },
+      {
+        "teams": [
+          "ORANGE",
+          "PURPLE",
+          "CYAN"
+        ],
+        "weight": 1
+      },
+      {
+        "teams": [
+          "YELLOW",
+          "PINK",
+          "TEAL"
+        ],
+        "weight": 1
+      },
+      {
+        "teams": [
+          "RED",
+          "CYAN",
+          "YELLOW"
+        ],
+        "weight": 1
+      },
+      {
+        "teams": [
+          "PINK",
+          "LIME",
+          "BLUE"
+        ],
+        "weight": 1
+      },
+      {
+        "teams": [
+          "CORAL",
+          "TEAL",
+          "PURPLE"
+        ],
+        "weight": 1
+      },
+      {
+        "teams": [
+          "WHITE",
+          "RED",
+          "BLUE"
+        ],
+        "weight": 1
+      },
+      {
+        "teams": [
+          "ORANGE",
+          "BLUE",
+          "GREEN"
+        ],
+        "weight": 1
+      },
+      {
+        "teams": [
+          "YELLOW",
+          "PURPLE",
+          "GREEN"
+        ],
+        "weight": 1
+      },
+      {
+        "teams": [
+          "AUSTRALIA",
+          "NEWZEALAND",
+          "UK"
+        ],
+        "weight": 1
+      },
+      {
+        "teams": [
+          "BRAZIL",
+          "ARGENTINA",
+          "SPAIN"
+        ],
+        "weight": 1
+      },
+      {
+        "teams": [
+          "USA",
+          "UK",
+          "BRAZIL"
+        ],
+        "weight": 1
+      }
+    ],
+    "lineups": [
+      {
+        "three": [
+          "KNIGHTS",
+          "ORCS",
+          "ROBOTS"
+        ],
+        "pending": true
+      },
+      {
+        "three": [
+          "ZOMBIES",
+          "INFANTRY",
+          "SAMURAI"
+        ],
+        "pending": true
+      },
+      {
+        "three": [
+          "DRAGON",
+          "ARMORED",
+          "MECHS"
+        ],
+        "pending": true
+      },
+      {
+        "three": [
+          "PIRATES",
+          "NINJAS",
+          "ARCHERS"
+        ],
+        "pending": true
+      },
+      {
+        "three": [
+          "VAMPIRES",
+          "TROOPERS",
+          "KNIGHTS"
+        ],
+        "pending": true
+      },
+      {
+        "three": [
+          "HORDE",
+          "ELVES",
+          "MAGES"
+        ],
+        "pending": true
+      }
+    ]
+  }
 }

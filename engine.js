@@ -15,7 +15,11 @@ const RVB = (() => {
   const TEAMS = [
     { name: 'RED', c: COL.red, d: COL.redD, l: COL.redL },
     { name: 'BLUE', c: COL.blue, d: COL.blueD, l: COL.blueL },
+    { name: 'GREEN', c: '#2ECC55', d: '#11702B', l: '#B4F2C4' },
   ];
+  // neutral monsters (portals, ancient beasts) fight everyone and don't count as an army
+  const MONSTERS = 9;
+  TEAMS[MONSTERS] = { name: 'MONSTERS', key: 'MONSTERS', c: '#7A8B5C', d: '#3E4A2C', l: '#C9D8A8' };
   // Colour sets a team can use. setTeams('GREEN', 'PURPLE') switches the two teams before a match is made.
   const PALETTES = {
     RED: { c: COL.red, d: COL.redD, l: COL.redL },
@@ -160,8 +164,9 @@ const RVB = (() => {
 
   // Background layer is identical for every match: render once per output size.
   let bgCache = {};
-  api.setTeams = (a, b) => {
-    [a, b].forEach((name, i) => {
+  api.setTeams = (a, b, c) => {
+    [a, b, c].forEach((name, i) => {
+      if (!name) return;
       const pal = PALETTES[name];
       if (!pal) throw new Error(`Unknown team colour ${name}. Use one of: ${Object.keys(PALETTES).join(', ')}`);
       delete TEAMS[i].a;
@@ -1455,8 +1460,11 @@ const RVB = (() => {
     if (o.d) return o.d[1] === 0 ? [o] : [o, { ...o, d: [o.d[0], -o.d[1], o.d[2]] }];
     return [o];
   });
+  // three-way maps are the same seen from each army: obstacles repeated at 0, 120 and 240 degrees
+  const rotate3 = list => list.flatMap(o => [0, 1, 2].map(k => { const a = k * TAU / 3, c = Math.cos(a), s = Math.sin(a), [x, y, r] = o.c; return { ...o, c: [x * c - y * s, x * s + y * c, r] }; }));
   const MAPS = {
     open: [],
+    canyon: [{ c: [0, 0, 34], kind: 'mesa' }].concat(rotate3([{ c: [0, 255, 42], kind: 'mesa' }, { c: [-92, 345, 24], kind: 'mesa' }, { c: [92, 345, 24], kind: 'mesa' }])),
     rocks: mirrorMap([
       { c: [0, 0, 42], kind: 'rock' }, { c: [-300, -70, 34], kind: 'rock' }, { c: [300, -70, 34], kind: 'rock' },
       { c: [-160, -215, 26], kind: 'rock' }, { c: [170, -205, 24], kind: 'rock' }, { c: [-410, -240, 22], kind: 'rock' }, { c: [405, -255, 20], kind: 'rock' },
@@ -1523,6 +1531,15 @@ const RVB = (() => {
         scatter(0xD057, 55, S => { const x = S.range(0, AR.w), y = S.range(0, AR.h), r = S.range(2, 5); g.beginPath(); g.moveTo(x - r, y); g.lineTo(x, y - r); g.lineTo(x + r, y + r * 0.4); g.closePath(); g.fillStyle = S.chance(0.5) ? '#3A3E47' : '#2E3139'; g.fill(); });
       },
     },
+    // desert canyon (three-way battles): dusty orange-brown ground with sand ripples and pebbles
+    canyon: {
+      floor: '#2A1F15', grid: 'rgba(255,210,160,0.05)', mid: null,
+      texture: g => {
+        g.lineWidth = 2; g.strokeStyle = 'rgba(255,200,140,0.07)';
+        scatter(0xCA7, 26, S => { const x = S.range(0, AR.w), y = S.range(0, AR.h), w = S.range(60, 140); g.beginPath(); g.moveTo(x, y); g.bezierCurveTo(x + w * 0.3, y - 8, x + w * 0.6, y + 8, x + w, y); g.stroke(); });
+        scatter(0xCA8, 50, S => { g.beginPath(); g.arc(S.range(0, AR.w), S.range(0, AR.h), S.range(2, 4), 0, TAU); g.fillStyle = S.chance(0.5) ? '#4A3A28' : '#3A2C1E'; g.fill(); });
+      },
+    },
     // fantasy land: deep violet ground with glowing patches and a rune circle around the centre crystal
     enchanted: {
       floor: '#1B1330', grid: 'rgba(210,170,255,0.06)', mid: 'rgba(240,210,255,0.10)',
@@ -1547,18 +1564,21 @@ const RVB = (() => {
       this.label = 'Army Clash';
       this.title = 'ARMY CLASH';
       const era = this.opts.era;
-      this.hook = R.pick(era === 'scifi' ? ['WHO WINS THE FUTURE?', 'LASERS OR STEEL?', 'PICK YOUR FLEET', `${TEAMS[0].name} OR ${TEAMS[1].name}?`]
-        : era === 'pirate' ? ['WHO RULES THE SEAS?', 'PICK YOUR CREW', 'CUTLASS OR CANNON?', `${TEAMS[0].name} OR ${TEAMS[1].name}?`]
-        : era === 'horror' ? ['CAN THEY SURVIVE?', 'DON\'T GET BITTEN', 'THE DEAD RISE', `${TEAMS[0].name} OR ${TEAMS[1].name}?`]
-        : era === 'samurai' ? ['WHO HAS HONOR?', 'BLADE VS BLADE', 'PICK YOUR CLAN', `${TEAMS[0].name} OR ${TEAMS[1].name}?`]
-        : era === 'wild' ? ['DREAM TEAM BATTLE', 'WHO WINS THIS?', 'ANYTHING GOES', `${TEAMS[0].name} OR ${TEAMS[1].name}?`]
+      // opts.teams = 3 for a three-way battle (1v1v1)
+      this.N = this.opts.teams === 3 ? 3 : 2;
+      const orName = this.N === 3 ? `${TEAMS[0].name}, ${TEAMS[1].name} OR ${TEAMS[2].name}?` : `${TEAMS[0].name} OR ${TEAMS[1].name}?`;
+      this.hook = this.N === 3 ? R.pick(['WHO SURVIVES?', 'THREE WAY WAR', 'LAST ARMY STANDING', orName]) : R.pick(era === 'scifi' ? ['WHO WINS THE FUTURE?', 'LASERS OR STEEL?', 'PICK YOUR FLEET', orName]
+        : era === 'pirate' ? ['WHO RULES THE SEAS?', 'PICK YOUR CREW', 'CUTLASS OR CANNON?', orName]
+        : era === 'horror' ? ['CAN THEY SURVIVE?', 'DON\'T GET BITTEN', 'THE DEAD RISE', orName]
+        : era === 'samurai' ? ['WHO HAS HONOR?', 'BLADE VS BLADE', 'PICK YOUR CLAN', orName]
+        : era === 'wild' ? ['DREAM TEAM BATTLE', 'WHO WINS THIS?', 'ANYTHING GOES', orName]
         : this.opts.era === 'fantasy'
-        ? ['WHO RULES THE REALM?', 'PICK YOUR FACTION', 'MAGIC OR MIGHT?', `${TEAMS[0].name} OR ${TEAMS[1].name}?`]
+        ? ['WHO RULES THE REALM?', 'PICK YOUR FACTION', 'MAGIC OR MIGHT?', orName]
         : this.opts.era === 'mixed'
-        ? ['OLD VS NEW?', 'SWORDS OR GUNS?', 'CAN THE PAST WIN?', `${TEAMS[0].name} OR ${TEAMS[1].name}?`]
+        ? ['OLD VS NEW?', 'SWORDS OR GUNS?', 'CAN THE PAST WIN?', orName]
         : this.opts.era === 'modern'
-        ? ['WHO WINS THE FIREFIGHT?', 'WHO HOLDS THE LINE?', 'PICK YOUR SQUAD', `${TEAMS[0].name} OR ${TEAMS[1].name}?`]
-        : ['WHICH ARMY SURVIVES?', 'WHO WINS THE WAR?', 'PICK YOUR ARMY', `${TEAMS[0].name} OR ${TEAMS[1].name}?`]);
+        ? ['WHO WINS THE FIREFIGHT?', 'WHO HOLDS THE LINE?', 'PICK YOUR SQUAD', orName]
+        : ['WHICH ARMY SURVIVES?', 'WHO WINS THE WAR?', 'PICK YOUR ARMY', orName]);
       this.booms = [];
       // opts.map picks the battlefield (see MAPS); obstacles block movement, bullets and arrows
       const cx0 = AR.x + AR.w / 2, cy0 = AR.y + AR.h / 2;
@@ -1580,10 +1600,11 @@ const RVB = (() => {
       const budget = F ? R.range(this.opts.budgetLo || 190, this.opts.budgetHi || 215) : R.range(120, 140);
       this.units = [];
       this.arrows = [];
-      this.alive = [0, 0];
-      this.reserve = [0, 0];
-      this.start = [0, 0];
-      this.waves = [[], []];
+      this.alive = Array(this.N).fill(0);
+      this.reserve = Array(this.N).fill(0);
+      this.start = Array(this.N).fill(0);
+      this.waves = Array.from({ length: this.N }, () => []);
+      this.alive[MONSTERS] = 0; this.reserve[MONSTERS] = 0;
       this.dmgMul = 1;
       this.pushStage = 0;
       let waveAt, waveOf;
@@ -1616,17 +1637,17 @@ const RVB = (() => {
       this.extras = (this.opts.extras || []).filter(e => UNIT[e.type] && e.share > 0);
       // opts.extrasByTeam = [[...top extras], [...bottom extras]] gives each side its own extra troops
       this.extrasT = this.opts.extrasByTeam ? this.opts.extrasByTeam.map(l => (l || []).filter(e => UNIT[e.type] && e.share > 0)) : null;
-      for (let team = 0; team < 2; team++) {
+      for (let team = 0; team < this.N; team++) {
         // opts.budgetMul = [top, bottom] scales each army's size (used to balance fixed match-ups).
         const bm = this.opts.budgetMul ? this.opts.budgetMul[team] : 1;
-        const list = this.recruit(this.doc[team], team, budget * bm * (F ? this.doc[team].budget60 : this.doc[team].budget) * R.range(0.95, 1.05));
+        const list = this.recruit(this.doc[team], team, budget * bm * (F ? this.doc[team].budget60 : this.doc[team].budget) * R.range(0.95, 1.05) * (this.N === 3 ? 0.62 : 1));
         this.start[team] = list.length;
         const parts = waveAt.map(() => []).concat([[]]), seen = {};
         for (const k of list) { const i = seen[k] = (seen[k] || 0) + 1; parts[UNIT[k].rank === 0 ? 0 : waveOf(i)].push(k); }
         this.deploy(team, parts[0], 'front');
         for (let w = 1; w < parts.length; w++) if (parts[w].length) { this.waves[team].push({ at: waveAt[w - 1], list: parts[w] }); this.reserve[team] += parts[w].length; }
       }
-      this.lastTen = [false, false];
+      this.lastTen = Array(this.N).fill(false);
       this.grid = new Map();
       this.dispRatio = 0.5;
       this.splats = [];
@@ -1688,6 +1709,11 @@ const RVB = (() => {
             g.beginPath(); g.arc(x, y, o.r, 0, TAU); g.fillStyle = '#4A5368'; g.fill(); g.lineWidth = 3.5; g.strokeStyle = INK; g.stroke();
             g.beginPath(); g.arc(x, y, o.r * 0.68, 0, TAU); g.fillStyle = '#5E6880'; g.fill(); g.lineWidth = 2; g.stroke();
             g.beginPath(); g.arc(x - o.r * 0.2, y - o.r * 0.25, o.r * 0.22, 0, TAU); g.fillStyle = 'rgba(255,255,255,0.18)'; g.fill();
+          } else if (o.kind === 'mesa') {
+            // flat-topped desert rock seen from above: layered sandstone rings
+            g.beginPath(); g.arc(x, y, o.r, 0, TAU); g.fillStyle = '#8A5A34'; g.fill(); g.lineWidth = 3.5; g.strokeStyle = INK; g.stroke();
+            g.beginPath(); g.arc(x - o.r * 0.06, y - o.r * 0.06, o.r * 0.74, 0, TAU); g.fillStyle = '#A8703F'; g.fill(); g.lineWidth = 2; g.strokeStyle = 'rgba(4,6,11,0.4)'; g.stroke();
+            g.beginPath(); g.arc(x - o.r * 0.12, y - o.r * 0.12, o.r * 0.46, 0, TAU); g.fillStyle = '#C58A50'; g.fill(); g.stroke();
           } else if (o.kind === 'tree') {
             // tree top from above: a scalloped dark-green crown, a lighter inner crown and a few leaf highlights
             scallop(x, y, o.r * 1.04, 8, o.x * 0.01); g.fillStyle = '#23663A'; g.fill(); g.lineWidth = 3.5; g.strokeStyle = INK; g.stroke();
@@ -1832,8 +1858,15 @@ const RVB = (() => {
         lg.addColorStop(0, color); lg.addColorStop(1, 'rgba(0,0,0,0)');
         g.fillStyle = lg; g.fillRect(0, y0, AR.w, 220);
       };
-      zone(true, rgba(TEAMS[0].c, 0.12));
-      zone(false, rgba(TEAMS[1].c, 0.12));
+      if (this.N === 3) {
+        for (let tm = 0; tm < 3; tm++) {
+          const a = this.homeAngle(tm), hx = AR.w / 2 + Math.cos(a) * 420, hy = AR.h / 2 + Math.sin(a) * 420, rg = g.createRadialGradient(hx, hy, 0, hx, hy, 300);
+          rg.addColorStop(0, rgba(TEAMS[tm].c, 0.16)); rg.addColorStop(1, 'rgba(0,0,0,0)'); g.fillStyle = rg; g.fillRect(0, 0, AR.w, AR.h);
+        }
+      } else {
+        zone(true, rgba(TEAMS[0].c, 0.12));
+        zone(false, rgba(TEAMS[1].c, 0.12));
+      }
     }
     recruit(doc, team, budget) {
       const swordShare = this.swordShareT ? this.swordShareT[team] : this.swordShare;
@@ -1858,7 +1891,31 @@ const RVB = (() => {
     }
     // 'front': first rows near the midline, stacking back toward the team's edge.
     // 'back': reinforcements enter at the team's own edge, stacking toward the middle.
+    // three-way battles: each army's home direction from the centre (top, bottom right, bottom left)
+    homeAngle(team) { return -Math.PI / 2 + team * TAU / 3; }
+    deploy3(team, list, mode) {
+      const R = this.R, cx = AR.x + AR.w / 2, cy = AR.y + AR.h / 2, a = this.homeAngle(team), hx = Math.cos(a), hy = Math.sin(a), tx = -hy, ty = hx;
+      const front = mode === 'front';
+      let dist = front ? 150 : 440;
+      const dir = front ? 1 : -1, order = front ? list : list.slice().reverse();
+      let i = 0;
+      while (i < order.length) {
+        const row = [], width = 330 + Math.abs(dist - 150) * 0.9;
+        let w = 0, maxR = 0;
+        while (i < order.length) { const r = UNIT[order[i]].r; if (w + r * 2 + 8 > width && row.length) break; row.push(order[i]); w += r * 2 + 8; maxR = Math.max(maxR, r); i++; }
+        dist += dir * maxR;
+        let o = -w / 2;
+        for (const k of row) {
+          const r = UNIT[k].r; o += r + 4;
+          const px = cx + hx * dist + tx * o + R.range(-3, 3), py = cy + hy * dist + ty * o + R.range(-3, 3);
+          this.addUnit(team, k, clamp(px, AR.x + r + 2, AR.x + AR.w - r - 2), clamp(py, AR.y + r + 2, AR.y + AR.h - r - 2));
+          o += r + 4;
+        }
+        dist += dir * (maxR + 8);
+      }
+    }
     deploy(team, list, mode) {
+      if (this.N === 3) return this.deploy3(team, list, mode);
       const R = this.R, mid = AR.y + AR.h / 2;
       const own = team === 0 ? -1 : 1;
       let dir, rowY, order;
@@ -1897,9 +1954,9 @@ const RVB = (() => {
       const hp = U.hp * (this.hpScale || 1);
       const pace = 1 + (R.chance(0.5) ? 1 : -1) * R.range(0.03, 0.07);
       if (this.obstacles && this.obstacles.length && !U.flying) { const p = { x, y, r: U.r }; for (let k = 0; k < 3; k++) this.pushOut(p); x = p.x; y = p.y; }
-      this.units.push({ team, type, x, y, flying: !!U.flying, pace, gait: R.range(0, TAU), vx: 0, vy: 0, r: U.r, hp, max: hp, cd: R.range(0, U.cd), retarget: R.range(0, 0.3), target: null, flash: 0, lunge: 0, face: team === 0 ? Math.PI / 2 : -Math.PI / 2, dead: false, m: U.r * U.r });
+      this.units.push({ team, type, x, y, flying: !!U.flying, pace, gait: R.range(0, TAU), vx: 0, vy: 0, r: U.r, hp, max: hp, cd: R.range(0, U.cd), retarget: R.range(0, 0.3), target: null, flash: 0, lunge: 0, face: this.N === 3 ? this.homeAngle(team) + Math.PI : team === 0 ? Math.PI / 2 : -Math.PI / 2, dead: false, m: U.r * U.r });
       // nations: about one troop in ten carries the national flag (looks only, no dice)
-      if (hasFlag(TEAMS[team]) && !U.flying && U.rank !== 0) { this.flagN = this.flagN || [0, 0]; if (this.flagN[team]++ % 10 === 3) this.units[this.units.length - 1].flag = true; }
+      if (hasFlag(TEAMS[team]) && !U.flying && U.rank !== 0) { this.flagN = this.flagN || [0, 0, 0]; if (this.flagN[team]++ % 10 === 3) this.units[this.units.length - 1].flag = true; }
       this.alive[team]++;
     }
     reinforce(team, wave) {
@@ -1953,8 +2010,8 @@ const RVB = (() => {
       const allow = this.opts.events === true ? ['airdrop', 'airstrike', 'meteors', 'lightning', 'tornado', 'blizzard', 'earthquake'] : this.opts.events;
       const skies = ['modern', 'scifi', 'mixed'].includes(era) || (era === 'wild' && E.chance(0.5));
       this.events = [];
-      this.buffs = [{}, {}]; this.facts = { low: [1, 1], drops: [], falls: [], strike: null, hazard: null };
-      this.startStr = [0, 1].map(t => this.strength(t));
+      this.buffs = [{}, {}, {}]; this.buffs[MONSTERS] = {}; this.facts = { low: [1, 1, 1], drops: [], falls: [], strike: null, hazard: null };
+      this.startStr = this.teamIds().map(t => this.strength(t));
       // two supply drops, each a different kind (see grabDrop)
       if (allow.includes('airdrop')) {
         const kinds = ['squad', 'medkit', 'rage', 'shield', 'speed', 'heavy'], first = E.pick(kinds);
@@ -1981,9 +2038,15 @@ const RVB = (() => {
     }
     // which side has lost more of its starting power (-1 if they're about even)
     behindSide() {
-      const f = [0, 1].map(t => this.strength(t) / (this.startStr[t] || 1));
-      return f[0] < f[1] * 0.9 ? 0 : f[1] < f[0] * 0.9 ? 1 : -1;
+      const f = this.teamIds().map(t => this.strength(t) / (this.startStr[t] || 1));
+      if (this.N === 2) return f[0] < f[1] * 0.9 ? 0 : f[1] < f[0] * 0.9 ? 1 : -1;
+      const alive = this.teamIds().filter(t => this.alive[t] + this.reserve[t] > 0);
+      let lo = alive[0], hi = alive[0];
+      for (const t of alive) { if (f[t] < f[lo]) lo = t; if (f[t] > f[hi]) hi = t; }
+      return lo !== undefined && f[lo] < f[hi] * 0.9 ? lo : -1;
     }
+    teamIds() { return this.N === 3 ? [0, 1, 2] : [0, 1]; }
+    totals() { return this.teamIds().map(t => this.alive[t] + this.reserve[t]); }
     // which team-wide boost is running for a team
     buffOn(team, k) { return this.buffs && this.buffs[team][k] > this.fightT; }
     ev_airdrop(ev, h) {
@@ -1992,7 +2055,9 @@ const RVB = (() => {
         // drop point: on the middle line, or nearer the side that's behind (so drops help the underdog, though the leader
         // can still steal it), clear of obstacles
         const behind = this.behindSide();
-        const E = this.ER, p = { x: E.range(AR.x + 170, AR.x + AR.w - 170), y: AR.y + AR.h / 2 + (behind < 0 ? 0 : behind === 0 ? -150 : 150) + E.range(-30, 30), r: 22 };
+        const E = this.ER, p = this.N === 3
+          ? { x: AR.x + AR.w / 2 + (behind < 0 ? 0 : Math.cos(this.homeAngle(behind)) * 150) + E.range(-60, 60), y: AR.y + AR.h / 2 + (behind < 0 ? 0 : Math.sin(this.homeAngle(behind)) * 150) + E.range(-60, 60), r: 22 }
+          : { x: E.range(AR.x + 170, AR.x + AR.w - 170), y: AR.y + AR.h / 2 + (behind < 0 ? 0 : behind === 0 ? -150 : 150) + E.range(-30, 30), r: 22 };
         for (let k = 0; k < 4; k++) this.pushOut(p);
         Object.assign(ev, { started: true, x: p.x, y: p.y, r: 14, dir: E.chance(0.5) ? 1 : -1, release: ev.plane ? 1 : 0, T: 2.2, size: ev.kind === 'heavy' ? 1.45 : 1 });
         this.banner(ev.plane ? 'AIRDROP INCOMING!' : 'SUPPLY DROP!', COL.gold);
@@ -2024,13 +2089,13 @@ const RVB = (() => {
         const elite = keys.length ? keys.reduce((a, b) => (UNIT[b].cost > UNIT[a].cost ? b : a)) : doc.base || 'soldier';
         const n = clamp(Math.round(14 / UNIT[elite].cost), 3, 8);
         for (let k = 0; k < n; k++) { const a = k / n * TAU; this.addUnit(team, elite, ev.x + Math.cos(a) * 26, ev.y + Math.sin(a) * 26); }
-        this.gained = this.gained || [0, 0]; this.gained[team] += n;
+        this.gained = this.gained || [0, 0, 0]; this.gained[team] += n;
         text = `${name} GRABS THE DROP · +${n}`;
       } else if (kind === 'heavy') {
         const doc = this.doc[team], era = eraOf(doc.custom ? doc : doc.name);
         const big = (doc.heavy && doc.heavy[0]) || (doc.dragon ? 'dragon' : doc.tank ? 'tank' : doc.giant ? 'giant' : { modern: 'tank', fantasy: 'dragon', scifi: 'mech', pirate: 'cannon' }[era] || 'giant');
         this.addUnit(team, big, ev.x, ev.y);
-        this.gained = this.gained || [0, 0]; this.gained[team] += 1;
+        this.gained = this.gained || [0, 0, 0]; this.gained[team] += 1;
         text = `${name} GETS A ${big.toUpperCase()}!`;
         this.shake(10);
       } else if (kind === 'medkit') {
@@ -2049,12 +2114,22 @@ const RVB = (() => {
     ev_airstrike(ev, h) {
       if (!ev.called) {
         if (this.fightT < ev.from) return;
-        const tot = [this.alive[0] + this.reserve[0], this.alive[1] + this.reserve[1]];
-        let behind = tot[0] < tot[1] * 0.8 ? 0 : tot[1] < tot[0] * 0.8 ? 1 : -1;
-        if (behind < 0 && this.fightT >= ev.last) behind = tot[0] !== tot[1] ? (tot[0] < tot[1] ? 0 : 1) : (this.ER.chance(0.5) ? 0 : 1);
-        if (behind < 0 || !tot[0] || !tot[1]) return;
+        const tot = this.totals();
+        let behind, foe;
+        if (this.N === 2) {
+          behind = tot[0] < tot[1] * 0.8 ? 0 : tot[1] < tot[0] * 0.8 ? 1 : -1;
+          if (behind < 0 && this.fightT >= ev.last) behind = tot[0] !== tot[1] ? (tot[0] < tot[1] ? 0 : 1) : (this.ER.chance(0.5) ? 0 : 1);
+          if (behind < 0 || !tot[0] || !tot[1]) return;
+          foe = 1 - behind;
+        } else {
+          const alive = [0, 1, 2].filter(t => tot[t] > 0);
+          if (alive.length < 2) return;
+          alive.sort((a, b) => tot[a] - tot[b]);
+          behind = alive[0]; foe = alive[alive.length - 1];
+          if (tot[behind] > tot[foe] * 0.8 && this.fightT < ev.last) return;
+        }
         // the side that's behind calls it in on the thickest group of enemies
-        const foe = 1 - behind, N = 6, cs = AR.w / N, cnt = new Float32Array(N * N);
+        const N = 6, cs = AR.w / N, cnt = new Float32Array(N * N);
         for (const u of this.units) if (u.team === foe && !u.flying) cnt[clamp((u.y - AR.y) / cs | 0, 0, N - 1) * N + clamp((u.x - AR.x) / cs | 0, 0, N - 1)]++;
         let bk = 0; for (let k = 1; k < N * N; k++) if (cnt[k] > cnt[bk]) bk = k;
         const cx0 = AR.x + (bk % N + 0.5) * cs, cy0 = AR.y + ((bk / N | 0) + 0.5) * cs;
@@ -2195,7 +2270,7 @@ const RVB = (() => {
     }
     // team-wide boosts on the troops: a red-hot ring (rage), a blue bubble (shield) or speed lines (speed)
     drawBoosts(ctx) {
-      for (let tm = 0; tm < 2; tm++) {
+      for (let tm = 0; tm < this.N; tm++) {
         const rage = this.buffOn(tm, 'rage'), shield = this.buffOn(tm, 'shield'), speed = this.buffOn(tm, 'speed');
         if (!rage && !shield && !speed) continue;
         const pulse = 0.5 + 0.5 * Math.sin(this.t * 8);
@@ -2453,6 +2528,8 @@ const RVB = (() => {
         let b = g.get(k); if (!b) { b = []; g.set(k, b); } b.push(u);
       }
     }
+    // colour for a banner about a fallen troop: the other side's colour (in three-way battles, the killer's)
+    foeCol(u, from) { return this.N === 2 ? TEAMS[1 - u.team].c : from && TEAMS[from.team] ? TEAMS[from.team].c : COL.gold; }
     damage(u, dmg, from) {
       if (this.buffs) { if (from && this.buffOn(from.team, 'rage')) dmg *= 1.5; if (this.buffOn(u.team, 'shield')) dmg *= 0.5; }
       u.hp -= dmg; u.flash = 1;
@@ -2476,11 +2553,11 @@ const RVB = (() => {
         this.burst(u.x, u.y, TEAMS[u.team].c, huge ? 40 : 9, huge ? 700 : 300, 0.5, huge ? 12 : 7);
         if (this.stains) this.splats.push(u);
         this.snd('pop', { pan: (u.x - AR.x) / AR.w * 1.4 - 0.7, big: u.type === 'giant' || u.type === 'knight' });
-        if (u.type === 'dragon') { this.shake(20); this.snd('boom', { gain: 0.6 }); this.banner(`${TEAMS[u.team].name} DRAGON SLAIN`, TEAMS[1 - u.team].c); }
-        if (u.type === 'tank') { this.shake(20); this.booms.push({ x: u.x, y: u.y, r: 70, t: 0 }); this.snd('boom', { gain: 0.6 }); this.banner(`${TEAMS[u.team].name} TANK DESTROYED`, TEAMS[1 - u.team].c); }
-        if (u.type === 'giant') { this.shake(20); this.snd('boom', { gain: 0.6 }); this.banner(`${TEAMS[u.team].name} GIANT FALLS`, TEAMS[1 - u.team].c); }
-        if (u.type === 'mech') { this.shake(20); this.booms.push({ x: u.x, y: u.y, r: 70, t: 0 }); this.snd('boom', { gain: 0.6 }); this.banner(`${TEAMS[u.team].name} MECH DOWN`, TEAMS[1 - u.team].c); }
-        if (u.type === 'cannon') { this.shake(14); this.booms.push({ x: u.x, y: u.y, r: 60, t: 0 }); this.snd('boom', { gain: 0.5 }); this.banner(`${TEAMS[u.team].name} CANNON DESTROYED`, TEAMS[1 - u.team].c); }
+        if (u.type === 'dragon') { this.shake(20); this.snd('boom', { gain: 0.6 }); this.banner(`${TEAMS[u.team].name} DRAGON SLAIN`, this.foeCol(u, from)); }
+        if (u.type === 'tank') { this.shake(20); this.booms.push({ x: u.x, y: u.y, r: 70, t: 0 }); this.snd('boom', { gain: 0.6 }); this.banner(`${TEAMS[u.team].name} TANK DESTROYED`, this.foeCol(u, from)); }
+        if (u.type === 'giant') { this.shake(20); this.snd('boom', { gain: 0.6 }); this.banner(`${TEAMS[u.team].name} GIANT FALLS`, this.foeCol(u, from)); }
+        if (u.type === 'mech') { this.shake(20); this.booms.push({ x: u.x, y: u.y, r: 70, t: 0 }); this.snd('boom', { gain: 0.6 }); this.banner(`${TEAMS[u.team].name} MECH DOWN`, this.foeCol(u, from)); }
+        if (u.type === 'cannon') { this.shake(14); this.booms.push({ x: u.x, y: u.y, r: 60, t: 0 }); this.snd('boom', { gain: 0.5 }); this.banner(`${TEAMS[u.team].name} CANNON DESTROYED`, this.foeCol(u, from)); }
       }
     }
     step(h) {
@@ -2704,20 +2781,21 @@ const RVB = (() => {
           z.t -= h;
           if (z.t > 0) continue;
           this.addUnit(z.team, 'zombie', z.x, z.y);
-          this.gained = this.gained || [0, 0]; this.gained[z.team]++;
+          this.gained = this.gained || [0, 0, 0]; this.gained[z.team]++;
           this.burst(z.x, z.y, '#8FD16A', 8, 160, 0.5, 6, -40);
           this.snd('groan', { pan: (z.x - AR.x) / AR.w * 1.4 - 0.7 });
         }
         this.rising = this.rising.filter(z => z.t > 0);
       }
-      for (let tm = 0; tm < 2; tm++) {
-        const mine = this.alive[tm] + this.reserve[tm], theirs = this.alive[1 - tm] + this.reserve[1 - tm];
+      const tots = this.totals();
+      for (let tm = 0; tm < this.N; tm++) {
+        const mine = tots[tm], theirs = tots.reduce((a, b) => a + b, 0) - mine;
         if (!this.lastTen[tm] && mine <= 10 && mine > 0 && theirs > 10) {
           this.lastTen[tm] = true; this.banner(`${TEAMS[tm].name}: LAST ${mine}`, TEAMS[tm].c); this.snd('alarm');
         }
       }
       let arrived = false;
-      for (let tm = 0; tm < 2; tm++) {
+      for (let tm = 0; tm < this.N; tm++) {
         for (const wv of this.waves[tm]) {
           if (wv.done) continue;
           if (this.fightT >= wv.at || this.alive[tm] === 0) { this.reinforce(tm, wv); arrived = true; break; }
@@ -2734,6 +2812,7 @@ const RVB = (() => {
         if (this.camEv) this.camEv.push({ type: 'push', stage: this.pushStage });
         this.snd('alarm');
       }
+      if (this.N === 3) { this.endCheck3(); return; }
       const total = [this.alive[0] + this.reserve[0], this.alive[1] + this.reserve[1]];
       if (total[0] === 0 || total[1] === 0) {
         const w = total[0] > 0 ? 0 : 1;
@@ -2751,6 +2830,21 @@ const RVB = (() => {
         }
       }
     }
+    // three-way battles end when one army is left standing, or at the time limit (most troops left wins)
+    endCheck3() {
+      const tot = this.totals(), left = [0, 1, 2].filter(t => tot[t] > 0);
+      if (left.length <= 1) {
+        const w = left.length ? left[0] : 0;
+        this.retreat = -1;
+        this.end(w, `${TEAMS[w].name} WINS`, `LAST ARMY STANDING · ${tot[w]} LEFT`);
+      } else if (this.fightT >= this.cap) {
+        const hp = [0, 0, 0]; for (const u of this.units) if (u.team < 3) hp[u.team] += u.hp;
+        const w = [0, 1, 2].reduce((a, b) => (tot[b] > tot[a] || (tot[b] === tot[a] && hp[b] > hp[a]) ? b : a));
+        this.retreat = -2;
+        const others = [0, 1, 2].filter(t => t !== w);
+        this.end(w, `${TEAMS[w].name} WINS`, `${tot[w]} VS ${tot[others[0]]} VS ${tot[others[1]]}`);
+      }
+    }
     // director mode: remember where everything was before a tick, so slow-motion frames can draw in between ticks
     prestep() {
       for (const u of this.units) { u.px = u.x; u.py = u.y; }
@@ -2759,7 +2853,14 @@ const RVB = (() => {
     outroStep(dt) {
       this.arrows = [];
       for (const u of this.units) {
-        if (this.retreat === u.team) {
+        if (this.N === 3 && this.retreat === -2 && u.team !== this.winner) {
+          // the losing armies fall back toward where they came from
+          const a = this.homeAngle(u.team % 3), vx = Math.cos(a) * 320, vy = Math.sin(a) * 320;
+          u.vx += (vx - u.vx) * Math.min(1, dt * 4); u.vy += (vy - u.vy) * Math.min(1, dt * 4);
+          u.x += u.vx * dt; u.y += u.vy * dt;
+          { let df = a - u.face; df = Math.atan2(Math.sin(df), Math.cos(df)); const cap = 9 * dt; u.face += clamp(df * Math.min(1, dt * 12), -cap, cap); }
+          u.fade = clamp(1 - this.outroT / 1.6, 0, 1);
+        } else if (this.retreat === u.team) {
           const dir = u.team === 0 ? -1 : 1;
           u.vy += (dir * 320 - u.vy) * Math.min(1, dt * 4); u.vx *= 0.9;
           u.x += u.vx * dt; u.y += u.vy * dt;
@@ -2891,15 +2992,17 @@ const RVB = (() => {
         if (a > 0) {
           ctx.globalAlpha = a;
           ctx.font = font(46, 800); spaced(ctx, 2);
-          for (let tm = 0; tm < 2; tm++) {
+          const step = this.N === 3 ? 54 : 64, top = this.N === 3 ? 258 : 285;
+          if (this.N === 3) ctx.font = font(40, 800);
+          for (let tm = 0; tm < this.N; tm++) {
             const left = this.alive[tm] + this.reserve[tm], lost = Math.max(0, this.start[tm] + (this.gained ? this.gained[tm] : 0) - left);
-            strokeText(ctx, `${TEAMS[tm].name}: ${left} LEFT · ${lost} LOST`, VW / 2, cy + 285 + tm * 64 + (1 - a) * 20, TEAMS[tm].c, COL.ink, 10);
+            strokeText(ctx, `${TEAMS[tm].name}: ${left} LEFT · ${lost} LOST`, VW / 2, cy + top + tm * step + (1 - a) * 20, TEAMS[tm].c, COL.ink, 10);
           }
           const mvp = this.best && this.best[this.winner];
           const m = clamp((k - 3.0) / 0.4, 0, 1);
           if (mvp && (mvp.kills || 0) >= 3 && m > 0) {
             ctx.globalAlpha = m; ctx.font = font(42, 800);
-            strokeText(ctx, `MVP: ${UNIT_LABEL[mvp.type] || mvp.type.toUpperCase()} · ${mvp.kills} KILLS`, VW / 2, cy + 413 + (1 - m) * 20, COL.gold, COL.ink, 10);
+            strokeText(ctx, `MVP: ${UNIT_LABEL[mvp.type] || mvp.type.toUpperCase()} · ${mvp.kills} KILLS`, VW / 2, cy + (this.N === 3 ? 432 : 413) + (1 - m) * 20, COL.gold, COL.ink, 10);
             ctx.globalAlpha = a;
           }
           spaced(ctx, 0);
@@ -2927,8 +3030,14 @@ const RVB = (() => {
         this.parts.push({ x: d.x + F.range(-8, 8), y: d.y - 18, vx: F.range(-12, 12), vy: F.range(-70, -45), life: F.range(1.1, 1.7), age: 0, size: F.range(9, 15), color: '#4A4E58', grav: 0, smoke: true });
       }
       const a0 = this.alive[0] + this.reserve[0], a1 = this.alive[1] + this.reserve[1];
+      if (this.N === 3) {
+        const tt = this.totals(), sum = tt[0] + tt[1] + tt[2] || 1;
+        this.shares = this.shares || [1 / 3, 1 / 3, 1 / 3];
+        for (let k = 0; k < 3; k++) this.shares[k] += (tt[k] / sum - this.shares[k]) * Math.min(1, dt * 8);
+        if (this.facts && this.phase === 'fight' && this.fightT > 5) for (let k = 0; k < 3; k++) this.facts.low[k] = Math.min(this.facts.low[k], tt[k] / sum);
+      }
       this.dispRatio += ((a0 + a1 ? a0 / (a0 + a1) : 0.5) - this.dispRatio) * Math.min(1, dt * 8);
-      if (this.facts && this.phase === 'fight' && this.fightT > 5 && a0 + a1) { const s0 = a0 / (a0 + a1); this.facts.low[0] = Math.min(this.facts.low[0], s0); this.facts.low[1] = Math.min(this.facts.low[1], 1 - s0); }
+      if (this.N === 2 && this.facts && this.phase === 'fight' && this.fightT > 5 && a0 + a1) { const s0 = a0 / (a0 + a1); this.facts.low[0] = Math.min(this.facts.low[0], s0); this.facts.low[1] = Math.min(this.facts.low[1], 1 - s0); }
       if (this.stains) {
         this.stainFade += dt;
         if (this.stainFade >= 0.5) {
@@ -2953,6 +3062,29 @@ const RVB = (() => {
         this.splats = [];
       }
     }
+    // scoreboard for a three-way battle: three columns and a three-colour bar
+    drawHUD3(ctx) {
+      ctx.textBaseline = 'alphabetic'; ctx.textAlign = 'center';
+      ctx.fillStyle = COL.white; ctx.font = font(88, 800); spaced(ctx, 2); ctx.fillText(this.title, VW / 2, 148);
+      ctx.fillStyle = COL.gold; ctx.font = font(38, 700, false); spaced(ctx, 6); ctx.fillText(this.hook, VW / 2, 204);
+      const tot = this.totals(), xs = [190, 540, 890];
+      for (let tm = 0; tm < 3; tm++) {
+        const x = xs[tm], flag = hasFlag(TEAMS[tm]);
+        spaced(ctx, 3); ctx.font = font(TEAMS[tm].name.length > 9 ? 32 : 40, 800); ctx.fillStyle = TEAMS[tm].c; ctx.fillText(TEAMS[tm].name, x, 262);
+        if (flag) drawFlag(ctx, TEAMS[tm].key, x - 36, 276, 72, 48, 3);
+        spaced(ctx, 0); ctx.font = font(flag ? 92 : 112, 800); ctx.fillStyle = COL.white; ctx.fillText(String(tot[tm]), x, flag ? 404 : 382);
+        ctx.font = font(26, 700, false); spaced(ctx, 1); ctx.fillStyle = COL.muted;
+        const nm = this.doc[tm].name; ctx.fillText(nm.length > 12 ? nm.slice(0, 12) : nm, x, 432);
+      }
+      spaced(ctx, 0); ctx.font = font(34, 800); ctx.fillStyle = 'rgba(255,255,255,0.35)';
+      ctx.fillText('VS', 365, 350); ctx.fillText('VS', 715, 350);
+      const bx = 60, by = 448, bw = 960, bh = 22, sh = this.shares || [1 / 3, 1 / 3, 1 / 3];
+      ctx.save(); roundRect(ctx, bx, by, bw, bh, bh / 2); ctx.clip();
+      let x0 = bx;
+      for (let tm = 0; tm < 3; tm++) { const w = bw * clamp(sh[tm], 0, 1); ctx.fillStyle = TEAMS[tm].c; ctx.fillRect(x0, by, w + 1, bh); x0 += w; }
+      ctx.fillStyle = 'rgba(255,255,255,0.18)'; ctx.fillRect(bx, by, bw, 5);
+      ctx.restore();
+    }
     // the camera a director has set (cam = { x, y, z } in arena coordinates); z = 1 is the whole arena
     camOn() { return !!(this.cam && this.cam.z > 1.001); }
     applyCam(ctx) { const c = this.cam; ctx.translate(AR.x + AR.w / 2, AR.y + AR.h / 2); ctx.scale(c.z, c.z); ctx.translate(-c.x, -c.y); }
@@ -2964,7 +3096,7 @@ const RVB = (() => {
     }
     draw(ctx) {
       this.drawBG(ctx);
-      this.drawHUD(ctx, {
+      if (this.N === 3) this.drawHUD3(ctx); else this.drawHUD(ctx, {
         title: this.title, hook: this.hook,
         lv: String(this.alive[0] + this.reserve[0]), rv: String(this.alive[1] + this.reserve[1]),
         ls: `${this.doc[0].name} · ${this.start[0]} UNITS`, rs: `${this.start[1]} UNITS · ${this.doc[1].name}`,
@@ -3000,7 +3132,7 @@ const RVB = (() => {
       if (this.liveDecor) this.drawLiveDecor(ctx);
       // arrows
       ctx.lineCap = 'round';
-      const tracers = [], snipes = [], lasers = [[], []];
+      const tracers = [], snipes = [], lasers = {};
       for (const a of this.arrows) {
         const l = Math.hypot(a.vx, a.vy) || 1, ux = a.vx / l, uy = a.vy / l;
         if (a.kind === 'fireball') {
@@ -3023,7 +3155,7 @@ const RVB = (() => {
           ctx.beginPath(); ctx.arc(a.x, a.y, 5, 0, TAU); ctx.fillStyle = '#2B2F36'; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = COL.ink; ctx.stroke();
           continue;
         }
-        if (a.kind === 'laser') { lasers[a.team].push(a.x, a.y, ux, uy); continue; }
+        if (a.kind === 'laser') { (lasers[a.team] || (lasers[a.team] = [])).push(a.x, a.y, ux, uy); continue; }
         if (a.kind === 'rocket') {
           // a small rocket with a flame behind it
           ctx.lineWidth = 6; ctx.strokeStyle = 'rgba(255,159,28,0.7)'; ctx.beginPath(); ctx.moveTo(a.x - ux * 22, a.y - uy * 22); ctx.lineTo(a.x - ux * 6, a.y - uy * 6); ctx.stroke();
@@ -3058,7 +3190,7 @@ const RVB = (() => {
         for (let i = 0; i < tracers.length; i += 4) { ctx.moveTo(tracers[i] - tracers[i + 2] * 16, tracers[i + 1] - tracers[i + 3] * 16); ctx.lineTo(tracers[i], tracers[i + 1]); }
         ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(255,226,122,0.85)'; ctx.stroke();
       }
-      for (let tm = 0; tm < 2; tm++) {
+      for (const tm in lasers) {
         // laser bolts glow in their team's colour around a white core
         const L = lasers[tm]; if (!L.length) continue;
         ctx.beginPath();
@@ -3566,10 +3698,14 @@ const RVB = (() => {
     get debt() { return this.t - this.g.t; }
     // the busiest fighting: the 160 px cell where both teams are most mixed, averaged with its neighbours
     hotspot() {
-      const g = this.g, N = 6, cs = AR.w / N, c = [new Float32Array(N * N), new Float32Array(N * N)];
-      for (const u of g.units) { const i = clamp((u.x - AR.x) / cs | 0, 0, N - 1), j = clamp((u.y - AR.y) / cs | 0, 0, N - 1); c[u.team][j * N + i]++; }
+      const g = this.g, N = 6, cs = AR.w / N, c = [new Float32Array(N * N), new Float32Array(N * N), new Float32Array(N * N)];
+      for (const u of g.units) { if (u.team > 2) continue; const i = clamp((u.x - AR.x) / cs | 0, 0, N - 1), j = clamp((u.y - AR.y) / cs | 0, 0, N - 1); c[u.team][j * N + i]++; }
       let best = -1, bk = 0;
-      for (let k = 0; k < N * N; k++) { const sc = Math.min(c[0][k], c[1][k]) * 2 + (c[0][k] + c[1][k]) * 0.15; if (sc > best) { best = sc; bk = k; } }
+      for (let k = 0; k < N * N; k++) {
+        const v = [c[0][k], c[1][k], c[2][k]].sort((a, b) => b - a);
+        const sc = v[1] * 2 + (v[0] + v[1] + v[2]) * 0.15;
+        if (sc > best) { best = sc; bk = k; }
+      }
       const bi = bk % N, bj = bk / N | 0;
       let sx = 0, sy = 0, n = 0;
       for (const u of g.units) { const i = (u.x - AR.x) / cs | 0, j = (u.y - AR.y) / cs | 0; if (Math.abs(i - bi) <= 1 && Math.abs(j - bj) <= 1) { sx += u.x; sy += u.y; n++; } }
@@ -3640,9 +3776,10 @@ const RVB = (() => {
         break;
       }
       // the last troop of an army: follow it to the end
-      const tot = [g.alive[0] + g.reserve[0], g.alive[1] + g.reserve[1]];
-      for (let tm = 0; tm < 2; tm++) {
-        if (tot[tm] !== 1 || tot[1 - tm] < 2 || (sh && sh.kind === 'last')) continue;
+      const tot = g.totals();
+      for (let tm = 0; tm < g.N; tm++) {
+        const others = tot.reduce((a, b) => a + b, 0) - tot[tm];
+        if (tot[tm] !== 1 || others < 2 || tot.filter(v => v > 0).length > 2 || (sh && sh.kind === 'last')) continue;
         const u = g.units.find(v => v.team === tm && !v.dead);
         if (u && g.cap - g.fightT > 1.5) want(90, () => this.start('last', { prio: 90, dur: 6, follow: u, z: 2.05, ts: this.debt < 3 ? 0.35 : 0.7, slowFor: 2, bars: 1, vig: 0.45, spd: 5, zspd: 4, sfx: 'whoosh' }));
       }
