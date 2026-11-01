@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 19:07 | 🇵🇹 Portugal vs Spain 🇪🇸 | Portugal wins | https://youtube.com/shorts/pQcMvHl8DNs |
 | 2026-11-01 18:52 | 🇬🇧 UK Wild Shields vs USA Ghost Samurai | Uk wins | https://youtube.com/shorts/y0Gs4rp0t70 |
 | 2026-11-01 18:37 | 🪖 SOLDIERS vs Tank Army | Purple wins | https://youtube.com/shorts/JE4u0rG-pT8 |
 | 2026-11-01 18:23 | They Took Down a DRAGON? 🐉 | Pink wins | https://youtube.com/shorts/kYEAbXTHuPc |
