@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 12:01 | 🟣 Giant Blades vs Mech Bolts ⚪ \| Only One Survives 💀 #shorts | Purple wins | https://youtube.com/shorts/lMHQKtu5ulE |
 | 2026-11-01 11:45 | 🟠 Orange vs Cyan 🩵 \| Who Takes It? 🏆 #shorts | Orange wins | https://youtube.com/shorts/388eSwPsaSI |
 | 2026-11-01 11:31 | 🇳🇴 Solar Samurai vs Royal Legion 🇸🇪 \| Dream Team Battle 🤯 #shorts | Sweden wins | https://youtube.com/shorts/tc_AgKYPHTI |
 | 2026-11-01 11:15 | 🟤 Brown vs Cyan 🩵 \| Guess the Winner 🤔 #shorts | Brown wins | https://youtube.com/shorts/mmY1GJVsP6g |
