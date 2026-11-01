@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 03:58 | 🇳🇴 Norway vs Sweden 🇸🇪 \| Guess the Winner 🤔 #shorts | Norway wins | https://youtube.com/shorts/a0fMakg4fRA |
 | 2026-11-01 03:43 | 🔵 Storm Bombers vs Iron Knights 🔴 \| Only One Survives 💀 #shorts | Blue wins | https://youtube.com/shorts/MA4e33bGtpI |
 | 2026-11-01 03:27 | 🇳🇱 Netherlands vs Belgium 🇧🇪 \| Who Rules? 👑 #shorts | Netherlands wins | https://youtube.com/shorts/_5sfCnI9sHs |
 | 2026-11-01 03:13 | 🟡 Ghost Rifles vs Frost Archers 🟣 \| Pick a Side! 👇 #shorts | Yellow wins | https://youtube.com/shorts/zAn26L0UMZM |
