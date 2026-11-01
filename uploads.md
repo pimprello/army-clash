@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 14:26 | 🟣 Cannon Bolts vs Wild Bombers 🟢 \| Pick a Side! 👇 #shorts | Green wins | https://youtube.com/shorts/XJ29nucJoDA |
 | 2026-11-01 14:11 | 🟠 Orange vs Blue 🔵 \| Who Wins? 💥 #shorts | Blue wins | https://youtube.com/shorts/TdChDmavXak |
 | 2026-11-01 13:58 | 🩷 Omega Archers vs Shadow Spears 🟡 \| Pick a Side! 👇 #shorts | Yellow wins | https://youtube.com/shorts/Qpm7Xwbfgdo |
 | 2026-11-01 13:42 | ⚪ Pirates vs Orcs 🟠 \| Who Wins This? 🤔 #shorts | Orange wins | https://youtube.com/shorts/VYT_nUgHRQQ |
