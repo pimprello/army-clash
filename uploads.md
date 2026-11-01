@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 12:30 | 🟠 Cannon Bones vs Solar Elves 🟣 \| Anything Goes 🎲 #shorts | Orange wins | https://youtube.com/shorts/1tpygrtkT5c |
 | 2026-11-01 12:14 | The Giant Never Saw It Coming 😳 | Teal wins | https://youtube.com/shorts/BXzV1np6A1k |
 | 2026-11-01 12:01 | 🟣 Giant Blades vs Mech Bolts ⚪ \| Only One Survives 💀 #shorts | Purple wins | https://youtube.com/shorts/lMHQKtu5ulE |
 | 2026-11-01 11:45 | 🟠 Orange vs Cyan 🩵 \| Who Takes It? 🏆 #shorts | Orange wins | https://youtube.com/shorts/388eSwPsaSI |
