@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 05:40 | 🩵 Giant Bolts vs Rogue Shields 🟤 \| Pick a Side! 👇 #shorts | Brown wins | https://youtube.com/shorts/Xbqc6ofrV7Y |
 | 2026-11-01 05:26 | 🟢 Green vs Purple 🟣 \| Pick a Side! 🎯 #shorts | Purple wins | https://youtube.com/shorts/-xsSbCrwvJo |
 | 2026-11-01 05:10 | ⚪ Storm Pirates vs Titan Knights 🟣 \| Only One Survives 💀 #shorts | White wins | https://youtube.com/shorts/GsACswVVEXY |
 | 2026-11-01 04:57 | 🇳🇴 Robo Pirates vs Wizard Gang 🇸🇪 \| Only One Survives 💀 #shorts | Sweden wins | https://youtube.com/shorts/ANBySl1wfRM |
