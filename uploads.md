@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 23:59 | 🇸🇪 Sweden Soldiers vs Norway Gunners | Norway wins | https://youtube.com/shorts/FfWKiqbLWYw |
 | 2026-11-01 23:45 | Rogue Knights vs Cosmic Elves 🤯 | Brown wins | https://youtube.com/shorts/p8r-xuEu1jA |
 | 2026-11-01 23:30 | The MECH Went Down 🤖 | Pink wins | https://youtube.com/shorts/QpdgQndEcbs |
 | 2026-11-01 23:15 | A TORNADO Hit Mid-Battle 🌪️ | Yellow wins | https://youtube.com/shorts/f50FVCUypIA |
