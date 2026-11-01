@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 21:47 | Lunar Snipers vs Cyber Spears 🤯 | Purple wins | https://youtube.com/shorts/n0bkOI42kHM |
 | 2026-11-01 21:34 | 128 Archers vs 123 Warriors 🏹 | Lime wins | https://youtube.com/shorts/pp6zsYzXI5M |
 | 2026-11-01 21:18 | 3 Armies, Only 1 SURVIVES 💀 | Blue wins | https://youtube.com/shorts/hFhQCRjt0Ys |
 | 2026-11-01 21:03 | Soldiers vs KNIGHTS 🛡️ | Blue wins | https://youtube.com/shorts/5K3ZVaVW-2U |
