@@ -12,6 +12,7 @@ Newest first. Each entry says what changed in the videos and why.
 - **Kill streaks and MVP:** "TRIPLE KILL", "RAMPAGE" and "UNSTOPPABLE" pop up over troops on a streak; the winner screen names the MVP and their kills, and the camera ends on them wearing a gold crown.
 - **New robot look:** round armoured robots in the team colour with a steel chest plate, a domed head with one glowing eye, and piston fists that punch in turn (the old square ones are gone).
 - **Ideas list:** `AUTOPILOT.md` now has a list of bigger ideas (cavalry, helicopters, boss troops, a volcano map, replays of the best kill and more) for the daily run to build one at a time.
+- **Balance with the new events:** a sample of 14 line-ups (16 test battles each, open ground) gave the top side 31–81%, 58% on average; 12 of 14 sit inside 25–75%. Next autopilot run: re-check every line-up's balance with these events on and nudge the ones outside 35–65%.
 - **Tested:** old line-ups on open ground without events play out exactly as before; 12 full battles with the director and every event on every map with no errors, each still ending at 60 s; stills of every crate kind, boost, hazard, the new robots and the MVP screen; short renders of a clickbait video and a creative one. No preview videos.
 
 ## 2026-11-01: real flags, faster rendering
