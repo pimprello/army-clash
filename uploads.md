@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 10:19 | 🇧🇷 Brazil vs Argentina 🇦🇷 \| Pick a Side! 👇 #shorts | Brazil wins | https://youtube.com/shorts/ZA_BJzaryTc |
 | 2026-11-01 10:06 | 💚 Lunar Archers vs Ghost Mages 🫐 \| Only One Survives 💀 #shorts | Lime wins | https://youtube.com/shorts/Rj1eDepRhbU |
 | 2026-11-01 09:51 | 🇳🇴 Norway vs Sweden 🇸🇪 \| Who Takes It? 🏆 #shorts | Sweden wins | https://youtube.com/shorts/SUWqoMKMc1k |
 | 2026-11-01 09:36 | 🇵🇹 Cyber Elves vs Omega Shields 🇪🇸 \| Anything Goes 🎲 #shorts | Spain wins | https://youtube.com/shorts/JGrc48TH37E |
