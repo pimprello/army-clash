@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 11:15 | 🟤 Brown vs Cyan 🩵 \| Guess the Winner 🤔 #shorts | Brown wins | https://youtube.com/shorts/mmY1GJVsP6g |
 | 2026-11-01 11:04 | 🩷 Mech Legion vs Mech Elves 🟢 \| Dream Team Battle 🤯 #shorts | Pink wins | https://youtube.com/shorts/TCKs0Yd8ZMQ |
 | 2026-11-01 10:51 | ⚪ Zombies vs Swarm 🟠 \| Anything Goes 🎲 #shorts | Orange wins | https://youtube.com/shorts/nXEW43gSIHo |
 | 2026-11-01 10:35 | 🇬🇧 Dragon Bolts vs Savage Mages 🇺🇸 \| Craziest Matchup? 💥 #shorts | Usa wins | https://youtube.com/shorts/VqYUR_Dt7u4 |
