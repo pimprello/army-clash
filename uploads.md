@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 08:37 | 🇵🇹 Turbo Orcs vs Frost Bots 🇪🇸 \| Dream Team Battle 🤯 #shorts | Portugal wins | https://youtube.com/shorts/mX9Dq-wBuf0 |
 | 2026-11-01 08:24 | 🟠 Orange vs Indigo 🫐 \| Who Takes It? 🏆 #shorts | Indigo wins | https://youtube.com/shorts/752hoVU2wTI |
 | 2026-11-01 08:07 | 🪸 Cannon Elves vs Thunder Bolts 🌊 \| Pick a Side! 👇 #shorts | Coral wins | https://youtube.com/shorts/wT-r61bPozc |
 | 2026-11-01 07:54 | 🟡 Yellow vs Pink 🩷 \| Future War 🤖 #shorts | Pink wins | https://youtube.com/shorts/Jp6sGWxk-us |
