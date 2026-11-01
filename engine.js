@@ -144,10 +144,111 @@ const RVB = (() => {
       const pal = PALETTES[name];
       if (!pal) throw new Error(`Unknown team colour ${name}. Use one of: ${Object.keys(PALETTES).join(', ')}`);
       delete TEAMS[i].a;
-      Object.assign(TEAMS[i], { name }, pal);
+      Object.assign(TEAMS[i], { name, key: name }, pal);
     });
     bgCache = {};
   };
+  // ---------- national flags ----------
+  // Each draws a flag into the box (x, y, w, h); drawFlag adds rounded corners and an ink outline.
+  const star = (g, cx, cy, r, n = 5, inner = 0.45) => {
+    g.beginPath();
+    for (let k = 0; k < n * 2; k++) { const a = -Math.PI / 2 + k * Math.PI / n, rr = k % 2 ? r * inner : r; k ? g.lineTo(cx + Math.cos(a) * rr, cy + Math.sin(a) * rr) : g.moveTo(cx + Math.cos(a) * rr, cy + Math.sin(a) * rr); }
+    g.closePath();
+  };
+  const bands = (g, x, y, w, h, cols, vertical, weights) => {
+    const ws = weights || cols.map(() => 1), tot = ws.reduce((a, b) => a + b, 0);
+    let o = 0;
+    cols.forEach((c, i) => { const f = ws[i] / tot; g.fillStyle = c; if (vertical) g.fillRect(x + o * w, y, f * w + 0.6, h); else g.fillRect(x, y + o * h, w, f * h + 0.6); o += f; });
+  };
+  const unionJack = (g, x, y, w, h) => {
+    g.fillStyle = '#012169'; g.fillRect(x, y, w, h);
+    g.save(); g.beginPath(); g.rect(x, y, w, h); g.clip();
+    g.lineCap = 'butt';
+    g.beginPath(); g.moveTo(x, y); g.lineTo(x + w, y + h); g.moveTo(x + w, y); g.lineTo(x, y + h);
+    g.lineWidth = h * 0.2; g.strokeStyle = '#FFFFFF'; g.stroke(); g.lineWidth = h * 0.066; g.strokeStyle = '#C8102E'; g.stroke();
+    g.fillStyle = '#FFFFFF'; g.fillRect(x + w / 2 - h / 6, y, h / 3, h); g.fillRect(x, y + h / 3, w, h / 3);
+    g.fillStyle = '#C8102E'; g.fillRect(x + w / 2 - h / 10, y, h / 5, h); g.fillRect(x, y + h * 0.4, w, h / 5);
+    g.restore();
+  };
+  const nordic = (g, x, y, w, h, bg, cross, inner) => {
+    g.fillStyle = bg; g.fillRect(x, y, w, h);
+    const cx = x + w * 0.36, t = h * 0.24;
+    g.fillStyle = cross; g.fillRect(cx - t / 2, y, t, h); g.fillRect(x, y + h / 2 - t / 2, w, t);
+    if (inner) { const t2 = t * 0.5; g.fillStyle = inner; g.fillRect(cx - t2 / 2, y, t2, h); g.fillRect(x, y + h / 2 - t2 / 2, w, t2); }
+  };
+  const MAPLE = [[0, -1], [0.12, -0.74], [0.3, -0.82], [0.24, -0.38], [0.56, -0.62], [0.5, -0.44], [0.82, -0.5], [0.7, -0.24], [0.92, -0.14], [0.56, 0.16], [0.64, 0.34], [0.07, 0.24], [0.08, 0.72], [-0.08, 0.72], [-0.07, 0.24], [-0.64, 0.34], [-0.56, 0.16], [-0.92, -0.14], [-0.7, -0.24], [-0.82, -0.5], [-0.5, -0.44], [-0.56, -0.62], [-0.24, -0.38], [-0.3, -0.82], [-0.12, -0.74]];
+  const FLAG_ART = {
+    UK: unionJack,
+    USA: (g, x, y, w, h) => {
+      for (let k = 0; k < 13; k++) { g.fillStyle = k % 2 ? '#FFFFFF' : '#B22234'; g.fillRect(x, y + k * h / 13, w, h / 13 + 0.6); }
+      const cw = w * 0.42, ch = h * 7 / 13; g.fillStyle = '#3C3B6E'; g.fillRect(x, y, cw, ch);
+      if (w >= 36) { g.fillStyle = '#FFFFFF'; const r = Math.max(0.8, h * 0.022); for (let i = 0; i < 5; i++) for (let j = 0; j < (i % 2 ? 5 : 6); j++) { g.beginPath(); g.arc(x + cw * ((i % 2 ? 1 : 0.5) + j * 1.6) / 9.3, y + ch * (i + 0.6) / 5.2, r, 0, TAU); g.fill(); } }
+    },
+    FRANCE: (g, x, y, w, h) => bands(g, x, y, w, h, ['#0055A4', '#FFFFFF', '#EF4135'], true),
+    GERMANY: (g, x, y, w, h) => bands(g, x, y, w, h, ['#000000', '#DD0000', '#FFCE00'], false),
+    ITALY: (g, x, y, w, h) => bands(g, x, y, w, h, ['#009246', '#FFFFFF', '#CE2B37'], true),
+    BRAZIL: (g, x, y, w, h) => {
+      g.fillStyle = '#009C3B'; g.fillRect(x, y, w, h);
+      g.beginPath(); g.moveTo(x + w * 0.5, y + h * 0.1); g.lineTo(x + w * 0.92, y + h * 0.5); g.lineTo(x + w * 0.5, y + h * 0.9); g.lineTo(x + w * 0.08, y + h * 0.5); g.closePath(); g.fillStyle = '#FFDF00'; g.fill();
+      g.beginPath(); g.arc(x + w / 2, y + h / 2, h * 0.25, 0, TAU); g.fillStyle = '#002776'; g.fill();
+      g.save(); g.beginPath(); g.arc(x + w / 2, y + h / 2, h * 0.25, 0, TAU); g.clip();
+      g.beginPath(); g.arc(x + w / 2 - h * 0.1, y + h * 1.0, h * 0.58, Math.PI * 1.25, Math.PI * 1.75); g.lineWidth = h * 0.06; g.strokeStyle = '#FFFFFF'; g.stroke(); g.restore();
+    },
+    ARGENTINA: (g, x, y, w, h) => {
+      bands(g, x, y, w, h, ['#74ACDF', '#FFFFFF', '#74ACDF'], false);
+      g.beginPath(); g.arc(x + w / 2, y + h / 2, h * 0.1, 0, TAU); g.fillStyle = '#F6B40E'; g.fill(); g.lineWidth = Math.max(1, h * 0.02); g.strokeStyle = '#85340A'; g.stroke();
+    },
+    CANADA: (g, x, y, w, h) => {
+      bands(g, x, y, w, h, ['#D80621', '#FFFFFF', '#D80621'], true, [1, 2, 1]);
+      const s2 = h * 0.36, cx = x + w / 2, cy = y + h * 0.53;
+      g.beginPath(); MAPLE.forEach(([px, py], k) => (k ? g.lineTo(cx + px * s2, cy + py * s2) : g.moveTo(cx + px * s2, cy + py * s2))); g.closePath(); g.fillStyle = '#D80621'; g.fill();
+    },
+    SPAIN: (g, x, y, w, h) => bands(g, x, y, w, h, ['#AA151B', '#F1BF00', '#AA151B'], false, [1, 2, 1]),
+    PORTUGAL: (g, x, y, w, h) => {
+      bands(g, x, y, w, h, ['#006600', '#FF0000'], true, [2, 3]);
+      const cx = x + w * 0.4, cy = y + h / 2;
+      g.beginPath(); g.arc(cx, cy, h * 0.2, 0, TAU); g.lineWidth = h * 0.06; g.strokeStyle = '#FFE000'; g.stroke();
+      roundRect(g, cx - h * 0.09, cy - h * 0.11, h * 0.18, h * 0.21, h * 0.05); g.fillStyle = '#FFFFFF'; g.fill(); g.lineWidth = h * 0.03; g.strokeStyle = '#FF0000'; g.stroke();
+    },
+    AUSTRALIA: (g, x, y, w, h) => {
+      g.fillStyle = '#012169'; g.fillRect(x, y, w, h); unionJack(g, x, y, w / 2, h / 2);
+      g.fillStyle = '#FFFFFF';
+      star(g, x + w * 0.25, y + h * 0.75, h * 0.14, 7, 0.45); g.fill();
+      for (const [sx, sy, sr] of [[0.75, 0.83, 0.07], [0.62, 0.45, 0.06], [0.75, 0.18, 0.06], [0.88, 0.38, 0.06], [0.81, 0.55, 0.035]]) { star(g, x + w * sx, y + h * sy, h * sr, 7, 0.45); g.fill(); }
+    },
+    NEWZEALAND: (g, x, y, w, h) => {
+      g.fillStyle = '#012169'; g.fillRect(x, y, w, h); unionJack(g, x, y, w / 2, h / 2);
+      for (const [sx, sy, sr] of [[0.75, 0.82, 0.08], [0.63, 0.43, 0.07], [0.75, 0.2, 0.07], [0.87, 0.38, 0.065]]) {
+        star(g, x + w * sx, y + h * sy, h * sr * 1.35); g.fillStyle = '#FFFFFF'; g.fill();
+        star(g, x + w * sx, y + h * sy, h * sr); g.fillStyle = '#C8102E'; g.fill();
+      }
+    },
+    NETHERLANDS: (g, x, y, w, h) => bands(g, x, y, w, h, ['#AE1C28', '#FFFFFF', '#21468B'], false),
+    BELGIUM: (g, x, y, w, h) => bands(g, x, y, w, h, ['#000000', '#FDDA24', '#EF3340'], true),
+    SWEDEN: (g, x, y, w, h) => nordic(g, x, y, w, h, '#006AA7', '#FECC00'),
+    NORWAY: (g, x, y, w, h) => nordic(g, x, y, w, h, '#BA0C2F', '#FFFFFF', '#00205B'),
+  };
+  // drawn once into a small canvas (at 3x for sharp close-ups) and reused
+  const flagCache = {};
+  function drawFlag(g, key, x, y, w, h, line = 3) {
+    const art = FLAG_ART[key];
+    if (!art) return false;
+    const ck = `${key}:${Math.round(w)}x${Math.round(h)}:${line}`;
+    let img = flagCache[ck];
+    if (!img && api.makeCanvas) {
+      const S = 3, pad = Math.ceil(line);
+      img = flagCache[ck] = api.makeCanvas(Math.ceil((w + pad * 2) * S), Math.ceil((h + pad * 2) * S));
+      const c = img.getContext('2d'); c.scale(S, S);
+      const rr = Math.min(w, h) * 0.12;
+      c.save(); roundRect(c, pad, pad, w, h, rr); c.clip(); art(c, pad, pad, w, h); c.restore();
+      roundRect(c, pad, pad, w, h, rr); c.lineWidth = line; c.lineJoin = 'round'; c.strokeStyle = COL.ink; c.stroke();
+      img.pad = pad;
+    }
+    if (img) g.drawImage(img, x - img.pad, y - img.pad, w + img.pad * 2, h + img.pad * 2);
+    return true;
+  }
+  const hasFlag = tm => !!FLAG_ART[tm.key];
+
   function background(map) {
     const key = 'classic';
     if (bgCache[key] || !api.makeCanvas) return bgCache[key] || null;
@@ -303,6 +404,8 @@ const RVB = (() => {
       ctx.textAlign = 'right'; ctx.fillText(h.rs, VW - 70, 428);
       spaced(ctx, 0);
 
+      // nations: their flag between the score and the VS badge
+      for (let i = 0; i < 2; i++) if (hasFlag(TEAMS[i])) drawFlag(ctx, TEAMS[i].key, i === 0 ? 300 : VW - 300 - 114, 300, 114, 76, 4);
       // VS badge
       ctx.beginPath(); ctx.arc(VW / 2, 318, 52, 0, TAU);
       ctx.fillStyle = '#121A2D'; ctx.fill();
@@ -389,14 +492,16 @@ const RVB = (() => {
         ctx.translate(VW / 2, AR.y + 82);
         ctx.scale(0.6 + 0.4 * inK, 0.6 + 0.4 * inK);
         ctx.font = font(54, 800); spaced(ctx, 3);
-        const w = ctx.measureText(b.text).width + 70;
+        const ft = [0, 1].find(i => hasFlag(TEAMS[i]) && (b.text.startsWith(TEAMS[i].name + ' ') || b.text.startsWith(TEAMS[i].name + ':')));
+        const tw = ctx.measureText(b.text).width, fw = ft !== undefined ? 66 : 0, w = tw + 70 + fw;
         ctx.beginPath();
         ctx.moveTo(-w / 2 + 16, -40); ctx.lineTo(w / 2 + 16, -40); ctx.lineTo(w / 2 - 16, 40); ctx.lineTo(-w / 2 - 16, 40); ctx.closePath();
         ctx.fillStyle = b.color; ctx.fill();
         ctx.lineWidth = 5; ctx.strokeStyle = COL.ink; ctx.stroke();
         ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
         ctx.fillStyle = b.color === COL.gold ? COL.ink : COL.white;
-        ctx.fillText(b.text, 0, 3);
+        if (fw) drawFlag(ctx, TEAMS[ft].key, -w / 2 + 30, -21, 60, 40, 3);
+        ctx.fillText(b.text, fw / 2, 3);
         spaced(ctx, 0);
         ctx.restore();
       }
@@ -436,6 +541,11 @@ const RVB = (() => {
       ctx.beginPath(); ctx.moveTo(0, cy - 130); ctx.lineTo(VW, cy - 170); ctx.lineTo(VW, cy - 140); ctx.lineTo(0, cy - 100); ctx.closePath(); ctx.fill();
       ctx.restore();
       const pop = easeOutBack(clamp((k - 0.35) / 0.35, 0, 1));
+      if (pop > 0 && hasFlag(tm)) {
+        ctx.save(); ctx.translate(VW / 2, cy - 250); ctx.rotate(-0.035); ctx.scale(pop, pop);
+        drawFlag(ctx, tm.key, -96, -64, 192, 128, 6);
+        ctx.restore();
+      }
       if (pop > 0) {
         ctx.save();
         ctx.translate(VW / 2, cy - 18); ctx.rotate(-0.035); ctx.scale(pop, pop);
@@ -1756,6 +1866,8 @@ const RVB = (() => {
       const pace = 1 + (R.chance(0.5) ? 1 : -1) * R.range(0.03, 0.07);
       if (this.obstacles && this.obstacles.length && !U.flying) { const p = { x, y, r: U.r }; for (let k = 0; k < 3; k++) this.pushOut(p); x = p.x; y = p.y; }
       this.units.push({ team, type, x, y, flying: !!U.flying, pace, gait: R.range(0, TAU), vx: 0, vy: 0, r: U.r, hp, max: hp, cd: R.range(0, U.cd), retarget: R.range(0, 0.3), target: null, flash: 0, lunge: 0, face: team === 0 ? Math.PI / 2 : -Math.PI / 2, dead: false, m: U.r * U.r });
+      // nations: about one troop in ten carries the national flag (looks only, no dice)
+      if (hasFlag(TEAMS[team]) && !U.flying && U.rank !== 0) { this.flagN = this.flagN || [0, 0]; if (this.flagN[team]++ % 10 === 3) this.units[this.units.length - 1].flag = true; }
       this.alive[team]++;
     }
     reinforce(team, wave) {
@@ -2612,14 +2724,22 @@ const RVB = (() => {
       ctx.translate(this.shakeX, this.shakeY);
       roundRect(ctx, AR.x, AR.y, AR.w, AR.h, 18);
       ctx.save(); ctx.clip();
-      if (zoom) { ctx.save(); this.applyCam(ctx); }
-      if (this.ground) ctx.drawImage(hi ? this.hiLayer('ground') : this.ground, AR.x, AR.y, AR.w, AR.h);
+      // ground, stains and map: when zoomed, copy just the part in view straight to the screen (much faster than drawing the whole layer through the camera)
+      const blit = (img, S) => {
+        if (!zoom) { ctx.drawImage(img, AR.x, AR.y, AR.w, AR.h); return; }
+        const c = this.cam, vw = AR.w / c.z, vh = AR.h / c.z, sx = (c.x - vw / 2 - AR.x) * S, sy = (c.y - vh / 2 - AR.y) * S;
+        ctx.drawImage(img, sx, sy, vw * S, vh * S, AR.x, AR.y, AR.w, AR.h);
+      };
+      if (zoom && 'patternQuality' in ctx) ctx.patternQuality = 'bilinear';
+      if (this.ground) blit(hi ? this.hiLayer('ground') : this.ground, hi ? 2 : 1);
       else { ctx.fillStyle = (MAP_THEME[this.opts.map] || MAP_THEME.default).floor; ctx.fillRect(AR.x, AR.y, AR.w, AR.h); }
-      if (this.stains) ctx.drawImage(this.stains, AR.x, AR.y, AR.w, AR.h);
+      if (this.stains) blit(this.stains, 1);
       if ((this.obstacles.length || this.decor.length) && api.makeCanvas) {
         if (!this.mapLayer) { this.mapLayer = api.makeCanvas(AR.w, AR.h); this.paintMap(this.mapLayer, 1); }
-        ctx.drawImage(hi ? this.hiLayer('map') : this.mapLayer, AR.x, AR.y, AR.w, AR.h);
+        blit(hi ? this.hiLayer('map') : this.mapLayer, hi ? 2 : 1);
       }
+      if (zoom && 'patternQuality' in ctx) ctx.patternQuality = 'good';
+      if (zoom) { ctx.save(); this.applyCam(ctx); }
       if (this.liveDecor) this.drawLiveDecor(ctx);
       // arrows
       ctx.lineCap = 'round';
@@ -2707,7 +2827,10 @@ const RVB = (() => {
       // units by type for fewer state changes
       const cheer = this.phase === 'outro' ? this.winner : -1;
       const drawOrder = this.units.some(u => u.flying) ? this.units.filter(u => !u.flying).concat(this.units.filter(u => u.flying)) : this.units;
+      // when zoomed in, skip troops that are out of view
+      const cv = zoom ? { x0: this.cam.x - AR.w / 2 / this.cam.z - 60, x1: this.cam.x + AR.w / 2 / this.cam.z + 60, y0: this.cam.y - AR.h / 2 / this.cam.z - 60, y1: this.cam.y + AR.h / 2 / this.cam.z + 60 } : null;
       for (const u of drawOrder) {
+        if (cv && (u.x < cv.x0 - u.r || u.x > cv.x1 + u.r || u.y < cv.y0 - u.r || u.y > cv.y1 + u.r)) continue;
         const tm = TEAMS[u.team];
         if (u.fade !== undefined) { if (u.fade <= 0) continue; ctx.globalAlpha = u.fade; }
         let lx = Math.cos(u.face) * u.lunge * 6, ly = Math.sin(u.face) * u.lunge * 6;
@@ -2977,6 +3100,14 @@ const RVB = (() => {
             ctx.moveTo(x - 18, y + 6); ctx.lineTo(x - 18, y - 12); ctx.lineTo(x - 9, y - 3); ctx.lineTo(x, y - 18); ctx.lineTo(x + 9, y - 3); ctx.lineTo(x + 18, y - 12); ctx.lineTo(x + 18, y + 6); ctx.closePath(); ctx.fill();
             ctx.lineWidth = 2.5; ctx.strokeStyle = COL.ink; ctx.stroke();
           }
+        }
+        if (u.flag) {
+          // a flag on a pole, rippling a little
+          const px = x + u.r * 0.6, top = y - u.r - 26;
+          ctx.lineCap = 'round'; ctx.lineWidth = 4.5; ctx.strokeStyle = COL.ink; ctx.beginPath(); ctx.moveTo(px, y); ctx.lineTo(px, top); ctx.stroke();
+          ctx.lineWidth = 2; ctx.strokeStyle = '#D9B26F'; ctx.stroke();
+          ctx.save(); ctx.translate(px, top); ctx.transform(1, Math.sin(this.t * 6 + u.gait) * 0.12, 0, 1, 0, 0);
+          drawFlag(ctx, tm.key, 0, 0, 27, 18, 2); ctx.restore();
         }
         if (u.healFlash > 0) { ctx.beginPath(); ctx.arc(x, y, u.r + 2, 0, TAU); ctx.lineWidth = 3; ctx.strokeStyle = `rgba(124,255,176,${u.healFlash * 0.9})`; ctx.stroke(); }
         if (u.flash > 0) { ctx.beginPath(); ctx.arc(x, y, u.r, 0, TAU); ctx.fillStyle = `rgba(255,255,255,${u.flash * 0.8})`; ctx.fill(); }

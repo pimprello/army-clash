@@ -2,6 +2,11 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-01: real flags, faster rendering
+
+- **Flags:** nation battles now show the real flag, not just its colours: beside each team's score at the top, on flag poles carried by about one troop in ten, in banners like "CANADA GRABS THE DROP · +4", and big above the winner's name at the end. All 16 nations are drawn: UK, USA, France, Germany, Italy, Brazil, Argentina, Canada, Spain, Portugal, Australia, New Zealand, Netherlands, Belgium, Sweden and Norway. The flags are looks only; battles play out the same.
+- **Faster videos:** close-up frames were drawing the whole battlefield picture through the camera, which made videos take 3–6 minutes to make. Close-ups now copy only the part in view, and troops out of view are skipped. In tests a close-up frame dropped from about 126 ms to about 40 ms to draw. Battles are unchanged.
+
 ## 2026-11-01 (autopilot)
 
 - **Health:** uploads are fine. The last 20 runs all posted (the few "cancelled" runs are spare scheduled starts skipped because a run was already going), and the newest videos are about 15 minutes apart.

@@ -61,7 +61,7 @@ function invent(seed) {
   const R = RVB.rng((seed ^ 0xC2EA7E) >>> 0);
   const top = inventSide(R, []);
   let bottom = inventSide(R, [Object.keys(top.mix)[0]]);
-  for (let k = 0; k < 5 && bottom.name === top.name; k++) bottom = inventSide(R, [Object.keys(top.mix)[0]]);
+  for (let k = 0; k < 5 && (bottom.name === top.name || bottom.name.split(' ')[0] === top.name.split(' ')[0]); k++) bottom = inventSide(R, [Object.keys(top.mix)[0]]);
   return { top, bottom, wild: true };
 }
 
