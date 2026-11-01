@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 02:57 | 🟢 Green vs Brown 🟤 \| Only One Survives 💀 #shorts | Green wins | https://youtube.com/shorts/N4jLYIhBxLc |
 | 2026-11-01 02:42 | 🩷 Cyber Pirates vs Cannon Legion 🩵 \| Pick a Side! 👇 #shorts | Cyan wins | https://youtube.com/shorts/cNixgLtpLSU |
 | 2026-11-01 02:27 | 🔵 Blue vs Coral 🪸 \| Only One Survives 💀 #shorts | Blue wins | https://youtube.com/shorts/dr9HWN7VPj8 |
 | 2026-11-01 02:14 | 🔵 Neon Gunners vs Storm Bots 🔴 \| Pick a Side! 👇 #shorts | Red wins | https://youtube.com/shorts/hrzTiM2rgvE |
