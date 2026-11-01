@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 02:00 | 🇬🇧 UK vs France 🇫🇷 \| Only One Survives 💀 #shorts | France wins | https://youtube.com/shorts/zK9DYU7Ad3Y |
 | 2026-11-01 01:43 | 🔵 Cannon Spears vs Omega Archers 🪸 \| Only One Survives 💀 #shorts | Blue wins | https://youtube.com/shorts/O6_uTsmp5EU |
 | 2026-11-01 01:40 | 🩷 Pink vs Cyan 🩵 \| Pick a Side! 🎯 #shorts | Cyan wins | https://youtube.com/shorts/bG-ktpBeWBE |
 | 2026-11-01 01:15 | 🟤 Frost Muskets vs Storm Bolts 🩵 \| Craziest Matchup? 💥 #shorts | Cyan wins | https://youtube.com/shorts/PPVjQPikxLo |
