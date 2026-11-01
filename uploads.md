@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 05:54 | 🟠 Orange vs Indigo 🫐 \| Only One Survives 💀 #shorts | Orange wins | https://youtube.com/shorts/Z4QsTP5l6dA |
 | 2026-11-01 05:40 | 🩵 Giant Bolts vs Rogue Shields 🟤 \| Pick a Side! 👇 #shorts | Brown wins | https://youtube.com/shorts/Xbqc6ofrV7Y |
 | 2026-11-01 05:26 | 🟢 Green vs Purple 🟣 \| Pick a Side! 🎯 #shorts | Purple wins | https://youtube.com/shorts/-xsSbCrwvJo |
 | 2026-11-01 05:10 | ⚪ Storm Pirates vs Titan Knights 🟣 \| Only One Survives 💀 #shorts | White wins | https://youtube.com/shorts/GsACswVVEXY |
