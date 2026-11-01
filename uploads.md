@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 07:37 | 🟠 Mech Elves vs Ghost Archers 🔵 \| Dream Team Battle 🤯 #shorts | Blue wins | https://youtube.com/shorts/lVgsjqPS0jY |
 | 2026-11-01 07:23 | 🌊 Teal vs Coral 🪸 \| Pick a Side! 👇 #shorts | Coral wins | https://youtube.com/shorts/sG5XN0z_-Ss |
 | 2026-11-01 07:07 | 🌊 Iron Troopers vs Mega Samurai 🟣 \| Pick a Side! 👇 #shorts | Purple wins | https://youtube.com/shorts/UNh3z27825E |
 | 2026-11-01 06:53 | 🇧🇷 Brazil vs Argentina 🇦🇷 \| Pick a Side! 👇 #shorts | Argentina wins | https://youtube.com/shorts/IyM7MzBJ4Jg |
