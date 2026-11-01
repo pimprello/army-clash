@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 15:27 | 🩵 Mega Shields vs Rogue Mages 🔴 \| Only One Survives 💀 #shorts | Cyan wins | https://youtube.com/shorts/f2Ldp25eOJg |
 | 2026-11-01 15:11 | 🟡 Yellow vs Pink 🩷 \| Only One Survives 💀 #shorts | Yellow wins | https://youtube.com/shorts/I2dY1qq6LJU |
 | 2026-11-01 14:56 | 🇳🇱 Mech Raiders vs Golden Bones 🇧🇪 \| Dream Team Battle 🤯 #shorts | Belgium wins | https://youtube.com/shorts/SfmNA_Ehzy8 |
 | 2026-11-01 14:42 | The Giant Never Saw It Coming 😳 | Brazil wins | https://youtube.com/shorts/OvOzfHgaA20 |
