@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 20:05 | 🇪🇸 Spain Vampires vs Portugal Samurai | Portugal wins | https://youtube.com/shorts/qoibSwwmJvs |
 | 2026-11-01 19:51 | Iron Blades vs Frost Zombies 🤯 | Gold wins | https://youtube.com/shorts/Gp-V4vV_Eb8 |
 | 2026-11-01 19:36 | The Smaller Army Did WHAT? 😳 | Sweden wins | https://youtube.com/shorts/SpekIw3lToU |
 | 2026-11-01 19:21 | 3 Armies, Only 1 SURVIVES 💀 | Coral wins | https://youtube.com/shorts/MRHaAzpcjRI |
