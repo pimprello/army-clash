@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 17:53 | 🔴 Shadow Bolts vs Royal Pirates 🩵 \| Who Wins This? 🤔 #shorts | Red wins | https://youtube.com/shorts/1zDThL2veYQ |
 | 2026-11-01 17:37 | 🔴 Red vs Silver 🥈 \| Guess the Winner 🤔 #shorts | Red wins | https://youtube.com/shorts/19ddlF_N7uc |
 | 2026-11-01 17:23 | 🥇 Neon Zombies vs Cannon Legion 🟣 \| Anything Goes 🎲 #shorts | Purple wins | https://youtube.com/shorts/KaRSoWDVrAs |
 | 2026-11-01 17:08 | They Were Outnumbered... 😳 | Orange wins | https://youtube.com/shorts/GlGJM2He7cg |
