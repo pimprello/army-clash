@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 09:36 | 🇵🇹 Cyber Elves vs Omega Shields 🇪🇸 \| Anything Goes 🎲 #shorts | Spain wins | https://youtube.com/shorts/JGrc48TH37E |
 | 2026-11-01 09:20 | 🇬🇧 Samurai vs Knights 🇺🇸 \| Dream Team Battle 🤯 #shorts | Uk wins | https://youtube.com/shorts/J__3joOjIAc |
 | 2026-11-01 09:06 | 🟠 Mech Gunners vs Frost Bolts 🩵 \| Only One Survives 💀 #shorts | Orange wins | https://youtube.com/shorts/1OBgnU155vw |
 | 2026-11-01 08:50 | 🇩🇪 Germany vs Italy 🇮🇹 \| Who Takes It? 🏆 #shorts | Germany wins | https://youtube.com/shorts/HEljTptbXXc |
