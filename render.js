@@ -94,7 +94,7 @@ const doctrines = sides;
 // balance: bottom army size relative to the top, tuned so each match-up is close to 50/50 (three-way: one size per army).
 const budgetMul = !mu ? undefined : three ? (mu.balance || [1, 1, 1]) : [1, mu.balance ?? 1];
 // Maps rotate too, among the ones allowed for this era (see rules.maps; three-way battles use maps marked "three").
-const mapList = three ? (tw.maps || ['open']).map(name => ({ name })) : (rules.maps || [{ name: 'open' }]).filter(m => !m.eras || m.eras.includes(era));
+const mapList = three ? ((mu && mu.maps) || tw.maps || ['open']).map(name => ({ name })) : (rules.maps || [{ name: 'open' }]).filter(m => !m.eras || m.eras.includes(era));
 const map = process.env.MAP || (mapList.length ? mapList[(slot * 7 + 3 + shift) % mapList.length].name : 'open');
 fs.mkdirSync(OUT, { recursive: true });
 

@@ -912,7 +912,11 @@
           "ORCS",
           "ROBOTS"
         ],
-        "pending": true
+        "balance": [
+          1.31,
+          1.128,
+          0.563
+        ]
       },
       {
         "three": [
@@ -920,7 +924,11 @@
           "INFANTRY",
           "SAMURAI"
         ],
-        "pending": true
+        "balance": [
+          1.14,
+          0.313,
+          1.546
+        ]
       },
       {
         "three": [
@@ -928,7 +936,11 @@
           "ARMORED",
           "MECHS"
         ],
-        "pending": true
+        "balance": [
+          1.383,
+          0.8,
+          0.817
+        ]
       },
       {
         "three": [
@@ -936,7 +948,14 @@
           "NINJAS",
           "ARCHERS"
         ],
-        "pending": true
+        "balance": [
+          0.874,
+          1.185,
+          0.941
+        ],
+        "maps": [
+          "open"
+        ]
       },
       {
         "three": [
@@ -944,7 +963,14 @@
           "TROOPERS",
           "KNIGHTS"
         ],
-        "pending": true
+        "balance": [
+          0.998,
+          0.301,
+          1.7
+        ],
+        "maps": [
+          "open"
+        ]
       },
       {
         "three": [
@@ -952,7 +978,14 @@
           "ELVES",
           "MAGES"
         ],
-        "pending": true
+        "balance": [
+          1.28,
+          0.768,
+          0.952
+        ],
+        "maps": [
+          "open"
+        ]
       }
     ]
   }
