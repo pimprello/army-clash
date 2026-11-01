@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 11:04 | 🩷 Mech Legion vs Mech Elves 🟢 \| Dream Team Battle 🤯 #shorts | Pink wins | https://youtube.com/shorts/TCKs0Yd8ZMQ |
 | 2026-11-01 10:51 | ⚪ Zombies vs Swarm 🟠 \| Anything Goes 🎲 #shorts | Orange wins | https://youtube.com/shorts/nXEW43gSIHo |
 | 2026-11-01 10:35 | 🇬🇧 Dragon Bolts vs Savage Mages 🇺🇸 \| Craziest Matchup? 💥 #shorts | Usa wins | https://youtube.com/shorts/VqYUR_Dt7u4 |
 | 2026-11-01 10:19 | 🇧🇷 Brazil vs Argentina 🇦🇷 \| Pick a Side! 👇 #shorts | Brazil wins | https://youtube.com/shorts/ZA_BJzaryTc |
