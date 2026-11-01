@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 04:14 | 🟣 Royal Gunners vs Wild Samurai 🟢 \| Craziest Matchup? 💥 #shorts | Green wins | https://youtube.com/shorts/jyPEhKpy9i8 |
 | 2026-11-01 03:58 | 🇳🇴 Norway vs Sweden 🇸🇪 \| Guess the Winner 🤔 #shorts | Norway wins | https://youtube.com/shorts/a0fMakg4fRA |
 | 2026-11-01 03:43 | 🔵 Storm Bombers vs Iron Knights 🔴 \| Only One Survives 💀 #shorts | Blue wins | https://youtube.com/shorts/MA4e33bGtpI |
 | 2026-11-01 03:27 | 🇳🇱 Netherlands vs Belgium 🇧🇪 \| Who Rules? 👑 #shorts | Netherlands wins | https://youtube.com/shorts/_5sfCnI9sHs |
