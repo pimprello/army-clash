@@ -363,8 +363,7 @@
     {
       "top": "TROOPERS",
       "bottom": "ROBOTS",
-      "pending": true,
-      "new": true
+      "balance": 1.175
     },
     {
       "top": "HORDE",
@@ -379,8 +378,7 @@
     {
       "top": "MECHS",
       "bottom": "DRAGON",
-      "pending": true,
-      "new": true
+      "balance": 1.066
     },
     {
       "era": "modern",
@@ -420,8 +418,7 @@
           "tank"
         ]
       },
-      "pending": true,
-      "new": true
+      "balance": 0.675
     },
     {
       "top": "KNIGHTS",
@@ -442,8 +439,7 @@
     {
       "top": "PIRATES",
       "bottom": "BUCCANEERS",
-      "pending": true,
-      "new": true
+      "balance": 1.0
     },
     {
       "top": "ORCS",
@@ -461,8 +457,7 @@
     {
       "top": "NINJAS",
       "bottom": "SNIPERS",
-      "pending": true,
-      "new": true
+      "balance": 1.0
     },
     {
       "era": "modern",
@@ -478,8 +473,7 @@
     {
       "top": "ZOMBIES",
       "bottom": "INFANTRY",
-      "pending": true,
-      "new": true
+      "balance": 0.362
     },
     {
       "top": "KNIGHTS",
@@ -498,8 +492,7 @@
     {
       "top": "SAMURAI",
       "bottom": "NINJAS",
-      "pending": true,
-      "new": true
+      "balance": 0.877
     },
     {
       "top": "DRAGON",
@@ -534,8 +527,7 @@
           "healer": 0.2
         }
       },
-      "pending": true,
-      "new": true
+      "balance": 0.697
     },
     {
       "era": "modern",
@@ -554,8 +546,7 @@
     {
       "top": "BUCCANEERS",
       "bottom": "ARMORED",
-      "pending": true,
-      "new": true
+      "balance": 0.519
     },
     {
       "top": "KNIGHTS",
@@ -576,8 +567,7 @@
     {
       "top": "MECHS",
       "bottom": "TROOPERS",
-      "pending": true,
-      "new": true
+      "balance": 1.033
     },
     {
       "top": "ELVES",
@@ -595,8 +585,7 @@
     {
       "top": "SAMURAI",
       "bottom": "KNIGHTS",
-      "pending": true,
-      "new": true
+      "balance": 1.253
     },
     {
       "era": "modern",
@@ -615,8 +604,7 @@
     {
       "top": "ZOMBIES",
       "bottom": "SWARM",
-      "pending": true,
-      "new": true
+      "balance": 2.711
     },
     {
       "top": "KNIGHTS",
@@ -657,8 +645,7 @@
           "giant"
         ]
       },
-      "pending": true,
-      "new": true
+      "balance": 1.843
     },
     {
       "top": "MAGES",
@@ -677,8 +664,7 @@
     {
       "top": "PIRATES",
       "bottom": "ORCS",
-      "pending": true,
-      "new": true
+      "balance": 0.675
     },
     {
       "era": "modern",
@@ -697,8 +683,7 @@
     {
       "top": "ROBOTS",
       "bottom": "GIANT",
-      "pending": true,
-      "new": true
+      "balance": 1.62
     },
     {
       "top": "SWARM",
@@ -721,8 +706,7 @@
     {
       "top": "TROOPERS",
       "bottom": "ARCHERS",
-      "pending": true,
-      "new": true
+      "balance": 1.785
     },
     {
       "top": "DRAGON",
@@ -757,8 +741,7 @@
           "dragon"
         ]
       },
-      "pending": true,
-      "new": true
+      "balance": 0.936
     },
     {
       "era": "modern",
@@ -777,8 +760,17 @@
     {
       "top": "UNDEAD",
       "bottom": "TROOPERS",
-      "pending": true,
-      "new": true
+      "balance": 0.769
+    },
+    {
+      "top": "VAMPIRES",
+      "bottom": "SAMURAI",
+      "balance": 1.22
+    },
+    {
+      "top": "KNIGHTS",
+      "bottom": "VAMPIRES",
+      "balance": 0.455
     }
   ],
   "cinematic": true,

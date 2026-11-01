@@ -10,7 +10,7 @@ const NOUN = {
   soldier: 'LEGION', archer: 'ARCHERS', crossbowman: 'BOLTS', swordsman: 'BLADES', spearman: 'SPEARS', shieldbearer: 'SHIELDS',
   berserker: 'RAIDERS', knight: 'KNIGHTS', rifleman: 'RIFLES', gunner: 'GUNNERS', sniper: 'SNIPERS', grenadier: 'BOMBERS',
   wizard: 'MAGES', orc: 'ORCS', skeleton: 'BONES', elf: 'ELVES', trooper: 'TROOPERS', robot: 'BOTS', pirate: 'PIRATES',
-  musketeer: 'MUSKETS', zombie: 'ZOMBIES', ninja: 'NINJAS', samurai: 'SAMURAI',
+  musketeer: 'MUSKETS', zombie: 'ZOMBIES', ninja: 'NINJAS', samurai: 'SAMURAI', vampire: 'VAMPIRES',
 };
 const HEAVY_WORD = { tank: 'IRON', dragon: 'DRAGON', giant: 'GIANT', mech: 'MECH', cannon: 'CANNON' };
 const WORDS = ['STORM', 'SHADOW', 'NEON', 'CHAOS', 'ROGUE', 'ROYAL', 'WILD', 'GHOST', 'STEEL', 'FROST', 'SOLAR', 'LUNAR', 'TOXIC', 'CYBER', 'OMEGA', 'TITAN', 'THUNDER', 'COSMIC', 'MIDNIGHT', 'GOLDEN', 'SAVAGE', 'TURBO', 'MEGA', 'ULTRA'];
@@ -20,7 +20,7 @@ const TROOP_NAME = {
   soldier: 'soldiers', archer: 'archers', crossbowman: 'crossbowmen', swordsman: 'swordsmen', spearman: 'spearmen', shieldbearer: 'shield bearers',
   berserker: 'berserkers', healer: 'healers', knight: 'knights', rifleman: 'riflemen', gunner: 'machine gunners', sniper: 'snipers', grenadier: 'grenadiers',
   wizard: 'wizards', orc: 'orcs', skeleton: 'skeletons', elf: 'elf archers', trooper: 'laser troopers', robot: 'robots', pirate: 'pirates',
-  musketeer: 'musketeers', zombie: 'zombies', ninja: 'ninjas', samurai: 'samurai',
+  musketeer: 'musketeers', zombie: 'zombies', ninja: 'ninjas', samurai: 'samurai', vampire: 'vampires',
   tank: 'tank', dragon: 'dragon', giant: 'giant', mech: 'mech', cannon: 'cannon',
 };
 const MAX_NAME = 13;

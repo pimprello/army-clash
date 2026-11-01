@@ -8,14 +8,14 @@ Every new video reads `rules.json` when it is made, so a change here applies to 
   Colours available: `RED`, `BLUE`, `GREEN`, `PURPLE`, `ORANGE`, `YELLOW`, `PINK`, `CYAN`, `WHITE`, `BROWN`, `LIME`, `TEAL`, `GOLD`, `SILVER`, `INDIGO`, `CORAL`.
   Nations (flag colours, flag emojis in titles, an accent ring on each troop): `UK`, `USA`, `FRANCE`, `GERMANY`, `ITALY`, `BRAZIL`, `ARGENTINA`, `CANADA`, `SPAIN`, `PORTUGAL`, `AUSTRALIA`, `NEWZEALAND`, `NETHERLANDS`, `BELGIUM`, `SWEDEN`, `NORWAY`. Only friendly rivalries: never pair countries in an active or recent war, or with a painful wartime history.
 - **`teamStyles`**: a colour can fight its own way. `ORANGE` armies are about 60% swordsmen (`swordsmenShare`), with a slightly smaller army (`budget` 0.96) so they still win about half their battles.
-- **`matchups`**: the troop line-ups, used in order, then starting again from the top (54 at the moment). Each has a `top` and `bottom` side, optional `troops` (extra troop types to mix in, e.g. `["spearman", "healer"]`), and `balance`: the bottom army's size compared with the top, tuned by test battles so each line-up is close to 50/50.
+- **`matchups`**: the troop line-ups, used in order, then starting again from the top (56 at the moment). Each has a `top` and `bottom` side, optional `troops` (extra troop types to mix in, e.g. `["spearman", "healer"]`), and `balance`: the bottom army's size compared with the top, tuned by test battles so each line-up is close to 50/50.
   A side is either an army type or a custom team. Army types by genre:
   - Medieval: `SWARM`, `ARCHERS`, `KNIGHTS`, `BALANCED`, `GIANT` (has a giant)
   - Modern: `INFANTRY`, `ASSAULT`, `SNIPERS`, `ARMORED` (has a tank), `COMBINED`
   - Fantasy: `HORDE`, `ORCS`, `ELVES`, `MAGES`, `DRAGON` (has a dragon)
   - Sci-fi: `TROOPERS`, `ROBOTS`, `MECHS` (has a mech)
   - Pirates: `PIRATES`, `BUCCANEERS` (has a cannon)
-  - Horror: `ZOMBIES`, `UNDEAD`
+  - Horror: `ZOMBIES`, `UNDEAD`, `VAMPIRES`
   - Samurai: `SAMURAI`, `NINJAS`
   Any two can meet: when they come from different genres the video is a mixed ("old vs new") battle.
   A custom team mixes any troops you like, from any genre, plus big units: `{ "name": "SPELLGUNS", "mix": { "wizard": 0.35, "rifleman": 0.45, "gunner": 0.2 }, "heavy": ["tank"] }`. `mix` is the share of each troop, `heavy` lists the big ones it brings (`tank`, `dragon`, `giant`, `mech`, `cannon`; repeat one to bring two). Keep the name to 13 letters or fewer so it fits the scoreboard. Custom-team videos get "dream team" titles that use the team names.
@@ -78,6 +78,7 @@ In between, it stays on the whole arena about half the time, sometimes drifting 
 | *Pirates:* Musketeer | tricorn hat and a long musket | slow to reload, one big hit and a puff of smoke |
 | *Pirates:* Cannon | wooden carriage and black barrel | one per BUCCANEERS army; lobs cannonballs from far away |
 | *Horror:* Zombie | arms out, pale green head | slow and cheap; anyone living it kills gets back up as a zombie on its side |
+| *Horror:* Vampire | pale face, slicked-back black hair, red eyes, a black cape and a team-colour collar | fast; every bite heals it by half the damage it deals (its eyes flare red); can't be turned by zombies |
 | *Samurai:* Samurai | shoulder plates, gold-crested helmet, katana | armoured swordsman |
 | *Samurai:* Ninja | black suit with a team-colour ring and headband | very fast, side-steps almost half of the arrows and bullets aimed at it |
 

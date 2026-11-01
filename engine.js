@@ -1211,6 +1211,9 @@ const RVB = (() => {
     ninja: { r: 11, hp: 7, dmg: 2.2, cd: 0.45, reach: 5, speed: 122, cost: 1.8, rank: 2, armor: 1, dodge: 0.45 },
     // samurai: armoured swordsman with a katana
     samurai: { r: 14, hp: 16, dmg: 3, cd: 0.75, reach: 7, speed: 82, cost: 3, rank: 1, armor: 0.6, sword: true },
+    // ----- horror -----
+    // vampire: quick night stalker with a cape; every bite heals it by half the damage it deals
+    vampire: { r: 12, hp: 10, dmg: 2.2, cd: 0.6, reach: 5, speed: 104, cost: 2.2, rank: 1, armor: 0.9, drain: 0.5 },
   };
   UNIT.swordsman.sword = true;
   // troops a zombie can turn (machines, the undead and the huge ones can't be infected)
@@ -1223,7 +1226,7 @@ const RVB = (() => {
   // gun sizes for drawing modern infantry
   const MODERN_INF = { rifleman: { len: 14, w: 3.5 }, gunner: { len: 18, w: 5.5 }, sniper: { len: 26, w: 3 }, grenadier: {} };
   // round troops with their own extra details (see drawNewLook)
-  const NEW_LOOK = { trooper: 1, pirate: 1, musketeer: 1, zombie: 1, ninja: 1, samurai: 1 };
+  const NEW_LOOK = { trooper: 1, pirate: 1, musketeer: 1, zombie: 1, ninja: 1, samurai: 1, vampire: 1 };
   const LIGHT_FILL = { soldier: 1, crossbowman: 1, spearman: 1, berserker: 1, healer: 1, rifleman: 1, sniper: 1, grenadier: 1, orc: 1, elf: 1, wizard: 1, trooper: 1, pirate: 1, musketeer: 1, samurai: 1 };
   const DOCTRINES = [
     { name: 'SWARM', mix: { soldier: 0.8, archer: 0.12, knight: 0.08 }, budget: 1.04, budget60: 1.08 },
@@ -1262,6 +1265,7 @@ const RVB = (() => {
   const HORROR_DOCTRINES = [
     { name: 'ZOMBIES', base: 'zombie', mix: { zombie: 1 }, budget: 1, budget60: 1 },
     { name: 'UNDEAD', base: 'zombie', mix: { zombie: 0.55, skeleton: 0.35, wizard: 0.1 }, budget: 1, budget60: 1 },
+    { name: 'VAMPIRES', base: 'zombie', mix: { vampire: 0.55, zombie: 0.3, skeleton: 0.15 }, budget: 1, budget60: 1 },
   ];
   const SAMURAI_DOCTRINES = [
     { name: 'SAMURAI', base: 'ninja', mix: { samurai: 0.55, ninja: 0.25, archer: 0.2 }, budget: 1, budget60: 1 },
@@ -1276,7 +1280,7 @@ const RVB = (() => {
   for (const k of ['wizard', 'dragon', 'orc', 'skeleton', 'elf']) UNIT_ERA[k] = 'fantasy';
   for (const k of ['trooper', 'robot', 'mech']) UNIT_ERA[k] = 'scifi';
   for (const k of ['pirate', 'musketeer', 'cannon']) UNIT_ERA[k] = 'pirate';
-  UNIT_ERA.zombie = 'horror'; UNIT_ERA.ninja = 'samurai'; UNIT_ERA.samurai = 'samurai';
+  UNIT_ERA.zombie = 'horror'; UNIT_ERA.vampire = 'horror'; UNIT_ERA.ninja = 'samurai'; UNIT_ERA.samurai = 'samurai';
   // A custom team can be given instead of an army-type name: { name: 'SPELLGUNS', mix: { wizard: 0.4, rifleman: 0.6 }, heavy: ['tank'] }.
   const customDoc = o => Object.assign({ budget: 1, budget60: 1, base: Object.keys(o.mix || { soldier: 1 })[0] }, o, { mix: o.mix || { soldier: 1 }, custom: true });
   // which era (genre) an army type or custom team belongs to: 'medieval', 'modern', 'fantasy', 'scifi', 'pirate', 'horror', 'samurai',
@@ -2235,7 +2239,10 @@ const RVB = (() => {
                 this.shake(8); this.snd('stomp', { pan: (u.x - AR.x) / AR.w * 1.4 - 0.7 });
                 this.burst(t.x, t.y, COL.muted, 10, 300, 0.4, 7);
               } else {
-                this.damage(t, U.dmg * this.dmgMul * (UNIT[t.type].block || 1), u);
+                const hit = U.dmg * this.dmgMul * (UNIT[t.type].block || 1);
+                this.damage(t, hit, u);
+                // a vampire's bite heals it
+                if (U.drain) { u.hp = Math.min(u.max, u.hp + hit * U.drain); u.drainFx = 1; }
                 this.snd(UNIT[t.type].block ? 'thunk' : 'clash', { pan: (u.x - AR.x) / AR.w * 1.4 - 0.7 });
                 if (u.type === 'ninja' || u.type === 'pirate') this.snd('swish', { pan: (u.x - AR.x) / AR.w * 1.4 - 0.7 });
               }
@@ -2466,6 +2473,23 @@ const RVB = (() => {
         }
         ctx.beginPath(); ctx.arc(x - fx * 1.5, y - fy * 1.5, r * 0.55, 0, TAU); ctx.fillStyle = '#22252B'; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = INK; ctx.stroke();
         ctx.beginPath(); ctx.arc(x + fx * r * 0.05, y + fy * r * 0.05, r * 0.5, u.face - 0.9, u.face + 0.9); ctx.lineWidth = 3.5; ctx.strokeStyle = COL.gold; ctx.stroke();
+      } else if (u.type === 'vampire') {
+        // a black cape flaring out behind (team-colour lining), a pale head with slicked-back hair and red eyes that flare on each bite
+        const flap = Math.sin(this.t * 9 + u.gait) * 0.12, bx = x - fx * r * 0.2, by = y - fy * r * 0.2;
+        ctx.beginPath();
+        ctx.moveTo(bx + px * r * 0.95, by + py * r * 0.95);
+        ctx.quadraticCurveTo(bx - fx * r * 1.1 + px * r * (1.25 + flap), by - fy * r * 1.1 + py * r * (1.25 + flap), bx - fx * r * 1.55, by - fy * r * 1.55);
+        ctx.quadraticCurveTo(bx - fx * r * 1.1 - px * r * (1.25 - flap), by - fy * r * 1.1 - py * r * (1.25 - flap), bx - px * r * 0.95, by - py * r * 0.95);
+        ctx.closePath(); ctx.fillStyle = '#15121A'; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = INK; ctx.stroke();
+        // high collar in the team colour
+        ctx.beginPath(); ctx.arc(x, y, r * 0.86, u.face + 1.25, u.face + TAU - 1.25); ctx.lineWidth = 4; ctx.strokeStyle = tm.c; ctx.stroke();
+        const hx = x + fx * r * 0.1, hy = y + fy * r * 0.1;
+        ctx.beginPath(); ctx.arc(hx, hy, r * 0.56, 0, TAU); ctx.fillStyle = '#E9E4EE'; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = INK; ctx.stroke();
+        ctx.beginPath(); ctx.arc(hx, hy, r * 0.56, u.face + 1.7, u.face + TAU - 1.7); ctx.lineTo(hx, hy); ctx.closePath(); ctx.fillStyle = '#1B1820'; ctx.fill();
+        const glow = u.drainFx || 0;
+        ctx.fillStyle = '#E0243A';
+        for (const sd of [-1, 1]) { ctx.beginPath(); ctx.arc(hx + fx * r * 0.25 + px * sd * r * 0.2, hy + fy * r * 0.25 + py * sd * r * 0.2, r * (0.1 + glow * 0.06), 0, TAU); ctx.fill(); }
+        if (glow > 0) { ctx.beginPath(); ctx.arc(x, y, r + 3, 0, TAU); ctx.lineWidth = 2.5; ctx.strokeStyle = `rgba(224,36,58,${glow * 0.8})`; ctx.stroke(); }
       }
     }
     // particles live in the arena, so they follow the camera (confetti falls over the whole screen and doesn't)
@@ -2526,7 +2550,7 @@ const RVB = (() => {
       ctx.textBaseline = 'alphabetic';
     }
     cosmetic(dt) {
-      for (const u of this.units) { u.flash = Math.max(0, u.flash - dt * 6); u.lunge = Math.max(0, u.lunge - dt * 6); if (u.swing) u.swing = Math.max(0, u.swing - dt * 2.6); if (u.healFx) u.healFx = Math.max(0, u.healFx - dt * 2.5); if (u.healFlash) u.healFlash = Math.max(0, u.healFlash - dt * 3); if (u.muzzle) u.muzzle = Math.max(0, u.muzzle - dt * 12); if (u.dodgeFx) u.dodgeFx = Math.max(0, u.dodgeFx - dt * 4); }
+      for (const u of this.units) { u.flash = Math.max(0, u.flash - dt * 6); u.lunge = Math.max(0, u.lunge - dt * 6); if (u.swing) u.swing = Math.max(0, u.swing - dt * 2.6); if (u.healFx) u.healFx = Math.max(0, u.healFx - dt * 2.5); if (u.healFlash) u.healFlash = Math.max(0, u.healFlash - dt * 3); if (u.muzzle) u.muzzle = Math.max(0, u.muzzle - dt * 12); if (u.dodgeFx) u.dodgeFx = Math.max(0, u.dodgeFx - dt * 4); if (u.drainFx) u.drainFx = Math.max(0, u.drainFx - dt * 3); }
       if (this.booms && this.booms.length) this.booms = this.booms.filter(b => (b.t += dt) < 0.45);
       if (this.drop && this.FX.chance(dt * 9)) { const F = this.FX; this.parts.push({ x: this.drop.x + F.range(-5, 5), y: this.drop.y - 10, vx: F.range(-10, 10), vy: F.range(-60, -40), life: F.range(0.9, 1.4), age: 0, size: F.range(7, 11), color: '#F2C14E', grav: 0, smoke: true }); }
       for (const a of this.arrows) if (a.kind === 'rocket' && this.FX.chance(dt * 30)) this.parts.push({ x: a.x, y: a.y, vx: 0, vy: 0, life: 0.5, age: 0, size: 5, color: '#9AA0AA', grav: 0, smoke: true });

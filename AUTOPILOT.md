@@ -15,6 +15,8 @@ Before changing anything, check the last 20 runs of the "Post Army Clash" workfl
 - If uploads are failing or have stopped for more than an hour, finding and fixing that is the whole day's work. Read the failure annotations (check-runs API), fix the cause, push, and dispatch one run to confirm. Never change the upload or sign-in code unless it is actually broken.
 - If `stats/error.txt` says the API key is missing or refused, note it in the changelog for Rellz ("add a YT_API_KEY secret"), then carry on.
 
+- Look for line-ups still marked `"pending": true` in `rules.json`. They never come up in videos until they're balanced, so balancing them counts as a fix (part C).
+
 ## 3. Decide today's changes
 
 Make at most three changes, each small and easy to undo. Pick in this order.
@@ -58,6 +60,8 @@ Make at most three changes, each small and easy to undo. Pick in this order.
 - Creative match-ups: `WILD=1 SEED=<n>` in the short-render copy makes one; check its title, description and the balance line in the log.
 - Render stills (a frame at about 10 seconds) of anything visual and look at them.
 - Run the real renderer for a short clip: copy the repo to a scratch folder, set `SECS = 3` in the copy's `render.js`, and run `MATCHUP=<n> SEED=<n> node render.js`. Check the title, description and tags in `out/meta.json`.
+
+- Background processes are stopped a few minutes after you start them, so run long test-battle jobs in the foreground, a few line-ups per command (each command can run about 10 minutes). On a 2-core runner a 60-second test battle takes about 1.5 s, and balancing one line-up takes 1–2 minutes.
 
 ## 6. Ship and record
 
