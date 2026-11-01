@@ -28,7 +28,10 @@ function weighted(list) {
   for (const x of list) if ((r -= x.weight ?? 1) <= 0) return x;
   return list[list.length - 1];
 }
-const pair = weighted(rules.teamPairs).teams.slice();
+// Two teams must never look alike: a pair whose colours are too close (rules.minColourGap, CIEDE2000) is skipped.
+const minGap = rules.minColourGap ?? 30;
+const okPairs = rules.teamPairs.filter(p => RVB.colourGap(p.teams[0], p.teams[1]) >= minGap);
+const pair = weighted(okPairs.length ? okPairs : rules.teamPairs).teams.slice();
 if (pick.next() < 0.5) pair.reverse();
 RVB.setTeams(pair[0], pair[1]);
 // Troop line-up: not random. Videos go through rules.matchups in order, one per video,
@@ -194,7 +197,33 @@ async function main() {
     : era === 'modern'
     ? ['Who Wins? 💥', 'Pick a Side! 🎯', 'Only One Survives 💀', 'Modern War 🪖', 'Who Holds the Line? 🛡️', 'Who Takes It? 🏆']
     : ['Who Wins? ⚔️', 'Pick a Side! 👇', 'Only One Survives 💀', 'Guess the Winner 🤔', 'Epic Battle 🔥', 'Who Takes It? 🏆'];
-  const hook = hooks[seed % hooks.length];
+  const hook0 = hooks[seed % hooks.length];
+  // Clickbait slots (rules.clickbait.every): now and then the title is just a short, funny teaser about something that really
+  // happened in this battle, with no team names, no hashtags and no tags. CLICKBAIT=1 forces one.
+  const cbEvery = (rules.clickbait && rules.clickbait.every) || 0;
+  const clickbait = process.env.CLICKBAIT === '1' || (!forced && cbEvery > 1 && slot % cbEvery === Math.floor(cbEvery / 2));
+  const w = game.winner >= 0 ? game.winner : 0, l = 1 - w, Fx = game.facts || {};
+  const left = [0, 1].map(t => game.alive[t] + game.reserve[t]);
+  const gained = game.gained || [0, 0];
+  const lost = [0, 1].map(t => Math.max(0, game.start[t] + gained[t] - left[t]));
+  const teaser = [];
+  if (game.start[w] < game.start[l] * 0.8) teaser.push('They Were Outnumbered... 😳', 'The Smaller Army Did WHAT?! 🤯');
+  if (left[w] > 0 && left[w] <= 3) teaser.push(`Won With Only ${left[w]} Left 😱`, 'This Ending Was Way Too Close 😰');
+  if (Fx.low && Fx.low[w] < 0.32) teaser.push('The Biggest Comeback I\'ve Ever Seen 😱', 'They Were Losing Until This Happened 😳');
+  if (left[w] >= 25 && lost[w] < (game.start[w] + gained[w]) * 0.3) teaser.push('This Was a Massacre 💀', 'Total Domination 😤');
+  if (eras.includes('horror') && Math.max(...gained) >= 15) teaser.push('The Zombies Got Out of Control 🧟');
+  const falls = Fx.falls || [];
+  if (falls.includes('dragon')) teaser.push('They Took Down a Dragon?! 🐉');
+  if (falls.includes('tank')) teaser.push('Nobody Expected the Tank to Fall 💥');
+  if (falls.includes('giant')) teaser.push('The Giant Never Saw It Coming 😳');
+  if (falls.includes('mech')) teaser.push('The Mech Went Down 🤖');
+  if ((Fx.drops || []).some(d => d.kind === 'heavy' && d.team === w)) teaser.push('The Airdrop Had a Surprise Inside 📦');
+  if (Fx.strike === w) teaser.push('One Airstrike Changed Everything ✈️');
+  const HAZ = { tornado: 'A Tornado Hit the Battlefield 🌪️', earthquake: 'Then the Ground Split Open 😱', blizzard: 'A Blizzard Froze the Whole Battle ❄️', meteors: 'Meteors Hit Mid-Battle ☄️', lightning: 'Lightning Struck the Battlefield ⚡', cannonballs: 'Cannonballs Rained From the Sky 💣' };
+  if (HAZ[Fx.hazard]) teaser.push(HAZ[Fx.hazard]);
+  const fallback = ['Wait for the Ending... 😳', 'I Did Not Expect This 😳', 'This Got Way Too Intense 🔥', 'Nobody Saw This Coming 🤯', 'Watch Till the End 👀'];
+  const pool = teaser.length ? teaser : fallback;
+  const hook = clickbait ? pool[(seed >>> 3) % pool.length] : hook0;
   const MAP_NAME = { open: 'open field', rocks: 'rocky field', ruins: 'ruins', trenches: 'trenches', city: 'city rooftops', forest: 'forest', bombed: 'bombed city', enchanted: 'fantasy land' };
   const GENRE = { modern: 'modern warfare ', fantasy: 'fantasy ', mixed: 'old vs new ', scifi: 'sci-fi ', pirate: 'pirate ', horror: 'zombie ', samurai: 'samurai ', wild: 'mixed-genre ' };
   // custom teams get their own names in the title ("Storm Mages vs Dragon Bones"); army types stay in the description otherwise
@@ -204,7 +233,7 @@ async function main() {
   const unique = (list) => [...new Set(list)];
   const meta = {
     seed,
-    title: showNames ? `${e0} ${armyName(0)} vs ${armyName(1)} ${e1} | ${hook} #shorts` : `${e0} ${n0} vs ${n1} ${e1} | ${hook} #shorts`,
+    title: clickbait ? hook : showNames ? `${e0} ${armyName(0)} vs ${armyName(1)} ${e1} | ${hook} #shorts` : `${e0} ${n0} vs ${n1} ${e1} | ${hook} #shorts`,
     description: [
       `${e0} ${who(0)}${formations[0]} formation, ${game.start[0]} units) vs ${who(1)}${formations[1]} formation, ${game.start[1]} units) ${e1}. Who wins? Pick your side and tell us in the comments before the end.`,
       '',
@@ -213,8 +242,8 @@ async function main() {
       'Subscribe for a new battle every day.',
       '',
       `#shorts #${n0.toLowerCase().replace(/ /g, '')}vs${n1.toLowerCase().replace(/ /g, '')} #battlesimulation`,
-    ].join('\n'),
-    tags: unique([`${n0.toLowerCase()} vs ${n1.toLowerCase()}`, 'army battle', 'battle simulation', 'army simulation', 'who wins', 'army clash', `${(showNames ? armyName(0) : red).toLowerCase()} vs ${(showNames ? armyName(1) : blue).toLowerCase()}`, 'shorts']
+    ].slice(0, clickbait ? 5 : 7).join('\n'),
+    tags: clickbait ? [] : unique([`${n0.toLowerCase()} vs ${n1.toLowerCase()}`, 'army battle', 'battle simulation', 'army simulation', 'who wins', 'army clash', `${(showNames ? armyName(0) : red).toLowerCase()} vs ${(showNames ? armyName(1) : blue).toLowerCase()}`, 'shorts']
       .concat({ modern: ['modern warfare'], fantasy: ['fantasy battle', 'dragon'], mixed: ['old vs new', 'swords vs guns'], scifi: ['sci fi battle', 'robots', 'lasers'], pirate: ['pirate battle', 'pirates'],
         horror: ['zombie battle', 'zombies'], samurai: ['samurai battle', 'ninja'], wild: ['dream team', 'crazy matchup'] }[era] || [])
       .concat(heavyIn('tank') ? ['tank battle'] : []).concat(heavyIn('dragon') ? ['dragon'] : []).concat(heavyIn('mech') ? ['mech'] : [])),
@@ -229,6 +258,7 @@ async function main() {
     balance: wild ? wildMul : mu ? mu.balance : undefined,
     cinematic,
     hook,
+    clickbait: clickbait || undefined,
     slot,
     winner: game.headline,
   };

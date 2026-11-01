@@ -67,6 +67,7 @@ function groupBy(list, keyFn) {
     table('By era', groupBy(mature, v => v.era)),
     table('Creative (invented) vs list line-ups', groupBy(mature, v => (v.wild ? 'creative' : 'list'))),
     table('Cinematic camera', groupBy(mature, v => (v.cinematic ? 'on' : 'off'))),
+    table('Clickbait title', groupBy(mature, v => (v.clickbait ? 'clickbait' : 'normal'))),
     table('By map', groupBy(mature, v => v.map)),
     table('By team type', groupBy(mature, v => v.teams && nation(v.teams))),
     table('By colour pair', groupBy(mature, v => v.teams && v.teams.slice().sort().join(' vs '))),

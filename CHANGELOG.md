@@ -2,6 +2,18 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-01 (midday): drop kinds, power-ups, weather, clickbait titles
+
+- **Colours never look alike:** every colour pair is now measured for how different it looks (the main colour and the darker shade some troops use). Blue vs Purple was too close and is replaced by Purple vs Lime (and a new Blue vs Green); Belgium's yellow is lighter so it stands apart from the Netherlands' orange. Any pair under the limit (`minColourGap`) is skipped automatically, so this can't come back.
+- **Six kinds of supply drop, two per battle:** crates land nearer the side that's behind (the leader can still steal them), so drops help comebacks instead of tipping the balance. Kinds: squad, med kit (heals that side), rage (hits 50% harder for 8 s), shield (half damage for 8 s), speed (35% faster for 8 s) and big unit (a giant, tank, dragon, mech or cannon). Each crate has its own colour, icon and parachute, and the boosts show on the troops (red-hot rings, blue bubbles, speed lines).
+- **More weather and disasters:** besides meteors and airstrikes, battles can now get a lightning storm (any genre), a tornado that crosses the field flinging troops around, a blizzard that slows everyone, or an earthquake that cracks the ground open. Nine battles in ten get one.
+- **Taller film bars** in slow-motion moments, so those moments stand out more.
+- **Clickbait titles:** every fifth video gets a short, funny teaser title with no team names, hashtags or tags, picked from what really happened in that battle, such as "Won With Only 2 Left 😱", "The Biggest Comeback I've Ever Seen 😱" or "A Tornado Hit the Battlefield 🌪️".
+- **Kill streaks and MVP:** "TRIPLE KILL", "RAMPAGE" and "UNSTOPPABLE" pop up over troops on a streak; the winner screen names the MVP and their kills, and the camera ends on them wearing a gold crown.
+- **New robot look:** round armoured robots in the team colour with a steel chest plate, a domed head with one glowing eye, and piston fists that punch in turn (the old square ones are gone).
+- **Ideas list:** `AUTOPILOT.md` now has a list of bigger ideas (cavalry, helicopters, boss troops, a volcano map, replays of the best kill and more) for the daily run to build one at a time.
+- **Tested:** old line-ups on open ground without events play out exactly as before; 12 full battles with the director and every event on every map with no errors, each still ending at 60 s; stills of every crate kind, boost, hazard, the new robots and the MVP screen; short renders of a clickbait video and a creative one. No preview videos.
+
 ## 2026-11-01: real flags, faster rendering
 
 - **Flags:** nation battles now show the real flag, not just its colours: beside each team's score at the top, on flag poles carried by about one troop in ten, in banners like "CANADA GRABS THE DROP · +4", and big above the winner's name at the end. All 16 nations are drawn: UK, USA, France, Germany, Italy, Brazil, Argentina, Canada, Spain, Portugal, Australia, New Zealand, Netherlands, Belgium, Sweden and Norway. The flags are looks only; battles play out the same.

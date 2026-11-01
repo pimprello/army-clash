@@ -16,8 +16,8 @@
     },
     {
       "teams": [
-        "BLUE",
-        "PURPLE"
+        "PURPLE",
+        "LIME"
       ],
       "weight": 1
     },
@@ -244,8 +244,16 @@
         "NORWAY"
       ],
       "weight": 1
+    },
+    {
+      "teams": [
+        "BLUE",
+        "GREEN"
+      ],
+      "weight": 1
     }
   ],
+  "minColourGap": 30,
   "teamStyles": {
     "ORANGE": {
       "swordsmenShare": 0.6,
@@ -439,7 +447,7 @@
     {
       "top": "PIRATES",
       "bottom": "BUCCANEERS",
-      "balance": 1.0
+      "balance": 1
     },
     {
       "top": "ORCS",
@@ -457,7 +465,7 @@
     {
       "top": "NINJAS",
       "bottom": "SNIPERS",
-      "balance": 1.0
+      "balance": 1
     },
     {
       "era": "modern",
@@ -779,9 +787,16 @@
     "balanceBattles": 8,
     "balanceSteps": 6
   },
+  "clickbait": {
+    "every": 5
+  },
   "events": [
     "airdrop",
     "airstrike",
-    "meteors"
+    "meteors",
+    "lightning",
+    "tornado",
+    "blizzard",
+    "earthquake"
   ]
 }

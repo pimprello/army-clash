@@ -21,6 +21,6 @@ let meta = {};
 try { meta = JSON.parse(fs.readFileSync(path.join(__dirname, 'out', 'meta.json'), 'utf8')); } catch (e) { /* older render */ }
 const record = { date: info.date, id: info.id, title: info.title, seed: meta.seed, slot: meta.slot, era: meta.era, map: meta.map,
   teams: meta.teams, armies: meta.armies, formations: meta.formations, troops: meta.troops, hook: meta.hook, winner: meta.winner,
-  wild: meta.wild || undefined, sides: meta.wild ? meta.sides : undefined, cinematic: meta.cinematic };
+  wild: meta.wild || undefined, clickbait: meta.clickbait || undefined, sides: meta.wild ? meta.sides : undefined, cinematic: meta.cinematic };
 fs.appendFileSync(path.join(__dirname, 'videos.jsonl'), JSON.stringify(record) + '\n');
 console.log('uploads.md and videos.jsonl updated');

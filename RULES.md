@@ -5,6 +5,7 @@ Every new video reads `rules.json` when it is made, so a change here applies to 
 ## What you can change in `rules.json`
 
 - **`teamPairs`**: which colours fight. Each video picks one pair at random. `weight` makes a pair more or less common: weight 3 comes up three times as often as weight 1. Which colour gets the top half is random.
+- **`minColourGap`**: two teams must never look alike. Before a pair is used, the game measures how different the two colours look (and their darker shades, used on some troops) with the CIEDE2000 colour difference; a pair under this number (30) is skipped. Blue vs Purple was replaced for this reason, and Belgium's yellow was made lighter so it stands apart from the Netherlands' orange.
   Colours available: `RED`, `BLUE`, `GREEN`, `PURPLE`, `ORANGE`, `YELLOW`, `PINK`, `CYAN`, `WHITE`, `BROWN`, `LIME`, `TEAL`, `GOLD`, `SILVER`, `INDIGO`, `CORAL`.
   Nations (flag colours, flag emojis in titles, an accent ring on each troop, and the real flag drawn in the video: beside each score, on flag poles carried by about one troop in ten, in banners like "CANADA GRABS THE DROP", and above the winner's name at the end): `UK`, `USA`, `FRANCE`, `GERMANY`, `ITALY`, `BRAZIL`, `ARGENTINA`, `CANADA`, `SPAIN`, `PORTUGAL`, `AUSTRALIA`, `NEWZEALAND`, `NETHERLANDS`, `BELGIUM`, `SWEDEN`, `NORWAY`. Only friendly rivalries: never pair countries in an active or recent war, or with a painful wartime history.
 - **`teamStyles`**: a colour can fight its own way. `ORANGE` armies are about 60% swordsmen (`swordsmenShare`), with a slightly smaller army (`budget` 0.96) so they still win about half their battles.
@@ -22,7 +23,11 @@ Every new video reads `rules.json` when it is made, so a change here applies to 
   `topTroops` / `bottomTroops` give one side its own extra troops, from any genre. `"pending": true` keeps a line-up out of the rotation until it has been balanced.
 - **`creative`**: brand-new match-ups invented by the game. With `"every": 2`, every second video is a creative one: two custom teams made up on the spot from the video's seed (for example "Storm Mages: wizards and robots + a tank" vs "Dragon Bones: skeletons and zombies + a dragon"), each usually mixing genres and often bringing a big unit or two. Before rendering, the video runs `balanceBattles` quick test battles at each of `balanceSteps` army sizes (on the same map and formations) to make it about 50/50. Set `every` to 0 to switch them off. The other videos go through `matchups` in order.
 - **`cinematic`**: `true` turns on the director (see below). `false` gives the plain fixed camera.
-- **`events`**: battle events that can happen: `airdrop` (every battle: a supply crate parachutes onto the middle line and the first troop to reach it wins a squad of that army's best troop), `airstrike` (modern, sci-fi and mixed battles: the side that's behind calls in a jet, or an orbital strike in sci-fi, on the thickest group of enemies) and `meteors` (a meteor shower in medieval, fantasy and samurai battles, a cannon barrage in pirate battles, a lightning storm in zombie battles; these hit both sides). About three battles in four get a second event after the airdrop. Remove a name to switch it off.
+- **`events`**: battle events that can happen. Remove a name to switch it off.
+  - `airdrop`: two supply drops per battle, each a different kind. A plane (or a parachute in older eras) drops a crate on the middle line, or nearer the side that's behind if one is, troops race for it, and the first to reach it gets what's inside (the leader can still steal it). The crate's colour and icon show the kind: **squad** (wooden, gold band: a squad of that army's best troop), **med kit** (white, red cross: every troop on that side healed by half its health), **rage** (red, flame: that side hits 50% harder for 8 seconds, red-hot rings), **shield** (blue, shield: that side takes half damage for 8 seconds, blue bubbles), **speed** (yellow, lightning bolt: 35% faster for 8 seconds, speed lines), **big unit** (large steel crate with a gold star: a giant, tank, dragon, mech or cannon from that army's genre).
+  - `airstrike`: in modern, sci-fi and mixed battles, the side that's behind calls in a jet (an orbital strike in sci-fi) on the thickest group of enemies.
+  - Hazards that hit both sides: `meteors` (a meteor shower; a cannon barrage in pirate battles), `lightning` (a lightning storm), `tornado` (a twister crosses the field, flinging troops around), `blizzard` (snow sweeps the field and everyone slows down for 7 seconds) and `earthquake` (the ground cracks open along a line; troops on it get hurt and thrown aside, and the crack stays).
+  About nine battles in ten get one big moment after the first drop: an airstrike (battles with planes) or one of the hazards.
 - **`troopShares`**: in line-ups that include an extra troop, roughly what share of each army it makes up (0.15 = about 15%).
 - **`formations`**: how each army lines up at the start. Each video takes the next formation for each side from this list (the two sides usually differ), shifting each time the line-up list starts over. Available: `line`, `wedge` (narrow tip at the front), `columns` (three columns), `crescent` (ends curve forward), `flanks` (two groups with a gap in the middle), `block` (narrow and deep).
 - **`maps`**: the battlefields, rotating like the line-ups among those allowed for the battle's genre (`eras`; no list = every genre; `wild` = creative match-ups). `open` (no obstacles), `rocks` (boulders), `ruins` (stone pillars and walls), `trenches` (sandbag lines and craters), `city` (rooftops and crates), and three themed maps with their own ground colour: `forest` (dark green, trees and bushes), `bombed` (a bombed city: cracked asphalt, a road, ruined buildings, burnt-out cars and fires) and `enchanted` (a fantasy land: violet ground, a rune circle, crystals, giant toadstools and twinkling sparkles). The page around the arena keeps the same dark style on every map.
@@ -30,6 +35,8 @@ Every new video reads `rules.json` when it is made, so a change here applies to 
 - **`formationBudget`**: army size per formation, so no formation wins more often than a plain line. In test battles wedge and columns won more (58% vs 47%) and crescent and block won less (36%), so their armies are nudged by 0.5 to 1.5%.
 
 ## Titles
+
+- **`clickbait`**: with `"every": 5`, every fifth video gets a short, funny teaser title instead of the usual one, with no team names, no hashtags and no tags, for example `Won With Only 2 Left 😱`, `The Biggest Comeback I've Ever Seen 😱`, `A Tornado Hit the Battlefield 🌪️` or `They Took Down a Dragon?! 🐉`. The teaser is always picked from what really happened in that battle (an underdog win, a near-tie, a comeback, a big unit falling, an airstrike or hazard), so it never misleads. The description still says it's a simulation.
 
 Titles stay short: team emojis, the two colours and a short hook, for example `🟢 Green vs Purple 🟣 | Who Wins? ⚔️ #shorts`. The army types (Swarm, Knights and so on) go in the description. Creative and custom-team videos use the team names instead: `🔴 Storm Mages vs Dragon Bones 🔵 | Dream Team Battle 🤯 #shorts`. Hooks are listed in `render.js`, one set per genre.
 
@@ -43,7 +50,8 @@ With `cinematic` on, a director moves the camera and bends time, reacting to the
 - a troop on a killing spree (6+ kills) gets followed for a moment with a kill counter over its head;
 - airdrops, airstrikes and meteor showers each get their own shot (the airstrike lands in slow motion);
 - FINAL PUSH and LAST STAND push in on the heaviest fighting, and the last troop of a losing army is followed in slow motion to the end;
-- the outro slowly pushes in on the winners.
+- the outro slowly pushes in on the winners, or on the MVP (the winner's top fighter, who gets a gold crown).
+Film bars in slow-motion moments are tall (about an eighth of the arena each) so those moments stand out. Kill streaks pop up over the troop that made them ("TRIPLE KILL", "RAMPAGE", "UNSTOPPABLE"), and the winner screen names the MVP with their kill count.
 In between, it stays on the whole arena about half the time, sometimes drifting in on the busiest fighting. Time spent in slow motion is caught up gently (up to 1.3x) while the view is wide, so every video still ends at exactly 60 seconds. The battle itself plays out exactly as it would with a fixed camera: only the view and the pace change.
 
 ## Units
@@ -72,7 +80,7 @@ In between, it stays on the whole arena about half the time, sometimes drifting 
 | *Fantasy:* Dragon | winged dragon with a shadow beneath | one per DRAGON army; flies over everything and breathes fire in a cone |
 | Giant | huge circle with a crown | one per army, "Giant" armies only |
 | *Sci-fi:* Laser trooper | white space helmet and a blaster | fast laser bolts glowing in the team colour |
-| *Sci-fi:* Robot | armoured square with a visor and antenna | metal brawler; arrows and bullets mostly glance off |
+| *Sci-fi:* Robot | round armoured chassis in the team colour, steel chest plate, domed head with one glowing eye, piston fists | metal brawler; arrows and bullets mostly glance off |
 | *Sci-fi:* Mech | walking mech with a cockpit and rocket pods | one per MECHS army; fires salvos of three rockets |
 | *Pirates:* Pirate | polka-dot bandana and a curved cutlass | quick melee fighter |
 | *Pirates:* Musketeer | tricorn hat and a long musket | slow to reload, one big hit and a puff of smoke |

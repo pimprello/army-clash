@@ -33,7 +33,16 @@ Make at most three changes, each small and easy to undo. Pick in this order.
 4. a new team: a colour, or a nation pair (see the guardrails);
 5. new hook lines, in the engine (the in-video line) and in `render.js` (titles);
 6. a new formation, or a cross-era line-up for a "cool match-up" (knights vs tanks, dragons vs snipers and so on);
-7. a new battle event (like the airdrop) or a new director shot.
+7. a new battle event (like the airdrop), a new supply-drop kind or power-up, a new hazard, or a new director shot;
+8. new clickbait teasers in `render.js` (each one tied to something that really happens in a battle).
+
+Rellz wants the channel to keep surprising viewers, so when a kind is due, be inventive. Ideas not built yet (take one, build it well, cross it off here):
+- cavalry (horse riders that charge), catapults and ballistas, war elephants, archers on castle walls;
+- helicopters or kamikaze drones in modern battles, laser turrets in sci-fi, a kraken or ghost ship in pirate battles;
+- a boss troop (one huge hero per side with a name and a health bar), a duel of champions before the armies charge;
+- day/night or sunset versions of maps, a volcano map with lava, an ice map where troops slide, a castle siege map;
+- a "freeze frame" with a big VS card when two heroes meet, slow-motion replays of the best kill at the end;
+- team cheers and emotes in the outro, confetti in team colours, a scoreboard of kills by troop type.
 
 **C. Fix what looks wrong.** Render stills of two or three battles (one per era) and look at them. If anything is clipped, unreadable, overlapping or off-style, fix it.
 
@@ -44,7 +53,9 @@ Make at most three changes, each small and easy to undo. Pick in this order.
 - Motion: troops turn smoothly (no snapping), swords swing smoothly with a swish, and walking speeds vary 3–7% per troop. Troops must never get stuck on walls: run the stuck check (section 5) after any change to movement or maps.
 - Camera: keep the cinematic director on (Rellz: "go crazy, slow-mo, close-ups"). Keep the whole arena in view about half of the fight, and keep every video ending at exactly 60 seconds (time spent in slow motion has to be caught up).
 - Variety: keep creative match-ups (`rules.creative`), mixed-genre custom teams and battle events (airdrops and the rest) switched on; Rellz asked for random creative match-ups and "airdrops and other cool stuff". New event ideas are welcome if they stay fair to both sides over many battles.
-- Titles: short, with team emojis and one hook with an emoji, ending `#shorts`. Never misleading. The description always says it's a simulation.
+- Titles: short, with team emojis and one hook with an emoji, ending `#shorts`. Never misleading. The description always says it's a simulation. Clickbait slots (`rules.clickbait`) are wanted (Rellz asked for "a funny clickbait title to get optimum views"): no team names, no hashtags, no tags, but the teaser must match something that really happened in that video.
+- Colours: two teams must never look alike. Keep `minColourGap` at 30 or more, and check any new colour or pair with `RVB.colourGap(a, b)`.
+- Film bars: keep them tall (Rellz asked for them higher, for emphasis).
 - Nations: show the real flag (Rellz asked for it): a new nation needs its flag drawn in `FLAG_ART` in `engine.js`, accurate and simple, before it goes into `teamPairs`. Friendly rivalries only (UK vs USA, Brazil vs Argentina and the like). Never pair countries in an active or recent war or with a painful wartime history. No real leaders, politicians, soldiers or military insignia, and no disputed territories.
 - Schedule: one upload about every 880 seconds (98 a day, under YouTube's 100-a-day API limit; Rellz asked for as many as allowed). Don't go faster, and never use extra Google projects to get around the limit.
 - Balance: every new or changed line-up gets a `balance` from test battles (bisection over the bottom army size with battle events on, 12+ battles per step, a check of 16+ fresh battles at the end; `creative.balance` does the bisection) so the top side wins 35–65%. Keep it `"pending": true` until then. New maps and formations must not move win rates by more than 15 points against `open` or `line`; if they do, adjust `formationBudget` or the map.
