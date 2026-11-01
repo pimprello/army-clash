@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 16:25 | 🇺🇸 Mega Zombies vs Rogue Samurai 🇬🇧 \| Who Wins This? 🤔 #shorts | Usa wins | https://youtube.com/shorts/jgscbpJX20U |
 | 2026-11-01 16:09 | 🟢 Green vs Brown 🟤 \| Only One Survives 💀 #shorts | Brown wins | https://youtube.com/shorts/R5B-X5qLPcU |
 | 2026-11-01 15:55 | The Biggest Comeback I've Ever Seen 😱 | Cyan wins | https://youtube.com/shorts/6hV_X-ClaEU |
 | 2026-11-01 15:39 | 🇧🇪 Belgium vs Netherlands 🇳🇱 \| Epic Battle 🔥 #shorts | Netherlands wins | https://youtube.com/shorts/OAnXxZtpQGE |
