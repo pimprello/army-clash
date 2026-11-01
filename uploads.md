@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 17:08 | They Were Outnumbered... 😳 | Orange wins | https://youtube.com/shorts/GlGJM2He7cg |
 | 2026-11-01 16:54 | 🇮🇹 Thunder Elves vs Savage Legion 🇩🇪 \| Anything Goes 🎲 #shorts | Germany wins | https://youtube.com/shorts/HOSaoCp-46Y |
 | 2026-11-01 16:40 | 🌊 Teal vs Coral 🪸 \| Old vs New 🕰️ #shorts | Teal wins | https://youtube.com/shorts/-nY_qOi56TE |
 | 2026-11-01 16:25 | 🇺🇸 Mega Zombies vs Rogue Samurai 🇬🇧 \| Who Wins This? 🤔 #shorts | Usa wins | https://youtube.com/shorts/jgscbpJX20U |
