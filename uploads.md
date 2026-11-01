@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 04:42 | 🟠 Frost Pirates vs Cyber Elves 🟣 \| Who Wins This? 🤔 #shorts | Orange wins | https://youtube.com/shorts/MNHY87XJlRA |
 | 2026-11-01 04:29 | 🔴 Red vs White ⚪ \| Only One Survives 💀 #shorts | Red wins | https://youtube.com/shorts/1kFOV4mcWyM |
 | 2026-11-01 04:14 | 🟣 Royal Gunners vs Wild Samurai 🟢 \| Craziest Matchup? 💥 #shorts | Green wins | https://youtube.com/shorts/jyPEhKpy9i8 |
 | 2026-11-01 03:58 | 🇳🇴 Norway vs Sweden 🇸🇪 \| Guess the Winner 🤔 #shorts | Norway wins | https://youtube.com/shorts/a0fMakg4fRA |
