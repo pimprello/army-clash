@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 20:49 | METEORS Hit Mid-Battle ☄️ | Orange wins | https://youtube.com/shorts/2ozCSKqV_cE |
 | 2026-11-01 20:34 | The Airdrop Had a SURPRISE Inside 📦 | Purple wins | https://youtube.com/shorts/eMIbjafjR1U |
 | 2026-11-01 20:20 | Ultra Ninjas vs Storm Samurai vs Mech Snipers 🤯 | Green wins | https://youtube.com/shorts/LECLnNTOcO8 |
 | 2026-11-01 20:05 | 🇪🇸 Spain Vampires vs Portugal Samurai | Portugal wins | https://youtube.com/shorts/qoibSwwmJvs |
