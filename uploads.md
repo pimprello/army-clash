@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 13:58 | 🩷 Omega Archers vs Shadow Spears 🟡 \| Pick a Side! 👇 #shorts | Yellow wins | https://youtube.com/shorts/Qpm7Xwbfgdo |
 | 2026-11-01 13:42 | ⚪ Pirates vs Orcs 🟠 \| Who Wins This? 🤔 #shorts | Orange wins | https://youtube.com/shorts/VYT_nUgHRQQ |
 | 2026-11-01 13:28 | They Took Down a Dragon?! 🐉 | Pink wins | https://youtube.com/shorts/ZZ18uk5Gz0Y |
 | 2026-11-01 13:13 | 🔵 Blue vs Red 🔴 \| Epic Battle 🔥 #shorts | Red wins | https://youtube.com/shorts/LMBILlP2-JE |
