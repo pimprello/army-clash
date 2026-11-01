@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 18:37 | 🪖 SOLDIERS vs Tank Army | Purple wins | https://youtube.com/shorts/JE4u0rG-pT8 |
 | 2026-11-01 18:23 | They Took Down a DRAGON? 🐉 | Pink wins | https://youtube.com/shorts/kYEAbXTHuPc |
 | 2026-11-01 18:07 | 🇧🇪 Ninja Bots vs Sky Snipers 🇳🇱 \| Dream Team Battle 🤯 #shorts | Netherlands wins | https://youtube.com/shorts/4aNe5tlM_N8 |
 | 2026-11-01 17:53 | 🔴 Shadow Bolts vs Royal Pirates 🩵 \| Who Wins This? 🤔 #shorts | Red wins | https://youtube.com/shorts/1zDThL2veYQ |
