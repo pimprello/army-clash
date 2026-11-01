@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 14:56 | 🇳🇱 Mech Raiders vs Golden Bones 🇧🇪 \| Dream Team Battle 🤯 #shorts | Belgium wins | https://youtube.com/shorts/SfmNA_Ehzy8 |
 | 2026-11-01 14:42 | The Giant Never Saw It Coming 😳 | Brazil wins | https://youtube.com/shorts/OvOzfHgaA20 |
 | 2026-11-01 14:26 | 🟣 Cannon Bolts vs Wild Bombers 🟢 \| Pick a Side! 👇 #shorts | Green wins | https://youtube.com/shorts/XJ29nucJoDA |
 | 2026-11-01 14:11 | 🟠 Orange vs Blue 🔵 \| Who Wins? 💥 #shorts | Blue wins | https://youtube.com/shorts/TdChDmavXak |
