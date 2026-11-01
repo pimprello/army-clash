@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 07:07 | 🌊 Iron Troopers vs Mega Samurai 🟣 \| Pick a Side! 👇 #shorts | Purple wins | https://youtube.com/shorts/UNh3z27825E |
 | 2026-11-01 06:53 | 🇧🇷 Brazil vs Argentina 🇦🇷 \| Pick a Side! 👇 #shorts | Argentina wins | https://youtube.com/shorts/IyM7MzBJ4Jg |
 | 2026-11-01 06:40 | 🫐 Dragon Rifles vs Ghost Gunners 💚 \| Only One Survives 💀 #shorts | Lime wins | https://youtube.com/shorts/dPhesTojgn8 |
 | 2026-11-01 06:26 | 🔴 Red vs White ⚪ \| Only One Survives 💀 #shorts | Red wins | https://youtube.com/shorts/0TrXNjleoI0 |
