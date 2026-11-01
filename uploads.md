@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 15:55 | The Biggest Comeback I've Ever Seen 😱 | Cyan wins | https://youtube.com/shorts/6hV_X-ClaEU |
 | 2026-11-01 15:39 | 🇧🇪 Belgium vs Netherlands 🇳🇱 \| Epic Battle 🔥 #shorts | Netherlands wins | https://youtube.com/shorts/OAnXxZtpQGE |
 | 2026-11-01 15:27 | 🩵 Mega Shields vs Rogue Mages 🔴 \| Only One Survives 💀 #shorts | Cyan wins | https://youtube.com/shorts/f2Ldp25eOJg |
 | 2026-11-01 15:11 | 🟡 Yellow vs Pink 🩷 \| Only One Survives 💀 #shorts | Yellow wins | https://youtube.com/shorts/I2dY1qq6LJU |
