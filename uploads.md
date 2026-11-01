@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-01 01:40 | 🩷 Pink vs Cyan 🩵 \| Pick a Side! 🎯 #shorts | Cyan wins | https://youtube.com/shorts/bG-ktpBeWBE |
 | 2026-11-01 01:15 | 🟤 Frost Muskets vs Storm Bolts 🩵 \| Craziest Matchup? 💥 #shorts | Cyan wins | https://youtube.com/shorts/PPVjQPikxLo |
 | 2026-11-01 01:01 | 🔵 Blue vs Orange 🟠 \| Only One Survives 💀 #shorts | Orange wins | https://youtube.com/shorts/Ek4u0YldSFo |
 | 2026-11-01 00:49 | 🇳🇿 Solar Mages vs Steel Gunners 🇦🇺 \| Pick a Side! 👇 #shorts | New zealand wins | https://youtube.com/shorts/POKhEMmPnX8 |
