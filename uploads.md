@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 06:37 | A BLIZZARD Froze the Battle ❄️ | Brown wins | https://youtube.com/shorts/Q92vHrVhPv4 |
 | 2026-11-02 06:21 | 🛡️ KNIGHTS vs Soldiers | Purple wins | https://youtube.com/shorts/_u9E5ybzuD0 |
 | 2026-11-02 06:07 | 3 Armies, Only 1 SURVIVES 💀 | Teal wins | https://youtube.com/shorts/vYX-qsOUtuY |
 | 2026-11-02 05:52 | 🪖 SOLDIERS vs Gunners | Lime wins | https://youtube.com/shorts/4l-lqWSc6MQ |
