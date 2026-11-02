@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 20:25 | Omega Boars vs Mammoth Ogres 🤯 | White wins | https://youtube.com/shorts/AY6uRHJaixc |
 | 2026-11-02 20:09 | METEORS Hit Mid-Battle ☄️ | Blue wins | https://youtube.com/shorts/UCHbxIxm93I |
 | 2026-11-02 19:54 | Chaos Archers vs Neon Bolts vs Ultra Hounds 🤯 | Orange wins | https://youtube.com/shorts/nDO02qkwkMc |
 | 2026-11-02 19:39 | Dwarves vs ORC HORDE 👹 | Blue wins | https://youtube.com/shorts/y9QGfnDp04k |

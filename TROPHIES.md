@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 18 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 19 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -13,7 +13,7 @@ Records from 18 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - **9 kills**: LASER TROOPER · 2026-11-02 16:56 · [KNIGHTS vs Orcs vs Robots 🔥](https://youtube.com/shorts/4DSixF0rr00)
 - **9 kills**: CROSSBOWMAN · 2026-11-02 17:10 · [86 Knights vs a GIANT Army 👹](https://youtube.com/shorts/NxigkIpdLJY)
 - **9 kills**: IMP · 2026-11-02 19:09 · [🇬🇧 UK vs France 🇫🇷](https://youtube.com/shorts/DoPnzNYJGTk)
-- **7 kills**: WIZARD · 2026-11-02 16:28 · [The Golem Went DOWN 💀](https://youtube.com/shorts/t2hhg3XKXNY)
+- **9 kills**: TROLL · 2026-11-02 20:25 · [Omega Boars vs Mammoth Ogres 🤯](https://youtube.com/shorts/AY6uRHJaixc)
 
 ## Fastest wipe-outs
 
@@ -59,7 +59,7 @@ Records from 18 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 ## Mutations (rarest first)
 
 - wings: 1
-- venom: 1
+- venom: 2
 - swift: 3
 - spellward: 3
 - regen: 3
@@ -75,4 +75,5 @@ Records from 18 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - possess: cannon: 1
 - possess: treant: 1
 - portal: cyclops: 1
+- sudden: lava: 1
 - sudden: meteors: 2
