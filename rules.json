@@ -437,6 +437,11 @@
       "balance": 1.07
     },
     {
+      "top": "VIKINGS",
+      "bottom": "KNIGHTS",
+      "balance": 1.332
+    },
+    {
       "top": "BALANCED",
       "bottom": "GIANT",
       "troops": [
@@ -563,6 +568,11 @@
         "crossbowman"
       ],
       "balance": 1.01
+    },
+    {
+      "top": "SAMURAI",
+      "bottom": "VIKINGS",
+      "balance": 0.935
     },
     {
       "top": "GIANT",
@@ -701,6 +711,11 @@
         "swordsman"
       ],
       "balance": 0.92
+    },
+    {
+      "top": "PIRATES",
+      "bottom": "VIKINGS",
+      "balance": 0.96
     },
     {
       "top": "GIANT",

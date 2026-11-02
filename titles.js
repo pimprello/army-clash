@@ -19,6 +19,7 @@ const NOUN = {
   PIRATES: { n: 'Pirates', count: true, e: '🏴‍☠️' }, BUCCANEERS: { n: 'Pirates', count: true, e: '🏴‍☠️' },
   ZOMBIES: { n: 'Zombies', count: true, e: '🧟' }, UNDEAD: { n: 'Undead', count: true, e: '🧟' }, VAMPIRES: { n: 'Vampires', count: true, e: '🧛' },
   SAMURAI: { n: 'Samurai', count: true, e: '⚔️' }, NINJAS: { n: 'Ninjas', count: true, e: '🥷' },
+  VIKINGS: { n: 'Vikings', count: true, e: '🪓' },
 };
 const nounOf = doc => NOUN[doc.name] || { n: doc.name.charAt(0) + doc.name.slice(1).toLowerCase(), count: false, e: '⚔️' };
 const tc = s => s.split(' ').map(w => w.charAt(0) + w.slice(1).toLowerCase()).join(' ');

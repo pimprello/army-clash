@@ -1381,7 +1381,12 @@ const RVB = (() => {
     { name: 'KNIGHTS', mix: { soldier: 0.3, archer: 0.15, knight: 0.55 }, budget: 0.975, budget60: 0.975 },
     { name: 'BALANCED', mix: { soldier: 0.5, archer: 0.3, knight: 0.2 }, budget: 1.02, budget60: 0.99 },
     { name: 'GIANT', mix: { soldier: 0.55, archer: 0.3, knight: 0.15 }, giant: true, budget: 0.89, budget60: 0.92 },
+    // Vikings: axe-swinging berserkers behind a shield wall, with spears in the second rank and a few archers.
+    // late: only used when a line-up names it (never picked by chance), so older seeds play out the same
+    { name: 'VIKINGS', mix: { berserker: 0.45, shieldbearer: 0.2, spearman: 0.2, archer: 0.15 }, budget: 1, budget60: 1, late: true },
   ];
+  // the army types a battle can pick by chance (the original five)
+  const CHANCE_DOCTRINES = DOCTRINES.filter(d => !d.late);
 
   // Modern-warfare army types (used when a line-up has "era": "modern"). base = filler troop.
   const MODERN_DOCTRINES = [
@@ -1588,9 +1593,9 @@ const RVB = (() => {
         else if (o.b) this.obstacles.push({ kind: o.kind, x0: cx0 + o.b[0], y0: cy0 + o.b[1], x1: cx0 + o.b[0] + o.b[2], y1: cy0 + o.b[1] + o.b[3] });
         else if (o.d) this.decor.push({ kind: o.kind, x: cx0 + o.d[0], y: cy0 + o.d[1], r: o.d[2] });
       }
-      const d0 = R.pick(DOCTRINES);
-      let d1 = R.pick(DOCTRINES);
-      if (d1 === d0 && R.chance(0.75)) while (d1 === d0) d1 = R.pick(DOCTRINES);
+      const d0 = R.pick(CHANCE_DOCTRINES);
+      let d1 = R.pick(CHANCE_DOCTRINES);
+      if (d1 === d0 && R.chance(0.75)) while (d1 === d0) d1 = R.pick(CHANCE_DOCTRINES);
       this.doc = [d0, d1];
       // opts.doctrines = ['SWARM', 'KNIGHTS'] picks the two army types instead of chance.
       if (this.opts.doctrines) this.doc = this.opts.doctrines.map(n => (n && typeof n === 'object' ? customDoc(n) : ALL_DOCTRINES().find(d => d.name === n) || d0));

@@ -9,9 +9,9 @@ Every new video reads `rules.json` when it is made, so a change here applies to 
   Colours available: `RED`, `BLUE`, `GREEN`, `PURPLE`, `ORANGE`, `YELLOW`, `PINK`, `CYAN`, `WHITE`, `BROWN`, `LIME`, `TEAL`, `GOLD`, `SILVER`, `INDIGO`, `CORAL`.
   Nations (flag colours, flag emojis in titles, an accent ring on each troop, and the real flag drawn in the video: beside each score, on flag poles carried by about one troop in ten, in banners like "CANADA GRABS THE DROP", and above the winner's name at the end): `UK`, `USA`, `FRANCE`, `GERMANY`, `ITALY`, `BRAZIL`, `ARGENTINA`, `CANADA`, `SPAIN`, `PORTUGAL`, `AUSTRALIA`, `NEWZEALAND`, `NETHERLANDS`, `BELGIUM`, `SWEDEN`, `NORWAY`. Only friendly rivalries: never pair countries in an active or recent war, or with a painful wartime history.
 - **`teamStyles`**: a colour can fight its own way. `ORANGE` armies are about 60% swordsmen (`swordsmenShare`), with a slightly smaller army (`budget` 0.96) so they still win about half their battles.
-- **`matchups`**: the troop line-ups, used in order, then starting again from the top (56 at the moment). Each has a `top` and `bottom` side, optional `troops` (extra troop types to mix in, e.g. `["spearman", "healer"]`), and `balance`: the bottom army's size compared with the top, tuned by test battles so each line-up is close to 50/50.
+- **`matchups`**: the troop line-ups, used in order, then starting again from the top (59 at the moment). Each has a `top` and `bottom` side, optional `troops` (extra troop types to mix in, e.g. `["spearman", "healer"]`), and `balance`: the bottom army's size compared with the top, tuned by test battles so each line-up is close to 50/50.
   A side is either an army type or a custom team. Army types by genre:
-  - Medieval: `SWARM`, `ARCHERS`, `KNIGHTS`, `BALANCED`, `GIANT` (has a giant)
+  - Medieval: `SWARM`, `ARCHERS`, `KNIGHTS`, `BALANCED`, `GIANT` (has a giant), `VIKINGS` (berserkers behind a shield wall, spearmen and a few archers)
   - Modern: `INFANTRY`, `ASSAULT`, `SNIPERS`, `ARMORED` (has a tank), `COMBINED`
   - Fantasy: `HORDE`, `ORCS`, `ELVES`, `MAGES`, `DRAGON` (has a dragon)
   - Sci-fi: `TROOPERS`, `ROBOTS`, `MECHS` (has a mech)
