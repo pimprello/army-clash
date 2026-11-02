@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 16:41 | One Berserker Got 12 KILLS 😳 | Red wins | https://youtube.com/shorts/R-txW0YHzv4 |
 | 2026-11-02 16:28 | The Golem Went DOWN 💀 | Coral wins | https://youtube.com/shorts/t2hhg3XKXNY |
 | 2026-11-02 16:12 | 🏴‍☠️ PIRATES vs Tank Army | Blue wins | https://youtube.com/shorts/MC72VK4VErA |
 | 2026-11-02 15:58 | Toxic Elves vs Star Bolts vs Solar Drones 🤯 | Red wins | https://youtube.com/shorts/QbPvzD9g3AM |
