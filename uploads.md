@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 15:42 | 🏹 ARCHERS vs Snipers | Cyan wins | https://youtube.com/shorts/20hYx2keCjg |
 | 2026-11-02 15:28 | The GIANT Never Saw It Coming 💀 | Green wins | https://youtube.com/shorts/GasDk2ladeU |
 | 2026-11-02 15:12 | The Airdrop Had a SURPRISE Inside 📦 | Sweden wins | https://youtube.com/shorts/vS1tHKIby2Q |
 | 2026-11-02 14:57 | Horde vs Elves vs Mages 🤯 | Yellow wins | https://youtube.com/shorts/Snty3RNaMeU |
