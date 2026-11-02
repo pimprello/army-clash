@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 17:56 | Steel Raiders vs Tusk Rhinos vs Lunar Bows 🤯 | Yellow wins | https://youtube.com/shorts/oX-v7nCnbPs |
 | 2026-11-02 17:40 | They Were LOSING Until This 😳 | Pink wins | https://youtube.com/shorts/-e04vvO2yh8 |
 | 2026-11-02 17:27 | 🇦🇺 Australia vs New Zealand: WHO WINS? | Australia wins | https://youtube.com/shorts/6Y3Usm-6gbg |
 | 2026-11-02 17:10 | 86 Knights vs a GIANT Army 👹 | Gold wins | https://youtube.com/shorts/NxigkIpdLJY |
