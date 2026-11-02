@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 08:05 | 3 Armies, Only 1 SURVIVES 💀 | White wins | https://youtube.com/shorts/DmxmJ6DvGG4 |
 | 2026-11-02 07:50 | Watch Till the END 👀 | Silver wins | https://youtube.com/shorts/C3T2aXJk4n0 |
 | 2026-11-02 07:35 | 🔥 WILD LEGION vs Mech Knights | Lime wins | https://youtube.com/shorts/cLGUsdW8eyg |
 | 2026-11-02 07:21 | Knights vs ARCHERS 🏹 | Yellow wins | https://youtube.com/shorts/wBYqvbDybi0 |
