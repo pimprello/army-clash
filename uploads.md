@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 01:57 | Warriors vs GIANT ARMY 👹 | Red wins | https://youtube.com/shorts/d3jMnhZ42qA |
 | 2026-11-02 01:43 | The Smaller Army Did WHAT? 😳 | Uk wins | https://youtube.com/shorts/D4BPwhhyVYM |
 | 2026-11-02 01:27 | Knights vs ARCHERS 🏹 | Pink wins | https://youtube.com/shorts/7W7Af6yW1hM |
 | 2026-11-02 01:14 | 3 Armies, Only 1 SURVIVES 💀 | Uk wins | https://youtube.com/shorts/koD1oDQDgd4 |
