@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 13:30 | 🔥 LUNAR SPEARS vs Cannon Rifles | Red wins | https://youtube.com/shorts/r5a3LHfF1gA |
 | 2026-11-02 13:15 | 🇳🇿 New Zealand vs Australia 🇦🇺 | New zealand wins | https://youtube.com/shorts/pv1wMil4rHU |
 | 2026-11-02 13:00 | Vampires vs Troopers vs Knights 🤯 | Uk wins | https://youtube.com/shorts/x1zStD_1ksI |
 | 2026-11-02 12:45 | The Airdrop Had a SURPRISE Inside 📦 | White wins | https://youtube.com/shorts/uinbSnjU8XI |
