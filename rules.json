@@ -1375,11 +1375,13 @@
           "WARBAND"
         ],
         "balance": [
-          1,
-          1,
-          1
+          0.871,
+          0.99,
+          1.139
         ],
-        "pending": true
+        "maps": [
+          "open"
+        ]
       },
       {
         "three": [
@@ -1388,11 +1390,13 @@
           "DWARVES"
         ],
         "balance": [
-          1,
-          1,
-          1
+          0.804,
+          1.16,
+          1.036
         ],
-        "pending": true
+        "maps": [
+          "open"
+        ]
       },
       {
         "three": [
@@ -1427,11 +1431,13 @@
           "WORLDROOT"
         ],
         "balance": [
-          1,
-          1,
-          1
+          0.817,
+          1.234,
+          0.95
         ],
-        "pending": true
+        "maps": [
+          "open"
+        ]
       },
       {
         "three": [
@@ -1440,11 +1446,13 @@
           "NEVERLOSE"
         ],
         "balance": [
-          1,
-          1,
-          1
+          0.9,
+          1.349,
+          0.751
         ],
-        "pending": true
+        "maps": [
+          "open"
+        ]
       },
       {
         "three": [
@@ -1453,11 +1461,13 @@
           "SPIRITS"
         ],
         "balance": [
-          1,
-          1,
-          1
+          1.239,
+          1.088,
+          0.672
         ],
-        "pending": true
+        "maps": [
+          "open"
+        ]
       },
       {
         "three": [
@@ -1466,11 +1476,13 @@
           "RHINOS"
         ],
         "balance": [
-          1,
-          1,
-          1
+          0.923,
+          1.201,
+          0.876
         ],
-        "pending": true
+        "maps": [
+          "open"
+        ]
       }
     ]
   },
