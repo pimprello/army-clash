@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 31 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 32 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -25,11 +25,11 @@ Records from 31 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 ## Biggest wins (troops still standing)
 
+- **57 left**: 2026-11-02 23:36 · [🇵🇹 Portugal Warriors vs Spain Archers](https://youtube.com/shorts/826KinGBtaw)
 - **55 left**: 2026-11-02 21:24 · [The Empty Armour Kept FIGHTING 👻](https://youtube.com/shorts/FROYUz7l2_U)
 - **48 left**: 2026-11-02 20:09 · [METEORS Hit Mid-Battle ☄️](https://youtube.com/shorts/UCHbxIxm93I)
 - **45 left**: 2026-11-02 19:09 · [🇬🇧 UK vs France 🇫🇷](https://youtube.com/shorts/DoPnzNYJGTk)
 - **44 left**: 2026-11-02 16:28 · [The Golem Went DOWN 💀](https://youtube.com/shorts/t2hhg3XKXNY)
-- **42 left**: 2026-11-02 18:10 · [Knights vs ARCHERS 🏹](https://youtube.com/shorts/aIQnsGMUeko)
 
 ## Hall of champions
 
