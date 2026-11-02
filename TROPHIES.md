@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 24 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 25 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -42,7 +42,6 @@ Records from 24 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 ## Titles earned (rarest first)
 
 - MIRROR KING SLAYER: 1
-- GOLEM SLAYER: 1
 - CATHEDRAL SLAYER: 1
 - HYDRA SLAYER: 1
 - FORTRESS SLAYER: 1
@@ -50,21 +49,23 @@ Records from 24 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - UNMAKER SLAYER: 1
 - CYCLOPS SLAYER: 1
 - PLAYER SLAYER: 1
+- HELICOPTER SLAYER: 1
 - TANK SLAYER: 2
+- GOLEM SLAYER: 2
 - CANNON SLAYER: 2
 - ELEPHANT SLAYER: 3
 - TITAN SLAYER: 3
-- DRAGON SLAYER: 3
 - MAMMOTH SLAYER: 3
 - GIANT SLAYER: 4
+- DRAGON SLAYER: 4
 
 ## Mutations (rarest first)
 
 - wings: 1
 - venom: 2
-- swift: 3
 - spellward: 3
 - spikes: 4
+- swift: 4
 - regen: 4
 
 ## Big moments
