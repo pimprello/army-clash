@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 19:54 | Chaos Archers vs Neon Bolts vs Ultra Hounds 🤯 | Orange wins | https://youtube.com/shorts/nDO02qkwkMc |
 | 2026-11-02 19:39 | Dwarves vs ORC HORDE 👹 | Blue wins | https://youtube.com/shorts/y9QGfnDp04k |
 | 2026-11-02 19:26 | DREAM TEAM Battle: Royal Muskets vs Solar Shields | Red wins | https://youtube.com/shorts/tM__7JbzIwY |
 | 2026-11-02 19:09 | 🇬🇧 UK vs France 🇫🇷 | France wins | https://youtube.com/shorts/DoPnzNYJGTk |
