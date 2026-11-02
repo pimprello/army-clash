@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 09:48 | 🇨🇦 Canada vs USA: WHO WINS? | Canada wins | https://youtube.com/shorts/Sgo3xPTNztE |
 | 2026-11-02 09:34 | Titan Snipers vs Iron Ninjas 🤯 | Cyan wins | https://youtube.com/shorts/NKQGF4Vnkhk |
 | 2026-11-02 09:19 | Orcs vs WIZARDS 🧙 | Blue wins | https://youtube.com/shorts/lthdy39Tvq0 |
 | 2026-11-02 09:04 | The BIGGEST Comeback I've Seen 😱 | Cyan wins | https://youtube.com/shorts/RmQJ9YEn7-s |
