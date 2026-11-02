@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 22:37 | The Weapons Came ALIVE 🗡️ | Spain wins | https://youtube.com/shorts/1hz6hQQbBW8 |
 | 2026-11-02 22:24 | DREAM TEAM Battle: Steel Mirrors vs Rogue Liches | Purple wins | https://youtube.com/shorts/sZYRiLPO2Bg |
 | 2026-11-02 22:08 | Giant Army vs KNIGHTS 🛡️ | Coral wins | https://youtube.com/shorts/XSrHMjaaYEw |
 | 2026-11-02 21:53 | A STAMPEDE Hit Mid-Battle 🦣 | Teal wins | https://youtube.com/shorts/_US3F19cSAk |
