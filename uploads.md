@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 15:12 | The Airdrop Had a SURPRISE Inside 📦 | Sweden wins | https://youtube.com/shorts/vS1tHKIby2Q |
 | 2026-11-02 14:57 | Horde vs Elves vs Mages 🤯 | Yellow wins | https://youtube.com/shorts/Snty3RNaMeU |
 | 2026-11-02 14:43 | DREAM TEAM Battle: Robo Pirates vs Wizard Gang | Orange wins | https://youtube.com/shorts/M177q4FIdTQ |
 | 2026-11-02 14:29 | Toxic Gunners vs Dragon Bones 🤯 | Teal wins | https://youtube.com/shorts/I-34oiWLlH0 |
