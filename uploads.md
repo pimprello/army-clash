@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 09:19 | Orcs vs WIZARDS 🧙 | Blue wins | https://youtube.com/shorts/lthdy39Tvq0 |
 | 2026-11-02 09:04 | The BIGGEST Comeback I've Seen 😱 | Cyan wins | https://youtube.com/shorts/RmQJ9YEn7-s |
 | 2026-11-02 08:50 | LIGHTNING Struck the Battlefield ⚡ | Norway wins | https://youtube.com/shorts/CbLbb-knQE0 |
 | 2026-11-02 08:34 | Titan Blades vs Mech Zombies 🤯 | White wins | https://youtube.com/shorts/JTdRSa4hTaY |
