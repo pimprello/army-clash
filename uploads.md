@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 12:01 | 3 Armies, Only 1 SURVIVES 💀 | Blue wins | https://youtube.com/shorts/HIaejjEW5vE |
 | 2026-11-02 11:47 | 🇧🇷 Brazil Zombies vs Argentina Soldiers | Brazil wins | https://youtube.com/shorts/J0qzNXKz4JU |
 | 2026-11-02 11:32 | They Took Down a DRAGON? 🐉 | Germany wins | https://youtube.com/shorts/aabzIv8x32U |
 | 2026-11-02 11:16 | TANK vs GIANT 👹 | Lime wins | https://youtube.com/shorts/fYrQV13J3b8 |
