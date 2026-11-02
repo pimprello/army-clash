@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 00:58 | Nobody Expected the TANK to Fall 💥 |  | https://youtube.com/shorts/hMLfZHMK06s |
 | 2026-11-02 00:44 | Ghost Zombies vs ROGUE LEGION 🔥 | White wins | https://youtube.com/shorts/UIQK6XblMnU |
 | 2026-11-02 00:29 | They Were OUTNUMBERED... 😳 | Green wins | https://youtube.com/shorts/-iuEWBl6Ytw |
 | 2026-11-02 00:16 | Solar Samurai vs Dragon Legion vs Mech Troopers 🤯 | Usa wins | https://youtube.com/shorts/JzduHetqOj4 |
