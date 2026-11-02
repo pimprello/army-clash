@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 13:59 | LIGHTNING Struck the Battlefield ⚡ | Yellow wins | https://youtube.com/shorts/NSlKwwTCID0 |
 | 2026-11-02 13:45 | Dragon Army vs ORCS 👹 | Blue wins | https://youtube.com/shorts/DvcMnTvZ7Go |
 | 2026-11-02 13:30 | 🔥 LUNAR SPEARS vs Cannon Rifles | Red wins | https://youtube.com/shorts/r5a3LHfF1gA |
 | 2026-11-02 13:15 | 🇳🇿 New Zealand vs Australia 🇦🇺 | New zealand wins | https://youtube.com/shorts/pv1wMil4rHU |
