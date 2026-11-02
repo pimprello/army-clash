@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 12:32 | They Were LOSING Until This 😳 | Belgium wins | https://youtube.com/shorts/6KzvdIzotVM |
 | 2026-11-02 12:16 | 80 Knights vs a GIANT Army 👹 | Orange wins | https://youtube.com/shorts/sc0mXKWcFHc |
 | 2026-11-02 12:01 | 3 Armies, Only 1 SURVIVES 💀 | Blue wins | https://youtube.com/shorts/HIaejjEW5vE |
 | 2026-11-02 11:47 | 🇧🇷 Brazil Zombies vs Argentina Soldiers | Brazil wins | https://youtube.com/shorts/J0qzNXKz4JU |
