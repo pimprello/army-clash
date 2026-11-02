@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 06:07 | 3 Armies, Only 1 SURVIVES 💀 | Teal wins | https://youtube.com/shorts/vYX-qsOUtuY |
 | 2026-11-02 05:52 | 🪖 SOLDIERS vs Gunners | Lime wins | https://youtube.com/shorts/4l-lqWSc6MQ |
 | 2026-11-02 05:38 | Dragon Spears vs Cannon Elves 🤯 | Pink wins | https://youtube.com/shorts/whW2ATO51LA |
 | 2026-11-02 05:22 | They Took Down a DRAGON? 🐉 | Orange wins | https://youtube.com/shorts/vCI2iWQFVeo |
