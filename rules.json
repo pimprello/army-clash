@@ -960,50 +960,42 @@
     {
       "top": "THOUSANDMAN",
       "bottom": "SWARM",
-      "balance": 1,
-      "pending": true
+      "balance": 1.316
     },
     {
       "top": "COPYCATS",
       "bottom": "GIANT",
-      "balance": 1,
-      "pending": true
+      "balance": 1.363
     },
     {
       "top": "IMMORTAL",
       "bottom": "SAMURAI",
-      "balance": 1,
-      "pending": true
+      "balance": 1.053
     },
     {
       "top": "MIRRORKING",
       "bottom": "PIRATES",
-      "balance": 1,
-      "pending": true
+      "balance": 1.208
     },
     {
       "top": "UNMAKER",
       "bottom": "KNIGHTS",
-      "balance": 1,
-      "pending": true
+      "balance": 1.41
     },
     {
       "top": "TYCOON",
       "bottom": "ORCS",
-      "balance": 1,
-      "pending": true
+      "balance": 0.74
     },
     {
       "top": "GRAVITY",
       "bottom": "UNDEAD",
-      "balance": 1,
-      "pending": true
+      "balance": 0.637
     },
     {
       "top": "METEOR",
       "bottom": "HORDE",
-      "balance": 1,
-      "pending": true
+      "balance": 1.33
     },
     {
       "top": "GLITCH",
@@ -1014,20 +1006,17 @@
     {
       "top": "DREADKNIGHT",
       "bottom": "EMPIRE",
-      "balance": 1,
-      "pending": true
+      "balance": 0.637
     },
     {
       "top": "INFERNAL",
       "bottom": "VAMPIRES",
-      "balance": 1,
-      "pending": true
+      "balance": 2.128
     },
     {
       "top": "FORBIDDEN",
-      "bottom": "TITAN",
-      "balance": 1,
-      "pending": true
+      "bottom": "HORDE",
+      "balance": 0.312
     },
     {
       "top": "SYLVAN",
@@ -1038,8 +1027,7 @@
     {
       "top": "FROST",
       "bottom": "INFERNAL",
-      "balance": 1,
-      "pending": true
+      "balance": 0.508
     },
     {
       "top": "TEMPEST",
@@ -1050,14 +1038,12 @@
     {
       "top": "LICHES",
       "bottom": "EMPIRE",
-      "balance": 1,
-      "pending": true
+      "balance": 0.844
     },
     {
       "top": "SPIRITS",
       "bottom": "WARBAND",
-      "balance": 1,
-      "pending": true
+      "balance": 1.272
     },
     {
       "top": "GARGOYLES",
