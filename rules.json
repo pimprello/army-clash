@@ -883,68 +883,57 @@
     {
       "top": "EMPIRE",
       "bottom": "WARBAND",
-      "balance": 1,
-      "pending": true
+      "balance": 1.164
     },
     {
       "top": "LEGION",
       "bottom": "EMPIRE",
-      "balance": 1,
-      "pending": true
+      "balance": 0.569
     },
     {
       "top": "SYLVAN",
       "bottom": "INFERNAL",
-      "balance": 1,
-      "pending": true
+      "balance": 1.147
     },
     {
       "top": "DWARVES",
       "bottom": "WARBAND",
-      "balance": 1,
-      "pending": true
+      "balance": 1.017
     },
     {
       "top": "CAVALRY",
       "bottom": "LONGBOWS",
-      "balance": 1,
-      "pending": true
+      "balance": 0.74
     },
     {
       "top": "FORBIDDEN",
       "bottom": "GIANT",
-      "balance": 1,
-      "pending": true
+      "balance": 0.508
     },
     {
       "top": "TITAN",
       "bottom": "ARMORED",
-      "balance": 1,
-      "pending": true
+      "balance": 1.283
     },
     {
       "top": "HYDRA",
       "bottom": "KNIGHTS",
-      "balance": 1,
-      "pending": true
+      "balance": 1.703
     },
     {
       "top": "PHOENIX",
       "bottom": "MECHS",
-      "balance": 1,
-      "pending": true
+      "balance": 0.74
     },
     {
       "top": "FORTRESS",
       "bottom": "CYCLOPS",
-      "balance": 1,
-      "pending": true
+      "balance": 0.661
     },
     {
       "top": "GRIFFINS",
       "bottom": "ARCHERS",
-      "balance": 1,
-      "pending": true
+      "balance": 1.158
     },
     {
       "top": "ELEPHANTS",
@@ -955,14 +944,12 @@
     {
       "top": "ARCANE",
       "bottom": "NINJAS",
-      "balance": 1,
-      "pending": true
+      "balance": 2.615
     },
     {
       "top": "TURTLES",
       "bottom": "ASSAULT",
-      "balance": 1,
-      "pending": true
+      "balance": 1.177
     },
     {
       "top": "GOLEMS",
