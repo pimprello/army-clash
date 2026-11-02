@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 23:52 | A STAMPEDE Hit Mid-Battle 🦣 | Red wins | https://youtube.com/shorts/7tNJuSgdThM |
 | 2026-11-02 23:36 | 🇵🇹 Portugal Warriors vs Spain Archers | Portugal wins | https://youtube.com/shorts/826KinGBtaw |
 | 2026-11-02 23:22 | 🇳🇴 Norway vs Sweden 🇸🇪 | Sweden wins | https://youtube.com/shorts/338Ln-Otgqk |
 | 2026-11-02 23:07 | 🐉 DRAGON ARMY vs Knights | Brown wins | https://youtube.com/shorts/5L_qfOTO_Eo |
