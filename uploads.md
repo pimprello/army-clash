@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 14:43 | DREAM TEAM Battle: Robo Pirates vs Wizard Gang | Orange wins | https://youtube.com/shorts/M177q4FIdTQ |
 | 2026-11-02 14:29 | Toxic Gunners vs Dragon Bones 🤯 | Teal wins | https://youtube.com/shorts/I-34oiWLlH0 |
 | 2026-11-02 14:14 | 🇺🇸 USA Archers vs Canada Giant Army | Canada wins | https://youtube.com/shorts/sLYEN-tWfDk |
 | 2026-11-02 13:59 | LIGHTNING Struck the Battlefield ⚡ | Yellow wins | https://youtube.com/shorts/NSlKwwTCID0 |
