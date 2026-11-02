@@ -1,18 +1,18 @@
 # Trophy room
 
-Records from 0 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 1 battle with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
-Nothing yet.
+- **6 kills**: GRIFFIN RIDER · 2026-11-02 15:58 · [Toxic Elves vs Star Bolts vs Solar Drones 🤯](https://youtube.com/shorts/QbPvzD9g3AM)
 
 ## Fastest wipe-outs
 
-Nothing yet.
+- **40.4 s**: red wins · 2026-11-02 15:58 · [Toxic Elves vs Star Bolts vs Solar Drones 🤯](https://youtube.com/shorts/QbPvzD9g3AM)
 
 ## Biggest wins (troops still standing)
 
-Nothing yet.
+- **10 left**: 2026-11-02 15:58 · [Toxic Elves vs Star Bolts vs Solar Drones 🤯](https://youtube.com/shorts/QbPvzD9g3AM)
 
 ## Hall of champions
 
@@ -20,11 +20,12 @@ Nothing yet.
 
 ## Titles earned (rarest first)
 
-Nothing yet.
+- ELEPHANT SLAYER: 1
+- MIRROR KING SLAYER: 1
 
 ## Mutations (rarest first)
 
-Nothing yet.
+- wings: 1
 
 ## Big moments
 
