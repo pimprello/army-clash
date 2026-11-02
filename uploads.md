@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 05:08 | 3 Armies, Only 1 SURVIVES 💀 | Yellow wins | https://youtube.com/shorts/e6s5QkRQO7k |
 | 2026-11-02 04:53 | 184 Soldiers vs a GIANT Army 👹 | Lime wins | https://youtube.com/shorts/92QAVNpbHEw |
 | 2026-11-02 04:39 | DREAM TEAM Battle: Titan Spears vs Omega Orcs | Blue wins | https://youtube.com/shorts/4gVNhnceN1o |
 | 2026-11-02 04:24 | The Airdrop Had a SURPRISE Inside 📦 | Usa wins | https://youtube.com/shorts/LfdCwmxcaW4 |
