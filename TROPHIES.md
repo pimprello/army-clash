@@ -1,10 +1,11 @@
 # Trophy room
 
-Records from 11 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 12 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
 - **30 kills**: DRAGON · 2026-11-02 17:40 · [They Were LOSING Until This 😳](https://youtube.com/shorts/-e04vvO2yh8)
+- **26 kills**: OSKA THE WALL (LANCER) · 2026-11-02 18:40 · [The BIGGEST Comeback I've Seen 😱](https://youtube.com/shorts/Voym5nz5PNY)
 - **13 kills**: PELL IRONHIDE (WAR RHINO), FORTRESS SLAYER · 2026-11-02 17:56 · [Steel Raiders vs Tusk Rhinos vs Lunar Bows 🤯](https://youtube.com/shorts/oX-v7nCnbPs)
 - **12 kills**: IVOR BONECRUSHER (BERSERKER) · 2026-11-02 16:41 · [One Berserker Got 12 KILLS 😳](https://youtube.com/shorts/R-txW0YHzv4)
 - **10 kills**: ASHKA SKULLTAKER (HELLHOUND) · 2026-11-02 18:25 · [DREAM TEAM Battle: Cosmic Guard vs Titan Archers](https://youtube.com/shorts/dTw-6GR3gv8)
@@ -13,7 +14,6 @@ Records from 11 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - **7 kills**: WIZARD · 2026-11-02 16:28 · [The Golem Went DOWN 💀](https://youtube.com/shorts/t2hhg3XKXNY)
 - **6 kills**: GRIFFIN RIDER · 2026-11-02 15:58 · [Toxic Elves vs Star Bolts vs Solar Drones 🤯](https://youtube.com/shorts/QbPvzD9g3AM)
 - **6 kills**: LICH, TITAN SLAYER · 2026-11-02 17:27 · [🇦🇺 Australia vs New Zealand: WHO WINS?](https://youtube.com/shorts/6Y3Usm-6gbg)
-- **5 kills**: PIRATE, TANK SLAYER · 2026-11-02 16:12 · [🏴‍☠️ PIRATES vs Tank Army](https://youtube.com/shorts/MC72VK4VErA)
 
 ## Fastest wipe-outs
 
@@ -33,6 +33,7 @@ Records from 11 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 ## Hall of champions
 
+- **OSKA THE WALL** (LANCER), 26 kills · 2026-11-02 18:40
 - **ASHKA SKULLTAKER** (HELLHOUND), 10 kills · 2026-11-02 18:25
 - **PELL IRONHIDE** (WAR RHINO), 13 kills · 2026-11-02 17:56
 - **IVOR BONECRUSHER** (BERSERKER), 12 kills · 2026-11-02 16:41
@@ -44,6 +45,7 @@ Records from 11 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - CATHEDRAL SLAYER: 1
 - HYDRA SLAYER: 1
 - FORTRESS SLAYER: 1
+- COLOSSUS SLAYER: 1
 - TANK SLAYER: 2
 - GIANT SLAYER: 2
 - TITAN SLAYER: 2
@@ -54,10 +56,10 @@ Records from 11 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 - wings: 1
 - venom: 1
-- swift: 1
-- regen: 1
-- spellward: 2
-- spikes: 3
+- swift: 2
+- regen: 2
+- spellward: 3
+- spikes: 4
 
 ## Big moments
 
@@ -65,4 +67,5 @@ Records from 11 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - extinct: AUSTRALIA: 1
 - portal: hydra: 1
 - sudden: boss: 1
+- fusion: 1
 - sudden: meteors: 2
