@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 16:56 | KNIGHTS vs Orcs vs Robots 🔥 | Red wins | https://youtube.com/shorts/4DSixF0rr00 |
 | 2026-11-02 16:41 | One Berserker Got 12 KILLS 😳 | Red wins | https://youtube.com/shorts/R-txW0YHzv4 |
 | 2026-11-02 16:28 | The Golem Went DOWN 💀 | Coral wins | https://youtube.com/shorts/t2hhg3XKXNY |
 | 2026-11-02 16:12 | 🏴‍☠️ PIRATES vs Tank Army | Blue wins | https://youtube.com/shorts/MC72VK4VErA |
