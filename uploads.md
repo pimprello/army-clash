@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 00:16 | Solar Samurai vs Dragon Legion vs Mech Troopers 🤯 | Usa wins | https://youtube.com/shorts/JzduHetqOj4 |
 | 2026-11-01 23:59 | 🇸🇪 Sweden Soldiers vs Norway Gunners | Norway wins | https://youtube.com/shorts/FfWKiqbLWYw |
 | 2026-11-01 23:45 | Rogue Knights vs Cosmic Elves 🤯 | Brown wins | https://youtube.com/shorts/p8r-xuEu1jA |
 | 2026-11-01 23:30 | The MECH Went Down 🤖 | Pink wins | https://youtube.com/shorts/QpdgQndEcbs |
