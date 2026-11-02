@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 07:21 | Knights vs ARCHERS 🏹 | Yellow wins | https://youtube.com/shorts/wBYqvbDybi0 |
 | 2026-11-02 07:06 | The Smaller Army Did WHAT? 😳 | Green wins | https://youtube.com/shorts/HEemjypIv_M |
 | 2026-11-02 06:52 | 🇸🇪 Sweden Spellguns vs Norway Dragon Armor | Sweden wins | https://youtube.com/shorts/K11bcUlHe9Q |
 | 2026-11-02 06:37 | A BLIZZARD Froze the Battle ❄️ | Brown wins | https://youtube.com/shorts/Q92vHrVhPv4 |
