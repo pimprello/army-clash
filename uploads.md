@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 17:10 | 86 Knights vs a GIANT Army 👹 | Gold wins | https://youtube.com/shorts/NxigkIpdLJY |
 | 2026-11-02 16:56 | KNIGHTS vs Orcs vs Robots 🔥 | Red wins | https://youtube.com/shorts/4DSixF0rr00 |
 | 2026-11-02 16:41 | One Berserker Got 12 KILLS 😳 | Red wins | https://youtube.com/shorts/R-txW0YHzv4 |
 | 2026-11-02 16:28 | The Golem Went DOWN 💀 | Coral wins | https://youtube.com/shorts/t2hhg3XKXNY |
