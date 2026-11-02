@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 08:50 | LIGHTNING Struck the Battlefield ⚡ | Norway wins | https://youtube.com/shorts/CbLbb-knQE0 |
 | 2026-11-02 08:34 | Titan Blades vs Mech Zombies 🤯 | White wins | https://youtube.com/shorts/JTdRSa4hTaY |
 | 2026-11-02 08:19 | ⚔️ WARRIORS vs Giant Army | Blue wins | https://youtube.com/shorts/stwIM4eXtMM |
 | 2026-11-02 08:05 | 3 Armies, Only 1 SURVIVES 💀 | White wins | https://youtube.com/shorts/DmxmJ6DvGG4 |
