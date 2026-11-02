@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 9 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 10 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -13,6 +13,7 @@ Records from 9 battles with trophies (videos from 1 November 2026 on). Rebuilt a
 - **6 kills**: GRIFFIN RIDER · 2026-11-02 15:58 · [Toxic Elves vs Star Bolts vs Solar Drones 🤯](https://youtube.com/shorts/QbPvzD9g3AM)
 - **6 kills**: LICH, TITAN SLAYER · 2026-11-02 17:27 · [🇦🇺 Australia vs New Zealand: WHO WINS?](https://youtube.com/shorts/6Y3Usm-6gbg)
 - **5 kills**: PIRATE, TANK SLAYER · 2026-11-02 16:12 · [🏴‍☠️ PIRATES vs Tank Army](https://youtube.com/shorts/MC72VK4VErA)
+- **5 kills**: CROSSBOWMAN · 2026-11-02 18:10 · [Knights vs ARCHERS 🏹](https://youtube.com/shorts/aIQnsGMUeko)
 
 ## Fastest wipe-outs
 
@@ -25,10 +26,10 @@ Records from 9 battles with trophies (videos from 1 November 2026 on). Rebuilt a
 ## Biggest wins (troops still standing)
 
 - **44 left**: 2026-11-02 16:28 · [The Golem Went DOWN 💀](https://youtube.com/shorts/t2hhg3XKXNY)
+- **42 left**: 2026-11-02 18:10 · [Knights vs ARCHERS 🏹](https://youtube.com/shorts/aIQnsGMUeko)
 - **40 left**: 2026-11-02 16:12 · [🏴‍☠️ PIRATES vs Tank Army](https://youtube.com/shorts/MC72VK4VErA)
 - **39 left**: 2026-11-02 17:27 · [🇦🇺 Australia vs New Zealand: WHO WINS?](https://youtube.com/shorts/6Y3Usm-6gbg)
 - **38 left**: 2026-11-02 16:41 · [One Berserker Got 12 KILLS 😳](https://youtube.com/shorts/R-txW0YHzv4)
-- **16 left**: 2026-11-02 17:56 · [Steel Raiders vs Tusk Rhinos vs Lunar Bows 🤯](https://youtube.com/shorts/oX-v7nCnbPs)
 
 ## Hall of champions
 
@@ -40,11 +41,11 @@ Records from 9 battles with trophies (videos from 1 November 2026 on). Rebuilt a
 - MIRROR KING SLAYER: 1
 - GOLEM SLAYER: 1
 - CATHEDRAL SLAYER: 1
-- TITAN SLAYER: 1
 - HYDRA SLAYER: 1
 - FORTRESS SLAYER: 1
 - TANK SLAYER: 2
 - GIANT SLAYER: 2
+- TITAN SLAYER: 2
 - DRAGON SLAYER: 2
 - ELEPHANT SLAYER: 3
 
@@ -54,11 +55,12 @@ Records from 9 battles with trophies (videos from 1 November 2026 on). Rebuilt a
 - venom: 1
 - swift: 1
 - spellward: 1
-- spikes: 2
+- spikes: 3
 
 ## Big moments
 
 - portal: demon: 1
 - extinct: AUSTRALIA: 1
 - portal: hydra: 1
+- sudden: boss: 1
 - sudden: meteors: 2
