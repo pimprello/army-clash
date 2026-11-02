@@ -18,20 +18,47 @@ Every new video reads `rules.json` when it is made, so a change here applies to 
   - Pirates: `PIRATES`, `BUCCANEERS` (has a cannon)
   - Horror: `ZOMBIES`, `UNDEAD`, `VAMPIRES`
   - Samurai: `SAMURAI`, `NINJAS`
+  - Empire (medieval): `EMPIRE` (pikes, swords, archers, lancers, standard bearer, drummer, led by a general), `CAVALRY`, `LONGBOWS`, `ELEPHANTS` (two war elephants), `FORTRESS` (a walking fortress), `FORBIDDEN` (only peasants, who evolve)
+  - Realms (fantasy): `WARBAND` (orc horde with wolf and boar riders and trolls), `SYLVAN` (elves, treants, druids, illusionists), `INFERNAL` (imps, demons, hellhounds, warlocks), `DWARVES` (dwarves, goblin engineers, a cannon), `CYCLOPS`, `GRIFFINS`, `HYDRA`, `TITAN`, `PHOENIX`, `GOLEMS`, `ARCANE` (mirror knights, phase reapers, false soldiers, alchemists, gravity monks, soul smiths), `TURTLES`
+  - Mythic (fantasy): `THOUSANDMAN`, `COPYCATS`, `IMMORTAL`, `MIRRORKING`, `UNMAKER`, `TYCOON` (the Billionaire), `GRAVITY`, `METEOR`
+  - Undead (horror): `LEGION` (skeletons and necromancers; 12 skeletons can fuse into a bone colossus), `DREADKNIGHT`
+  - Sci-fi: `GLITCH`
+  - Second batch, medieval: `SIEGE` (siege gunners and two catapults), `MAMMOTHS` (berserkers with two war mammoths), `CATHEDRAL` (the Walking Cathedral), `NEVERLOSE` (the Undefeated General), `PLAYER` (the Player's hand), `UNIVERSE` (soldiers, some of them the Universe), `LIVINGFORT` (the Living Fortress)
+  - Second batch, fantasy: `FROST` (frost witches and dwarves with a mammoth), `TEMPEST` (storm callers), `SPIRITS` (forest spirits, druids, treants), `RHINOS` (orcs on war rhinos and boars), `OGRES`, `STAREATER`, `TIMELINE` (the Timeline Executioner), `STORMEMPEROR`, `WORLDROOT`, `HOURGLASS` (the Hourglass Titan), `MOONCALLER`, `GOBLINKING` (the Unqualified King)
+  - Second batch, other genres: `LICHES`, `GARGOYLES`, `EMPTY` (the Empty Army) for horror; `DRONES`, `AIRBORNE` (an attack helicopter) for modern; `SIRENS` for pirates; `ASSASSINS` for samurai
   Any two can meet: when they come from different genres the video is a mixed ("old vs new") battle.
   A custom team mixes any troops you like, from any genre, plus big units: `{ "name": "SPELLGUNS", "mix": { "wizard": 0.35, "rifleman": 0.45, "gunner": 0.2 }, "heavy": ["tank"] }`. `mix` is the share of each troop, `heavy` lists the big ones it brings (`tank`, `dragon`, `giant`, `mech`, `cannon`; repeat one to bring two). Keep the name to 13 letters or fewer so it fits the scoreboard. Custom-team videos get "dream team" titles that use the team names.
   `topTroops` / `bottomTroops` give one side its own extra troops, from any genre. `"pending": true` keeps a line-up out of the rotation until it has been balanced.
 - **`creative`**: brand-new match-ups invented by the game. With `"every": 2`, every second video is a creative one: two custom teams made up on the spot from the video's seed (for example "Storm Mages: wizards and robots + a tank" vs "Dragon Bones: skeletons and zombies + a dragon"), each usually mixing genres and often bringing a big unit or two. Before rendering, the video runs `balanceBattles` quick test battles at each of `balanceSteps` army sizes (on the same map and formations) to make it about 50/50. Set `every` to 0 to switch them off. The other videos go through `matchups` in order.
 - **`threeWay`**: three-way battles (1v1v1). With `"every": 4`, every fourth video is three armies at once; the other videos stay 1v1. The armies start at three points around the middle (top, bottom right, bottom left), each troop fights whichever enemy is closest, and the last army standing wins (at the time limit, the army with the most troops left). `teamTriples` lists the colour trios (any trio whose colours look too alike is skipped, like pairs), `maps` the battlefields it can use (`open`, and `canyon`: desert mesas). Half the three-way videos use the hand-made `lineups` (each a `three` list of three army types or custom teams, with a `balance` size for each army, and optional `maps` to limit where it's fought), the other half invent three custom teams on the spot and balance them with `balanceBattles` test battles over up to `balanceRounds` rounds. Three-way balancing steers by how long each army lasts and how many troops it keeps (three-way battles snowball, so wins alone are too jumpy), and halves each army's step whenever it swings past even. Set `every` to 0 to switch them off.
+- **`systems`**: the battle systems. Each can be switched off on its own (`false` or `0`); battles with all of them off play exactly as before they existed.
+  - `evolution`: troops that keep killing evolve in three visible stages: VETERAN at 4 kills (one gold chevron, a bit bigger and stronger), ELITE at 8 (two chevrons, a gold ring and a mutation). The mutation depends on what it killed: troops that killed fliers grow WINGS (and fly), those that killed mages get a SPELL WARD (half damage from blasts), those that killed vampires turn VAMPIRIC; otherwise SPIKES (melee attackers get hurt back), REGEN, VENOM or SWIFT. A troop that brings down a giant, tank, dragon or boss earns a slayer title ("DRAGON SLAYER"). In the Forbidden Army it's faster and bigger: peasants become FIGHTERS at 2 kills and CHAMPIONS at 5, a peasant that kills a big unit becomes a slayer, a slayer that kills another becomes a GOD EATER, and a God Eater that touches a pocket singularity becomes a COSMIC ENTITY.
+  - `champions`: the first troop on a side to reach 10 kills becomes that side's champion, with a made-up name (call signs like VIPER-6 for modern and sci-fi troops), a glowing aura and a kill counter over its head.
+  - `traits`: this share of troops get a random trait, shown by a tiny icon: cowardly (runs when badly hurt), explosive (blows up when it dies), vampiric (heals when it hits) or undying (survives one killing blow).
+  - `crits`: 7% of hits are critical (double damage, a knock back, an orange number); a crit that finishes a big unit gets a split-second freeze-frame. Damage numbers also show on big units and bosses (at most about seven a second).
+  - `synergies`: armies with the right mix of troops get a bonus, announced at the start: SHIELD WALL (shields plus archers: archers +15%), PACK HUNT (wolf riders or hellhounds: faster), DARK RITUAL (necromancers plus skeletons: more raised), WAR DRUMS (a drummer plus orcs or berserkers: faster attacks), HELLFIRE (demons: hotter fire), CLOCKWORK (engineers plus dwarves: tougher turrets), NATURE'S CALL (druids plus treants: trees heal), SPELLBLADES (blades plus wizards), GUNS AND STEEL (gunners plus armour: tougher gunners), NINJA CLAN (ninjas plus samurai: faster ninjas).
+  - `weather`: the chance (0.3) of weather for the whole battle: fog (shorter range for shooters), rain (fire is weaker), sandstorm (shots go wide), an eclipse (the dead and demons hit 25% harder) or a blood moon (every kill heals the killer by 30%).
+  - `modifiers`: the chance (0.1) of a battle rule: low gravity (knockbacks fly much further), double speed, permanent night (shorter range) or reversed healing (healing hurts).
+  - Bosses (the titan, hydra, fortress, dread knight, Mirror King, Gravity Tyrant) change at 75%, 50% and 25% health: a shockwave, harder hits, more speed, and at 25% a few troops come to help. Their name shows over their health bar.
+  - Morale: if a general falls, its whole army panics for 3 seconds (slower, weaker, a "!" over each troop); a fallen standard bearer makes the troops around it panic briefly. A king's crown makes troops immune to panic.
+  - `portals`: the chance (0.15) that a portal opens in the middle of the battle and neutral monsters come out (trolls and imps, a cyclops, wolf riders, a golem, demons and hellhounds, or a hydra) that attack whoever is closest. They're olive-green with a dashed ring and fade away at the end.
+  - `suddenDeath`: if nobody is close to losing when about 60% of the battle has gone, one of: the arena shrinks inside a ring of fire, lava rises from both sides, a meteor storm, or a neutral titan crashes in.
+  - `extinction`: if one army is crushing everyone else (still most of its army, the others under 30% and four times weaker), an ancient hunter (a titan) wakes up and goes after that army only.
+  - `weaponDrops`: fallen troops sometimes drop their weapon; the next troop to walk over it hits 25% harder.
+  - `destructible`: walls, rocks, pillars, trees and other cover can be broken by blasts and titans (trees catch fire), leaving rubble; big blasts leave craters in the ground.
+  - `bossTransform`: when a general (or the Undefeated General) is one of the last two troops of its army, it transforms into a monster: huge, three times the damage, stomping.
+  - `livingWeapons`: weapons nobody picked up can come alive later in the battle as flying living blades that attack everyone (at most four a battle).
+  - `powerups`: ten more supply-drop kinds (each crate shows its own icon), **clone ray** (copies six of that side's troops) and **ghost army** (the last 10 fallen troops come back as ghosts for 14 s), plus: **time freeze** (every enemy frozen for 3 s), **portal** (a squad steps out behind the enemy lines), **phoenix heart** (the last 8 fallen troops come back at half health), **chain lightning** (a bolt jumps between 10 enemies), **chaos dice** (giant size, tiny enemies, speed, confusion, full heal or a shockwave), **evolution crystal** (the best troop jumps to ELITE with a mutation), **pocket singularity** (pulls enemies together, then blows them apart) and **king's crown** (the strongest troop leads: troops near it hit 30% harder for 10 s).
 - **`cinematic`**: `true` turns on the director (see below). `false` gives the plain fixed camera.
 - **`events`**: battle events that can happen. Remove a name to switch it off.
   - `airdrop`: two supply drops per battle, each a different kind. A plane (or a parachute in older eras) drops a crate on the middle line, or nearer the side that's behind if one is, troops race for it, and the first to reach it gets what's inside (the leader can still steal it). The crate's colour and icon show the kind: **squad** (wooden, gold band: a squad of that army's best troop), **med kit** (white, red cross: every troop on that side healed by half its health), **rage** (red, flame: that side hits 50% harder for 8 seconds, red-hot rings), **shield** (blue, shield: that side takes half damage for 8 seconds, blue bubbles), **speed** (yellow, lightning bolt: 35% faster for 8 seconds, speed lines), **big unit** (large steel crate with a gold star: a giant, tank, dragon, mech or cannon from that army's genre).
   - `airstrike`: in modern, sci-fi and mixed battles, the side that's behind calls in a jet (an orbital strike in sci-fi) on the thickest group of enemies.
-  - Hazards that hit both sides: `meteors` (a meteor shower; a cannon barrage in pirate battles), `lightning` (a lightning storm), `tornado` (a twister crosses the field, flinging troops around), `blizzard` (snow sweeps the field and everyone slows down for 7 seconds) and `earthquake` (the ground cracks open along a line; troops on it get hurt and thrown aside, and the crack stays).
+  - Hazards that hit both sides: `meteors` (a meteor shower; a cannon barrage in pirate battles), `lightning` (a lightning storm), `tornado` (a twister crosses the field, flinging troops around), `blizzard` (snow sweeps the field and everyone slows down for 7 seconds), `earthquake` (the ground cracks open along a line; troops on it get hurt and thrown aside, and the crack stays), `stampede` (wild mammoths and rhinos charge across both halves at once; not in modern or sci-fi battles) and `kraken` (pirate battles only: six tentacles rise out of the ground, sweep round and squeeze whoever they catch).
   About nine battles in ten get one big moment after the first drop: an airstrike (battles with planes) or one of the hazards.
 - **`troopShares`**: in line-ups that include an extra troop, roughly what share of each army it makes up (0.15 = about 15%).
 - **`formations`**: how each army lines up at the start. Each video takes the next formation for each side from this list (the two sides usually differ), shifting each time the line-up list starts over. Available: `line`, `wedge` (narrow tip at the front), `columns` (three columns), `crescent` (ends curve forward), `flanks` (two groups with a gap in the middle), `block` (narrow and deep).
 - **`maps`**: the battlefields, rotating like the line-ups among those allowed for the battle's genre (`eras`; no list = every genre; `wild` = creative match-ups). `open` (no obstacles), `rocks` (boulders), `ruins` (stone pillars and walls), `trenches` (sandbag lines and craters), `city` (rooftops and crates), and three themed maps with their own ground colour: `forest` (dark green, trees and bushes), `bombed` (a bombed city: cracked asphalt, a road, ruined buildings, burnt-out cars and fires) and `enchanted` (a fantasy land: violet ground, a rune circle, crystals, giant toadstools and twinkling sparkles). The page around the arena keeps the same dark style on every map.
+  Maps whose ground does something (the same for both sides, mirrored top to bottom): `godboard` (a giant chessboard; every few seconds squares light up, red ones strike with lightning and gold ones make troops 30% stronger), `furnace` (the World Furnace: lava rivers pour across the field and move every 10 seconds; fireproof troops don't care), `frozen` (the Frozen End: troops slide on the ice and shoot a little shorter in the cold; big units crack the ice until it breaks into icy water), `grave` (the Titan's Grave: a giant skeleton across the field; its ribs are cover and a pair collapses every few seconds), `overgrown` (the Overgrown Kingdom: vines slow troops, thickets hide them from archers further than a short distance away, statues wake up and strike), `clockwork` (the Clockwork Colosseum: round platforms turn and carry troops round, giant gears, and the gears reverse a third of the way in), `shattered` (the Shattered Sky: floating islands joined by three bridges; shots fly over the void, but troops knocked off fall) and `mirror` (the Mirror Dimension: every 12 seconds the whole battle flips left to right and mirror images of a few troops appear).
   Obstacles block movement, bullets and arrows; grenades, shells, fireballs, rockets and cannonballs fly over them, and dragons fly over everything. Troops find their way around obstacles to reach their target. Shooters with a target in range take cover beside or behind an obstacle when one is close, and move to get a clear shot when a wall is in the way. Every map is mirrored so both sides get the same ground.
 - **`formationBudget`**: army size per formation, so no formation wins more often than a plain line. In test battles wedge and columns won more (58% vs 47%) and crescent and block won less (36%), so their armies are nudged by 0.5 to 1.5%.
 
@@ -97,6 +124,85 @@ In between, it stays on the whole arena about half the time, sometimes drifting 
 | *Horror:* Vampire | pale face, slicked-back black hair, red eyes, a black cape and a team-colour collar | fast; every bite heals it by half the damage it deals (its eyes flare red); can't be turned by zombies |
 | *Samurai:* Samurai | shoulder plates, gold-crested helmet, katana | armoured swordsman |
 | *Samurai:* Ninja | black suit with a team-colour ring and headband | very fast, side-steps almost half of the arrows and bullets aimed at it |
+| *Empire:* Pikeman | steel helmet and a very long pike | stabs from far back; triple damage against cavalry and big units |
+| *Empire:* Duelist | red bandana and two swords | very fast attacks |
+| *Empire:* Royal guard | gold-ringed armour, red plume, halberd | elite defender; blocks a quarter of every blade |
+| *Empire:* Lancer | rider with a long lance and team pennant on a brown horse | a run-up turns the next hit into a charge (triple damage, throws the target back), then it wheels away to charge again |
+| *Empire:* Horse archer | rider with a fur cap and a bow on a tan horse | rides circles round its target while shooting |
+| *Empire:* Longbowman | brown hood and a tall bow | the longest range of any archer |
+| *Empire:* Fire archer | red hood, flaming arrow | arrows set troops alight (damage over 3 s) |
+| *Empire:* Poison hunter | dark green hood, blowpipe | poison darts (damage over 4 s, a little slower) |
+| *Empire:* Standard bearer | big banner in the team colour (the flag in nation battles) | allies near it take 20% less damage; troops near it panic for a moment if it falls |
+| *Empire:* Drummer | drum and two sticks | allies near it attack 25% faster |
+| *Empire:* General | gold helmet and team-colour cape on a white horse | allies near it hit 20% harder; the whole army panics for 3 s when the general falls (one per EMPIRE army) |
+| *Empire:* Peasant | straw hat and a pitchfork | cheap; the Forbidden Army is all peasants (see evolution) |
+| *Empire:* War elephant | grey elephant with ears, trunk, tusks and a team howdah | tramples whatever it walks through and throws troops aside |
+| *Empire:* Walking fortress | a stone castle on four legs, team banners on its towers | archers on its walls shoot three targets, a gate cannon fires every few seconds, and its garrison pours out when it falls |
+| *Undead:* Necromancer | dark robe, staff with a glowing skull | green soul bolts; raises fallen troops nearby as skeletons (at most 40 a battle) |
+| *Undead:* Bone colossus | a huge skeleton with a rib cage and burning eyes | what 12 skeletons of an Undead Legion fuse into |
+| *Undead:* Dread knight | black armour, glowing sword, nightmare horse with red eyes | boss; hunts generals and big units and grows stronger with each |
+| *Orcs:* Wolf rider | orc on a grey wolf | the fastest troop; goes for archers, gunners and healers |
+| *Orcs:* Boar rider | rider with a spear on a tusked boar | charges, and every hit knocks the target back |
+| *Orcs:* Troll | big green brute with tusks and a club | heals itself all the time (fire stops it) |
+| *Orcs:* Cyclops | one-eyed giant holding a boulder | throws boulders into groups |
+| *Sylvan:* Druid | antler hood, leafy staff | a healing pulse for everyone near it, plus bark skin (25% less damage for 3 s) |
+| *Sylvan:* Treant | walking tree with leafy crown | its hits root troops in place; fire hurts it more |
+| *Sylvan:* Illusionist | white mask, floating orbs | makes fake troops that enemies go for first |
+| *Infernal:* Imp | small red flier with bat wings | spits fire bolts |
+| *Infernal:* Demon | dark red, curved horns, claws | stronger the more troops have died in the battle (glows) |
+| *Infernal:* Hellhound | black dog with a fiery mane | fast; its bite sets troops alight |
+| *Infernal:* Warlock | horned hood, staff with a fire orb | hellfire that leaves the ground burning; once a battle its army takes over the enemy's biggest unit |
+| *Dwarves:* Dwarf | orange beard, horned helmet, axe | sturdy and well armoured |
+| *Dwarves:* Goblin engineer | green goblin with goggles and a wrench | builds up to two crossbow turrets (turrets aren't counted as troops) |
+| *Dwarves:* Stone golem | blocky stone body with a glowing rune | can't be knocked back or pushed |
+| *Monsters:* Hydra | scaly body with three heads on long necks | each head bites a different troop; five heads once it's badly hurt |
+| *Monsters:* Ancient titan | stone giant with team pauldrons and glowing eyes | stomps groups, throws troops aside and smashes walls |
+| *Monsters:* Phoenix | firebird with flaming wings | flies and breathes fire; rises once from its ashes, and leaves a firestorm when it falls for good |
+| *Monsters:* Griffin rider | rider on a winged griffin | flying cavalry that dives at its target |
+| *Arcane:* Mirror knight | polished silver knight with a mirror shield | turns into a copy of the last enemy troop that hits it |
+| *Arcane:* Phase reaper | hooded wraith with a scythe | vanishes, passes through the enemy lines and reappears behind its target for a huge hit |
+| *Arcane:* Plague alchemist | goggles, apron, green flask | flasks leave poison clouds that slow and poison |
+| *Arcane:* Gravity monk | orange robe, orbiting stones | pulls nearby enemies together into a clump |
+| *Arcane:* Soul smith | apron, hammer, orbiting soul lights | collects souls of the fallen and forges armour and blades for nearby allies |
+| *Arcane:* False soldier | looks exactly like an ordinary soldier | when an enemy gets close it bursts into spikes and leaves scarecrow decoys |
+| *Arcane:* Fortress turtle | a big shell of hexagon plates | plants itself near enemies; its shell then soaks up shots meant for the troops behind |
+| *Mythic:* Thousand-Man | a mass of fused bodies with arms everywhere | every troop it kills joins its body; it keeps growing and starts stomping |
+| *Mythic:* Copycat | purple shapeshifter with a white mask | an army of them copies the biggest enemy unit every few seconds |
+| *Mythic:* Immortal Fraud | gold armour, smug mask, fake halo | comes back four times, stronger but with a new weakness each time; the last time as a boss |
+| *Mythic:* Mirror King | silver king with a crown and orbiting mirror shards | troops that hit it can spawn mirrored copies of themselves on its side |
+| *Mythic:* Eye of the Unmaker | a floating eye with tentacles | turns troops into sheep, armour into flesh, and fliers fall out of the sky |
+| *Mythic:* Billionaire | gold suit, top hat, money bag | never fights; bribes enemy troops to switch sides |
+| *Mythic:* Gravity Tyrant | dark armour, glowing core, orbiting debris | drags every enemy around it in, then slams the ground |
+| *Mythic:* Meteor Shepherd | starry hood, star banner, a little meteor | calls meteors down on the thickest groups; bigger the longer it lives |
+| *Mythic:* The Glitch | flickering red/blue double image | changes the rules every few seconds: swaps troops around, turbo speed, zero gravity, clones itself |
+| *Magic:* Frost witch | ice-blue hat, staff with a spinning ice crystal | frost bolts slow everyone they splash and sometimes freeze troops solid for a moment |
+| *Magic:* Lich | skull with green eyes under a gold circlet, orbiting souls | every few seconds drains life from the three nearest enemies and gives it to its army |
+| *Magic:* Storm caller | dark hood, staff crackling with lightning | calls lightning down on its target |
+| *Magic:* Forest spirit | small glowing wisp with a trail | fast flier; heals the allies around it when it fades |
+| *Magic:* Gargoyle | stone bat wings, horns, red eyes | flier; when badly hurt it turns to stone for a moment and can't be damaged |
+| *Magic:* Siren | flowing teal hair and a pink shell | her song charms up to six enemies: they stop fighting and walk towards her (pink hearts) |
+| Assassin | black hood, team sash, two daggers | invisible until it strikes (four times the damage), goes for generals and big units, then fades out again |
+| Siege gunner | brass helmet, short fat mortar | shells clustered troops from very far away |
+| Catapult | wooden frame on wheels, throwing arm | hurls boulders across the field |
+| War mammoth | shaggy brown mammoth with curling tusks and a team howdah | tramples and throws troops aside |
+| War rhino | grey rhino with a team armour plate | charges with its horn (triple damage), backs off and charges again |
+| Ogre | big olive brute with a club | eats a wounded ally every few seconds to heal and grow |
+| Kamikaze drone | quadcopter with a blinking light | flies straight at its target and blows up |
+| Attack helicopter | team-colour gunship with a spinning rotor and rocket pods | machine gun, plus two rockets every few seconds |
+| Empty armour | a floating suit of armour with nothing inside | every troop the Empty Army kills gets back up as an empty copy of itself on its side (at most 40) |
+| Living blade | a spinning sword with an eye on the hilt | a weapon that came alive (living weapons); attacks everyone |
+| *Mythic:* Star Eater | a void full of stars, tentacles, a toothy maw, six eyes | swallows the sun: the field darkens, enemies see less and slowly wither, then it opens a black hole |
+| *Mythic:* Timeline Executioner | black hood, clock on its back, a broad axe, a ring of clock marks | sends the enemies around it a few seconds back in time and executes two of them while they reset |
+| *Mythic:* Walking Cathedral | a cathedral on stone feet, rose window, bell tower | archers in its windows; its bell raises the dead around it as skeletons and heals its army |
+| *Mythic:* Storm Emperor | a storm dragon with lightning in its wings and a crown of horns | lightning hunts the strongest enemy, wing gusts throw troops back, and when it dies the storm stays for the rest of the battle (lightning in mirrored pairs) |
+| *Mythic:* The Worldroot | a giant tree with glowing fruit | plants itself, then its roots spread over the field (slowing and draining enemies) and new treants and spirits grow |
+| *Mythic:* Hourglass Titan | a stone titan with an hourglass in its chest | ages wounded enemies into skeletons that fight for it, turns back time on its own troops' wounds, rusts machines |
+| *Mythic:* Moon Caller | silver hood, crescent moon staff | pulls the moon closer: enemies get heavier, fliers fall out of the sky, and the tide rises on both edges |
+| *Mythic:* Unqualified King | a tiny goblin in a huge crown and cape | can't fight at all; enemy troops near him defect to his army ("ALL HAIL!") |
+| *Mythic:* Undefeated General | gold armour and laurels on a golden horse | when its army is about to lose (or it's about to fall), the whole battle rewinds about 12 seconds once, and its army hits a quarter harder |
+| *Mythic:* The Player | a giant white cartoon glove with a team cuff | picks troops up (even tanks) and throws them into the thickest enemy group |
+| *Mythic:* The Universe | looks like an ordinary soldier, with stars in its helmet | when it dies a universe opens and a whole squad of a random army pours out |
+| *Mythic:* Living Fortress | an ordinary castle (labelled CASTLE) | wakes up when enemies come close: legs, arms, glowing eyes, and a gate full of teeth that swallows troops whole |
 
 ## Changing anything else
 

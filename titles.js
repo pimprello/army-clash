@@ -20,6 +20,24 @@ const NOUN = {
   ZOMBIES: { n: 'Zombies', count: true, e: '🧟' }, UNDEAD: { n: 'Undead', count: true, e: '🧟' }, VAMPIRES: { n: 'Vampires', count: true, e: '🧛' },
   SAMURAI: { n: 'Samurai', count: true, e: '⚔️' }, NINJAS: { n: 'Ninjas', count: true, e: '🥷' },
   VIKINGS: { n: 'Vikings', count: true, e: '🪓' },
+  // the big troop batch: factions, monster armies and mythic rule-breakers
+  EMPIRE: { n: 'Empire', e: '👑' }, CAVALRY: { n: 'Cavalry', e: '🐎' }, LONGBOWS: { n: 'Longbowmen', e: '🏹' }, ELEPHANTS: { n: 'War Elephants', big: 'ELEPHANT', e: '🐘' },
+  FORTRESS: { n: 'Walking Fortress', big: 'FORTRESS', e: '🏰' }, FORBIDDEN: { n: 'Peasants', count: true, e: '🌾' }, WARBAND: { n: 'Orc Horde', e: '👹' }, SYLVAN: { n: 'Forest Elves', e: '🌳' },
+  INFERNAL: { n: 'Demons', e: '😈' }, DWARVES: { n: 'Dwarves', e: '⛏️' }, CYCLOPS: { n: 'Cyclops Army', big: 'CYCLOPS', e: '👁️' }, GRIFFINS: { n: 'Griffin Riders', e: '🦅' },
+  HYDRA: { n: 'Hydra Army', big: 'HYDRA', e: '🐍' }, TITAN: { n: 'Titan Army', big: 'TITAN', e: '🗿' }, PHOENIX: { n: 'Phoenix Army', big: 'PHOENIX', e: '🔥' }, GOLEMS: { n: 'Golems', big: 'GOLEM', e: '🪨' },
+  ARCANE: { n: 'Arcane Army', e: '🔮' }, TURTLES: { n: 'Turtle Army', e: '🐢' }, THOUSANDMAN: { n: 'Thousand-Man', big: 'THOUSAND-MAN', e: '🧟' }, COPYCATS: { n: 'Copycats', e: '🎭' },
+  IMMORTAL: { n: 'Immortal', big: 'IMMORTAL', e: '♾️' }, MIRRORKING: { n: 'Mirror King', big: 'MIRROR KING', e: '🪞' }, UNMAKER: { n: 'Unmaker', big: 'UNMAKER', e: '👁️' },
+  TYCOON: { n: 'Billionaire', big: 'BILLIONAIRE', e: '💰' }, GRAVITY: { n: 'Gravity Tyrant', big: 'GRAVITY', e: '🌀' }, METEOR: { n: 'Meteor Army', big: 'METEOR', e: '☄️' },
+  LEGION: { n: 'Undead Legion', e: '💀' }, DREADKNIGHT: { n: 'Dread Knight', big: 'DREAD KNIGHT', e: '💀' }, GLITCH: { n: 'Glitch Army', big: 'GLITCH', e: '👾' },
+  // the second batch
+  SIEGE: { n: 'Siege Army', big: 'CATAPULT', e: '🪨' }, MAMMOTHS: { n: 'Mammoth Army', big: 'MAMMOTH', e: '🦣' }, CATHEDRAL: { n: 'Walking Cathedral', big: 'CATHEDRAL', e: '⛪' , who: 'a Walking CATHEDRAL' },
+  NEVERLOSE: { n: 'Undefeated General', big: 'UNDEFEATED', e: '⏪' , who: 'the UNDEFEATED General' }, PLAYER: { n: 'The Player', big: 'PLAYER', e: '🖐️' , who: 'THE PLAYER' }, UNIVERSE: { n: 'Universe Army', e: '🌌' },
+  LIVINGFORT: { n: 'Living Fortress', big: 'LIVING CASTLE', e: '🏰' , who: 'a LIVING Castle' }, FROST: { n: 'Frost Witches', e: '❄️' }, TEMPEST: { n: 'Storm Callers', e: '⚡' }, SPIRITS: { n: 'Forest Spirits', e: '✨' },
+  RHINOS: { n: 'War Rhinos', e: '🦏' }, OGRES: { n: 'Ogres', e: '👹' }, STAREATER: { n: 'Star Eater', big: 'STAR EATER', e: '🌑' , who: 'the STAR EATER' }, TIMELINE: { n: 'Timeline Executioner', big: 'TIME', e: '⏳' , who: 'the TIME Executioner' },
+  STORMEMPEROR: { n: 'Storm Emperor', big: 'STORM EMPEROR', e: '🌩️' , who: 'the STORM EMPEROR' }, WORLDROOT: { n: 'Worldroot', big: 'WORLDROOT', e: '🌳' , who: 'the WORLDROOT' }, HOURGLASS: { n: 'Hourglass Titan', big: 'HOURGLASS', e: '⏳' , who: 'the HOURGLASS Titan' },
+  MOONCALLER: { n: 'Moon Caller', big: 'MOON', e: '🌕' , who: 'the MOON Caller' }, GOBLINKING: { n: 'Goblin King', big: 'GOBLIN KING', e: '👑' , who: 'the GOBLIN KING' }, LICHES: { n: 'Liches', e: '💀' }, GARGOYLES: { n: 'Gargoyles', e: '🗿' },
+  EMPTY: { n: 'Empty Army', e: '👻' }, DRONES: { n: 'Drone Swarm', e: '💥' }, AIRBORNE: { n: 'Helicopter Army', big: 'HELICOPTER', e: '🚁' }, SIRENS: { n: 'Sirens', e: '🧜‍♀️' },
+  ASSASSINS: { n: 'Assassins', e: '🗡️' },
 };
 const nounOf = doc => NOUN[doc.name] || { n: doc.name.charAt(0) + doc.name.slice(1).toLowerCase(), count: false, e: '⚔️' };
 const tc = s => s.split(' ').map(w => w.charAt(0) + w.slice(1).toLowerCase()).join(' ');
@@ -46,9 +64,41 @@ function makeTitle(f) {
   if (f.falls.includes('tank')) facts.push('Nobody Expected the TANK to Fall 💥');
   if (f.falls.includes('giant')) facts.push('The GIANT Never Saw It Coming 💀');
   if (f.falls.includes('mech')) facts.push('The MECH Went Down 🤖');
+  // the big troop batch and the new systems: only things that really happened in this battle
+  const x = f.xf || {}, L = k => (f.label ? f.label(k) : k.toUpperCase()).replace(/^THE /, '');
+  const tc2 = s => s.split(' ').map(w => (w.length > 2 ? w.charAt(0) + w.slice(1).toLowerCase() : w.toLowerCase())).join(' ');
+  for (const k of f.falls) if (!['dragon', 'tank', 'giant', 'mech', 'cannon'].includes(k)) { facts.push(`The ${tc2(L(k))} Went DOWN 💀`); break; }
+  if (x.godEater) facts.push('A Peasant Became a GOD 😱', 'This PEASANT Ate a God 😳');
+  if (x.possess) facts.push(`They STOLE the ${tc2(L(x.possess))} 😈`);
+  if (x.fusion) facts.push('12 Skeletons FUSED Into a Giant 💀');
+  if (x.bribes >= 3) facts.push('He BOUGHT Their Army 💰');
+  if (x.sheep >= 3) facts.push('He Turned Them Into SHEEP 🐑');
+  if (x.portal) facts.push('A PORTAL Opened Mid-Battle 🌀');
+  if (x.extinct) facts.push('An ANCIENT Monster Woke Up 😱');
+  if (x.sudden) facts.push({ ring: 'Then the Arena Started SHRINKING 😱', lava: 'Then the LAVA Rose 🌋', boss: 'A TITAN Crashed the Battle 🗿', meteors: 'A METEOR STORM Ended It ☄️' }[x.sudden]);
+  if (x.copied) facts.push(`They COPIED the ${tc2(L(x.copied))} 🎭`);
+  if (x.revives >= 3) facts.push('He Just WOULDN\'T Die 😳');
+  if (x.falls >= 3) facts.push(`${x.falls} Troops Fell Off the MAP 😭`);
+  if (x.walls >= 3) facts.push('They SMASHED Through the Walls 💥');
+  if ((x.titles || []).some(t => /DRAGON SLAYER/.test(t))) facts.push('A DRAGON SLAYER Was Born ⚔️');
+  if (x.eaten >= 3) facts.push('The Ogres ATE Their Own Army 😳');
+  if (x.castle) facts.push('The CASTLE Was Alive 😱');
+  if (x.blackhole) facts.push('He Opened a BLACK HOLE 🌑');
+  if (x.rewound) facts.push('The General REWOUND the Battle ⏪');
+  else if (x.rewinds >= 2) facts.push('He REWOUND Time Itself ⏪');
+  if (x.aged >= 3) facts.push('He Aged Them Into SKELETONS ⏳');
+  if (x.moon) facts.push('The MOON Pulled Them Down 🌕');
+  if (x.defect >= 3) facts.push('They Joined the GOBLIN KING?! 👑');
+  if (x.grabbed >= 3) facts.push('A Giant HAND Joined the Battle 🖐️');
+  if (x.swallowed >= 3) facts.push('The Castle ATE Them 🏰');
+  if (x.hollow >= 5) facts.push('The Empty Armour Kept FIGHTING 👻');
+  if (x.universe) facts.push('A UNIVERSE Opened Inside Him 🌌');
+  if (x.transform) facts.push('The Last One TRANSFORMED 😱');
+  if (x.living) facts.push('The Weapons Came ALIVE 🗡️');
+  if (f.mvp && f.mvp.kills >= 12) facts.push(`One ${tc2(L(f.mvp.type))} Got ${f.mvp.kills} KILLS 😳`);
   if (f.drops.some(d => d.kind === 'heavy' && d.team === w)) facts.push('The Airdrop Had a SURPRISE Inside 📦');
   if (f.strike === w) facts.push('One AIRSTRIKE Changed Everything ✈️');
-  const HAZ = { tornado: 'A TORNADO Hit Mid-Battle 🌪️', earthquake: 'Then the Ground SPLIT Open 😱', blizzard: 'A BLIZZARD Froze the Battle ❄️', meteors: 'METEORS Hit Mid-Battle ☄️', lightning: 'LIGHTNING Struck the Battlefield ⚡', cannonballs: 'Cannonballs RAINED Down 💣' };
+  const HAZ = { tornado: 'A TORNADO Hit Mid-Battle 🌪️', earthquake: 'Then the Ground SPLIT Open 😱', blizzard: 'A BLIZZARD Froze the Battle ❄️', meteors: 'METEORS Hit Mid-Battle ☄️', lightning: 'LIGHTNING Struck the Battlefield ⚡', cannonballs: 'Cannonballs RAINED Down 💣', stampede: 'A STAMPEDE Hit Mid-Battle 🦣', kraken: 'The KRAKEN Woke Up 🐙' };
   if (HAZ[f.hazard]) facts.push(HAZ[f.hazard]);
   if (f.clickbait) return { title: pick(facts.length ? facts : ['Wait for the ENDING... 😳', 'I Did NOT Expect This 😳', 'This Got WAY Too Intense 🔥', 'Nobody Saw This Coming 🤯', 'Watch Till the END 👀']), kind: 'clickbait' };
 
@@ -63,10 +113,12 @@ function makeTitle(f) {
   } else {
     const [A, B] = [nounOf(f.docs[0]), nounOf(f.docs[1])];
     if (!f.wild && A.count && B.count && names[0] !== names[1]) options.push(`${f.start[0]} ${names[0]} vs ${f.start[1]} ${names[1]} ${emo[0] || emo[1]}`);
-    if (!f.wild && A.big && B.big && A.big !== B.big) options.push(`${emo[0]} ${A.big} Army vs ${B.big} Army`, `${A.big} vs ${B.big} ${emo[1]}`);
+    // one-of-a-kind bosses read better by name ("vs the STAR EATER") than as "a ... Army"
+    const army = n => n.who || `${n.big} Army`, aArmy = n => n.who || `a ${n.big} Army`;
+    if (!f.wild && A.big && B.big && A.big !== B.big) options.push(`${emo[0]} ${army(A)} vs ${army(B)}`, `${A.big} vs ${B.big} ${emo[1]}`);
     else if (!f.wild && (A.big || B.big)) {
       const bigSide = A.big ? 0 : 1, other = 1 - bigSide, bn = nounOf(f.docs[other]);
-      options.push(`${bn.count ? f.start[other] + ' ' : ''}${names[other]} vs a ${(A.big || B.big)} Army ${emo[bigSide]}`);
+      options.push(`${bn.count ? f.start[other] + ' ' : ''}${names[other]} vs ${aArmy(bigSide ? B : A)} ${emo[bigSide]}`);
     }
     options.push(`${emo[0] || '🔥'} ${cap(names[0])} vs ${names[1]}`, `${names[0]} vs ${cap(names[1])} ${emo[1] || '🔥'}`);
     if (f.wild) options.push(`${names[0]} vs ${names[1]} 🤯`, `DREAM TEAM Battle: ${names[0]} vs ${names[1]}`);

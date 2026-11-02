@@ -352,6 +352,91 @@
         "samurai",
         "wild"
       ]
+    },
+    {
+      "name": "godboard",
+      "eras": [
+        "medieval",
+        "fantasy",
+        "samurai",
+        "wild",
+        "mixed",
+        "scifi"
+      ]
+    },
+    {
+      "name": "furnace",
+      "eras": [
+        "fantasy",
+        "horror",
+        "wild",
+        "mixed",
+        "scifi"
+      ]
+    },
+    {
+      "name": "frozen",
+      "eras": [
+        "medieval",
+        "modern",
+        "fantasy",
+        "samurai",
+        "pirate",
+        "horror",
+        "wild",
+        "mixed",
+        "scifi"
+      ]
+    },
+    {
+      "name": "grave",
+      "eras": [
+        "medieval",
+        "fantasy",
+        "horror",
+        "samurai",
+        "wild"
+      ]
+    },
+    {
+      "name": "overgrown",
+      "eras": [
+        "medieval",
+        "fantasy",
+        "samurai",
+        "pirate",
+        "wild",
+        "mixed"
+      ]
+    },
+    {
+      "name": "clockwork",
+      "eras": [
+        "scifi",
+        "fantasy",
+        "pirate",
+        "wild",
+        "mixed",
+        "modern"
+      ]
+    },
+    {
+      "name": "shattered",
+      "eras": [
+        "fantasy",
+        "scifi",
+        "wild"
+      ]
+    },
+    {
+      "name": "mirror",
+      "eras": [
+        "fantasy",
+        "scifi",
+        "horror",
+        "wild",
+        "samurai"
+      ]
     }
   ],
   "matchups": [
@@ -376,12 +461,12 @@
     {
       "top": "HORDE",
       "bottom": "ELVES",
-      "balance": 0.86
+      "balance": 0.844
     },
     {
       "top": "GIANT",
       "bottom": "SWARM",
-      "balance": 1.05
+      "balance": 1.012
     },
     {
       "top": "MECHS",
@@ -426,7 +511,7 @@
           "tank"
         ]
       },
-      "balance": 0.675
+      "balance": 0.726
     },
     {
       "top": "KNIGHTS",
@@ -465,7 +550,7 @@
       "troops": [
         "crossbowman"
       ],
-      "balance": 1.03
+      "balance": 1.088
     },
     {
       "top": "NINJAS",
@@ -476,12 +561,12 @@
       "era": "modern",
       "top": "ARMORED",
       "bottom": "SNIPERS",
-      "balance": 1.24
+      "balance": 1.384
     },
     {
       "top": "ARMORED",
       "bottom": "GIANT",
-      "balance": 1.39
+      "balance": 1.61
     },
     {
       "top": "ZOMBIES",
@@ -505,7 +590,7 @@
     {
       "top": "SAMURAI",
       "bottom": "NINJAS",
-      "balance": 0.877
+      "balance": 0.944
     },
     {
       "top": "DRAGON",
@@ -540,7 +625,7 @@
           "healer": 0.2
         }
       },
-      "balance": 0.697
+      "balance": 0.75
     },
     {
       "era": "modern",
@@ -559,7 +644,7 @@
     {
       "top": "BUCCANEERS",
       "bottom": "ARMORED",
-      "balance": 0.519
+      "balance": 0.456
     },
     {
       "top": "KNIGHTS",
@@ -598,12 +683,12 @@
       "troops": [
         "swordsman"
       ],
-      "balance": 1.07
+      "balance": 1.131
     },
     {
       "top": "SAMURAI",
       "bottom": "KNIGHTS",
-      "balance": 1.253
+      "balance": 1.349
     },
     {
       "era": "modern",
@@ -639,7 +724,7 @@
         "shieldbearer",
         "healer"
       ],
-      "balance": 1.07
+      "balance": 0.994
     },
     {
       "top": {
@@ -668,7 +753,7 @@
     {
       "top": "MAGES",
       "bottom": "HORDE",
-      "balance": 1.34
+      "balance": 1.416
     },
     {
       "top": "BALANCED",
@@ -682,13 +767,13 @@
     {
       "top": "PIRATES",
       "bottom": "ORCS",
-      "balance": 0.675
+      "balance": 0.7
     },
     {
       "era": "modern",
       "top": "ASSAULT",
       "bottom": "ARMORED",
-      "balance": 0.8
+      "balance": 0.619
     },
     {
       "top": "SWARM",
@@ -696,7 +781,7 @@
       "topTroops": [
         "healer"
       ],
-      "balance": 0.76
+      "balance": 0.733
     },
     {
       "top": "ROBOTS",
@@ -724,7 +809,7 @@
         "berserker",
         "crossbowman"
       ],
-      "balance": 1.02
+      "balance": 1.058
     },
     {
       "top": "TROOPERS",
@@ -764,7 +849,7 @@
           "dragon"
         ]
       },
-      "balance": 0.936
+      "balance": 1.146
     },
     {
       "era": "modern",
@@ -773,17 +858,17 @@
       "troops": [
         "healer"
       ],
-      "balance": 0.92
+      "balance": 0.855
     },
     {
       "top": "HORDE",
       "bottom": "INFANTRY",
-      "balance": 0.99
+      "balance": 1.008
     },
     {
       "top": "UNDEAD",
       "bottom": "TROOPERS",
-      "balance": 0.769
+      "balance": 0.728
     },
     {
       "top": "VAMPIRES",
@@ -793,7 +878,331 @@
     {
       "top": "KNIGHTS",
       "bottom": "VAMPIRES",
-      "balance": 0.455
+      "balance": 0.557
+    },
+    {
+      "top": "EMPIRE",
+      "bottom": "WARBAND",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "LEGION",
+      "bottom": "EMPIRE",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "SYLVAN",
+      "bottom": "INFERNAL",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "DWARVES",
+      "bottom": "WARBAND",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "CAVALRY",
+      "bottom": "LONGBOWS",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "FORBIDDEN",
+      "bottom": "GIANT",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "TITAN",
+      "bottom": "ARMORED",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "HYDRA",
+      "bottom": "KNIGHTS",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "PHOENIX",
+      "bottom": "MECHS",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "FORTRESS",
+      "bottom": "CYCLOPS",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "GRIFFINS",
+      "bottom": "ARCHERS",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "ELEPHANTS",
+      "bottom": "INFANTRY",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "ARCANE",
+      "bottom": "NINJAS",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "TURTLES",
+      "bottom": "ASSAULT",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "GOLEMS",
+      "bottom": "ROBOTS",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "THOUSANDMAN",
+      "bottom": "SWARM",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "COPYCATS",
+      "bottom": "GIANT",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "IMMORTAL",
+      "bottom": "SAMURAI",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "MIRRORKING",
+      "bottom": "PIRATES",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "UNMAKER",
+      "bottom": "KNIGHTS",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "TYCOON",
+      "bottom": "ORCS",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "GRAVITY",
+      "bottom": "UNDEAD",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "METEOR",
+      "bottom": "HORDE",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "GLITCH",
+      "bottom": "TROOPERS",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "DREADKNIGHT",
+      "bottom": "EMPIRE",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "INFERNAL",
+      "bottom": "VAMPIRES",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "FORBIDDEN",
+      "bottom": "TITAN",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "SYLVAN",
+      "bottom": "LEGION",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "FROST",
+      "bottom": "INFERNAL",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "TEMPEST",
+      "bottom": "DWARVES",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "LICHES",
+      "bottom": "EMPIRE",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "SPIRITS",
+      "bottom": "WARBAND",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "GARGOYLES",
+      "bottom": "KNIGHTS",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "ASSASSINS",
+      "bottom": "SAMURAI",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "SIEGE",
+      "bottom": "FORTRESS",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "MAMMOTHS",
+      "bottom": "ELEPHANTS",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "RHINOS",
+      "bottom": "CAVALRY",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "OGRES",
+      "bottom": "DWARVES",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "DRONES",
+      "bottom": "ARMORED",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "AIRBORNE",
+      "bottom": "INFANTRY",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "SIRENS",
+      "bottom": "BUCCANEERS",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "STAREATER",
+      "bottom": "PHOENIX",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "TIMELINE",
+      "bottom": "IMMORTAL",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "CATHEDRAL",
+      "bottom": "LEGION",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "STORMEMPEROR",
+      "bottom": "DRAGON",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "WORLDROOT",
+      "bottom": "GOLEMS",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "HOURGLASS",
+      "bottom": "ROBOTS",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "MOONCALLER",
+      "bottom": "GRIFFINS",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "GOBLINKING",
+      "bottom": "EMPIRE",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "NEVERLOSE",
+      "bottom": "WARBAND",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "EMPTY",
+      "bottom": "SWARM",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "PLAYER",
+      "bottom": "GIANT",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "UNIVERSE",
+      "bottom": "HORDE",
+      "balance": 1,
+      "pending": true
+    },
+    {
+      "top": "LIVINGFORT",
+      "bottom": "ORCS",
+      "balance": 1,
+      "pending": true
     }
   ],
   "cinematic": true,
@@ -812,7 +1221,9 @@
     "lightning",
     "tornado",
     "blizzard",
-    "earthquake"
+    "earthquake",
+    "stampede",
+    "kraken"
   ],
   "threeWay": {
     "every": 4,
@@ -1001,7 +1412,128 @@
         "maps": [
           "open"
         ]
+      },
+      {
+        "three": [
+          "EMPIRE",
+          "LEGION",
+          "WARBAND"
+        ],
+        "balance": [
+          1,
+          1,
+          1
+        ],
+        "pending": true
+      },
+      {
+        "three": [
+          "SYLVAN",
+          "INFERNAL",
+          "DWARVES"
+        ],
+        "balance": [
+          1,
+          1,
+          1
+        ],
+        "pending": true
+      },
+      {
+        "three": [
+          "TITAN",
+          "HYDRA",
+          "PHOENIX"
+        ],
+        "balance": [
+          1,
+          1,
+          1
+        ],
+        "pending": true
+      },
+      {
+        "three": [
+          "FORBIDDEN",
+          "COPYCATS",
+          "GLITCH"
+        ],
+        "balance": [
+          1,
+          1,
+          1
+        ],
+        "pending": true
+      },
+      {
+        "three": [
+          "STAREATER",
+          "STORMEMPEROR",
+          "WORLDROOT"
+        ],
+        "balance": [
+          1,
+          1,
+          1
+        ],
+        "pending": true
+      },
+      {
+        "three": [
+          "PLAYER",
+          "UNIVERSE",
+          "NEVERLOSE"
+        ],
+        "balance": [
+          1,
+          1,
+          1
+        ],
+        "pending": true
+      },
+      {
+        "three": [
+          "FROST",
+          "TEMPEST",
+          "SPIRITS"
+        ],
+        "balance": [
+          1,
+          1,
+          1
+        ],
+        "pending": true
+      },
+      {
+        "three": [
+          "OGRES",
+          "MAMMOTHS",
+          "RHINOS"
+        ],
+        "balance": [
+          1,
+          1,
+          1
+        ],
+        "pending": true
       }
     ]
+  },
+  "systems": {
+    "evolution": true,
+    "champions": true,
+    "traits": 0.05,
+    "crits": true,
+    "synergies": true,
+    "weather": 0.3,
+    "modifiers": 0.1,
+    "portals": 0.15,
+    "suddenDeath": true,
+    "extinction": true,
+    "weaponDrops": true,
+    "destructible": true,
+    "powerups": true,
+    "bossTransform": true,
+    "livingWeapons": true
   }
 }

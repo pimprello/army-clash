@@ -11,10 +11,25 @@ const NOUN = {
   berserker: 'RAIDERS', knight: 'KNIGHTS', rifleman: 'RIFLES', gunner: 'GUNNERS', sniper: 'SNIPERS', grenadier: 'BOMBERS',
   wizard: 'MAGES', orc: 'ORCS', skeleton: 'BONES', elf: 'ELVES', trooper: 'TROOPERS', robot: 'BOTS', pirate: 'PIRATES',
   musketeer: 'MUSKETS', zombie: 'ZOMBIES', ninja: 'NINJAS', samurai: 'SAMURAI', vampire: 'VAMPIRES',
+  // the big troop batch
+  pikeman: 'PIKES', duelist: 'DUELISTS', royalguard: 'GUARD', lancer: 'LANCERS', horsearcher: 'RIDERS', longbow: 'BOWS', firearcher: 'FLAMES', poisoner: 'VIPERS',
+  peasant: 'PEASANTS', necromancer: 'NECROS', wolfrider: 'WOLVES', boarrider: 'BOARS', troll: 'TROLLS', treant: 'TREANTS', illusionist: 'ILLUSIONS', imp: 'IMPS',
+  demon: 'DEMONS', hellhound: 'HOUNDS', warlock: 'WARLOCKS', dwarf: 'DWARVES', engineer: 'GOBLINS', mirrorknight: 'MIRRORS', phasereaper: 'REAPERS', alchemist: 'PLAGUE',
+  gravitymonk: 'MONKS', soulsmith: 'SMITHS', falsesoldier: 'FAKERS', griffin: 'GRIFFINS', copycat: 'COPYCATS',
+  // the second batch
+  frostwitch: 'WITCHES', lich: 'LICHES', stormcaller: 'STORMS', wisp: 'SPIRITS', gargoyle: 'GARGOYLES', assassin: 'ASSASSINS', siegegunner: 'MORTARS', rhino: 'RHINOS',
+  ogre: 'OGRES', drone: 'DRONES', siren: 'SIRENS', hollow: 'HOLLOWS',
 };
-const HEAVY_WORD = { tank: 'IRON', dragon: 'DRAGON', giant: 'GIANT', mech: 'MECH', cannon: 'CANNON' };
+// troops that only come as a small extra (a third troop), never as the main one
+const SUPPORT = ['healer', 'druid', 'bannerman', 'drummer', 'turtle'];
+const HEAVY_WORD = { tank: 'IRON', dragon: 'DRAGON', giant: 'GIANT', mech: 'MECH', cannon: 'CANNON', elephant: 'TUSK', golem: 'STONE', cyclops: 'CYCLOPS', hydra: 'HYDRA', titan: 'TITAN',
+  phoenix: 'PHOENIX', fortress: 'CASTLE', bonecolossus: 'BONE', deathknight: 'DREAD', thousandman: 'FLESH', immortal: 'UNDYING', mirrorking: 'MIRROR', unmaker: 'EYE', gravitytyrant: 'VOID',
+  billionaire: 'GOLD', meteorshepherd: 'STAR', glitch: 'GLITCH', catapult: 'SIEGE', mammoth: 'MAMMOTH', helicopter: 'CHOPPER', stareater: 'VOID', timeexec: 'CHRONO',
+  cathedral: 'HOLY', stormemperor: 'TEMPEST', worldroot: 'ROOT', hourglass: 'SAND', theplayer: 'PLAYER', livingfortress: 'FANG' };
 const WORDS = ['STORM', 'SHADOW', 'NEON', 'CHAOS', 'ROGUE', 'ROYAL', 'WILD', 'GHOST', 'STEEL', 'FROST', 'SOLAR', 'LUNAR', 'TOXIC', 'CYBER', 'OMEGA', 'TITAN', 'THUNDER', 'COSMIC', 'MIDNIGHT', 'GOLDEN', 'SAVAGE', 'TURBO', 'MEGA', 'ULTRA'];
-const HEAVIES = ['tank', 'dragon', 'giant', 'mech', 'cannon'];
+const HEAVIES = ['tank', 'dragon', 'giant', 'mech', 'cannon', 'elephant', 'golem', 'cyclops', 'hydra', 'titan', 'phoenix', 'fortress', 'bonecolossus', 'deathknight', 'thousandman',
+  'immortal', 'mirrorking', 'unmaker', 'gravitytyrant', 'billionaire', 'meteorshepherd', 'glitch', 'catapult', 'mammoth', 'helicopter', 'stareater', 'timeexec', 'cathedral',
+  'stormemperor', 'worldroot', 'hourglass', 'theplayer', 'livingfortress'];
 // plural names for descriptions
 const TROOP_NAME = {
   soldier: 'soldiers', archer: 'archers', crossbowman: 'crossbowmen', swordsman: 'swordsmen', spearman: 'spearmen', shieldbearer: 'shield bearers',
@@ -22,6 +37,18 @@ const TROOP_NAME = {
   wizard: 'wizards', orc: 'orcs', skeleton: 'skeletons', elf: 'elf archers', trooper: 'laser troopers', robot: 'robots', pirate: 'pirates',
   musketeer: 'musketeers', zombie: 'zombies', ninja: 'ninjas', samurai: 'samurai', vampire: 'vampires',
   tank: 'tank', dragon: 'dragon', giant: 'giant', mech: 'mech', cannon: 'cannon',
+  pikeman: 'pikemen', duelist: 'duelists', royalguard: 'royal guards', lancer: 'lancers', horsearcher: 'horse archers', longbow: 'longbowmen', firearcher: 'fire archers',
+  poisoner: 'poison hunters', bannerman: 'standard bearers', drummer: 'drummers', general: 'general', peasant: 'peasants', elephant: 'war elephant', necromancer: 'necromancers',
+  bonecolossus: 'bone colossus', deathknight: 'Dread Knight', wolfrider: 'wolf riders', boarrider: 'boar riders', troll: 'trolls', cyclops: 'cyclops', druid: 'druids', treant: 'treants',
+  illusionist: 'illusionists', imp: 'imps', demon: 'demons', hellhound: 'hellhounds', warlock: 'warlocks', dwarf: 'dwarves', engineer: 'goblin engineers', golem: 'stone golem',
+  hydra: 'hydra', titan: 'Ancient Titan', phoenix: 'phoenix', fortress: 'Walking Fortress', griffin: 'griffin riders', mirrorknight: 'mirror knights', phasereaper: 'phase reapers',
+  alchemist: 'plague alchemists', gravitymonk: 'gravity monks', soulsmith: 'soul smiths', falsesoldier: 'false soldiers', turtle: 'fortress turtles', thousandman: 'Thousand-Man',
+  copycat: 'copycats', immortal: 'Immortal Fraud', mirrorking: 'Mirror King', unmaker: 'Eye of the Unmaker', billionaire: 'Billionaire', gravitytyrant: 'Gravity Tyrant',
+  meteorshepherd: 'Meteor Shepherd', glitch: 'Glitch',
+  frostwitch: 'frost witches', lich: 'liches', stormcaller: 'storm callers', wisp: 'forest spirits', gargoyle: 'gargoyles', assassin: 'assassins', siegegunner: 'siege gunners',
+  catapult: 'catapult', mammoth: 'war mammoth', rhino: 'war rhinos', ogre: 'ogres', drone: 'kamikaze drones', helicopter: 'attack helicopter', siren: 'sirens', hollow: 'empty suits of armour',
+  stareater: 'Star Eater', timeexec: 'Timeline Executioner', cathedral: 'Walking Cathedral', stormemperor: 'Storm Emperor', worldroot: 'Worldroot', hourglass: 'Hourglass Titan',
+  mooncaller: 'Moon Caller', unqualifiedking: 'Goblin King', generalnolose: 'Undefeated General', theplayer: 'Player', universe: 'Universe', livingfortress: 'Living Fortress',
 };
 const MAX_NAME = 13;
 
@@ -35,7 +62,7 @@ function inventSide(R, avoid) {
   const others = pool.filter(k => k !== main && (!crossGenre || genre(k) !== genre(main)));
   const second = R.pick(others.length ? others : pool.filter(k => k !== main));
   const troops = [main, second];
-  if (R.chance(0.4)) { const third = R.pick(Object.keys(NOUN).concat(['healer']).filter(k => !troops.includes(k))); troops.push(third); }
+  if (R.chance(0.4)) { const third = R.pick(Object.keys(NOUN).concat(SUPPORT).filter(k => !troops.includes(k))); troops.push(third); }
   const w = troops.map((k, i) => (i === 0 ? R.range(0.5, 0.65) : i === 1 ? R.range(0.25, 0.4) : R.range(0.08, 0.15)));
   const sum = w.reduce((a, b) => a + b, 0), mix = {};
   troops.forEach((k, i) => { mix[k] = Math.round(w[i] / sum * 100) / 100; });
@@ -52,7 +79,7 @@ function inventSide(R, avoid) {
     if (name.length <= MAX_NAME && word !== noun) break;
   }
   if (name.length > MAX_NAME) name = NOUN[main];
-  const base = troops.filter(k => k !== 'healer').reduce((a, b) => (RVB.UNIT[a].cost <= RVB.UNIT[b].cost ? a : b));
+  const base = troops.filter(k => !SUPPORT.includes(k)).reduce((a, b) => (RVB.UNIT[a].cost <= RVB.UNIT[b].cost ? a : b));
   return { name, mix, heavy, base };
 }
 
@@ -73,7 +100,8 @@ function describeSide(side) {
   const heavy = (side.heavy || []).concat(['giant', 'tank', 'dragon'].filter(k => side[k]));
   if (!heavy.length) return said;
   const counts = {}; heavy.forEach(k => { counts[k] = (counts[k] || 0) + 1; });
-  const hs = Object.entries(counts).map(([k, n]) => (n > 1 ? `${n} ${TROOP_NAME[k]}s` : `a ${TROOP_NAME[k]}`));
+  const art = w => (/^[A-Z]/.test(w) ? 'the' : /^[aeiou]/i.test(w) ? 'an' : 'a');
+  const hs = Object.entries(counts).map(([k, n]) => (n > 1 ? `${n} ${TROOP_NAME[k]}${/s$/.test(TROOP_NAME[k]) ? '' : 's'}` : `${art(TROOP_NAME[k])} ${TROOP_NAME[k]}`));
   return `${said} + ${hs.join(' and ')}`;
 }
 
@@ -99,6 +127,12 @@ function makeRunner(threads) {
       const parts = workers.length ? workers.map((_, i) => seeds.filter((_, j) => j % workers.length === i)).filter(p => p.length) : [seeds];
       const res = await Promise.all(parts.map(p => run(opts, p)));
       return res.reduce((a, b) => a + b.top, 0) / seeds.length;
+    },
+    // a smoother two-army score (half the win rate, half the share of strength left) for balancing
+    async topScore(opts, seeds) {
+      const parts = workers.length ? workers.map((_, i) => seeds.filter((_, j) => j % workers.length === i)).filter(p => p.length) : [seeds];
+      const res = await Promise.all(parts.map(p => run(opts, p)));
+      return { rate: res.reduce((a, b) => a + b.top, 0) / seeds.length, score: res.reduce((a, b) => a + (b.soft ? b.soft[0] : 0), 0) / seeds.length };
     },
     // share of battles each of three armies won
     async rates3(opts, seeds) {

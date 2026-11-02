@@ -162,6 +162,23 @@ const RVB = (() => {
     ctx.fillText(text, x, y);
   }
 
+  // pictures of outlined floating texts ("TRIPLE KILL", damage numbers), drawn at twice the size so close-ups stay sharp
+  const textSprites = new Map();
+  function textSprite(text, size, color) {
+    if (!api.makeCanvas) return null;
+    const key = text + '|' + size + '|' + color;
+    let sp = textSprites.get(key);
+    if (sp) return sp;
+    if (textSprites.size > 400) textSprites.clear();
+    const S = 2, m = api.makeCanvas(4, 4).getContext('2d');
+    m.font = font(size, 800);
+    const w = Math.ceil(m.measureText(text).width) + 24, h = Math.ceil(size * 1.5) + 18;
+    const cv = api.makeCanvas(w * S, h * S), g = cv.getContext('2d');
+    g.scale(S, S); g.font = font(size, 800); g.textAlign = 'center'; g.textBaseline = 'middle';
+    strokeText(g, text, w / 2, h / 2, color, COL.ink, 9);
+    sp = { cv, w, h }; textSprites.set(key, sp);
+    return sp;
+  }
   // Background layer is identical for every match: render once per output size.
   let bgCache = {};
   api.setTeams = (a, b, c) => {
@@ -478,21 +495,30 @@ const RVB = (() => {
       ctx.stroke();
     }
     drawFX(ctx) {
+      // plain square particles are drawn in batches (one fill per colour and fade step), which is much faster with hundreds on screen
+      const batch = new Map();
       for (const p of this.parts) {
         const k = 1 - p.age / p.life;
-        ctx.globalAlpha = clamp(k * 1.4, 0, 1);
-        ctx.fillStyle = p.color;
         if (p.confetti) {
+          ctx.globalAlpha = clamp(k * 1.4, 0, 1); ctx.fillStyle = p.color;
           ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot + p.age * 9);
           ctx.fillRect(-p.size / 2, -p.size / 4, p.size, p.size / 2);
           ctx.restore();
         } else if (p.smoke) {
+          ctx.fillStyle = p.color;
           ctx.globalAlpha = clamp(k * 0.8, 0, 0.6);
           ctx.beginPath(); ctx.arc(p.x, p.y, p.size * (1.4 - 0.6 * k), 0, TAU); ctx.fill();
         } else {
-          const s = p.size * (0.4 + 0.6 * k);
-          ctx.fillRect(p.x - s / 2, p.y - s / 2, s, s);
+          const a = Math.round(clamp(k * 1.4, 0, 1) * 10); if (!a) continue;
+          const key = p.color + '|' + a, s = p.size * (0.4 + 0.6 * k);
+          let b = batch.get(key); if (!b) { b = []; batch.set(key, b); }
+          b.push(p.x - s / 2, p.y - s / 2, s);
         }
+      }
+      for (const [key, b] of batch) {
+        const i = key.lastIndexOf('|');
+        ctx.globalAlpha = +key.slice(i + 1) / 10; ctx.fillStyle = key.slice(0, i);
+        ctx.beginPath(); for (let j = 0; j < b.length; j += 3) ctx.rect(b[j], b[j + 1], b[j + 2], b[j + 2]); ctx.fill();
       }
       ctx.globalAlpha = 1;
       ctx.textAlign = 'center';
@@ -500,8 +526,11 @@ const RVB = (() => {
       for (const f of this.floats) {
         const k = f.age / f.life;
         ctx.globalAlpha = clamp((1 - k) * 2.5, 0, 1);
-        const sc = 0.7 + 0.5 * easeOutBack(Math.min(1, k * 5));
-        ctx.save(); ctx.translate(f.x, f.y - 70 * easeOutCubic(k)); ctx.scale(sc, sc);
+        const sc = 0.7 + 0.5 * easeOutBack(Math.min(1, k * 5)), fy = f.y - 70 * easeOutCubic(k);
+        // outlined text is slow to draw, so each text is drawn once into a picture and stamped from then on
+        const sp = textSprite(f.text, f.size, f.color);
+        if (sp) { const w = sp.w * sc, hh = sp.h * sc; ctx.drawImage(sp.cv, f.x - w / 2, fy - hh / 2, w, hh); continue; }
+        ctx.save(); ctx.translate(f.x, fy); ctx.scale(sc, sc);
         ctx.font = font(f.size, 800);
         strokeText(ctx, f.text, 0, 0, f.color, COL.ink, 9);
         ctx.restore();
@@ -520,6 +549,7 @@ const RVB = (() => {
         ctx.font = font(54, 800); spaced(ctx, 3);
         const ft = [0, 1].find(i => hasFlag(TEAMS[i]) && (b.text.startsWith(TEAMS[i].name + ' ') || b.text.startsWith(TEAMS[i].name + ':')));
         const tw = ctx.measureText(b.text).width, fw = ft !== undefined ? 66 : 0, w = tw + 70 + fw;
+        if (w > 1040) ctx.scale(1040 / w, 1040 / w);
         ctx.beginPath();
         ctx.moveTo(-w / 2 + 16, -40); ctx.lineTo(w / 2 + 16, -40); ctx.lineTo(w / 2 - 16, 40); ctx.lineTo(-w / 2 - 16, 40); ctx.closePath();
         ctx.fillStyle = b.color; ctx.fill();
@@ -1350,6 +1380,180 @@ const RVB = (() => {
     // ----- horror -----
     // vampire: quick night stalker with a cape; every bite heals it by half the damage it deals
     vampire: { r: 12, hp: 10, dmg: 2.2, cd: 0.6, reach: 5, speed: 104, cost: 2.2, rank: 1, armor: 0.9, drain: 0.5 },
+    // ===== the big troop batch (each one has its own trick; see ARMY_EXT below) =====
+    // ----- Human Empire -----
+    // pikeman: very long reach, triple damage against cavalry and big units
+    pikeman: { r: 12, hp: 9, dmg: 1.8, cd: 0.95, reach: 22, speed: 72, cost: 1.5, rank: 2, armor: 0.85, antiBig: 3 },
+    // duelist: two swords, very fast attacks
+    duelist: { r: 12, hp: 9, dmg: 1.5, cd: 0.32, reach: 5, speed: 96, cost: 2, rank: 1, armor: 1 },
+    // royal guard: elite defender with a halberd; blocks a quarter of every blade that hits it
+    royalguard: { r: 15, hp: 26, dmg: 2.2, cd: 0.85, reach: 12, speed: 66, cost: 3.6, rank: 1, armor: 0.35, block: 0.75 },
+    // lancer: heavy cavalry; a run-up turns the next hit into a charge (triple damage, sends the target flying), then it wheels away to charge again
+    lancer: { r: 17, hp: 20, dmg: 2.6, cd: 0.9, reach: 6, speed: 124, cost: 4, rank: 1, armor: 0.5, mount: 'horse', charge: 3, knock: 26 },
+    // horse archer: shoots while riding circles around its target
+    horsearcher: { r: 16, hp: 12, dmg: 1.2, cd: 0.75, range: 300, speed: 116, cost: 3, ranged: true, rank: 2, armor: 0.85, mount: 'horse', kite: true },
+    // longbowman: the longest range of any archer
+    longbow: { r: 11, hp: 5, dmg: 1.6, cd: 1.3, range: 520, speed: 74, cost: 1.8, ranged: true, rank: 3, armor: 1 },
+    // fire archer: flaming arrows set troops alight (damage over 3 seconds)
+    firearcher: { r: 11, hp: 5, dmg: 1.1, cd: 1.0, range: 340, speed: 80, cost: 1.9, ranged: true, burn: 1.2, shot: 'firearrow', rank: 3, armor: 1 },
+    // poison hunter: darts that poison (damage over 4 seconds, and a little slower)
+    poisoner: { r: 11, hp: 6, dmg: 0.9, cd: 0.9, range: 300, speed: 84, cost: 1.8, ranged: true, poison: 1.0, shot: 'dart', rank: 3, armor: 1 },
+    // standard bearer: allies near the banner take 20% less damage; if it falls, they panic for a moment
+    bannerman: { r: 12, hp: 10, dmg: 1, cd: 1, reach: 5, speed: 70, cost: 2.4, rank: 3, armor: 0.9, aura: { def: 0.8, r: 150 }, commander: 1 },
+    // drummer: allies near the drum attack 25% faster
+    drummer: { r: 12, hp: 8, dmg: 0.8, cd: 1, reach: 5, speed: 70, cost: 2.2, rank: 3, armor: 1, aura: { haste: 0.75, r: 150 } },
+    // general: on a white horse; allies nearby hit 20% harder, and the whole army panics for 3 seconds if the general falls
+    general: { r: 16, hp: 34, dmg: 2.6, cd: 0.8, reach: 6, speed: 72, cost: 6, rank: 3, armor: 0.45, aura: { dmg: 1.2, r: 180 }, commander: 2, mount: 'horse' },
+    // peasant: cheap, with a pitchfork (the Forbidden Army starts with nothing else)
+    peasant: { r: 11, hp: 6, dmg: 1.1, cd: 0.8, reach: 8, speed: 82, cost: 1.1, rank: 2, armor: 1 },
+    // war elephant: tramples whatever it walks through and throws troops aside
+    elephant: { r: 34, hp: 100, dmg: 4, cd: 1.3, reach: 6, speed: 50, cost: 18, rank: 0, armor: 0.45, trample: 3, knock: 40, mount: 'elephant' },
+    // ----- Undead Legion -----
+    // necromancer: green soul bolts, and every few seconds raises fallen troops nearby as skeletons on its side
+    necromancer: { r: 12, hp: 7, dmg: 1.2, cd: 1.4, range: 260, speed: 72, cost: 3.5, ranged: true, bullet: 900, shot: 'soul', raise: 5, rank: 3, armor: 1, sound: 'zap' },
+    // bone colossus: what twelve skeletons become when they fuse (see LEGION)
+    bonecolossus: { r: 40, hp: 130, dmg: 5, cd: 1.3, reach: 6, splash: 50, speed: 44, cost: 22, rank: 0, armor: 0.45 },
+    // dread knight: boss on a nightmare horse; hunts generals and big units, and grows stronger with every important kill
+    deathknight: { r: 20, hp: 70, dmg: 4, cd: 0.8, reach: 7, speed: 88, cost: 14, rank: 0, armor: 0.4, mount: 'nightmare', boss: true, hunter: 'commander', empower: true },
+    // ----- Orc Horde -----
+    // wolf rider: the fastest troop; goes around the front line for archers, gunners and healers
+    wolfrider: { r: 15, hp: 12, dmg: 2, cd: 0.6, reach: 5, speed: 150, cost: 2.6, rank: 1, armor: 0.9, mount: 'wolf', hunter: 'ranged' },
+    // boar rider: charges, and every hit knocks the target back
+    boarrider: { r: 16, hp: 18, dmg: 2.4, cd: 0.9, reach: 5, speed: 110, cost: 3, rank: 1, armor: 0.7, mount: 'boar', charge: 2, knock: 34 },
+    // troll: heals itself all the time (fire stops it)
+    troll: { r: 21, hp: 44, dmg: 3.2, cd: 1.1, reach: 6, speed: 64, cost: 6, rank: 1, armor: 0.7, regen: 2.2 },
+    // cyclops: a one-eyed giant that throws boulders into formations
+    cyclops: { r: 34, hp: 100, dmg: 5, cd: 2.8, range: 360, speed: 42, cost: 20, ranged: true, lob: 'boulder', bullet: 600, splash: 52, sound: 'stomp', rank: 0, armor: 0.5 },
+    // ----- Sylvan Kingdom -----
+    // druid: a healing pulse for everyone around it, which also gives them bark skin (25% less damage for 3 seconds)
+    druid: { r: 12, hp: 8, dmg: 0, cd: 2.5, range: 170, speed: 78, cost: 2.6, healer: true, pulse: true, heal: 2.2, healRange: 130, rank: 3, armor: 1 },
+    // treant: a walking tree; its hits root troops in place (fire hurts it more)
+    treant: { r: 22, hp: 52, dmg: 2.6, cd: 1.2, reach: 8, speed: 52, cost: 5, rank: 1, armor: 0.6, slow: [0.4, 1.6], fireweak: 1.6 },
+    // illusionist: makes fake troops that enemies attack instead
+    illusionist: { r: 12, hp: 6, dmg: 0.8, cd: 1.1, range: 260, speed: 80, cost: 2.6, ranged: true, bullet: 800, shot: 'spark', decoys: 5, rank: 3, armor: 1, sound: 'zap' },
+    // ----- Infernal Dominion -----
+    // imp: small flying fire-spitter
+    imp: { r: 9, hp: 4, dmg: 0.9, cd: 0.7, range: 220, speed: 130, cost: 1, ranged: true, bullet: 700, shot: 'firebolt', burn: 0.5, flying: true, fireproof: true, rank: 2, armor: 1, sound: 'flame' },
+    // demon: gets stronger the more troops have died in the battle
+    demon: { r: 18, hp: 30, dmg: 3, cd: 0.8, reach: 6, speed: 84, cost: 5, rank: 1, armor: 0.7, fireproof: true, rampage: true },
+    // hellhound: fast, and its bite sets troops alight
+    hellhound: { r: 14, hp: 12, dmg: 1.8, cd: 0.5, reach: 5, speed: 140, cost: 2.4, rank: 1, armor: 0.9, burn: 1, fireproof: true },
+    // warlock: hellfire that leaves the ground burning; once per battle, its army takes over the enemy's biggest unit
+    warlock: { r: 12, hp: 7, dmg: 2.4, cd: 2.4, range: 300, speed: 72, cost: 3, ranged: true, lob: 'hellfire', bullet: 600, splash: 44, burn: 1.2, possess: true, rank: 3, armor: 1, sound: 'flame' },
+    // ----- Dwarven Foundries -----
+    dwarf: { r: 13, hp: 16, dmg: 2.2, cd: 0.75, reach: 5, speed: 68, cost: 2.4, rank: 1, armor: 0.55 },
+    // goblin engineer: builds up to two crossbow turrets as it goes
+    engineer: { r: 11, hp: 6, dmg: 0.8, cd: 0.9, reach: 5, speed: 90, cost: 2.4, rank: 2, armor: 1, gadget: 6 },
+    turret: { r: 14, hp: 14, dmg: 0.9, cd: 0.55, range: 300, speed: 0, cost: 1, ranged: true, bolt: 1100, rank: 2, armor: 0.6, uncounted: true, immovable: true, sound: 'volley' },
+    // stone golem: can't be knocked back or pushed around
+    golem: { r: 26, hp: 80, dmg: 3.5, cd: 1.2, reach: 6, speed: 46, cost: 12, rank: 0, armor: 0.35, immovable: true },
+    // ----- monsters and bosses -----
+    // hydra: three heads that each bite a different troop (five once it's badly hurt)
+    hydra: { r: 32, hp: 110, dmg: 2.2, cd: 0.7, reach: 40, heads: 3, speed: 46, cost: 20, rank: 0, armor: 0.5, boss: true },
+    // ancient titan: stomps groups flat, throws troops aside and smashes walls
+    titan: { r: 46, hp: 190, dmg: 6, cd: 1.5, reach: 8, splash: 70, knock: 50, speed: 40, cost: 34, rank: 0, armor: 0.35, boss: true, smash: true, immovable: true },
+    // phoenix: flies and breathes fire; comes back once from its ashes, and leaves a firestorm when it falls for good
+    phoenix: { r: 28, hp: 60, dmg: 1.8, cd: 0.35, reach: 50, breath: 100, speed: 70, cost: 18, rank: 0, armor: 0.6, flying: true, fireproof: true, revive: 1 },
+    // walking fortress: a castle on legs; archers on its walls shoot three targets at once, a cannon fires from the gate,
+    // and when it falls its garrison pours out
+    fortress: { r: 44, hp: 200, dmg: 1.4, cd: 0.9, range: 380, speed: 26, cost: 32, ranged: true, volley: 3, rank: 0, armor: 0.25, boss: true, garrison: true, immovable: true },
+    // griffin rider: flying cavalry that dives at its target
+    griffin: { r: 22, hp: 26, dmg: 2.6, cd: 0.7, reach: 6, speed: 112, cost: 6, rank: 1, armor: 0.7, flying: true, mount: 'griffin', charge: 2 },
+    // ----- strange new troops -----
+    // mirror knight: becomes a copy of the last enemy troop that hits it (looks, weapon and all)
+    mirrorknight: { r: 15, hp: 20, dmg: 2, cd: 0.8, reach: 5, speed: 74, cost: 3.2, rank: 1, armor: 0.55, mirror: true },
+    // phase reaper: vanishes, passes through the enemy lines, and reappears behind its target for a huge hit
+    phasereaper: { r: 13, hp: 12, dmg: 3.2, cd: 0.8, reach: 6, speed: 100, cost: 3.4, rank: 1, armor: 0.9, phase: 5 },
+    // plague alchemist: flasks that leave a poison cloud (slows and poisons whoever is inside)
+    alchemist: { r: 12, hp: 7, dmg: 1.2, cd: 2.6, range: 260, speed: 76, cost: 2.6, ranged: true, lob: 'flask', bullet: 520, splash: 55, poison: 1.2, rank: 3, armor: 1, sound: 'swish' },
+    // gravity monk: pulls nearby enemies together into a clump
+    gravitymonk: { r: 12, hp: 10, dmg: 1.4, cd: 0.7, reach: 5, speed: 84, cost: 3, rank: 2, armor: 0.9, gravity: 6 },
+    // soul smith: collects the souls of the fallen and forges armour and weapons for nearby allies (25% harder hits, 20% less damage)
+    soulsmith: { r: 13, hp: 12, dmg: 1.4, cd: 0.9, reach: 5, speed: 72, cost: 3, rank: 3, armor: 0.8, soul: true },
+    // false soldier: looks like an ordinary soldier until an enemy gets close, then bursts into spikes and leaves scarecrow decoys
+    falsesoldier: { r: 11, hp: 6, dmg: 1, cd: 0.8, reach: 5, speed: 80, cost: 2, rank: 2, armor: 1, trap: true },
+    // fortress turtle: plants itself when enemies come near; its shell then soaks up shots meant for the troops behind it
+    turtle: { r: 26, hp: 60, dmg: 2, cd: 1.2, reach: 6, speed: 38, cost: 9, rank: 1, armor: 0.3, plant: true },
+    // a fake troop (illusions, scarecrows): enemies go for it first; it never attacks and isn't counted
+    decoy: { r: 11, hp: 1, dmg: 0, cd: 9, reach: 0, speed: 0, cost: 0, rank: 2, armor: 1, uncounted: true, decoy: true },
+    // ----- mythic troops that break the rules -----
+    // the Thousand-Man: every troop it kills joins its body, so it keeps growing (and starts stomping)
+    thousandman: { r: 26, hp: 70, dmg: 3, cd: 0.9, reach: 6, speed: 56, cost: 16, rank: 0, armor: 0.6, grow: true },
+    // copycat: a shapeshifter; an army of them copies the biggest enemy unit every few seconds (see COPYCATS)
+    copycat: { r: 12, hp: 8, dmg: 1.6, cd: 0.7, reach: 5, speed: 90, cost: 1.8, rank: 2, armor: 1 },
+    // the Immortal Fraud: comes back four times, each time stronger but with a new weakness; the last time as a boss
+    immortal: { r: 16, hp: 24, dmg: 2.4, cd: 0.7, reach: 6, speed: 82, cost: 8, rank: 0, armor: 0.8, revive: 4, fraud: true },
+    // the Mirror King: troops that hit it can spawn a mirrored copy of themselves on its side
+    mirrorking: { r: 24, hp: 90, dmg: 3, cd: 0.9, reach: 6, speed: 54, cost: 18, rank: 0, armor: 0.5, copies: true, boss: true },
+    // the Eye of the Unmaker: looks at the strongest enemy and changes it (troops become sheep; armour turns to flesh; fliers fall)
+    unmaker: { r: 20, hp: 50, dmg: 1.2, cd: 1.2, range: 300, speed: 60, cost: 14, ranged: true, bullet: 1200, shot: 'beam', flying: true, unmake: 3.5, rank: 0, armor: 0.6, sound: 'zap' },
+    // the Billionaire: never fights; bribes enemy troops to switch sides
+    billionaire: { r: 14, hp: 10, dmg: 0, cd: 4, range: 380, speed: 76, cost: 7, healer: true, heal: 0, healRange: 0, bribe: 4, rank: 3, armor: 1 },
+    // the Gravity Tyrant: drags every enemy around it in, then slams the ground
+    gravitytyrant: { r: 26, hp: 100, dmg: 3, cd: 1, reach: 6, speed: 50, cost: 18, rank: 0, armor: 0.45, well: 7, boss: true },
+    // the Meteor Shepherd: calls meteors down on the thickest groups of enemies, bigger the longer it lives
+    meteorshepherd: { r: 14, hp: 18, dmg: 1, cd: 1, reach: 5, speed: 66, cost: 9, rank: 3, armor: 0.8, shepherd: 4 },
+    // the Glitch: changes the rules every few seconds (swaps troops around, turbo speed, zero gravity, clones itself)
+    glitch: { r: 13, hp: 14, dmg: 1.6, cd: 0.6, reach: 5, speed: 100, cost: 6, rank: 1, armor: 0.9, glitch: 7 },
+    // ===== second batch: more magic, war beasts, siege, and the rest of the crazy ideas (abilities in ARMY_EXT2) =====
+    // frost witch: frost bolts that slow everyone they splash, sometimes freezing them solid for a moment
+    frostwitch: { r: 12, hp: 7, dmg: 1.4, cd: 2.2, range: 290, speed: 74, cost: 2.8, ranged: true, lob: 'frostbolt', bullet: 560, splash: 48, slow: [0.45, 2.5], rank: 3, armor: 1, sound: 'freeze' },
+    // lich: an undead sorcerer; every few seconds it drains the life from the three nearest enemies to heal itself and its allies
+    lich: { r: 13, hp: 12, dmg: 1.6, cd: 1.3, range: 280, speed: 70, cost: 4.5, ranged: true, bullet: 900, shot: 'soul', drainAll: 7, rank: 3, armor: 0.8, sound: 'zap' },
+    // storm caller: calls lightning down on its target
+    stormcaller: { r: 12, hp: 7, dmg: 1, cd: 1.2, range: 300, speed: 76, cost: 3, ranged: true, bullet: 1400, shot: 'spark', storm: 3.2, rank: 3, armor: 1, sound: 'zap' },
+    // forest spirit (wisp): fast little flier; when it fades, it heals the allies around it
+    wisp: { r: 8, hp: 4, dmg: 0.8, cd: 0.6, reach: 4, speed: 140, cost: 1.2, flying: true, bloom: true, rank: 2, armor: 1 },
+    // gargoyle: a flying horror that turns to stone when hurt (can't be damaged for a moment)
+    gargoyle: { r: 15, hp: 18, dmg: 2.2, cd: 0.8, reach: 5, speed: 100, cost: 3.4, flying: true, stone: 6, rank: 1, armor: 0.6 },
+    // assassin: invisible until it strikes (four times the damage), goes for generals and big units, and fades out again
+    assassin: { r: 11, hp: 9, dmg: 2.6, cd: 0.7, reach: 5, speed: 115, cost: 3, cloak: true, hunter: 'commander', rank: 1, armor: 1 },
+    // siege gunner: a mortar that shells clustered troops from very far away
+    siegegunner: { r: 12, hp: 7, dmg: 4.5, cd: 3.4, range: 450, speed: 64, cost: 3.4, ranged: true, lob: 'mortar', bullet: 520, splash: 66, rank: 3, armor: 1, sound: 'cannon' },
+    // catapult: a big siege engine that hurls boulders across the field
+    catapult: { r: 26, hp: 50, dmg: 6, cd: 3.6, range: 480, speed: 24, cost: 14, ranged: true, lob: 'boulder', bullet: 520, splash: 58, rank: 0, armor: 0.4, sound: 'stomp' },
+    // war mammoth: a shaggy giant that tramples and throws troops aside
+    mammoth: { r: 38, hp: 120, dmg: 4.5, cd: 1.4, reach: 6, speed: 46, cost: 20, rank: 0, armor: 0.4, trample: 3.5, knock: 45, mount: 'mammoth' },
+    // war rhino: charges with its horn (triple damage, sends troops flying), backs off and charges again
+    rhino: { r: 22, hp: 40, dmg: 3.5, cd: 1, reach: 5, speed: 92, cost: 6, rank: 1, armor: 0.45, charge: 3, knock: 50, beast: true },
+    // ogre: eats a wounded ally every few seconds to heal and grow (army cannibalism)
+    ogre: { r: 20, hp: 36, dmg: 3.4, cd: 1.1, reach: 6, speed: 66, cost: 6, rank: 1, armor: 0.7, eat: 5 },
+    // kamikaze drone: flies straight at its target and blows up
+    drone: { r: 9, hp: 3, dmg: 6, cd: 1, reach: 2, speed: 170, cost: 1.6, flying: true, kamikaze: true, rank: 2, armor: 1 },
+    // attack helicopter: a machine gun, plus rockets every few seconds
+    helicopter: { r: 30, hp: 80, dmg: 0.7, cd: 0.12, range: 330, speed: 70, cost: 20, ranged: true, bullet: 1700, spread: 0.1, flying: true, rockets: 4, rank: 0, armor: 0.35, sound: 'mg' },
+    // siren: her song charms enemies; they drop their weapons and walk towards her for a moment
+    siren: { r: 12, hp: 8, dmg: 0.8, cd: 1.2, range: 260, speed: 80, cost: 3, ranged: true, bullet: 800, shot: 'spark', charm: 6, rank: 3, armor: 1, sound: 'zap' },
+    // empty armour: a floating suit of armour; every troop the Empty Army kills leaves its gear behind to fight on as a hollow copy
+    hollow: { r: 12, hp: 9, dmg: 1.8, cd: 0.7, reach: 5, speed: 84, cost: 1.8, rank: 2, armor: 0.6, haunt: true },
+    // a weapon that came alive (living equipment): a flying blade that attacks anyone
+    livingblade: { r: 9, hp: 5, dmg: 1.2, cd: 0.6, reach: 4, speed: 120, cost: 0.5, flying: true, rank: 2, armor: 0.8 },
+    // ----- the crazy ones -----
+    // the Star Eater: eats the sun; the sky darkens, enemies see less and slowly wither, then it opens a black hole
+    stareater: { r: 44, hp: 170, dmg: 5, cd: 1.4, reach: 8, splash: 55, speed: 38, cost: 30, rank: 0, armor: 0.4, boss: true, eclipse: true },
+    // the Timeline Executioner: rewinds the enemies around it a few seconds and executes two of them while they reset
+    timeexec: { r: 18, hp: 40, dmg: 4, cd: 0.8, reach: 7, speed: 92, cost: 12, rank: 0, armor: 0.5, rewind: 10 },
+    // the Walking Cathedral: priests shoot from its windows; its bell raises the dead around it and heals its army
+    cathedral: { r: 46, hp: 210, dmg: 1.2, cd: 1, range: 300, speed: 22, cost: 30, ranged: true, volley: 3, bell: 9, rank: 0, armor: 0.3, boss: true, immovable: true },
+    // the Storm Emperor: a dragon that is the weather; lightning hunts the strongest enemy, wing gusts throw troops back,
+    // and when it dies the storm stays for the rest of the battle
+    stormemperor: { r: 40, hp: 150, dmg: 3, cd: 0.4, reach: 60, breath: 120, speed: 58, cost: 30, flying: true, tempest: 3, rank: 0, armor: 0.4, boss: true },
+    // the Worldroot: plants itself, then its roots spread over the field (rooting and draining enemies) and it grows new creatures
+    worldroot: { r: 40, hp: 180, dmg: 2, cd: 1, reach: 8, speed: 18, cost: 28, roots: true, rank: 0, armor: 0.3, boss: true, immovable: true },
+    // the Hourglass Titan: ages wounded enemies into skeletons that fight for it, turns back time on its own troops' wounds, rusts machines
+    hourglass: { r: 40, hp: 170, dmg: 4, cd: 1.3, reach: 7, splash: 50, speed: 38, cost: 28, ages: 6, rank: 0, armor: 0.4, boss: true },
+    // the Moon Caller: pulls the moon closer; enemy fliers fall, enemies get heavier, and the tide rises
+    mooncaller: { r: 13, hp: 12, dmg: 1.2, cd: 1.2, range: 260, speed: 70, cost: 10, ranged: true, bullet: 900, shot: 'spark', moon: true, rank: 3, armor: 0.9, sound: 'zap' },
+    // the Unqualified King: a tiny goblin with a crown and no fighting skills; enemy troops near him defect to his army
+    unqualifiedking: { r: 10, hp: 8, dmg: 0, cd: 9, range: 200, speed: 70, cost: 8, healer: true, heal: 0, healRange: 0, defect: 5, commander: 2, rank: 3, armor: 1 },
+    // the General Who Cannot Lose: when its army is about to lose, the whole battle rewinds, and its army remembers (and hits harder)
+    generalnolose: { r: 17, hp: 40, dmg: 3, cd: 0.8, reach: 6, speed: 74, cost: 10, aura: { dmg: 1.15, r: 180 }, commander: 2, mount: 'horse', rewindAll: true, rank: 3, armor: 0.4 },
+    // the Player: a giant hand from outside the game that picks troops up (even tanks) and throws them at the enemy
+    theplayer: { r: 34, hp: 120, dmg: 0, cd: 9, reach: 60, speed: 80, cost: 24, flying: true, grab: 4, rank: 0, armor: 0.5 },
+    // the Universe: looks like an ordinary soldier; when it dies, its body opens into a universe and another army pours out
+    universe: { r: 11, hp: 6, dmg: 1, cd: 0.8, reach: 5, speed: 82, cost: 3, cosmos: true, rank: 2, armor: 1 },
+    // the Living Fortress: an ordinary-looking castle until enemies come close; then it grows teeth and arms and swallows troops whole
+    livingfortress: { r: 42, hp: 190, dmg: 5, cd: 1.4, reach: 8, splash: 60, speed: 40, cost: 30, castle: true, rank: 0, armor: 0.25, boss: true, immovable: true },
   };
   UNIT.swordsman.sword = true;
   // troops a zombie can turn (machines, the undead and the huge ones can't be infected)
@@ -1375,6 +1579,34 @@ const RVB = (() => {
   // round troops with their own extra details (see drawNewLook)
   const NEW_LOOK = { trooper: 1, pirate: 1, musketeer: 1, zombie: 1, ninja: 1, samurai: 1, vampire: 1 };
   const LIGHT_FILL = { soldier: 1, crossbowman: 1, spearman: 1, berserker: 1, healer: 1, rifleman: 1, sniper: 1, grenadier: 1, orc: 1, elf: 1, wizard: 1, trooper: 1, pirate: 1, musketeer: 1, samurai: 1 };
+  // ----- the big troop batch: which of the new troops have abilities, labels, genres -----
+  const NEW_UNITS = ['pikeman', 'duelist', 'royalguard', 'lancer', 'horsearcher', 'longbow', 'firearcher', 'poisoner', 'bannerman', 'drummer', 'general', 'peasant', 'elephant',
+    'necromancer', 'bonecolossus', 'deathknight', 'wolfrider', 'boarrider', 'troll', 'cyclops', 'druid', 'treant', 'illusionist', 'imp', 'demon', 'hellhound', 'warlock',
+    'dwarf', 'engineer', 'turret', 'golem', 'hydra', 'titan', 'phoenix', 'fortress', 'griffin', 'mirrorknight', 'phasereaper', 'alchemist', 'gravitymonk', 'soulsmith',
+    'falsesoldier', 'turtle', 'decoy', 'thousandman', 'copycat', 'immortal', 'mirrorking', 'unmaker', 'billionaire', 'gravitytyrant', 'meteorshepherd', 'glitch'];
+  for (const k of NEW_UNITS) {
+    const U = UNIT[k]; U.ext = true;
+    // troops with a per-tick ability (see ARMY_EXT.ability)
+    U.abil = !!(U.raise || U.gadget || U.decoys || U.phase || U.gravity || U.trap || U.plant || U.unmake || U.bribe || U.well || U.shepherd || U.glitch || U.possess || U.volley || U.smash || U.trample || U.charge || U.heads || U.kite);
+  }
+  for (const k of ['pikeman', 'duelist', 'royalguard', 'lancer', 'horsearcher', 'longbow', 'firearcher', 'poisoner', 'bannerman', 'drummer', 'general', 'peasant', 'necromancer', 'wolfrider', 'boarrider',
+    'druid', 'illusionist', 'dwarf', 'engineer', 'mirrorknight', 'alchemist', 'gravitymonk', 'soulsmith', 'falsesoldier', 'copycat', 'billionaire', 'meteorshepherd']) LIVING[k] = 1;
+  for (const k of ['royalguard', 'general', 'elephant', 'bonecolossus', 'deathknight', 'troll', 'cyclops', 'treant', 'golem', 'hydra', 'titan', 'phoenix', 'fortress', 'griffin', 'turtle', 'thousandman',
+    'immortal', 'mirrorking', 'unmaker', 'gravitytyrant', 'demon', 'turret', 'meteorshepherd', 'glitch']) HPBAR[k] = 1;
+  LOBS.boulder = 1; LOBS.flask = 1; LOBS.hellfire = 1;
+  Object.assign(UNIT_LABEL, { royalguard: 'ROYAL GUARD', horsearcher: 'HORSE ARCHER', longbow: 'LONGBOWMAN', firearcher: 'FIRE ARCHER', poisoner: 'POISON HUNTER', bannerman: 'STANDARD BEARER',
+    elephant: 'WAR ELEPHANT', wolfrider: 'WOLF RIDER', boarrider: 'BOAR RIDER', griffin: 'GRIFFIN RIDER', deathknight: 'DREAD KNIGHT', bonecolossus: 'BONE COLOSSUS', engineer: 'GOBLIN ENGINEER',
+    mirrorknight: 'MIRROR KNIGHT', phasereaper: 'PHASE REAPER', alchemist: 'PLAGUE ALCHEMIST', gravitymonk: 'GRAVITY MONK', soulsmith: 'SOUL SMITH', falsesoldier: 'FALSE SOLDIER', turtle: 'FORTRESS TURTLE',
+    thousandman: 'THOUSAND-MAN', immortal: 'IMMORTAL FRAUD', mirrorking: 'MIRROR KING', unmaker: 'THE UNMAKER', gravitytyrant: 'GRAVITY TYRANT', meteorshepherd: 'METEOR SHEPHERD', glitch: 'THE GLITCH',
+    titan: 'ANCIENT TITAN', fortress: 'WALKING FORTRESS', billionaire: 'THE BILLIONAIRE' });
+  const labelOf = k => UNIT_LABEL[k] || k.toUpperCase();
+  // army names as shown on screen (a few army types read better with a space or a hyphen)
+  const DOC_LABEL = { DREADKNIGHT: 'DREAD KNIGHT', MIRRORKING: 'MIRROR KING', THOUSANDMAN: 'THOUSAND-MAN' };
+  const docLabel = d => DOC_LABEL[d.name] || d.name;
+  // troops drawn by drawRoster
+  const ROSTER = {}; for (const k of NEW_UNITS) ROSTER[k] = 1;
+  // troops of darkness (stronger in an eclipse)
+  const DARK = { skeleton: 1, zombie: 1, vampire: 1, necromancer: 1, deathknight: 1, bonecolossus: 1, demon: 1, imp: 1, hellhound: 1, warlock: 1, phasereaper: 1 };
   const DOCTRINES = [
     { name: 'SWARM', mix: { soldier: 0.8, archer: 0.12, knight: 0.08 }, budget: 1.04, budget60: 1.08 },
     { name: 'ARCHERS', mix: { soldier: 0.35, archer: 0.55, knight: 0.1 }, budget: 1.03, budget60: 1.03 },
@@ -1423,7 +1655,48 @@ const RVB = (() => {
     { name: 'SAMURAI', base: 'ninja', mix: { samurai: 0.55, ninja: 0.25, archer: 0.2 }, budget: 1, budget60: 1 },
     { name: 'NINJAS', base: 'ninja', mix: { ninja: 0.8, samurai: 0.2 }, budget: 1, budget60: 1 },
   ];
-  const GENRES = { medieval: DOCTRINES, modern: MODERN_DOCTRINES, fantasy: FANTASY_DOCTRINES, scifi: SCIFI_DOCTRINES, pirate: PIRATE_DOCTRINES, horror: HORROR_DOCTRINES, samurai: SAMURAI_DOCTRINES };
+  // ----- new army types (factions) from the big troop batch. Kept in their own lists so the old lists (and old battles) stay exactly the same. -----
+  const EMPIRE_DOCTRINES = [
+    // Human Empire: pikes, swords and archers led by a general, with lancers, a standard bearer and a drummer
+    { name: 'EMPIRE', base: 'soldier', mix: { swordsman: 0.25, pikeman: 0.22, archer: 0.2, lancer: 0.13, crossbowman: 0.1, bannerman: 0.05, drummer: 0.05 }, heavy: ['general'], budget: 1, budget60: 1 },
+    { name: 'CAVALRY', base: 'soldier', mix: { lancer: 0.4, horsearcher: 0.35, soldier: 0.25 }, budget: 1, budget60: 1 },
+    { name: 'LONGBOWS', base: 'soldier', mix: { longbow: 0.45, firearcher: 0.2, royalguard: 0.2, pikeman: 0.15 }, budget: 1, budget60: 1 },
+    { name: 'ELEPHANTS', base: 'soldier', mix: { soldier: 0.45, archer: 0.3, pikeman: 0.25 }, heavy: ['elephant', 'elephant'], budget: 1, budget60: 1 },
+    { name: 'FORTRESS', base: 'soldier', mix: { soldier: 0.45, archer: 0.35, bannerman: 0.1, drummer: 0.1 }, heavy: ['fortress'], budget: 1, budget60: 1 },
+    // the Forbidden Army: nothing but peasants, who evolve as they kill (a peasant that kills a dragon becomes a Dragon Slayer...)
+    { name: 'FORBIDDEN', base: 'peasant', mix: { peasant: 1 }, forbidden: true, budget: 1, budget60: 1 },
+  ];
+  const REALM_DOCTRINES = [
+    { name: 'WARBAND', base: 'skeleton', mix: { orc: 0.45, wolfrider: 0.2, boarrider: 0.15, berserker: 0.1, troll: 0.1 }, budget: 1, budget60: 1 },
+    { name: 'SYLVAN', base: 'skeleton', mix: { elf: 0.45, swordsman: 0.2, treant: 0.13, druid: 0.12, illusionist: 0.1 }, budget: 1, budget60: 1 },
+    { name: 'INFERNAL', base: 'imp', mix: { imp: 0.3, demon: 0.25, hellhound: 0.25, warlock: 0.2 }, budget: 1, budget60: 1 },
+    { name: 'DWARVES', base: 'dwarf', mix: { dwarf: 0.55, crossbowman: 0.25, engineer: 0.2 }, heavy: ['cannon'], budget: 1, budget60: 1 },
+    { name: 'CYCLOPS', base: 'skeleton', mix: { orc: 0.35, wolfrider: 0.25, troll: 0.15, boarrider: 0.25 }, heavy: ['cyclops'], budget: 1, budget60: 1 },
+    { name: 'GRIFFINS', base: 'skeleton', mix: { griffin: 0.3, elf: 0.4, swordsman: 0.3 }, budget: 1, budget60: 1 },
+    { name: 'HYDRA', base: 'skeleton', mix: { elf: 0.4, orc: 0.3, wizard: 0.3 }, heavy: ['hydra'], budget: 1, budget60: 1 },
+    { name: 'TITAN', base: 'dwarf', mix: { dwarf: 0.4, elf: 0.3, wizard: 0.3 }, heavy: ['titan'], budget: 1, budget60: 1 },
+    { name: 'PHOENIX', base: 'imp', mix: { wizard: 0.4, elf: 0.3, imp: 0.3 }, heavy: ['phoenix'], budget: 1, budget60: 1 },
+    { name: 'GOLEMS', base: 'dwarf', mix: { dwarf: 0.6, engineer: 0.2, crossbowman: 0.2 }, heavy: ['golem', 'golem'], budget: 1, budget60: 1 },
+    // strange troops from the second list
+    { name: 'ARCANE', base: 'skeleton', mix: { mirrorknight: 0.2, phasereaper: 0.2, falsesoldier: 0.2, alchemist: 0.15, gravitymonk: 0.15, soulsmith: 0.1 }, budget: 1, budget60: 1 },
+    { name: 'TURTLES', base: 'skeleton', mix: { turtle: 0.15, longbow: 0.45, crossbowman: 0.4 }, budget: 1, budget60: 1 },
+    // mythic armies, each led by one rule-breaker
+    { name: 'THOUSANDMAN', base: 'skeleton', mix: { skeleton: 0.5, orc: 0.5 }, heavy: ['thousandman'], budget: 1, budget60: 1 },
+    { name: 'COPYCATS', base: 'copycat', mix: { copycat: 0.7, wizard: 0.3 }, copycat: true, budget: 1, budget60: 1 },
+    { name: 'IMMORTAL', base: 'soldier', mix: { swordsman: 0.5, archer: 0.3, knight: 0.2 }, heavy: ['immortal'], budget: 1, budget60: 1 },
+    { name: 'MIRRORKING', base: 'skeleton', mix: { mirrorknight: 0.4, swordsman: 0.4, elf: 0.2 }, heavy: ['mirrorking'], budget: 1, budget60: 1 },
+    { name: 'UNMAKER', base: 'skeleton', mix: { skeleton: 0.6, wizard: 0.4 }, heavy: ['unmaker'], budget: 1, budget60: 1 },
+    { name: 'TYCOON', base: 'pirate', mix: { pirate: 0.5, musketeer: 0.3, soldier: 0.2 }, heavy: ['billionaire'], budget: 1, budget60: 1 },
+    { name: 'GRAVITY', base: 'skeleton', mix: { orc: 0.6, gravitymonk: 0.4 }, heavy: ['gravitytyrant'], budget: 1, budget60: 1 },
+    { name: 'METEOR', base: 'skeleton', mix: { wizard: 0.35, elf: 0.35, orc: 0.3 }, heavy: ['meteorshepherd'], budget: 1, budget60: 1 },
+  ];
+  const DARK_DOCTRINES = [
+    // Undead Legion: cheap skeletons and necromancers raising the fallen; twelve skeletons can fuse into a bone colossus
+    { name: 'LEGION', base: 'skeleton', mix: { skeleton: 0.7, zombie: 0.18, necromancer: 0.12 }, fuse: true, budget: 1, budget60: 1 },
+    { name: 'DREADKNIGHT', base: 'skeleton', mix: { skeleton: 0.6, zombie: 0.25, necromancer: 0.15 }, heavy: ['deathknight'], budget: 1, budget60: 1 },
+  ];
+  const GLITCH_DOCTRINES = [{ name: 'GLITCH', base: 'trooper', mix: { robot: 0.5, trooper: 0.5 }, heavy: ['glitch'], budget: 1, budget60: 1 }];
+  const GENRES = { medieval: DOCTRINES.concat(EMPIRE_DOCTRINES), modern: MODERN_DOCTRINES, fantasy: FANTASY_DOCTRINES.concat(REALM_DOCTRINES), scifi: SCIFI_DOCTRINES.concat(GLITCH_DOCTRINES), pirate: PIRATE_DOCTRINES, horror: HORROR_DOCTRINES.concat(DARK_DOCTRINES), samurai: SAMURAI_DOCTRINES };
   const ALL_DOCTRINES = () => [].concat(...Object.values(GENRES));
   // the genre each troop comes from
   const UNIT_ERA = {};
@@ -1433,6 +1706,12 @@ const RVB = (() => {
   for (const k of ['trooper', 'robot', 'mech']) UNIT_ERA[k] = 'scifi';
   for (const k of ['pirate', 'musketeer', 'cannon']) UNIT_ERA[k] = 'pirate';
   UNIT_ERA.zombie = 'horror'; UNIT_ERA.vampire = 'horror'; UNIT_ERA.ninja = 'samurai'; UNIT_ERA.samurai = 'samurai';
+  for (const k of ['pikeman', 'duelist', 'royalguard', 'lancer', 'horsearcher', 'longbow', 'firearcher', 'poisoner', 'bannerman', 'drummer', 'general', 'peasant', 'elephant', 'fortress']) UNIT_ERA[k] = 'medieval';
+  for (const k of ['wolfrider', 'boarrider', 'troll', 'cyclops', 'druid', 'treant', 'illusionist', 'imp', 'demon', 'hellhound', 'warlock', 'dwarf', 'engineer', 'turret', 'golem', 'hydra', 'titan', 'phoenix',
+    'griffin', 'mirrorknight', 'phasereaper', 'alchemist', 'gravitymonk', 'soulsmith', 'falsesoldier', 'turtle', 'decoy', 'thousandman', 'copycat', 'immortal', 'mirrorking', 'unmaker', 'billionaire',
+    'gravitytyrant', 'meteorshepherd']) UNIT_ERA[k] = 'fantasy';
+  for (const k of ['necromancer', 'bonecolossus', 'deathknight']) UNIT_ERA[k] = 'horror';
+  UNIT_ERA.glitch = 'scifi';
   // A custom team can be given instead of an army-type name: { name: 'SPELLGUNS', mix: { wizard: 0.4, rifleman: 0.6 }, heavy: ['tank'] }.
   const customDoc = o => Object.assign({ budget: 1, budget60: 1, base: Object.keys(o.mix || { soldier: 1 })[0] }, o, { mix: o.mix || { soldier: 1 }, custom: true });
   // which era (genre) an army type or custom team belongs to: 'medieval', 'modern', 'fantasy', 'scifi', 'pirate', 'horror', 'samurai',
@@ -1507,6 +1786,24 @@ const RVB = (() => {
       { c: [-152, -236, 26], kind: 'crystal' }, { c: [160, -226, 26], kind: 'crystal' },
       { c: [-416, -256, 22], kind: 'mushroom' }, { c: [410, -262, 22], kind: 'mushroom' },
     ]),
+    // ----- maps whose ground does something (see ARMY_MAPS) -----
+    // the Godboard: a giant chessboard; squares light up and strike with lightning (red) or make troops stronger (gold)
+    godboard: mirrorMap([{ c: [-300, -180, 30], kind: 'rook' }, { c: [300, -180, 30], kind: 'rook' }]),
+    // the World Furnace: basalt rocks, and lava rivers that move every few seconds
+    furnace: mirrorMap([{ c: [0, -205, 36], kind: 'basalt' }, { c: [-385, -60, 30], kind: 'basalt' }, { c: [385, -60, 30], kind: 'basalt' }, { c: [-215, -335, 24], kind: 'basalt' }, { c: [215, -335, 24], kind: 'basalt' }]),
+    // the Frozen End: slippery ice that big units break
+    frozen: mirrorMap([{ c: [-250, -110, 30], kind: 'icepillar' }, { c: [250, -110, 30], kind: 'icepillar' }, { c: [0, -265, 34], kind: 'icepillar' }, { c: [-420, -300, 22], kind: 'icepillar' }, { c: [420, -300, 22], kind: 'icepillar' }]),
+    // the Titan's Grave: a giant skeleton lying across the field; its ribs are cover, and they collapse
+    grave: [{ c: [-412, 0, 50], kind: 'skull' }, { c: [392, 0, 42], kind: 'pelvis' }].concat(mirrorMap([-275, -165, -55, 55, 165, 275].map(x => ({ b: [x - 12, -150, 24, 100], kind: 'rib' })))),
+    // the Overgrown Kingdom: vines that slow, thickets that hide troops from archers, statues that wake up
+    overgrown: mirrorMap([{ c: [-380, -60, 26], kind: 'statue' }, { c: [380, -60, 26], kind: 'statue' }, { c: [0, -210, 32], kind: 'tree' }]),
+    // the Clockwork Colosseum: turning platforms and giant gears
+    clockwork: mirrorMap([{ c: [-362, 0, 58], kind: 'gear' }, { c: [362, 0, 58], kind: 'gear' }, { c: [-250, -352, 32], kind: 'gear' }, { c: [250, -352, 32], kind: 'gear' }]),
+    // the Shattered Sky: floating islands joined by three bridges over the void
+    shattered: mirrorMap([{ b: [-480, -34, 170, 68], kind: 'void' }, { b: [-210, -34, 160, 68], kind: 'void' }, { b: [50, -34, 160, 68], kind: 'void' }, { b: [310, -34, 170, 68], kind: 'void' },
+      { c: [-250, -232, 44], kind: 'void' }, { c: [250, -232, 44], kind: 'void' }, { b: [-480, -330, 66, 150], kind: 'void' }, { b: [414, -330, 66, 150], kind: 'void' }]),
+    // the Mirror Dimension: mirror shards, and the whole battle flips left to right
+    mirror: mirrorMap([{ c: [-200, -150, 30], kind: 'shard' }, { c: [200, -150, 30], kind: 'shard' }, { c: [0, -300, 26], kind: 'shard' }, { c: [-400, -40, 24], kind: 'shard' }, { c: [400, -40, 24], kind: 'shard' }]),
   };
   // Arena ground per map. The page background around the arena is the same dark style on every map.
   const scatter = (seed, n, f) => { const S = rng(seed); for (let i = 0; i < n; i++) f(S, i); };
@@ -1555,6 +1852,82 @@ const RVB = (() => {
         g.lineWidth = 2; g.beginPath(); g.arc(cx, cy, 122, 0, TAU); g.stroke();
         g.lineWidth = 3; g.strokeStyle = 'rgba(220,180,255,0.24)';
         for (let k = 0; k < 12; k++) { const a = k / 12 * TAU, r0 = 128, r1 = 144; g.beginPath(); g.moveTo(cx + Math.cos(a) * r0, cy + Math.sin(a) * r0); g.lineTo(cx + Math.cos(a + 0.12) * r1, cy + Math.sin(a + 0.12) * r1); g.lineTo(cx + Math.cos(a + 0.2) * r0, cy + Math.sin(a + 0.2) * r0); g.stroke(); }
+      },
+    },
+    godboard: {
+      floor: '#232838', grid: null, mid: null,
+      texture: g => {
+        for (let c = 0; c < 8; c++) for (let r = 0; r < 8; r++) if ((c + r) % 2 === 0) { g.fillStyle = '#353C54'; g.fillRect(c * 120, r * 120, 120, 120); }
+        g.lineWidth = 1.5; g.strokeStyle = 'rgba(255,255,255,0.05)';
+        scatter(0x60D, 18, S => { let x = S.range(0, AR.w), y = S.range(0, AR.h); g.beginPath(); g.moveTo(x, y); for (let k = 0; k < 5; k++) { x += S.range(-30, 30); y += S.range(-30, 30); g.lineTo(x, y); } g.stroke(); });
+        g.lineWidth = 4; g.strokeStyle = 'rgba(227,179,65,0.3)'; g.strokeRect(6, 6, AR.w - 12, AR.h - 12);
+      },
+    },
+    furnace: {
+      floor: '#1A1210', grid: 'rgba(255,140,80,0.04)', mid: null,
+      texture: g => {
+        scatter(0xF0A, 16, S => { g.beginPath(); g.ellipse(S.range(0, AR.w), S.range(0, AR.h), S.range(40, 90), S.range(26, 55), S.range(0, 3), 0, TAU); g.fillStyle = 'rgba(0,0,0,0.25)'; g.fill(); });
+        g.lineCap = 'round';
+        scatter(0xF0B, 22, S => { let x = S.range(0, AR.w), y = S.range(0, AR.h), a = S.range(0, TAU); g.beginPath(); g.moveTo(x, y); for (let k = 0; k < 4; k++) { a += S.range(-0.8, 0.8); x += Math.cos(a) * S.range(14, 28); y += Math.sin(a) * S.range(14, 28); g.lineTo(x, y); } g.lineWidth = 6; g.strokeStyle = 'rgba(255,90,30,0.16)'; g.stroke(); g.lineWidth = 2; g.strokeStyle = 'rgba(255,170,90,0.35)'; g.stroke(); });
+      },
+    },
+    frozen: {
+      floor: '#1B2A3B', grid: 'rgba(200,230,255,0.05)', mid: 'rgba(230,246,255,0.10)',
+      texture: g => {
+        scatter(0x1CE, 14, S => { g.beginPath(); g.ellipse(S.range(0, AR.w), S.range(0, AR.h), S.range(50, 110), S.range(30, 60), S.range(0, 3), 0, TAU); g.fillStyle = 'rgba(150,200,240,0.08)'; g.fill(); });
+        g.lineCap = 'round'; g.lineWidth = 1.5; g.strokeStyle = 'rgba(230,246,255,0.16)';
+        scatter(0x1CF, 24, S => { let x = S.range(0, AR.w), y = S.range(0, AR.h), a = S.range(0, TAU); g.beginPath(); g.moveTo(x, y); for (let k = 0; k < 3; k++) { a += S.range(-1, 1); x += Math.cos(a) * S.range(16, 34); y += Math.sin(a) * S.range(16, 34); g.lineTo(x, y); } g.stroke(); });
+        scatter(0x1D0, 10, S => { g.beginPath(); g.ellipse(S.range(0, AR.w), S.range(0, AR.h), S.range(30, 60), S.range(10, 18), S.range(-0.3, 0.3), 0, TAU); g.fillStyle = 'rgba(255,255,255,0.06)'; g.fill(); });
+      },
+    },
+    grave: {
+      floor: '#211E1A', grid: 'rgba(230,220,200,0.04)', mid: null,
+      texture: g => {
+        const cy = AR.h / 2;
+        for (let x = 116; x < AR.w - 120; x += 32) { g.beginPath(); g.ellipse(x, cy, 12, 9, 0, 0, TAU); g.fillStyle = '#B9B19C'; g.fill(); g.lineWidth = 2.5; g.strokeStyle = COL.ink; g.stroke(); }
+        scatter(0x6A7E, 30, S => { const x = S.range(0, AR.w), y = S.range(0, AR.h), l = S.range(6, 14), a = S.range(0, TAU); g.beginPath(); g.moveTo(x - Math.cos(a) * l, y - Math.sin(a) * l); g.lineTo(x + Math.cos(a) * l, y + Math.sin(a) * l); g.lineWidth = 4; g.strokeStyle = 'rgba(200,190,170,0.18)'; g.stroke(); });
+      },
+    },
+    overgrown: {
+      floor: '#13241A', grid: 'rgba(170,230,180,0.05)', mid: 'rgba(220,255,225,0.08)',
+      texture: g => {
+        const cx = AR.w / 2, cy = AR.h / 2;
+        for (const [x, y, r] of VINE_ZONES) {
+          g.beginPath(); g.arc(cx + x, cy + y, r, 0, TAU); g.fillStyle = 'rgba(40,90,40,0.45)'; g.fill();
+          g.lineWidth = 2.5; g.strokeStyle = 'rgba(90,170,90,0.45)';
+          for (let k = 0; k < 6; k++) { const a = k / 6 * TAU; g.beginPath(); g.arc(cx + x + Math.cos(a) * r * 0.5, cy + y + Math.sin(a) * r * 0.5, r * 0.3, a, a + 4); g.stroke(); }
+        }
+        for (const [x, y, r] of THICKETS) {
+          for (let k = 0; k < 7; k++) { const a = k / 7 * TAU; g.beginPath(); g.arc(cx + x + Math.cos(a) * r * 0.55, cy + y + Math.sin(a) * r * 0.55, r * 0.5, 0, TAU); g.fillStyle = k % 2 ? 'rgba(20,70,35,0.9)' : 'rgba(26,86,42,0.9)'; g.fill(); }
+          g.beginPath(); g.arc(cx + x, cy + y, r * 0.6, 0, TAU); g.fillStyle = 'rgba(32,98,48,0.95)'; g.fill();
+        }
+      },
+    },
+    clockwork: {
+      floor: '#231C14', grid: null, mid: null,
+      texture: g => {
+        const cx = AR.w / 2, cy = AR.h / 2;
+        scatter(0xC10C, 10, S => { const x = S.range(0, AR.w), y = S.range(0, AR.h), r = S.range(30, 70); g.beginPath(); for (let k = 0; k < 24; k++) { const a = k / 24 * TAU, rr = k % 2 ? r : r * 0.86; if (k) g.lineTo(x + Math.cos(a) * rr, y + Math.sin(a) * rr); else g.moveTo(x + Math.cos(a) * rr, y + Math.sin(a) * rr); } g.closePath(); g.lineWidth = 3; g.strokeStyle = 'rgba(227,179,65,0.07)'; g.stroke(); });
+        for (const [px, py, pr] of CLOCK_PLATES) {
+          g.beginPath(); g.arc(cx + px, cy + py, pr, 0, TAU); g.fillStyle = '#3A2C1C'; g.fill(); g.lineWidth = 5; g.strokeStyle = '#8A6420'; g.stroke();
+          g.fillStyle = '#B5893A'; for (let k = 0; k < 16; k++) { const a = k / 16 * TAU; g.beginPath(); g.arc(cx + px + Math.cos(a) * (pr - 9), cy + py + Math.sin(a) * (pr - 9), 2.5, 0, TAU); g.fill(); }
+        }
+      },
+    },
+    shattered: {
+      floor: '#2B3343', grid: 'rgba(200,215,240,0.04)', mid: null,
+      texture: g => {
+        scatter(0x5A7, 16, S => { g.beginPath(); g.ellipse(S.range(0, AR.w), S.range(0, AR.h), S.range(40, 90), S.range(24, 50), S.range(0, 3), 0, TAU); g.fillStyle = S.chance(0.5) ? 'rgba(80,140,90,0.10)' : 'rgba(0,0,0,0.12)'; g.fill(); });
+        g.lineCap = 'round'; g.lineWidth = 2; g.strokeStyle = 'rgba(10,14,22,0.5)';
+        scatter(0x5A8, 18, S => { let x = S.range(0, AR.w), y = S.range(0, AR.h), a = S.range(0, TAU); g.beginPath(); g.moveTo(x, y); for (let k = 0; k < 3; k++) { a += S.range(-1, 1); x += Math.cos(a) * S.range(14, 28); y += Math.sin(a) * S.range(14, 28); g.lineTo(x, y); } g.stroke(); });
+      },
+    },
+    mirror: {
+      floor: '#15172A', grid: 'rgba(196,181,253,0.05)', mid: 'rgba(196,181,253,0.10)',
+      texture: g => {
+        g.lineWidth = 1.5;
+        scatter(0x3122, 30, S => { const x = S.range(0, AR.w), y = S.range(0, AR.h), r = S.range(20, 60); g.beginPath(); g.moveTo(x, y - r); g.lineTo(x + r * 0.6, y); g.lineTo(x, y + r); g.lineTo(x - r * 0.6, y); g.closePath(); g.strokeStyle = S.chance(0.5) ? 'rgba(196,181,253,0.10)' : 'rgba(124,243,255,0.08)'; g.stroke(); });
+        g.setLineDash([16, 12]); g.lineWidth = 3; g.strokeStyle = 'rgba(196,181,253,0.2)'; g.beginPath(); g.moveTo(AR.w / 2, 0); g.lineTo(AR.w / 2, AR.h); g.stroke(); g.setLineDash([]);
       },
     },
   };
@@ -1642,6 +2015,7 @@ const RVB = (() => {
       this.extras = (this.opts.extras || []).filter(e => UNIT[e.type] && e.share > 0);
       // opts.extrasByTeam = [[...top extras], [...bottom extras]] gives each side its own extra troops
       this.extrasT = this.opts.extrasByTeam ? this.opts.extrasByTeam.map(l => (l || []).filter(e => UNIT[e.type] && e.share > 0)) : null;
+      this.initSys();
       for (let team = 0; team < this.N; team++) {
         // opts.budgetMul = [top, bottom] scales each army's size (used to balance fixed match-ups).
         const bm = this.opts.budgetMul ? this.opts.budgetMul[team] : 1;
@@ -1667,6 +2041,7 @@ const RVB = (() => {
         for (let i = 0; i < 26; i++) this.sparkles.push({ x: AR.x + S.range(20, AR.w - 20), y: AR.y + S.range(20, AR.h - 20), r: S.range(4, 8), sp: S.range(1.5, 3.5), ph: S.range(0, TAU), c: S.chance(0.5) ? '#E9D5FF' : '#A5F3FC' });
       }
       this.liveDecor = this.decor.some(d => d.kind === 'fire') || !!this.sparkles;
+      if (this.ext) this.initExt();
       if (this.opts.events) this.setupEvents();
     }
     // Obstacles and decoration, painted once in the same flat cartoon style as the arena.
@@ -1705,6 +2080,7 @@ const RVB = (() => {
       }
       let idx = 0;
       for (const o of this.obstacles) {
+        if (XOB[o.kind]) { g.save(); this.paintObstacle(g, o, ox, oy, S); g.restore(); idx++; continue; }
         g.save();
         idx++;
         if (o.circle) {
@@ -1812,6 +2188,7 @@ const RVB = (() => {
         }
         g.restore();
       }
+      if (this.rubble && this.rubble.length) this.paintRubble(g, ox, oy);
     }
     // Animated bits of a map, drawn every frame: fires on the bombed city, twinkling sparkles in the fantasy land.
     drawLiveDecor(ctx) {
@@ -1959,10 +2336,12 @@ const RVB = (() => {
       const hp = U.hp * (this.hpScale || 1);
       const pace = 1 + (R.chance(0.5) ? 1 : -1) * R.range(0.03, 0.07);
       if (this.obstacles && this.obstacles.length && !U.flying) { const p = { x, y, r: U.r }; for (let k = 0; k < 3; k++) this.pushOut(p); x = p.x; y = p.y; }
-      this.units.push({ team, type, x, y, flying: !!U.flying, pace, gait: R.range(0, TAU), vx: 0, vy: 0, r: U.r, hp, max: hp, cd: R.range(0, U.cd), retarget: R.range(0, 0.3), target: null, flash: 0, lunge: 0, face: this.N === 3 ? this.homeAngle(team) + Math.PI : team === 0 ? Math.PI / 2 : -Math.PI / 2, dead: false, m: U.r * U.r });
+      this.units.push({ team, type, x, y, flying: !!U.flying, pace, gait: R.range(0, TAU), vx: 0, vy: 0, r: U.r, hp, max: hp, cd: R.range(0, U.cd), retarget: R.range(0, 0.3), target: null, flash: 0, lunge: 0, face: this.N === 3 ? this.homeAngle(team) + Math.PI : team === 0 ? Math.PI / 2 : -Math.PI / 2, dead: false, m: U.r * U.r * (U.immovable ? 400 : 1) });
+      if (U.ext || this.sysOn) this.extUnit(this.units[this.units.length - 1], U);
       // nations: about one troop in ten carries the national flag (looks only, no dice)
-      if (hasFlag(TEAMS[team]) && !U.flying && U.rank !== 0) { this.flagN = this.flagN || [0, 0, 0]; if (this.flagN[team]++ % 10 === 3) this.units[this.units.length - 1].flag = true; }
-      this.alive[team]++;
+      if (hasFlag(TEAMS[team]) && !U.flying && U.rank !== 0 && !U.uncounted && team < 3) { this.flagN = this.flagN || [0, 0, 0]; if (this.flagN[team]++ % 10 === 3) this.units[this.units.length - 1].flag = true; }
+      if (!U.uncounted) this.alive[team]++;
+      return this.units[this.units.length - 1];
     }
     reinforce(team, wave) {
       wave.done = true;
@@ -1978,6 +2357,7 @@ const RVB = (() => {
     }
     inObstacle(x, y) {
       for (const o of this.obstacles) {
+        if (o.void) continue;
         if (o.circle ? (x - o.x) ** 2 + (y - o.y) ** 2 < o.r * o.r : x > o.x0 && x < o.x1 && y > o.y0 && y < o.y1) return o;
       }
       return null;
@@ -1985,6 +2365,7 @@ const RVB = (() => {
     // move a unit (anything with x, y, r) out of any obstacle it overlaps
     pushOut(u) {
       for (const o of this.obstacles) {
+        if (o.void && u.kx !== undefined) continue;
         if (o.circle) {
           const dx = u.x - o.x, dy = u.y - o.y, d = Math.hypot(dx, dy), m = o.r + u.r;
           if (d < m) { const nx = d > 1e-6 ? dx / d : 0, ny = d > 1e-6 ? dy / d : 1; u.x = o.x + nx * m; u.y = o.y + ny * m; }
@@ -2019,13 +2400,13 @@ const RVB = (() => {
       this.startStr = this.teamIds().map(t => this.strength(t));
       // two supply drops, each a different kind (see grabDrop)
       if (allow.includes('airdrop')) {
-        const kinds = ['squad', 'medkit', 'rage', 'shield', 'speed', 'heavy'], first = E.pick(kinds);
+        const kinds = ['squad', 'medkit', 'rage', 'shield', 'speed', 'heavy'].concat(this.opts.powerups ? POWERUPS : []), first = E.pick(kinds);
         this.events.push({ type: 'airdrop', kind: first, at: E.range(0.2, 0.3) * F, plane: skies || era === 'horror', t: 0 });
         this.events.push({ type: 'airdrop', kind: E.pick(kinds.filter(k => k !== first)), at: E.range(0.5, 0.6) * F, plane: skies || era === 'horror', t: 0 });
       }
       // then one big moment: an airstrike (battles with planes) or a hazard that hits both sides
       if (E.chance(0.9)) {
-        const hz = ['meteors', 'lightning', 'tornado', 'blizzard', 'earthquake'].filter(k => allow.includes(k));
+        const hz = ['meteors', 'lightning', 'tornado', 'blizzard', 'earthquake', 'stampede', 'kraken'].filter(k => allow.includes(k) && (k !== 'kraken' || era === 'pirate') && (k !== 'stampede' || !['modern', 'scifi'].includes(era)));
         if (skies && allow.includes('airstrike') && (E.chance(0.55) || !hz.length)) this.events.push({ type: 'airstrike', from: E.range(0.4, 0.5) * F, last: 0.66 * F, orbital: era === 'scifi', t: 0 });
         else if (hz.length) {
           const k = E.pick(hz), at = E.range(0.36, 0.48) * F;
@@ -2075,7 +2456,7 @@ const RVB = (() => {
         return;
       }
       // the first troop to reach the crate grabs it
-      for (const u of this.units) if (!u.dead && Math.hypot(u.x - ev.x, u.y - ev.y) < u.r + 18 * ev.size) { this.grabDrop(ev, u.team); break; }
+      for (const u of this.units) if (!u.dead && u.team < 3 && Math.hypot(u.x - ev.x, u.y - ev.y) < u.r + 18 * ev.size) { this.grabDrop(ev, u.team); break; }
     }
     // What's in a supply crate:
     //   squad  - a squad of that army's best troop (worth about 14 recruits)
@@ -2090,7 +2471,7 @@ const RVB = (() => {
       const kind = ev.kind || 'squad', name = TEAMS[team].name;
       let text = '';
       if (kind === 'squad') {
-        const doc = this.doc[team], keys = Object.keys(doc.mix).filter(k => UNIT[k] && !UNIT[k].healer && UNIT[k].rank !== 0);
+        const doc = this.doc[team], keys = Object.keys(doc.mix).filter(k => UNIT[k] && !UNIT[k].healer && UNIT[k].rank !== 0 && !UNIT[k].commander && !UNIT[k].uncounted);
         const elite = keys.length ? keys.reduce((a, b) => (UNIT[b].cost > UNIT[a].cost ? b : a)) : doc.base || 'soldier';
         const n = clamp(Math.round(14 / UNIT[elite].cost), 3, 8);
         for (let k = 0; k < n; k++) { const a = k / n * TAU; this.addUnit(team, elite, ev.x + Math.cos(a) * 26, ev.y + Math.sin(a) * 26); }
@@ -2107,6 +2488,8 @@ const RVB = (() => {
         for (const u of this.units) if (u.team === team && !u.dead) { u.hp = Math.min(u.max, u.hp + u.max * 0.5); u.healFlash = 1; }
         text = `${name} GRABS A MED KIT`;
         this.snd('heal');
+      } else if (POWERUPS.includes(kind)) {
+        text = this.powerup(kind, ev, team);
       } else {
         this.buffs[team][kind] = this.fightT + 8;
         text = `${name}: ${{ rage: 'RAGE MODE', shield: 'SHIELDS UP', speed: 'SPEED BOOST' }[kind]}!`;
@@ -2272,6 +2655,7 @@ const RVB = (() => {
       else if (kind === 'shield') { ctx.moveTo(x, y - b * 0.75); ctx.lineTo(x + b * 0.62, y - b * 0.45); ctx.quadraticCurveTo(x + b * 0.6, y + b * 0.45, x, y + b * 0.8); ctx.quadraticCurveTo(x - b * 0.6, y + b * 0.45, x - b * 0.62, y - b * 0.45); ctx.closePath(); ctx.fill(); ctx.stroke(); }
       else if (kind === 'speed') { ctx.moveTo(x + b * 0.2, y - b * 0.85); ctx.lineTo(x - b * 0.5, y + b * 0.1); ctx.lineTo(x - b * 0.02, y + b * 0.1); ctx.lineTo(x - b * 0.25, y + b * 0.85); ctx.lineTo(x + b * 0.5, y - b * 0.15); ctx.lineTo(x + b * 0.02, y - b * 0.15); ctx.closePath(); ctx.fill(); ctx.stroke(); }
       else if (kind === 'heavy') { star(ctx, x, y, b * 0.7); ctx.fill(); ctx.stroke(); }
+      else this.crateIcon2(ctx, kind, x, y, b);
     }
     // team-wide boosts on the troops: a red-hot ring (rage), a blue bubble (shield) or speed lines (speed)
     drawBoosts(ctx) {
@@ -2327,6 +2711,7 @@ const RVB = (() => {
       for (const pts of this.cracks || []) this.drawCrack(ctx, pts, 1);
       this.drawBoosts(ctx);
       for (const ev of this.events) {
+        if (ev.type === 'stampede' || ev.type === 'kraken') this.drawEvent2(ctx, ev);
         if (ev.type === 'earthquake' && ev.started && !ev.done) this.drawCrack(ctx, ev.pts, clamp((ev.t - 0.6) / 0.4, 0, 1));
         if (ev.type === 'tornado' && ev.started && !ev.done) {
           // a twister seen from above: spinning grey rings around a dark eye, with its shadow
@@ -2470,6 +2855,7 @@ const RVB = (() => {
     findCover(u, t, U) {
       let best = null, bd = 140;
       for (const o of this.obstacles) {
+        if (o.void) continue;
         const p0 = this.closestOn(o, u.x, u.y);
         if (Math.hypot(p0.x - u.x, p0.y - u.y) > 140) continue;
         const ox = o.circle ? o.x : (o.x0 + o.x1) / 2, oy = o.circle ? o.y : (o.y0 + o.y1) / 2, size = o.circle ? o.r : Math.hypot(o.x1 - o.x0, o.y1 - o.y0) / 2;
@@ -2501,12 +2887,13 @@ const RVB = (() => {
     }
     // A grenade or shell lands: damage every enemy in the blast, more near the middle.
     explode(a) {
-      const big = a.kind === 'shell' || a.kind === 'cannonball' || a.kind === 'bomb' || a.kind === 'meteor' || a.kind === 'lightning';
+      const big = a.kind === 'shell' || a.kind === 'cannonball' || a.kind === 'bomb' || a.kind === 'meteor' || a.kind === 'lightning' || a.kind === 'boulder' || a.kind === 'slam';
       for (const o of this.units) {
-        if (o.dead || o.team === a.team) continue;
+        if (o.dead || o.team === a.team || o.phased) continue;
         const d = Math.hypot(o.x - a.x, o.y - a.y), reach = a.splash + o.r;
-        if (d < reach) this.damage(o, a.dmg * (1 - 0.5 * d / reach) * Math.max(UNIT[o.type].armor, 0.5) * this.dmgMul, a.from);
+        if (d < reach) { if (this.ext) this._kind = 'blast'; this.damage(o, a.dmg * (1 - 0.5 * d / reach) * Math.max(UNIT[o.type].armor, 0.5) * this.dmgMul, a.from); if (this.ext && a.fx) this.hitFx(o, a.fx, a.from); }
       }
+      if (this.ext) this.explodeFx(a);
       if (this.camEv) this.camEv.push({ type: 'blast', x: a.x, y: a.y, kind: a.kind });
       this.booms.push({ x: a.x, y: a.y, r: a.splash, t: 0, magic: a.kind === 'fireball', zap: a.kind === 'lightning' });
       const fire = a.kind === 'fireball';
@@ -2534,14 +2921,17 @@ const RVB = (() => {
       }
     }
     // colour for a banner about a fallen troop: the other side's colour (in three-way battles, the killer's)
-    foeCol(u, from) { return this.N === 2 ? TEAMS[1 - u.team].c : from && TEAMS[from.team] ? TEAMS[from.team].c : COL.gold; }
+    foeCol(u, from) { return this.N === 2 && u.team < 2 ? TEAMS[1 - u.team].c : from && TEAMS[from.team] ? TEAMS[from.team].c : COL.gold; }
     damage(u, dmg, from) {
       if (this.buffs) { if (from && this.buffOn(from.team, 'rage')) dmg *= 1.5; if (this.buffOn(u.team, 'shield')) dmg *= 0.5; }
+      if (this.ext) { dmg = this.dmgMod(u, dmg, from); if (!(dmg > 0)) return; }
       u.hp -= dmg; u.flash = 1;
+      if (this.ext) { if (from && from.team !== u.team && !u.dead) this.onHit(u, from, dmg); if (UNIT[u.type].boss || u.boss) this.bossCheck(u); }
       if (u.hp <= 0 && !u.dead) {
+        if (this.ext && this.cheatDeath(u, from)) return;
         u.dead = true;
-        this.alive[u.team]--;
-        if (from && from.team !== u.team) {
+        if (!UNIT[u.type].uncounted) this.alive[u.team]--;
+        if (from && from.team !== u.team && !UNIT[u.type].decoy) {
           from.kills = (from.kills || 0) + 1;
           if (!this.best) this.best = [null, null];
           if (!this.best[from.team] || from.kills > this.best[from.team].kills) this.best[from.team] = from;
@@ -2563,6 +2953,10 @@ const RVB = (() => {
         if (u.type === 'giant') { this.shake(20); this.snd('boom', { gain: 0.6 }); this.banner(`${TEAMS[u.team].name} GIANT FALLS`, this.foeCol(u, from)); }
         if (u.type === 'mech') { this.shake(20); this.booms.push({ x: u.x, y: u.y, r: 70, t: 0 }); this.snd('boom', { gain: 0.6 }); this.banner(`${TEAMS[u.team].name} MECH DOWN`, this.foeCol(u, from)); }
         if (u.type === 'cannon') { this.shake(14); this.booms.push({ x: u.x, y: u.y, r: 60, t: 0 }); this.snd('boom', { gain: 0.5 }); this.banner(`${TEAMS[u.team].name} CANNON DESTROYED`, this.foeCol(u, from)); }
+        if (this.ext) {
+          if (huge && UNIT[u.type].ext) { this.shake(18); this.snd('boom', { gain: 0.6 }); this.banner(`${TEAMS[u.team].name} ${labelOf(u.type).replace(/^THE /, '')} FALLS`, this.foeCol(u, from)); }
+          this.onDeath(u, from);
+        }
       }
     }
     step(h) {
@@ -2572,8 +2966,9 @@ const RVB = (() => {
       for (const u of this.units) {
         if (u.dead) continue;
         const U = UNIT[u.type];
+        if (this.ext && this.preUnit(u, U, h)) continue;
         u.cd -= h; u.retarget -= h;
-        if (!u.target || u.target.dead || u.retarget <= 0) { u.target = this.nearest(u); u.retarget = R.range(0.25, 0.4); }
+        if (!u.target || u.target.dead || u.retarget <= 0 || (this.ext && (u.target.phased || u.target.team === u.team) && !(u.confT > this.fightT))) { u.target = this.ext ? this.pickTarget(u, U) : this.nearest(u); u.retarget = R.range(0.25, 0.4); }
         const t = u.target;
         let dvx = 0, dvy = 0;
         if (t) {
@@ -2581,12 +2976,14 @@ const RVB = (() => {
           const nx = dx / d, ny = dy / d;
           // turn smoothly toward the target: ease in, and never faster than 9 rad/s, however fast the target moves
           { let df = Math.atan2(dy, dx) - u.face; df = Math.atan2(Math.sin(df), Math.cos(df)); const cap = 9 * h; u.face += clamp(df * Math.min(1, h * 12), -cap, cap); }
-          const spd = U.speed * this.speedMul * (u.pace || 1) * (this.buffs ? (this.buffOn(u.team, 'speed') ? 1.35 : 1) * (this.chill > this.fightT ? 0.55 : 1) : 1);
+          let spd = U.speed * this.speedMul * (u.pace || 1) * (this.buffs ? (this.buffOn(u.team, 'speed') ? 1.35 : 1) * (this.chill > this.fightT ? 0.55 : 1) : 1);
+          if (this.ext) spd *= this.spdMod(u, U);
           if (U.healer) {
             // keep a safe distance behind the fighting, following the army
             if (d < U.range * 0.85) { dvx = -nx * spd * 0.7; dvy = -ny * spd * 0.7; }
             else if (d > U.range * 1.5) { this.navDir(u, t, nx, ny); dvx = this.ndx * spd * 0.8; dvy = this.ndy * spd * 0.8; }
-            if (u.cd <= 0) {
+            if (u.cd <= 0 && U.pulse) { this.pulseHeal(u, U); u.cd = U.cd * R.range(0.9, 1.1); }
+            else if (u.cd <= 0) {
               let best = null, worst = 0.999;
               for (const o of this.units) {
                 if (o.dead || o.team !== u.team || o === u) continue;
@@ -2594,16 +2991,18 @@ const RVB = (() => {
                 if (fr < worst && (o.x - u.x) ** 2 + (o.y - u.y) ** 2 < U.healRange * U.healRange) { worst = fr; best = o; }
               }
               if (best) {
-                best.hp = Math.min(best.max, best.hp + U.heal); best.healFlash = 1; u.healFx = 1; u.healTo = best;
+                if (this.ext) this.heal(best, U.heal); else best.hp = Math.min(best.max, best.hp + U.heal);
+                best.healFlash = 1; u.healFx = 1; u.healTo = best;
                 u.cd = U.cd * R.range(0.9, 1.1);
                 this.burst(best.x, best.y, '#7CFFB0', 5, 120, 0.5, 5, -60);
                 this.snd('heal', { pan: (u.x - AR.x) / AR.w * 1.4 - 0.7 });
               } else u.cd = 0.3;
             }
           } else if (U.ranged) {
+            const RG = this.ext ? U.range * this.rangeMod(u, U) : U.range;
             const tactical = this.obstacles.length && !u.flying && U.rank !== 0;
-            if (d > U.range) { if (tactical) { u.cover = null; this.navDir(u, t, nx, ny); dvx = this.ndx * spd; dvy = this.ndy * spd; } else { dvx = nx * spd; dvy = ny * spd; } }
-            else if (d < U.range * 0.45 && this.pushStage < 2) { dvx = -nx * spd * 0.6; dvy = -ny * spd * 0.6; }
+            if (d > RG) { if (tactical) { u.cover = null; this.navDir(u, t, nx, ny); dvx = this.ndx * spd; dvy = this.ndy * spd; } else { dvx = nx * spd; dvy = ny * spd; } }
+            else if (d < RG * 0.45 && this.pushStage < 2) { dvx = -nx * spd * 0.6; dvy = -ny * spd * 0.6; }
             else if (tactical) {
               // in range: take cover nearby if there is any, then hold there and shoot
               if (u.coverFor !== t || this.fightT >= (u.coverAt || 0)) { u.cover = this.findCover(u, t, U); u.coverFor = t; u.coverAt = this.fightT + 1.5; }
@@ -2611,13 +3010,14 @@ const RVB = (() => {
             }
             // no clear shot (grenades, shells and fireballs fly over walls, so they never need one): go around and find an angle
             // (checked a few times a second, and the troop keeps moving between checks)
-            if (!U.lob && d <= U.range && this.obstacles.length) {
+            if (!U.lob && d <= RG && this.obstacles.length) {
               if (u.cd <= 0 || this.fightT >= (u.losAt || 0)) { u.noShot = !this.clearShot(u.x, u.y, t.x, t.y); u.losAt = this.fightT + 0.15; }
             } else if (u.noShot) u.noShot = false;
             const blocked = u.noShot;
             if (blocked) { u.cover = null; u.coverAt = this.fightT + 1; this.navDir(u, t, nx, ny); dvx = this.ndx * spd; dvy = this.ndy * spd; if (u.cd <= 0) u.cd = 0.15; }
-            if (!blocked && d <= U.range && u.cd <= 0) {
-              u.cd = U.cd * R.range(0.85, 1.15);
+            if (this.ext && U.kite && !blocked && d <= RG) { this.kite(u, nx, ny, d, RG, spd); dvx = this.ndx; dvy = this.ndy; }
+            if (!blocked && d <= RG && u.cd <= 0) {
+              u.cd = U.cd * R.range(0.85, 1.15); if (this.ext) u.cd *= this.cdMod(u);
               const pan = (u.x - AR.x) / AR.w * 1.4 - 0.7;
               if (U.lob) {
                 // grenade or tank shell: flies to where the target is heading and explodes there
@@ -2630,6 +3030,7 @@ const RVB = (() => {
                   const side = n > 1 ? (sv % 2 ? 1 : -1) * u.r * 0.6 : 0, sx = u.x - Math.sin(u.face) * side, sy = u.y + Math.cos(u.face) * side;
                   const T = Math.max(0.15, Math.hypot(tx - u.x, ty - u.y) / v) * (1 + sv * 0.08);
                   this.arrows.push({ team: u.team, kind: U.lob, x: sx, y: sy, sx, sy, tx, ty, t: 0, T, dmg: U.dmg, splash: U.splash, vx: (tx - sx) / T, vy: (ty - sy) / T, from: u });
+                  if (this.ext) this.tagShot(this.arrows[this.arrows.length - 1], u, U);
                 }
                 if (U.lob === 'grenade') u.lunge = 1;
                 u.muzzle = 1;
@@ -2649,6 +3050,7 @@ const RVB = (() => {
                 u.shots = (u.shots || 0) + 1;
                 const tracer = u.type !== 'gunner' || u.shots % 3 === 0;
                 this.arrows.push({ tracer, team: u.team, x: u.x + (ax / al) * (u.r + 4), y: u.y + (ay / al) * (u.r + 4), vx: (ax / al) * v, vy: (ay / al) * v, life: (U.range / v) * 1.35, dmg: shotDmg, bolt: !!U.bolt, kind: U.laser ? 'laser' : U.bullet ? (U.pierce ? 'sniper' : 'bullet') : undefined, pierce: U.pierce || 0, from: u });
+                if (this.ext) this.tagShot(this.arrows[this.arrows.length - 1], u, U);
                 if (U.bullet) u.muzzle = 1;
                 }
                 // a musket shot leaves a puff of smoke
@@ -2660,7 +3062,7 @@ const RVB = (() => {
             const edge = d - u.r - t.r;
             if (edge > U.reach) { if (this.obstacles.length && !u.flying) { this.navDir(u, t, nx, ny); dvx = this.ndx * spd; dvy = this.ndy * spd; } else { dvx = nx * spd; dvy = ny * spd; } }
             else if (u.cd <= 0) {
-              u.cd = U.cd * R.range(0.85, 1.15);
+              u.cd = U.cd * R.range(0.85, 1.15); if (this.ext) u.cd *= this.cdMod(u);
               u.lunge = 1;
               if (U.breath) {
                 // fire breath: everyone in a cone in front of the dragon gets burned
@@ -2682,13 +3084,15 @@ const RVB = (() => {
                 this.shake(8); this.snd('stomp', { pan: (u.x - AR.x) / AR.w * 1.4 - 0.7 });
                 this.burst(t.x, t.y, COL.muted, 10, 300, 0.4, 7);
               } else {
-                const hit = U.dmg * this.dmgMul * (UNIT[t.type].block || 1);
+                let hit = U.dmg * this.dmgMul * (UNIT[t.type].block || 1);
+                if (this.ext) hit = this.meleeHit(u, U, t, hit);
                 this.damage(t, hit, u);
                 // a vampire's bite heals it
                 if (U.drain) { u.hp = Math.min(u.max, u.hp + hit * U.drain); u.drainFx = 1; }
                 this.snd(UNIT[t.type].block ? 'thunk' : 'clash', { pan: (u.x - AR.x) / AR.w * 1.4 - 0.7 });
                 if (u.type === 'ninja' || u.type === 'pirate') this.snd('swish', { pan: (u.x - AR.x) / AR.w * 1.4 - 0.7 });
               }
+              if (this.ext) this.meleeFx(u, U, t);
               if (U.sword) {
                 // swing from the side the sword rests on to the other side
                 const side = u.swordSide || -1;
@@ -2708,7 +3112,7 @@ const RVB = (() => {
           }
         }
         if (this.obstacles.length && !u.flying && (dvx || dvy)) { this.steer(u, dvx, dvy); dvx = this.stx; dvy = this.sty; }
-        const k = Math.min(1, 7 * h);
+        const k = Math.min(1, (this.iceK && !u.flying ? this.iceK : 7) * h);
         u.vx += (dvx - u.vx) * k; u.vy += (dvy - u.vy) * k;
         u.x += u.vx * h; u.y += u.vy * h;
       }
@@ -2721,7 +3125,7 @@ const RVB = (() => {
           if (!b) continue;
           for (const o of b) {
             if (o === u || o.dead || o.x < u.x || (o.x === u.x && o.y <= u.y)) continue;
-            if (u.flying !== o.flying) continue; // a dragon flies over the troops below it
+            if (u.flying !== o.flying || o.phased || u.phased) continue; // a dragon flies over the troops below it
             const dx = o.x - u.x, dy = o.y - u.y, d2 = dx * dx + dy * dy, m = u.r + o.r;
             if (d2 < m * m && d2 > 1e-6) {
               const d = Math.sqrt(d2), push = (m - d), nx = dx / d, ny = dy / d;
@@ -2759,7 +3163,7 @@ const RVB = (() => {
             for (let di = -1; di <= 1 && !hitU; di++) for (let dj = -1; dj <= 1 && !hitU; dj++) {
               const b = this.grid.get((ci + di) * 64 + cj + dj);
               if (!b) continue;
-              for (const o of b) if (!o.dead && o.team !== a.team && o !== a.skip && (o.x - a.x) ** 2 + (o.y - a.y) ** 2 < (o.r + 3) ** 2) { hitU = o; break; }
+              for (const o of b) if (!o.dead && o.team !== a.team && o !== a.skip && !o.phased && (o.x - a.x) ** 2 + (o.y - a.y) ** 2 < (o.r + 3 + (o.shell || 0)) ** 2) { hitU = o; break; }
             }
           }
           a.life -= h;
@@ -2772,7 +3176,9 @@ const RVB = (() => {
           }
           if (hitU) {
             const arm = UNIT[hitU.type].armor, floor = a.bolt ? 0.75 : a.pierce || 0;
+            if (this.ext) this._kind = 'shot';
             this.damage(hitU, (a.dmg || UNIT.archer.dmg) * Math.max(arm, floor) * this.dmgMul, a.from);
+            if (this.ext && a.fx) this.hitFx(hitU, a.fx, a.from);
             this.snd('thunk', { pan: (a.x - AR.x) / AR.w * 1.4 - 0.7, quiet: true });
             continue;
           }
@@ -2792,6 +3198,7 @@ const RVB = (() => {
         }
         this.rising = this.rising.filter(z => z.t > 0);
       }
+      if (this.ext) this.postStep(h);
       const tots = this.totals();
       for (let tm = 0; tm < this.N; tm++) {
         const mine = tots[tm], theirs = tots.reduce((a, b) => a + b, 0) - mine;
@@ -2858,6 +3265,7 @@ const RVB = (() => {
     outroStep(dt) {
       this.arrows = [];
       for (const u of this.units) {
+        if (u.team === MONSTERS) { u.fade = clamp(1 - this.outroT / 1.2, 0, 1); u.vx *= 0.9; u.vy *= 0.9; continue; }
         if (this.N === 3 && this.retreat === -2 && u.team !== this.winner) {
           // the losing armies fall back toward where they came from
           const a = this.homeAngle(u.team % 3), vx = Math.cos(a) * 320, vy = Math.sin(a) * 320;
@@ -3007,7 +3415,7 @@ const RVB = (() => {
           const m = clamp((k - 3.0) / 0.4, 0, 1);
           if (mvp && (mvp.kills || 0) >= 3 && m > 0) {
             ctx.globalAlpha = m; ctx.font = font(42, 800);
-            strokeText(ctx, `MVP: ${UNIT_LABEL[mvp.type] || mvp.type.toUpperCase()} · ${mvp.kills} KILLS`, VW / 2, cy + (this.N === 3 ? 432 : 413) + (1 - m) * 20, COL.gold, COL.ink, 10);
+            strokeText(ctx, `MVP: ${mvp.champ || labelOf(mvp.type)} · ${mvp.kills} KILLS`, VW / 2, cy + (this.N === 3 ? 432 : 413) + (1 - m) * 20, COL.gold, COL.ink, 10);
             ctx.globalAlpha = a;
           }
           spaced(ctx, 0);
@@ -3027,6 +3435,7 @@ const RVB = (() => {
     }
     cosmetic(dt) {
       for (const u of this.units) { u.flash = Math.max(0, u.flash - dt * 6); u.lunge = Math.max(0, u.lunge - dt * 6); if (u.swing) u.swing = Math.max(0, u.swing - dt * 2.6); if (u.healFx) u.healFx = Math.max(0, u.healFx - dt * 2.5); if (u.healFlash) u.healFlash = Math.max(0, u.healFlash - dt * 3); if (u.muzzle) u.muzzle = Math.max(0, u.muzzle - dt * 12); if (u.dodgeFx) u.dodgeFx = Math.max(0, u.dodgeFx - dt * 4); if (u.drainFx) u.drainFx = Math.max(0, u.drainFx - dt * 3); }
+      if (this.ext) this.extCosmetic(dt);
       if (this.booms && this.booms.length) this.booms = this.booms.filter(b => (b.t += dt) < 0.45);
       if (this.drop && this.FX.chance(dt * 9)) { const F = this.FX; this.parts.push({ x: this.drop.x + F.range(-5, 5), y: this.drop.y - 10, vx: F.range(-10, 10), vy: F.range(-60, -40), life: F.range(0.9, 1.4), age: 0, size: F.range(7, 11), color: '#F2C14E', grav: 0, smoke: true }); }
       for (const a of this.arrows) if (a.kind === 'rocket' && this.FX.chance(dt * 30)) this.parts.push({ x: a.x, y: a.y, vx: 0, vy: 0, life: 0.5, age: 0, size: 5, color: '#9AA0AA', grav: 0, smoke: true });
@@ -3079,7 +3488,7 @@ const RVB = (() => {
         if (flag) drawFlag(ctx, TEAMS[tm].key, x - 36, 276, 72, 48, 3);
         spaced(ctx, 0); ctx.font = font(flag ? 92 : 112, 800); ctx.fillStyle = COL.white; ctx.fillText(String(tot[tm]), x, flag ? 404 : 382);
         ctx.font = font(26, 700, false); spaced(ctx, 1); ctx.fillStyle = COL.muted;
-        const nm = this.doc[tm].name; ctx.fillText(nm.length > 12 ? nm.slice(0, 12) : nm, x, 432);
+        const nm = docLabel(this.doc[tm]); ctx.fillText(nm.length > 12 ? nm.slice(0, 12) : nm, x, 432);
       }
       spaced(ctx, 0); ctx.font = font(34, 800); ctx.fillStyle = 'rgba(255,255,255,0.35)';
       ctx.fillText('VS', 365, 350); ctx.fillText('VS', 715, 350);
@@ -3104,7 +3513,7 @@ const RVB = (() => {
       if (this.N === 3) this.drawHUD3(ctx); else this.drawHUD(ctx, {
         title: this.title, hook: this.hook,
         lv: String(this.alive[0] + this.reserve[0]), rv: String(this.alive[1] + this.reserve[1]),
-        ls: `${this.doc[0].name} · ${this.start[0]} UNITS`, rs: `${this.start[1]} UNITS · ${this.doc[1].name}`,
+        ls: `${docLabel(this.doc[0])} · ${this.start[0]} UNITS`, rs: `${this.start[1]} UNITS · ${docLabel(this.doc[1])}`,
         ratio: this.dispRatio,
       });
       const zoom = this.camOn(), hi = zoom && this.cam.z > 1.12 && !!api.makeCanvas;
@@ -3140,6 +3549,7 @@ const RVB = (() => {
       const tracers = [], snipes = [], lasers = {};
       for (const a of this.arrows) {
         const l = Math.hypot(a.vx, a.vy) || 1, ux = a.vx / l, uy = a.vy / l;
+        if (XSHOT[a.kind]) { this.drawShot(ctx, a, ux, uy); continue; }
         if (a.kind === 'fireball') {
           // a glowing purple-orange ball on a low arc
           const p = a.t / a.T, hgt = Math.sin(Math.PI * p) * 22;
@@ -3218,15 +3628,20 @@ const RVB = (() => {
         ctx.lineWidth = 4; ctx.strokeStyle = `rgba(255,230,150,${1 - p})`; ctx.stroke();
         if (p < 0.25) { ctx.beginPath(); ctx.arc(b.x, b.y, rr * 0.5, 0, TAU); ctx.fillStyle = `rgba(255,255,230,${(0.25 - p) * 3})`; ctx.fill(); }
       }
+      if (this.ext) this.drawField(ctx);
       // units by type for fewer state changes
       const cheer = this.phase === 'outro' ? this.winner : -1;
       const drawOrder = this.units.some(u => u.flying) ? this.units.filter(u => !u.flying).concat(this.units.filter(u => u.flying)) : this.units;
       // when zoomed in, skip troops that are out of view
       const cv = zoom ? { x0: this.cam.x - AR.w / 2 / this.cam.z - 60, x1: this.cam.x + AR.w / 2 / this.cam.z + 60, y0: this.cam.y - AR.h / 2 / this.cam.z - 60, y1: this.cam.y + AR.h / 2 / this.cam.z + 60 } : null;
       for (const u of drawOrder) {
-        if (cv && (u.x < cv.x0 - u.r || u.x > cv.x1 + u.r || u.y < cv.y0 - u.r || u.y > cv.y1 + u.r)) continue;
+        if (u.dead || (cv && (u.x < cv.x0 - u.r || u.x > cv.x1 + u.r || u.y < cv.y0 - u.r || u.y > cv.y1 + u.r))) continue;
         const tm = TEAMS[u.team];
         if (u.fade !== undefined) { if (u.fade <= 0) continue; ctx.globalAlpha = u.fade; }
+        if (u.phased) ctx.globalAlpha *= 0.35;
+        if (u.hidden) ctx.globalAlpha *= 0.6;
+        if (u.cloak) ctx.globalAlpha *= 0.22;
+        if (u.hollow || u.ghost) ctx.globalAlpha *= 0.72;
         let lx = Math.cos(u.face) * u.lunge * 6, ly = Math.sin(u.face) * u.lunge * 6;
         const swordy = UNIT[u.type].sword;
         if (swordy && !(u.swing > 0) && Math.hypot(u.vx, u.vy) > 18) {
@@ -3246,8 +3661,13 @@ const RVB = (() => {
           ctx.beginPath(); ctx.arc(u.x + lx, u.y + ly, u.r, 0, TAU); ctx.fillStyle = `rgba(255,255,255,${u.dodgeFx * 0.35})`; ctx.fill();
           lx += -Math.sin(u.face) * dk; ly += Math.cos(u.face) * dk;
         }
-        const x = u.x + lx, y = u.y + ly + hop;
-        if (u.type === 'dragon') {
+        const x = u.x + lx, y = u.y + ly + hop - (u.lift || 0);
+        if (u.lift) ell(ctx, u.x + 6, u.y + 8, u.r, u.r * 0.6, 0, 'rgba(0,0,0,0.25)', 0);
+        if (u.sheepT > this.fightT) {
+          this.drawSheep(ctx, u, x, y, tm);
+        } else if (ROSTER[u.type]) {
+          this.drawRoster(ctx, u, x, y, tm);
+        } else if (u.type === 'dragon') {
           // seen from above: a shadow on the ground, flapping wings, a long body, tail and horned head
           const flap = 0.75 + 0.25 * Math.sin(this.t * 7 + u.gait), r = u.r;
           ctx.beginPath(); ctx.ellipse(x + 10, y + 26, r * 1.1, r * 0.7, u.face, 0, TAU); ctx.fillStyle = 'rgba(0,0,0,0.3)'; ctx.fill();
@@ -3519,9 +3939,11 @@ const RVB = (() => {
           ctx.fillStyle = COL.ink; ctx.fillRect(x - w / 2 - 2, y - u.r - 13, w + 4, 8);
           ctx.fillStyle = tm.l; ctx.fillRect(x - w / 2, y - u.r - 11, w * clamp(u.hp / u.max, 0, 1), 4);
         }
+        if (this.ext) this.drawStatus(ctx, u, x, y, tm);
         ctx.globalAlpha = 1;
       }
       if (this.events) this.drawEvents(ctx);
+      if (this.ext) this.drawOver(ctx);
       this.drawMvp(ctx);
       if (this.tag && this.tag.u && !this.tag.u.dead && this.tag.a > 0.01) {
         // the director's hero tag: a team-coloured marker and a kill count above one troop
@@ -3669,6 +4091,18 @@ const RVB = (() => {
         }
         case 'volley': if (this.gate('volley', 0.06, t)) this.voice(t, { dur: 0.08, gain: 0.07, pan, noise: { a: 0.8, decay: 0.02, lp: 0.35 } }); return;
         case 'stomp': if (this.gate('stomp', 0.2, t)) this.voice(t, { dur: 0.4, gain: 0.4, pan, partials: [{ f: 90, f2: 40, glide: 0.06, decay: 0.12 }], noise: { a: 0.6, decay: 0.05, lp: 0.15 } }); return;
+        // the big troop batch and the new systems
+        case 'drum': if (this.gate('drum', 0.3, t)) [0, 1].forEach(k => this.voice(t + k * 0.14, { dur: 0.25, gain: 0.16, pan, partials: [{ f: 110, f2: 70, glide: 0.06, decay: 0.09 }], noise: { a: 0.3, decay: 0.03, lp: 0.2 } })); return;
+        case 'coin': if (this.gate('coin', 0.15, t)) [0, 1].forEach(k => this.voice(t + k * 0.07, { dur: 0.2, gain: 0.08, pan, partials: [{ f: k ? 2637 : 1976, decay: 0.08 }, { f: (k ? 2637 : 1976) * 2.4, a: 0.3, decay: 0.04 }] })); return;
+        case 'roar': if (this.gate('roar', 0.5, t)) this.voice(t, { dur: 1.1, gain: 0.3, pan, attack: 0.06, partials: [{ f: 95, f2: 60, glide: 0.6, decay: 0.45 }, { f: 190, f2: 120, glide: 0.6, decay: 0.3, a: 0.5 }], noise: { a: 0.7, decay: 0.4, lp: 0.12 } }); return;
+        case 'portal': if (this.gate('portal', 0.4, t)) this.voice(t, { dur: 1.2, gain: 0.12, pan, attack: 0.15, partials: [{ f: 220, f2: 880, glide: 0.9, decay: 0.5 }, { f: 330, f2: 1320, glide: 0.9, decay: 0.4, a: 0.5 }] }); return;
+        case 'glitch': if (this.gate('glitch', 0.3, t)) [0, 1, 2, 3].forEach(k => this.voice(t + k * 0.05, { dur: 0.06, gain: 0.09, pan, partials: [{ f: [880, 220, 1760, 440][k], decay: 0.03 }], noise: { a: 0.6, decay: 0.02, lp: 0.8 } })); return;
+        case 'evolve': if (this.gate('evolve', 0.3, t)) [0, 1, 2].forEach(k => this.voice(t + k * 0.08, { dur: 0.35, gain: 0.08, pan, partials: [{ f: [392, 523, 784][k], decay: 0.18 }, { f: [392, 523, 784][k] * 2, a: 0.4, decay: 0.1 }] })); return;
+        case 'splash': if (this.gate('splash', 0.12, t)) this.voice(t, { dur: 0.3, gain: 0.1, pan, partials: [{ f: 1400, f2: 500, glide: 0.08, decay: 0.06, a: 0.4 }], noise: { a: 0.8, decay: 0.12, lp: 0.5 } }); return;
+        case 'stone': if (this.gate('stone', 0.2, t)) this.voice(t, { dur: 0.9, gain: 0.35, pan, partials: [{ f: 80, f2: 40, glide: 0.3, decay: 0.3 }], noise: { a: 1, decay: 0.35, lp: 0.15 } }); return;
+        case 'phase': if (this.gate('phase', 0.15, t)) this.voice(t, { dur: 0.4, gain: 0.08, pan, partials: [{ f: 1200, f2: 300, glide: 0.3, decay: 0.15 }, { f: 1800, f2: 450, glide: 0.3, decay: 0.1, a: 0.5 }] }); return;
+        case 'bell': if (this.gate('bell', 0.5, t)) this.voice(t, { dur: 1.6, gain: 0.12, pan, partials: [{ f: 523, decay: 0.8 }, { f: 1255, a: 0.4, decay: 0.5 }, { f: 1570, a: 0.25, decay: 0.3 }] }); return;
+        case 'crit': if (this.gate('crit', 0.08, t)) this.voice(t, { dur: 0.2, gain: 0.14, pan, partials: [{ f: 1600, f2: 900, glide: 0.05, decay: 0.06 }], noise: { a: 0.6, decay: 0.03, lp: 0.7, hp: true } }); return;
         case 'win': {
           const base = 261.63;
           [1, 1.26, 1.5, 2].forEach((m, k) => this.voice(t + 0.25 + k * 0.05, { dur: 1.8, gain: 0.07, pan: (k - 1.5) * 0.3, attack: 0.01, partials: [1, 2, 3, 4, 5].map(h => ({ f: base * m * h, a: 1 / h, decay: 0.9 / h })) }));
@@ -3796,6 +4230,11 @@ const RVB = (() => {
         if (e.type === 'hazard') want(46, () => this.start('hazard', e.ev.type === 'tornado' ? { prio: 46, dur: 3.8, chase: e.ev, z: 1.45, spd: 2.5, zspd: 2 } : { prio: 46, dur: 3.4, x: this.cx, y: this.cy, z: 1.05, spd: 2, zspd: 2, vig: 0.22 }));
         if (e.type === 'meteors') want(45, () => this.start('meteors', { prio: 45, dur: 4.6, x: this.cx, y: this.cy, z: 1.06, spd: 2, zspd: 2, vig: 0.25 }));
       }
+      // big moments from the new troops and systems (fusions, possessions, boss phases, portals...), and a split-second hit-stop on a crushing crit
+      for (const e of ev) {
+        if (e.type === 'spot' && ((e.prio || 58) >= 80 || this.t > (this.spotNext || 0))) want(e.prio || 58, () => { this.spotNext = this.t + 8; this.start('spot', { prio: e.prio || 58, dur: e.dur || 2.2, x: e.x, y: e.y, follow: e.follow, z: e.z || 1.8, ts: e.slow && this.canSlow(0.6) ? 0.35 : 1, slowFor: e.slow ? 0.9 : 0, bars: e.slow ? 1 : 0, vig: e.slow ? 0.35 : 0.15, spd: 5, zspd: 4.5, sfx: e.slow ? 'whoosh' : undefined }); });
+        if (e.type === 'hitstop' && this.t > (this.stopNext || 0) && this.canSlow(0.25)) { this.stopNext = this.t + 5; this.stopT = this.t + 0.09; }
+      }
       // FINAL PUSH and LAST STAND: a slow push-in on the heaviest fighting
       for (const e of ev) if (e.type === 'push' && e.stage !== 2) want(35, () => { const h = this.hotspot(); this.start('push', { prio: 35, dur: 2.6, x: h.x, y: h.y, z: e.stage === 3 ? 1.5 : 1.35, spd: 1.4, zspd: 1.1 }); });
       // a troop on a killing spree: follow it for a moment, with a kill counter
@@ -3842,6 +4281,7 @@ const RVB = (() => {
         // catch up on time spent in slow motion, gently, while the view is wide or drifting
         if (this.debt > 0.02 && g.phase === 'fight') tts = 1 + Math.min(0.32, this.debt * 0.5);
       }
+      if (this.stopT !== undefined && this.t < this.stopT + 0.15 && g.phase === 'fight') { if (this.t < this.stopT) tts = 0.04; tsRate = 40; }
       if (g.phase !== 'fight') tts = 1;
       this.ts += (tts - this.ts) * (1 - Math.exp(-tsRate * dt));
       if (Math.abs(this.ts - 1) < 0.002 && tts === 1) this.ts = 1;
@@ -3864,8 +4304,3174 @@ const RVB = (() => {
     }
   }
 
+  // ----- drawing helpers for the new troops (flat cartoon, black outlines) -----
+  function disc(ctx, x, y, r, fill, lw) {
+    ctx.beginPath(); ctx.arc(x, y, Math.max(0.5, r), 0, TAU); ctx.fillStyle = fill; ctx.fill();
+    if (lw !== 0) { ctx.lineWidth = lw || 2.5; ctx.strokeStyle = COL.ink; ctx.stroke(); }
+  }
+  function ell(ctx, x, y, rx, ry, rot, fill, lw) {
+    ctx.beginPath(); ctx.ellipse(x, y, Math.max(0.5, rx), Math.max(0.5, ry), rot, 0, TAU); ctx.fillStyle = fill; ctx.fill();
+    if (lw !== 0) { ctx.lineWidth = lw || 2.5; ctx.strokeStyle = COL.ink; ctx.stroke(); }
+  }
+  function stick(ctx, x0, y0, x1, y1, w, color) {
+    ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1);
+    ctx.lineWidth = w + 3; ctx.strokeStyle = COL.ink; ctx.stroke(); ctx.lineWidth = w; ctx.strokeStyle = color; ctx.stroke();
+  }
+  function tri(ctx, ax, ay, bx, by, cx, cy, fill, lw) {
+    ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(bx, by); ctx.lineTo(cx, cy); ctx.closePath(); ctx.fillStyle = fill; ctx.fill();
+    if (lw !== 0) { ctx.lineWidth = lw || 1.5; ctx.strokeStyle = COL.ink; ctx.stroke(); }
+  }
+
+  const ARMY_DRAW = {
+    // a riding animal seen from above, under its rider. It faces the way it's moving (u.mface); the rider faces the target.
+    drawMount(ctx, u, x, y, kind, tm) {
+      if (kind === 'mammoth') { this.drawMammoth(ctx, u, x, y, tm); return; }
+      const r = u.r, a = u.mface !== undefined ? u.mface : u.face, mv = Math.hypot(u.vx, u.vy) > 12, ph = this.t * 12 + u.gait, gal = mv ? Math.sin(ph) : 0, INK = COL.ink;
+      if (kind === 'griffin') ell(ctx, x + 12, y + 30, r * 1.1, r * 0.6, a, 'rgba(0,0,0,0.25)', 0);
+      ctx.save(); ctx.translate(x, y); ctx.rotate(a); ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+      if (kind === 'elephant') {
+        for (const [lx, ly] of [[0.45, -0.55], [0.45, 0.55], [-0.5, -0.55], [-0.5, 0.55]]) ell(ctx, r * lx + gal * r * 0.08 * Math.sign(lx * ly), r * ly, r * 0.2, r * 0.17, 0, '#6E737C', 2.5);
+        ctx.beginPath(); ctx.moveTo(-r * 0.9, 0); ctx.lineTo(-r * 1.2, Math.sin(ph * 0.5) * r * 0.15); ctx.lineWidth = 3; ctx.strokeStyle = INK; ctx.stroke();
+        ell(ctx, -r * 0.05, 0, r * 0.95, r * 0.72, 0, '#8E939C', 3.5);
+        const flap = Math.sin(this.t * 3 + u.gait) * 0.12;
+        for (const sd of [-1, 1]) ell(ctx, r * 0.5, sd * r * 0.55, r * 0.42, r * 0.3, sd * (0.5 + flap), '#A4A9B2', 2.5);
+        ell(ctx, r * 0.78, 0, r * 0.38, r * 0.34, 0, '#8E939C', 3);
+        for (const sd of [-1, 1]) { ctx.beginPath(); ctx.moveTo(r * 0.98, sd * r * 0.14); ctx.quadraticCurveTo(r * 1.3, sd * r * 0.3, r * 1.4, sd * r * 0.12); ctx.lineWidth = 6; ctx.strokeStyle = INK; ctx.stroke(); ctx.lineWidth = 3.5; ctx.strokeStyle = '#F4F1E6'; ctx.stroke(); }
+        const sw = Math.sin(this.t * 4 + u.gait) * r * 0.25 + (u.lunge || 0) * r * 0.3;
+        ctx.beginPath(); ctx.moveTo(r * 1.05, 0); ctx.quadraticCurveTo(r * 1.45, sw * 0.5, r * 1.6, sw); ctx.lineWidth = 11; ctx.strokeStyle = INK; ctx.stroke(); ctx.lineWidth = 7; ctx.strokeStyle = '#8E939C'; ctx.stroke();
+        // a howdah in the team colour with a rider in it
+        roundRect(ctx, -r * 0.55, -r * 0.42, r * 0.8, r * 0.84, 6); ctx.fillStyle = tm.c; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = INK; ctx.stroke();
+        ctx.lineWidth = 2; ctx.strokeStyle = tm.l; ctx.strokeRect(-r * 0.45, -r * 0.32, r * 0.6, r * 0.64);
+        disc(ctx, -r * 0.15, 0, r * 0.2, tm.d, 2);
+        ctx.restore(); return;
+      }
+      const col = kind === 'horse' ? (u.type === 'general' ? '#F1EDE4' : u.type === 'generalnolose' ? '#D9B25A' : u.type === 'horsearcher' ? '#C49A6C' : '#8B5A2B') : { nightmare: '#1B1820', wolf: '#7A7F88', boar: '#5A3A22', griffin: '#C8A060' }[kind];
+      const dark = kind === 'horse' && u.type === 'general' ? '#BDB6A8' : kind === 'nightmare' ? '#0B0A0F' : kind === 'wolf' ? '#5B6068' : '#3A2A1A';
+      const L = kind === 'boar' ? 1.15 : kind === 'wolf' ? 1.4 : kind === 'griffin' ? 1.25 : 1.55, W = kind === 'boar' ? 0.8 : kind === 'wolf' ? 0.55 : kind === 'griffin' ? 0.6 : 0.68;
+      if (kind === 'griffin') {
+        const fl = 0.7 + 0.3 * Math.sin(this.t * 8 + u.gait);
+        for (const sd of [-1, 1]) {
+          ctx.beginPath(); ctx.moveTo(r * 0.35, sd * r * 0.3); ctx.quadraticCurveTo(r * 0.15, sd * r * 1.9 * fl, -r * 0.7, sd * r * 1.6 * fl); ctx.lineTo(-r * 0.4, sd * r * 0.35); ctx.closePath();
+          ctx.fillStyle = '#E9D9B0'; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = INK; ctx.stroke();
+          ctx.lineWidth = 1.5; for (let k = 1; k < 4; k++) { ctx.beginPath(); ctx.moveTo(r * 0.1 - k * r * 0.17, sd * r * 0.45); ctx.lineTo(-r * 0.05 - k * r * 0.2, sd * r * (0.85 + k * 0.18) * fl); ctx.stroke(); }
+        }
+      } else {
+        // four legs, moving in a gallop
+        ctx.beginPath();
+        for (const [lx, ly, p] of [[0.62, -0.55, 0], [0.62, 0.55, Math.PI], [-0.62, -0.55, Math.PI], [-0.62, 0.55, 0]]) { const lx2 = r * L * lx + (mv ? Math.sin(ph + p) * r * 0.28 : 0), ly2 = r * W * ly * 1.1; ctx.moveTo(lx2 + r * 0.2, ly2); ctx.ellipse(lx2, ly2, r * 0.2, r * 0.12, 0, 0, TAU); }
+        ctx.fillStyle = dark; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = INK; ctx.stroke();
+      }
+      const tw = Math.sin(ph * 0.6) * r * 0.25;
+      ctx.beginPath(); ctx.moveTo(-r * L * 0.92, 0); ctx.quadraticCurveTo(-r * L * 1.15, tw * 0.5, -r * L * 1.3, tw);
+      ctx.lineWidth = kind === 'wolf' ? 8 : 6; ctx.strokeStyle = INK; ctx.stroke(); ctx.lineWidth = kind === 'wolf' ? 5 : 3.5; ctx.strokeStyle = kind === 'nightmare' ? '#E5484D' : kind === 'griffin' || kind === 'wolf' ? col : dark; ctx.stroke();
+      ell(ctx, 0, 0, r * L, r * W, 0, col, 3);
+      const hx = r * L * 0.95;
+      if (kind === 'griffin') {
+        ell(ctx, hx, 0, r * 0.36, r * 0.32, 0, '#F4F6FB', 2.5);
+        tri(ctx, hx + r * 0.28, -r * 0.11, hx + r * 0.58, 0, hx + r * 0.28, r * 0.11, '#FFB020');
+        ctx.fillStyle = INK; for (const sd of [-1, 1]) { ctx.beginPath(); ctx.arc(hx + r * 0.12, sd * r * 0.14, 1.8, 0, TAU); ctx.fill(); }
+      } else if (kind === 'boar') {
+        ell(ctx, hx, 0, r * 0.4, r * 0.45, 0, col, 2.5); ell(ctx, hx + r * 0.36, 0, r * 0.14, r * 0.18, 0, '#C98B7A', 2);
+        for (const sd of [-1, 1]) { ctx.beginPath(); ctx.moveTo(hx + r * 0.18, sd * r * 0.25); ctx.quadraticCurveTo(hx + r * 0.5, sd * r * 0.4, hx + r * 0.46, sd * r * 0.14); ctx.lineWidth = 4.5; ctx.strokeStyle = INK; ctx.stroke(); ctx.lineWidth = 2.5; ctx.strokeStyle = '#F4F1E6'; ctx.stroke(); }
+        ctx.beginPath(); ctx.moveTo(r * 0.6, 0); ctx.lineTo(-r * 0.8, 0); ctx.lineWidth = 3.5; ctx.strokeStyle = '#2A1A0E'; ctx.stroke();
+      } else if (kind === 'wolf') {
+        tri(ctx, hx - r * 0.2, -r * 0.34, hx + r * 0.6, 0, hx - r * 0.2, r * 0.34, col, 2.5);
+        for (const sd of [-1, 1]) tri(ctx, hx - r * 0.08, sd * r * 0.2, hx - r * 0.3, sd * r * 0.48, hx + r * 0.1, sd * r * 0.28, dark);
+        ctx.fillStyle = '#FFD23F'; for (const sd of [-1, 1]) { ctx.beginPath(); ctx.arc(hx + r * 0.12, sd * r * 0.12, 2, 0, TAU); ctx.fill(); }
+      } else {
+        // neck, long head, ears, and a mane down the neck
+        ctx.beginPath(); ctx.moveTo(r * L * 0.55, 0); ctx.lineTo(hx + r * 0.05, 0); ctx.lineWidth = r * 0.48 + 3; ctx.strokeStyle = INK; ctx.stroke(); ctx.lineWidth = r * 0.48; ctx.strokeStyle = col; ctx.stroke();
+        ell(ctx, hx + r * 0.25, 0, r * 0.44, r * 0.24, 0, col, 2.5);
+        ctx.beginPath(); for (const sd of [-1, 1]) { ctx.moveTo(hx, sd * r * 0.14); ctx.lineTo(hx - r * 0.14, sd * r * 0.3); ctx.lineTo(hx + r * 0.08, sd * r * 0.2); ctx.closePath(); }
+        ctx.fillStyle = col; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = INK; ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(hx + r * 0.05, 0); ctx.lineTo(r * L * 0.4, 0); ctx.lineWidth = 4.5; ctx.strokeStyle = kind === 'nightmare' ? '#FF6B3D' : dark; ctx.stroke();
+        if (kind === 'nightmare') { ctx.fillStyle = '#E5484D'; for (const sd of [-1, 1]) { ctx.beginPath(); ctx.arc(hx + r * 0.4, sd * r * 0.11, 2.4, 0, TAU); ctx.fill(); } }
+      }
+      // saddle cloth in the team colour
+      roundRect(ctx, -r * 0.42, -r * W * 0.9, r * 0.62, r * W * 1.8, 4); ctx.fillStyle = tm.c; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = INK; ctx.stroke();
+      ctx.restore();
+    },
+    // the looks of the troops from the big batch (each case draws the whole troop)
+    drawRoster(ctx, u, x, y, tm) {
+      const r = u.r, f = u.face, fx = Math.cos(f), fy = Math.sin(f), px = -fy, py = fx, INK = COL.ink, T = this.t, lg = u.lunge || 0, U = UNIT[u.type];
+      ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+      if (U.mount) this.drawMount(ctx, u, x, y, U.mount, tm);
+      const cx = x - fx * r * 0.1, cy = y - fy * r * 0.1;
+      const ring = (rr, w, c) => { ctx.beginPath(); ctx.arc(x, y, rr, 0, TAU); ctx.lineWidth = w; ctx.strokeStyle = c; ctx.stroke(); };
+      const eyes = (hx, hy, fwd, sp, rr, c) => { ctx.fillStyle = c; for (const sd of [-1, 1]) { ctx.beginPath(); ctx.arc(hx + fx * fwd + px * sd * sp, hy + fy * fwd + py * sd * sp, rr, 0, TAU); ctx.fill(); } };
+      const P = (a, b) => [x + fx * a + px * b, y + fy * a + py * b];   // a point in the troop's own frame (a = forward, b = to the side)
+      switch (u.type) {
+        case 'pikeman': {
+          const [sx, sy] = P(-r * 0.8, r * 0.45), [tx, ty] = P(r + 40 + lg * 12, r * 0.45);
+          stick(ctx, sx, sy, tx, ty, 3, COL.wood);
+          tri(ctx, tx + fx * 12, ty + fy * 12, tx + px * 4, ty + py * 4, tx - px * 4, ty - py * 4, COL.steel, 2);
+          disc(ctx, x, y, r, tm.c, 3);
+          disc(ctx, x - fx * 1.5, y - fy * 1.5, r * 0.58, '#AEB6C6', 2);
+          ctx.beginPath(); ctx.arc(x - fx * 1.5, y - fy * 1.5, r * 0.58, f - 0.6, f + 0.6); ctx.lineWidth = 3; ctx.strokeStyle = tm.d; ctx.stroke();
+          break;
+        }
+        case 'duelist': {
+          const side = (u.dside = lg > 0.92 ? -(u.dside || 1) : (u.dside || 1));
+          disc(ctx, x, y, r, tm.c, 3);
+          for (const sd of [-1, 1]) { const sw = sd === side ? lg * 1.2 : 0, a = f + sd * (0.75 - sw), [bx, by] = P(r * 0.35, sd * r * 0.75); stick(ctx, bx, by, bx + Math.cos(a) * 20, by + Math.sin(a) * 20, 2.5, COL.steel); }
+          disc(ctx, x - fx * 2, y - fy * 2, r * 0.55, '#C62F2F', 2);
+          stick(ctx, ...P(-r * 0.4, 0), ...P(-r - 5, 3 * Math.sin(T * 9 + u.gait)), 2, '#C62F2F');
+          break;
+        }
+        case 'royalguard': {
+          const [hx, hy] = P(0, r * 0.7), [ex, ey] = P(r + 18 + lg * 8, r * 0.7);
+          stick(ctx, hx - fx * r, hy - fy * r, ex, ey, 3, COL.wood);
+          ctx.beginPath(); ctx.moveTo(ex - fx * 3 + px * 2, ey - fy * 3 + py * 2); ctx.quadraticCurveTo(ex + px * 12, ey + py * 12, ex - fx * 13 + px * 3, ey - fy * 13 + py * 3); ctx.closePath();
+          ctx.fillStyle = COL.steel; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = INK; ctx.stroke();
+          disc(ctx, x, y, r, tm.d, 3.5); ring(r - 4, 3, COL.gold);
+          disc(ctx, x - fx * 1.5, y - fy * 1.5, r * 0.5, '#D9DEE6', 2);
+          stick(ctx, x - fx * 1.5, y - fy * 1.5, x - fx * (r + 5), y - fy * (r + 5), 2.5, '#E5484D');
+          break;
+        }
+        case 'lancer': {
+          const lx = cx + px * r * 0.35, ly = cy + py * r * 0.35, tip = r + 34 + lg * 10, tx = lx + fx * tip, ty = ly + fy * tip;
+          stick(ctx, lx - fx * 8, ly - fy * 8, tx, ty, 3.5, '#D9C9A8');
+          tri(ctx, tx + fx * 10, ty + fy * 10, tx + px * 3, ty + py * 3, tx - px * 3, ty - py * 3, COL.steel);
+          const wv = Math.sin(T * 12 + u.gait) * 3, pb = r + 14;
+          tri(ctx, lx + fx * pb, ly + fy * pb, lx + fx * (pb - 12) + px * (8 + wv), ly + fy * (pb - 12) + py * (8 + wv), lx + fx * (pb - 4), ly + fy * (pb - 4), tm.c);
+          disc(ctx, cx, cy, r * 0.55, tm.d, 2.5); disc(ctx, cx, cy, r * 0.36, '#C9D1DC', 2);
+          if ((u.runT || 0) > 0.4) disc(ctx, tx, ty, 6, 'rgba(255,240,180,0.6)', 0);
+          break;
+        }
+        case 'horsearcher': {
+          disc(ctx, cx, cy, r * 0.55, tm.c, 2.5); disc(ctx, cx - fx, cy - fy, r * 0.34, '#7A5230', 2);
+          ctx.beginPath(); ctx.arc(cx + fx * r * 0.45, cy + fy * r * 0.45, r * 0.6, f - 1.1, f + 1.1); ctx.lineWidth = 4; ctx.strokeStyle = INK; ctx.stroke(); ctx.lineWidth = 2.2; ctx.strokeStyle = '#C79A5B'; ctx.stroke();
+          break;
+        }
+        case 'longbow': {
+          disc(ctx, x, y, r, tm.c, 3); disc(ctx, x - fx * 2, y - fy * 2, r * 0.58, '#5B4A2E', 2);
+          const bx = x + fx * (r - 6), by = y + fy * (r - 6), R = r * 1.35, a0 = f - 0.95, a1 = f + 0.95;
+          ctx.beginPath(); ctx.moveTo(bx + Math.cos(a0) * R, by + Math.sin(a0) * R); ctx.lineTo(bx + Math.cos(a1) * R, by + Math.sin(a1) * R); ctx.lineWidth = 1; ctx.strokeStyle = '#F4F1E6'; ctx.stroke();
+          ctx.beginPath(); ctx.arc(bx, by, R, a0, a1); ctx.lineWidth = 4.5; ctx.strokeStyle = INK; ctx.stroke(); ctx.lineWidth = 2.5; ctx.strokeStyle = '#A97C48'; ctx.stroke();
+          break;
+        }
+        case 'firearcher': {
+          disc(ctx, x, y, r, tm.c, 3); disc(ctx, x - fx * 2, y - fy * 2, r * 0.58, '#7A2E1F', 2);
+          ctx.beginPath(); ctx.arc(x + fx * (r - 2), y + fy * (r - 2), r * 0.85, f - 1.1, f + 1.1); ctx.lineWidth = 4; ctx.strokeStyle = INK; ctx.stroke(); ctx.lineWidth = 2.2; ctx.strokeStyle = '#C79A5B'; ctx.stroke();
+          const fl = 0.7 + 0.3 * Math.sin(T * 20 + u.gait), [ax, ay] = P(r + 6, 0);
+          disc(ctx, ax, ay, 4.5 * fl + 1, '#FF9F1C', 0); disc(ctx, ax, ay, 2.5 * fl, '#FFE27A', 0);
+          break;
+        }
+        case 'poisoner': {
+          disc(ctx, x, y, r, tm.d, 3); disc(ctx, x - fx * 2, y - fy * 2, r * 0.58, '#2F4A2A', 2);
+          stick(ctx, ...P(0, r * 0.4), ...P(r + 12, r * 0.4), 2.5, '#6B5A3A');
+          disc(ctx, ...P(-r * 0.2, -r * 0.75), 4, '#7CFF6B', 1.5);
+          break;
+        }
+        case 'bannerman': {
+          disc(ctx, x, y, r, tm.c, 3);
+          const [bx, by] = P(0, r * 0.6), top = by - r - 34;
+          ctx.lineWidth = 4.5; ctx.strokeStyle = INK; ctx.beginPath(); ctx.moveTo(bx, by); ctx.lineTo(bx, top); ctx.stroke(); ctx.lineWidth = 2; ctx.strokeStyle = '#D9B26F'; ctx.stroke();
+          ctx.save(); ctx.translate(bx, top); ctx.transform(1, Math.sin(T * 5 + u.gait) * 0.12, 0, 1, 0, 0);
+          if (hasFlag(tm)) drawFlag(ctx, tm.key, 0, 0, 32, 21, 2);
+          else { roundRect(ctx, 0, 0, 32, 22, 2); ctx.fillStyle = tm.c; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = INK; ctx.stroke(); disc(ctx, 16, 11, 5, COL.gold, 1.5); }
+          ctx.restore();
+          break;
+        }
+        case 'drummer': {
+          disc(ctx, x, y, r, tm.c, 3);
+          const [dx0, dy0] = P(r + 2, 0);
+          disc(ctx, dx0, dy0, 8, '#E9D9B0', 2.5); ctx.beginPath(); ctx.arc(dx0, dy0, 6.5, 0, TAU); ctx.lineWidth = 2.5; ctx.strokeStyle = tm.d; ctx.stroke();
+          const beat = Math.sin(T * 14 + u.gait);
+          for (const sd of [-1, 1]) { const k = sd * beat > 0 ? 1 : 0.4; stick(ctx, ...P(r * 0.2, sd * r * 0.55), dx0 + px * sd * 5 * k - fx * 2 * k, dy0 + py * sd * 5 * k - fy * 2 * k, 1.5, '#8A6A49'); }
+          break;
+        }
+        case 'general': {
+          const a = f + 0.7 - lg * 1.3, [sx, sy] = [cx + Math.cos(f + 1.2) * r * 0.5, cy + Math.sin(f + 1.2) * r * 0.5];
+          stick(ctx, sx, sy, sx + Math.cos(a) * 22, sy + Math.sin(a) * 22, 3.5, COL.steel);
+          ctx.beginPath(); ctx.moveTo(cx + px * r * 0.5, cy + py * r * 0.5);
+          ctx.quadraticCurveTo(cx - fx * r * 1.1 + px * r * 0.65, cy - fy * r * 1.1 + py * r * 0.65, cx - fx * r * 1.25, cy - fy * r * 1.25);
+          ctx.quadraticCurveTo(cx - fx * r * 1.1 - px * r * 0.65, cy - fy * r * 1.1 - py * r * 0.65, cx - px * r * 0.5, cy - py * r * 0.5); ctx.closePath();
+          ctx.fillStyle = tm.c; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = INK; ctx.stroke();
+          disc(ctx, cx, cy, r * 0.58, tm.d, 2.5); disc(ctx, cx, cy, r * 0.38, COL.gold, 2);
+          stick(ctx, cx + fx * r * 0.3, cy + fy * r * 0.3, cx - fx * r * 0.45, cy - fy * r * 0.45, 2.5, '#E5484D');
+          break;
+        }
+        case 'peasant': {
+          if (u.slayer) { const a = f + 0.75 - lg * 1.3, [bx, by] = P(r * 0.3, r * 0.75); stick(ctx, bx, by, bx + Math.cos(a) * (u.god ? 34 : 24), by + Math.sin(a) * (u.god ? 34 : 24), u.god ? 5 : 4, u.god ? COL.gold : COL.steel); }
+          else {
+            const [sx, sy] = P(-r * 0.6, r * 0.45), [ex, ey] = P(r + 18 + lg * 8, r * 0.45);
+            stick(ctx, sx, sy, ex, ey, 2.5, COL.wood);
+            ctx.lineWidth = 2; ctx.strokeStyle = INK; ctx.beginPath(); ctx.moveTo(ex - px * 5, ey - py * 5); ctx.lineTo(ex + px * 5, ey + py * 5);
+            for (const o of [-5, 0, 5]) { ctx.moveTo(ex + px * o, ey + py * o); ctx.lineTo(ex + px * o + fx * 7, ey + py * o + fy * 7); } ctx.stroke();
+          }
+          if (u.god) { ctx.beginPath(); ctx.arc(x, y, r + 7 + 2 * Math.sin(T * 7), 0, TAU); ctx.fillStyle = 'rgba(255,210,63,0.25)'; ctx.fill(); }
+          disc(ctx, x, y, r, u.god ? COL.gold : tm.c, 3);
+          if (u.god) ring(r - 3, 3, tm.c);
+          disc(ctx, x - fx, y - fy, r * 0.78, u.slayer ? '#AEB6C6' : '#E9C46A', 2); disc(ctx, x - fx, y - fy, r * 0.42, u.slayer ? '#D9DEE6' : '#D4A63A', 1.5);
+          break;
+        }
+        case 'elephant': break;
+        case 'necromancer': {
+          disc(ctx, x, y, r, '#2A2433', 3); ring(r - 2.5, 3, tm.c);
+          disc(ctx, x - fx * 2, y - fy * 2, r * 0.56, '#15121A', 2);
+          const [sx, sy] = P(0, r * 0.6), ex = sx + fx * (r + 12), ey = sy + fy * (r + 12), m = u.muzzle || 0;
+          stick(ctx, sx, sy, ex, ey, 3, '#4A4038');
+          disc(ctx, ex, ey, 9 + 4 * m, `rgba(124,255,176,${0.25 + 0.4 * m})`, 0); disc(ctx, ex, ey, 5, '#E8E2D0', 1.5);
+          break;
+        }
+        case 'bonecolossus': {
+          for (const sd of [-1, 1]) { const a = f + sd * (0.9 - (sd > 0 ? lg * 0.5 : 0)), bx = x + Math.cos(f + sd * 1.3) * r * 0.85, by = y + Math.sin(f + sd * 1.3) * r * 0.85; stick(ctx, bx, by, bx + Math.cos(a) * r * 0.8, by + Math.sin(a) * r * 0.8, 7, '#E8E2D0'); disc(ctx, bx + Math.cos(a) * r * 0.85, by + Math.sin(a) * r * 0.85, r * 0.18, '#E8E2D0', 2.5); }
+          disc(ctx, x, y, r, '#D9D2BE', 4); ring(r - 4, 4, tm.c);
+          ctx.lineWidth = 3; ctx.strokeStyle = '#8A8270';
+          ctx.beginPath(); ctx.moveTo(...P(-r * 0.7, 0)); ctx.lineTo(...P(r * 0.3, 0)); ctx.stroke();
+          for (let k = 0; k < 4; k++) { const o = -r * 0.5 + k * r * 0.22, w = r * (0.55 - k * 0.05); ctx.beginPath(); ctx.moveTo(...P(o, -w)); ctx.quadraticCurveTo(...P(o + r * 0.12, 0), ...P(o, w)); ctx.stroke(); }
+          const [hx, hy] = P(r * 0.62, 0);
+          disc(ctx, hx, hy, r * 0.32, '#E8E2D0', 3); eyes(hx, hy, r * 0.08, r * 0.12, r * 0.07, '#FF6B3D');
+          break;
+        }
+        case 'deathknight': {
+          const a = f + 0.7 - lg * 1.4, sx = cx + Math.cos(f + 1.2) * r * 0.45, sy = cy + Math.sin(f + 1.2) * r * 0.45, ex = sx + Math.cos(a) * (r + 18), ey = sy + Math.sin(a) * (r + 18);
+          stick(ctx, sx, sy, ex, ey, 4, '#3A3F4B');
+          ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(ex, ey); ctx.lineWidth = 1.5; ctx.strokeStyle = '#FF6B3D'; ctx.stroke();
+          disc(ctx, cx - fx * 3, cy - fy * 3, r * 0.62, tm.c, 2.5); disc(ctx, cx, cy, r * 0.46, '#1B1820', 2.5);
+          stick(ctx, cx + fx * r * 0.3 - px * r * 0.18, cy + fy * r * 0.3 - py * r * 0.18, cx + fx * r * 0.3 + px * r * 0.18, cy + fy * r * 0.3 + py * r * 0.18, 1.5, '#E5484D');
+          for (const sd of [-1, 1]) stick(ctx, cx + px * sd * r * 0.3, cy + py * sd * r * 0.3, cx + px * sd * r * 0.55 - fx * r * 0.2, cy + py * sd * r * 0.55 - fy * r * 0.2, 2, '#3A3F4B');
+          break;
+        }
+        case 'wolfrider': {
+          const c2x = x - fx * r * 0.15, c2y = y - fy * r * 0.15, a = f + 0.9 - lg * 1.2, bx = c2x + px * r * 0.3, by = c2y + py * r * 0.3;
+          stick(ctx, bx, by, bx + Math.cos(a) * 18, by + Math.sin(a) * 18, 3.5, '#7A5230');
+          disc(ctx, c2x, c2y, r * 0.55, '#6E8B5E', 2.5);
+          ctx.beginPath(); ctx.arc(c2x, c2y, r * 0.55 - 2, 0, TAU); ctx.lineWidth = 2.5; ctx.strokeStyle = tm.c; ctx.stroke();
+          break;
+        }
+        case 'boarrider': {
+          const c2x = x - fx * r * 0.15, c2y = y - fy * r * 0.15, bx = c2x + px * r * 0.35, by = c2y + py * r * 0.35;
+          stick(ctx, bx - fx * 6, by - fy * 6, bx + fx * (r + 14 + lg * 8), by + fy * (r + 14 + lg * 8), 2.5, COL.wood);
+          disc(ctx, c2x, c2y, r * 0.55, tm.c, 2.5); disc(ctx, c2x - fx, c2y - fy, r * 0.32, '#5A3A22', 2);
+          break;
+        }
+        case 'troll': {
+          const a = f + 0.85 - lg * 1.2, bx = x + Math.cos(f + 1.1) * r * 0.75, by = y + Math.sin(f + 1.1) * r * 0.75;
+          stick(ctx, bx, by, bx + Math.cos(a) * (r + 10), by + Math.sin(a) * (r + 10), 8, '#6B4A2E');
+          disc(ctx, bx + Math.cos(a) * (r + 12), by + Math.sin(a) * (r + 12), 7, '#6B4A2E', 2.5);
+          disc(ctx, x, y, r, '#5E7D52', 3.5); ring(r - 4, 4, tm.c);
+          const [hx, hy] = P(r * 0.45, 0); disc(ctx, hx, hy, r * 0.38, '#6E8F60', 2.5);
+          for (const sd of [-1, 1]) tri(ctx, ...P(r * 0.65, sd * r * 0.15), ...P(r * 0.95, sd * r * 0.22), ...P(r * 0.62, sd * r * 0.27), '#F4F1E6');
+          if (u.hp < u.max && !(u.burnT > this.fightT)) { ctx.beginPath(); ctx.arc(x, y, r + 3, T * 3, T * 3 + 1.2); ctx.lineWidth = 2.5; ctx.strokeStyle = 'rgba(124,255,176,0.7)'; ctx.stroke(); }
+          break;
+        }
+        case 'cyclops': {
+          disc(ctx, x, y, r, '#C9A27A', 4.5); ring(r - 5, 5, tm.c);
+          for (const sd of [-1, 1]) disc(ctx, ...P(r * 0.1, sd * r * 0.85), r * 0.28, '#B88E66', 3);
+          if (u.cd < 0.8) { disc(ctx, ...P(-r * 0.25, 0), r * 0.42, '#8A8F98', 3); disc(ctx, ...P(-r * 0.33, -r * 0.08), r * 0.13, 'rgba(255,255,255,0.18)', 0); }
+          const [hx, hy] = P(r * 0.42, 0);
+          disc(ctx, hx, hy, r * 0.4, '#D4AE86', 3); disc(ctx, hx + fx * r * 0.12, hy + fy * r * 0.12, r * 0.2, '#FFFFFF', 2); disc(ctx, hx + fx * r * 0.19, hy + fy * r * 0.19, r * 0.09, '#1A1A22', 0);
+          break;
+        }
+        case 'druid': {
+          disc(ctx, x, y, r, tm.c, 3); disc(ctx, x - fx * 2, y - fy * 2, r * 0.58, '#6B4A2E', 2);
+          ctx.beginPath();
+          for (const sd of [-1, 1]) { ctx.moveTo(...P(0, sd * r * 0.3)); ctx.lineTo(...P(-r * 0.3, sd * r * 0.95)); ctx.moveTo(...P(-r * 0.15, sd * r * 0.62)); ctx.lineTo(...P(r * 0.2, sd * r * 0.8)); }
+          ctx.lineWidth = 4.5; ctx.strokeStyle = INK; ctx.stroke(); ctx.lineWidth = 1.5; ctx.strokeStyle = '#D9C9A8'; ctx.stroke();
+          const [sx, sy] = P(0, r * 0.65), ex = sx + fx * (r + 10), ey = sy + fy * (r + 10);
+          stick(ctx, sx, sy, ex, ey, 3, '#7A5230'); disc(ctx, ex, ey, 4.5, '#5BD16A', 1.5);
+          if (u.healFx > 0) { ctx.beginPath(); ctx.arc(x, y, U.healRange * (1 - u.healFx * 0.6), 0, TAU); ctx.lineWidth = 3; ctx.strokeStyle = `rgba(124,255,176,${u.healFx * 0.6})`; ctx.stroke(); }
+          break;
+        }
+        case 'treant': {
+          ctx.beginPath();
+          for (const sd of [-1, 1]) { const a = f + sd * (0.8 - (sd > 0 ? lg : 0) * 0.6), bx = x + Math.cos(f + sd * 1.2) * r * 0.7, by = y + Math.sin(f + sd * 1.2) * r * 0.7; ctx.moveTo(bx, by); ctx.lineTo(bx + Math.cos(a) * r * 0.75, by + Math.sin(a) * r * 0.75); }
+          ctx.lineWidth = 8; ctx.strokeStyle = INK; ctx.stroke(); ctx.lineWidth = 5; ctx.strokeStyle = '#6B4A2E'; ctx.stroke();
+          // a leafy crown of clumps (one shape), with a ring of the team colour through it
+          ctx.beginPath();
+          for (let k = 0; k < 6; k++) { const a = k / 6 * TAU + 0.4, bx = x + Math.cos(a) * r * 0.45, by = y + Math.sin(a) * r * 0.45; ctx.moveTo(bx + r * 0.42, by); ctx.arc(bx, by, r * 0.42, 0, TAU); }
+          ctx.fillStyle = '#2F7A3C'; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = INK; ctx.stroke();
+          disc(ctx, x, y, r * 0.62, '#3E8E4A', 0); ring(r * 0.78, 3, tm.c);
+          eyes(x, y, r * 0.25, r * 0.14, 2.2, '#FFD23F');
+          break;
+        }
+        case 'illusionist': {
+          disc(ctx, x, y, r, tm.d, 3); disc(ctx, x - fx * 2, y - fy * 2, r * 0.56, '#4C1D95', 2);
+          ell(ctx, x + fx * r * 0.2, y + fy * r * 0.2, r * 0.32, r * 0.22, f + Math.PI / 2, '#F4F6FB', 1.5);
+          ctx.beginPath(); for (let k = 0; k < 3; k++) { const a = T * 3 + k * TAU / 3, ox2 = x + Math.cos(a) * (r + 6), oy2 = y + Math.sin(a) * (r + 6); ctx.moveTo(ox2 + 3, oy2); ctx.arc(ox2, oy2, 3, 0, TAU); }
+          ctx.fillStyle = '#E9D5FF'; ctx.fill(); ctx.lineWidth = 1.2; ctx.strokeStyle = INK; ctx.stroke();
+          break;
+        }
+        case 'imp': {
+          const fl = Math.sin(T * 18 + u.gait) * 0.35;
+          ell(ctx, x + 6, y + 14, r * 0.9, r * 0.6, 0, 'rgba(0,0,0,0.25)', 0);
+          for (const sd of [-1, 1]) tri(ctx, ...P(0, sd * r * 0.4), ...P(-r * 0.3, sd * r * (1.6 + fl)), ...P(-r * 0.9, sd * r * (1.1 + fl)), '#5A1414', 2);
+          disc(ctx, x, y, r, '#C9302C', 2.5); ring(r - 2, 2.5, tm.c);
+          for (const sd of [-1, 1]) tri(ctx, ...P(r * 0.2, sd * r * 0.35), ...P(r * 0.9, sd * r * 0.55), ...P(r * 0.45, sd * r * 0.15), '#2A0A0A', 0);
+          break;
+        }
+        case 'demon': {
+          const rage = Math.min(1, this.deaths * 0.005);
+          if (rage > 0.1) disc(ctx, x, y, r + 4 + Math.sin(T * 9 + u.gait) * 2, `rgba(255,107,61,${0.15 + 0.25 * rage})`, 0);
+          for (const sd of [-1, 1]) { const ext = sd > 0 ? lg * 8 : 0; stick(ctx, ...P(0, sd * r * 0.7), ...P(r * 0.6 + ext, sd * r * 0.75), 4, '#5A1414'); }
+          disc(ctx, x, y, r, '#7A1F1F', 3.5); ring(r - 3.5, 3.5, tm.c);
+          for (const sd of [-1, 1]) { ctx.beginPath(); ctx.moveTo(...P(r * 0.2, sd * r * 0.35)); ctx.quadraticCurveTo(...P(-r * 0.2, sd * r), ...P(-r * 0.6, sd * r * 0.75)); ctx.lineWidth = 6; ctx.strokeStyle = INK; ctx.stroke(); ctx.lineWidth = 3.5; ctx.strokeStyle = '#E9E2D0'; ctx.stroke(); }
+          eyes(x, y, r * 0.45, r * 0.18, 2.4, '#FFD23F');
+          break;
+        }
+        case 'hellhound': {
+          ctx.save(); ctx.translate(x, y); ctx.rotate(u.mface !== undefined ? u.mface : f);
+          const ph = T * 14 + u.gait, mv = Math.hypot(u.vx, u.vy) > 12;
+          for (const [lx, ly, p] of [[0.5, -0.4, 0], [0.5, 0.4, Math.PI], [-0.5, -0.4, Math.PI], [-0.5, 0.4, 0]]) ell(ctx, r * lx + (mv ? Math.sin(ph + p) * r * 0.2 : 0), r * ly, r * 0.15, r * 0.1, 0, '#0B0A0F', 1.5);
+          ctx.beginPath(); ctx.moveTo(-r, 0); ctx.lineTo(-r * 1.4, Math.sin(ph * 0.5) * r * 0.25); ctx.lineWidth = 6; ctx.strokeStyle = INK; ctx.stroke(); ctx.lineWidth = 3; ctx.strokeStyle = '#FF6B3D'; ctx.stroke();
+          ell(ctx, 0, 0, r * 1.05, r * 0.5, 0, '#2A1414', 2.5);
+          for (let k = 0; k < 4; k++) { const fl = 0.6 + 0.4 * Math.sin(T * 16 + k + u.gait); disc(ctx, r * (0.5 - k * 0.3), 0, r * 0.22 * fl, k % 2 ? '#FF9F1C' : '#E5484D', 0); }
+          tri(ctx, r * 0.7, -r * 0.3, r * 1.45, 0, r * 0.7, r * 0.3, '#2A1414', 2);
+          ctx.fillStyle = '#FFD23F'; for (const sd of [-1, 1]) { ctx.beginPath(); ctx.arc(r * 1.05, sd * r * 0.13, 2.2, 0, TAU); ctx.fill(); }
+          ctx.beginPath(); ctx.arc(r * 0.55, 0, r * 0.32, -1.2, 1.2); ctx.lineWidth = 3; ctx.strokeStyle = tm.c; ctx.stroke();
+          ctx.restore();
+          break;
+        }
+        case 'warlock': {
+          disc(ctx, x, y, r, tm.d, 3); disc(ctx, x - fx * 2, y - fy * 2, r * 0.58, '#2A0A12', 2);
+          for (const sd of [-1, 1]) stick(ctx, ...P(0, sd * r * 0.3), ...P(-r * 0.35, sd * r * 0.75), 2, '#E9E2D0');
+          const [sx, sy] = P(0, r * 0.6), ex = sx + fx * (r + 12), ey = sy + fy * (r + 12), m = u.muzzle || 0;
+          stick(ctx, sx, sy, ex, ey, 3, '#2A2018');
+          disc(ctx, ex, ey, 6 + 4 * m, `rgba(255,90,40,${0.6 + 0.4 * m})`, 1.5);
+          break;
+        }
+        case 'dwarf': {
+          const a = f + 0.9 - lg * 1.3, bx = x + Math.cos(f + 1.1) * r * 0.7, by = y + Math.sin(f + 1.1) * r * 0.7, hx = bx + Math.cos(a) * 17, hy = by + Math.sin(a) * 17;
+          stick(ctx, bx, by, hx, hy, 3, COL.wood);
+          ctx.beginPath(); ctx.arc(hx, hy, 7, a - Math.PI / 2 + 0.3, a + Math.PI / 2 - 0.3, true); ctx.closePath(); ctx.fillStyle = COL.steel; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = INK; ctx.stroke();
+          disc(ctx, x, y, r, tm.c, 3);
+          tri(ctx, ...P(r * 0.2, r * 0.45), ...P(r + 7, 0), ...P(r * 0.2, -r * 0.45), '#D9822B', 2);
+          disc(ctx, x - fx * 2, y - fy * 2, r * 0.5, '#AEB6C6', 2);
+          for (const sd of [-1, 1]) { ctx.beginPath(); ctx.moveTo(...P(-2, sd * r * 0.4)); ctx.quadraticCurveTo(...P(0, sd * r * 0.85), ...P(r * 0.3, sd * r * 0.8)); ctx.lineWidth = 4.5; ctx.strokeStyle = INK; ctx.stroke(); ctx.lineWidth = 2.5; ctx.strokeStyle = '#F4F1E6'; ctx.stroke(); }
+          break;
+        }
+        case 'engineer': {
+          disc(ctx, ...P(-r * 0.7, 0), r * 0.5, tm.d, 2);
+          const a = f + 0.8 - lg * 1.2, [bx, by] = P(r * 0.3, r * 0.75);
+          stick(ctx, bx, by, bx + Math.cos(a) * 14, by + Math.sin(a) * 14, 3, '#9AA3B0');
+          disc(ctx, x, y, r, tm.c, 3);
+          for (const sd of [-1, 1]) tri(ctx, ...P(0, sd * r * 0.4), ...P(-4, sd * (r + 8)), ...P(-r * 0.4, sd * r * 0.3), '#7DB04B');
+          disc(ctx, x, y, r * 0.55, '#7DB04B', 2);
+          for (const sd of [-1, 1]) disc(ctx, ...P(r * 0.3, sd * r * 0.2), 2.8, '#8FE3FF', 1.2);
+          break;
+        }
+        case 'turret': {
+          for (let k = 0; k < 3; k++) { const a = k / 3 * TAU + 0.5; stick(ctx, x, y, x + Math.cos(a) * r * 1.05, y + Math.sin(a) * r * 1.05, 2, '#4A3420'); }
+          roundRect(ctx, x - r * 0.7, y - r * 0.7, r * 1.4, r * 1.4, 4); ctx.fillStyle = tm.d; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = INK; ctx.stroke();
+          const [ex, ey] = P(r + 6, 0);
+          stick(ctx, x - fx * 4, y - fy * 4, ex, ey, 4, COL.wood);
+          ctx.beginPath(); ctx.moveTo(ex - fx * 4 + px * 10, ey - fy * 4 + py * 10); ctx.lineTo(ex, ey); ctx.lineTo(ex - fx * 4 - px * 10, ey - fy * 4 - py * 10); ctx.lineWidth = 5; ctx.strokeStyle = INK; ctx.stroke(); ctx.lineWidth = 2.5; ctx.strokeStyle = COL.steel; ctx.stroke();
+          disc(ctx, x, y, 3, tm.l, 1.5);
+          break;
+        }
+        case 'golem': {
+          for (const sd of [-1, 1]) disc(ctx, ...P(r * 0.2 + (sd > 0 ? lg * 10 : 0), sd * r * 0.9), r * 0.36, '#7A7F88', 3);
+          ctx.beginPath(); for (let k = 0; k < 8; k++) { const a = f + k / 8 * TAU + Math.PI / 8, rr = r * (k % 2 ? 0.95 : 1); if (k) ctx.lineTo(x + Math.cos(a) * rr, y + Math.sin(a) * rr); else ctx.moveTo(x + Math.cos(a) * rr, y + Math.sin(a) * rr); }
+          ctx.closePath(); ctx.fillStyle = '#8A8F98'; ctx.fill(); ctx.lineWidth = 4; ctx.strokeStyle = INK; ctx.stroke();
+          ctx.lineWidth = 2; ctx.strokeStyle = '#5B6068'; ctx.beginPath(); ctx.moveTo(...P(0, -r * 0.5)); ctx.lineTo(...P(r * 0.1, 0)); ctx.lineTo(...P(-r * 0.4, r * 0.3)); ctx.stroke();
+          const gl = 0.6 + 0.4 * Math.sin(T * 3 + u.gait);
+          disc(ctx, x, y, r * 0.28, rgba(tm.c, 0.5 + 0.5 * gl), 2.5);
+          eyes(x, y, r * 0.62, r * 0.18, 3, `rgba(124,243,255,${gl})`);
+          break;
+        }
+        case 'hydra': {
+          const n = u.heads || 3, bites = u.biteT !== undefined && this.fightT - u.biteT < 0.25 ? u.bites : null;
+          ctx.beginPath(); ctx.moveTo(...P(-r * 0.7, 0)); ctx.quadraticCurveTo(...P(-r * 1.3, Math.sin(T * 3 + u.gait) * r * 0.4), ...P(-r * 1.7, Math.sin(T * 3 + u.gait + 1) * r * 0.5)); ctx.lineWidth = 12; ctx.strokeStyle = INK; ctx.stroke(); ctx.lineWidth = 8; ctx.strokeStyle = tm.d; ctx.stroke();
+          disc(ctx, x, y, r, tm.d, 4);
+          ctx.fillStyle = rgba(tm.l, 0.35); for (let k = 0; k < 7; k++) { const a = k / 7 * TAU + u.gait; ctx.beginPath(); ctx.arc(x + Math.cos(a) * r * 0.55, y + Math.sin(a) * r * 0.55, r * 0.16, 0, TAU); ctx.fill(); }
+          for (let k = 0; k < n; k++) {
+            const off = (k - (n - 1) / 2) * (n > 3 ? 0.4 : 0.5), sway = Math.sin(T * 3 + k * 1.7 + u.gait) * 0.12;
+            let hx = x + Math.cos(f + off + sway) * (r + 26), hy = y + Math.sin(f + off + sway) * (r + 26);
+            const tg = bites && bites[k];
+            if (tg && !tg.dead) { const kk = Math.sin(Math.PI * clamp((this.fightT - u.biteT) / 0.25, 0, 1)); hx += (tg.x - hx) * 0.5 * kk; hy += (tg.y - hy) * 0.5 * kk; }
+            const bx = x + Math.cos(f + off * 0.6) * r * 0.6, by = y + Math.sin(f + off * 0.6) * r * 0.6;
+            ctx.beginPath(); ctx.moveTo(bx, by); ctx.quadraticCurveTo((bx + hx) / 2 + Math.cos(f + off + 1.57) * 8, (by + hy) / 2 + Math.sin(f + off + 1.57) * 8, hx, hy);
+            ctx.lineWidth = 13; ctx.strokeStyle = INK; ctx.stroke(); ctx.lineWidth = 9; ctx.strokeStyle = tm.c; ctx.stroke();
+            const ha = Math.atan2(hy - by, hx - bx);
+            ell(ctx, hx, hy, 10, 7, ha, tm.c, 2.5);
+            ctx.fillStyle = '#FFD23F'; for (const sd of [-1, 1]) { ctx.beginPath(); ctx.arc(hx + Math.cos(ha) * 3 + Math.cos(ha + 1.57) * 4 * sd, hy + Math.sin(ha) * 3 + Math.sin(ha + 1.57) * 4 * sd, 1.8, 0, TAU); ctx.fill(); }
+          }
+          break;
+        }
+        case 'titan': {
+          // a giant of stone seen from above: broad shoulders with the team's pauldrons, huge arms ending in fists (one slams down on each stomp), a small head with glowing eyes
+          const angry = (u.phaseN || 0) >= 2;
+          if (angry) disc(ctx, x, y, r + 6 + Math.sin(T * 8) * 3, 'rgba(229,72,77,0.22)', 0);
+          for (const sd of [-1, 1]) {
+            const [sx, sy] = P(0, sd * r * 0.78), [hx2, hy2] = P(r * 0.55 + (sd > 0 ? lg * 16 : 0), sd * r * 1.02);
+            stick(ctx, sx, sy, hx2, hy2, r * 0.32, '#A88E6A');
+            disc(ctx, hx2, hy2, r * 0.3, '#9A8468', 3.5);
+          }
+          ell(ctx, x, y, r * 0.62, r * 0.95, f, '#B8A07A', 5);
+          ctx.lineWidth = 2.5; ctx.strokeStyle = 'rgba(74,58,40,0.55)';
+          ctx.beginPath(); ctx.moveTo(...P(-r * 0.35, -r * 0.3)); ctx.lineTo(...P(-r * 0.1, -r * 0.05)); ctx.lineTo(...P(-r * 0.4, r * 0.25)); ctx.stroke();
+          stick(ctx, ...P(r * 0.2, -r * 0.75), ...P(-r * 0.35, r * 0.7), 7, tm.c);
+          for (const sd of [-1, 1]) ell(ctx, ...P(0, sd * r * 0.8), r * 0.3, r * 0.22, f, tm.d, 3);
+          const [hx, hy] = P(r * 0.42, 0);
+          disc(ctx, hx, hy, r * 0.26, '#C9B48E', 3.5); eyes(hx, hy, r * 0.12, r * 0.1, r * 0.055, angry ? '#FF4D4D' : '#7CF3FF');
+          if (u.ancient) ring(r + 4, 3, 'rgba(168,85,247,0.8)');
+          break;
+        }
+        case 'phoenix': {
+          if (u.ashT) { disc(ctx, x, y, r * 0.7, '#4A4E58', 3); for (let k = 0; k < 5; k++) { const a = k * 1.3 + u.gait; disc(ctx, x + Math.cos(a) * r * 0.35, y + Math.sin(a) * r * 0.35, 3 + 2 * Math.sin(T * 6 + k), '#FF9F1C', 0); } break; }
+          const fl = 0.75 + 0.25 * Math.sin(T * 7 + u.gait);
+          ell(ctx, x + 10, y + 26, r * 1.2, r * 0.6, f, 'rgba(0,0,0,0.25)', 0);
+          ctx.save(); ctx.translate(x, y); ctx.rotate(f);
+          for (const sd of [-1, 1]) for (const [c, s] of [['#E5484D', 1], ['#FF9F1C', 0.8], ['#FFD23F', 0.55]]) {
+            ctx.beginPath(); ctx.moveTo(r * 0.3, sd * r * 0.2); ctx.quadraticCurveTo(r * 0.2, sd * r * 1.9 * fl * s, -r * 0.7 * s, sd * r * 1.6 * fl * s); ctx.quadraticCurveTo(-r * 0.3, sd * r * 0.8 * s, -r * 0.4, sd * r * 0.2); ctx.closePath();
+            ctx.fillStyle = c; ctx.fill(); if (s === 1) { ctx.lineWidth = 2.5; ctx.strokeStyle = INK; ctx.stroke(); }
+          }
+          for (const o of [-0.25, 0, 0.25]) { ctx.beginPath(); ctx.moveTo(-r * 0.5, 0); ctx.quadraticCurveTo(-r * 1.2, o * r, -r * 1.7, o * r * 2.2 + Math.sin(T * 5 + o * 9) * r * 0.15); ctx.lineWidth = 7; ctx.strokeStyle = INK; ctx.stroke(); ctx.lineWidth = 4; ctx.strokeStyle = '#FF9F1C'; ctx.stroke(); }
+          ell(ctx, 0, 0, r * 0.6, r * 0.35, 0, '#FF6B3D', 3); ell(ctx, 0, 0, r * 0.38, r * 0.18, 0, tm.c, 2);
+          disc(ctx, r * 0.65, 0, r * 0.25, '#FFB020', 2.5); tri(ctx, r * 0.85, -r * 0.08, r * 1.05, 0, r * 0.85, r * 0.08, '#FFE27A');
+          ctx.restore();
+          break;
+        }
+        case 'fortress': {
+          ctx.save(); ctx.translate(x, y); ctx.rotate(f);
+          const st = Math.hypot(u.vx, u.vy) > 4 ? Math.sin(T * 4 + u.gait) * r * 0.12 : 0;
+          for (const [lx, ly, p] of [[0.6, -0.8, 1], [0.6, 0.8, -1], [-0.6, -0.8, -1], [-0.6, 0.8, 1]]) ell(ctx, r * lx + st * p, r * ly, r * 0.2, r * 0.13, 0, '#5B6068', 2.5);
+          roundRect(ctx, -r * 0.78, -r * 0.78, r * 1.56, r * 1.56, 6); ctx.fillStyle = '#9AA0AA'; ctx.fill(); ctx.lineWidth = 4; ctx.strokeStyle = INK; ctx.stroke();
+          ctx.setLineDash([7, 5]); roundRect(ctx, -r * 0.66, -r * 0.66, r * 1.32, r * 1.32, 4); ctx.lineWidth = 3; ctx.strokeStyle = '#6E737C'; ctx.stroke(); ctx.setLineDash([]);
+          roundRect(ctx, -r * 0.42, -r * 0.42, r * 0.84, r * 0.84, 4); ctx.fillStyle = '#B5BAC3'; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = INK; ctx.stroke();
+          for (const [tx, ty] of [[0.78, 0.78], [0.78, -0.78], [-0.78, 0.78], [-0.78, -0.78]]) { disc(ctx, r * tx, r * ty, r * 0.24, '#8A909A', 3); disc(ctx, r * tx, r * ty, r * 0.11, tm.c, 1.5); }
+          roundRect(ctx, r * 0.62, -r * 0.18, r * 0.2, r * 0.36, 3); ctx.fillStyle = '#4A3420'; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = INK; ctx.stroke();
+          const rec = (u.muzzle || 0) * 5; stick(ctx, r * 0.7 - rec, 0, r * 1.05 - rec, 0, 6, '#2B2F36');
+          for (const [ax, ay] of [[0.2, -0.6], [-0.2, -0.6], [0.2, 0.6], [-0.2, 0.6], [-0.6, 0]]) disc(ctx, r * ax, r * ay, 4.5, tm.d, 1.5);
+          disc(ctx, 0, 0, r * 0.16, tm.c, 2);
+          ctx.restore();
+          break;
+        }
+        case 'griffin': {
+          stick(ctx, cx + px * r * 0.35, cy + py * r * 0.35, cx + px * r * 0.35 + fx * (r * 0.9 + lg * 8), cy + py * r * 0.35 + fy * (r * 0.9 + lg * 8), 2.5, COL.wood);
+          disc(ctx, cx, cy, r * 0.42, tm.c, 2.5); disc(ctx, cx, cy, r * 0.26, '#D9DEE6', 2);
+          break;
+        }
+        case 'mirrorknight': {
+          disc(ctx, x, y, r, '#C9D1DC', 3.5); ring(r - 4, 3, tm.c);
+          ctx.beginPath(); ctx.arc(x - r * 0.3, y - r * 0.3, r * 0.5, Math.PI * 1.05, Math.PI * 1.45); ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(255,255,255,0.85)'; ctx.stroke();
+          const [sx, sy] = P(r * 0.85, 0);
+          ell(ctx, sx, sy, 5, r * 0.85, f, '#BFE6FF', 2.5);
+          ctx.beginPath(); ctx.moveTo(sx - px * r * 0.5, sy - py * r * 0.5); ctx.lineTo(sx + px * r * 0.2, sy + py * r * 0.2); ctx.lineWidth = 1.5; ctx.strokeStyle = '#FFFFFF'; ctx.stroke();
+          break;
+        }
+        case 'phasereaper': {
+          ctx.beginPath();
+          for (let k = 0; k < 12; k++) { const a = f + k / 12 * TAU, rr = r * (k % 2 ? 1.12 : 0.88) + (k % 2 ? Math.sin(T * 9 + k) * 1.5 : 0); if (k) ctx.lineTo(x + Math.cos(a) * rr, y + Math.sin(a) * rr); else ctx.moveTo(x + Math.cos(a) * rr, y + Math.sin(a) * rr); }
+          ctx.closePath(); ctx.fillStyle = '#1E1B2E'; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = INK; ctx.stroke();
+          ring(r * 0.7, 2.5, tm.c);
+          const a = f + 0.8 - lg * 1.5, bx = x + Math.cos(f + 1.1) * r * 0.7, by = y + Math.sin(f + 1.1) * r * 0.7, ex = bx + Math.cos(a) * (r + 14), ey = by + Math.sin(a) * (r + 14);
+          stick(ctx, bx, by, ex, ey, 2.5, '#4A4038');
+          ctx.beginPath(); ctx.moveTo(ex, ey); ctx.quadraticCurveTo(ex + Math.cos(a - 1.4) * 14, ey + Math.sin(a - 1.4) * 14, ex + Math.cos(a - 2.6) * 16, ey + Math.sin(a - 2.6) * 16);
+          ctx.lineWidth = 5; ctx.strokeStyle = INK; ctx.stroke(); ctx.lineWidth = 2.5; ctx.strokeStyle = '#D9DEE6'; ctx.stroke();
+          eyes(x, y, r * 0.3, r * 0.16, 2.2, '#A78BFA');
+          break;
+        }
+        case 'alchemist': {
+          disc(ctx, x, y, r, tm.c, 3);
+          ctx.beginPath(); ctx.arc(x, y, r * 0.7, f - 0.9, f + 0.9); ctx.lineWidth = 4; ctx.strokeStyle = '#6B4A2E'; ctx.stroke();
+          disc(ctx, x - fx * 2, y - fy * 2, r * 0.5, '#3A2A1A', 2);
+          for (const sd of [-1, 1]) disc(ctx, ...P(r * 0.15, sd * r * 0.18), 2.6, '#8FE3FF', 1.2);
+          const [hx, hy] = P(r + 2, r * 0.55);
+          disc(ctx, hx, hy, 5, '#7CFF6B', 2); disc(ctx, hx + fx * 2, hy + fy * 2, 2, '#D9FFD0', 0);
+          break;
+        }
+        case 'gravitymonk': {
+          disc(ctx, x, y, r, '#E07A1F', 3); ring(r - 2.5, 2.5, tm.c);
+          disc(ctx, x, y, r * 0.5, '#E8C39E', 2);
+          for (let k = 0; k < 3; k++) { const a = T * 2.4 + k * TAU / 3 + u.gait, d = r + 7 + 3 * Math.sin(T * 3 + k); disc(ctx, x + Math.cos(a) * d, y + Math.sin(a) * d, 3.2, '#8A8F98', 1.5); }
+          if (u.muzzle > 0) ring(r + 10 + (1 - u.muzzle) * 20, 3, `rgba(168,85,247,${u.muzzle})`);
+          break;
+        }
+        case 'soulsmith': {
+          const a = f + 0.9 - lg * 1.4, [bx, by] = P(r * 0.3, r * 0.7), hx = bx + Math.cos(a) * 15, hy = by + Math.sin(a) * 15;
+          stick(ctx, bx, by, hx, hy, 3, COL.wood);
+          ctx.save(); ctx.translate(hx, hy); ctx.rotate(a); roundRect(ctx, -4, -7, 8, 14, 2); ctx.fillStyle = '#5B6472'; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = INK; ctx.stroke(); ctx.restore();
+          disc(ctx, x, y, r, tm.d, 3);
+          ctx.beginPath(); ctx.arc(x, y, r * 0.75, f - 1, f + 1); ctx.lineWidth = 4; ctx.strokeStyle = '#4A3420'; ctx.stroke();
+          disc(ctx, x - fx * 1.5, y - fy * 1.5, r * 0.48, '#3A3F4B', 2);
+          for (let k = 0; k < (u.souls || 0); k++) { const ang = T * 3 + k * TAU / 4; disc(ctx, x + Math.cos(ang) * (r + 6), y + Math.sin(ang) * (r + 6), 3, '#7CF3FF', 1); }
+          break;
+        }
+        case 'falsesoldier': {
+          // looks exactly like an ordinary soldier
+          disc(ctx, x, y, r, tm.c, 3);
+          if (tm.a) ring(r - 4, 2.5, tm.a);
+          break;
+        }
+        case 'turtle': {
+          const pl = !!u.planted;
+          if (!pl) {
+            const ph = T * 6 + u.gait, mv = Math.hypot(u.vx, u.vy) > 4;
+            for (const [lx, ly, p] of [[0.55, -0.7, 0], [0.55, 0.7, Math.PI], [-0.55, -0.7, Math.PI], [-0.55, 0.7, 0]]) { const s = mv ? Math.sin(ph + p) * 3 : 0; disc(ctx, ...P(r * lx + s, r * ly), r * 0.2, '#6E8F60', 2); }
+            disc(ctx, ...P(r * 0.95, 0), r * 0.28, '#7DA06E', 2.5);
+          }
+          disc(ctx, x, y, r * (pl ? 0.95 : 0.88), tm.d, 4);
+          ctx.lineWidth = 2; ctx.strokeStyle = rgba(tm.l, 0.8);
+          const hex = (hx, hy, s) => { ctx.beginPath(); for (let k = 0; k < 6; k++) { const a = k / 6 * TAU; if (k) ctx.lineTo(hx + Math.cos(a) * s, hy + Math.sin(a) * s); else ctx.moveTo(hx + Math.cos(a) * s, hy + Math.sin(a) * s); } ctx.closePath(); ctx.stroke(); };
+          hex(x, y, r * 0.3); for (let k = 0; k < 6; k++) { const a = k / 6 * TAU + Math.PI / 6; hex(x + Math.cos(a) * r * 0.58, y + Math.sin(a) * r * 0.58, r * 0.2); }
+          if (pl) for (let k = 0; k < 10; k++) { const a = k / 10 * TAU; tri(ctx, x + Math.cos(a - 0.12) * r * 0.92, y + Math.sin(a - 0.12) * r * 0.92, x + Math.cos(a) * (r + 7), y + Math.sin(a) * (r + 7), x + Math.cos(a + 0.12) * r * 0.92, y + Math.sin(a + 0.12) * r * 0.92, '#E9E2D0'); }
+          break;
+        }
+        case 'decoy': {
+          ctx.globalAlpha *= clamp((u.decoyEnd - this.fightT) / 0.6, 0, 1);
+          if (u.look === 'scarecrow') {
+            stick(ctx, ...P(0, -r * 1.2), ...P(0, r * 1.2), 3, COL.wood);
+            disc(ctx, x, y, r * 0.8, '#C2A878', 2.5); disc(ctx, x, y, r * 0.55, '#E9C46A', 2); disc(ctx, x, y, r * 0.3, '#B5893A', 1.5);
+          } else { disc(ctx, x, y, r, tm.c, 3); ring(r + 2 + Math.sin(T * 8 + u.gait) * 1.5, 2, 'rgba(192,132,252,0.7)'); }
+          break;
+        }
+        case 'thousandman': {
+          const b = u.bodies || [], arms = 2 + Math.min(6, Math.floor(b.length / 3));
+          for (let k = 0; k < arms; k++) {
+            const a = f + (k - (arms - 1) / 2) * (2.6 / Math.max(1, arms - 1)) + Math.sin(T * 5 + k * 1.3) * 0.15 - (k % 2 ? lg * 0.4 : 0), bx = x + Math.cos(a) * r * 0.8, by = y + Math.sin(a) * r * 0.8;
+            stick(ctx, bx, by, bx + Math.cos(a) * r * 0.55, by + Math.sin(a) * r * 0.55, 4, '#C98B7A'); disc(ctx, bx + Math.cos(a) * r * 0.6, by + Math.sin(a) * r * 0.6, 4, '#C98B7A', 1.5);
+          }
+          disc(ctx, x, y, r, tm.d, 4);
+          b.forEach((c, i) => { const a = i * 2.39996 + u.gait, d = r * (0.5 + 0.3 * ((i * 7) % 5) / 5); disc(ctx, x + Math.cos(a) * d, y + Math.sin(a) * d, 5.5, c, 1.5); });
+          const [hx, hy] = P(r * 0.3, 0), hr = Math.max(7, r * 0.28);
+          disc(ctx, hx, hy, hr, '#C98B7A', 2.5); eyes(hx, hy, hr * 0.35, hr * 0.38, 2, '#1A1A22');
+          break;
+        }
+        case 'copycat': {
+          disc(ctx, x, y, r, '#8E7CC3', 3); ring(r - 2.5, 3, tm.c);
+          ell(ctx, x + fx * r * 0.2, y + fy * r * 0.2, r * 0.42, r * 0.3, f + Math.PI / 2, '#F4F6FB', 1.5);
+          eyes(x, y, r * 0.3, r * 0.15, 1.8, INK);
+          break;
+        }
+        case 'immortal': {
+          if (u.lives === 0) disc(ctx, x, y, r + 6 + Math.sin(T * 8) * 2, 'rgba(229,72,77,0.22)', 0);
+          const a = f + 0.75 - lg * 1.3, [bx, by] = P(r * 0.3, r * 0.75);
+          stick(ctx, bx, by, bx + Math.cos(a) * 24, by + Math.sin(a) * 24, 3.5, COL.gold);
+          disc(ctx, x, y, r, '#E3B341', 3.5); ring(r - 4, 3.5, tm.c);
+          disc(ctx, x, y, r * 0.5, '#F4D16B', 2);
+          ctx.beginPath(); ctx.arc(x + fx * r * 0.05, y + fy * r * 0.05, r * 0.28, f - 0.6, f + 0.6); ctx.lineWidth = 2; ctx.strokeStyle = INK; ctx.stroke();
+          ctx.beginPath(); ctx.ellipse(x, y - r - 6 + Math.sin(T * 4) * 1.5, r * 0.55, 4, 0, 0, TAU); ctx.lineWidth = 2.5; ctx.strokeStyle = u.lives > 0 ? 'rgba(255,226,122,0.9)' : 'rgba(229,72,77,0.9)'; ctx.stroke();
+          for (let k = 0; k < (u.lives || 0); k++) disc(ctx, x - 9 + k * 6, y + r + 7, 2.2, COL.gold, 1);
+          break;
+        }
+        case 'mirrorking': {
+          for (let k = 0; k < 5; k++) { const a = T * 1.5 + k * TAU / 5 + u.gait, d = r + 10; ctx.save(); ctx.translate(x + Math.cos(a) * d, y + Math.sin(a) * d); ctx.rotate(a); ctx.beginPath(); ctx.moveTo(0, -6); ctx.lineTo(4, 0); ctx.lineTo(0, 6); ctx.lineTo(-4, 0); ctx.closePath(); ctx.fillStyle = '#DCEBFA'; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = INK; ctx.stroke(); ctx.restore(); }
+          for (let k = -2; k <= 2; k++) { const a = f + Math.PI + k * 0.38; disc(ctx, x + Math.cos(a) * r * 0.8, y + Math.sin(a) * r * 0.8, r * 0.3, '#BFE6FF', 2); }
+          disc(ctx, x, y, r, '#C9D1DC', 4); ring(r - 5, 4, tm.c);
+          ctx.beginPath(); for (let k = 0; k < 10; k++) { const a = f + k / 10 * TAU, rr = k % 2 ? r * 0.3 : r * 0.48; if (k) ctx.lineTo(x + Math.cos(a) * rr, y + Math.sin(a) * rr); else ctx.moveTo(x + Math.cos(a) * rr, y + Math.sin(a) * rr); }
+          ctx.closePath(); ctx.fillStyle = COL.gold; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = INK; ctx.stroke();
+          break;
+        }
+        case 'unmaker': {
+          const bob = Math.sin(T * 2.5 + u.gait) * 3, ey = y + bob;
+          ell(ctx, x + 10, y + 30, r * 0.9, r * 0.55, 0, 'rgba(0,0,0,0.25)', 0);
+          for (let k = 0; k < 6; k++) {
+            const a = f + Math.PI + (k - 2.5) * 0.45, w = Math.sin(T * 4 + k) * 0.25;
+            ctx.beginPath(); ctx.moveTo(x + Math.cos(a) * r * 0.7, ey + Math.sin(a) * r * 0.7); ctx.quadraticCurveTo(x + Math.cos(a + w) * r * 1.3, ey + Math.sin(a + w) * r * 1.3, x + Math.cos(a - w) * r * 1.7, ey + Math.sin(a - w) * r * 1.7);
+            ctx.lineWidth = 5; ctx.strokeStyle = INK; ctx.stroke(); ctx.lineWidth = 3; ctx.strokeStyle = '#5B2A86'; ctx.stroke();
+          }
+          disc(ctx, x, ey, r, '#3B1F5B', 4); disc(ctx, x, ey, r * 0.8, '#F4F6FB', 2.5);
+          const lx = x + fx * r * 0.28, ly = ey + fy * r * 0.28;
+          disc(ctx, lx, ly, r * 0.38, tm.c, 2.5); disc(ctx, lx + fx * r * 0.06, ly + fy * r * 0.06, r * 0.17 + (u.muzzle || 0) * 3, '#0B0C0F', 0);
+          disc(ctx, lx - r * 0.1, ly - r * 0.1, r * 0.07, '#FFFFFF', 0);
+          break;
+        }
+        case 'billionaire': {
+          disc(ctx, x, y, r, '#E3B341', 3);
+          tri(ctx, ...P(r * 0.2, 0), ...P(r * 0.9, 3), ...P(r * 0.9, -3), tm.c);
+          disc(ctx, x - fx * 2, y - fy * 2, r * 0.75, '#15171C', 2); disc(ctx, x - fx * 2, y - fy * 2, r * 0.48, '#22252B', 2);
+          ctx.beginPath(); ctx.arc(x - fx * 2, y - fy * 2, r * 0.48, 0, TAU); ctx.lineWidth = 2.5; ctx.strokeStyle = tm.c; ctx.stroke();
+          const [bx, by] = P(0, r + 4);
+          disc(ctx, bx, by, 7.5, '#C9A36A', 2);
+          ctx.fillStyle = '#1F6F2A'; ctx.font = font(11, 800, false); ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('$', bx, by + 1); ctx.textBaseline = 'alphabetic';
+          break;
+        }
+        case 'gravitytyrant': {
+          for (let k = 0; k < 5; k++) { const a = T * (1.4 + k * 0.1) + k * TAU / 5, d = r + 14 + 6 * Math.sin(T * 2 + k); disc(ctx, x + Math.cos(a) * d, y + Math.sin(a) * d, 4 + (k % 3), '#6B7280', 1.5); }
+          ring(r + 5, 3, `rgba(168,85,247,${0.3 + 0.2 * Math.sin(T * 4)})`);
+          for (const sd of [-1, 1]) disc(ctx, ...P(sd > 0 ? lg * 10 : 0, sd * r * 0.85), r * 0.3, '#3B2F55', 3);
+          disc(ctx, x, y, r, '#2B2140', 4); ring(r - 5, 3.5, tm.c);
+          disc(ctx, x, y, r * 0.3, `rgba(192,132,252,${0.6 + 0.4 * Math.sin(T * 5)})`, 2.5);
+          disc(ctx, ...P(r * 0.55, 0), r * 0.26, '#3B2F55', 2.5);
+          break;
+        }
+        case 'meteorshepherd': {
+          disc(ctx, x, y, r, tm.c, 3); disc(ctx, x - fx * 2, y - fy * 2, r * 0.58, '#2A2F5A', 2);
+          ctx.fillStyle = '#FFE27A'; for (let k = 0; k < 3; k++) { const a = k * 2.1 + 0.5; ctx.beginPath(); ctx.arc(x - fx * 2 + Math.cos(a) * r * 0.32, y - fy * 2 + Math.sin(a) * r * 0.32, 1.3, 0, TAU); ctx.fill(); }
+          const [sx, sy] = P(0, r * 0.6), top = sy - r - 24;
+          ctx.lineWidth = 4; ctx.strokeStyle = INK; ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(sx, top); ctx.stroke(); ctx.lineWidth = 2; ctx.strokeStyle = '#8A6A49'; ctx.stroke();
+          ctx.save(); ctx.translate(sx, top); ctx.transform(1, Math.sin(T * 5 + u.gait) * 0.12, 0, 1, 0, 0);
+          roundRect(ctx, 0, 0, 24, 18, 2); ctx.fillStyle = '#2A2F5A'; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = INK; ctx.stroke();
+          star(ctx, 12, 9, 6); ctx.fillStyle = COL.gold; ctx.fill(); ctx.restore();
+          const ma = T * 4 + u.gait; disc(ctx, sx + Math.cos(ma) * 12, top + Math.sin(ma) * 12, 4, '#FF8A1F', 1.5);
+          break;
+        }
+        case 'glitch': {
+          const j = Math.floor(T * 20 + u.gait * 10), jx = ((j * 7919) % 7) - 3, jy = ((j * 104729) % 5) - 2;
+          disc(ctx, x + jx - 3, y + jy, r, 'rgba(255,40,80,0.55)', 0); disc(ctx, x + jx + 3, y + jy, r, 'rgba(40,220,255,0.55)', 0);
+          disc(ctx, x, y, r, tm.c, 3);
+          ctx.fillStyle = '#0B0C0F'; for (let k = 0; k < 4; k++) { const h1 = ((j + 1) * (k + 3) * 2654435761) >>> 0; ctx.fillRect(x - r * 0.6 + (h1 % 13), y - r * 0.5 + ((h1 >>> 4) % 11), 4 + ((h1 >>> 8) % 6), 3); }
+          ctx.fillStyle = '#7CF3FF'; ctx.fillRect(x + fx * r * 0.3 - 3, y + fy * r * 0.3 - 2, 6, 4);
+          break;
+        }
+        default: this.drawRoster2(ctx, u, x, y, tm);
+      }
+    },
+    // a troop turned into a sheep
+    drawSheep(ctx, u, x, y, tm) {
+      const r = clamp(u.r, 10, 16), f = u.face, fx = Math.cos(f), fy = Math.sin(f);
+      disc(ctx, x, y, r, '#F4F6FB', 2.5);
+      for (let k = 0; k < 7; k++) { const a = k / 7 * TAU + 0.3; disc(ctx, x + Math.cos(a) * r * 0.85, y + Math.sin(a) * r * 0.85, r * 0.38, '#F4F6FB', 2); }
+      disc(ctx, x, y, r * 0.9, '#F4F6FB', 0);
+      disc(ctx, x + fx * r * 0.95, y + fy * r * 0.95, r * 0.4, '#2A2F3A', 2);
+      ctx.beginPath(); ctx.arc(x + fx * r * 0.5, y + fy * r * 0.5, r * 0.45, f + 1.9, f + 4.4); ctx.lineWidth = 3; ctx.strokeStyle = tm.c; ctx.stroke();
+    },
+    // statuses, ranks and titles drawn over a troop
+    drawStatus(ctx, u, x, y, tm) {
+      const T = this.fightT, t = this.t, U = UNIT[u.type], r = u.r;
+      if (u.burnT > T && !U.fireproof) for (let k = 0; k < 3; k++) { const a = t * 9 + k * 2.1 + u.gait, fl = 0.6 + 0.4 * Math.sin(t * 17 + k), bx = x + Math.cos(a) * r * 0.6, by = y - r * 0.2 + Math.sin(a) * r * 0.4; disc(ctx, bx, by, 4.5 * fl + 1.5, 'rgba(255,140,40,0.85)', 0); disc(ctx, bx, by - 2, 2.2 * fl, '#FFE27A', 0); }
+      if (u.poisT > T) { ctx.fillStyle = 'rgba(124,255,107,0.75)'; for (let k = 0; k < 3; k++) { const p = (t * 1.4 + k / 3 + u.gait) % 1; ctx.beginPath(); ctx.arc(x + Math.sin(k * 2.3 + u.gait) * r * 0.6, y - r * 0.2 - p * r * 1.2, 2.5 * (1 - p) + 1, 0, TAU); ctx.fill(); } }
+      if (u.slowT > T && u.slowK < 0.75) { ctx.beginPath(); ctx.arc(x, y, r + 3, 0, TAU); ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(160,220,255,0.75)'; ctx.stroke(); }
+      if (u.frozeT > T) { roundRect(ctx, x - r - 4, y - r - 4, (r + 4) * 2, (r + 4) * 2, 5); ctx.fillStyle = 'rgba(191,230,255,0.45)'; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = 'rgba(230,246,255,0.95)'; ctx.stroke(); }
+      if (u.planted) { ctx.beginPath(); ctx.arc(x, y, r + u.shell, 0, TAU); ctx.fillStyle = 'rgba(124,200,255,0.08)'; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(160,220,255,0.45)'; ctx.stroke(); }
+      if (u.tileT > T) { ctx.beginPath(); ctx.arc(x, y, r + 3, 0, TAU); ctx.lineWidth = 2.5; ctx.strokeStyle = 'rgba(255,210,63,0.8)'; ctx.stroke(); }
+      if (u.forged) { ctx.beginPath(); ctx.arc(x, y, r + 1.5, 0, TAU); ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(124,243,255,0.85)'; ctx.stroke(); }
+      if (u.mimic || u.mirror) { ctx.setLineDash([5, 4]); ctx.beginPath(); ctx.arc(x, y, r + 3, t * 2, t * 2 + TAU); ctx.lineWidth = 2.5; ctx.strokeStyle = u.mimic === 'copy' ? 'rgba(192,132,252,0.9)' : 'rgba(220,235,250,0.95)'; ctx.stroke(); ctx.setLineDash([]); }
+      if (u.possessed) { ctx.beginPath(); ctx.arc(x, y, r + 4 + Math.sin(t * 6) * 1.5, 0, TAU); ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(168,85,247,0.75)'; ctx.stroke(); }
+      if (u.bribed !== undefined && T - u.bribed < 1.5) { ctx.beginPath(); ctx.arc(x, y, r + 4, 0, TAU); ctx.lineWidth = 3; ctx.strokeStyle = `rgba(255,210,63,${1 - (T - u.bribed) / 1.5})`; ctx.stroke(); }
+      if (u.confT > T) { ctx.font = font(18, 800, false); ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; strokeText(ctx, '?', x - r * 0.6, y - r - 6, '#C084FC', COL.ink, 5); }
+      if (u.panicT > T || (this.panic[u.team] > T && !(u.crownT > T))) { ctx.font = font(20, 800, false); ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; strokeText(ctx, '!', x + r * 0.7, y - r - 6, '#FFFFFF', COL.ink, 5); }
+      if (u.mut === 'wings') for (const sd of [-1, 1]) { const fx = Math.cos(u.face), fy = Math.sin(u.face), px = -fy * sd, py = fx * sd, fl = 0.8 + 0.2 * Math.sin(t * 10 + u.gait); tri(ctx, x + px * r * 0.6 - fx * r * 0.2, y + py * r * 0.6 - fy * r * 0.2, x + px * r * 1.6 * fl - fx * r * 0.8, y + py * r * 1.6 * fl - fy * r * 0.8, x + px * r * 0.7 - fx * r * 0.9, y + py * r * 0.7 - fy * r * 0.9, 'rgba(244,246,251,0.9)'); }
+      if (u.trait) {
+        const ix = x - r * 0.75, iy = y + r * 0.75;
+        if (u.trait === 'explosive') { disc(ctx, ix, iy, 3.5, '#2B2F36', 1.2); stick(ctx, ix + 2, iy - 2, ix + 4, iy - 5, 1, '#FF9F1C'); }
+        else if (u.trait === 'vampiric') { tri(ctx, ix - 3, iy - 2, ix - 1.5, iy + 3, ix, iy - 2, '#F4F6FB', 1); tri(ctx, ix, iy - 2, ix + 1.5, iy + 3, ix + 3, iy - 2, '#F4F6FB', 1); }
+        else if (u.trait === 'undying' && !u.undyingUsed) { ctx.beginPath(); ctx.ellipse(x, y - r - 3, r * 0.45, 2.5, 0, 0, TAU); ctx.lineWidth = 1.5; ctx.strokeStyle = 'rgba(255,226,122,0.9)'; ctx.stroke(); }
+        else if (u.trait === 'coward') disc(ctx, ix, iy, 2.8, '#7CC8FF', 1);
+      }
+      if (u.armed) { const ax = x + r * 0.8, ay = y + r * 0.6; stick(ctx, ax - 3, ay + 3, ax + 4, ay - 4, 1.5, COL.gold); }
+      if (u.crownT > T) {
+        ctx.save(); ctx.translate(x, y - r - 12 - 2 * Math.sin(t * 5)); ctx.scale(0.75, 0.75);
+        ctx.beginPath(); ctx.moveTo(-13, 6); ctx.lineTo(-13, -8); ctx.lineTo(-6, -1); ctx.lineTo(0, -12); ctx.lineTo(6, -1); ctx.lineTo(13, -8); ctx.lineTo(13, 6); ctx.closePath();
+        ctx.fillStyle = COL.gold; ctx.fill(); ctx.lineWidth = 3; ctx.lineJoin = 'round'; ctx.strokeStyle = COL.ink; ctx.stroke(); ctx.restore();
+        ctx.beginPath(); ctx.arc(x, y, 190, 0, TAU); ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(255,210,63,0.18)'; ctx.stroke();
+      }
+      // evolution: one chevron for veterans, two and a gold ring for elites; slayers get a red-gold ring, God Eaters a golden flame
+      if (u.lvl >= 2) {
+        ctx.lineWidth = 2.5; ctx.strokeStyle = COL.gold; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+        for (let k = 0; k < u.lvl - 1; k++) { const cy2 = y + r + 5 + k * 5; ctx.beginPath(); ctx.moveTo(x - 6, cy2 + 3); ctx.lineTo(x, cy2 - 1); ctx.lineTo(x + 6, cy2 + 3); ctx.stroke(); }
+        if (u.lvl >= 3) { ctx.beginPath(); ctx.arc(x, y, r + 2, 0, TAU); ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(255,210,63,0.8)'; ctx.stroke(); }
+      }
+      if (u.slayer && !u.god) { ctx.beginPath(); ctx.arc(x, y, r + 3, 0, TAU); ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(229,72,77,0.85)'; ctx.stroke(); }
+      if (u.god) {
+        for (let k = 0; k < 6; k++) { const a = t * 3 + k * TAU / 6, fl = 0.6 + 0.4 * Math.sin(t * 11 + k); disc(ctx, x + Math.cos(a) * (r + 6), y + Math.sin(a) * (r + 6), 4 * fl + 2, u.cosmic ? 'rgba(167,139,250,0.8)' : 'rgba(255,190,60,0.8)', 0); }
+      }
+      if (u.champ || u.title) {
+        // champions and titled troops carry their name (and kill count) over their head
+        const pulse = 0.5 + 0.5 * Math.sin(t * 5 + u.gait);
+        if (u.champ) { ctx.beginPath(); ctx.arc(x, y, r + 6 + pulse * 3, 0, TAU); ctx.fillStyle = rgba(tm.c, 0.16); ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = `rgba(255,210,63,${0.5 + 0.4 * pulse})`; ctx.stroke(); }
+        const name = u.champ ? `${u.champ} · ${u.kills || 0}` : u.title, hb = HPBAR[u.type] && u.hp < u.max ? 14 : 0;
+        ctx.font = font(u.champ ? 20 : 17, 800, false); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        strokeText(ctx, name, x, y - r - 14 - hb, u.champ ? COL.gold : '#FFE9A8', COL.ink, 5);
+      } else if ((U.boss || u.ancient || U.mythic) && UNIT[u.type].rank === 0) {
+        ctx.font = font(16, 800, false); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        strokeText(ctx, u.ancient ? 'ANCIENT HUNTER' : u.asleep ? 'CASTLE' : labelOf(u.type).replace(/^THE /, ''), x, y - r - (u.hp < u.max ? 26 : 12), u.team === MONSTERS ? '#D9F99D' : '#FFFFFF', COL.ink, 5);
+      }
+      this.drawStatus2(ctx, u, x, y, tm);
+      if (u.team === MONSTERS) { ctx.setLineDash([3, 4]); ctx.beginPath(); ctx.arc(x, y, r + 4, 0, TAU); ctx.lineWidth = 2.5; ctx.strokeStyle = 'rgba(190,242,100,0.75)'; ctx.stroke(); ctx.setLineDash([]); }
+      ctx.textBaseline = 'alphabetic';
+    },
+    // projectiles of the new troops
+    drawShot(ctx, a, ux, uy) {
+      const k = a.kind;
+      const ln = (L1, L2) => { ctx.beginPath(); ctx.moveTo(a.x - ux * L1, a.y - uy * L1); ctx.lineTo(a.x + ux * L2, a.y + uy * L2); ctx.stroke(); };
+      ctx.lineCap = 'round';
+      if (k === 'firearrow') { ctx.lineWidth = 7; ctx.strokeStyle = 'rgba(255,140,40,0.45)'; ln(22, 0); ctx.lineWidth = 3; ctx.strokeStyle = COL.steel; ln(16, 3); disc(ctx, a.x, a.y, 3.5, '#FFB020', 0); return; }
+      if (k === 'dart') { ctx.lineWidth = 2.5; ctx.strokeStyle = '#7CFF6B'; ln(10, 2); return; }
+      if (k === 'soul') { ctx.lineWidth = 8; ctx.strokeStyle = 'rgba(124,255,176,0.4)'; ln(20, 0); ctx.lineWidth = 3; ctx.strokeStyle = '#E8FFF0'; ln(12, 0); return; }
+      if (k === 'spark') { disc(ctx, a.x, a.y, 5, 'rgba(192,132,252,0.6)', 0); disc(ctx, a.x, a.y, 2.5, '#FFFFFF', 0); return; }
+      if (k === 'firebolt') { disc(ctx, a.x, a.y, 5, 'rgba(255,120,40,0.7)', 0); disc(ctx, a.x, a.y, 2.5, '#FFE27A', 0); return; }
+      if (k === 'beam') { ctx.lineWidth = 6; ctx.strokeStyle = 'rgba(192,132,252,0.5)'; ln(40, 0); ctx.lineWidth = 2; ctx.strokeStyle = '#FFFFFF'; ln(30, 0); return; }
+      const p = a.t / a.T, hgt = Math.sin(Math.PI * p) * (k === 'boulder' ? 70 : k === 'mortar' ? 120 : 40);
+      ell(ctx, a.x, a.y, k === 'boulder' ? 10 : 5, k === 'boulder' ? 6 : 3, 0, 'rgba(0,0,0,0.35)', 0);
+      if (k === 'boulder') { disc(ctx, a.x, a.y - hgt, 12, '#8A8F98', 3); disc(ctx, a.x - 3, a.y - hgt - 3, 4, 'rgba(255,255,255,0.2)', 0); }
+      else if (k === 'frostbolt') { disc(ctx, a.x, a.y - hgt, 11, 'rgba(160,220,255,0.45)', 0); disc(ctx, a.x, a.y - hgt, 6, '#E6F6FF', 2); }
+      else if (k === 'mortar') { disc(ctx, a.x, a.y - hgt, 7, '#2B2F36', 2.5); }
+      else if (k === 'flask') { disc(ctx, a.x, a.y - hgt, 6, '#7CFF6B', 2); stick(ctx, a.x, a.y - hgt - 5, a.x, a.y - hgt - 9, 2, '#C9A36A'); }
+      else { disc(ctx, a.x, a.y - hgt, 10, 'rgba(255,90,40,0.4)', 0); disc(ctx, a.x, a.y - hgt, 6, '#FF6B3D', 2); }
+    },
+    // ground effects, under the troops
+    drawField(ctx) {
+      const T = this.fightT, t = this.t, cx0 = AR.x + AR.w / 2, cy0 = AR.y + AR.h / 2;
+      for (const c of this.clouds) {
+        const k = clamp((c.end - T) / 0.6, 0, 1) * clamp((T - c.t0) / 0.3, 0, 1);
+        for (let i = 0; i < 5; i++) { const a = i * 1.26 + c.t0 + t * 0.3; disc(ctx, c.x + Math.cos(a) * c.r * 0.45, c.y + Math.sin(a) * c.r * 0.45, c.r * 0.55, `rgba(110,200,80,${0.12 * k})`, 0); }
+        ctx.beginPath(); ctx.arc(c.x, c.y, c.r, 0, TAU); ctx.lineWidth = 2; ctx.strokeStyle = `rgba(150,240,110,${0.35 * k})`; ctx.stroke();
+      }
+      for (const f of this.fires) {
+        const k = clamp((f.end - T) / 0.6, 0, 1);
+        disc(ctx, f.x, f.y, f.r, `rgba(255,90,30,${0.1 * k})`, 0);
+        for (let i = 0; i < 7; i++) { const a = i * 0.9 + f.t0 * 3, d = f.r * (0.2 + 0.6 * ((i * 37) % 10) / 10), fl = 0.6 + 0.4 * Math.sin(t * 13 + i * 2); disc(ctx, f.x + Math.cos(a) * d, f.y + Math.sin(a) * d, (8 + 6 * fl) * Math.min(1, f.r / 60), `rgba(255,${120 + 60 * fl | 0},40,${0.5 * k})`, 0); }
+      }
+      for (const fl of this.fields) {
+        const k = clamp((T - fl.t0) / 0.3, 0, 1), col = fl.kind === 'singularity' ? '167,139,250' : '168,85,247';
+        for (let i = 0; i < 3; i++) { const rr = fl.r * (1 - ((t * 1.2 + i / 3) % 1)); ctx.beginPath(); ctx.arc(fl.x, fl.y, Math.max(1, rr), 0, TAU); ctx.lineWidth = 3; ctx.strokeStyle = `rgba(${col},${0.5 * k * (rr / fl.r)})`; ctx.stroke(); }
+        if (fl.kind === 'singularity') { disc(ctx, fl.x, fl.y, 14 + 6 * Math.sin(t * 9), '#05060A', 3); ctx.beginPath(); ctx.arc(fl.x, fl.y, 22, t * 6, t * 6 + 4); ctx.lineWidth = 4; ctx.strokeStyle = '#A78BFA'; ctx.stroke(); }
+      }
+      for (const c of this.calls) {
+        if (c.kind === 'lightning') continue;
+        const k = clamp((T - c.t0) / Math.max(0.01, c.at - c.t0), 0, 1);
+        ctx.beginPath(); ctx.arc(c.x, c.y, c.r * (0.4 + 0.6 * k), 0, TAU); ctx.lineWidth = 3; ctx.strokeStyle = `rgba(255,80,60,${0.3 + 0.5 * k})`; ctx.stroke();
+        const mx = c.x + (1 - k) * 160, my = c.y - (1 - k) * 420;
+        ctx.beginPath(); ctx.moveTo(mx, my); ctx.lineTo(mx + 50, my - 120); ctx.lineWidth = 14; ctx.strokeStyle = 'rgba(255,150,40,0.35)'; ctx.stroke();
+        disc(ctx, mx, my, 11, '#FF8A1F', 3);
+      }
+      for (const l of this.loot) {
+        const k = clamp((l.end - T) / 0.5, 0, 1); ctx.globalAlpha = k;
+        disc(ctx, l.x, l.y, 9, 'rgba(255,210,63,0.18)', 0);
+        const ca = Math.cos(l.a), sa = Math.sin(l.a);
+        if (l.kind === 'sword') stick(ctx, l.x - ca * 9, l.y - sa * 9, l.x + ca * 9, l.y + sa * 9, 2.5, COL.steel);
+        else if (l.kind === 'bow') { ctx.beginPath(); ctx.arc(l.x, l.y, 8, l.a - 1.1, l.a + 1.1); ctx.lineWidth = 4; ctx.strokeStyle = COL.ink; ctx.stroke(); ctx.lineWidth = 2; ctx.strokeStyle = '#C79A5B'; ctx.stroke(); }
+        else stick(ctx, l.x - ca * 8, l.y - sa * 8, l.x + ca * 8, l.y + sa * 8, 3.5, '#3A3F47');
+        ctx.globalAlpha = 1;
+      }
+      if (this.portal && T < this.portal.end) {
+        const p = this.portal, k = Math.max(0, Math.min(1, (T - p.t0) / 0.4, (p.end - T) / 0.5));
+        disc(ctx, p.x, p.y, 40 * k, 'rgba(20,6,40,0.8)', 0);
+        for (let i = 0; i < 4; i++) { ctx.beginPath(); ctx.ellipse(p.x, p.y, Math.max(1, (34 + i * 10) * k), Math.max(1, (26 + i * 8) * k), t * (2 + i * 0.5), i, i + 4.4); ctx.lineWidth = 5 - i; ctx.strokeStyle = i % 2 ? '#C084FC' : '#7C3AED'; ctx.stroke(); }
+      }
+      if (this.ring && this.ring.r) {
+        const r = this.ring.r;
+        ctx.beginPath(); ctx.rect(AR.x, AR.y, AR.w, AR.h); ctx.arc(cx0, cy0, r, 0, TAU, true); ctx.fillStyle = 'rgba(120,20,10,0.35)'; ctx.fill();
+        ctx.beginPath(); ctx.arc(cx0, cy0, r, 0, TAU); ctx.lineWidth = 12; ctx.strokeStyle = '#FF6B3D'; ctx.stroke(); ctx.lineWidth = 4; ctx.strokeStyle = '#FFE27A'; ctx.stroke();
+      }
+      if (this.lava && this.lava.w > 1) {
+        const w = this.lava.w;
+        for (const [x0, sgn] of [[AR.x, 1], [AR.x + AR.w, -1]]) {
+          ctx.fillStyle = '#C2410C'; ctx.fillRect(sgn > 0 ? x0 : x0 - w, AR.y, w, AR.h);
+          ctx.beginPath(); for (let k = 0; k <= 24; k++) { const yy = AR.y + AR.h * k / 24, xx = x0 + sgn * (w + Math.sin(k * 1.7 + t * 3) * 6); if (k) ctx.lineTo(xx, yy); else ctx.moveTo(xx, yy); }
+          ctx.lineWidth = 8; ctx.strokeStyle = '#FDBA74'; ctx.stroke();
+          for (let k = 0; k < 8; k++) { const yy = AR.y + ((k * 131 + t * 40) % AR.h), xx = x0 + sgn * w * (0.3 + 0.4 * ((k * 7) % 5) / 5); disc(ctx, xx, yy, 4 + 2 * Math.sin(t * 5 + k), '#FDE68A', 0); }
+        }
+      }
+      if (this.mapMech) this.drawMapDyn(ctx);
+      this.drawField2(ctx);
+    },
+    // effects over the troops: beams, freeze, weather, night, glitches
+    drawOver(ctx) {
+      const T = this.fightT, t = this.t;
+      ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+      for (const b of this.beams) {
+        if (T < b.t0) continue;
+        const a = 1 - clamp((T - b.t0) / b.life, 0, 1);
+        ctx.beginPath(); ctx.moveTo(b.x0, b.y0);
+        if (b.zig) { const n = 6; for (let i = 1; i < n; i++) { const f = i / n, o = (i % 2 ? 1 : -1) * 9; const dx = b.x1 - b.x0, dy = b.y1 - b.y0, L = Math.hypot(dx, dy) || 1; ctx.lineTo(b.x0 + dx * f - dy / L * o, b.y0 + dy * f + dx / L * o); } }
+        ctx.lineTo(b.x1, b.y1);
+        ctx.lineWidth = (b.w || 4) + 5; ctx.strokeStyle = rgba(b.col, 0.4 * a); ctx.stroke();
+        ctx.lineWidth = Math.max(1.5, (b.w || 4) * 0.45); ctx.strokeStyle = `rgba(255,255,255,${0.9 * a})`; ctx.stroke();
+      }
+      for (const u of this.units) if (u.castOn && !u.castOn.dead) {
+        const o = u.castOn, k = clamp(1 - (u.castT - T) / 1.1, 0, 1);
+        ctx.beginPath(); ctx.moveTo(u.x, u.y); const n = 8; for (let i = 1; i <= n; i++) { const f = i / n; ctx.lineTo(u.x + (o.x - u.x) * f + Math.sin(t * 20 + i) * 5, u.y + (o.y - u.y) * f + Math.cos(t * 20 + i) * 5); }
+        ctx.lineWidth = 4 + 4 * k; ctx.strokeStyle = `rgba(168,85,247,${0.4 + 0.4 * k})`; ctx.stroke();
+        ctx.beginPath(); ctx.arc(o.x, o.y, o.r + 6 + 6 * (1 - k), 0, TAU); ctx.lineWidth = 3; ctx.strokeStyle = `rgba(192,132,252,${0.5 + 0.5 * k})`; ctx.stroke();
+      }
+      if (this.freezeFx > T) { ctx.fillStyle = `rgba(160,220,255,${0.12 * Math.min(1, (this.freezeFx - T) / 0.5)})`; ctx.fillRect(AR.x, AR.y, AR.w, AR.h); }
+      if (this.weather === 'fog') {
+        ctx.fillStyle = 'rgba(205,214,224,0.16)'; ctx.fillRect(AR.x, AR.y, AR.w, AR.h);
+        for (let i = 0; i < 6; i++) { const x = AR.x + ((i * 211 + t * 18) % (AR.w + 300)) - 150, y = AR.y + 120 + i * 140; ell(ctx, x, y, 220, 90, 0, 'rgba(225,232,240,0.13)', 0); }
+      } else if (this.weather === 'rain') {
+        ctx.fillStyle = 'rgba(20,30,60,0.14)'; ctx.fillRect(AR.x, AR.y, AR.w, AR.h);
+        ctx.beginPath(); for (let i = 0; i < 80; i++) { const x = AR.x + ((i * 97.3 + t * 140) % AR.w), y = AR.y + ((i * 53.1 + t * 900) % AR.h); ctx.moveTo(x, y); ctx.lineTo(x - 6, y - 22); }
+        ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(190,215,255,0.45)'; ctx.stroke();
+      } else if (this.weather === 'sandstorm') {
+        ctx.fillStyle = 'rgba(201,139,85,0.17)'; ctx.fillRect(AR.x, AR.y, AR.w, AR.h);
+        ctx.beginPath(); for (let i = 0; i < 50; i++) { const x = AR.x + ((i * 173 + t * 520) % AR.w), y = AR.y + ((i * 61.7) % AR.h); ctx.moveTo(x, y); ctx.lineTo(x - 40, y + 3); }
+        ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(240,200,150,0.4)'; ctx.stroke();
+      } else if (this.weather === 'eclipse') { ctx.fillStyle = 'rgba(40,0,12,0.26)'; ctx.fillRect(AR.x, AR.y, AR.w, AR.h); }
+      if (this.mod === 'night') { ctx.fillStyle = 'rgba(4,10,32,0.42)'; ctx.fillRect(AR.x, AR.y, AR.w, AR.h); }
+      if (this.glitchFx > T) {
+        const j = Math.floor(t * 30);
+        for (let i = 0; i < 5; i++) { const h1 = ((j + i) * 2654435761) >>> 0, y = AR.y + (h1 % AR.h), hh = 6 + (h1 >>> 10) % 24; ctx.fillStyle = i % 2 ? 'rgba(255,40,80,0.18)' : 'rgba(40,220,255,0.18)'; ctx.fillRect(AR.x, y, AR.w, hh); }
+      }
+      if (this.diceFx && T - this.diceFx.t0 < 1.2) {
+        const d = this.diceFx, k = (T - d.t0) / 1.2, s = 26, x = d.x, y = d.y - 40 - k * 60;
+        ctx.globalAlpha = clamp((1 - k) * 2.5, 0, 1);
+        ctx.save(); ctx.translate(x, y); ctx.rotate(k * 6);
+        roundRect(ctx, -s / 2, -s / 2, s, s, 5); ctx.fillStyle = '#F4F6FB'; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = COL.ink; ctx.stroke();
+        ctx.fillStyle = COL.ink; for (const [a, b] of [[-6, -6], [6, 6], [0, 0], [6, -6], [-6, 6]]) { ctx.beginPath(); ctx.arc(a, b, 2.2, 0, TAU); ctx.fill(); }
+        ctx.restore(); ctx.globalAlpha = 1;
+      }
+      this.drawOver2(ctx);
+    },
+    extCosmetic(dt) {
+      for (const u of this.units) {
+        const U = UNIT[u.type];
+        if (U.mount || u.type === 'hellhound') {
+          const v = Math.hypot(u.vx, u.vy), want = v > 15 ? Math.atan2(u.vy, u.vx) : u.face;
+          if (u.mface === undefined) u.mface = u.face;
+          let df = want - u.mface; df = Math.atan2(Math.sin(df), Math.cos(df));
+          u.mface += clamp(df * Math.min(1, dt * 8), -6 * dt, 6 * dt);
+        }
+        if (u.type === 'phoenix' && !u.ashT && this.FX.chance(dt * 20)) this.parts.push({ x: u.x + this.FX.range(-u.r, u.r), y: u.y + this.FX.range(-u.r, u.r), vx: 0, vy: -30, life: 0.5, age: 0, size: 5, color: this.FX.chance(0.5) ? '#FFD23F' : '#FF9F1C', grav: 0 });
+      }
+    },
+  };
+  // ----- maps whose ground does something (rules.maps: godboard, furnace, frozen, grave, overgrown, clockwork, shattered, mirror) -----
+  // Every one is the same for both sides (mirrored top to bottom), so no side gets the better ground.
+  const MAP_MECH = { godboard: { tiles: 1 }, furnace: { lava: 1 }, frozen: { ice: 1 }, grave: { bones: 1 }, overgrown: { vines: 1 }, clockwork: { gears: 1 }, shattered: { void: 1 }, mirror: { flip: 1 } };
+  const XOB = { rook: 1, basalt: 1, icepillar: 1, rib: 1, skull: 1, statue: 1, gear: 1, void: 1, shard: 1, pelvis: 1 };
+  const CLOCK_PLATES = [[0, -235, 118], [0, 235, 118], [0, 0, 92]];
+  const VINE_ZONES = [[-300, -150, 90], [300, -150, 90], [-300, 150, 90], [300, 150, 90], [0, -330, 80], [0, 330, 80]];
+  const THICKETS = [[-150, -40, 60], [150, -40, 60], [-150, 40, 60], [150, 40, 60], [-410, -300, 60], [410, -300, 60], [-410, 300, 60], [410, 300, 60]];
+  const ARMY_MAPS = {
+    mapInit() {
+      const m = this.mapMech, F = this.fixed || this.target;
+      if (m.tiles) this.tiles = { next: 4, list: [] };
+      if (m.lava) this.rivers = { next: 7, list: [] };
+      if (m.ice) { this.iceK = 2.4; this.holes = []; this.cracks2 = new Map(); this.iceAt = 0; }
+      if (m.bones) this.bones = { next: 10, warn: null };
+      if (m.vines) this.statues = { next: 8, fire: null };
+      if (m.gears) this.gears = { dir: 1, flipAt: 0.33 * F, ang: 0 };
+      if (m.void) this.fallers = [];
+      if (m.flip) this.flips = { next: 10 };
+      this.zoneAt = 0;
+    },
+    mapTick(h) {
+      const T = this.fightT, m = this.mapMech, S = this.SR, cx = AR.x + AR.w / 2, cy = AR.y + AR.h / 2;
+      if (m.tiles) {
+        // the Godboard: every few seconds squares light up; red ones strike with lightning, gold ones make troops stronger
+        const tl = this.tiles;
+        if (T >= tl.next) {
+          tl.next = T + 5;
+          const used = new Set();
+          for (let k = 0; k < 3; k++) {
+            let c, r; do { c = S.int(0, 7); r = S.int(0, 3); } while (used.has(c * 8 + r)); used.add(c * 8 + r);
+            const kind = k === 0 || S.chance(0.4) ? 'boost' : 'zap';
+            for (const rr of [r, 7 - r]) tl.list.push({ c, r: rr, kind, t0: T, at: T + 1.2, end: kind === 'zap' ? T + 1.5 : T + 5 });
+          }
+        }
+        for (const s of tl.list) {
+          const x0 = AR.x + s.c * 120, y0 = AR.y + s.r * 120;
+          if (s.kind === 'zap' && !s.hit && T >= s.at) {
+            s.hit = true;
+            for (const o of this.near(x0 + 60, y0 + 60, 90)) if (o.x > x0 && o.x < x0 + 120 && o.y > y0 && o.y < y0 + 120) { this._kind = 'blast'; this.damage(o, 7 * Math.max(UNIT[o.type].armor, 0.6), null); }
+            this.burst(x0 + 60, y0 + 60, '#BFE6FF', 10, 300, 0.4, 7); this.snd('thunder', { pan: (x0 + 60 - AR.x) / AR.w * 1.4 - 0.7 });
+          }
+          if (s.kind === 'boost' && T >= s.at && T < s.end) for (const o of this.near(x0 + 60, y0 + 60, 90)) if (o.x > x0 && o.x < x0 + 120 && o.y > y0 && o.y < y0 + 120) o.tileT = T + 2;
+        }
+        tl.list = tl.list.filter(s => T < s.end);
+      }
+      if (m.lava) {
+        // the World Furnace: lava rivers pour across the field and move every few seconds; fireproof troops don't care
+        const rv = this.rivers;
+        if (T >= rv.next) {
+          rv.next = T + 10;
+          const xs = S.shuffle([90, 170, 260, 350]).slice(0, S.chance(0.5) ? 1 : 2);
+          rv.list = xs.flatMap(dx => [-dx, dx]).map(dx => ({ x: cx + dx, w: 50, t0: T, warn: T + 1.6, end: T + 9.5 }));
+          if (!this.lavaSaid) { this.lavaSaid = true; this.bannerQ.push({ at: T + 1.6, text: 'THE LAVA FLOWS!', col: '#FF6B3D' }); }
+        }
+        for (const l of rv.list) if (T >= l.warn && T < l.end) for (const o of this.units) {
+          if (o.dead || o.flying || UNIT[o.type].fireproof || Math.abs(o.x - l.x) > l.w / 2 + o.r * 0.5) continue;
+          this.dot(o, 6 * h * this.hpScale, null); this.slowDown(o, 0.7, 0.3);
+        }
+      }
+      if (m.ice) {
+        // the Frozen End: everyone slides on the ice, and big units crack it until it breaks into icy water
+        if (T >= this.iceAt) {
+          this.iceAt = T + 0.5;
+          for (const o of this.units) {
+            if (o.dead || o.flying || UNIT[o.type].rank !== 0 || this.holes.length >= 8 || Math.hypot(o.vx, o.vy) < 6) continue;
+            const key = ((o.x - AR.x) / 80 | 0) * 64 + ((o.y - AR.y) / 80 | 0), n = (this.cracks2.get(key) || 0) + 1;
+            this.cracks2.set(key, n);
+            if (n === 4) { const hx = AR.x + ((key / 64 | 0) + 0.5) * 80, hy = AR.y + (key % 64 + 0.5) * 80; this.holes.push({ x: hx, y: hy, r: 38, t0: T }); this.burst(hx, hy, '#DCEBFA', 14, 260, 0.6, 7); this.snd('stone', { pan: (hx - AR.x) / AR.w * 1.4 - 0.7 }); if (!this.iceSaid) { this.iceSaid = true; this.banner('THE ICE BREAKS!', '#BFE6FF', 1.4); } }
+          }
+        }
+        for (const hl of this.holes) for (const o of this.near(hl.x, hl.y, hl.r)) if (!o.flying) { this.dot(o, 5 * h * this.hpScale, null); this.slowDown(o, 0.45, 0.3); }
+      }
+      if (m.bones) {
+        // the Titan's Grave: the giant's ribs give cover, and every so often a pair of them gives way
+        const b = this.bones;
+        if (b.warn && T >= b.warn.at) {
+          for (const ob of b.warn.ribs) {
+            if (!this.obstacles.includes(ob)) continue;
+            for (const o of this.units) if (!o.dead && o.x > ob.x0 - 30 && o.x < ob.x1 + 30 && o.y > ob.y0 - 30 && o.y < ob.y1 + 30) { this._kind = 'blast'; this.damage(o, 6, null); this.knock(o, (ob.x0 + ob.x1) / 2, (ob.y0 + ob.y1) / 2, 30); }
+            this.breakObstacle(ob);
+          }
+          b.warn = null;
+          if (!this.boneSaid) { this.boneSaid = true; this.banner('THE BONES COLLAPSE!', '#E9E2D0', 1.5); }
+        }
+        if (!b.warn && T >= b.next) {
+          b.next = T + 9;
+          const ribs = this.obstacles.filter(o => o.kind === 'rib' && o.y1 < cy);
+          if (ribs.length) {
+            const top = ribs[S.int(0, ribs.length - 1)], twin = this.obstacles.find(o => o.kind === 'rib' && Math.abs(o.x0 - top.x0) < 1 && o.y0 > cy);
+            b.warn = { at: T + 1.2, ribs: twin ? [top, twin] : [top] }; this.shake(4); this.snd('rumble');
+          }
+        }
+      }
+      if (m.vines) {
+        // the Overgrown Kingdom: vines slow troops down, thickets hide them from archers, statues wake up and strike
+        if (T >= this.zoneAt) {
+          this.zoneAt = T + 0.25;
+          for (const o of this.units) {
+            if (o.dead) continue;
+            const x = o.x - cx, y = o.y - cy;
+            o.vines = !o.flying && VINE_ZONES.some(([zx, zy, zr]) => (x - zx) ** 2 + (y - zy) ** 2 < zr * zr);
+            o.hidden = !o.flying && THICKETS.some(([zx, zy, zr]) => (x - zx) ** 2 + (y - zy) ** 2 < zr * zr);
+          }
+        }
+        const st = this.statues;
+        if (st.fire && T >= st.fire.at) {
+          for (const s of st.fire.list) {
+            let best = null, bd = 280 * 280;
+            for (const o of this.units) { if (o.dead || o.phased) continue; const d = (o.x - s.x) ** 2 + (o.y - s.y) ** 2; if (d < bd) { bd = d; best = o; } }
+            if (best) { this.beams.push({ x0: s.x, y0: s.y, x1: best.x, y1: best.y, t0: T, life: 0.5, col: '#7CFFB0', w: 7 }); this._kind = 'blast'; this.damage(best, 6, null); this.burst(best.x, best.y, '#9AA3B0', 8, 200, 0.4, 6); }
+          }
+          st.fire = null; this.snd('zap');
+        }
+        if (!st.fire && T >= st.next) {
+          st.next = T + 7;
+          const list = this.obstacles.filter(o => o.kind === 'statue'), side = S.chance(0.5) ? 1 : -1;
+          const pair = list.filter(o => Math.sign(o.x - cx) === side);
+          if (pair.length) { st.fire = { at: T + 1, list: pair }; for (const s of pair) s.wake = T; if (!this.statueSaid) { this.statueSaid = true; this.banner('THE STATUES AWAKEN!', '#7CFFB0', 1.4); } }
+        }
+      }
+      if (m.gears) {
+        // the Clockwork Colosseum: round platforms turn and carry troops with them, and the gears reverse a third of the way in
+        const g = this.gears;
+        if (T >= g.flipAt) { g.flipAt = T + 0.33 * (this.fixed || this.target); g.dir *= -1; this.banner('THE GEARS REVERSE!', '#E3B341', 1.4); this.snd('stone'); }
+        g.ang += g.dir * 0.55 * h;
+        const w = g.dir * 0.55 * h, cw = Math.cos(w), sw = Math.sin(w);
+        for (const [px, py, pr] of CLOCK_PLATES) {
+          const ox = cx + px, oy = cy + py;
+          for (const o of this.near(ox, oy, pr)) { if (o.flying || UNIT[o.type].immovable) continue; const dx = o.x - ox, dy = o.y - oy; o.x = ox + dx * cw - dy * sw; o.y = oy + dx * sw + dy * cw; }
+        }
+      }
+      if (m.void) {
+        // the Shattered Sky: troops knocked off an island fall into the void
+        for (const o of this.units) {
+          if (o.dead || o.flying || o.phased) continue;
+          for (const ob of this.obstacles) {
+            if (!ob.void) continue;
+            const inside = ob.circle ? Math.hypot(o.x - ob.x, o.y - ob.y) < ob.r - o.r * 0.3 : o.x > ob.x0 + o.r * 0.3 && o.x < ob.x1 - o.r * 0.3 && o.y > ob.y0 + o.r * 0.3 && o.y < ob.y1 - o.r * 0.3;
+            if (!inside) continue;
+            this.fallers.push({ x: o.x, y: o.y, r: o.r, c: TEAMS[o.team].c, t0: T });
+            if (T >= (this.fallSaid || 0)) { this.fallSaid = T + 3; this.float(o.x, o.y - 20, 'FELL!', '#BFE6FF', 26, 0.8); }
+            this.xf.falls = (this.xf.falls || 0) + 1;
+            this._dot = true; this.damage(o, o.hp + 999, null); this._dot = false;
+            break;
+          }
+        }
+        this.fallers = this.fallers.filter(f => T - f.t0 < 0.8);
+      }
+      if (m.flip && T >= this.flips.next) {
+        // the Mirror Dimension: the whole battle flips left to right, and mirror images of a few troops appear for a moment
+        this.flips.next = T + 12;
+        for (const o of this.units) { o.x = 2 * cx - o.x; if (o.px !== undefined) o.px = 2 * cx - o.px; o.vx = -o.vx; o.face = Math.PI - o.face; if (o.mface !== undefined) o.mface = Math.PI - o.mface; if (o.kx !== undefined) o.kx = -o.kx; o.wp = null; o.cover = null; }
+        for (const a of this.arrows) { a.x = 2 * cx - a.x; a.vx = -a.vx; if (a.px !== undefined) a.px = 2 * cx - a.px; if (a.sx !== undefined) { a.sx = 2 * cx - a.sx; a.tx = 2 * cx - a.tx; } }
+        for (const t of this.teamIds()) {
+          const mine = this.units.filter(o => o.team === t && !o.dead && !UNIT[o.type].uncounted && UNIT[o.type].rank !== 0);
+          for (let k = 0; k < Math.min(3, mine.length); k++) { const o = mine[S.int(0, mine.length - 1)]; this.makeDecoy(t, 2 * cx - o.x, o.y, 'mirror', 5, null); }
+        }
+        this.flipFx = T; this.banner('THE WORLD FLIPS!', '#C4B5FD', 1.4); this.snd('glitch');
+      }
+    },
+    // the moving parts of these maps, drawn every frame over the ground
+    drawMapDyn(ctx) {
+      const T = this.fightT, t = this.t, cx = AR.x + AR.w / 2, cy = AR.y + AR.h / 2;
+      if (this.tiles) for (const s of this.tiles.list) {
+        const x0 = AR.x + s.c * 120, y0 = AR.y + s.r * 120, warn = T < s.at, k = warn ? 0.4 + 0.4 * Math.sin(t * 16) : 1;
+        if (s.kind === 'zap') { ctx.fillStyle = `rgba(229,72,77,${0.28 * k})`; ctx.fillRect(x0 + 4, y0 + 4, 112, 112); ctx.lineWidth = 4; ctx.strokeStyle = `rgba(255,120,120,${0.8 * k})`; ctx.strokeRect(x0 + 6, y0 + 6, 108, 108);
+          if (!warn && T - s.at < 0.3) { ctx.beginPath(); let lx = x0 + 60, ly = AR.y; ctx.moveTo(lx, ly); for (let i = 1; i <= 6; i++) { ly = AR.y + (y0 + 60 - AR.y) * i / 6; lx = x0 + 60 + (i % 2 ? 14 : -14) * (i < 6 ? 1 : 0); ctx.lineTo(lx, ly); } ctx.lineWidth = 9; ctx.strokeStyle = 'rgba(160,220,255,0.6)'; ctx.stroke(); ctx.lineWidth = 3.5; ctx.strokeStyle = '#FFFFFF'; ctx.stroke(); } }
+        else { ctx.fillStyle = `rgba(255,210,63,${0.22 * k})`; ctx.fillRect(x0 + 4, y0 + 4, 112, 112); ctx.lineWidth = 4; ctx.strokeStyle = `rgba(255,226,122,${0.85 * k})`; ctx.strokeRect(x0 + 6, y0 + 6, 108, 108); }
+      }
+      if (this.rivers) for (const l of this.rivers.list) {
+        if (T >= l.end) continue;
+        const warn = T < l.warn, k = warn ? clamp((T - l.t0) / 1.6, 0, 1) : Math.min(1, (l.end - T) / 0.6);
+        if (warn) { ctx.fillStyle = `rgba(255,107,61,${0.12 + 0.12 * Math.sin(t * 12)})`; ctx.fillRect(l.x - l.w / 2, AR.y, l.w, AR.h * k); continue; }
+        ctx.beginPath();
+        for (let i = 0; i <= 24; i++) { const y = AR.y + AR.h * i / 24, x = l.x - l.w / 2 + Math.sin(i * 0.9 + t * 2) * 6; i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }
+        for (let i = 24; i >= 0; i--) { const y = AR.y + AR.h * i / 24, x = l.x + l.w / 2 + Math.sin(i * 0.9 + t * 2 + 1) * 6; ctx.lineTo(x, y); }
+        ctx.closePath(); ctx.globalAlpha = k; ctx.fillStyle = '#E2571E'; ctx.fill(); ctx.lineWidth = 4; ctx.strokeStyle = '#FDBA74'; ctx.stroke();
+        for (let i = 0; i < 6; i++) disc(ctx, l.x + Math.sin(i * 2.1 + t) * l.w * 0.25, AR.y + ((i * 167 + t * 60) % AR.h), 4 + 2 * Math.sin(t * 5 + i), '#FDE68A', 0);
+        ctx.globalAlpha = 1;
+      }
+      if (this.holes) for (const hl of this.holes) { disc(ctx, hl.x, hl.y, hl.r, '#0B2A44', 3); disc(ctx, hl.x - 6, hl.y - 6, hl.r * 0.5, 'rgba(120,200,255,0.25)', 0); ctx.beginPath(); ctx.arc(hl.x, hl.y, hl.r + 6, 0, TAU); ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(230,246,255,0.6)'; ctx.stroke(); }
+      if (this.bones && this.bones.warn) for (const ob of this.bones.warn.ribs) { const j = Math.sin(t * 50) * 2; ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(255,90,60,0.8)'; ctx.strokeRect(ob.x0 - 4 + j, ob.y0 - 4, ob.x1 - ob.x0 + 8, ob.y1 - ob.y0 + 8); }
+      if (this.statues) for (const s of this.obstacles) if (s.kind === 'statue') {
+        const awake = s.wake !== undefined && T - s.wake < 1.3, k = awake ? 0.6 + 0.4 * Math.sin(t * 14) : 0.25;
+        ctx.fillStyle = `rgba(124,255,176,${k})`; for (const sd of [-1, 1]) { ctx.beginPath(); ctx.arc(s.x + sd * s.r * 0.25, s.y - s.r * 0.15, 3.5, 0, TAU); ctx.fill(); }
+        if (awake) { ctx.beginPath(); ctx.arc(s.x, s.y, s.r + 6, 0, TAU); ctx.lineWidth = 3; ctx.strokeStyle = `rgba(124,255,176,${0.5 * k})`; ctx.stroke(); }
+      }
+      if (this.gears) {
+        // turning platforms (arrows show the way they spin) and the big gears
+        for (const [px, py, pr] of CLOCK_PLATES) {
+          ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(227,179,65,0.35)';
+          for (let k = 0; k < 4; k++) { const a = this.gears.ang + k * TAU / 4; ctx.beginPath(); ctx.arc(cx + px, cy + py, pr * 0.8, a, a + 0.9); ctx.stroke(); const ex = cx + px + Math.cos(a + 0.9) * pr * 0.8, ey = cy + py + Math.sin(a + 0.9) * pr * 0.8, d = this.gears.dir; tri(ctx, ex + Math.cos(a + 0.9 + d * 1.57) * 8, ey + Math.sin(a + 0.9 + d * 1.57) * 8, ex + Math.cos(a + 0.9) * 6, ey + Math.sin(a + 0.9) * 6, ex - Math.cos(a + 0.9) * 6, ey - Math.sin(a + 0.9) * 6, 'rgba(227,179,65,0.5)', 0); }
+        }
+        for (const ob of this.obstacles) if (ob.kind === 'gear') {
+          const a0 = this.gears.ang * (ob.x < cx ? 1.6 : -1.6) * (ob.r < 40 ? -1.8 : 1), n = ob.r < 40 ? 8 : 12;
+          ctx.beginPath(); for (let k = 0; k < n * 2; k++) { const a = a0 + k / (n * 2) * TAU, rr = k % 2 ? ob.r * 0.86 : ob.r * 1.02; if (k) ctx.lineTo(ob.x + Math.cos(a) * rr, ob.y + Math.sin(a) * rr); else ctx.moveTo(ob.x + Math.cos(a) * rr, ob.y + Math.sin(a) * rr); }
+          ctx.closePath(); ctx.fillStyle = '#B5893A'; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = COL.ink; ctx.stroke();
+          disc(ctx, ob.x, ob.y, ob.r * 0.55, '#8A6420', 2.5); disc(ctx, ob.x, ob.y, ob.r * 0.18, '#2A2018', 2);
+          for (let k = 0; k < 4; k++) { const a = a0 + k * TAU / 4; stick(ctx, ob.x + Math.cos(a) * ob.r * 0.2, ob.y + Math.sin(a) * ob.r * 0.2, ob.x + Math.cos(a) * ob.r * 0.52, ob.y + Math.sin(a) * ob.r * 0.52, 3, '#C9A050'); }
+        }
+      }
+      if (this.fallers) for (const f of this.fallers) { const k = (T - f.t0) / 0.8; disc(ctx, f.x, f.y, f.r * (1 - k * 0.8), f.c, 2); ctx.beginPath(); ctx.arc(f.x, f.y, f.r * (1 - k * 0.8), 0, TAU); ctx.fillStyle = `rgba(5,7,13,${k})`; ctx.fill(); }
+      if (this.flipFx !== undefined && T - this.flipFx < 0.5) { const k = 1 - (T - this.flipFx) / 0.5; ctx.fillStyle = `rgba(196,181,253,${0.35 * k})`; ctx.fillRect(AR.x, AR.y, AR.w, AR.h); ctx.lineWidth = 6; ctx.strokeStyle = `rgba(255,255,255,${0.8 * k})`; ctx.beginPath(); ctx.moveTo(cx, AR.y); ctx.lineTo(cx, AR.y + AR.h); ctx.stroke(); }
+    },
+    // the new obstacle kinds, painted once on the map layer
+    paintObstacle(g, o, ox, oy, S) {
+      const INK = COL.ink;
+      if (o.void) {
+        // a hole in the world: the dark sky under the floating islands, with a few stars and a rocky rim
+        const fill = '#05070D';
+        g.beginPath(); if (o.circle) g.arc(o.x - ox, o.y - oy, o.r, 0, TAU); else g.rect(o.x0 - ox, o.y0 - oy, o.x1 - o.x0, o.y1 - o.y0);
+        g.fillStyle = fill; g.fill(); g.lineWidth = 5; g.strokeStyle = '#3A4256'; g.stroke(); g.lineWidth = 2; g.strokeStyle = INK; g.stroke();
+        const R = rng(Math.round(o.circle ? o.x * 7 + o.y : o.x0 * 13 + o.y0));
+        g.fillStyle = 'rgba(255,255,255,0.55)';
+        for (let k = 0; k < (o.circle ? 4 : 10); k++) { const x = o.circle ? o.x - ox + R.range(-o.r * 0.6, o.r * 0.6) : R.range(o.x0 - ox + 6, o.x1 - ox - 6), y = o.circle ? o.y - oy + R.range(-o.r * 0.6, o.r * 0.6) : R.range(o.y0 - oy + 4, o.y1 - oy - 4); g.beginPath(); g.arc(x, y, R.range(0.8, 1.8), 0, TAU); g.fill(); }
+        return;
+      }
+      if (o.circle) {
+        const x = o.x - ox, y = o.y - oy, r = o.r;
+        g.beginPath(); g.ellipse(x + 5, y + 7, r, r * 0.9, 0, 0, TAU); g.fillStyle = 'rgba(0,0,0,0.38)'; g.fill();
+        if (o.kind === 'rook') {
+          g.beginPath(); g.arc(x, y, r, 0, TAU); g.fillStyle = '#D9D2C2'; g.fill(); g.lineWidth = 3.5; g.strokeStyle = INK; g.stroke();
+          for (let k = 0; k < 8; k++) { const a = k / 8 * TAU; g.beginPath(); g.arc(x + Math.cos(a) * r * 0.78, y + Math.sin(a) * r * 0.78, r * 0.17, 0, TAU); g.fillStyle = k % 2 ? '#C2BAA8' : '#EDE7DA'; g.fill(); g.lineWidth = 1.5; g.stroke(); }
+          g.beginPath(); g.arc(x, y, r * 0.45, 0, TAU); g.fillStyle = '#B5AD9A'; g.fill(); g.lineWidth = 2; g.stroke();
+        } else if (o.kind === 'basalt') {
+          g.beginPath(); for (let k = 0; k < 7; k++) { const a = k / 7 * TAU + 0.3, rr = r * (0.88 + 0.12 * ((k * 3) % 2)); if (k) g.lineTo(x + Math.cos(a) * rr, y + Math.sin(a) * rr); else g.moveTo(x + Math.cos(a) * rr, y + Math.sin(a) * rr); }
+          g.closePath(); g.fillStyle = '#2A2422'; g.fill(); g.lineWidth = 3.5; g.strokeStyle = INK; g.stroke();
+          g.lineWidth = 2.5; g.strokeStyle = '#FF7A2E'; g.beginPath(); g.moveTo(x - r * 0.5, y - r * 0.1); g.lineTo(x - r * 0.1, y + r * 0.1); g.lineTo(x + r * 0.2, y - r * 0.3); g.moveTo(x - r * 0.1, y + r * 0.1); g.lineTo(x + r * 0.05, y + r * 0.5); g.stroke();
+        } else if (o.kind === 'icepillar' || o.kind === 'shard') {
+          const ice = o.kind === 'icepillar';
+          g.beginPath(); for (let k = 0; k < 6; k++) { const a = k / 6 * TAU + 0.5; if (k) g.lineTo(x + Math.cos(a) * r, y + Math.sin(a) * r); else g.moveTo(x + Math.cos(a) * r, y + Math.sin(a) * r); }
+          g.closePath(); g.fillStyle = ice ? '#A9D6F5' : '#C9C3F2'; g.fill(); g.lineWidth = 3.5; g.strokeStyle = INK; g.stroke();
+          g.beginPath(); g.moveTo(x - r * 0.4, y - r * 0.5); g.lineTo(x, y + r * 0.1); g.lineTo(x + r * 0.45, y - r * 0.35); g.lineWidth = 2; g.strokeStyle = 'rgba(255,255,255,0.75)'; g.stroke();
+          g.beginPath(); g.arc(x - r * 0.25, y - r * 0.3, r * 0.15, 0, TAU); g.fillStyle = 'rgba(255,255,255,0.6)'; g.fill();
+        } else if (o.kind === 'skull' || o.kind === 'pelvis') {
+          g.beginPath(); g.arc(x, y, r, 0, TAU); g.fillStyle = '#E3DCC8'; g.fill(); g.lineWidth = 4; g.strokeStyle = INK; g.stroke();
+          if (o.kind === 'skull') { g.fillStyle = '#2A2620'; for (const sd of [-1, 1]) { g.beginPath(); g.ellipse(x + r * 0.25, y + sd * r * 0.32, r * 0.2, r * 0.17, 0, 0, TAU); g.fill(); } g.beginPath(); g.moveTo(x + r * 0.62, y - r * 0.08); g.lineTo(x + r * 0.75, y); g.lineTo(x + r * 0.62, y + r * 0.08); g.closePath(); g.fill(); }
+          else { g.beginPath(); g.arc(x, y, r * 0.45, 0, TAU); g.fillStyle = '#2A2620'; g.fill(); }
+        } else if (o.kind === 'statue') {
+          g.beginPath(); g.arc(x, y, r, 0, TAU); g.fillStyle = '#6B7568'; g.fill(); g.lineWidth = 3.5; g.strokeStyle = INK; g.stroke();
+          g.beginPath(); g.arc(x, y, r * 0.62, 0, TAU); g.fillStyle = '#7F8A7B'; g.fill(); g.lineWidth = 2; g.stroke();
+          g.fillStyle = 'rgba(70,140,80,0.6)'; for (let k = 0; k < 4; k++) { const a = k * 1.7 + 0.4; g.beginPath(); g.arc(x + Math.cos(a) * r * 0.75, y + Math.sin(a) * r * 0.75, r * 0.2, 0, TAU); g.fill(); }
+        } else if (o.kind === 'gear') {
+          g.beginPath(); g.arc(x, y, r * 1.05, 0, TAU); g.fillStyle = '#3A2A18'; g.fill();
+        } else { g.beginPath(); g.arc(x, y, r, 0, TAU); g.fillStyle = '#4A5368'; g.fill(); g.lineWidth = 3.5; g.strokeStyle = INK; g.stroke(); }
+        return;
+      }
+      const x = o.x0 - ox, y = o.y0 - oy, w = o.x1 - o.x0, h = o.y1 - o.y0;
+      g.fillStyle = 'rgba(0,0,0,0.38)'; roundRect(g, x + 5, y + 7, w, h, 6); g.fill();
+      if (o.kind === 'rib') {
+        roundRect(g, x, y, w, h, Math.min(w, h) / 2); g.fillStyle = '#E3DCC8'; g.fill(); g.lineWidth = 3.5; g.strokeStyle = INK; g.stroke();
+        g.lineWidth = 2; g.strokeStyle = 'rgba(120,110,90,0.6)'; g.beginPath(); g.moveTo(x + w / 2, y + 6); g.lineTo(x + w / 2, y + h - 6); g.stroke();
+      } else { roundRect(g, x, y, w, h, 3); g.fillStyle = '#4A5368'; g.fill(); g.lineWidth = 3.5; g.strokeStyle = INK; g.stroke(); }
+    },
+    // what's left of a broken obstacle: rubble on the ground (stumps and ash for trees, bone shards for ribs)
+    paintRubble(g, ox, oy) {
+      for (const rb of this.rubble) {
+        const R = rng(Math.round(rb.x * 31 + rb.y * 17)), x = rb.x - ox, y = rb.y - oy, tree = rb.kind === 'tree' || rb.kind === 'pine';
+        g.beginPath(); g.ellipse(x, y, rb.r * 0.9, rb.r * 0.7, 0, 0, TAU); g.fillStyle = tree ? 'rgba(20,14,10,0.55)' : 'rgba(0,0,0,0.25)'; g.fill();
+        if (tree) { g.beginPath(); g.arc(x, y, rb.r * 0.3, 0, TAU); g.fillStyle = '#5B3A22'; g.fill(); g.lineWidth = 2.5; g.strokeStyle = COL.ink; g.stroke(); continue; }
+        const col = OB_DUST[rb.kind] || '#8A8F98';
+        for (let k = 0; k < 7; k++) {
+          const cx2 = x + R.range(-rb.r * 0.7, rb.r * 0.7), cy2 = y + R.range(-rb.r * 0.5, rb.r * 0.5), cr = R.range(3, Math.max(4, rb.r * 0.22));
+          g.beginPath(); for (let v = 0; v < 5; v++) { const b = v / 5 * TAU + k; if (v) g.lineTo(cx2 + Math.cos(b) * cr, cy2 + Math.sin(b) * cr); else g.moveTo(cx2 + Math.cos(b) * cr, cy2 + Math.sin(b) * cr); }
+          g.closePath(); g.fillStyle = col; g.fill(); g.lineWidth = 1.5; g.strokeStyle = COL.ink; g.stroke();
+        }
+      }
+    },
+  };
+  // =====================================================================
+  // The big troop batch, battle systems and power-ups. Everything here only runs when a battle has one of the new troops,
+  // new army types, maps or systems in it (game.ext), so older battles play out exactly as before.
+  // =====================================================================
+  // champion names: made up, never real people
+  const CHAMP_FIRST = ['GRIM', 'BRAKK', 'VEXA', 'KORRIN', 'DRAVEN', 'SIRA', 'MORGRA', 'TALVO', 'RUNA', 'ZEDRIK', 'ASHKA', 'IVOR', 'NYRA', 'ORLOK', 'BRAMBLE', 'KAELEN', 'TOVA', 'GRUNDA', 'PELL', 'OSKA'];
+  const CHAMP_EPITHET = ['THE BOLD', 'IRONHIDE', 'THE UNBROKEN', 'STORMBORN', 'THE SWIFT', 'NIGHTFANG', 'STEELHEART', 'THE MAD', 'FIREBRAND', 'BONECRUSHER', 'THE LUCKY', 'SKULLTAKER', 'THE WALL', 'GRAVEBANE'];
+  const CALLSIGNS = ['VIPER', 'GHOST', 'BLAZE', 'HAVOC', 'RAVEN', 'NOMAD', 'SABRE', 'COBRA', 'ZERO', 'ECHO'];
+  const MODERNISH = { rifleman: 1, gunner: 1, sniper: 1, grenadier: 1, trooper: 1, robot: 1 };
+  const MUT_LABEL = { wings: 'WINGS', spellward: 'SPELL WARD', vampiric: 'VAMPIRIC', spikes: 'SPIKES', regen: 'REGEN', venom: 'VENOM', swift: 'SWIFT' };
+  // troop combinations that unlock a bonus for that army (rules.systems.synergies)
+  const SYNERGIES = [
+    { name: 'SHIELD WALL', ok: c => (c.shieldbearer || 0) + (c.royalguard || 0) + (c.turtle || 0) * 4 >= 4 && (c.archer || 0) + (c.longbow || 0) + (c.crossbowman || 0) + (c.elf || 0) + (c.firearcher || 0) >= 6, ranged: 1.15 },
+    { name: 'PACK HUNT', ok: c => (c.wolfrider || 0) >= 4 || (c.hellhound || 0) >= 5, pack: 1 },
+    { name: 'DARK RITUAL', ok: c => (c.necromancer || 0) >= 2 && (c.skeleton || 0) >= 12, ritual: 1 },
+    { name: 'WAR DRUMS', ok: c => (c.drummer || 0) >= 1 && (c.orc || 0) + (c.berserker || 0) + (c.boarrider || 0) >= 8, drums: 1 },
+    { name: 'HELLFIRE', ok: c => (c.imp || 0) + (c.warlock || 0) + (c.demon || 0) + (c.hellhound || 0) >= 10, fire: 1.5 },
+    { name: 'CLOCKWORK', ok: c => (c.engineer || 0) >= 3 && (c.dwarf || 0) >= 6, turrets: 1.4 },
+    { name: 'NATURE\'S CALL', ok: c => (c.druid || 0) >= 2 && (c.treant || 0) >= 2, nature: 1 },
+    { name: 'SPELLBLADES', ok: c => (c.knight || 0) + (c.swordsman || 0) >= 6 && (c.wizard || 0) >= 4, arcane: 1 },
+    { name: 'GUNS AND STEEL', ok: c => (c.rifleman || 0) + (c.gunner || 0) >= 6 && (c.tank || 0) + (c.mech || 0) >= 1, steel: 1 },
+    { name: 'NINJA CLAN', ok: c => (c.ninja || 0) >= 6 && (c.samurai || 0) >= 4, clan: 1 },
+  ];
+  const SYN_TEXT = { 'SHIELD WALL': 'ARCHERS +15%', 'PACK HUNT': 'RIDERS FASTER', 'DARK RITUAL': 'MORE RAISED DEAD', 'WAR DRUMS': 'FASTER AXES', HELLFIRE: 'HOTTER FIRE', CLOCKWORK: 'TOUGHER TURRETS',
+    'NATURE\'S CALL': 'TREES HEAL', SPELLBLADES: 'BLADES +15%', 'GUNS AND STEEL': 'GUNNERS TOUGHER', 'NINJA CLAN': 'NINJAS FASTER' };
+  // new supply-drop kinds (rules.systems.powerups)
+  const POWERUPS = ['freeze', 'portal', 'phoenix', 'chain', 'dice', 'crystal', 'singularity', 'crown'];
+  Object.assign(CRATE, {
+    freeze: { box: '#BFE6FF', icon: '#2F6BDB', chute: '#7CC8FF', glow: '#BFE6FF' },
+    portal: { box: '#6D28D9', icon: '#E9D5FF', chute: '#8B5CF6', glow: '#C084FC' },
+    phoenix: { box: '#F97316', icon: '#FFD23F', chute: '#EA580C', glow: '#FDBA74' },
+    chain: { box: '#1E3A8A', icon: '#FDE047', chute: '#3B82F6', glow: '#93C5FD' },
+    dice: { box: '#F4F6FB', icon: '#2A2F3A', chute: '#E5484D', glow: '#FFFFFF' },
+    crystal: { box: '#0F766E', icon: '#5EEAD4', chute: '#14B8A6', glow: '#99F6E4' },
+    singularity: { box: '#111827', icon: '#A78BFA', chute: '#4C1D95', glow: '#A78BFA' },
+    crown: { box: '#7C2D12', icon: '#FFD23F', chute: '#B45309', glow: '#FDE68A' },
+  });
+  // how tough each kind of obstacle is when terrain can be destroyed (rules.systems.destructible)
+  const OB_HP = { rock: 70, pillar: 45, wall: 55, sandbag: 40, crater: 999, roof: 120, crate: 25, tree: 35, bush: 15, ruin: 60, car: 50, crystal: 40, mushroom: 30, mesa: 160, rib: 50, gear: 999, statue: 80, pine: 35 };
+  const OB_DUST = { rock: '#8A8F98', pillar: '#B9B2A2', wall: '#B9B2A2', sandbag: '#C2A878', tree: '#5B3A22', crystal: '#C4B5FD', mushroom: '#F4A6C6', mesa: '#C98B55', rib: '#E9E2D0', crate: '#B07A3E', car: '#5B6472', roof: '#6B7280', ruin: '#8E8A80', statue: '#9AA3B0' };
+  const BIG_BLAST = { shell: 1, cannonball: 1, bomb: 1, meteor: 1, boulder: 1, slam: 1 };
+  const XSHOT = { firearrow: 1, dart: 1, soul: 1, spark: 1, firebolt: 1, beam: 1, boulder: 1, flask: 1, hellfire: 1 };
+
+  const ARMY_EXT = {
+    // ----- setup -----
+    initSys() {
+      const o = this.opts;
+      this.sys = { evo: !!o.evolution, champ: !!o.champions, traits: o.traits || 0, crits: !!o.crits, syn: !!o.synergies, weather: o.weather || 0, mods: o.modifiers || 0,
+        portals: o.portals || 0, sudden: !!o.suddenDeath, extinct: !!o.extinction, loot: !!o.weaponDrops, destruct: !!o.destructible, powerups: !!o.powerups,
+        transform: !!o.bossTransform, living: !!o.livingWeapons };
+      this.sysOn = Object.values(this.sys).some(Boolean);
+      this.SR = rng(((this.seed >>> 0) ^ 0x51C0DE5) >>> 0);
+      this.mapMech = MAP_MECH[this.opts.map] || null;
+      for (const o of this.obstacles) if (o.kind === 'void') o.void = true;
+      this.ext = this.sysOn || !!this.mapMech || this.doc.some(d => d.forbidden || d.copycat || d.fuse || Object.keys(d.mix).concat(d.heavy || []).some(k => UNIT[k] && UNIT[k].ext));
+      this.clouds = []; this.fires = []; this.fields = []; this.calls = []; this.spawnQ = []; this.beams = []; this.corpses = []; this.loot = []; this.rubble = []; this.bannerQ = [];
+      this.fallen = [[], [], []]; this.copyAt = []; this.copyN = []; this.fused = []; this.possessDone = []; this.champOf = []; this.panic = [0, 0, 0];
+      this.deaths = 0;
+      this.xf = { titles: [], muts: [], bribes: 0, sheep: 0, revives: 0, raised: 0, walls: 0 };
+    },
+    initExt() {
+      const F = this.fixed || this.target, S = this.SR;
+      this.str0 = this.teamIds().map(t => this.strength(t));
+      if (this.sys.syn) {
+        this.syn = [{}, {}, {}];
+        for (const t of this.teamIds()) {
+          const c = {};
+          for (const u of this.units) if (u.team === t) c[u.type] = (c[u.type] || 0) + 1;
+          for (const wv of this.waves[t]) for (const k of wv.list) c[k] = (c[k] || 0) + 1;
+          const s = SYNERGIES.find(x => x.ok(c));
+          if (s) { this.syn[t] = s; this.xf.syn = s.name; this.bannerQ.push({ at: 1.4 + this.bannerQ.length * 1.7, text: `${TEAMS[t].name} SYNERGY: ${s.name}`, col: TEAMS[t].c }); }
+        }
+        for (const u of this.units) this.applySyn(u, UNIT[u.type]);
+      }
+      // weather and battle modifiers use their own dice, so turning them on doesn't change anything else
+      if (this.sys.weather && S.chance(this.sys.weather)) this.weather = S.pick(['fog', 'rain', 'sandstorm', 'eclipse', 'bloodmoon']);
+      if (this.sys.mods && S.chance(this.sys.mods)) {
+        const list = ['lowgrav', 'fast', 'night'];
+        if (this.units.some(u => UNIT[u.type].heal) || this.waves.some(w => w.some(v => v.list.some(k => UNIT[k].heal)))) list.push('reverse');
+        this.mod = S.pick(list);
+      }
+      const WX = { fog: 'FOG ROLLS IN', rain: 'RAIN: FIRE IS WEAKER', sandstorm: 'SANDSTORM!', eclipse: 'ECLIPSE: THE DEAD RISE', bloodmoon: 'BLOOD MOON: KILLS HEAL' };
+      const MX = { lowgrav: 'LOW GRAVITY!', fast: 'DOUBLE SPEED!', night: 'PERMANENT NIGHT', reverse: 'REVERSED HEALING!' };
+      if (this.weather) { this.xf.weather = this.weather; this.bannerQ.unshift({ at: 1.2, text: WX[this.weather], col: '#BFE6FF' }); }
+      if (this.mod) { this.xf.mod = this.mod; this.bannerQ.unshift({ at: 1.2, text: MX[this.mod], col: COL.gold }); }
+      this.bannerQ.forEach((b, i) => { b.at = 1.2 + i * 1.7; });
+      this.sysEv = [];
+      if (this.sys.portals && S.chance(this.sys.portals)) this.sysEv.push({ type: 'portal', at: S.range(0.3, 0.42) * F });
+      if (this.sys.sudden) this.sysEv.push({ type: 'sudden', at: 0.62 * F, kind: S.pick(this.N === 3 ? ['ring', 'meteors', 'boss'] : ['ring', 'lava', 'meteors', 'boss']) });
+      if (this.sys.extinct) this.sysEv.push({ type: 'extinct', from: 0.4 * F, until: 0.62 * F });
+      if (this.mapMech) this.mapInit();
+    },
+    // per-troop setup when it joins the battle
+    extUnit(u, U) {
+      this.ext = true;
+      u.born = this.fightT;
+      if (U.heads) u.heads = U.heads;
+      if (U.revive) u.lives = U.revive;
+      if (U.raise) this.hasRaise = true;
+      if (U.aura) this.hasAura = true;
+      if (U.soul) this.hasSmith = true;
+      if (U.smash) this.titanOn = true;
+      if (this.syn) this.applySyn(u, U);
+      if (U.abil2) this.extUnit2(u, U);
+      if (this.sys && this.sys.traits && U.rank > 0 && !U.uncounted && this.SR.chance(this.sys.traits)) u.trait = this.SR.pick(['coward', 'explosive', 'vampiric', 'undying']);
+    },
+    applySyn(u, U) {
+      const s = this.syn && this.syn[u.team]; if (!s || u.synDone) return;
+      u.synDone = true;
+      if (s.ranged && U.ranged && !U.lob) u.dmgK = (u.dmgK || 1) * s.ranged;
+      if (s.pack && (u.type === 'wolfrider' || u.type === 'hellhound')) { u.spdK = 1.15; u.dmgK = (u.dmgK || 1) * 1.1; }
+      if (s.drums && (u.type === 'orc' || u.type === 'berserker' || u.type === 'boarrider')) u.cdK = 0.85;
+      if (s.turrets && u.type === 'turret') { u.max *= s.turrets; u.hp *= s.turrets; }
+      if (s.nature && u.type === 'treant') u.regen = 1;
+      if (s.arcane && (u.type === 'knight' || u.type === 'swordsman')) u.dmgK = (u.dmgK || 1) * 1.15;
+      if (s.steel && (u.type === 'rifleman' || u.type === 'gunner' || u.type === 'grenadier')) u.synDef = 0.85;
+      if (s.clan && u.type === 'ninja') u.spdK = 1.15;
+    },
+    // ----- statuses -----
+    burn(o, dps, dur, by) {
+      if (o.dead || UNIT[o.type].fireproof) return;
+      const T = this.fightT;
+      o.burnD = o.burnT > T ? Math.max(o.burnD, dps) : dps; o.burnT = Math.max(o.burnT || 0, T + dur); o.burnBy = by;
+    },
+    poison(o, dps, dur, by) {
+      if (o.dead || /^(robot|mech|tank|turret|golem|cannon)$/.test(o.type)) return;
+      const T = this.fightT;
+      o.poisD = o.poisT > T ? Math.max(o.poisD, dps) : dps; o.poisT = Math.max(o.poisT || 0, T + dur); o.poisBy = by;
+    },
+    slowDown(o, k, dur) {
+      if (o.dead) return;
+      const T = this.fightT, O = UNIT[o.type];
+      if (O.rank === 0) k = Math.max(k, 0.7);
+      o.slowK = o.slowT > T ? Math.min(o.slowK, k) : k; o.slowT = Math.max(o.slowT || 0, T + dur);
+    },
+    hitFx(o, F, by) {
+      if (!o || o.dead) return;
+      const s = by && this.syn && this.syn[by.team];
+      if (F.burn) this.burn(o, F.burn * (s && s.fire || 1), 3, by);
+      if (F.poison) this.poison(o, F.poison, 4, by);
+      if (F.slow) this.slowDown(o, F.slow[0], F.slow[1]);
+      if (by && by.mut === 'venom') this.poison(o, 0.8, 3, by);
+    },
+    // damage over time skips armour, crits and the white flash
+    dot(o, amt, by) {
+      o.hp -= amt;
+      if (o.hp <= 0 && !o.dead) { this._dot = true; this.damage(o, 0.01, by || null); this._dot = false; }
+    },
+    heal(o, amt) {
+      if (this.mod === 'reverse') { this.dot(o, amt * 0.7, null); o.flash = Math.max(o.flash, 0.5); return; }
+      o.hp = Math.min(o.max, o.hp + amt);
+    },
+    // push a troop away from a point (it slides, then slows down)
+    knock(o, fx, fy, amt) {
+      const O = UNIT[o.type];
+      if (o.dead || O.immovable) return;
+      if (O.rank === 0) amt *= 0.3;
+      if (this.mod === 'lowgrav' || this.zeroG > this.fightT) amt *= 2.5;
+      const dx = o.x - fx, dy = o.y - fy, d = Math.hypot(dx, dy) || 1;
+      o.kx = (o.kx || 0) + dx / d * amt * 7; o.ky = (o.ky || 0) + dy / d * amt * 7;
+    },
+    turn(u, ang, h) { let df = ang - u.face; df = Math.atan2(Math.sin(df), Math.cos(df)); const cap = 9 * h; u.face += clamp(df * Math.min(1, h * 12), -cap, cap); },
+    // troops within r of a point (uses the spatial hash from the start of this tick)
+    near(x, y, r) {
+      const out = [], c0 = Math.floor((x - r - AR.x) / 64), c1 = Math.floor((x + r - AR.x) / 64), r0 = Math.floor((y - r - AR.y) / 64), r1 = Math.floor((y + r - AR.y) / 64), r2 = r * r;
+      for (let i = Math.max(0, c0); i <= c1; i++) for (let j = Math.max(0, r0); j <= r1; j++) {
+        const b = this.grid.get(i * 64 + j); if (!b) continue;
+        for (const o of b) if (!o.dead && (o.x - x) ** 2 + (o.y - y) ** 2 < r2) out.push(o);
+      }
+      return out;
+    },
+    vanish(o) {
+      if (o.dead) return;
+      o.dead = true;
+      if (!UNIT[o.type].uncounted) this.alive[o.team]--;
+      this.burst(o.x, o.y, UNIT[o.type].decoy ? '#C084FC' : TEAMS[o.team].c, 6, 160, 0.4, 5);
+    },
+    switchTeam(o, team) {
+      const old = o.team; if (old === team || o.dead) return;
+      if (!UNIT[o.type].uncounted) { this.alive[old]--; this.alive[team]++; }
+      o.team = team; o.target = null; o.retarget = 0; o.flag = false;
+      this.gained = this.gained || [0, 0, 0]; if (team < 3) this.gained[team]++;
+      for (const v of this.units) if (v.target === o) v.target = null;
+    },
+    // ----- modifiers used in the main loop -----
+    dmgMod(u, dmg, from) {
+      if (this._dot) return dmg;
+      if (u.phased || u.ashT) return 0;
+      const T = this.fightT;
+      if (u.stoneT > T) return 0;
+      let crit = false;
+      if (from) {
+        const F = UNIT[from.type];
+        let k = from.dmgK || 1;
+        if (from.auraDmg) k *= from.auraDmg;
+        if (from.panicT > T || (this.panic[from.team] > T && !(from.crownT > T))) k *= 0.7;
+        if (F.antiBig && (UNIT[u.type].rank === 0 || UNIT[u.type].mount)) k *= F.antiBig;
+        if (F.rampage) k *= Math.min(1.8, 1 + this.deaths * 0.004);
+        if ((this.weather === 'eclipse' || (this.dark && this.dark.k > 0.5)) && DARK[from.type]) k *= 1.25;
+        if (from.bossK) k *= from.bossK;
+        if (from.tileT > T) k *= 1.3;
+        if (this.sys.crits && from.team !== u.team && !F.uncounted && this.SR.chance(0.07)) { k *= 2; crit = true; }
+        dmg *= k;
+      }
+      let d = u.auraDef || 1;
+      if (u.barkT > T) d *= 0.75;
+      if (u.forged) d *= 0.8;
+      if (u.synDef) d *= u.synDef;
+      if (u.sheepT > T) d *= 1.5;
+      if (u.planted) d *= 0.6;
+      if (u.fleshed) d *= 1.6;
+      if (u.weak && this._kind === u.weak) d *= 2;
+      if (u.mut === 'spellward' && this._kind === 'blast') d *= 0.5;
+      this._kind = null;
+      dmg *= d;
+      if (crit) {
+        this.knock(u, from.x, from.y, 14); this.dmgNum(u, dmg, true); this.snd('crit', { pan: (u.x - AR.x) / AR.w * 1.4 - 0.7 });
+        if (u.hp - dmg <= 0 && (UNIT[u.type].rank === 0 || UNIT[u.type].cost >= 3) && this.camEv) this.camEv.push({ type: 'hitstop' });
+      } else if ((UNIT[u.type].rank === 0 || u.boss) && dmg >= 2) this.dmgNum(u, dmg, false);
+      return dmg;
+    },
+    // damage numbers: crits, and big hits on giants and bosses, at most about seven a second so the screen stays readable
+    dmgNum(u, dmg, crit) {
+      const T = this.fightT;
+      if (!crit && T < (u.numAt || 0)) return;
+      if (T >= (this.numT || 0)) { this.numT = T + 1; this.numN = 0; }
+      if (this.numN >= 7) return;
+      this.numN++; u.numAt = T + 0.35;
+      const v = Math.max(1, Math.round(dmg * 10));
+      this.float(u.x + this.FX.range(-12, 12), u.y - u.r - 6, crit ? `${v}!` : String(v), crit ? '#FF9F1C' : '#FFFFFF', crit ? 34 : 24, 0.75);
+    },
+    cdMod(u) {
+      const T = this.fightT; let k = u.auraHaste || 1;
+      if (this.turboT > T) k *= 0.4;
+      if (this.mod === 'fast') k *= 0.75;
+      if (u.slowT > T) k *= 1.25;
+      if (u.panicT > T || (this.panic[u.team] > T && !(u.crownT > T))) k *= 1.25;
+      if (u.cdK) k *= u.cdK;
+      return k;
+    },
+    spdMod(u, U) {
+      if (u.planted || u.rooted) return 0;
+      const T = this.fightT; let k = u.spdK || 1;
+      if (this.moon && u.team !== this.moon.team) k *= 1 - 0.2 * this.moon.k;
+      if (u.slowT > T) k *= u.slowK;
+      if (u.poisT > T) k *= 0.85;
+      if (u.panicT > T || (this.panic[u.team] > T && !(u.crownT > T))) k *= 0.8;
+      if (this.mod === 'fast') k *= 1.5;
+      if (this.turboT > T) k *= 1.3;
+      if (u.vines) k *= 0.6;
+      return k;
+    },
+    rangeMod(u, U) { let k = 1; if (this.dark && u.team !== this.dark.team) k *= 1 - 0.35 * this.dark.k; if (this.weather === 'fog') k *= 0.65; if (this.mod === 'night') k *= 0.75; if (this.iceK) k *= 0.85; return k; },
+    pickTarget(u, U) {
+      const T = this.fightT, conf = u.confT > T, hunter = U.hunter, hunts = u.hunts;
+      let best = null, bd = Infinity;
+      for (const o of this.units) {
+        if (o.dead || o.phased || o.ashT || o === u || o.cloak) continue;
+        if (o.team === u.team && !conf) continue;
+        if (hunts !== undefined && o.team !== hunts) continue;
+        const O = UNIT[o.type];
+        let d = (o.x - u.x) ** 2 + (o.y - u.y) ** 2;
+        if (o.hidden && U.ranged && d > 14400) continue;
+        if (O.decoy) d *= 0.45;
+        if (hunter === 'ranged' && (O.ranged || O.healer) && d < 250000) d *= 0.25;
+        if (hunter === 'commander' && (O.commander || O.rank === 0 || O.cost >= 5)) d *= 0.2;
+        if (d < bd) { bd = d; best = o; }
+      }
+      return best;
+    },
+    // a druid's pulse: heals everyone around it and gives them bark skin
+    pulseHeal(u, U) {
+      let n = 0;
+      for (const o of this.near(u.x, u.y, U.healRange)) { if (o.team !== u.team || o === u) continue; if (o.hp < o.max) { this.heal(o, U.heal); o.healFlash = 1; n++; } o.barkT = this.fightT + 3; }
+      u.healFx = 1; u.healTo = null;
+      if (n) this.snd('heal', { pan: (u.x - AR.x) / AR.w * 1.4 - 0.7 });
+    },
+    // horse archers ride round their target while they shoot
+    kite(u, nx, ny, d, RG, spd) {
+      if (u.kiteSide === undefined) u.kiteSide = u.gait > Math.PI ? 1 : -1;
+      const m = 70;
+      if ((u.x < AR.x + m || u.x > AR.x + AR.w - m || u.y < AR.y + m || u.y > AR.y + AR.h - m) && this.fightT >= (u.kiteFlip || 0)) { u.kiteSide *= -1; u.kiteFlip = this.fightT + 1.5; }
+      const s = u.kiteSide, back = d < RG * 0.6 ? -0.7 : d > RG * 0.9 ? 0.4 : 0;
+      this.ndx = (-ny * s * 0.8 + nx * back) * spd; this.ndy = (nx * s * 0.8 + ny * back) * spd;
+    },
+    tagShot(a, u, U) {
+      if (U.shot) a.kind = U.shot;
+      if (U.burn || U.poison || U.slow || u.mut === 'venom') a.fx = U;
+      if (this.weather === 'sandstorm' && !LOBS[a.kind]) { const j = this.R.range(-0.14, 0.14), c = Math.cos(j), s = Math.sin(j), vx = a.vx; a.vx = vx * c - a.vy * s; a.vy = vx * s + a.vy * c; }
+    },
+    shootAt(u, o, dmg, v) {
+      const dx = o.x - u.x, dy = o.y - u.y, d = Math.hypot(dx, dy) || 1;
+      this.arrows.push({ tracer: true, team: u.team, x: u.x + dx / d * (u.r + 4), y: u.y + dy / d * (u.r + 4), vx: dx / d * v, vy: dy / d * v, life: d / v * 1.4 + 0.1, dmg, bolt: false, pierce: 0, from: u });
+    },
+    lobAt(u, x, y, kind, dmg, splash, v) {
+      const T = Math.max(0.15, Math.hypot(x - u.x, y - u.y) / v);
+      this.arrows.push({ team: u.team, kind, x: u.x, y: u.y, sx: u.x, sy: u.y, tx: x, ty: y, t: 0, T, dmg, splash, vx: (x - u.x) / T, vy: (y - u.y) / T, from: u });
+    },
+    // ----- melee hooks -----
+    meleeHit(u, U, t, hit) {
+      this._kind = 'blade';
+      const T = this.fightT, pan = (u.x - AR.x) / AR.w * 1.4 - 0.7;
+      if (U.charge && (u.runT || 0) >= 0.55) {
+        hit *= U.charge; u.runT = 0; u.charged = true;
+        this.knock(t, u.x, u.y, (U.knock || 22) * 1.5);
+        if (U.mount && !U.flying) u.backT = T + 0.75;
+        this.burst(t.x, t.y, '#C9A36A', 6, 220, 0.4, 6); this.snd('stomp', { pan });
+        if (T >= (this.chargeSaid || 0)) { this.chargeSaid = T + 3; this.float(u.x, u.y - u.r - 12, 'CHARGE!', COL.gold, 30, 0.8); }
+      }
+      if (u.cloak) { hit *= 4; u.cloak = false; u.cloakAt = T + 5; this.float(t.x, t.y - t.r - 12, 'BACKSTAB!', '#E5E7EB', 26, 0.8); this.burst(u.x, u.y, '#3A3F4B', 8, 160, 0.4, 6); }
+      if (u.strikeK) { hit *= u.strikeK; u.strikeK = 0; this.float(t.x, t.y - t.r - 12, 'REAPED!', '#C084FC', 28, 0.8); this.burst(t.x, t.y, '#8B5CF6', 8, 240, 0.4, 6); }
+      return hit;
+    },
+    meleeFx(u, U, t) {
+      if (U.knock && !u.charged && !U.splash) this.knock(t, u.x, u.y, U.knock);
+      if (U.splash && U.knock) for (const o of this.near(t.x, t.y, U.splash + 30)) if (o.team !== u.team) this.knock(o, t.x, t.y, U.knock * 0.6);
+      u.charged = false;
+      this.hitFx(t, U, u);
+      if (u.trait === 'vampiric' || u.mut === 'vampiric') { u.hp = Math.min(u.max, u.hp + U.dmg * 0.35); u.drainFx = 1; }
+      if (u.heads > 1) {
+        // the other heads bite other troops in reach
+        const list = this.near(u.x, u.y, u.r + U.reach + 30).filter(o => o.team !== u.team && o !== t && !o.flying && !o.phased);
+        u.bites = [t]; u.biteT = this.fightT;
+        for (let k = 0; k < u.heads - 1 && list.length; k++) { const o = list.splice(Math.floor(this.R.next() * list.length), 1)[0]; this._kind = 'blade'; this.damage(o, U.dmg * this.dmgMul, u); u.bites.push(o); }
+      }
+      if (u.stomp) {
+        for (const o of this.near(t.x, t.y, u.stomp)) if (o.team !== u.team && o !== t) { this._kind = 'blade'; this.damage(o, U.dmg * 0.6 * this.dmgMul, u); this.knock(o, t.x, t.y, 16); }
+        this.shake(6); this.snd('stomp', { pan: (u.x - AR.x) / AR.w * 1.4 - 0.7 });
+      }
+    },
+    // bosses change at 75%, 50% and 25% health: a shockwave, harder hits, more speed (and at 25%, help arrives)
+    bossCheck(u) {
+      if (u.dead || u.hp <= 0) return;
+      const f = u.hp / u.max, ph = f < 0.25 ? 3 : f < 0.5 ? 2 : f < 0.75 ? 1 : 0;
+      if (ph <= (u.phaseN || 0)) return;
+      u.phaseN = ph;
+      u.bossK = 1 + ph * 0.2;
+      if (u.spdK0 === undefined) u.spdK0 = u.spdK || 1;
+      u.spdK = u.spdK0 * (1 + ph * 0.1);
+      if (u.type === 'hydra' && ph >= 2) u.heads = 5;
+      for (const o of this.near(u.x, u.y, u.r + 90)) if (o.team !== u.team && !o.phased) { this._kind = 'blast'; this.damage(o, 2.5, u); this.knock(o, u.x, u.y, 40); }
+      if (ph === 3 && u.team < 3) {
+        const base = this.doc[u.team].base || 'soldier';
+        for (let k = 0; k < 3; k++) { const a = k / 3 * TAU; this.spawnQ.push({ at: this.fightT + 0.3, team: u.team, type: base, x: u.x + Math.cos(a) * (u.r + 18), y: u.y + Math.sin(a) * (u.r + 18) }); }
+      }
+      this.banner(`${TEAMS[u.team].name} ${labelOf(u.type)} · PHASE ${ph + 1}`, TEAMS[u.team].c, 1.6);
+      this.burst(u.x, u.y, '#FF6B3D', 16, 360, 0.5, 8); this.shake(10); this.snd('roar', { pan: (u.x - AR.x) / AR.w * 1.4 - 0.7 });
+      if (this.camEv && ph >= 2) this.camEv.push({ type: 'spot', follow: u, prio: 72, dur: 1.8, z: 1.8, slow: ph === 3 });
+    },
+    // ----- being hit -----
+    onHit(u, from, dmg) {
+      const U = UNIT[u.type], F = UNIT[from.type], T = this.fightT;
+      // mirror knight: turns into a copy of the troop that hit it
+      if ((U.mirror || u.mirror) && !u.dead && T >= (u.mirrorAt || 0) && from.type !== u.type && F.rank !== 0 && !F.uncounted && !F.healer && !F.decoy) {
+        u.mirror = true; u.mirrorAt = T + 2.5;
+        u.type = from.type; u.r = F.r; u.m = F.r * F.r; u.flying = !!F.flying; u.cd = Math.min(u.cd, F.cd);
+        this.burst(u.x, u.y, '#DCE6F2', 10, 220, 0.4, 6);
+        if (T >= (this.mirSaid || 0)) { this.mirSaid = T + 2; this.float(u.x, u.y - u.r - 12, 'MIRRORED!', '#DCE6F2', 26, 0.8); }
+      }
+      // mirror king: whoever hits it can get a mirrored copy fighting for the king
+      if (U.copies && !from.dead && T >= (u.copyAt || 0) && (u.made || 0) < 14 && F.rank !== 0 && !F.uncounted && !F.decoy && this.R.chance(0.35)) {
+        u.copyAt = T + 0.8; u.made = (u.made || 0) + 1;
+        this.spawnQ.push({ at: T + 0.25, team: u.team, type: from.type, x: clamp(2 * u.x - from.x, AR.x + 20, AR.x + AR.w - 20), y: clamp(2 * u.y - from.y, AR.y + 20, AR.y + AR.h - 20), mimic: 'mirror' });
+        this.snd('zap', { pan: (u.x - AR.x) / AR.w * 1.4 - 0.7 });
+      }
+      // spikes mutation: melee attackers get hurt back
+      if (u.mut === 'spikes' && !this._thorn && !F.ranged && !from.dead) { this._thorn = true; this.damage(from, dmg * 0.3, u); this._thorn = false; }
+    },
+    // ----- cheating death: the Immortal Fraud, the phoenix, the undying trait -----
+    cheatDeath(u, from) {
+      const U = UNIT[u.type], T = this.fightT;
+      if (U.fraud && u.lives > 0) {
+        u.lives--; const n = U.revive - u.lives;
+        u.weak = ['blade', 'shot', 'blast'][n % 3];
+        u.dmgK = (u.dmgK || 1) * 1.4;
+        if (u.lives === 0) { u.r = 30; u.m = 900; u.max *= 2; u.boss = true; u.title = 'TRUE FORM'; this.banner('THE FRAUD\'S TRUE FORM!', TEAMS[u.team].c, 2); if (this.camEv) this.camEv.push({ type: 'spot', follow: u, prio: 83, dur: 2.4, z: 1.9, slow: true }); }
+        else { u.r += 2; u.m = u.r * u.r; this.banner(`THE FRAUD RETURNS · ${n}/${U.revive}`, TEAMS[u.team].c, 1.5); }
+        u.hp = u.max; u.flash = 1; this.xf.revives++;
+        this.burst(u.x, u.y, COL.gold, 18, 320, 0.6, 8); this.snd('evolve');
+        return true;
+      }
+      if (U.revive && !U.fraud && u.lives > 0) {
+        // the phoenix falls into ashes and rises again
+        u.lives--; u.hp = 0.01; u.ashT = T + 2.2; u.phased = true; u.vx = 0; u.vy = 0; u.flying = false;
+        this.burst(u.x, u.y, '#FF9F1C', 20, 320, 0.7, 9); this.burst(u.x, u.y, '#6B7280', 10, 120, 1, 10, -30);
+        this.banner(`${TEAMS[u.team].name} PHOENIX FALLS...`, TEAMS[u.team].c, 1.6);
+        if (this.camEv) this.camEv.push({ type: 'spot', follow: u, prio: 81, dur: 3.2, z: 2, slow: true });
+        return true;
+      }
+      if (u.trait === 'undying' && !u.undyingUsed) { u.undyingUsed = true; u.hp = 1; this.float(u.x, u.y - u.r - 10, 'UNDYING!', COL.gold, 24, 0.9); return true; }
+      return false;
+    },
+    // ----- after a troop dies -----
+    onDeath(u, from) {
+      const U = UNIT[u.type], T = this.fightT, killer = from && from.team !== u.team ? from : null;
+      if (!U.uncounted) this.deaths++;
+      if (!U.uncounted && U.rank !== 0 && u.team < 3) { const f = this.fallen[u.team]; f.push({ type: u.type, x: u.x, y: u.y }); if (f.length > 30) f.shift(); }
+      if (this.hasRaise && !U.uncounted && U.rank !== 0) { this.corpses.push({ x: u.x, y: u.y, t: T }); if (this.corpses.length > 50) this.corpses.shift(); }
+      if (this.hasSmith && !U.uncounted) for (const s of this.units) if (!s.dead && UNIT[s.type].soul && (s.x - u.x) ** 2 + (s.y - u.y) ** 2 < 57600) this.collectSoul(s, u);
+      // morale: losing a general (whole army) or a standard bearer (troops near it) makes troops panic
+      if (U.commander && killer) {
+        if (U.commander === 2) { this.panic[u.team] = T + 3; this.banner(`${TEAMS[u.team].name} GENERAL HAS FALLEN!`, this.foeCol(u, from), 2); if (this.camEv) this.camEv.push({ type: 'spot', x: u.x, y: u.y, prio: 79, dur: 2, z: 2, slow: true }); }
+        else for (const o of this.near(u.x, u.y, 170)) if (o.team === u.team && !(o.crownT > T)) o.panicT = T + 1.8;
+      }
+      if (killer && !killer.dead) {
+        const K = UNIT[killer.type];
+        // the Thousand-Man takes the body in
+        if (K.grow) {
+          killer.r = Math.min(54, killer.r + 1.2); killer.m = killer.r * killer.r; killer.max += 8 * this.hpScale; killer.hp += 8 * this.hpScale; killer.dmgK = (killer.dmgK || 1) + 0.06;
+          (killer.bodies || (killer.bodies = [])).push(TEAMS[u.team].c); if (killer.bodies.length > 26) killer.bodies.shift();
+          if (killer.kills === 8) killer.stomp = 40; if (killer.kills === 16) { killer.stomp = 60; this.banner('THE THOUSAND-MAN GROWS!', TEAMS[killer.team].c, 1.6); }
+        }
+        if (K.empower && U.cost >= 3) { killer.dmgK = (killer.dmgK || 1) * 1.12; killer.r = Math.min(28, killer.r + 1); killer.m = killer.r * killer.r; this.float(killer.x, killer.y - killer.r - 12, 'STRONGER', '#E5484D', 24, 0.8); }
+        this.evolve(killer, u);
+        if (this.sys.champ && (killer.kills || 0) >= 10 && !killer.champ && K.rank !== 0 && killer.team < 3 && !(this.champOf[killer.team] && !this.champOf[killer.team].dead)) this.makeChampion(killer);
+      }
+      if (this.sys.loot && U.rank !== 0 && !U.uncounted && this.loot.length < 10 && this.SR.chance(0.22)) this.loot.push({ x: u.x, y: u.y, end: T + 7, kind: U.ranged ? (U.bullet || U.laser ? 'gun' : 'bow') : 'sword', a: this.FX.range(0, TAU) });
+      if (u.trait === 'explosive') this.explode({ team: u.team, kind: 'bomb', x: u.x, y: u.y, splash: 44, dmg: 5, from: u });
+      if (U.garrison) {
+        // the walking fortress falls and its garrison pours out
+        const list = ['archer', 'archer', 'archer', 'archer', 'knight', 'knight'];
+        list.forEach((k, i) => { const a = i / list.length * TAU; this.spawnQ.push({ at: T + 0.3 + i * 0.08, team: u.team, type: k, x: u.x + Math.cos(a) * 34, y: u.y + Math.sin(a) * 34 }); });
+        this.banner('THE GARRISON POURS OUT!', TEAMS[u.team].c, 1.8);
+      }
+      if (U.revive && !U.fraud) this.fires.push({ x: u.x, y: u.y, r: 110, end: T + 4, t0: T, team: u.team, by: u, dps: 2 });
+      if (u.team === MONSTERS && U.rank === 0) this.banner('THE MONSTER IS SLAIN!', this.foeCol(u, from), 1.6);
+      if (u.champ && killer) this.banner(`${u.champ} HAS FALLEN!`, this.foeCol(u, from), 1.8);
+      this.onDeath2(u, from);
+    },
+    collectSoul(s, v) {
+      s.souls = (s.souls || 0) + 1;
+      this.beams.push({ x0: v.x, y0: v.y, x1: s.x, y1: s.y, t0: this.fightT, life: 0.4, col: '#7CF3FF', w: 3 });
+      if (s.souls < 4) return;
+      s.souls -= 4;
+      // forge: the three nearest allies that aren't forged yet get soul armour and a soul blade
+      const list = this.near(s.x, s.y, 220).filter(o => o.team === s.team && o !== s && !o.forged && !UNIT[o.type].uncounted)
+        .sort((a, b) => ((a.x - s.x) ** 2 + (a.y - s.y) ** 2) - ((b.x - s.x) ** 2 + (b.y - s.y) ** 2)).slice(0, 3);
+      for (const o of list) { o.forged = true; o.dmgK = (o.dmgK || 1) * 1.25; this.burst(o.x, o.y, '#7CF3FF', 6, 160, 0.4, 5, -40); }
+      if (list.length) { this.snd('clang', { pan: (s.x - AR.x) / AR.w * 1.4 - 0.7 }); s.muzzle = 1; }
+    },
+    // ----- evolution, slayers and champions -----
+    evolve(u, v) {
+      if (!u || u.dead || u.team >= 3) return;
+      const U = UNIT[u.type], V = UNIT[v.type];
+      if (U.rank === 0 || U.uncounted || V.decoy) return;
+      const forb = !!this.doc[u.team].forbidden;
+      if (!this.sys.evo && !forb) return;
+      (u.ate || (u.ate = [])).push(v.type);
+      const pan = (u.x - AR.x) / AR.w * 1.4 - 0.7;
+      if (V.rank === 0) {
+        if (u.slayer && forb) { this.godEater(u, v); return; }
+        if (!u.slayer) {
+          u.slayer = true;
+          u.title = `${labelOf(v.type).replace(/^(THE |ANCIENT |WAR |WALKING |BONE |DREAD |BOULDER |LIVING |TIMELINE |HOURGLASS |KAMIKAZE )/, '')} SLAYER`;
+          u.dmgK = (u.dmgK || 1) * (forb ? 1.8 : 1.25); u.max += (forb ? 40 : 12) * this.hpScale; u.hp = u.max; u.r += forb ? 4 : 1; u.m = u.r * u.r;
+          this.banner(`${forb ? 'A PEASANT' : TEAMS[u.team].name} IS NOW ${u.title}!`, TEAMS[u.team].c, 2);
+          this.burst(u.x, u.y, COL.gold, 16, 280, 0.6, 7); this.snd('evolve', { pan });
+          if (this.camEv) this.camEv.push({ type: 'spot', follow: u, prio: 78, dur: 2.2, z: 2.1, slow: true });
+          this.xf.titles.push(u.title);
+        }
+        return;
+      }
+      const k = u.kills || 0, need2 = forb ? 2 : 4, need3 = forb ? 5 : 8;
+      if ((u.lvl || 1) < 2 && k >= need2) this.levelUp(u, 2, forb);
+      else if (u.lvl === 2 && k >= need3) this.levelUp(u, 3, forb);
+    },
+    levelUp(u, lvl, forb) {
+      u.lvl = lvl;
+      const g = forb ? 1.35 : 1.2;
+      u.dmgK = (u.dmgK || 1) * g; u.max *= g; u.hp = Math.min(u.max, u.hp + u.max * 0.3); u.r += lvl === 2 ? 1 : 2; u.m = u.r * u.r;
+      let name = forb ? (lvl === 2 ? 'FIGHTER' : 'CHAMPION') : (lvl === 2 ? 'VETERAN' : 'ELITE');
+      if (lvl === 3) { u.mut = this.mutationFor(u); this.applyMut(u); name += ' · ' + MUT_LABEL[u.mut]; this.xf.muts.push(u.mut); }
+      this.float(u.x, u.y - u.r - 14, name, lvl === 3 ? COL.gold : '#FFFFFF', lvl === 3 ? 26 : 22, 1);
+      this.burst(u.x, u.y, COL.gold, 10, 200, 0.5, 6, -60); this.snd('evolve', { pan: (u.x - AR.x) / AR.w * 1.4 - 0.7 });
+    },
+    // what a troop mutates into depends on what it killed (kill fliers and grow wings, kill mages and shrug off spells)
+    mutationFor(u) {
+      const ate = u.ate || [];
+      if (ate.some(k => UNIT[k].flying)) return 'wings';
+      if (ate.some(k => /wizard|necromancer|warlock|alchemist|illusionist|druid/.test(k))) return 'spellward';
+      if (ate.includes('vampire')) return 'vampiric';
+      return this.SR.pick(['spikes', 'regen', 'venom', 'swift']);
+    },
+    applyMut(u) {
+      if (u.mut === 'wings') u.flying = true;
+      if (u.mut === 'regen') u.regen = (u.regen || 0) + 1;
+      if (u.mut === 'swift') u.spdK = (u.spdK || 1) * 1.25;
+    },
+    godEater(u, v) {
+      if (u.god) return;
+      u.god = true; u.title = 'GOD EATER';
+      u.r = Math.max(u.r, 30); u.m = u.r * u.r; u.max += 100 * this.hpScale; u.hp = u.max; u.dmgK = (u.dmgK || 1) * 2.5;
+      this.banner('A PEASANT BECAME A GOD EATER!', TEAMS[u.team].c, 2.4);
+      this.burst(u.x, u.y, COL.gold, 30, 420, 0.8, 9); this.shake(14); this.snd('roar');
+      if (this.camEv) this.camEv.push({ type: 'spot', follow: u, prio: 86, dur: 2.8, z: 2.1, slow: true });
+      this.xf.titles.push('GOD EATER'); this.xf.godEater = true;
+    },
+    makeChampion(u) {
+      const S = this.SR;
+      u.champ = MODERNISH[u.type] ? `${S.pick(CALLSIGNS)}-${S.int(2, 9)}` : `${S.pick(CHAMP_FIRST)} ${S.pick(CHAMP_EPITHET)}`;
+      this.champOf[u.team] = u;
+      u.max *= 1.25; u.hp = Math.min(u.max, u.hp + u.max * 0.4); u.dmgK = (u.dmgK || 1) * 1.15;
+      this.banner(`CHAMPION: ${u.champ}`, TEAMS[u.team].c, 2);
+      this.snd('bell');
+      if (this.camEv) this.camEv.push({ type: 'spot', follow: u, prio: 62, dur: 2.4, z: 1.9 });
+      if (!this.xf.champ || u.kills > this.xf.champ.kills) this.xf.champ = { name: u.champ, type: u.type, kills: u.kills };
+    },
+    // ----- per-troop abilities, every tick -----
+    preUnit(u, U, h) {
+      const T = this.fightT;
+      if (u.kx !== undefined) {
+        u.x += u.kx * h; u.y += u.ky * h;
+        const dk = Math.exp(-7 * h); u.kx *= dk; u.ky *= dk;
+        if (Math.abs(u.kx) + Math.abs(u.ky) < 5) { u.kx = undefined; u.ky = undefined; }
+      }
+      if (u.ashT) {
+        if (T >= u.ashT) {
+          // the phoenix rises from its ashes in a burst of flame
+          u.ashT = 0; u.phased = false; u.flying = true; u.hp = u.max * 0.6;
+          this.explode({ team: u.team, kind: 'fireball', x: u.x, y: u.y, splash: 95, dmg: 4, from: u });
+          for (const o of this.near(u.x, u.y, 110)) if (o.team !== u.team) this.burn(o, 1.5, 3, u);
+          this.burst(u.x, u.y, '#FFD23F', 24, 420, 0.7, 9);
+          this.banner(`${TEAMS[u.team].name} PHOENIX RISES!`, TEAMS[u.team].c, 1.8); this.snd('roar');
+        }
+        return true;
+      }
+      if (u.fuseTo) {
+        const f = u.fuseTo, dx = f.x - u.x, dy = f.y - u.y, d = Math.hypot(dx, dy) || 1, s = Math.min(d, 300 * h);
+        u.phased = true; u.x += dx / d * s; u.y += dy / d * s;
+        if (T >= f.at) this.vanish(u);
+        return true;
+      }
+      if (u.burnT > T) { if (!U.fireproof) this.dot(u, u.burnD * h * (this.weather === 'rain' ? 0.5 : 1) * (U.fireweak || 1), u.burnBy); if (u.dead) return true; }
+      if (u.poisT > T) { this.dot(u, u.poisD * h, u.poisBy); if (u.dead) return true; }
+      const rg = (U.regen || 0) + (u.regen || 0);
+      if (rg && !(u.burnT > T) && u.hp < u.max) { this.heal(u, rg * h * this.hpScale); if (u.dead) return true; }
+      if (U.decoy) { if (T > u.decoyEnd) this.vanish(u); return true; }
+      if (u.frozeT > T) { u.vx = 0; u.vy = 0; return true; }
+      if ((u.grabbed || u.thrown || u.ghostEnd || u.stoneT || u.asleep || u.charmT) && this.preUnit2(u, U, h)) return true;
+      if (u.sheepT > T) {
+        // a sheep can't fight: it just wanders about
+        const a = u.gait + T * 0.7; u.vx = Math.cos(a) * 18; u.vy = Math.sin(a) * 18; u.x += u.vx * h; u.y += u.vy * h; this.turn(u, a, h);
+        return true;
+      }
+      if (u.phased) {
+        if (u.phaseTo) { const dx = u.phaseTo.x - u.x, dy = u.phaseTo.y - u.y, d = Math.hypot(dx, dy) || 1, s = Math.min(d, 560 * h); u.x += dx / d * s; u.y += dy / d * s; this.turn(u, Math.atan2(dy, dx), h); }
+        if (T >= u.phaseEnd) { u.phased = false; u.phaseTo = null; u.strikeK = 2.5; u.cd = 0; this.burst(u.x, u.y, '#8B5CF6', 10, 220, 0.4, 6); }
+        return true;
+      }
+      const t = u.target && !u.target.dead ? u.target : null;
+      if (u.backT > T && t) {
+        // cavalry wheels away after a charge, to build up speed for the next one
+        const dx = u.x - t.x, dy = u.y - t.y, d = Math.hypot(dx, dy) || 1, sp = U.speed * this.speedMul * 0.95, k = Math.min(1, 7 * h);
+        u.vx += (dx / d * sp - u.vx) * k; u.vy += (dy / d * sp - u.vy) * k; u.x += u.vx * h; u.y += u.vy * h; this.turn(u, Math.atan2(u.vy, u.vx), h);
+        if (U.charge) u.runT = (u.runT || 0) + h * 0.5;
+        return true;
+      }
+      if (u.trait === 'coward' && u.hp < u.max * 0.4 && t) {
+        const dx = u.x - t.x, dy = u.y - t.y, d = Math.hypot(dx, dy) || 1;
+        if (d < 110) {
+          const sp = U.speed * this.speedMul, k = Math.min(1, 7 * h);
+          u.vx += (dx / d * sp - u.vx) * k; u.vy += (dy / d * sp - u.vy) * k; u.x += u.vx * h; u.y += u.vy * h;
+          if (T >= (u.fearSaid || 0)) { u.fearSaid = T + 3; this.float(u.x, u.y - u.r - 8, 'RUN!', '#BFE6FF', 20, 0.7); }
+          return true;
+        }
+      }
+      if (U.abil) this.ability(u, U, h, t);
+      if (U.abil2 && !u.dead) this.ability2(u, U, h, t);
+      return u.dead;
+    },
+    ability(u, U, h, t) {
+      const T = this.fightT, pan = (u.x - AR.x) / AR.w * 1.4 - 0.7;
+      if (U.charge) {
+        const v = Math.hypot(u.vx, u.vy);
+        if (t && v > U.speed * 0.55 && Math.hypot(t.x - u.x, t.y - u.y) > u.r + t.r + 24) u.runT = (u.runT || 0) + h;
+        else if (v < U.speed * 0.3) u.runT = Math.max(0, (u.runT || 0) - h * 2);
+      }
+      if (U.trample && T >= (u.trampleAt || 0) && Math.hypot(u.vx, u.vy) > 15) {
+        u.trampleAt = T + 0.25;
+        for (const o of this.near(u.x, u.y, u.r + 24)) {
+          if (o.team === u.team || o.flying || UNIT[o.type].rank === 0 || o.phased) continue;
+          if (Math.hypot(o.x - u.x, o.y - u.y) < u.r + o.r + 2) { this._kind = 'blade'; this.damage(o, U.trample * 0.5 * this.dmgMul, u); this.knock(o, u.x, u.y, 14); }
+        }
+      }
+      if (U.smash && T >= (u.smashAt || 0)) {
+        u.smashAt = T + 0.2;
+        for (const ob of this.obstacles.slice()) { if (ob.void || ob.hard) continue; const p = this.closestOn(ob, u.x, u.y); if (Math.hypot(p.x - u.x, p.y - u.y) < u.r + 14) this.hurtObstacle(ob, 9, p.x, p.y); }
+      }
+      if (U.volley && T >= (u.volleyAt || 0)) {
+        // archers on the walls shoot more targets; the gate cannon fires every few seconds
+        u.volleyAt = T + U.cd;
+        const list = this.near(u.x, u.y, U.range).filter(o => o.team !== u.team && !UNIT[o.type].decoy && !o.phased && o !== t);
+        for (let k = 0; k < U.volley - 1 && list.length; k++) this.shootAt(u, list.splice(Math.floor(this.R.next() * list.length), 1)[0], U.dmg, 620);
+        if (t && !U.bell && T >= (u.cannonAt || 1.5)) { u.cannonAt = T + 3.2; this.lobAt(u, t.x, t.y, 'cannonball', 5, 46, 760); u.muzzle = 1; this.snd('cannon', { pan }); }
+      }
+      if (U.raise && T >= (u.abT || 0)) {
+        u.abT = T + U.raise;
+        const s = this.syn && this.syn[u.team];
+        // two (three with the Dark Ritual synergy) at a time, and at most 40 raised per army in a battle
+        this.raisedN = this.raisedN || [0, 0, 0];
+        let n = Math.min(2 + (s && s.ritual ? 1 : 0), 40 - (this.raisedN[u.team] || 0)); const n0 = n;
+        for (const c of this.corpses) {
+          if (n <= 0) break;
+          if (c.used || T - c.t > 10 || (c.x - u.x) ** 2 + (c.y - u.y) ** 2 > 32400) continue;
+          c.used = true; n--; this.raisedN[u.team]++;
+          this.spawnQ.push({ at: T + 0.6, team: u.team, type: 'skeleton', x: c.x, y: c.y, rise: true });
+          this.beams.push({ x0: u.x, y0: u.y, x1: c.x, y1: c.y, t0: T, life: 0.6, col: '#7CFFB0', w: 4 });
+          this.xf.raised++;
+        }
+        if (n < n0) { u.muzzle = 1; this.snd('groan', { pan }); }
+      }
+      if (U.gadget && t && T >= (u.abT || 0)) {
+        u.abT = T + U.gadget;
+        const d = Math.hypot(t.x - u.x, t.y - u.y) || 1;
+        if (d < 460 && this.units.filter(o => o.owner === u && !o.dead).length < 2) {
+          const nx = (t.x - u.x) / d, ny = (t.y - u.y) / d, p = { x: u.x + nx * 28, y: u.y + ny * 28, r: 14 };
+          if (this.obstacles.length) for (let k = 0; k < 3; k++) this.pushOut(p);
+          const tu = this.addUnit(u.team, 'turret', clamp(p.x, AR.x + 16, AR.x + AR.w - 16), clamp(p.y, AR.y + 16, AR.y + AR.h - 16));
+          tu.owner = u; tu.face = Math.atan2(ny, nx);
+          this.burst(tu.x, tu.y, '#C9A36A', 8, 160, 0.4, 6); this.snd('thunk', { pan });
+        }
+      }
+      if (U.decoys && t && T >= (u.abT || 0)) {
+        u.abT = T + U.decoys;
+        const dx = t.x - u.x, dy = t.y - u.y, d = Math.hypot(dx, dy) || 1;
+        if (d < 420 && this.units.filter(o => o.owner === u && !o.dead).length < 4) {
+          for (const sd of [-1, 1]) this.makeDecoy(u.team, u.x + dx * 0.5 - dy / d * sd * 40, u.y + dy * 0.5 + dx / d * sd * 40, 'illusion', 7, u);
+          u.muzzle = 1; this.snd('phase', { pan });
+        }
+      }
+      if (U.phase && t && !u.phased && T >= (u.abT || 0)) {
+        const dx = t.x - u.x, dy = t.y - u.y, d = Math.hypot(dx, dy) || 1;
+        if (d < 300 && d > 50) {
+          u.abT = T + U.phase; u.phased = true; u.phaseEnd = T + 0.85;
+          u.phaseTo = { x: clamp(t.x + dx / d * (t.r + u.r + 6), AR.x + u.r, AR.x + AR.w - u.r), y: clamp(t.y + dy / d * (t.r + u.r + 6), AR.y + u.r, AR.y + AR.h - u.r) };
+          this.burst(u.x, u.y, '#8B5CF6', 10, 200, 0.4, 6); this.snd('phase', { pan });
+        }
+      }
+      if (U.gravity && t && T >= (u.abT || 0)) {
+        u.abT = T + 1;
+        const cx = u.x + Math.cos(u.face) * 70, cy = u.y + Math.sin(u.face) * 70;
+        if (this.near(cx, cy, 170).filter(o => o.team !== u.team && !UNIT[o.type].immovable).length >= 4) {
+          u.abT = T + U.gravity; u.muzzle = 1;
+          this.fields.push({ kind: 'pull', x: cx, y: cy, r: 170, t0: T, end: T + 1.3, team: u.team, pow: 170 });
+          this.snd('portal', { pan });
+        }
+      }
+      if (U.trap && t && Math.hypot(t.x - u.x, t.y - u.y) - t.r - u.r < 14) {
+        // the false soldier springs its trap
+        this.explode({ team: u.team, kind: 'spikes', x: u.x, y: u.y, splash: 62, dmg: 6, from: u });
+        for (let k = 0; k < 3; k++) { const a = u.face + Math.PI + (k - 1) * 0.9; this.makeDecoy(u.team, u.x + Math.cos(a) * 36, u.y + Math.sin(a) * 36, 'scarecrow', 6, null); }
+        if (T >= (this.trapSaid || 0)) { this.trapSaid = T + 4; this.float(u.x, u.y - 22, 'IT\'S A TRAP!', '#FF6B3D', 30, 1); }
+        u.sprung = true; this.damage(u, u.hp + 99, null);
+        return;
+      }
+      if (U.plant) {
+        const d = t ? Math.hypot(t.x - u.x, t.y - u.y) : 1e9;
+        if (!u.planted && d < 260) { u.planted = true; u.shell = 18; this.burst(u.x, u.y, '#7A6A55', 8, 160, 0.5, 6); this.snd('thunk', { pan }); }
+        else if (u.planted && d > 420) { u.planted = false; u.shell = 0; }
+      }
+      if (U.unmake && T >= (u.abT || 0)) {
+        u.abT = T + U.unmake;
+        let best = null, bv = 0;
+        for (const o of this.near(u.x, u.y, 420)) {
+          const O = UNIT[o.type];
+          if (o.team === u.team || o.sheepT > T || O.uncounted || O.decoy || o.phased) continue;
+          if (O.rank === 0 && o.fleshed && !o.flying) continue;
+          const v = O.cost + (O.rank === 0 ? 50 : 0); if (v > bv) { bv = v; best = o; }
+        }
+        if (best) {
+          this.beams.push({ x0: u.x, y0: u.y, x1: best.x, y1: best.y, t0: T, life: 0.7, col: '#C084FC', w: 9 });
+          u.muzzle = 1; this.snd('zap', { pan });
+          if (UNIT[best.type].rank !== 0) {
+            best.sheepT = T + 7; best.vx = 0; best.vy = 0; this.xf.sheep++;
+            this.burst(best.x, best.y, '#FFFFFF', 10, 160, 0.5, 7); this.float(best.x, best.y - 24, 'BAAA!', '#FFFFFF', 26, 0.9);
+            if (!this.sheepSaid) { this.sheepSaid = true; this.banner('TURNED INTO A SHEEP!', TEAMS[u.team].c, 1.6); }
+          } else if (best.flying) {
+            best.flying = false; best.grounded = true; this.damage(best, best.max * 0.12, u); this.shake(12);
+            this.banner(`THE ${labelOf(best.type)} FALLS!`, TEAMS[u.team].c, 1.6);
+            if (this.camEv) this.camEv.push({ type: 'spot', x: best.x, y: best.y, prio: 76, dur: 2, z: 1.9, slow: true });
+          } else {
+            best.fleshed = true; this.banner('STEEL TURNS TO FLESH!', TEAMS[u.team].c, 1.6);
+            if (this.camEv) this.camEv.push({ type: 'spot', x: best.x, y: best.y, prio: 66, dur: 1.8, z: 1.9 });
+          }
+        }
+      }
+      if (U.bribe && T >= (u.abT || 0)) {
+        u.abT = T + U.bribe;
+        if ((u.bribes || 0) < 10) {
+          let best = null, bd = 144400;
+          for (const o of this.units) {
+            if (o.dead || o.team === u.team || o.team === MONSTERS) continue;
+            const O = UNIT[o.type]; if (O.rank === 0 || O.commander || O.uncounted || O.decoy || O.bribe) continue;
+            const d = (o.x - u.x) ** 2 + (o.y - u.y) ** 2; if (d < bd) { bd = d; best = o; }
+          }
+          if (best) {
+            u.bribes = (u.bribes || 0) + 1; this.xf.bribes++;
+            this.switchTeam(best, u.team); best.bribed = T;
+            for (let k = 0; k < 6; k++) this.parts.push({ x: u.x, y: u.y, vx: (best.x - u.x) * 2 + this.FX.range(-60, 60), vy: (best.y - u.y) * 2 + this.FX.range(-60, 60), life: 0.5, age: 0, size: 8, color: COL.gold, grav: 0 });
+            this.float(best.x, best.y - 22, 'BRIBED!', COL.gold, 26, 1); this.snd('coin', { pan });
+            if (u.bribes === 1) this.banner('THE BILLIONAIRE IS BUYING!', TEAMS[u.team].c, 1.6);
+          }
+        }
+      }
+      if (U.well && t && T >= (u.abT || 0) && Math.hypot(t.x - u.x, t.y - u.y) < 320) {
+        u.abT = T + U.well; u.muzzle = 1;
+        this.fields.push({ kind: 'well', x: u.x, y: u.y, follow: u, r: 300, t0: T, end: T + 1.6, team: u.team, pow: 210, slam: { dmg: 4, r: 100, from: u } });
+        this.snd('portal', { pan });
+        if (!u.wellSaid) { u.wellSaid = true; this.banner('THE GRAVITY TYRANT PULLS!', TEAMS[u.team].c, 1.6); if (this.camEv) this.camEv.push({ type: 'spot', follow: u, prio: 64, dur: 2.2, z: 1.5 }); }
+      }
+      if (U.shepherd && T >= (u.abT || 0)) {
+        u.abT = T + U.shepherd;
+        const cand = this.near(u.x, u.y, 440).filter(o => o.team !== u.team && !UNIT[o.type].decoy);
+        let best = null, bn = 2;
+        for (let k = 0; k < cand.length; k += Math.max(1, cand.length / 24 | 0)) { const c = cand[k]; let n = 0; for (const o of cand) if ((o.x - c.x) ** 2 + (o.y - c.y) ** 2 < 4900) n++; if (n > bn) { bn = n; best = c; } }
+        if (best) {
+          const age = T - (u.born || 0);
+          this.calls.push({ x: best.x, y: best.y, at: T + 1, t0: T, r: 38 + Math.min(42, age * 1.2), dmg: 5 + Math.min(4, age * 0.12), team: u.team, from: u, kind: 'meteor' });
+          u.muzzle = 1; this.snd('meteor', { pan });
+          if (!u.metSaid) { u.metSaid = true; this.banner('THE SHEPHERD CALLS THE SKY', TEAMS[u.team].c, 1.6); }
+        }
+      }
+      if (U.glitch && T >= (u.abT || 0)) {
+        u.abT = T + U.glitch;
+        const R = this.R, kind = R.pick(['SWAP', 'TURBO', 'ZERO-G', 'CLONE', 'BLINK']);
+        this.glitchFx = T + 0.5; this.snd('glitch', { pan });
+        if (kind === 'SWAP') {
+          const mine = this.units.filter(o => o.team === u.team && !o.dead && UNIT[o.type].rank !== 0 && !o.flying && !UNIT[o.type].uncounted);
+          const theirs = this.units.filter(o => o.team !== u.team && !o.dead && UNIT[o.type].rank !== 0 && !o.flying && !UNIT[o.type].uncounted);
+          for (let k = 0; k < Math.min(6, mine.length, theirs.length); k++) { const a = mine[Math.floor(R.next() * mine.length)], b = theirs[Math.floor(R.next() * theirs.length)]; const x = a.x, y = a.y; a.x = b.x; a.y = b.y; b.x = x; b.y = y; a.wp = null; b.wp = null; }
+        } else if (kind === 'TURBO') this.turboT = T + 3;
+        else if (kind === 'ZERO-G') this.zeroG = T + 3;
+        else if (kind === 'CLONE') { if (this.units.filter(o => o.type === 'glitch' && o.team === u.team && !o.dead).length < 3) this.spawnQ.push({ at: T + 0.1, team: u.team, type: 'glitch', x: u.x + 22, y: u.y }); }
+        else { const e = this.units.filter(o => o.team !== u.team && !o.dead); if (e.length) { const o = e[Math.floor(R.next() * e.length)]; u.x = clamp(o.x + 28, AR.x + u.r, AR.x + AR.w - u.r); u.y = o.y; u.wp = null; } }
+        this.banner(`GLITCH: ${kind}!`, '#7CF3FF', 1.3);
+      }
+      if (U.possess && !this.possessDone[u.team]) {
+        if (u.castOn) {
+          const o = u.castOn;
+          if (o.dead || o.team === u.team) u.castOn = null;
+          else if (T >= u.castT) {
+            u.castOn = null; this.possessDone[u.team] = true;
+            this.switchTeam(o, u.team); o.possessed = true;
+            this.banner(`${TEAMS[u.team].name} POSSESSES THE ${labelOf(o.type)}!`, TEAMS[u.team].c, 2.2);
+            this.burst(o.x, o.y, '#A855F7', 22, 360, 0.7, 8); this.snd('roar');
+            if (this.camEv) this.camEv.push({ type: 'spot', follow: o, prio: 84, dur: 2.6, z: 1.9, slow: true });
+            this.xf.possess = o.type;
+          }
+        } else if (T >= (u.abT || 0)) {
+          u.abT = T + 1;
+          let best = null, bv = 4.5;
+          for (const o of this.near(u.x, u.y, 380)) { if (o.team === u.team || o.team === MONSTERS) continue; const O = UNIT[o.type]; if (O.uncounted || O.decoy || O.fraud || o.phased) continue; const v = O.cost + (O.rank === 0 ? 30 : 0); if (v > bv) { bv = v; best = o; } }
+          if (best) { u.castOn = best; u.castT = T + 1.1; this.snd('portal', { pan }); }
+        }
+      }
+    },
+    makeDecoy(team, x, y, look, life, owner) {
+      const p = { x, y, r: 11 };
+      if (this.obstacles.length) for (let k = 0; k < 3; k++) this.pushOut(p);
+      const o = this.addUnit(team, 'decoy', clamp(p.x, AR.x + 12, AR.x + AR.w - 12), clamp(p.y, AR.y + 12, AR.y + AR.h - 12));
+      o.look = look; o.decoyEnd = this.fightT + life; o.owner = owner; o.face = owner ? owner.face : o.face;
+      this.burst(o.x, o.y, look === 'scarecrow' ? '#C2A878' : '#C084FC', 6, 140, 0.4, 5);
+      return o;
+    },
+    // ----- obstacles that break, craters that stay -----
+    hurtObstacle(ob, dmg, x, y, fire) {
+      if (ob.hp === undefined) ob.hp = OB_HP[ob.kind] || 60;
+      if (ob.hp > 900) return;
+      if (fire && (ob.kind === 'tree' || ob.kind === 'pine')) ob.burning = Math.max(ob.burning || 0, this.fightT + 4);
+      ob.hp -= dmg;
+      if (this.FX.chance(0.5)) this.burst(x, y, OB_DUST[ob.kind] || '#8A8F98', 3, 160, 0.4, 5);
+      if (ob.hp <= 0) this.breakObstacle(ob);
+    },
+    breakObstacle(ob) {
+      const i = this.obstacles.indexOf(ob); if (i < 0) return;
+      this.obstacles.splice(i, 1);
+      const cx = ob.circle ? ob.x : (ob.x0 + ob.x1) / 2, cy = ob.circle ? ob.y : (ob.y0 + ob.y1) / 2, sz = ob.circle ? ob.r : Math.max(ob.x1 - ob.x0, ob.y1 - ob.y0) / 2;
+      this.rubble.push({ x: cx, y: cy, r: sz, kind: ob.kind, ob });
+      this.burst(cx, cy, OB_DUST[ob.kind] || '#8A8F98', 18, 340, 0.7, 9); this.burst(cx, cy, '#5B6472', 10, 200, 0.9, 11, -30);
+      this.shake(8); this.snd('stone', { pan: (cx - AR.x) / AR.w * 1.4 - 0.7 });
+      this.mapLayer = null; this.mapHi = null;
+      for (const u of this.units) { u.wp = null; u.cover = null; }
+      this.xf.walls++;
+      if (!this.wallSaid) { this.wallSaid = true; this.banner(ob.kind === 'tree' || ob.kind === 'pine' ? 'THE FOREST BURNS!' : 'THE WALLS CRUMBLE!', COL.gold, 1.5); }
+    },
+    crater(x, y, r) {
+      if ((this.craters = (this.craters || 0) + 1) > 40) return;
+      for (const [c, S] of [[this.ground, 1], [this.groundHi, 2]]) {
+        if (!c) continue;
+        const g = c.getContext('2d'), cx = (x - AR.x) * S, cy = (y - AR.y) * S;
+        g.beginPath(); g.arc(cx, cy, r * S, 0, TAU); g.fillStyle = 'rgba(0,0,0,0.22)'; g.fill();
+        g.beginPath(); g.arc(cx, cy, r * 0.6 * S, 0, TAU); g.fillStyle = 'rgba(0,0,0,0.22)'; g.fill();
+        g.beginPath(); g.arc(cx - r * 0.12 * S, cy - r * 0.12 * S, r * 0.92 * S, Math.PI * 0.9, Math.PI * 1.6); g.lineWidth = 3 * S; g.strokeStyle = 'rgba(255,255,255,0.07)'; g.stroke();
+      }
+    },
+    explodeFx(a) {
+      const T = this.fightT;
+      if (a.kind === 'flask') { if (this.clouds.length < 14) this.clouds.push({ x: a.x, y: a.y, r: a.splash, end: T + 4, t0: T, team: a.team, by: a.from }); this.snd('splash', { pan: (a.x - AR.x) / AR.w * 1.4 - 0.7 }); }
+      if (a.kind === 'hellfire' && this.fires.length < 16) this.fires.push({ x: a.x, y: a.y, r: a.splash * 0.85, end: T + 3, t0: T, team: a.team, by: a.from, dps: 1.2 });
+      if (a.kind === 'spikes') this.burst(a.x, a.y, '#D9DEE6', 14, 380, 0.4, 6);
+      if (a.kind === 'frostbolt') { this.burst(a.x, a.y, '#DCEFFF', 12, 300, 0.45, 6); for (const o of this.near(a.x, a.y, a.splash)) if (o.team !== a.team && UNIT[o.type].rank !== 0 && this.R.chance(0.2)) o.frozeT = T + 1.2; }
+      if (this.sys.destruct || this.titanOn) {
+        for (const ob of this.obstacles.slice()) {
+          if (ob.hard || ob.void) continue;
+          const p = this.closestOn(ob, a.x, a.y), d = Math.hypot(p.x - a.x, p.y - a.y);
+          if (d < a.splash) this.hurtObstacle(ob, a.dmg * 2.2 * (1 - d / a.splash * 0.5), p.x, p.y, a.kind === 'fireball' || a.kind === 'hellfire' || a.kind === 'meteor');
+        }
+        if (BIG_BLAST[a.kind]) this.crater(a.x, a.y, a.splash * 0.55);
+      }
+    },
+    // ----- the rest of each tick -----
+    postStep(h) {
+      const T = this.fightT;
+      if ((this.hasAura || this.crownOn > T - 0.3) && T >= (this.auraAt || 0)) { this.auraAt = T + 0.25; this.refreshAuras(); }
+      if (this.clouds.length || this.fires.length) {
+        for (const c of this.clouds) for (const o of this.near(c.x, c.y, c.r)) if (o.team !== c.team) { this.poison(o, 1.0, 0.8, c.by); this.slowDown(o, 0.6, 0.5); }
+        for (const f of this.fires) for (const o of this.near(f.x, f.y, f.r)) if (o.team !== f.team && !o.flying) this.burn(o, f.dps, 1, f.by);
+        this.clouds = this.clouds.filter(c => T < c.end); this.fires = this.fires.filter(f => T < f.end);
+      }
+      for (const f of this.fields) {
+        if (f.follow && !f.follow.dead) { f.x = f.follow.x; f.y = f.follow.y; }
+        const k = clamp((T - f.t0) / 0.3, 0, 1);
+        for (const o of this.near(f.x, f.y, f.r)) {
+          if (o.team === f.team || UNIT[o.type].immovable || o === f.follow || o.phased) continue;
+          const dx = f.x - o.x, dy = f.y - o.y, d = Math.hypot(dx, dy) || 1;
+          if (d < 24 + o.r) continue;
+          const s = Math.min(f.pow * k * h * (UNIT[o.type].rank === 0 ? 0.3 : 1), d - 20);
+          o.x += dx / d * s; o.y += dy / d * s;
+        }
+        if (T >= f.end && !f.done) {
+          f.done = true;
+          if (f.slam) { this.explode({ team: f.team, kind: 'slam', x: f.x, y: f.y, splash: f.slam.r, dmg: f.slam.dmg, from: f.slam.from }); for (const o of this.near(f.x, f.y, f.slam.r + 60)) if (o.team !== f.team) this.knock(o, f.x, f.y, 45); this.shake(14); }
+          if (f.blast) { this.explode({ team: f.team, kind: 'bomb', x: f.x, y: f.y, splash: f.blast.r, dmg: f.blast.dmg, from: null }); for (const o of this.near(f.x, f.y, f.blast.r + 90)) if (o.team !== f.team) this.knock(o, f.x, f.y, 80); this.shake(18); }
+        }
+      }
+      if (this.fields.length) this.fields = this.fields.filter(f => !f.done);
+      if (this.calls.length) { for (const c of this.calls) if (!c.done && T >= c.at) { c.done = true; this.explode({ team: c.team, kind: c.kind, x: c.x, y: c.y, splash: c.r, dmg: c.dmg, from: c.from }); } this.calls = this.calls.filter(c => !c.done); }
+      if (this.spawnQ.length) {
+        for (const s of this.spawnQ) {
+          if (s.done || T < s.at) continue;
+          s.done = true;
+          const U = UNIT[s.type], p = { x: s.x, y: s.y, r: U.r };
+          if (this.obstacles.length && !U.flying) for (let k = 0; k < 3; k++) this.pushOut(p);
+          const o = this.addUnit(s.team, s.type, clamp(p.x, AR.x + U.r, AR.x + AR.w - U.r), clamp(p.y, AR.y + U.r, AR.y + AR.h - U.r));
+          if (s.mimic) o.mimic = s.mimic;
+          if (s.hpK) { o.max *= s.hpK; o.hp = o.max; }
+          if (s.hp) o.hp = Math.min(o.max, s.hp * o.max);
+          if (s.hunts !== undefined) { o.hunts = s.hunts; o.ancient = true; }
+          if (s.hollow) o.hollow = true;
+          if (s.ghost) { o.ghost = true; o.ghostEnd = T + 14; }
+          if (s.team < 3) { this.gained = this.gained || [0, 0, 0]; this.gained[s.team]++; }
+          this.burst(o.x, o.y, s.rise ? '#7CFFB0' : s.portal ? '#C084FC' : COL.gold, s.big ? 24 : 8, s.big ? 360 : 180, 0.5, s.big ? 9 : 6, -40);
+          if (s.rise) this.snd('groan', { pan: (o.x - AR.x) / AR.w * 1.4 - 0.7 });
+          if (s.big) this.shake(12);
+        }
+        this.spawnQ = this.spawnQ.filter(s => !s.done);
+      }
+      for (const t of this.teamIds()) { const d = this.doc[t]; if (d.copycat) this.copycatTick(t); if (d.fuse) this.fuseTick(t); }
+      for (const b of this.bannerQ) if (!b.done && T >= b.at) { b.done = true; this.banner(b.text, b.col, 1.6); }
+      if (this.sysEv) for (const ev of this.sysEv) if (!ev.done) this['sx_' + ev.type](ev, h);
+      if (this.ring) this.ringTick(h);
+      if (this.lava) this.lavaTick(h);
+      if (this.zeroG > T) for (const o of this.units) if (!o.dead && !UNIT[o.type].immovable) { o.x += Math.cos(o.gait + T * 2.2) * 34 * h; o.y += Math.sin(o.gait * 1.3 + T * 1.9) * 34 * h; }
+      if (this.loot.length && T >= (this.lootAt || 0)) { this.lootAt = T + 0.1; this.lootTick(); }
+      if (this.mapMech) this.mapTick(h);
+      if (this.beams.length) this.beams = this.beams.filter(b => T - b.t0 < b.life);
+      if (T >= (this.cleanAt || 0)) {
+        // a side with no troops left loses its turrets and decoys too
+        this.cleanAt = T + 0.25;
+        const tot = this.totals();
+        for (const o of this.units) if (!o.dead && o.team < 3 && UNIT[o.type].uncounted && tot[o.team] === 0) this.vanish(o);
+      }
+      this.postStep2(h);
+    },
+    refreshAuras() {
+      const T = this.fightT;
+      for (const u of this.units) { u.auraDmg = undefined; u.auraDef = undefined; u.auraHaste = undefined; }
+      for (const s of this.units) {
+        if (s.dead) continue;
+        const A = UNIT[s.type].aura, crown = s.crownT > T;
+        if (!A && !crown) continue;
+        const r = crown ? 190 : A.r;
+        for (const o of this.near(s.x, s.y, r)) {
+          if (o.team !== s.team) continue;
+          if (crown) o.auraDmg = Math.max(o.auraDmg || 1, 1.3);
+          if (A && A.dmg) o.auraDmg = Math.max(o.auraDmg || 1, A.dmg);
+          if (A && A.def) o.auraDef = Math.min(o.auraDef || 1, A.def);
+          if (A && A.haste) o.auraHaste = Math.min(o.auraHaste || 1, A.haste);
+        }
+        if (A && A.haste && T >= (s.drumAt || 0)) { s.drumAt = T + 2.2; this.snd('drum', { pan: (s.x - AR.x) / AR.w * 1.4 - 0.7 }); }
+      }
+    },
+    lootTick() {
+      const T = this.fightT;
+      // weapons nobody picked up come alive and attack everyone (rules.systems.livingWeapons)
+      if (this.sys.living) for (const l of this.loot) if (!l.taken && !l.woke && T >= l.end - 0.1 && (this.bladesN || 0) < 4) {
+        l.woke = true; if (T < 0.35 * (this.fixed || this.target) || !this.SR.chance(0.3)) continue;
+        l.taken = true; this.bladesN = (this.bladesN || 0) + 1;
+        this.spawnQ.push({ at: T, team: MONSTERS, type: 'livingblade', x: l.x, y: l.y });
+        if (!this.bladeSaid) { this.bladeSaid = true; this.banner('THE WEAPONS COME ALIVE!', TEAMS[MONSTERS].c, 1.6); }
+        this.xf.living = true;
+      }
+      this.loot = this.loot.filter(l => T < l.end && !l.taken);
+      for (const l of this.loot) for (const o of this.near(l.x, l.y, 24)) {
+        const O = UNIT[o.type];
+        if (o.armed || O.rank === 0 || O.uncounted || O.healer || o.sheepT > T) continue;
+        l.taken = true; o.armed = l.kind; o.dmgK = (o.dmgK || 1) * 1.25;
+        this.float(o.x, o.y - o.r - 10, 'ARMED UP', COL.gold, 22, 0.7);
+        break;
+      }
+    },
+    copycatTick(t) {
+      const T = this.fightT, F = this.fixed || this.target;
+      if (this.copyAt[t] === undefined) this.copyAt[t] = 0.16 * F;
+      if (T < this.copyAt[t]) return;
+      this.copyAt[t] = T + 0.2 * F;
+      if ((this.copyN[t] || 0) >= 4) return;
+      const cats = this.units.filter(o => o.team === t && o.type === 'copycat' && !o.dead); if (!cats.length) return;
+      let best = null;
+      for (const o of this.units) { if (o.dead || o.team === t || o.team === MONSTERS) continue; const O = UNIT[o.type]; if (O.uncounted || O.decoy || O.fraud || O.healer) continue; if (!best || O.cost > UNIT[best.type].cost) best = o; }
+      if (!best) return;
+      const c = cats[Math.floor(this.R.next() * cats.length)], big = UNIT[best.type].rank === 0;
+      this.copyN[t] = (this.copyN[t] || 0) + 1;
+      for (let k = 0, n = big ? 1 : 3; k < n; k++) this.spawnQ.push({ at: T + 0.5, team: t, type: best.type, x: c.x + (k - (n - 1) / 2) * 26, y: c.y, mimic: 'copy', big });
+      this.banner(`COPYCATS COPY THE ${labelOf(best.type)}!`, TEAMS[t].c, 2);
+      this.burst(c.x, c.y, '#C084FC', 14, 260, 0.5, 7); this.snd('glitch');
+      if (this.camEv) this.camEv.push({ type: 'spot', x: c.x, y: c.y, prio: 57, dur: 2, z: 1.9 });
+      this.xf.copied = best.type;
+    },
+    fuseTick(t) {
+      const T = this.fightT, F = this.fixed || this.target;
+      if (this.fused[t] || T < 0.3 * F || T < (this.fuseAt || 0)) return;
+      this.fuseAt = T + 0.5;
+      const sk = this.units.filter(o => o.team === t && o.type === 'skeleton' && !o.dead && !o.fuseTo);
+      if (sk.length < 16) { if (T > 0.6 * F) this.fused[t] = true; return; }
+      this.fused[t] = true;
+      let cx = 0, cy = 0; for (const o of sk) { cx += o.x; cy += o.y; } cx /= sk.length; cy /= sk.length;
+      sk.sort((a, b) => ((a.x - cx) ** 2 + (a.y - cy) ** 2) - ((b.x - cx) ** 2 + (b.y - cy) ** 2));
+      const p = { x: cx, y: cy, r: 40 }; if (this.obstacles.length) for (let k = 0; k < 3; k++) this.pushOut(p);
+      for (const o of sk.slice(0, 12)) o.fuseTo = { x: p.x, y: p.y, at: T + 0.9 };
+      this.spawnQ.push({ at: T + 0.95, team: t, type: 'bonecolossus', x: p.x, y: p.y, big: true });
+      this.banner('12 SKELETONS FUSE!', TEAMS[t].c, 2.2);
+      this.snd('rumble');
+      if (this.camEv) this.camEv.push({ type: 'spot', x: p.x, y: p.y, prio: 82, dur: 2.6, z: 1.7, slow: true });
+      this.xf.fusion = true;
+    },
+    // ----- system events: portals, sudden death, extinction -----
+    sx_portal(ev) {
+      const T = this.fightT;
+      if (T < ev.at) return;
+      ev.done = true;
+      const S = this.SR, cx = AR.x + AR.w / 2, cy = AR.y + AR.h / 2;
+      const pack = S.pick([['troll', 'troll', 'imp', 'imp', 'imp', 'imp'], ['cyclops'], ['wolfrider', 'wolfrider', 'wolfrider', 'wolfrider', 'wolfrider'], ['golem', 'imp', 'imp', 'imp'], ['demon', 'demon', 'hellhound', 'hellhound'], ['hydra']]);
+      pack.forEach((k, i) => { const a = i / pack.length * TAU; this.spawnQ.push({ at: T + 0.8 + i * 0.15, team: MONSTERS, type: k, x: cx + Math.cos(a) * (pack.length > 1 ? 30 : 0), y: cy + Math.sin(a) * (pack.length > 1 ? 30 : 0), portal: true, big: UNIT[k].rank === 0 }); });
+      this.portal = { x: cx, y: cy, t0: T, end: T + 3.5 };
+      this.banner('A PORTAL OPENS!', '#A855F7', 1.6); this.bannerQ.push({ at: T + 1.7, text: 'MONSTERS ATTACK EVERYONE!', col: TEAMS[MONSTERS].c });
+      this.snd('portal'); this.snd('roar');
+      if (this.camEv) this.camEv.push({ type: 'spot', x: cx, y: cy, prio: 77, dur: 2.6, z: 1.6, slow: true });
+      this.xf.portal = pack[0];
+    },
+    sx_sudden(ev) {
+      const T = this.fightT;
+      if (T < ev.at) return;
+      ev.done = true;
+      // only when nobody is close to losing yet
+      const alive = this.teamIds().filter(t => this.alive[t] + this.reserve[t] > 0);
+      if (alive.length < 2 || alive.some(t => this.strength(t) / (this.str0[t] || 1) < 0.25)) return;
+      const cx = AR.x + AR.w / 2, cy = AR.y + AR.h / 2;
+      this.xf.sudden = ev.kind;
+      this.banner('SUDDEN DEATH!', '#E5484D', 1.5);
+      this.bannerQ.push({ at: T + 1.6, text: { ring: 'THE ARENA SHRINKS!', lava: 'THE LAVA RISES!', meteors: 'METEOR STORM!', boss: 'A TITAN AWAKENS!' }[ev.kind], col: COL.gold });
+      this.snd('alarm');
+      if (ev.kind === 'ring') this.ring = { t0: T, dur: 12, r0: 700, r1: 250 };
+      else if (ev.kind === 'lava') this.lava = { t0: T, dur: 12, max: 300 };
+      else if (ev.kind === 'meteors') {
+        if (!this.ER) this.ER = rng(((this.seed >>> 0) ^ 0xA1D80F) >>> 0);
+        this.events = this.events || [];
+        this.events.push({ type: 'meteors', at: T + 0.5, style: 'meteors', t: 0 }, { type: 'meteors', at: T + 3, style: 'meteors', t: 0 });
+      } else {
+        this.spawnQ.push({ at: T + 1, team: MONSTERS, type: 'titan', x: cx, y: cy, portal: true, big: true, hpK: 0.8 });
+        this.portal = { x: cx, y: cy, t0: T, end: T + 3 };
+        this.snd('portal');
+      }
+      if (this.camEv) this.camEv.push({ type: 'spot', x: cx, y: cy, prio: 74, dur: 2.4, z: ev.kind === 'boss' ? 1.6 : 1.04 });
+    },
+    ringTick(h) {
+      const T = this.fightT, g = this.ring, k = clamp((T - g.t0) / g.dur, 0, 1), r = g.r0 + (g.r1 - g.r0) * k * k * (3 - 2 * k), cx = AR.x + AR.w / 2, cy = AR.y + AR.h / 2;
+      g.r = r;
+      for (const o of this.units) {
+        if (o.dead) continue;
+        const dx = o.x - cx, dy = o.y - cy, d = Math.hypot(dx, dy) || 1;
+        if (d > r) { this.dot(o, 5 * h * this.hpScale, null); o.x -= dx / d * 70 * h; o.y -= dy / d * 70 * h; }
+      }
+    },
+    lavaTick(h) {
+      const T = this.fightT, L = this.lava, k = clamp((T - L.t0) / L.dur, 0, 1), w = L.max * k * k * (3 - 2 * k);
+      L.w = w;
+      for (const o of this.units) {
+        if (o.dead || o.flying || UNIT[o.type].fireproof) continue;
+        if (o.x < AR.x + w) { this.dot(o, 6 * h * this.hpScale, null); o.x += 70 * h; }
+        else if (o.x > AR.x + AR.w - w) { this.dot(o, 6 * h * this.hpScale, null); o.x -= 70 * h; }
+      }
+    },
+    sx_extinct(ev) {
+      const T = this.fightT;
+      if (T < ev.from || T < (ev.next || 0)) return;
+      if (T > ev.until) { ev.done = true; return; }
+      ev.next = T + 1;
+      const ids = this.teamIds().filter(t => this.alive[t] + this.reserve[t] > 0); if (ids.length < 2) return;
+      // only for a real wipe-out in the making: the leader still has most of its army and everyone else is down to a fraction of theirs
+      const s = ids.map(t => this.strength(t)), fr = ids.map((t, i) => s[i] / (this.str0[t] || 1)), m = s.indexOf(Math.max(...s));
+      if (fr[m] < 0.6 || !s.every((v, i) => i === m || (v * 4 < s[m] && fr[i] < 0.3))) return;
+      ev.done = true;
+      // one army is crushing the rest: an ancient hunter wakes up and goes after it
+      const team = ids[m], cx = AR.x + AR.w / 2, cy = AR.y + AR.h / 2;
+      this.spawnQ.push({ at: T + 1, team: MONSTERS, type: 'titan', x: cx, y: cy, portal: true, big: true, hunts: team, hpK: 0.7 });
+      this.portal = { x: cx, y: cy, t0: T, end: T + 3 };
+      this.banner('EXTINCTION EVENT!', '#A855F7', 1.6);
+      this.bannerQ.push({ at: T + 1.7, text: `IT HUNTS ${TEAMS[team].name}!`, col: TEAMS[MONSTERS].c });
+      this.snd('portal'); this.snd('roar');
+      if (this.camEv) this.camEv.push({ type: 'spot', x: cx, y: cy, prio: 78, dur: 2.6, z: 1.6, slow: true });
+      this.xf.extinct = TEAMS[team].name;
+    },
+    // ----- the new supply-drop power-ups -----
+    powerup(kind, ev, team) {
+      if (kind === 'clone' || kind === 'ghosts') return this.powerup2(kind, ev, team);
+      const T = this.fightT, name = TEAMS[team].name, S = this.SR;
+      const foes = this.units.filter(o => !o.dead && o.team !== team);
+      if (kind === 'freeze') {
+        for (const o of foes) o.frozeT = T + 3;
+        this.freezeFx = T + 3; this.snd('freeze');
+        return `${name} FREEZES TIME!`;
+      }
+      if (kind === 'portal') {
+        // a squad steps out of a portal behind the enemy lines
+        const doc = this.doc[team], keys = Object.keys(doc.mix).filter(k => UNIT[k] && !UNIT[k].healer && UNIT[k].rank !== 0 && !UNIT[k].commander && !UNIT[k].uncounted && !UNIT[k].bribe);
+        const elite = keys.length ? keys.reduce((a, b) => (UNIT[b].cost > UNIT[a].cost ? b : a)) : doc.base || 'soldier', n = clamp(Math.round(16 / UNIT[elite].cost), 3, 8);
+        let px, py;
+        if (this.N === 2) { px = clamp(ev.x, AR.x + 120, AR.x + AR.w - 120); py = team === 0 ? AR.y + AR.h - 90 : AR.y + 90; }
+        else { const ids = this.teamIds().filter(t => t !== team); const st = ids.map(t => this.strength(t)), f = ids[st.indexOf(Math.max(...st))], a = this.homeAngle(f); px = AR.x + AR.w / 2 + Math.cos(a) * 380; py = AR.y + AR.h / 2 + Math.sin(a) * 380; }
+        for (let k = 0; k < n; k++) { const a = k / n * TAU; this.spawnQ.push({ at: T + 0.6 + k * 0.05, team, type: elite, x: px + Math.cos(a) * 28, y: py + Math.sin(a) * 28, portal: true }); }
+        this.portal = { x: px, y: py, t0: T, end: T + 2.2 }; this.snd('portal');
+        if (this.camEv) this.camEv.push({ type: 'spot', x: px, y: py, prio: 58, dur: 1.8, z: 1.8 });
+        return `${name} OPENS A PORTAL!`;
+      }
+      if (kind === 'phoenix') {
+        const list = this.fallen[team].splice(-8);
+        list.forEach((f, i) => this.spawnQ.push({ at: T + 0.3 + i * 0.07, team, type: f.type, x: f.x, y: f.y, hp: 0.5, rise: false }));
+        this.burst(ev.x, ev.y, '#FF9F1C', 20, 360, 0.6, 8);
+        return list.length ? `${name}: ${list.length} TROOPS REVIVED!` : `${name}: PHOENIX HEART!`;
+      }
+      if (kind === 'chain') {
+        // a bolt that jumps from enemy to enemy, weaker with each jump
+        let x = ev.x, y = ev.y, dmg = 8;
+        const hit = new Set();
+        for (let k = 0; k < 10; k++) {
+          let best = null, bd = (k ? 150 : 300) ** 2;
+          for (const o of foes) { if (o.dead || hit.has(o) || o.phased) continue; const d = (o.x - x) ** 2 + (o.y - y) ** 2; if (d < bd) { bd = d; best = o; } }
+          if (!best) break;
+          hit.add(best); this.beams.push({ x0: x, y0: y, x1: best.x, y1: best.y, t0: T + k * 0.04, life: 0.45, col: '#FDE047', w: 5, zig: true });
+          this._kind = 'blast'; this.damage(best, dmg * Math.max(UNIT[best.type].armor, 0.6), null);
+          x = best.x; y = best.y; dmg *= 0.85;
+        }
+        this.snd('thunder');
+        return `${name}: CHAIN LIGHTNING!`;
+      }
+      if (kind === 'dice') {
+        const roll = S.pick(['giant', 'tiny', 'speed', 'confusion', 'healing', 'knockback']);
+        const mine = this.near(ev.x, ev.y, 280).filter(o => o.team === team), theirs = this.near(ev.x, ev.y, 300).filter(o => o.team !== team);
+        if (roll === 'giant') for (const o of mine) { if (UNIT[o.type].rank === 0) continue; o.r *= 1.3; o.m = o.r * o.r; o.max *= 1.3; o.hp *= 1.3; o.dmgK = (o.dmgK || 1) * 1.2; }
+        if (roll === 'tiny') for (const o of theirs) { if (UNIT[o.type].rank === 0) continue; o.r *= 0.7; o.m = o.r * o.r; o.max *= 0.7; o.hp *= 0.7; o.dmgK = (o.dmgK || 1) * 0.75; }
+        if (roll === 'speed') this.buffs[team].speed = T + 8;
+        if (roll === 'confusion') for (const o of theirs) { o.confT = T + 4; o.retarget = 0; }
+        if (roll === 'healing') for (const o of this.units) if (o.team === team && !o.dead) { o.hp = o.max; o.healFlash = 1; }
+        if (roll === 'knockback') for (const o of theirs) { this.knock(o, ev.x, ev.y, 70); this._kind = 'blast'; this.damage(o, 2, null); }
+        this.diceFx = { x: ev.x, y: ev.y, t0: T, roll };
+        this.xf.dice = roll;
+        return `${name} ROLLS: ${{ giant: 'GIANT SIZE', tiny: 'TINY ENEMIES', speed: 'SPEED', confusion: 'CONFUSION', healing: 'FULL HEAL', knockback: 'SHOCKWAVE' }[roll]}!`;
+      }
+      if (kind === 'crystal') {
+        const list = this.units.filter(o => o.team === team && !o.dead && UNIT[o.type].rank !== 0 && !UNIT[o.type].uncounted);
+        if (!list.length) return `${name}: EVOLUTION CRYSTAL!`;
+        const u = list.reduce((a, b) => ((b.kills || 0) > (a.kills || 0) ? b : a));
+        if ((u.lvl || 1) < 2) this.levelUp(u, 2, false);
+        if (u.lvl === 2) this.levelUp(u, 3, false);
+        u.dmgK = (u.dmgK || 1) * 1.3;
+        this.beams.push({ x0: ev.x, y0: ev.y, x1: u.x, y1: u.y, t0: T, life: 0.6, col: '#5EEAD4', w: 6 });
+        if (this.camEv) this.camEv.push({ type: 'spot', follow: u, prio: 60, dur: 2, z: 2 });
+        return `${name}: EVOLUTION CRYSTAL!`;
+      }
+      if (kind === 'singularity') {
+        this.fields.push({ kind: 'singularity', x: ev.x, y: ev.y, r: 260, t0: T, end: T + 1.5, team, pow: 260, blast: { dmg: 6, r: 120 } });
+        this.snd('portal');
+        // a God Eater that touches a black hole becomes something else entirely
+        const god = this.units.find(o => o.team === team && o.god && !o.dead);
+        if (god && !god.cosmic) { god.cosmic = true; god.title = 'COSMIC ENTITY'; god.r = 40; god.m = 1600; god.dmgK *= 1.5; god.max *= 1.5; god.hp = god.max; this.bannerQ.push({ at: T + 1.8, text: 'A COSMIC ENTITY IS BORN!', col: '#A78BFA' }); this.xf.titles.push('COSMIC ENTITY'); }
+        return `${name}: POCKET SINGULARITY!`;
+      }
+      if (kind === 'crown') {
+        const list = this.units.filter(o => o.team === team && !o.dead && !UNIT[o.type].uncounted);
+        if (list.length) { const u = list.reduce((a, b) => (UNIT[b.type].cost * b.hp > UNIT[a.type].cost * a.hp ? b : a)); u.crownT = T + 10; this.crownOn = T + 10; this.auraAt = 0; if (this.camEv) this.camEv.push({ type: 'spot', follow: u, prio: 59, dur: 1.8, z: 2 }); }
+        return `${name}: KING'S CROWN!`;
+      }
+      return `${name} GRABS THE DROP`;
+    },
+  };
+  // =====================================================================
+  // Second batch: more magic (frost witches, liches, storm callers, spirits), beasts and siege, the rest of the crazy units
+  // (Star Eater, Timeline Executioner, Walking Cathedral, Storm Emperor, Worldroot, Hourglass Titan, Moon Caller, Unqualified King,
+  // the General Who Cannot Lose, the Empty Army, the Player, the Universe, the Living Fortress), living weapons, boss transformations,
+  // a blood moon, stampedes, the kraken, and two more power-ups.
+  // =====================================================================
+  const NEW_UNITS2 = ['frostwitch', 'lich', 'stormcaller', 'wisp', 'gargoyle', 'assassin', 'siegegunner', 'catapult', 'mammoth', 'rhino', 'ogre', 'drone', 'helicopter', 'siren', 'hollow',
+    'livingblade', 'stareater', 'timeexec', 'cathedral', 'stormemperor', 'worldroot', 'hourglass', 'mooncaller', 'unqualifiedking', 'generalnolose', 'theplayer', 'universe', 'livingfortress'];
+  for (const k of NEW_UNITS2) { const U = UNIT[k]; U.ext = true; U.abil = true; U.abil2 = true; ROSTER[k] = 1; }
+  for (const k of ['frostwitch', 'stormcaller', 'assassin', 'siegegunner', 'siren', 'ogre', 'mooncaller', 'unqualifiedking', 'generalnolose', 'universe']) LIVING[k] = 1;
+  for (const k of ['catapult', 'mammoth', 'rhino', 'ogre', 'helicopter', 'stareater', 'timeexec', 'cathedral', 'stormemperor', 'worldroot', 'hourglass', 'theplayer', 'livingfortress',
+    'mooncaller', 'generalnolose', 'unqualifiedking', 'gargoyle', 'lich']) HPBAR[k] = 1;
+  LOBS.frostbolt = 1; LOBS.mortar = 1; BIG_BLAST.mortar = 1; XSHOT.frostbolt = 1; XSHOT.mortar = 1;
+  DARK.lich = 1; DARK.gargoyle = 1; MODERNISH.drone = 1; MODERNISH.helicopter = 1;
+  Object.assign(UNIT_LABEL, { frostwitch: 'FROST WITCH', stormcaller: 'STORM CALLER', wisp: 'FOREST SPIRIT', siegegunner: 'SIEGE GUNNER', mammoth: 'WAR MAMMOTH', rhino: 'WAR RHINO',
+    drone: 'KAMIKAZE DRONE', helicopter: 'HELICOPTER', hollow: 'EMPTY ARMOUR', livingblade: 'LIVING BLADE', stareater: 'STAR EATER', timeexec: 'TIMELINE EXECUTIONER',
+    cathedral: 'WALKING CATHEDRAL', stormemperor: 'STORM EMPEROR', worldroot: 'THE WORLDROOT', hourglass: 'HOURGLASS TITAN', mooncaller: 'MOON CALLER', unqualifiedking: 'UNQUALIFIED KING',
+    generalnolose: 'UNDEFEATED GENERAL', theplayer: 'THE PLAYER', universe: 'THE UNIVERSE', livingfortress: 'LIVING FORTRESS' });
+  POWERUPS.push('clone', 'ghosts');
+  Object.assign(CRATE, {
+    clone: { box: '#0EA5E9', icon: '#F4F6FB', chute: '#38BDF8', glow: '#BAE6FD' },
+    ghosts: { box: '#334155', icon: '#E2E8F0', chute: '#64748B', glow: '#CBD5E1' },
+  });
+  for (const k of ['frostwitch', 'stormcaller', 'wisp', 'rhino', 'ogre', 'livingblade', 'stareater', 'timeexec', 'stormemperor', 'worldroot', 'hourglass', 'mooncaller', 'unqualifiedking']) UNIT_ERA[k] = 'fantasy';
+  for (const k of ['siegegunner', 'catapult', 'mammoth', 'cathedral', 'generalnolose', 'theplayer', 'universe', 'livingfortress']) UNIT_ERA[k] = 'medieval';
+  for (const k of ['lich', 'gargoyle', 'hollow']) UNIT_ERA[k] = 'horror';
+  UNIT_ERA.drone = 'modern'; UNIT_ERA.helicopter = 'modern'; UNIT_ERA.siren = 'pirate'; UNIT_ERA.assassin = 'samurai';
+  // ----- the second batch of army types, added at the end of their genre lists (old battles never pick from these lists) -----
+  const D2 = (name, base, mix, extra) => Object.assign({ name, base, mix, budget: 1, budget60: 1 }, extra || {});
+  GENRES.medieval.push(
+    D2('SIEGE', 'soldier', { soldier: 0.4, pikeman: 0.25, siegegunner: 0.2, crossbowman: 0.15 }, { heavy: ['catapult', 'catapult'] }),
+    D2('MAMMOTHS', 'soldier', { berserker: 0.5, spearman: 0.3, archer: 0.2 }, { heavy: ['mammoth', 'mammoth'] }),
+    D2('CATHEDRAL', 'soldier', { soldier: 0.4, archer: 0.3, healer: 0.15, knight: 0.15 }, { heavy: ['cathedral'] }),
+    D2('NEVERLOSE', 'soldier', { swordsman: 0.35, pikeman: 0.25, archer: 0.25, lancer: 0.15 }, { heavy: ['generalnolose'] }),
+    D2('PLAYER', 'soldier', { soldier: 0.5, archer: 0.3, knight: 0.2 }, { heavy: ['theplayer'] }),
+    D2('UNIVERSE', 'soldier', { soldier: 0.5, universe: 0.25, archer: 0.25 }),
+    D2('LIVINGFORT', 'soldier', { soldier: 0.45, archer: 0.35, crossbowman: 0.2 }, { heavy: ['livingfortress'] }));
+  GENRES.fantasy.push(
+    D2('FROST', 'dwarf', { frostwitch: 0.3, dwarf: 0.4, crossbowman: 0.3 }, { heavy: ['mammoth'] }),
+    D2('TEMPEST', 'skeleton', { stormcaller: 0.3, elf: 0.4, swordsman: 0.3 }),
+    D2('SPIRITS', 'wisp', { wisp: 0.4, elf: 0.3, druid: 0.15, treant: 0.15 }),
+    D2('RHINOS', 'skeleton', { orc: 0.5, rhino: 0.2, boarrider: 0.3 }),
+    D2('OGRES', 'skeleton', { ogre: 0.3, orc: 0.4, skeleton: 0.3 }),
+    D2('STAREATER', 'imp', { skeleton: 0.5, warlock: 0.25, imp: 0.25 }, { heavy: ['stareater'] }),
+    D2('TIMELINE', 'skeleton', { swordsman: 0.5, archer: 0.3, wizard: 0.2 }, { heavy: ['timeexec'] }),
+    D2('STORMEMPEROR', 'skeleton', { stormcaller: 0.25, elf: 0.4, swordsman: 0.35 }, { heavy: ['stormemperor'] }),
+    D2('WORLDROOT', 'wisp', { elf: 0.45, druid: 0.15, treant: 0.1, wisp: 0.3 }, { heavy: ['worldroot'] }),
+    D2('HOURGLASS', 'dwarf', { dwarf: 0.5, crossbowman: 0.3, wizard: 0.2 }, { heavy: ['hourglass'] }),
+    D2('MOONCALLER', 'skeleton', { elf: 0.5, swordsman: 0.3, wisp: 0.2 }, { heavy: ['mooncaller'] }),
+    D2('GOBLINKING', 'imp', { orc: 0.4, skeleton: 0.4, imp: 0.2 }, { heavy: ['unqualifiedking'] }));
+  GENRES.horror.push(
+    D2('LICHES', 'skeleton', { skeleton: 0.6, zombie: 0.2, lich: 0.2 }),
+    D2('GARGOYLES', 'zombie', { gargoyle: 0.35, zombie: 0.35, vampire: 0.3 }),
+    D2('EMPTY', 'hollow', { hollow: 1 }));
+  GENRES.modern.push(
+    D2('DRONES', 'rifleman', { rifleman: 0.6, drone: 0.4 }),
+    D2('AIRBORNE', 'rifleman', { rifleman: 0.6, gunner: 0.25, grenadier: 0.15 }, { heavy: ['helicopter'] }));
+  GENRES.pirate.push(D2('SIRENS', 'pirate', { pirate: 0.5, musketeer: 0.25, siren: 0.25 }));
+  GENRES.samurai.push(D2('ASSASSINS', 'ninja', { assassin: 0.45, ninja: 0.55 }));
+  Object.assign(DOC_LABEL, { STAREATER: 'STAR EATER', STORMEMPEROR: 'STORM EMPEROR', LIVINGFORT: 'LIVING FORTRESS', NEVERLOSE: 'UNDEFEATED', MOONCALLER: 'MOON CALLER', GOBLINKING: 'GOBLIN KING',
+    EMPTY: 'EMPTY ARMY', PLAYER: 'THE PLAYER' });
+  const MACHINE = { tank: 1, mech: 1, cannon: 1, turret: 1, robot: 1, golem: 1, fortress: 1, helicopter: 1, drone: 1, catapult: 1 };
+  const UNIVERSE_ARMIES = ['skeleton', 'robot', 'ninja', 'pirate', 'orc', 'trooper', 'zombie', 'elf', 'samurai', 'vampire', 'dwarf', 'imp'];
+
+  const ARMY_EXT2 = {
+    extUnit2(u, U) {
+      if (U.cloak) u.cloak = true;
+      if (U.castle) u.asleep = true;
+      if (U.bell) this.hasRaise = true;
+    },
+    // statuses that take over a troop for a moment: grabbed by the Player, thrown, charmed, turned to stone, asleep
+    preUnit2(u, U, h) {
+      const T = this.fightT;
+      if (u.grabbed) { const g = u.grabbed; if (g.dead) u.grabbed = null; else { u.x = g.x + Math.cos(g.face) * g.r * 0.6; u.y = g.y + Math.sin(g.face) * g.r * 0.6; u.vx = 0; u.vy = 0; return true; } }
+      if (u.thrown) {
+        const th = u.thrown, p = clamp((T - th.t0) / th.T, 0, 1);
+        u.x = th.sx + (th.tx - th.sx) * p; u.y = th.sy + (th.ty - th.sy) * p; u.lift = Math.sin(Math.PI * p) * 70;
+        if (p >= 1) {
+          u.thrown = null; u.phased = false; u.lift = 0;
+          this.explode({ team: th.team, kind: 'slam', x: u.x, y: u.y, splash: 60, dmg: 6, from: th.by && !th.by.dead ? th.by : null });
+          if (!u.dead) { this._dot = true; this.damage(u, u.max * 0.35, th.by || null); this._dot = false; }
+          this.shake(10);
+        }
+        return true;
+      }
+      if (u.ghostEnd && T > u.ghostEnd) { this.vanish(u); return true; }
+      if (u.stoneT > T) { u.vx = 0; u.vy = 0; return true; }
+      if (u.asleep) {
+        const t = u.target && !u.target.dead ? u.target : this.pickTarget(u, U);
+        if ((t && Math.hypot(t.x - u.x, t.y - u.y) < 190) || T > 0.45 * (this.fixed || this.target)) {
+          u.asleep = false; this.shake(12); this.snd('roar');
+          this.banner('THE CASTLE IS ALIVE!', TEAMS[u.team].c, 1.8); this.xf.castle = true;
+          if (this.camEv) this.camEv.push({ type: 'spot', follow: u, prio: 81, dur: 2.2, z: 1.7, slow: true });
+        } else { u.vx = 0; u.vy = 0; return true; }
+      }
+      if (u.charmT > T && u.charmBy && !u.charmBy.dead) {
+        // charmed by a siren: walks towards her and doesn't fight
+        const c = u.charmBy, dx = c.x - u.x, dy = c.y - u.y, d = Math.hypot(dx, dy) || 1, sp = U.speed * 0.6, k = Math.min(1, 7 * h);
+        const want = d > 40 ? sp : 0;
+        u.vx += (dx / d * want - u.vx) * k; u.vy += (dy / d * want - u.vy) * k; u.x += u.vx * h; u.y += u.vy * h; this.turn(u, Math.atan2(dy, dx), h);
+        return true;
+      }
+      return false;
+    },
+    ability2(u, U, h, t) {
+      const T = this.fightT, F = this.fixed || this.target, pan = (u.x - AR.x) / AR.w * 1.4 - 0.7;
+      const byDist = (a, b) => ((a.x - u.x) ** 2 + (a.y - u.y) ** 2) - ((b.x - u.x) ** 2 + (b.y - u.y) ** 2);
+      const foesNear = r => this.near(u.x, u.y, r).filter(o => o.team !== u.team && !o.phased && !o.cloak && !UNIT[o.type].decoy);
+      if (U.drainAll && T >= (u.abT || u.born + 2)) {
+        // the lich drains the three nearest enemies and shares the life with its army
+        u.abT = T + U.drainAll;
+        const foes = foesNear(220).sort(byDist).slice(0, 3);
+        for (const o of foes) { this._kind = 'blast'; this.damage(o, 3, u); this.beams.push({ x0: o.x, y0: o.y, x1: u.x, y1: u.y, t0: T, life: 0.6, col: '#7CFFB0', w: 4 }); }
+        if (foes.length) { for (const o of this.near(u.x, u.y, 200).filter(o => o.team === u.team).sort(byDist).slice(0, 4)) { this.heal(o, foes.length * 1.2 * this.hpScale); o.healFlash = 1; } u.muzzle = 1; this.snd('groan', { pan }); }
+      }
+      if (U.storm && t && T >= (u.abT || 0)) {
+        u.abT = T + U.storm;
+        if (Math.hypot(t.x - u.x, t.y - u.y) < U.range * 1.1) { this.calls.push({ x: t.x, y: t.y, at: T + 0.6, t0: T, r: 42, dmg: 6, team: u.team, from: u, kind: 'lightning' }); u.muzzle = 1; }
+      }
+      if (U.stone && !(u.stoneT > T) && u.hp < u.max * 0.6 && T >= (u.abT || 0)) { u.abT = T + U.stone; u.stoneT = T + 1.6; this.burst(u.x, u.y, '#9AA3B0', 8, 160, 0.5, 6); this.snd('stone', { pan }); }
+      if (U.cloak && !u.cloak && T >= (u.cloakAt || 0)) { u.cloak = true; for (const v of this.units) if (v.target === u) v.target = null; this.burst(u.x, u.y, '#3A3F4B', 6, 120, 0.4, 5); }
+      if (U.eat && T >= (u.abT || u.born + 3) && u.hp < u.max * 0.85) {
+        u.abT = T + U.eat;
+        const prey = this.near(u.x, u.y, u.r + 36).filter(o => o.team === u.team && o !== u && UNIT[o.type].rank !== 0 && !UNIT[o.type].uncounted && !UNIT[o.type].eat && o.hp < o.max * 0.75)[0];
+        if (prey) {
+          this.burst(prey.x, prey.y, TEAMS[prey.team].c, 8, 160, 0.4, 6); this.vanish(prey);
+          u.max += 8 * this.hpScale; u.hp = Math.min(u.max, u.hp + u.max * 0.5); u.r = Math.min(30, u.r + 1.5); u.m = u.r * u.r; u.dmgK = (u.dmgK || 1) + 0.08; u.lunge = 1;
+          this.float(u.x, u.y - u.r - 10, 'GULP!', '#FFB4A2', 26, 0.8); this.snd('pop', { pan, big: true }); this.xf.eaten = (this.xf.eaten || 0) + 1;
+          if (!this.ogreSaid) { this.ogreSaid = true; this.banner('THE OGRES EAT THEIR OWN!', TEAMS[u.team].c, 1.6); }
+        }
+      }
+      if (U.kamikaze && t && Math.hypot(t.x - u.x, t.y - u.y) < u.r + t.r + 6) {
+        this.explode({ team: u.team, kind: 'bomb', x: u.x, y: u.y, splash: 45, dmg: U.dmg, from: u });
+        this._dot = true; this.damage(u, u.hp + 99, null); this._dot = false;
+        return;
+      }
+      if (U.rockets && t && T >= (u.abT || u.born + 2)) {
+        u.abT = T + U.rockets;
+        if (Math.hypot(t.x - u.x, t.y - u.y) < U.range) { for (let k = 0; k < 2; k++) this.lobAt(u, t.x + this.R.range(-25, 25), t.y + this.R.range(-25, 25), 'rocket', 3, 40, 700); this.snd('rocket', { pan }); }
+      }
+      if (U.charm && T >= (u.abT || u.born + 3)) {
+        u.abT = T + U.charm;
+        const list = foesNear(190).filter(o => UNIT[o.type].rank !== 0).slice(0, 6);
+        for (const o of list) { o.charmT = T + 2.5; o.charmBy = u; o.retarget = 0; }
+        if (list.length) { u.muzzle = 1; this.snd('heal', { pan }); this.notes = (this.notes || []).concat([{ x: u.x, y: u.y, t0: T }]).slice(-6); if (!this.sirenSaid) { this.sirenSaid = true; this.banner('THE SIRENS ARE SINGING', TEAMS[u.team].c, 1.5); } }
+      }
+      if (U.tempest) {
+        if (T >= (u.abT || u.born + 2)) {
+          // lightning hunts the strongest enemy on the field
+          u.abT = T + U.tempest;
+          let best = null, bv = 0;
+          for (const o of foesNear(520)) { const v = UNIT[o.type].cost * o.hp; if (v > bv) { bv = v; best = o; } }
+          if (best) this.calls.push({ x: best.x, y: best.y, at: T + 0.5, t0: T, r: 40, dmg: 8, team: u.team, from: u, kind: 'lightning' });
+        }
+        if (T >= (u.gustAt || u.born + 4)) {
+          u.gustAt = T + 5;
+          const list = foesNear(200); for (const o of list) this.knock(o, u.x, u.y, 40);
+          if (list.length) { this.snd('wind', { pan }); this.fields.push({ kind: 'gust', x: u.x, y: u.y, r: 200, t0: T, end: T + 0.6, team: u.team, pow: 0 }); }
+        }
+      }
+      if (U.eclipse) {
+        // the Star Eater swallows the sun: darkness grows, enemies see less and wither; then a black hole
+        const k = clamp((T - u.born) / (0.45 * F), 0, 1);
+        this.dark = { team: u.team, k: Math.max(this.dark ? this.dark.k : 0, k) };
+        if (!u.holed && T - u.born >= 0.4 * F) {
+          const cand = foesNear(520); let best = null, bn = 3;
+          for (let i = 0; i < cand.length; i += Math.max(1, cand.length / 20 | 0)) { const c = cand[i]; let n = 0; for (const o of cand) if ((o.x - c.x) ** 2 + (o.y - c.y) ** 2 < 8100) n++; if (n > bn) { bn = n; best = c; } }
+          if (best) {
+            u.holed = true;
+            this.fields.push({ kind: 'singularity', x: best.x, y: best.y, r: 230, t0: T, end: T + 2, team: u.team, pow: 240, blast: { dmg: 10, r: 140 } });
+            this.banner('THE STAR EATER OPENS A BLACK HOLE!', TEAMS[u.team].c, 2); this.snd('portal'); this.xf.blackhole = true;
+            if (this.camEv) this.camEv.push({ type: 'spot', x: best.x, y: best.y, prio: 83, dur: 2.6, z: 1.5, slow: true });
+          }
+        }
+      }
+      if (U.rewind) {
+        // the Timeline Executioner remembers where every enemy near it was, and every few seconds sends them back there
+        if (T >= (u.histAt || 0)) {
+          u.histAt = T + 1;
+          for (const o of this.near(u.x, u.y, 460)) if (o.team !== u.team) { (o.hist || (o.hist = [])).push(o.x, o.y, o.hp); if (o.hist.length > 15) o.hist.splice(0, 3); }
+        }
+        if (T >= (u.abT || u.born + 9)) {
+          u.abT = T + U.rewind;
+          const list = foesNear(350).filter(o => o.hist && o.hist.length >= 12);
+          if (list.length >= 3) {
+            for (const o of list) { o.x = o.hist[o.hist.length - 12]; o.y = o.hist[o.hist.length - 11]; o.hp = Math.max(o.hp, Math.min(o.max, o.hist[o.hist.length - 10])); o.px = o.x; o.py = o.y; o.wp = null; o.vx = 0; o.vy = 0; o.hist = null; }
+            // ...but it remembers: two of them are executed on the spot
+            const doomed = list.filter(o => UNIT[o.type].rank !== 0).sort(byDist).slice(0, 2);
+            for (const o of doomed) { this.beams.push({ x0: u.x, y0: u.y, x1: o.x, y1: o.y, t0: T, life: 0.5, col: '#FDE68A', w: 6 }); this.float(o.x, o.y - o.r - 10, 'EXECUTED', '#FDE68A', 22, 0.8); this.damage(o, o.hp + 999, u); }
+            this.rewindFx = { x: u.x, y: u.y, t0: T }; this.snd('phase', { pan });
+            if (!u.rewSaid) { u.rewSaid = true; this.banner('TIME REWINDS!', '#FDE68A', 1.6); if (this.camEv) this.camEv.push({ type: 'spot', follow: u, prio: 70, dur: 2, z: 1.7 }); }
+            this.xf.rewinds = (this.xf.rewinds || 0) + 1;
+          }
+        }
+      }
+      if (U.bell && T >= (u.abT || u.born + 6)) {
+        // the cathedral bell: the dead around it rise, and its army is healed
+        u.abT = T + U.bell;
+        this.raisedN = this.raisedN || [0, 0, 0];
+        let n = Math.min(6, 40 - this.raisedN[u.team]);
+        for (const c of this.corpses) { if (n <= 0) break; if (c.used || T - c.t > 12 || (c.x - u.x) ** 2 + (c.y - u.y) ** 2 > 102400) continue; c.used = true; n--; this.raisedN[u.team]++; this.spawnQ.push({ at: T + 0.8, team: u.team, type: 'skeleton', x: c.x, y: c.y, rise: true }); this.xf.raised++; }
+        for (const o of this.near(u.x, u.y, 260)) if (o.team === u.team) { this.heal(o, 3 * this.hpScale); o.healFlash = 1; }
+        this.bellFx = { x: u.x, y: u.y, t0: T }; this.snd('bell', { pan });
+      }
+      if (U.roots) {
+        // the Worldroot plants itself, then its roots spread, rooting and draining enemies; trees bring new creatures
+        if (!u.plantT && T - u.born > 4) { u.plantT = T; u.rooted = true; (this.rootUnits || (this.rootUnits = new Set())).add(u); this.banner('THE WORLDROOT TAKES ROOT', TEAMS[u.team].c, 1.5); this.snd('rumble'); }
+        if (u.plantT) {
+          u.rootR = 80 + Math.min(340, (T - u.plantT) * 14);
+          if (T >= (u.rootAt || 0)) { u.rootAt = T + 0.25; for (const o of this.near(u.x, u.y, u.rootR)) if (o.team !== u.team && !o.flying) { this.slowDown(o, 0.55, 0.35); this.dot(o, 0.15 * 0.25 * this.hpScale, u); } }
+          if (T >= (u.abT || u.plantT + 6) && (u.grown || 0) < 10) {
+            u.abT = T + 10;
+            for (let k = 0; k < 2; k++) { const a = this.R.range(0, TAU), d = u.rootR * 0.6; u.grown = (u.grown || 0) + 1; this.spawnQ.push({ at: T + 0.5, team: u.team, type: k ? 'wisp' : 'treant', x: clamp(u.x + Math.cos(a) * d, AR.x + 30, AR.x + AR.w - 30), y: clamp(u.y + Math.sin(a) * d, AR.y + 30, AR.y + AR.h - 30), rise: true }); }
+          }
+        }
+      }
+      if (U.ages) {
+        if (T >= (u.ageTick || 0)) {
+          u.ageTick = T + 0.25;
+          for (const o of this.near(u.x, u.y, 220)) {
+            if (o.team === u.team) { if (o.hp < o.max) this.heal(o, 1.5 * 0.25 * this.hpScale); }
+            else if (MACHINE[o.type]) this.dot(o, 2 * 0.25 * this.hpScale, u);
+          }
+        }
+        if (T >= (u.abT || u.born + 5)) {
+          // wounded enemies close by age into skeletons that fight for the titan
+          u.abT = T + U.ages; this.agedN = this.agedN || 0;
+          for (const o of foesNear(220)) {
+            if (this.agedN >= 20 || !LIVING[o.type] || UNIT[o.type].rank === 0 || o.hp > o.max * 0.6 || o.team === MONSTERS) continue;
+            this.agedN++; this.switchTeam(o, u.team);
+            const S = UNIT.skeleton; o.type = 'skeleton'; o.r = S.r; o.m = S.r * S.r; o.max = S.hp * this.hpScale; o.hp = o.max * 0.8; o.flying = false; o.cd = S.cd;
+            this.burst(o.x, o.y, '#E8E2D0', 6, 140, 0.4, 5); this.float(o.x, o.y - 18, 'AGED!', '#E8E2D0', 20, 0.7);
+            this.xf.aged = (this.xf.aged || 0) + 1;
+          }
+          this.sandFx = { x: u.x, y: u.y, t0: T };
+        }
+      }
+      if (U.moon) {
+        const k = clamp((T - u.born) / (0.5 * F), 0, 1);
+        this.moon = { team: u.team, k: Math.max(this.moon ? this.moon.k : 0, k) };
+        if (k >= 0.5 && !this.moonPulled) {
+          // the moon gets so close that enemy fliers are pulled out of the sky
+          this.moonPulled = true; let n = 0;
+          for (const o of this.units) if (!o.dead && o.flying && o.team !== u.team) { o.flying = false; o.grounded = true; this.damage(o, o.max * 0.1, u); n++; }
+          this.banner(n ? 'THE MOON PULLS THEM DOWN!' : 'THE MOON IS RISING!', TEAMS[u.team].c, 1.8); this.shake(10); this.xf.moon = true;
+        }
+      }
+      if (U.defect && T >= (u.abT || u.born + 4)) {
+        u.abT = T + U.defect; this.defectN = this.defectN || 0;
+        const list = foesNear(210).filter(o => UNIT[o.type].rank !== 0 && !UNIT[o.type].commander && !UNIT[o.type].uncounted && o.team !== MONSTERS).sort(byDist).slice(0, 3);
+        for (const o of list) { if (this.defectN >= 15) break; this.defectN++; this.switchTeam(o, u.team); o.bribed = T; this.float(o.x, o.y - 20, 'ALL HAIL!', COL.gold, 22, 0.8); }
+        if (list.length) { this.snd('bell', { pan }); this.xf.defect = (this.xf.defect || 0) + list.length; if (!this.kingSaid) { this.kingSaid = true; this.banner('ALL HAIL THE GOBLIN KING?!', TEAMS[u.team].c, 1.8); } }
+      }
+      if (U.rewindAll) this.snapTick(u);
+      if (U.grab) {
+        if (u.holding) {
+          const o = u.holding;
+          if (o.dead) u.holding = null;
+          else if (T >= u.throwAt) {
+            // ...and throws it at the thickest group of its enemies
+            const cand = foesNear(460).filter(v => v !== o); let best = null, bn = 0;
+            for (let i = 0; i < cand.length; i += Math.max(1, cand.length / 20 | 0)) { const c = cand[i]; let n = 0; for (const v of cand) if ((v.x - c.x) ** 2 + (v.y - c.y) ** 2 < 6400) n++; if (n > bn) { bn = n; best = c; } }
+            const tx = best ? best.x : clamp(u.x + Math.cos(u.face) * 200, AR.x + 30, AR.x + AR.w - 30), ty = best ? best.y : clamp(u.y + Math.sin(u.face) * 200, AR.y + 30, AR.y + AR.h - 30);
+            o.grabbed = null; o.phased = true; o.thrown = { sx: o.x, sy: o.y, tx, ty, t0: T, T: 0.6, team: u.team, by: u }; u.holding = null; u.lunge = 1;
+            this.snd('whoosh', { pan });
+          }
+        } else if (T >= (u.abT || u.born + 3)) {
+          const o = foesNear(160).filter(v => !UNIT[v.type].immovable && !v.thrown && !v.grabbed).sort(byDist)[0];
+          u.abT = T + (o ? U.grab : 0.5);
+          if (o) {
+            u.holding = o; o.grabbed = u; o.target = null; u.throwAt = T + 0.8; this.xf.grabbed = (this.xf.grabbed || 0) + 1;
+            this.float(o.x, o.y - o.r - 12, 'GRABBED!', '#FFFFFF', 22, 0.7);
+            if (!this.playerSaid) { this.playerSaid = true; this.banner('THE PLAYER JOINS THE GAME!', TEAMS[u.team].c, 1.8); if (this.camEv) this.camEv.push({ type: 'spot', follow: u, prio: 75, dur: 2.2, z: 1.6, slow: true }); }
+          }
+        }
+      }
+      if (U.castle && !u.asleep && t && T >= (u.abT || 0)) {
+        // the Living Fortress swallows the troops in front of its gate
+        u.abT = T + 5;
+        const fx = Math.cos(u.face), fy = Math.sin(u.face);
+        const list = foesNear(u.r + 50).filter(o => UNIT[o.type].rank !== 0 && (o.x - u.x) * fx + (o.y - u.y) * fy > 0).slice(0, 3);
+        for (const o of list) { this.float(o.x, o.y - 16, 'CHOMP!', '#FF6B3D', 22, 0.7); this.damage(o, o.hp + 999, u); }
+        if (list.length) { u.lunge = 1; this.snd('stomp', { pan }); this.shake(6); this.xf.swallowed = (this.xf.swallowed || 0) + list.length; }
+      }
+    },
+    // ----- the General Who Cannot Lose: snapshots of the whole battle, and a rewind -----
+    snapTick(u) {
+      const T = this.fightT, team = u.team;
+      this.rewound = this.rewound || [];
+      if (this.rewound[team]) return;
+      if (T >= (this.snapAt || 0)) {
+        this.snapAt = T + 2;
+        (this.snaps || (this.snaps = [])).push(this.takeSnap()); if (this.snaps.length > 9) this.snaps.shift();
+      }
+      if (this.pendingRewind || T < 16) return;
+      const str = this.strength(team) / ((this.str0 && this.str0[team]) || 1);
+      if (str < 0.28 || u.hp < u.max * 0.25) {
+        // (done after this tick's troops have moved, so nothing acts on the old copies)
+        const snap = this.snaps.find(s => T - s.t >= 12) || this.snaps[0];
+        if (snap && T - snap.t >= 6) this.pendingRewind = { snap, team };
+      }
+    },
+    takeSnap() {
+      const map = new Map();
+      const units = this.units.filter(o => !o.dead).map(o => { const c = Object.assign({}, o); map.set(o, c); return c; });
+      for (const c of units) { c.target = null; c.wp = null; c.cover = null; c.castOn = null; c.bites = null; c.hist = null; c.holding = null; c.grabbed = null; c.thrown = null; c.lift = 0; c.phased = !!(c.ashT || c.fuseTo || c.phaseTo); c.owner = map.get(c.owner) || null; c.charmBy = null; c.charmT = 0; if (c.bodies) c.bodies = c.bodies.slice(); }
+      return { t: this.fightT, units, map, alive: this.alive.slice(), reserve: this.reserve.slice(), waves: this.waves.map(w => w.map(v => !!v.done)), gained: (this.gained || [0, 0, 0]).slice(), deaths: this.deaths };
+    },
+    restoreSnap(s, team) {
+      const map = new Map(), cur = new Set(this.units);
+      this.units = s.units.map(o => { const c = Object.assign({}, o); map.set(o, c); return c; });
+      for (const c of this.units) { c.owner = map.get(c.owner) || null; c.px = c.x; c.py = c.y; c.retarget = 0; c.dead = false; if (c.bodies) c.bodies = c.bodies.slice(); }
+      // anything else that points at a troop (battle events) now points at its rewound copy, or at nothing if it didn't exist yet
+      const re = v => (cur.has(v) ? map.get(s.map.get(v)) || null : v);
+      for (const ev of this.events || []) for (const k of Object.keys(ev)) {
+        const v = ev[k];
+        if (v && typeof v === 'object') { if (cur.has(v)) ev[k] = re(v); else if (Array.isArray(v) && v.some(x => cur.has(x))) ev[k] = v.map(re).filter(Boolean); else if (v instanceof Set) ev[k] = new Set([...v].map(re).filter(Boolean)); }
+      }
+      this.alive = s.alive.slice(); this.reserve = s.reserve.slice(); this.waves.forEach((w, t) => w.forEach((v, i) => { v.done = s.waves[t][i]; })); this.gained = s.gained.slice(); this.deaths = s.deaths;
+      this.arrows = []; this.fields = []; this.calls = []; this.spawnQ = []; this.clouds = []; this.fires = []; this.beams = []; this.rising = [];
+      this.best = [null, null, null]; this.best[MONSTERS] = null;
+      for (const c of this.units) if (c.kills && (!this.best[c.team] || c.kills > this.best[c.team].kills)) this.best[c.team] = c;
+      this.champOf = []; for (const c of this.units) if (c.champ && c.team < 3) this.champOf[c.team] = c;
+      this.tag = null;
+      if (this.rootUnits) this.rootUnits = new Set(this.units.filter(c => c.plantT && UNIT[c.type].roots));
+      // ...and its army remembers what happened: it hits a quarter harder
+      for (const c of this.units) if (c.team === team) c.dmgK = (c.dmgK || 1) * 1.25;
+      this.rewound[team] = true; this.rewindAll = { t0: this.fightT };
+      this.banner('THE GENERAL CANNOT LOSE: REWIND!', TEAMS[team].c, 2.4); this.snd('glitch'); this.snd('phase');
+      const gen = this.units.find(c => c.team === team && UNIT[c.type].rewindAll);
+      if (this.camEv) this.camEv.push({ type: 'spot', follow: gen, x: gen ? gen.x : AR.x + AR.w / 2, y: gen ? gen.y : AR.y + AR.h / 2, prio: 95, dur: 2.6, z: 1.5, slow: true });
+      this.xf.rewound = TEAMS[team].name;
+    },
+    // ----- after a troop dies (second batch) -----
+    onDeath2(u, from) {
+      const U = UNIT[u.type], T = this.fightT, killer = from && from.team !== u.team && !from.dead ? from : null;
+      if (killer && (UNIT[killer.type].haunt || killer.hollow) && U.rank !== 0 && !U.uncounted && !U.commander && !U.cosmos && !U.fraud && !U.bribe && !u.hollow && !u.ghost && killer.team < 3) {
+        // the Empty Army: the fallen troop's gear gets up and fights on as a hollow copy
+        this.hollowN = this.hollowN || [0, 0, 0];
+        if (this.hollowN[killer.team] < 40) { this.hollowN[killer.team]++; this.spawnQ.push({ at: T + 0.5, team: killer.team, type: u.type, x: u.x, y: u.y, hollow: true }); this.xf.hollow = (this.xf.hollow || 0) + 1; }
+      }
+      if (U.bloom) { for (const o of this.near(u.x, u.y, 110)) if (o.team === u.team) { this.heal(o, 4 * this.hpScale); o.healFlash = 1; } this.burst(u.x, u.y, '#7CFFB0', 10, 200, 0.6, 6, -40); }
+      if (U.cosmos && u.team < 3) {
+        this.univN = this.univN || [0, 0, 0];
+        if (this.univN[u.team] < 3) {
+          this.univN[u.team]++;
+          const type = UNIVERSE_ARMIES[Math.floor(this.R.next() * UNIVERSE_ARMIES.length)];
+          for (let k = 0; k < 5; k++) { const a = k / 5 * TAU; this.spawnQ.push({ at: T + 0.7 + k * 0.08, team: u.team, type, x: u.x + Math.cos(a) * 26, y: u.y + Math.sin(a) * 26, portal: true }); }
+          (this.galaxies || (this.galaxies = [])).push({ x: u.x, y: u.y, t0: T });
+          if (!this.univSaid) { this.univSaid = true; this.banner('A UNIVERSE OPENS INSIDE HIM!', TEAMS[u.team].c, 1.8); if (this.camEv) this.camEv.push({ type: 'spot', x: u.x, y: u.y, prio: 77, dur: 2.2, z: 1.9, slow: true }); }
+          this.xf.universe = (this.xf.universe || 0) + 1; this.snd('portal');
+        }
+      }
+      if (U.tempest && !this.permaStorm) { this.permaStorm = { next: T + 2 }; this.bannerQ.push({ at: T + 1.7, text: 'THE STORM REMAINS!', col: '#BFE6FF' }); }
+      if (this.weather === 'bloodmoon' && killer) { killer.hp = Math.min(killer.max, killer.hp + killer.max * 0.3); killer.drainFx = 1; }
+    },
+    // ----- the rest of each tick (second batch) -----
+    postStep2(h) {
+      const T = this.fightT, F = this.fixed || this.target;
+      // the Star Eater's darkness fades if it falls; the darkness withers its enemies
+      if (this.dark) {
+        if (!this.units.some(o => !o.dead && UNIT[o.type].eclipse && o.team === this.dark.team)) this.dark.k = Math.max(0, this.dark.k - h * 0.3);
+        if (this.dark.k > 0.4) for (const o of this.units) if (!o.dead && o.team !== this.dark.team && o.team < 3) this.dot(o, 0.05 * this.dark.k * h * this.hpScale, null);
+      }
+      if (this.moon) {
+        if (!this.units.some(o => !o.dead && UNIT[o.type].moon && o.team === this.moon.team)) this.moon.k = Math.max(0, this.moon.k - h * 0.25);
+        const tide = this.moon.k >= 0.6 ? (this.moon.k - 0.6) / 0.4 * 200 : 0;
+        this.moon.tide = tide;
+        if (tide > 1 && T >= (this.tideAt || 0)) {
+          this.tideAt = T + 0.25;
+          for (const o of this.units) if (!o.dead && !o.flying && o.team !== this.moon.team && (o.x < AR.x + tide || o.x > AR.x + AR.w - tide)) { this.slowDown(o, 0.5, 0.35); this.dot(o, 0.12 * this.hpScale, null); }
+        }
+      }
+      if (this.permaStorm && T >= this.permaStorm.next) {
+        // the Storm Emperor's storm: lightning in mirrored pairs, so neither side gets hit more on purpose
+        this.permaStorm.next = T + 4;
+        const x = this.R.range(AR.x + 80, AR.x + AR.w - 80), dy = this.R.range(40, 380), mid = AR.y + AR.h / 2;
+        for (const y of [mid - dy, mid + dy]) this.calls.push({ x, y, at: T + 0.7, t0: T, r: 42, dmg: 6, team: -1, from: null, kind: 'lightning' });
+      }
+      // a commander left alone with its army gone transforms into a monster
+      if (this.sys.transform && T >= (this.transAt || 0)) {
+        this.transAt = T + 0.5; this.transformed = this.transformed || [];
+        const tot = this.totals();
+        for (const t of this.teamIds()) {
+          if (this.transformed[t] || tot[t] > 2 || tot[t] === 0) continue;
+          const g = this.units.find(o => !o.dead && o.team === t && UNIT[o.type].commander === 2 && !UNIT[o.type].healer);
+          if (!g) continue;
+          this.transformed[t] = true;
+          g.r = 34; g.m = g.r * g.r; g.max = 160 * this.hpScale; g.hp = g.max; g.dmgK = (g.dmgK || 1) * 3; g.stomp = 50; g.boss = true; g.transformed = true; g.title = 'TRANSFORMED'; g.flying = false;
+          this.banner(`${TEAMS[t].name} ${labelOf(g.type).replace(/^THE /, '')} TRANSFORMS!`, TEAMS[t].c, 2.2); this.shake(16); this.snd('roar');
+          this.burst(g.x, g.y, '#E5484D', 26, 420, 0.7, 9);
+          if (this.camEv) this.camEv.push({ type: 'spot', follow: g, prio: 88, dur: 2.6, z: 1.8, slow: true });
+          this.xf.transform = labelOf(g.type);
+        }
+      }
+      if (this.notes) this.notes = this.notes.filter(n => T - n.t0 < 1.2);
+      if (this.pendingRewind) { const p = this.pendingRewind; this.pendingRewind = null; this.restoreSnap(p.snap, p.team); }
+    },
+    // ----- the new hazards: a stampede, the kraken (pirate battles) -----
+    ev_stampede(ev, h) {
+      if (!ev.started) {
+        if (this.fightT < ev.at) return;
+        const E = this.ER, dir = E.chance(0.5) ? 1 : -1, mid = AR.y + AR.h / 2, d1 = E.range(70, 160), d2 = E.range(220, 340);
+        ev.herd = [];
+        for (const dy of [d1, d2]) for (const sg of [-1, 1]) ev.herd.push({ x: dir > 0 ? AR.x - 80 - E.range(0, 120) : AR.x + AR.w + 80 + E.range(0, 120), y: mid + sg * dy, kind: dy === d1 ? 'mammoth' : 'rhino', hit: new Set(), gait: E.range(0, TAU) });
+        // the same delay for each mirrored pair, so both sides get hit at the same time
+        for (let i = 0; i < ev.herd.length; i += 2) ev.herd[i + 1].x = ev.herd[i].x;
+        Object.assign(ev, { started: true, dir });
+        this.banner('STAMPEDE!', COL.gold, 2); this.snd('rumble'); this.snd('alarm');
+        if (this.facts) this.facts.hazard = 'stampede'; this.xf.stampede = true;
+        if (this.camEv) this.camEv.push({ type: 'hazard', ev });
+      }
+      ev.t += h;
+      let live = 0;
+      for (const a of ev.herd) {
+        a.x += ev.dir * 280 * h;
+        if (a.x > AR.x - 160 && a.x < AR.x + AR.w + 160) live++;
+        const R = a.kind === 'mammoth' ? 34 : 24;
+        for (const o of this.near(a.x, a.y, R + 20)) {
+          if (o.flying || a.hit.has(o) || UNIT[o.type].immovable) continue;
+          a.hit.add(o); this._kind = 'blade'; this.damage(o, 4 * (UNIT[o.type].rank === 0 ? 2 : 1), null);
+          this.knock(o, o.x, a.y + (o.y < a.y ? 30 : -30), 45);
+        }
+        if (this.FX.chance(h * 20)) this.burst(a.x - ev.dir * R, a.y + this.FX.range(-R, R), '#8A7A5A', 2, 80, 0.5, 6, -20);
+      }
+      this.shake(3);
+      if (ev.t > 1 && !live) ev.done = true;
+      if (ev.t > 9) ev.done = true;
+    },
+    ev_kraken(ev, h) {
+      if (!ev.started) {
+        if (this.fightT < ev.at) return;
+        const E = this.ER, mid = AR.y + AR.h / 2;
+        ev.arms = [];
+        for (let k = 0; k < 3; k++) { const x = AR.x + 160 + k * (AR.w - 320) / 2 + E.range(-60, 60), dy = E.range(80, 300), ph = E.range(0, TAU); for (const sg of [-1, 1]) ev.arms.push({ x, y: mid + sg * dy, ph, sg }); }
+        Object.assign(ev, { started: true });
+        this.banner('THE KRAKEN!', '#A855F7', 2); this.snd('roar'); this.snd('rumble'); this.shake(12);
+        if (this.facts) this.facts.hazard = 'kraken'; this.xf.kraken = true;
+        if (this.camEv) this.camEv.push({ type: 'hazard', ev });
+      }
+      ev.t += h;
+      const up = clamp(ev.t / 0.6, 0, 1) * clamp((4.2 - ev.t) / 0.6, 0, 1);
+      for (const a of ev.arms) {
+        // each tentacle sweeps round its hole, grabbing and squeezing whoever it touches
+        const ang = a.ph + ev.t * 1.6 * a.sg, tx = a.x + Math.cos(ang) * 70 * up, ty = a.y + Math.sin(ang) * 70 * up;
+        a.tx = tx; a.ty = ty;
+        if (up > 0.5) for (const o of this.near(tx, ty, 40)) if (!o.flying) { this.dot(o, 3.5 * h * this.hpScale, null); o.x += (a.x - o.x) * h * 1.5; o.y += (a.y - o.y) * h * 1.5; }
+      }
+      if (ev.t > 4.3) ev.done = true;
+    },
+    drawEvent2(ctx, ev) {
+      if (ev.type === 'stampede' && ev.started && !ev.done) {
+        for (const a of ev.herd) {
+          if (a.x < AR.x - 120 || a.x > AR.x + AR.w + 120) continue;
+          const fake = { r: a.kind === 'mammoth' ? 34 : 24, face: ev.dir > 0 ? 0 : Math.PI, mface: ev.dir > 0 ? 0 : Math.PI, vx: ev.dir * 280, vy: 0, gait: a.gait, lunge: 0, type: a.kind, x: a.x, y: a.y };
+          if (a.kind === 'mammoth') this.drawMount(ctx, fake, a.x, a.y, 'mammoth', TEAMS[MONSTERS]);
+          else this.drawRoster2(ctx, fake, a.x, a.y, TEAMS[MONSTERS]);
+        }
+      }
+      if (ev.type === 'kraken' && ev.started && !ev.done) {
+        const up = clamp(ev.t / 0.6, 0, 1) * clamp((4.2 - ev.t) / 0.6, 0, 1);
+        for (const a of ev.arms) {
+          disc(ctx, a.x, a.y, 26 * up + 4, '#0B1E33', 3);
+          if (up <= 0.05) continue;
+          const mx = (a.x + a.tx) / 2 + Math.cos(ev.t * 3 + a.ph) * 20, my = (a.y + a.ty) / 2 + Math.sin(ev.t * 3 + a.ph) * 20;
+          ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.quadraticCurveTo(mx, my, a.tx, a.ty);
+          ctx.lineWidth = 24 * up + 3; ctx.strokeStyle = COL.ink; ctx.stroke(); ctx.lineWidth = 24 * up; ctx.strokeStyle = '#9D4EDD'; ctx.stroke();
+          ctx.lineWidth = 10 * up; ctx.strokeStyle = '#C77DFF'; ctx.stroke();
+          for (let k = 1; k < 4; k++) { const f = k / 4, sx = (1 - f) * (1 - f) * a.x + 2 * (1 - f) * f * mx + f * f * a.tx, sy = (1 - f) * (1 - f) * a.y + 2 * (1 - f) * f * my + f * f * a.ty; disc(ctx, sx, sy, 3.5 * up, '#F4E1FF', 1.2); }
+        }
+      }
+    },
+    // the new supply-drop power-ups (second batch)
+    powerup2(kind, ev, team) {
+      const T = this.fightT, name = TEAMS[team].name, S = this.SR;
+      if (kind === 'clone') {
+        const mine = this.units.filter(o => o.team === team && !o.dead && UNIT[o.type].rank !== 0 && !UNIT[o.type].uncounted && !UNIT[o.type].commander);
+        const n = Math.min(6, mine.length);
+        for (let k = 0; k < n; k++) { const o = mine[S.int(0, mine.length - 1)]; this.spawnQ.push({ at: T + 0.4, team, type: o.type, x: o.x + S.range(-24, 24), y: o.y + S.range(-24, 24), mimic: 'copy' }); this.beams.push({ x0: ev.x, y0: ev.y, x1: o.x, y1: o.y, t0: T, life: 0.5, col: '#38BDF8', w: 4 }); }
+        return `${name}: CLONE RAY!`;
+      }
+      if (kind === 'ghosts') {
+        const list = this.fallen[team].splice(-10);
+        list.forEach((f, i) => this.spawnQ.push({ at: T + 0.4 + i * 0.05, team, type: f.type, x: f.x, y: f.y, ghost: true }));
+        this.snd('groan');
+        return list.length ? `${name}: GHOST ARMY RISES!` : `${name}: GHOST ARMY!`;
+      }
+      return `${name} GRABS THE DROP`;
+    },
+  };
+  // ----- looks of the second troop batch (flat cartoon, black outlines, team colours) -----
+  const ARMY_DRAW2 = {
+    drawMammoth(ctx, u, x, y, tm) {
+      const r = u.r, a = u.mface !== undefined ? u.mface : u.face, mv = Math.hypot(u.vx, u.vy) > 12, ph = this.t * 10 + u.gait, gal = mv ? Math.sin(ph) : 0, INK = COL.ink, FUR = '#6B4A32';
+      ctx.save(); ctx.translate(x, y); ctx.rotate(a); ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+      ctx.beginPath();
+      for (const [lx, ly] of [[0.45, -0.58], [0.45, 0.58], [-0.5, -0.58], [-0.5, 0.58]]) { const ex = r * lx + gal * r * 0.08 * Math.sign(lx * ly), ey = r * ly; ctx.moveTo(ex + r * 0.21, ey); ctx.ellipse(ex, ey, r * 0.21, r * 0.18, 0, 0, TAU); }
+      ctx.fillStyle = '#4A3424'; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = INK; ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(-r * 0.9, 0); ctx.lineTo(-r * 1.2, Math.sin(ph * 0.5) * r * 0.15); ctx.lineWidth = 4; ctx.strokeStyle = INK; ctx.stroke();
+      // a shaggy coat: a bumpy outline all the way round
+      ctx.beginPath();
+      for (let k = 0; k <= 32; k++) { const t = k / 32 * TAU, rr = k % 2 ? 1.07 : 0.98, px = Math.cos(t) * r * 0.98 * rr - r * 0.05, py = Math.sin(t) * r * 0.78 * rr; if (k) ctx.lineTo(px, py); else ctx.moveTo(px, py); }
+      ctx.closePath(); ctx.fillStyle = FUR; ctx.fill(); ctx.lineWidth = 3.5; ctx.strokeStyle = INK; ctx.stroke();
+      ctx.beginPath(); for (let k = 0; k < 6; k++) { const yy = (k - 2.5) * r * 0.22; ctx.moveTo(-r * 0.75, yy); ctx.quadraticCurveTo(-r * 0.4, yy + r * 0.06, -r * 0.1, yy); } ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(4,6,11,0.3)'; ctx.stroke();
+      ell(ctx, r * 0.8, 0, r * 0.42, r * 0.4, 0, FUR, 3);
+      disc(ctx, r * 0.72, 0, r * 0.25, '#7A5A40', 0);
+      // long curling tusks
+      for (const sd of [-1, 1]) { ctx.beginPath(); ctx.moveTo(r * 1.0, sd * r * 0.16); ctx.quadraticCurveTo(r * 1.55, sd * r * 0.62, r * 1.62, sd * r * 0.12); ctx.lineWidth = 8; ctx.strokeStyle = INK; ctx.stroke(); ctx.lineWidth = 5; ctx.strokeStyle = '#F4F1E6'; ctx.stroke(); }
+      const sw = Math.sin(this.t * 4 + u.gait) * r * 0.25 + (u.lunge || 0) * r * 0.3;
+      ctx.beginPath(); ctx.moveTo(r * 1.08, 0); ctx.quadraticCurveTo(r * 1.45, sw * 0.5, r * 1.58, sw); ctx.lineWidth = 12; ctx.strokeStyle = INK; ctx.stroke(); ctx.lineWidth = 8; ctx.strokeStyle = FUR; ctx.stroke();
+      roundRect(ctx, -r * 0.55, -r * 0.42, r * 0.8, r * 0.84, 6); ctx.fillStyle = tm.c; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = INK; ctx.stroke();
+      ctx.lineWidth = 2; ctx.strokeStyle = tm.l; ctx.strokeRect(-r * 0.45, -r * 0.32, r * 0.6, r * 0.64);
+      disc(ctx, -r * 0.15, 0, r * 0.2, tm.d, 2);
+      ctx.restore();
+    },
+    drawRoster2(ctx, u, x, y, tm) {
+      const r = u.r, f = u.face, fx = Math.cos(f), fy = Math.sin(f), px = -fy, py = fx, INK = COL.ink, T = this.t, lg = u.lunge || 0;
+      ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+      const cx = x - fx * r * 0.1, cy = y - fy * r * 0.1;
+      const ring = (rr, w, c) => { ctx.beginPath(); ctx.arc(x, y, rr, 0, TAU); ctx.lineWidth = w; ctx.strokeStyle = c; ctx.stroke(); };
+      const eyes = (hx, hy, fwd, sp, rr, c) => { ctx.fillStyle = c; ctx.beginPath(); for (const sd of [-1, 1]) { const ex = hx + fx * fwd + px * sd * sp, ey = hy + fy * fwd + py * sd * sp; ctx.moveTo(ex + rr, ey); ctx.arc(ex, ey, rr, 0, TAU); } ctx.fill(); };
+      const P = (a, b) => [x + fx * a + px * b, y + fy * a + py * b];
+      const staff = (len, col) => { const [sx, sy] = P(0, r * 0.65), ex = sx + fx * (r + len), ey = sy + fy * (r + len); stick(ctx, sx - fx * 6, sy - fy * 6, ex, ey, 3, col); return [ex, ey]; };
+      switch (u.type) {
+        case 'frostwitch': {
+          const [ex, ey] = staff(12, '#B9D7EA'), m = u.muzzle || 0;
+          disc(ctx, x, y, r, tm.c, 3);
+          disc(ctx, x - fx * 2, y - fy * 2, r * 0.66, '#DCEFFF', 2); disc(ctx, x - fx * 2.5, y - fy * 2.5, r * 0.3, '#7CC8FF', 1.5);
+          disc(ctx, ex, ey, 9 + 5 * m, `rgba(191,230,255,${0.3 + 0.4 * m})`, 0);
+          ctx.save(); ctx.translate(ex, ey); ctx.rotate(T * 2 + u.gait);
+          ctx.beginPath(); ctx.moveTo(0, -7); ctx.lineTo(4, 0); ctx.lineTo(0, 7); ctx.lineTo(-4, 0); ctx.closePath(); ctx.fillStyle = '#E6F6FF'; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = INK; ctx.stroke();
+          ctx.restore();
+          break;
+        }
+        case 'lich': {
+          ctx.beginPath(); for (let k = 0; k < 2; k++) { const a = T * 2.5 + u.gait + k * Math.PI, ox = x + Math.cos(a) * (r + 9), oy = y + Math.sin(a) * (r + 9); ctx.moveTo(ox + 3.5, oy); ctx.arc(ox, oy, 3.5, 0, TAU); } ctx.fillStyle = 'rgba(124,255,176,0.85)'; ctx.fill();
+          const [ex, ey] = staff(10, '#3A3330');
+          disc(ctx, ex, ey, 5, '#7CFFB0', 1.5);
+          disc(ctx, x, y, r, '#1F2A2A', 3); ring(r - 2.5, 3, tm.c);
+          const [hx, hy] = P(r * 0.12, 0); disc(ctx, hx, hy, r * 0.52, '#E8E2D0', 2);
+          eyes(hx, hy, r * 0.18, r * 0.17, 2.2, '#22C55E');
+          ctx.beginPath(); ctx.arc(hx, hy, r * 0.52, f + 2, f + 4.3); ctx.lineWidth = 3; ctx.strokeStyle = COL.gold; ctx.stroke();
+          break;
+        }
+        case 'stormcaller': {
+          const [ex, ey] = staff(12, '#6B5A3A'), fl = 0.6 + 0.4 * Math.sin(T * 23 + u.gait);
+          disc(ctx, x, y, r, tm.c, 3); disc(ctx, x - fx * 2, y - fy * 2, r * 0.6, '#2B3A67', 2);
+          disc(ctx, ex, ey, 6 + 4 * fl, 'rgba(253,224,71,0.3)', 0);
+          ctx.beginPath(); ctx.moveTo(ex - 4, ey - 7); ctx.lineTo(ex + 2, ey - 1); ctx.lineTo(ex - 2, ey + 1); ctx.lineTo(ex + 4, ey + 7); ctx.lineWidth = 4.5; ctx.strokeStyle = INK; ctx.stroke(); ctx.lineWidth = 2.5; ctx.strokeStyle = '#FDE047'; ctx.stroke();
+          break;
+        }
+        case 'wisp': {
+          const pl = 0.7 + 0.3 * Math.sin(T * 6 + u.gait);
+          disc(ctx, x - fx * 10, y - fy * 10, r * 0.6, 'rgba(160,255,200,0.35)', 0); disc(ctx, x - fx * 17, y - fy * 17, r * 0.35, 'rgba(160,255,200,0.25)', 0);
+          disc(ctx, x, y, r * 2.1 * pl, 'rgba(160,255,200,0.28)', 0);
+          disc(ctx, x, y, r, '#E6FFF0', 2.5); disc(ctx, x, y, r * 0.5, tm.c, 0);
+          break;
+        }
+        case 'gargoyle': {
+          const stone = u.stoneT > this.fightT, fl = stone ? 0.55 : 0.88 + 0.12 * Math.sin(T * 9 + u.gait), G = stone ? '#A3A9B1' : '#7D8593';
+          ell(ctx, x + 10, y + 24, r * 1.4, r * 0.7, f, 'rgba(0,0,0,0.25)', 0);
+          // wide bat wings, folded when it turns to stone
+          ctx.beginPath();
+          for (const sd of [-1, 1]) {
+            const a0 = P(r * 0.3, sd * r * 0.3), a1 = P(r * 0.1, sd * r * 2.7 * fl), a2 = P(-r * 1.0, sd * r * 2.3 * fl), a3 = P(-r * 0.45, sd * r * 0.35);
+            ctx.moveTo(...a0); ctx.lineTo(...a1); ctx.quadraticCurveTo(...P(-r * 0.35, sd * r * 1.6 * fl), ...a2); ctx.quadraticCurveTo(...P(-r * 0.75, sd * r * 1.1 * fl), ...a3); ctx.closePath();
+          }
+          ctx.fillStyle = G; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = INK; ctx.stroke();
+          ctx.beginPath(); for (const sd of [-1, 1]) { ctx.moveTo(...P(0, sd * r * 0.6)); ctx.lineTo(...P(r * 0.05, sd * r * 2.4 * fl)); ctx.moveTo(...P(-r * 0.1, sd * r * 0.6)); ctx.lineTo(...P(-r * 0.85, sd * r * 2.1 * fl)); }
+          ctx.lineWidth = 1.5; ctx.strokeStyle = 'rgba(4,6,11,0.45)'; ctx.stroke();
+          disc(ctx, x, y, r * 0.8, G, 3); ring(r * 0.8 - 2.5, 2.5, tm.c);
+          const [hx, hy] = P(r * 0.75, 0); disc(ctx, hx, hy, r * 0.4, G, 2.5);
+          for (const sd of [-1, 1]) tri(ctx, ...P(r * 0.7, sd * r * 0.2), ...P(r * 0.42, sd * r * 0.6), ...P(r * 0.9, sd * r * 0.32), '#4B5160');
+          if (!stone) eyes(hx, hy, r * 0.15, r * 0.15, 2.2, '#FF6B3D');
+          else { ctx.beginPath(); ctx.moveTo(...P(-r * 0.6, -r * 0.3)); ctx.lineTo(...P(0, 0)); ctx.lineTo(...P(r * 0.2, r * 0.45)); ctx.moveTo(...P(0, 0)); ctx.lineTo(...P(-r * 0.2, r * 0.5)); ctx.lineWidth = 1.5; ctx.strokeStyle = 'rgba(4,6,11,0.6)'; ctx.stroke(); }
+          break;
+        }
+        case 'assassin': {
+          for (const sd of [-1, 1]) { const sw = sd > 0 ? lg * 1.1 : 0, a = f + sd * (0.55 - sw), [bx, by] = P(r * 0.3, sd * r * 0.72); stick(ctx, bx, by, bx + Math.cos(a) * 14, by + Math.sin(a) * 14, 2.5, COL.steel); }
+          disc(ctx, x, y, r, '#1A1D24', 3);
+          stick(ctx, ...P(-r * 0.7, -r * 0.55), ...P(r * 0.7, r * 0.55), 3, tm.c);
+          disc(ctx, x - fx * 2, y - fy * 2, r * 0.55, '#262A33', 2);
+          eyes(x - fx * 2, y - fy * 2, r * 0.36, r * 0.16, 1.6, '#F4F6FB');
+          break;
+        }
+        case 'siegegunner': {
+          const [mx, my] = P(r * 0.35, r * 0.85);
+          disc(ctx, x, y, r, tm.c, 3); disc(ctx, x - fx * 2, y - fy * 2, r * 0.6, '#B08D57', 2);
+          ctx.save(); ctx.translate(mx, my); ctx.rotate(f);
+          roundRect(ctx, -8, -6, 18, 12, 3); ctx.fillStyle = '#3A3F47'; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = INK; ctx.stroke();
+          disc(ctx, 10, 0, 6.5, '#2B2F36', 2); disc(ctx, 10, 0, 3.5, '#0B0C0F', 0);
+          ctx.restore();
+          if (u.muzzle > 0) disc(ctx, mx + fx * 15, my + fy * 15, 9 * u.muzzle, `rgba(255,220,120,${u.muzzle})`, 0);
+          break;
+        }
+        case 'catapult': {
+          // the arm flies forward when it throws, then is wound back while it reloads
+          const m = clamp((u.cd / UNIT.catapult.cd - 0.55) / 0.35, 0, 1), ax = r * 0.95 * (2 * m - 1);
+          ctx.save(); ctx.translate(x, y); ctx.rotate(f);
+          ctx.beginPath(); for (const sd of [-1, 1]) for (const lx of [-0.6, 0.6]) ctx.rect(r * lx - r * 0.22, sd * r * 0.8 - r * 0.12, r * 0.44, r * 0.24);
+          ctx.fillStyle = '#3A2A1A'; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = INK; ctx.stroke();
+          roundRect(ctx, -r * 0.95, -r * 0.65, r * 1.9, r * 1.3, 6); ctx.fillStyle = '#8A6A49'; ctx.fill(); ctx.lineWidth = 3.5; ctx.strokeStyle = INK; ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(-r * 0.95, -r * 0.3); ctx.lineTo(r * 0.95, -r * 0.3); ctx.moveTo(-r * 0.95, r * 0.3); ctx.lineTo(r * 0.95, r * 0.3); ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(4,6,11,0.35)'; ctx.stroke();
+          roundRect(ctx, -r * 0.85, -r * 0.5, r * 0.45, r, 3); ctx.fillStyle = tm.c; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = INK; ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(ax, 0); ctx.lineWidth = 10; ctx.strokeStyle = INK; ctx.stroke(); ctx.lineWidth = 6; ctx.strokeStyle = '#C9A36A'; ctx.stroke();
+          disc(ctx, ax, 0, r * 0.3, '#5B3A22', 2.5);
+          if (m < 0.3) disc(ctx, ax, 0, r * 0.2, '#8A8F98', 2);
+          disc(ctx, 0, 0, 4, '#3A3F47', 1.5);
+          ctx.restore();
+          break;
+        }
+        case 'mammoth': break;
+        case 'rhino': {
+          const mv = Math.hypot(u.vx, u.vy) > 12, ph = this.t * 12 + u.gait;
+          ctx.save(); ctx.translate(x, y); ctx.rotate(f);
+          ctx.beginPath(); for (const [lx, ly, p] of [[0.55, -0.62, 0], [0.55, 0.62, Math.PI], [-0.55, -0.62, Math.PI], [-0.55, 0.62, 0]]) { const lx2 = r * lx + (mv ? Math.sin(ph + p) * r * 0.2 : 0), ly2 = r * ly; ctx.moveTo(lx2 + r * 0.2, ly2); ctx.ellipse(lx2, ly2, r * 0.2, r * 0.14, 0, 0, TAU); }
+          ctx.fillStyle = '#5B6068'; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = INK; ctx.stroke();
+          ell(ctx, 0, 0, r * 1.15, r * 0.72, 0, '#8E949C', 3);
+          roundRect(ctx, -r * 0.6, -r * 0.58, r * 0.95, r * 1.16, 6); ctx.fillStyle = tm.c; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = INK; ctx.stroke();
+          ell(ctx, r * 0.98, 0, r * 0.42, r * 0.36, 0, '#8E949C', 2.5);
+          for (const sd of [-1, 1]) tri(ctx, r * 0.78, sd * r * 0.2, r * 0.64, sd * r * 0.44, r * 0.88, sd * r * 0.3, '#6E737C');
+          tri(ctx, r * 1.22, -r * 0.13, r * 1.8 + lg * r * 0.2, 0, r * 1.22, r * 0.13, '#F4F1E6', 2);
+          tri(ctx, r * 1.02, -r * 0.08, r * 1.22, 0, r * 1.02, r * 0.08, '#F4F1E6', 1.5);
+          ctx.restore();
+          if ((u.runT || 0) > 0.4) disc(ctx, x + fx * r * 1.8, y + fy * r * 1.8, 7, 'rgba(255,240,180,0.6)', 0);
+          break;
+        }
+        case 'ogre': {
+          const a = f + 0.8 - lg * 1.4, [bx, by] = P(r * 0.2, r * 0.8), L = r * 1.4;
+          stick(ctx, bx, by, bx + Math.cos(a) * L, by + Math.sin(a) * L, 7, '#7A5230');
+          disc(ctx, bx + Math.cos(a) * L * 1.04, by + Math.sin(a) * L * 1.04, r * 0.34, '#7A5230', 2.5);
+          disc(ctx, x, y, r, '#9CA86A', 3.5);
+          ctx.beginPath(); ctx.arc(x, y, r * 0.74, f + 1.9, f + 4.4); ctx.lineWidth = 7; ctx.strokeStyle = tm.c; ctx.stroke();
+          const [hx, hy] = P(r * 0.48, 0); disc(ctx, hx, hy, r * 0.42, '#B3BE7C', 2.5);
+          for (const sd of [-1, 1]) tri(ctx, ...P(r * 0.8, sd * r * 0.12), ...P(r * 0.98, sd * r * 0.2), ...P(r * 0.8, sd * r * 0.28), '#F4F1E6', 1.2);
+          eyes(hx, hy, r * 0.12, r * 0.15, 2, '#2A2F3A');
+          break;
+        }
+        case 'drone': {
+          ell(ctx, x + 8, y + 18, r * 1.2, r * 0.8, 0, 'rgba(0,0,0,0.2)', 0);
+          ctx.save(); ctx.translate(x, y); ctx.rotate(f);
+          ctx.beginPath(); ctx.moveTo(-r, -r); ctx.lineTo(r, r); ctx.moveTo(-r, r); ctx.lineTo(r, -r); ctx.lineWidth = 5; ctx.strokeStyle = INK; ctx.stroke(); ctx.lineWidth = 2.5; ctx.strokeStyle = '#5B6472'; ctx.stroke();
+          const sp = this.t * 40 + u.gait;
+          ctx.beginPath(); for (const [ax, ay] of [[-r, -r], [r, r], [-r, r], [r, -r]]) { ctx.moveTo(ax + Math.cos(sp) * 6, ay + Math.sin(sp) * 6); ctx.lineTo(ax - Math.cos(sp) * 6, ay - Math.sin(sp) * 6); }
+          ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(230,236,244,0.85)'; ctx.stroke();
+          roundRect(ctx, -r * 0.6, -r * 0.45, r * 1.2, r * 0.9, 3); ctx.fillStyle = tm.c; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = INK; ctx.stroke();
+          if (Math.sin(this.t * 10 + u.gait) > 0) disc(ctx, r * 0.5, 0, 2.2, '#FF3B3B', 0);
+          ctx.restore();
+          break;
+        }
+        case 'helicopter': {
+          ell(ctx, x + 22, y + 48, r * 1.2, r * 0.5, f, 'rgba(0,0,0,0.25)', 0);
+          ctx.save(); ctx.translate(x, y); ctx.rotate(f);
+          ctx.beginPath(); ctx.moveTo(-r * 0.4, 0); ctx.lineTo(-r * 1.5, 0); ctx.lineWidth = r * 0.24 + 4; ctx.strokeStyle = INK; ctx.stroke(); ctx.lineWidth = r * 0.24; ctx.strokeStyle = tm.d; ctx.stroke();
+          const ta = this.t * 34; ctx.beginPath(); ctx.moveTo(-r * 1.5 + Math.cos(ta) * 3, -r * 0.32); ctx.lineTo(-r * 1.5 - Math.cos(ta) * 3, r * 0.32); ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(220,230,240,0.75)'; ctx.stroke();
+          roundRect(ctx, -r * 0.2, -r * 0.78, r * 0.35, r * 1.56, 3); ctx.fillStyle = '#3A404C'; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = INK; ctx.stroke();
+          ctx.beginPath(); for (const sd of [-1, 1]) ctx.rect(-r * 0.28, sd * r * 0.72 - r * 0.11, r * 0.58, r * 0.22); ctx.fillStyle = '#5B6472'; ctx.fill(); ctx.stroke();
+          ell(ctx, r * 0.05, 0, r * 0.88, r * 0.42, 0, tm.c, 3.5);
+          ell(ctx, r * 0.52, 0, r * 0.32, r * 0.26, 0, '#8FE3FF', 2.5);
+          disc(ctx, 0, 0, r * 1.45, 'rgba(220,230,240,0.10)', 0);
+          const ra = this.t * 30; ctx.beginPath(); for (let k = 0; k < 2; k++) { const a = ra + k * Math.PI / 2; ctx.moveTo(Math.cos(a) * r * 1.45, Math.sin(a) * r * 1.45); ctx.lineTo(-Math.cos(a) * r * 1.45, -Math.sin(a) * r * 1.45); }
+          ctx.lineWidth = 5; ctx.strokeStyle = 'rgba(30,34,42,0.75)'; ctx.stroke();
+          disc(ctx, 0, 0, 5, '#2A2F3A', 2);
+          if (u.muzzle > 0) disc(ctx, r * 0.98, 0, 7 * u.muzzle, `rgba(255,220,120,${u.muzzle})`, 0);
+          ctx.restore();
+          break;
+        }
+        case 'siren': {
+          const wv = Math.sin(T * 4 + u.gait) * 3;
+          ctx.beginPath(); ctx.moveTo(...P(0, -r * 0.6)); ctx.quadraticCurveTo(...P(-r * 1.6, -r * 0.5 + wv), ...P(-r * 1.9, wv)); ctx.quadraticCurveTo(...P(-r * 1.6, r * 0.5 + wv), ...P(0, r * 0.6)); ctx.closePath();
+          ctx.fillStyle = '#2DD4BF'; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = INK; ctx.stroke();
+          disc(ctx, x, y, r, tm.c, 3); disc(ctx, x - fx * 1.5, y - fy * 1.5, r * 0.55, '#2DD4BF', 2);
+          disc(ctx, ...P(r * 0.75, r * 0.5), 4.5, '#F9A8D4', 1.5);
+          break;
+        }
+        case 'hollow': {
+          const bob = Math.sin(T * 3 + u.gait) * 1.5, yy = y + bob;
+          disc(ctx, x, yy, r + 5, 'rgba(124,243,255,0.13)', 0);
+          const a = f + 0.75 - lg * 1.3, [bx, by] = P(r * 0.3, r * 0.75); stick(ctx, bx, by + bob, bx + Math.cos(a) * 20, by + bob + Math.sin(a) * 20, 3, COL.steel);
+          stick(ctx, x - fx * 1.5, yy - fy * 1.5, x - fx * (r + 5), yy - fy * (r + 5), 2.5, tm.c);
+          disc(ctx, x, yy, r, '#AEB6C6', 3); disc(ctx, x - fx, yy - fy, r * 0.62, '#D9DEE6', 2);
+          ctx.beginPath(); ctx.moveTo(x + fx * r * 0.3 + px * r * 0.38, yy + fy * r * 0.3 + py * r * 0.38); ctx.lineTo(x + fx * r * 0.3 - px * r * 0.38, yy + fy * r * 0.3 - py * r * 0.38); ctx.lineWidth = 4; ctx.strokeStyle = '#0B0C0F'; ctx.stroke();
+          eyes(x, yy, r * 0.3, r * 0.16, 1.5, '#7CF3FF');
+          break;
+        }
+        case 'livingblade': {
+          const a = T * 9 + u.gait, ca = Math.cos(a), sa = Math.sin(a);
+          ell(ctx, x + 6, y + 14, 12, 4, a, 'rgba(0,0,0,0.2)', 0);
+          stick(ctx, x - ca * 15, y - sa * 15, x + ca * 15, y + sa * 15, 3.5, COL.steel);
+          stick(ctx, x - ca * 7 - sa * 6, y - sa * 7 + ca * 6, x - ca * 7 + sa * 6, y - sa * 7 - ca * 6, 3, COL.gold);
+          disc(ctx, x - ca * 12, y - sa * 12, 3.5, '#A855F7', 1.5); disc(ctx, x - ca * 12, y - sa * 12, 1.4, '#FDE047', 0);
+          break;
+        }
+        case 'stareater': {
+          const pl = 0.5 + 0.5 * Math.sin(T * 2 + u.gait);
+          disc(ctx, x, y, r + 10 + pl * 5, 'rgba(76,29,149,0.25)', 0);
+          ctx.beginPath(); for (let k = 0; k < 8; k++) { const a = k / 8 * TAU + T * 0.5, w = Math.sin(T * 3 + k) * 0.3; ctx.moveTo(x + Math.cos(a) * r * 0.8, y + Math.sin(a) * r * 0.8); ctx.quadraticCurveTo(x + Math.cos(a + w) * r * 1.3, y + Math.sin(a + w) * r * 1.3, x + Math.cos(a + w * 2) * r * 1.55, y + Math.sin(a + w * 2) * r * 1.55); }
+          ctx.lineWidth = 9; ctx.strokeStyle = INK; ctx.stroke(); ctx.lineWidth = 5.5; ctx.strokeStyle = '#2E2A5A'; ctx.stroke();
+          disc(ctx, x, y, r, '#0B0A1A', 4); ring(r - 4, 4, tm.c);
+          ctx.beginPath(); for (let k = 0; k < 12; k++) { const h1 = Math.imul(k + 1, 2654435761) >>> 0, a = (h1 % 628) / 100 + T * 0.2, d = r * (0.25 + 0.55 * ((h1 >>> 12) % 100) / 100), sx = x + Math.cos(a) * d, sy = y + Math.sin(a) * d; ctx.moveTo(sx + 1.7, sy); ctx.arc(sx, sy, 1.7, 0, TAU); }
+          ctx.fillStyle = '#F4F6FB'; ctx.fill();
+          const mo = 0.55 + lg * 0.35, [mx, my] = P(r * 0.2, 0);
+          ctx.beginPath(); ctx.moveTo(mx, my); ctx.arc(mx, my, r * 0.72, f - mo, f + mo); ctx.closePath(); ctx.fillStyle = '#3B0A1E'; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = INK; ctx.stroke();
+          ctx.beginPath(); for (let k = 0; k < 5; k++) { const a = f - mo + (k + 0.5) / 5 * 2 * mo, ox = mx + Math.cos(a) * r * 0.72, oy = my + Math.sin(a) * r * 0.72; ctx.moveTo(ox + Math.cos(a + 1.5) * 5, oy + Math.sin(a + 1.5) * 5); ctx.lineTo(mx + Math.cos(a) * r * 0.5, my + Math.sin(a) * r * 0.5); ctx.lineTo(ox + Math.cos(a - 1.5) * 5, oy + Math.sin(a - 1.5) * 5); ctx.closePath(); }
+          ctx.fillStyle = '#F4F1E6'; ctx.fill();
+          ctx.beginPath(); for (const sd of [-1, 1]) for (const o of [1.25, 1.65, 2.05]) { const a = f + sd * o, ex = x + Math.cos(a) * r * 0.62, ey = y + Math.sin(a) * r * 0.62; ctx.moveTo(ex + 4.5, ey); ctx.arc(ex, ey, 4.5, 0, TAU); }
+          ctx.fillStyle = '#FDE047'; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = INK; ctx.stroke();
+          break;
+        }
+        case 'timeexec': {
+          ctx.beginPath(); for (let k = 0; k < 12; k++) { const a = k / 12 * TAU - T * 0.8; ctx.moveTo(x + Math.cos(a) * (r + 5), y + Math.sin(a) * (r + 5)); ctx.lineTo(x + Math.cos(a) * (r + 10), y + Math.sin(a) * (r + 10)); }
+          ctx.lineWidth = 2.5; ctx.strokeStyle = 'rgba(253,230,138,0.75)'; ctx.stroke();
+          const a = f + 0.8 - lg * 1.5, [bx, by] = P(r * 0.2, r * 0.8), L = r * 1.6, ex = bx + Math.cos(a) * L, ey = by + Math.sin(a) * L, ca = Math.cos(a), sa = Math.sin(a);
+          stick(ctx, bx, by, ex, ey, 4, '#3A2A1A');
+          ctx.beginPath(); ctx.moveTo(ex - ca * 12, ey - sa * 12); ctx.quadraticCurveTo(ex - sa * 20, ey + ca * 20, ex + ca * 6, ey + sa * 6); ctx.closePath(); ctx.fillStyle = '#D9DEE6'; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = INK; ctx.stroke();
+          disc(ctx, x, y, r, '#1A1D24', 3.5); ring(r - 3, 3, tm.c);
+          disc(ctx, x - fx * 2, y - fy * 2, r * 0.6, '#0B0C0F', 2);
+          const [kx, ky] = P(-r * 0.42, 0); disc(ctx, kx, ky, r * 0.3, '#FDE68A', 2);
+          ctx.beginPath(); ctx.moveTo(kx, ky); ctx.lineTo(kx + Math.cos(-T * 3) * r * 0.24, ky + Math.sin(-T * 3) * r * 0.24); ctx.moveTo(kx, ky); ctx.lineTo(kx + Math.cos(-T * 0.4) * r * 0.16, ky + Math.sin(-T * 0.4) * r * 0.16); ctx.lineWidth = 2; ctx.strokeStyle = INK; ctx.stroke();
+          eyes(x - fx * 2, y - fy * 2, r * 0.38, r * 0.16, 1.8, '#FDE68A');
+          break;
+        }
+        case 'cathedral': {
+          const mv = Math.hypot(u.vx, u.vy) > 4, st = Math.sin(T * 3 + u.gait) * r * 0.12;
+          ctx.save(); ctx.translate(x, y); ctx.rotate(f);
+          ctx.beginPath(); for (const sd of [-1, 1]) for (const lx of [-0.6, 0.55]) { const ex = r * lx + (mv ? st * sd * Math.sign(lx) : 0), ey = sd * r * 0.72; ctx.moveTo(ex + r * 0.22, ey); ctx.ellipse(ex, ey, r * 0.22, r * 0.16, 0, 0, TAU); }
+          ctx.fillStyle = '#6B6F78'; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = INK; ctx.stroke();
+          // the nave and transept, a cross seen from above, under a slate roof
+          const W = r * 0.42, L = r * 0.95, Tr = r * 0.8;
+          ctx.beginPath(); ctx.moveTo(-L, -W); ctx.lineTo(r * 0.05, -W); ctx.lineTo(r * 0.05, -Tr); ctx.lineTo(r * 0.45, -Tr); ctx.lineTo(r * 0.45, -W); ctx.lineTo(L * 0.6, -W); ctx.arc(L * 0.6, 0, W, -Math.PI / 2, Math.PI / 2); ctx.lineTo(r * 0.45, W); ctx.lineTo(r * 0.45, Tr); ctx.lineTo(r * 0.05, Tr); ctx.lineTo(r * 0.05, W); ctx.lineTo(-L, W); ctx.closePath();
+          ctx.fillStyle = '#C9C3B4'; ctx.fill(); ctx.lineWidth = 4; ctx.strokeStyle = INK; ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(-L, 0); ctx.lineTo(L * 0.6 + W, 0); ctx.moveTo(r * 0.25, -Tr); ctx.lineTo(r * 0.25, Tr); ctx.lineWidth = 3; ctx.strokeStyle = '#5B6472'; ctx.stroke();
+          ctx.fillStyle = tm.c; ctx.beginPath(); ctx.rect(-r * 0.6, W - 1, r * 0.3, r * 0.2); ctx.rect(-r * 0.6, -W - r * 0.2 + 1, r * 0.3, r * 0.2); ctx.fill(); ctx.lineWidth = 2; ctx.stroke();
+          // a rose window over the crossing, the bell tower at the back
+          for (let k = 0; k < 6; k++) { ctx.beginPath(); ctx.moveTo(r * 0.25, 0); ctx.arc(r * 0.25, 0, r * 0.22, k * TAU / 6, (k + 1) * TAU / 6); ctx.closePath(); ctx.fillStyle = ['#E5484D', '#3B82F6', '#FDE047'][k % 3]; ctx.fill(); }
+          ctx.beginPath(); ctx.arc(r * 0.25, 0, r * 0.22, 0, TAU); ctx.lineWidth = 2.5; ctx.strokeStyle = INK; ctx.stroke();
+          disc(ctx, -L + r * 0.05, 0, r * 0.3, '#B9B2A2', 3);
+          ctx.beginPath(); ctx.moveTo(-L - r * 0.08, 0); ctx.lineTo(-L + r * 0.18, 0); ctx.moveTo(-L + r * 0.05, -r * 0.13); ctx.lineTo(-L + r * 0.05, r * 0.13); ctx.lineWidth = 3; ctx.strokeStyle = COL.gold; ctx.stroke();
+          if (u.muzzle) { ctx.fillStyle = `rgba(255,236,170,${0.7 * u.muzzle})`; ctx.beginPath(); for (const sd of [-1, 1]) for (const lx of [-0.5, -0.2, 0.6]) { ctx.moveTo(r * lx + 4, sd * W * 0.6); ctx.arc(r * lx, sd * W * 0.6, 4, 0, TAU); } ctx.fill(); }
+          ctx.restore();
+          break;
+        }
+        case 'stormemperor': {
+          const flap = 0.75 + 0.25 * Math.sin(this.t * 6 + u.gait);
+          ell(ctx, x + 16, y + 40, r * 1.2, r * 0.7, f, 'rgba(0,0,0,0.3)', 0);
+          ctx.save(); ctx.translate(x, y); ctx.rotate(f); ctx.lineJoin = 'round';
+          ctx.beginPath();
+          for (const sd of [-1, 1]) { ctx.moveTo(r * 0.35, sd * r * 0.3); ctx.lineTo(-r * 0.1, sd * r * 1.9 * flap); ctx.lineTo(-r * 0.5, sd * r * 1.5 * flap); ctx.lineTo(-r * 0.85, sd * r * 1.7 * flap); ctx.lineTo(-r * 0.6, sd * r * 0.3); ctx.closePath(); }
+          ctx.fillStyle = '#1E293B'; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = INK; ctx.stroke();
+          ctx.beginPath(); for (const sd of [-1, 1]) { ctx.moveTo(r * 0.1, sd * r * 0.4); ctx.lineTo(-r * 0.15, sd * r * 1.0 * flap); ctx.lineTo(-r * 0.05, sd * r * 1.2 * flap); ctx.lineTo(-r * 0.4, sd * r * 1.55 * flap); }
+          ctx.lineWidth = 2.5; ctx.strokeStyle = '#FDE047'; ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(-r * 0.7, -r * 0.18); ctx.quadraticCurveTo(-r * 1.4, 0, -r * 1.8, Math.sin(this.t * 4 + u.gait) * r * 0.25); ctx.quadraticCurveTo(-r * 1.4, 0, -r * 0.7, r * 0.18); ctx.closePath(); ctx.fillStyle = tm.d; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = INK; ctx.stroke();
+          ell(ctx, 0, 0, r * 0.85, r * 0.5, 0, tm.d, 3);
+          ctx.beginPath(); ctx.moveTo(-r * 0.6, 0); ctx.lineTo(r * 0.6, 0); ctx.lineWidth = 4; ctx.strokeStyle = tm.c; ctx.stroke();
+          disc(ctx, r * 0.95, 0, r * 0.36, tm.d, 3);
+          for (const sd of [-1, 1]) for (const k of [0, 1]) tri(ctx, r * (0.82 - k * 0.2), sd * r * 0.2, r * (0.52 - k * 0.2), sd * r * (0.56 + k * 0.06), r * (0.92 - k * 0.2), sd * r * 0.3, COL.gold);
+          ctx.fillStyle = '#BFE6FF'; ctx.beginPath(); for (const sd of [-1, 1]) { ctx.moveTo(r * 1.08 + r * 0.07, sd * r * 0.14); ctx.arc(r * 1.08, sd * r * 0.14, r * 0.07, 0, TAU); } ctx.fill();
+          ctx.restore();
+          // crackles of lightning around it
+          const j = Math.floor(this.t * 10 + u.gait * 5);
+          if (j % 3 === 0) { const h1 = Math.imul(j + 7, 2654435761) >>> 0, a = (h1 % 628) / 100; let bx = x + Math.cos(a) * r * 0.9, by = y + Math.sin(a) * r * 0.9; ctx.beginPath(); ctx.moveTo(bx, by); for (let k = 1; k <= 3; k++) { bx += Math.cos(a + (k % 2 ? 0.6 : -0.6)) * 14; by += Math.sin(a + (k % 2 ? 0.6 : -0.6)) * 14; ctx.lineTo(bx, by); } ctx.lineWidth = 3; ctx.strokeStyle = '#FDE047'; ctx.stroke(); }
+          break;
+        }
+        case 'worldroot': {
+          ctx.beginPath(); for (let k = 0; k < 7; k++) { const a = k / 7 * TAU + u.gait, L = r * (1.25 + 0.15 * Math.sin(k * 1.7)); ctx.moveTo(x + Math.cos(a) * r * 0.5, y + Math.sin(a) * r * 0.5); ctx.quadraticCurveTo(x + Math.cos(a + 0.25) * r * 0.95, y + Math.sin(a + 0.25) * r * 0.95, x + Math.cos(a + 0.1) * L, y + Math.sin(a + 0.1) * L); }
+          ctx.lineWidth = 11; ctx.strokeStyle = INK; ctx.stroke(); ctx.lineWidth = 7; ctx.strokeStyle = '#6B4A2E'; ctx.stroke();
+          const sw = Math.sin(T * 1.5 + u.gait) * 2;
+          ctx.beginPath(); for (let k = 0; k < 7; k++) { const a = k / 7 * TAU + 0.4, qx = x + Math.cos(a) * r * 0.55 + sw, qy = y + Math.sin(a) * r * 0.55; ctx.moveTo(qx + r * 0.5, qy); ctx.arc(qx, qy, r * 0.5, 0, TAU); }
+          ctx.fillStyle = '#2F7A3A'; ctx.fill(); ctx.lineWidth = 3.5; ctx.strokeStyle = INK; ctx.stroke();
+          disc(ctx, x + sw, y, r * 0.78, '#3E9A4A', 0);
+          ctx.beginPath(); ctx.arc(x + sw, y, r * 0.52, 0, TAU); ctx.lineWidth = 6; ctx.strokeStyle = tm.c; ctx.stroke();
+          ctx.beginPath(); for (let k = 0; k < 6; k++) { const a = k * 1.05 + 0.3, qx = x + sw + Math.cos(a) * r * 0.78, qy = y + Math.sin(a) * r * 0.78; ctx.moveTo(qx + 4.5, qy); ctx.arc(qx, qy, 4.5, 0, TAU); }
+          ctx.fillStyle = '#FDE68A'; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = INK; ctx.stroke();
+          eyes(x + sw, y, r * 0.15, r * 0.16, 3.2, '#FDE68A');
+          break;
+        }
+        case 'hourglass': {
+          for (const sd of [-1, 1]) { const a = f + sd * (1.0 - (sd > 0 ? lg * 0.6 : 0)), bx = x + Math.cos(f + sd * 1.4) * r * 0.85, by = y + Math.sin(f + sd * 1.4) * r * 0.85, ex = bx + Math.cos(a) * r * 0.7, ey = by + Math.sin(a) * r * 0.7; stick(ctx, bx, by, ex, ey, 12, '#8E8A80'); disc(ctx, ex, ey, r * 0.26, '#8E8A80', 3); }
+          disc(ctx, x, y, r, '#A8A293', 4); ring(r - 4, 4, tm.c);
+          ctx.save(); ctx.translate(x - fx * r * 0.12, y - fy * r * 0.12); ctx.rotate(f + Math.PI / 2);
+          const H = r * 0.55, Wd = r * 0.36, s = (T * 0.15 + u.gait) % 1;
+          ctx.beginPath(); ctx.moveTo(-Wd, -H); ctx.lineTo(Wd, -H); ctx.lineTo(0, 0); ctx.lineTo(Wd, H); ctx.lineTo(-Wd, H); ctx.lineTo(0, 0); ctx.closePath(); ctx.fillStyle = 'rgba(220,240,255,0.6)'; ctx.fill();
+          ctx.fillStyle = '#E9C46A'; ctx.beginPath(); ctx.moveTo(-Wd * 0.85 * (1 - s), -H * 0.85 * (1 - s)); ctx.lineTo(Wd * 0.85 * (1 - s), -H * 0.85 * (1 - s)); ctx.lineTo(0, -1); ctx.closePath();
+          ctx.moveTo(-Wd * 0.85 * s, H * 0.88); ctx.lineTo(Wd * 0.85 * s, H * 0.88); ctx.lineTo(0, H * 0.88 * (1 - s)); ctx.closePath(); ctx.fill();
+          ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(0, H * 0.88); ctx.lineWidth = 1.5; ctx.strokeStyle = '#E9C46A'; ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(-Wd, -H); ctx.lineTo(Wd, -H); ctx.lineTo(0, 0); ctx.lineTo(Wd, H); ctx.lineTo(-Wd, H); ctx.lineTo(0, 0); ctx.closePath(); ctx.lineWidth = 3; ctx.strokeStyle = INK; ctx.stroke();
+          ctx.beginPath(); ctx.rect(-Wd - 4, -H - 5, 2 * Wd + 8, 5); ctx.rect(-Wd - 4, H, 2 * Wd + 8, 5); ctx.fillStyle = COL.gold; ctx.fill(); ctx.lineWidth = 2; ctx.stroke();
+          ctx.restore();
+          const [hx, hy] = P(r * 0.72, 0); disc(ctx, hx, hy, r * 0.3, '#A8A293', 3); eyes(hx, hy, r * 0.1, r * 0.12, 3, '#FDE68A');
+          break;
+        }
+        case 'mooncaller': {
+          const [ex, ey] = staff(12, '#9CA3AF');
+          disc(ctx, x, y, r, tm.c, 3); disc(ctx, x - fx * 2, y - fy * 2, r * 0.6, '#C7D2FE', 2);
+          disc(ctx, ex, ey, 12, 'rgba(244,241,230,0.22)', 0);
+          disc(ctx, ex, ey, 7, '#F4F1E6', 2); disc(ctx, ex + fx * 3 + px * 2, ey + fy * 3 + py * 2, 5.5, '#4B5A8A', 0);
+          break;
+        }
+        case 'unqualifiedking': {
+          ctx.beginPath(); ctx.moveTo(x - fx * 2, y - fy * 2); ctx.arc(x - fx * 2, y - fy * 2, r * 1.4, f + 1.6, f + 4.7); ctx.closePath(); ctx.fillStyle = tm.c; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = INK; ctx.stroke();
+          for (const sd of [-1, 1]) tri(ctx, ...P(0, sd * r * 0.6), ...P(-r * 0.3, sd * r * 1.45), ...P(r * 0.3, sd * r * 0.85), '#7BC96F', 2);
+          disc(ctx, x, y, r, '#7BC96F', 2.5);
+          star(ctx, x - fx, y - fy, r * 1.0, 6, 0.6); ctx.fillStyle = COL.gold; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = INK; ctx.stroke();
+          disc(ctx, x - fx, y - fy, r * 0.45, '#E5484D', 1.5);
+          stick(ctx, ...P(r * 0.2, r * 0.85), ...P(r + 7, r * 0.85), 2, COL.gold); disc(ctx, ...P(r + 8, r * 0.85), 3, '#7CF3FF', 1.2);
+          break;
+        }
+        case 'generalnolose': {
+          const a = f + 0.7 - lg * 1.3, sx = cx + Math.cos(f + 1.2) * r * 0.5, sy = cy + Math.sin(f + 1.2) * r * 0.5;
+          stick(ctx, sx, sy, sx + Math.cos(a) * 24, sy + Math.sin(a) * 24, 3.5, COL.gold);
+          ctx.beginPath(); ctx.moveTo(cx + px * r * 0.5, cy + py * r * 0.5);
+          ctx.quadraticCurveTo(cx - fx * r * 1.1 + px * r * 0.65, cy - fy * r * 1.1 + py * r * 0.65, cx - fx * r * 1.3, cy - fy * r * 1.3);
+          ctx.quadraticCurveTo(cx - fx * r * 1.1 - px * r * 0.65, cy - fy * r * 1.1 - py * r * 0.65, cx - px * r * 0.5, cy - py * r * 0.5); ctx.closePath();
+          ctx.fillStyle = tm.c; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = INK; ctx.stroke();
+          disc(ctx, cx, cy, r * 0.58, '#E9C46A', 2.5); disc(ctx, cx, cy, r * 0.36, '#D4A63A', 2);
+          ctx.beginPath(); ctx.arc(cx, cy, r * 0.4, f + 0.6, f + TAU - 0.6); ctx.lineWidth = 4; ctx.strokeStyle = '#3FA34D'; ctx.stroke();
+          break;
+        }
+        case 'theplayer': {
+          const k = u.holding ? 1 : clamp(lg, 0, 1);
+          ell(ctx, x + 26, y + 60, r * 0.95, r * 0.6, f, 'rgba(0,0,0,0.25)', 0);
+          ctx.save(); ctx.translate(x, y); ctx.rotate(f);
+          roundRect(ctx, -r * 1.3, -r * 0.52, r * 0.5, r * 1.04, 8); ctx.fillStyle = tm.c; ctx.fill(); ctx.lineWidth = 3.5; ctx.strokeStyle = INK; ctx.stroke();
+          const G = '#F4F6FB';
+          ctx.beginPath(); for (let i = 0; i < 4; i++) { const yy = (i - 1.5) * r * 0.27, L = r * (0.95 - Math.abs(i - 1.5) * 0.12) * (1 - 0.55 * k); ctx.moveTo(r * 0.2, yy); ctx.lineTo(r * 0.2 + L, yy); }
+          ctx.lineWidth = r * 0.25 + 5; ctx.strokeStyle = INK; ctx.stroke(); ctx.lineWidth = r * 0.25; ctx.strokeStyle = G; ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(-r * 0.1, -r * 0.55); ctx.lineTo(r * 0.3 - k * r * 0.15, -r * 0.95 + k * r * 0.35); ctx.lineWidth = r * 0.27 + 5; ctx.strokeStyle = INK; ctx.stroke(); ctx.lineWidth = r * 0.27; ctx.strokeStyle = G; ctx.stroke();
+          roundRect(ctx, -r * 0.88, -r * 0.62, r * 1.2, r * 1.24, r * 0.36); ctx.fillStyle = G; ctx.fill(); ctx.lineWidth = 4; ctx.strokeStyle = INK; ctx.stroke();
+          ctx.beginPath(); for (let i = -1; i <= 1; i++) { ctx.moveTo(-r * 0.58, i * r * 0.26); ctx.lineTo(-r * 0.08, i * r * 0.26); } ctx.lineWidth = 2.5; ctx.strokeStyle = 'rgba(4,6,11,0.35)'; ctx.stroke();
+          ctx.restore();
+          break;
+        }
+        case 'universe': {
+          const a = f + 0.75 - lg * 1.3, [bx, by] = P(r * 0.3, r * 0.75); stick(ctx, bx, by, bx + Math.cos(a) * 18, by + Math.sin(a) * 18, 2.5, COL.steel);
+          disc(ctx, x, y, r, tm.c, 3); disc(ctx, x - fx, y - fy, r * 0.62, '#14112B', 2);
+          ctx.beginPath(); for (let k = 0; k < 4; k++) { const a2 = T * (0.6 + k * 0.2) + k * 1.7 + u.gait, d = r * 0.4 * (0.35 + 0.65 * ((k * 37) % 10) / 10), sx = x - fx + Math.cos(a2) * d, sy = y - fy + Math.sin(a2) * d; ctx.moveTo(sx + 1.3, sy); ctx.arc(sx, sy, 1.3, 0, TAU); }
+          ctx.fillStyle = '#F4F6FB'; ctx.fill();
+          break;
+        }
+        case 'livingfortress': {
+          const awake = !u.asleep, mv = awake && Math.hypot(u.vx, u.vy) > 6, st = Math.sin(T * 6 + u.gait), S = r * 0.8;
+          ctx.save(); ctx.translate(x, y); ctx.rotate(f);
+          if (awake) {
+            ctx.beginPath(); for (const sd of [-1, 1]) for (const lx of [-0.55, 0.55]) { const ex = r * lx + (mv ? st * r * 0.12 * sd * Math.sign(lx) : 0), ey = sd * r * 0.92; ctx.moveTo(ex + r * 0.2, ey); ctx.ellipse(ex, ey, r * 0.2, r * 0.15, 0, 0, TAU); }
+            ctx.fillStyle = '#6B6F78'; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = INK; ctx.stroke();
+            for (const sd of [-1, 1]) { const e = r * (0.45 + 0.4 * lg); stick(ctx, r * 0.3, sd * r * 0.85, r * 0.3 + e, sd * r * 0.98, 9, '#8E8A80'); disc(ctx, r * 0.3 + e, sd * r * 0.98, 7, '#8E8A80', 2.5); }
+          }
+          roundRect(ctx, -S, -S, 2 * S, 2 * S, 4); ctx.fillStyle = '#B9B2A2'; ctx.fill(); ctx.lineWidth = 4; ctx.strokeStyle = INK; ctx.stroke();
+          ctx.beginPath(); for (let i = -2; i <= 2; i++) { const o = i * S * 0.32; ctx.rect(o - 4, -S - 3, 8, 6); ctx.rect(o - 4, S - 3, 8, 6); ctx.rect(-S - 3, o - 4, 6, 8); ctx.rect(S - 3, o - 4, 6, 8); }
+          ctx.fillStyle = '#8E8A80'; ctx.fill(); ctx.lineWidth = 1.5; ctx.stroke();
+          roundRect(ctx, -S * 0.55, -S * 0.55, S * 1.1, S * 1.1, 3); ctx.fillStyle = '#9A9486'; ctx.fill(); ctx.lineWidth = 2.5; ctx.stroke();
+          ctx.beginPath(); for (const [ax, ay] of [[-S, -S], [S, -S], [-S, S], [S, S]]) { ctx.moveTo(ax + r * 0.3, ay); ctx.arc(ax, ay, r * 0.3, 0, TAU); }
+          ctx.fillStyle = '#A8A293'; ctx.fill(); ctx.lineWidth = 3; ctx.stroke();
+          ctx.beginPath(); for (const [ax, ay] of [[-S, -S], [S, -S], [-S, S], [S, S]]) { ctx.moveTo(ax + r * 0.17, ay); ctx.arc(ax, ay, r * 0.17, 0, TAU); }
+          ctx.fillStyle = tm.c; ctx.fill(); ctx.lineWidth = 2; ctx.stroke();
+          if (awake) {
+            // the gate is a mouth now, full of teeth, and the front towers have eyes
+            const op = 0.45 + 0.55 * lg;
+            ctx.beginPath(); ctx.ellipse(S, 0, r * 0.18 + r * 0.16 * op, r * 0.42, 0, Math.PI / 2, Math.PI * 1.5); ctx.closePath(); ctx.fillStyle = '#3B0A1E'; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = INK; ctx.stroke();
+            ctx.beginPath(); for (let k = 0; k < 4; k++) { const yy = (k - 1.5) * r * 0.2; ctx.moveTo(S, yy - 5); ctx.lineTo(S - 9, yy); ctx.lineTo(S, yy + 5); ctx.closePath(); } ctx.fillStyle = '#F4F1E6'; ctx.fill(); ctx.lineWidth = 1.2; ctx.stroke();
+            ctx.beginPath(); for (const sd of [-1, 1]) { ctx.moveTo(S + 6, sd * S); ctx.arc(S, sd * S, 6, 0, TAU); } ctx.fillStyle = '#FF6B3D'; ctx.fill();
+          } else { roundRect(ctx, S - 7, -r * 0.24, 11, r * 0.48, 2); ctx.fillStyle = '#5B3A22'; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = INK; ctx.stroke(); }
+          ctx.save(); ctx.transform(1, Math.sin(T * 5 + u.gait) * 0.12, 0, 1, 0, 0); roundRect(ctx, 0, -7, 22, 13, 2); ctx.fillStyle = tm.c; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = INK; ctx.stroke(); ctx.restore();
+          disc(ctx, 0, 0, 3, COL.gold, 1.5);
+          ctx.restore();
+          break;
+        }
+        default: disc(ctx, x, y, r, tm.c, 3);
+      }
+    },
+    // statuses from the second batch: charmed, turned to stone, hollow copies, ghosts, transformed commanders
+    drawStatus2(ctx, u, x, y, tm) {
+      const T = this.fightT, t = this.t, r = u.r;
+      if (u.charmT > T) { const hx = x, hy = y - r - 11 - 2 * Math.sin(t * 6); ctx.beginPath(); ctx.arc(hx - 3, hy, 3.6, 0, TAU); ctx.arc(hx + 3, hy, 3.6, 0, TAU); ctx.moveTo(hx - 6.5, hy + 1); ctx.lineTo(hx, hy + 8); ctx.lineTo(hx + 6.5, hy + 1); ctx.fillStyle = '#F472B6'; ctx.fill(); }
+      if (u.stoneT > T) { ctx.beginPath(); ctx.arc(x, y, r + 3, 0, TAU); ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(210,214,220,0.85)'; ctx.stroke(); }
+      if (u.hollow) { ctx.setLineDash([2, 4]); ctx.beginPath(); ctx.arc(x, y, r + 3, -t * 2, -t * 2 + TAU); ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(124,243,255,0.85)'; ctx.stroke(); ctx.setLineDash([]); }
+      if (u.ghost) disc(ctx, x, y, r + 5, 'rgba(226,232,240,0.16)', 0);
+      if (u.transformed) { ctx.beginPath(); ctx.arc(x, y, r + 5 + 2 * Math.sin(t * 8), 0, TAU); ctx.lineWidth = 4; ctx.strokeStyle = 'rgba(229,72,77,0.7)'; ctx.stroke(); }
+    },
+    // under the troops: the Worldroot's roots, lightning about to strike, the rising tide
+    drawField2(ctx) {
+      const T = this.fightT, t = this.t;
+      if (this.rootUnits) for (const u of this.rootUnits) {
+        if (u.dead || !u.rootR) continue;
+        const R = u.rootR;
+        disc(ctx, u.x, u.y, R, 'rgba(62,154,74,0.10)', 0);
+        // twelve roots, each a wiggly line of three bends
+        ctx.beginPath();
+        for (let k = 0; k < 12; k++) {
+          const a = k / 12 * TAU + u.gait, sg = k % 2 ? 1 : -1;
+          let qx = u.x + Math.cos(a) * u.r, qy = u.y + Math.sin(a) * u.r; ctx.moveTo(qx, qy);
+          for (let sgm = 1; sgm <= 3; sgm++) {
+            const d = u.r + (R - u.r) * sgm / 3 * 0.97, aa = a + sg * 0.1 * sgm, ex = u.x + Math.cos(aa) * d, ey = u.y + Math.sin(aa) * d, w = (sgm % 2 ? 1 : -1) * sg * (R * 0.07 + 6);
+            ctx.quadraticCurveTo((qx + ex) / 2 - Math.sin(aa) * w, (qy + ey) / 2 + Math.cos(aa) * w, ex, ey); qx = ex; qy = ey;
+          }
+        }
+        ctx.lineWidth = 6; ctx.strokeStyle = 'rgba(40,28,18,0.6)'; ctx.stroke(); ctx.lineWidth = 3; ctx.strokeStyle = '#7A5A40'; ctx.stroke();
+      }
+      for (const c of this.calls) {
+        if (c.kind !== 'lightning') continue;
+        const k = clamp((T - c.t0) / Math.max(0.01, c.at - c.t0), 0, 1);
+        disc(ctx, c.x, c.y, c.r * 0.7 * k, 'rgba(15,23,42,0.2)', 0);
+        ctx.beginPath(); ctx.arc(c.x, c.y, c.r * (0.4 + 0.6 * k), 0, TAU); ctx.lineWidth = 3; ctx.strokeStyle = `rgba(160,220,255,${0.3 + 0.6 * k})`; ctx.stroke();
+      }
+      if (this.moon && this.moon.tide > 1) {
+        const w = this.moon.tide;
+        for (const [x0, sg] of [[AR.x, 1], [AR.x + AR.w, -1]]) {
+          ctx.fillStyle = 'rgba(56,120,200,0.38)'; ctx.fillRect(sg > 0 ? x0 : x0 - w, AR.y, w, AR.h);
+          ctx.beginPath(); for (let k = 0; k <= 24; k++) { const yy = AR.y + AR.h * k / 24, xx = x0 + sg * (w + Math.sin(k * 1.3 + t * 2.5) * 7); if (k) ctx.lineTo(xx, yy); else ctx.moveTo(xx, yy); }
+          ctx.lineWidth = 6; ctx.strokeStyle = 'rgba(219,234,254,0.8)'; ctx.stroke();
+        }
+      }
+    },
+    // over the troops: darkness, the moon, the blood moon, the storm, rewinds, the bell, galaxies, the sirens' song
+    drawOver2(ctx) {
+      const T = this.fightT, t = this.t;
+      if (this.weather === 'bloodmoon') { ctx.fillStyle = 'rgba(120,10,20,0.2)'; ctx.fillRect(AR.x, AR.y, AR.w, AR.h); }
+      if (this.permaStorm) {
+        ctx.fillStyle = 'rgba(15,23,42,0.2)'; ctx.fillRect(AR.x, AR.y, AR.w, AR.h);
+        ctx.beginPath(); for (let i = 0; i < 60; i++) { const x = AR.x + ((i * 97.3 + t * 160) % AR.w), y = AR.y + ((i * 53.1 + t * 950) % AR.h); ctx.moveTo(x, y); ctx.lineTo(x - 7, y - 24); }
+        ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(190,215,255,0.4)'; ctx.stroke();
+      }
+      if (this.dark && this.dark.k > 0.02) { ctx.fillStyle = `rgba(4,3,12,${0.45 * this.dark.k})`; ctx.fillRect(AR.x, AR.y, AR.w, AR.h); }
+      if (this.moon && this.moon.k > 0.02) {
+        const k = this.moon.k, R = 40 + 120 * k, mx = AR.x + AR.w / 2, my = AR.y + 60 + 40 * k;
+        ctx.fillStyle = `rgba(150,170,230,${0.1 * k})`; ctx.fillRect(AR.x, AR.y, AR.w, AR.h);
+        disc(ctx, mx, my, R * 1.35, `rgba(244,241,230,${0.08 * k})`, 0); disc(ctx, mx, my, R, `rgba(244,241,230,${0.32 * k})`, 0);
+        ctx.beginPath(); for (const [ox, oy, rr] of [[-0.3, -0.2, 0.18], [0.25, 0.1, 0.24], [-0.05, 0.4, 0.12]]) { ctx.moveTo(mx + ox * R + rr * R, my + oy * R); ctx.arc(mx + ox * R, my + oy * R, rr * R, 0, TAU); }
+        ctx.fillStyle = `rgba(190,185,170,${0.25 * k})`; ctx.fill();
+      }
+      if (this.weather === 'bloodmoon') { const mx = AR.x + AR.w - 110, my = AR.y + 90; disc(ctx, mx, my, 70, 'rgba(229,72,77,0.15)', 0); disc(ctx, mx, my, 46, 'rgba(200,40,50,0.55)', 0); }
+      if (this.bellFx && T - this.bellFx.t0 < 1.1) {
+        const b = this.bellFx, p = (T - b.t0) / 1.1;
+        ctx.beginPath(); for (let i = 0; i < 3; i++) { const rr = 50 + p * 240 - i * 50; if (rr > 4) { ctx.moveTo(b.x + rr, b.y); ctx.arc(b.x, b.y, rr, 0, TAU); } }
+        ctx.lineWidth = 4; ctx.strokeStyle = `rgba(255,214,102,${0.7 * (1 - p)})`; ctx.stroke();
+      }
+      if (this.rewindFx && T - this.rewindFx.t0 < 0.9) {
+        const b = this.rewindFx, p = (T - b.t0) / 0.9, R = 60 + p * 300;
+        ctx.beginPath(); ctx.arc(b.x, b.y, R, 0, TAU); ctx.lineWidth = 6; ctx.strokeStyle = `rgba(253,230,138,${0.6 * (1 - p)})`; ctx.stroke();
+        ctx.beginPath(); for (let k = 0; k < 12; k++) { const a = k / 12 * TAU + p * 6; ctx.moveTo(b.x + Math.cos(a) * (R - 12), b.y + Math.sin(a) * (R - 12)); ctx.lineTo(b.x + Math.cos(a) * R, b.y + Math.sin(a) * R); } ctx.lineWidth = 3; ctx.stroke();
+      }
+      if (this.rewindAll && T - this.rewindAll.t0 < 1.4) {
+        const k = 1 - (T - this.rewindAll.t0) / 1.4, cx = AR.x + AR.w / 2, cy = AR.y + AR.h / 2;
+        ctx.fillStyle = `rgba(253,230,138,${0.3 * k})`; ctx.fillRect(AR.x, AR.y, AR.w, AR.h);
+        ctx.fillStyle = `rgba(4,6,11,${0.18 * k})`; for (let i = 0; i < 14; i++) ctx.fillRect(AR.x, AR.y + ((i * 83 + t * 900) % AR.h), AR.w, 5);
+        ctx.globalAlpha = k; ctx.beginPath(); for (const o of [0, 70]) { ctx.moveTo(cx + 40 - o, cy - 50); ctx.lineTo(cx - 30 - o, cy); ctx.lineTo(cx + 40 - o, cy + 50); ctx.closePath(); }
+        ctx.fillStyle = '#FFFFFF'; ctx.fill(); ctx.lineWidth = 6; ctx.strokeStyle = COL.ink; ctx.stroke(); ctx.globalAlpha = 1;
+      }
+      if (this.sandFx && T - this.sandFx.t0 < 1.2) {
+        const b = this.sandFx, p = (T - b.t0) / 1.2;
+        ctx.beginPath(); for (let i = 0; i < 18; i++) { const a = i / 18 * TAU + p * 5, d = 60 + p * 160, sx = b.x + Math.cos(a) * d, sy = b.y + Math.sin(a) * d; ctx.moveTo(sx + 3.5, sy); ctx.arc(sx, sy, 3.5, 0, TAU); }
+        ctx.fillStyle = `rgba(233,196,106,${0.8 * (1 - p)})`; ctx.fill();
+      }
+      for (const g of this.galaxies || []) {
+        const p = (T - g.t0) / 2.4; if (p < 0 || p > 1) continue;
+        const R = 70 * Math.sin(Math.PI * Math.min(1, p * 1.2)), rot = t * 3;
+        disc(ctx, g.x, g.y, R * 1.1, `rgba(76,29,149,${0.35 * (1 - p)})`, 0);
+        ctx.beginPath(); for (let arm = 0; arm < 3; arm++) for (let s = 0; s <= 16; s++) { const a = arm * TAU / 3 + s * 0.32 + rot, d = s / 16 * R, sx = g.x + Math.cos(a) * d, sy = g.y + Math.sin(a) * d; if (s) ctx.lineTo(sx, sy); else ctx.moveTo(sx, sy); }
+        ctx.lineWidth = 4; ctx.strokeStyle = `rgba(244,114,182,${0.8 * (1 - p)})`; ctx.stroke();
+        disc(ctx, g.x, g.y, 8 * (1 - p) + 2, '#FFFFFF', 0);
+      }
+      if (this.notes) for (const n of this.notes) {
+        const p = (T - n.t0) / 1.2;
+        for (let k = 0; k < 3; k++) { const nx = n.x + Math.cos(k * 2.1 + p * 3) * (20 + p * 60), ny = n.y - 16 - p * 50 + Math.sin(k * 2.1 + p * 3) * 14; ctx.globalAlpha = 1 - p; disc(ctx, nx, ny, 4, '#F9A8D4', 1.5); stick(ctx, nx + 3.5, ny, nx + 3.5, ny - 12, 1.2, '#F9A8D4'); }
+        ctx.globalAlpha = 1;
+      }
+    },
+    // icons on the new supply crates
+    crateIcon2(ctx, kind, x, y, b) {
+      const I = CRATE[kind].icon;
+      ctx.fillStyle = I; ctx.strokeStyle = COL.ink; ctx.lineWidth = 1.5;
+      if (kind === 'freeze') { ctx.beginPath(); for (let k = 0; k < 3; k++) { const a = k * Math.PI / 3; ctx.moveTo(x + Math.cos(a) * b * 0.75, y + Math.sin(a) * b * 0.75); ctx.lineTo(x - Math.cos(a) * b * 0.75, y - Math.sin(a) * b * 0.75); } ctx.lineWidth = 3; ctx.strokeStyle = I; ctx.stroke(); }
+      else if (kind === 'portal') { ctx.beginPath(); ctx.ellipse(x, y, b * 0.42, b * 0.68, 0, 0, TAU); ctx.lineWidth = 3; ctx.strokeStyle = I; ctx.stroke(); }
+      else if (kind === 'phoenix') { ctx.beginPath(); ctx.moveTo(x, y - b * 0.8); ctx.quadraticCurveTo(x + b * 0.75, y - b * 0.1, x + b * 0.45, y + b * 0.65); ctx.lineTo(x - b * 0.45, y + b * 0.65); ctx.quadraticCurveTo(x - b * 0.75, y - b * 0.1, x, y - b * 0.8); ctx.fill(); ctx.stroke(); }
+      else if (kind === 'chain') { ctx.beginPath(); ctx.moveTo(x + b * 0.2, y - b * 0.85); ctx.lineTo(x - b * 0.5, y + b * 0.1); ctx.lineTo(x - b * 0.02, y + b * 0.1); ctx.lineTo(x - b * 0.25, y + b * 0.85); ctx.lineTo(x + b * 0.5, y - b * 0.15); ctx.lineTo(x + b * 0.02, y - b * 0.15); ctx.closePath(); ctx.fill(); ctx.stroke(); }
+      else if (kind === 'dice') { ctx.beginPath(); for (const [a, c] of [[-0.4, -0.4], [0.4, 0.4], [0, 0], [0.4, -0.4], [-0.4, 0.4]]) { ctx.moveTo(x + a * b + b * 0.14, y + c * b); ctx.arc(x + a * b, y + c * b, b * 0.14, 0, TAU); } ctx.fill(); }
+      else if (kind === 'crystal') { ctx.beginPath(); ctx.moveTo(x, y - b * 0.8); ctx.lineTo(x + b * 0.5, y); ctx.lineTo(x, y + b * 0.8); ctx.lineTo(x - b * 0.5, y); ctx.closePath(); ctx.fill(); ctx.stroke(); }
+      else if (kind === 'singularity') { disc(ctx, x, y, b * 0.4, '#05060A', 1.5); ctx.beginPath(); ctx.arc(x, y, b * 0.66, 0.4, 4.6); ctx.lineWidth = 2.5; ctx.strokeStyle = I; ctx.stroke(); }
+      else if (kind === 'crown') { ctx.beginPath(); ctx.moveTo(x - b * 0.7, y + b * 0.45); ctx.lineTo(x - b * 0.7, y - b * 0.4); ctx.lineTo(x - b * 0.32, y); ctx.lineTo(x, y - b * 0.6); ctx.lineTo(x + b * 0.32, y); ctx.lineTo(x + b * 0.7, y - b * 0.4); ctx.lineTo(x + b * 0.7, y + b * 0.45); ctx.closePath(); ctx.fill(); ctx.stroke(); }
+      else if (kind === 'clone') { disc(ctx, x - b * 0.25, y, b * 0.42, I, 1.5); disc(ctx, x + b * 0.25, y, b * 0.42, I, 1.5); }
+      else if (kind === 'ghosts') { ctx.beginPath(); ctx.arc(x, y - b * 0.1, b * 0.5, Math.PI, 0); ctx.lineTo(x + b * 0.5, y + b * 0.6); ctx.lineTo(x + b * 0.17, y + b * 0.4); ctx.lineTo(x - b * 0.17, y + b * 0.6); ctx.lineTo(x - b * 0.5, y + b * 0.4); ctx.closePath(); ctx.fill(); ctx.stroke(); ctx.fillStyle = COL.ink; ctx.beginPath(); for (const sd of [-1, 1]) { ctx.moveTo(x + sd * b * 0.18 + b * 0.09, y - b * 0.1); ctx.arc(x + sd * b * 0.18, y - b * 0.1, b * 0.09, 0, TAU); } ctx.fill(); }
+    },
+  };
+  Object.assign(Army.prototype, ARMY_EXT, ARMY_DRAW, ARMY_MAPS, ARMY_EXT2, ARMY_DRAW2);
+
   const GAMES = { territory: Territory, duel: Duel, army: Army };
-  Object.assign(api, { rng, Match, Territory, Duel, Army, Director, Synth, GAMES, WEAPONS, DOCTRINES, MODERN_DOCTRINES, FANTASY_DOCTRINES, GENRES, UNIT_ERA, ALL_DOCTRINES, MAPS, MAP_THEME, UNIT, eraOf, fmtTime });
+  Object.assign(api, { rng, Match, Territory, Duel, Army, Director, Synth, GAMES, WEAPONS, DOCTRINES, MODERN_DOCTRINES, FANTASY_DOCTRINES, GENRES, UNIT_ERA, ALL_DOCTRINES, MAPS, MAP_THEME, UNIT, eraOf, fmtTime, labelOf, docLabel, MAP_MECH });
   return api;
 })();
 if (typeof module !== 'undefined') module.exports = RVB;

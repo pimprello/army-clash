@@ -21,6 +21,9 @@ let meta = {};
 try { meta = JSON.parse(fs.readFileSync(path.join(__dirname, 'out', 'meta.json'), 'utf8')); } catch (e) { /* older render */ }
 const record = { date: info.date, id: info.id, title: info.title, seed: meta.seed, slot: meta.slot, era: meta.era, map: meta.map,
   teams: meta.teams, armies: meta.armies, formations: meta.formations, troops: meta.troops, hook: meta.hook, winner: meta.winner,
-  wild: meta.wild || undefined, clickbait: meta.clickbait || undefined, sides: meta.wild ? meta.sides : undefined, cinematic: meta.cinematic };
+  wild: meta.wild || undefined, clickbait: meta.clickbait || undefined, sides: meta.wild ? meta.sides : undefined, cinematic: meta.cinematic,
+  three: meta.three || undefined, titleKind: meta.titleKind, trophy: meta.trophy };
 fs.appendFileSync(path.join(__dirname, 'videos.jsonl'), JSON.stringify(record) + '\n');
-console.log('uploads.md and videos.jsonl updated');
+// The trophy room: records across every video so far, rebuilt from videos.jsonl each time.
+try { require('./trophies.js').write(__dirname); } catch (e) { console.log('trophy room not updated:', e.message); }
+console.log('uploads.md, videos.jsonl and TROPHIES.md updated');

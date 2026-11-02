@@ -62,7 +62,7 @@ jobs:
             git fetch -q origin main
             git checkout -q -B main origin/main
             node log-upload.js
-            git add uploads.md videos.jsonl
+            git add uploads.md videos.jsonl TROPHIES.md
             git commit -q -m "Posted: $(node -p "require('./out/uploaded.json').title")" || true
             if git push -q origin main; then pushed=1; break; fi
             sleep 5

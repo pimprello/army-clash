@@ -202,7 +202,7 @@ async function main() {
     LIME: '💚', TEAL: '🌊', GOLD: '🥇', SILVER: '🥈', INDIGO: '🫐', CORAL: '🪸', ...FLAG };
   const teamName = k => NATION[k] || titleCase(k);
   const ns = pair.map(teamName), [n0, n1] = ns;
-  const armyName = i => titleCase(game.doc[i].name);
+  const armyName = i => titleCase(RVB.docLabel(game.doc[i]));
   const red = `${n0} ${armyName(0)}`, blue = `${n1} ${armyName(1)}`;
   // Clickbait slots (rules.clickbait.every): a short teaser about something that really happened, with no team names, hashtags or tags.
   const cbEvery = (rules.clickbait && rules.clickbait.every) || 0;
@@ -214,9 +214,11 @@ async function main() {
     teams: pair, nations: nationBattle ? NATION : null, flags: FLAG, docs: game.doc, start: game.start.slice(0, ids.length),
     left: ids.map(t => game.alive[t] + game.reserve[t]), gained: ids.map(t => (game.gained && game.gained[t]) || 0), winner: game.winner,
     low: Fx.low, falls: Fx.falls || [], drops: Fx.drops || [], strike: Fx.strike, hazard: Fx.hazard, wild: wild || custom || (three && invent3), three, clickbait, seed,
+    xf: game.xf || {}, label: RVB.labelOf, mvp: game.best && game.best[game.winner],
   });
   const hook = title;
-  const MAP_NAME = { open: 'open field', rocks: 'rocky field', ruins: 'ruins', trenches: 'trenches', city: 'city rooftops', forest: 'forest', bombed: 'bombed city', enchanted: 'fantasy land' };
+  const MAP_NAME = { open: 'open field', rocks: 'rocky field', ruins: 'ruins', trenches: 'trenches', city: 'city rooftops', forest: 'forest', bombed: 'bombed city', enchanted: 'fantasy land', canyon: 'canyon',
+    godboard: 'Godboard (a giant chessboard)', furnace: 'World Furnace (lava)', frozen: 'Frozen End (ice)', grave: "Titan's Grave", overgrown: 'Overgrown Kingdom', clockwork: 'Clockwork Colosseum', shattered: 'Shattered Sky (floating islands)', mirror: 'Mirror Dimension' };
   const GENRE = { modern: 'modern warfare ', fantasy: 'fantasy ', mixed: 'old vs new ', scifi: 'sci-fi ', pirate: 'pirate ', horror: 'zombie ', samurai: 'samurai ', wild: 'mixed-genre ' };
   // custom teams get their own names in the title ("Storm Mages vs Dragon Bones"); army types stay in the description otherwise
   const showNames = era === 'wild';
@@ -256,6 +258,13 @@ async function main() {
     clickbait: clickbait || undefined,
     slot,
     winner: game.headline,
+    // for the trophy room (TROPHIES.md): the best fighter, how fast it was over, titles and mutations earned
+    trophy: (() => {
+      const m = game.best && game.best[game.winner], x = game.xf || {};
+      return { mvp: m && m.kills ? { unit: RVB.labelOf(m.type), kills: m.kills, name: m.champ || undefined, title: m.title || undefined } : undefined, fight: +game.fightT.toFixed(1), wipeout: game.retreat === undefined || game.retreat === -1 ? true : undefined,
+        left: game.alive[game.winner] + game.reserve[game.winner], titles: x.titles && x.titles.length ? x.titles : undefined, mutations: x.muts && x.muts.length ? [...new Set(x.muts)] : undefined,
+        moments: ['possess', 'fusion', 'godEater', 'portal', 'extinct', 'sudden', 'copied'].filter(k => x[k]).map(k => `${k}${typeof x[k] === 'string' ? ':' + x[k] : ''}`) };
+    })(),
   };
   fs.writeFileSync(path.join(OUT, 'meta.json'), JSON.stringify(meta, null, 2));
   const mb = (fs.statSync(final).size / 1048576).toFixed(1);

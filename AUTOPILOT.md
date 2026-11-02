@@ -37,12 +37,12 @@ Make at most three changes, each small and easy to undo. Pick in this order.
 8. new clickbait teasers in `render.js` (each one tied to something that really happens in a battle).
 
 Rellz wants the channel to keep surprising viewers, so when a kind is due, be inventive. Ideas not built yet (take one, build it well, cross it off here):
-- cavalry (horse riders that charge), catapults and ballistas, war elephants, archers on castle walls;
-- helicopters or kamikaze drones in modern battles, laser turrets in sci-fi, a kraken or ghost ship in pirate battles;
-- a boss troop (one huge hero per side with a name and a health bar), a duel of champions before the armies charge;
-- day/night or sunset versions of maps, a volcano map with lava, an ice map where troops slide, a castle siege map;
-- a "freeze frame" with a big VS card when two heroes meet, slow-motion replays of the best kill at the end;
-- team cheers and emotes in the outro, confetti in team colours, a scoreboard of kills by troop type.
+- ballistas, archers on castle walls, a castle siege map;
+- laser turrets in sci-fi, a ghost ship in pirate battles, a volcano eruption hazard, a ghost-ship or sandworm map hazard;
+- a duel of champions before the armies charge, a "freeze frame" VS card when two champions meet, slow-motion replay of the best kill at the end;
+- day/night or sunset versions of maps;
+- team cheers and emotes in the outro, a scoreboard of kills by troop type.
+Already built (don't rebuild): cavalry (lancers, horse archers, wolf and boar riders, griffins), war elephants, boss troops with phases (titan, hydra, walking fortress, dread knight, Mirror King, Gravity Tyrant), a volcano map (World Furnace), an ice map (Frozen End), both troop batches (including the Star Eater, Timeline Executioner, Walking Cathedral, Storm Emperor, Worldroot, Hourglass Titan, Moon Caller, Unqualified King, Undefeated General, Empty Army, the Player, the Universe, the Living Fortress, frost witches, liches, storm callers, sirens, gargoyles, assassins, ogres, mammoths, rhinos, catapults, siege gunners, drones and helicopters), living weapons, boss transformations, the blood moon, the stampede and kraken hazards, the clone ray and ghost army drops, and the factions, systems and power-ups listed in RULES.md.
 
 **C. Fix what looks wrong.** Render stills of two or three battles (one per era) and look at them. If anything is clipped, unreadable, overlapping or off-style, fix it.
 
@@ -53,6 +53,7 @@ Rellz wants the channel to keep surprising viewers, so when a kind is due, be in
 - Motion: troops turn smoothly (no snapping), swords swing smoothly with a swish, and walking speeds vary 3–7% per troop. Troops must never get stuck on walls: run the stuck check (section 5) after any change to movement or maps.
 - Camera: keep the cinematic director on (Rellz: "go crazy, slow-mo, close-ups"). Keep the whole arena in view about half of the fight, and keep every video ending at exactly 60 seconds (time spent in slow motion has to be caught up).
 - Variety: keep creative match-ups (`rules.creative`), mixed-genre custom teams and battle events (airdrops and the rest) switched on; Rellz asked for random creative match-ups and "airdrops and other cool stuff". New event ideas are welcome if they stay fair to both sides over many battles.
+- Systems: keep `rules.systems` on (evolution, champions, traits, crits, synergies, weather, modifiers, portals, sudden death, extinction, weapon drops, destructible terrain, power-ups, boss transformations, living weapons); Rellz asked for all of them. You can tune a chance (weather, modifiers, portals, traits) if a stats-backed reason shows up, but don't switch one off.
 - Titles: written by `titles.js` from research on Shorts (see RULES.md, "Titles"): short (hook in the first ~40 characters), one or two emojis that fit the content, one or two words in CAPITALS, name the armies rather than just "Red vs Blue", no `#shorts` in the title (the description has the hashtags). Rellz asked for this ("dont make it just x v x"). Never misleading. The description always says it's a simulation. Clickbait slots (`rules.clickbait`) are wanted (Rellz asked for "a funny clickbait title to get optimum views"): no team names, no hashtags, no tags, but the teaser must match something that really happened in that video.
 - Three-way battles: keep `rules.threeWay` on (Rellz asked for 1v1v1), but most videos stay 1v1 ("not all matches are 1v1v1"): keep `every` at 3 or more. A new three-way line-up needs a `balance` for each army from test battles (`creative.balance3`), with no army winning more than about half of 24 fresh battles.
 - Colours: two teams must never look alike. Keep `minColourGap` at 30 or more, and check any new colour or pair with `RVB.colourGap(a, b)`.
@@ -61,7 +62,7 @@ Rellz wants the channel to keep surprising viewers, so when a kind is due, be in
 - Schedule: one upload about every 880 seconds (98 a day, under YouTube's 100-a-day API limit; Rellz asked for as many as allowed). Don't go faster, and never use extra Google projects to get around the limit.
 - Balance: every new or changed line-up gets a `balance` from test battles (bisection over the bottom army size with battle events on, 12+ battles per step, a check of 16+ fresh battles at the end; `creative.balance` does the bisection) so the top side wins 35–65%. Keep it `"pending": true` until then. New maps and formations must not move win rates by more than 15 points against `open` or `line`; if they do, adjust `formationBudget` or the map.
 - Determinism: old line-ups must play out the same when a new option is off. Run one old line-up before and after your engine change and compare the result.
-- Speed: one video must still render in under 3 minutes on a GitHub runner, including the test battles a creative match-up runs first (see the "Make the video" step time in recent runs).
+- Speed: one video must still render in under 6 minutes on a GitHub runner, including the test battles a creative or three-way match-up runs first (see the "Make the video" step time in recent runs). The next post starts 880 seconds after the last one, so slower than that would delay the schedule.
 - Keep the repo tidy: no stray files, and no secrets in code or logs.
 
 ## 5. Test before pushing
