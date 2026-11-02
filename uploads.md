@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 21:38 | 140 Pirates vs 93 Vikings 🏴‍☠️ | Gold wins | https://youtube.com/shorts/d690riJdKKU |
 | 2026-11-02 21:24 | The Empty Armour Kept FIGHTING 👻 | Orange wins | https://youtube.com/shorts/FROYUz7l2_U |
 | 2026-11-02 21:08 | 153 Soldiers vs a GIANT Army 👹 | Red wins | https://youtube.com/shorts/zX5SXHC1CVA |
 | 2026-11-02 20:54 | 3 Armies, Only 1 SURVIVES 💀 | Yellow wins | https://youtube.com/shorts/_U3K1EjOlHc |

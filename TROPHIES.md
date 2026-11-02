@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 23 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 24 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -77,5 +77,6 @@ Records from 23 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - possess: treant: 1
 - portal: cyclops: 1
 - sudden: lava: 1
+- portal: troll: 1
 - sudden: boss: 2
 - sudden: meteors: 3
