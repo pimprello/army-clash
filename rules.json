@@ -1048,8 +1048,7 @@
     {
       "top": "GARGOYLES",
       "bottom": "KNIGHTS",
-      "balance": 1,
-      "pending": true
+      "balance": 1.793
     },
     {
       "top": "ASSASSINS",
@@ -1060,32 +1059,27 @@
     {
       "top": "SIEGE",
       "bottom": "FORTRESS",
-      "balance": 1,
-      "pending": true
+      "balance": 1.887
     },
     {
       "top": "MAMMOTHS",
       "bottom": "ELEPHANTS",
-      "balance": 1,
-      "pending": true
+      "balance": 0.963
     },
     {
       "top": "RHINOS",
       "bottom": "CAVALRY",
-      "balance": 1,
-      "pending": true
+      "balance": 1.329
     },
     {
       "top": "OGRES",
       "bottom": "DWARVES",
-      "balance": 1,
-      "pending": true
+      "balance": 0.713
     },
     {
       "top": "DRONES",
       "bottom": "ARMORED",
-      "balance": 1,
-      "pending": true
+      "balance": 0.437
     },
     {
       "top": "AIRBORNE",
@@ -1096,8 +1090,7 @@
     {
       "top": "SIRENS",
       "bottom": "BUCCANEERS",
-      "balance": 1,
-      "pending": true
+      "balance": 0.882
     },
     {
       "top": "STAREATER",
@@ -1114,68 +1107,57 @@
     {
       "top": "CATHEDRAL",
       "bottom": "LEGION",
-      "balance": 1,
-      "pending": true
+      "balance": 1.035
     },
     {
       "top": "STORMEMPEROR",
       "bottom": "DRAGON",
-      "balance": 1,
-      "pending": true
+      "balance": 1.282
     },
     {
       "top": "WORLDROOT",
       "bottom": "GOLEMS",
-      "balance": 1,
-      "pending": true
+      "balance": 1.41
     },
     {
       "top": "HOURGLASS",
       "bottom": "ROBOTS",
-      "balance": 1,
-      "pending": true
+      "balance": 1.617
     },
     {
       "top": "MOONCALLER",
       "bottom": "GRIFFINS",
-      "balance": 1,
-      "pending": true
+      "balance": 1.099
     },
     {
       "top": "GOBLINKING",
       "bottom": "EMPIRE",
-      "balance": 1,
-      "pending": true
+      "balance": 1.027
     },
     {
       "top": "NEVERLOSE",
       "bottom": "WARBAND",
-      "balance": 1,
-      "pending": true
+      "balance": 0.928
     },
     {
       "top": "EMPTY",
       "bottom": "SWARM",
-      "balance": 1,
-      "pending": true
+      "balance": 1.147
     },
     {
       "top": "PLAYER",
       "bottom": "GIANT",
-      "balance": 1,
-      "pending": true
+      "balance": 1.147
     },
     {
       "top": "UNIVERSE",
       "bottom": "HORDE",
-      "balance": 1,
-      "pending": true
+      "balance": 0.471
     },
     {
       "top": "LIVINGFORT",
       "bottom": "ORCS",
-      "balance": 1,
-      "pending": true
+      "balance": 0.963
     }
   ],
   "cinematic": true,
