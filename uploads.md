@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 10:34 | DREAM TEAM Battle: Lunar Mages vs Solar Legion | Silver wins | https://youtube.com/shorts/vQiVXhdjGg4 |
 | 2026-11-02 10:17 | Watch Till the END 👀 | Spain wins | https://youtube.com/shorts/-T3BayOpb08 |
 | 2026-11-02 10:03 | 3 Armies, Only 1 SURVIVES 💀 | Cyan wins | https://youtube.com/shorts/_xafPX50Jf0 |
 | 2026-11-02 09:48 | 🇨🇦 Canada vs USA: WHO WINS? | Canada wins | https://youtube.com/shorts/Sgo3xPTNztE |
