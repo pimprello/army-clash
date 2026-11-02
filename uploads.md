@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 02:56 | A TORNADO Hit Mid-Battle 🌪️ | Cyan wins | https://youtube.com/shorts/OHyeMz0kNc4 |
 | 2026-11-02 02:41 | Storm Knights vs FROST BONES 🔥 | Brown wins | https://youtube.com/shorts/tOpmKDc18FA |
 | 2026-11-02 02:27 | 🏴‍☠️ PIRATES vs Pirates | Purple wins | https://youtube.com/shorts/qL1RxMWEQWI |
 | 2026-11-02 02:12 | OMEGA BOLTS vs Rogue Samurai vs Mega Snipers 🔥 | New zealand wins | https://youtube.com/shorts/wlBlJem2bK8 |
