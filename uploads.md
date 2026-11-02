@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 20:54 | 3 Armies, Only 1 SURVIVES 💀 | Yellow wins | https://youtube.com/shorts/_U3K1EjOlHc |
 | 2026-11-02 20:43 | Robots vs GIANT ARMY 👹 | White wins | https://youtube.com/shorts/iPxQZSKyT9k |
 | 2026-11-02 20:25 | Omega Boars vs Mammoth Ogres 🤯 | White wins | https://youtube.com/shorts/AY6uRHJaixc |
 | 2026-11-02 20:09 | METEORS Hit Mid-Battle ☄️ | Blue wins | https://youtube.com/shorts/UCHbxIxm93I |
