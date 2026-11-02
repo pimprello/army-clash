@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 11:02 | 3 Armies, Only 1 SURVIVES 💀 | Pink wins | https://youtube.com/shorts/Tkp3bU_gXW4 |
 | 2026-11-02 10:47 | 💥 TANK ARMY vs Snipers | Teal wins | https://youtube.com/shorts/EjWw2YuQAzE |
 | 2026-11-02 10:34 | DREAM TEAM Battle: Lunar Mages vs Solar Legion | Silver wins | https://youtube.com/shorts/vQiVXhdjGg4 |
 | 2026-11-02 10:17 | Watch Till the END 👀 | Spain wins | https://youtube.com/shorts/-T3BayOpb08 |
