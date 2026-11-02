@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 03:41 | Wild Snipers vs GHOST BOMBERS 🔥 | Blue wins | https://youtube.com/shorts/Hl2Og1t3VqQ |
 | 2026-11-02 03:26 | 155 Soldiers vs 127 Archers ⚔️ | Green wins | https://youtube.com/shorts/Db3E8cpqVjY |
 | 2026-11-02 03:11 | HORDE vs Elves vs Mages 🔥 | Yellow wins | https://youtube.com/shorts/VJk0TGIoUMg |
 | 2026-11-02 02:56 | A TORNADO Hit Mid-Battle 🌪️ | Cyan wins | https://youtube.com/shorts/OHyeMz0kNc4 |
