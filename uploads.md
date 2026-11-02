@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 14:29 | Toxic Gunners vs Dragon Bones 🤯 | Teal wins | https://youtube.com/shorts/I-34oiWLlH0 |
 | 2026-11-02 14:14 | 🇺🇸 USA Archers vs Canada Giant Army | Canada wins | https://youtube.com/shorts/sLYEN-tWfDk |
 | 2026-11-02 13:59 | LIGHTNING Struck the Battlefield ⚡ | Yellow wins | https://youtube.com/shorts/NSlKwwTCID0 |
 | 2026-11-02 13:45 | Dragon Army vs ORCS 👹 | Blue wins | https://youtube.com/shorts/DvcMnTvZ7Go |
