@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 18:55 | The Weapons Came ALIVE 🗡️ | Green wins | https://youtube.com/shorts/fqgv271cJu0 |
 | 2026-11-02 18:40 | The BIGGEST Comeback I've Seen 😱 | Yellow wins | https://youtube.com/shorts/Voym5nz5PNY |
 | 2026-11-02 18:25 | DREAM TEAM Battle: Cosmic Guard vs Titan Archers | Red wins | https://youtube.com/shorts/dTw-6GR3gv8 |
 | 2026-11-02 18:10 | Knights vs ARCHERS 🏹 | Silver wins | https://youtube.com/shorts/aIQnsGMUeko |
