@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-02 02:27 | 🏴‍☠️ PIRATES vs Pirates | Purple wins | https://youtube.com/shorts/qL1RxMWEQWI |
 | 2026-11-02 02:12 | OMEGA BOLTS vs Rogue Samurai vs Mega Snipers 🔥 | New zealand wins | https://youtube.com/shorts/wlBlJem2bK8 |
 | 2026-11-02 01:57 | Warriors vs GIANT ARMY 👹 | Red wins | https://youtube.com/shorts/d3jMnhZ42qA |
 | 2026-11-02 01:43 | The Smaller Army Did WHAT? 😳 | Uk wins | https://youtube.com/shorts/D4BPwhhyVYM |
