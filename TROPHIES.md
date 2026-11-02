@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 17 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 18 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -18,18 +18,18 @@ Records from 17 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 ## Fastest wipe-outs
 
 - **36.1 s**: green wins · 2026-11-02 18:55 · [The Weapons Came ALIVE 🗡️](https://youtube.com/shorts/fqgv271cJu0)
+- **38.3 s**: blue wins · 2026-11-02 20:09 · [METEORS Hit Mid-Battle ☄️](https://youtube.com/shorts/UCHbxIxm93I)
 - **39.1 s**: blue wins · 2026-11-02 16:12 · [🏴‍☠️ PIRATES vs Tank Army](https://youtube.com/shorts/MC72VK4VErA)
 - **39.1 s**: france wins · 2026-11-02 19:09 · [🇬🇧 UK vs France 🇫🇷](https://youtube.com/shorts/DoPnzNYJGTk)
 - **40.4 s**: red wins · 2026-11-02 15:58 · [Toxic Elves vs Star Bolts vs Solar Drones 🤯](https://youtube.com/shorts/QbPvzD9g3AM)
-- **41.2 s**: yellow wins · 2026-11-02 17:56 · [Steel Raiders vs Tusk Rhinos vs Lunar Bows 🤯](https://youtube.com/shorts/oX-v7nCnbPs)
 
 ## Biggest wins (troops still standing)
 
+- **48 left**: 2026-11-02 20:09 · [METEORS Hit Mid-Battle ☄️](https://youtube.com/shorts/UCHbxIxm93I)
 - **45 left**: 2026-11-02 19:09 · [🇬🇧 UK vs France 🇫🇷](https://youtube.com/shorts/DoPnzNYJGTk)
 - **44 left**: 2026-11-02 16:28 · [The Golem Went DOWN 💀](https://youtube.com/shorts/t2hhg3XKXNY)
 - **42 left**: 2026-11-02 18:10 · [Knights vs ARCHERS 🏹](https://youtube.com/shorts/aIQnsGMUeko)
 - **40 left**: 2026-11-02 16:12 · [🏴‍☠️ PIRATES vs Tank Army](https://youtube.com/shorts/MC72VK4VErA)
-- **39 left**: 2026-11-02 17:27 · [🇦🇺 Australia vs New Zealand: WHO WINS?](https://youtube.com/shorts/6Y3Usm-6gbg)
 
 ## Hall of champions
 
@@ -48,6 +48,7 @@ Records from 17 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - COLOSSUS SLAYER: 1
 - UNMAKER SLAYER: 1
 - MAMMOTH SLAYER: 1
+- CYCLOPS SLAYER: 1
 - TANK SLAYER: 2
 - GIANT SLAYER: 2
 - TITAN SLAYER: 2
@@ -73,4 +74,5 @@ Records from 17 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - fusion: 1
 - possess: cannon: 1
 - possess: treant: 1
+- portal: cyclops: 1
 - sudden: meteors: 2
