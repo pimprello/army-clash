@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 06:00 | A TORNADO Hit Mid-Battle 🌪️ | Brazil wins | https://youtube.com/shorts/0Vx4Yv3RMS4 |
 | 2026-11-03 05:46 | FROST BOWS vs Solar Snipers vs Wild Bots 🔥 | Pink wins | https://youtube.com/shorts/Og1PMycxWoM |
 | 2026-11-03 05:30 | 🇧🇪 Belgium vs Netherlands 🇳🇱 | Netherlands wins | https://youtube.com/shorts/NeMPZ0JTCf8 |
 | 2026-11-03 05:15 | Shadow Bows vs Turbo Mirrors 🤯 | Brown wins | https://youtube.com/shorts/cGfwiDkx1Tg |

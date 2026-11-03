@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 57 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 58 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -18,18 +18,18 @@ Records from 57 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 ## Fastest wipe-outs
 
 - **30 s**: orange wins · 2026-11-02 21:24 · [The Empty Armour Kept FIGHTING 👻](https://youtube.com/shorts/FROYUz7l2_U)
+- **31.3 s**: brazil wins · 2026-11-03 06:00 · [A TORNADO Hit Mid-Battle 🌪️](https://youtube.com/shorts/0Vx4Yv3RMS4)
 - **34.4 s**: gold wins · 2026-11-03 03:03 · [👑 EMPIRE vs Orc Horde](https://youtube.com/shorts/pUvRGzSNYBM)
 - **34.8 s**: red wins · 2026-11-03 04:18 · [Cosmic Bots vs Cyber Witches 🤯](https://youtube.com/shorts/gic-aRa5dr0)
 - **34.9 s**: yellow wins · 2026-11-03 03:47 · [EYE GRIFFINS vs Storm Bombers vs Turbo Snipers 🔥](https://youtube.com/shorts/bWknRUVTkUU)
-- **36.1 s**: green wins · 2026-11-02 18:55 · [The Weapons Came ALIVE 🗡️](https://youtube.com/shorts/fqgv271cJu0)
 
 ## Biggest wins (troops still standing)
 
 - **85 left**: 2026-11-03 00:21 · [🔥 STEEL GOBLINS vs Cosmic Fakers](https://youtube.com/shorts/gGvtevVjlvo)
+- **84 left**: 2026-11-03 06:00 · [A TORNADO Hit Mid-Battle 🌪️](https://youtube.com/shorts/0Vx4Yv3RMS4)
 - **81 left**: 2026-11-03 02:04 · [115 Vampires vs 105 Samurai 🧛](https://youtube.com/shorts/Wkgai-xFqF0)
 - **77 left**: 2026-11-03 01:35 · [Undead vs TROOPERS 🔫](https://youtube.com/shorts/YkmxyQRi1Kw)
 - **61 left**: 2026-11-03 03:03 · [👑 EMPIRE vs Orc Horde](https://youtube.com/shorts/pUvRGzSNYBM)
-- **57 left**: 2026-11-02 23:36 · [🇵🇹 Portugal Warriors vs Spain Archers](https://youtube.com/shorts/826KinGBtaw)
 
 ## Hall of champions
 
@@ -61,8 +61,8 @@ Records from 57 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - MAMMOTH SLAYER: 3
 - HELICOPTER SLAYER: 3
 - GIANT SLAYER: 6
-- TITAN SLAYER: 6
 - DRAGON SLAYER: 6
+- TITAN SLAYER: 7
 
 ## Mutations (rarest first)
 
