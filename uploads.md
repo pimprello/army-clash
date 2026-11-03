@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 09:40 | 🔥 TUSK SPEARS vs Golden Flames | Green wins | https://youtube.com/shorts/VH7cLAVD3KU |
 | 2026-11-03 09:26 | They Were OUTNUMBERED... 😳 | Coral wins | https://youtube.com/shorts/u2nIOTJGBG0 |
 | 2026-11-03 09:10 | A BLIZZARD Froze the Battle ❄️ | Australia wins | https://youtube.com/shorts/cGvmv7L2Q3Y |
 | 2026-11-03 08:56 | The War Elephant Went DOWN 💀 | Blue wins | https://youtube.com/shorts/boYWX0VITjk |

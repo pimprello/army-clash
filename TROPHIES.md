@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 70 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 71 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -62,7 +62,7 @@ Records from 70 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - UNMAKER SLAYER: 3
 - MAMMOTH SLAYER: 3
 - HELICOPTER SLAYER: 3
-- ELEPHANT SLAYER: 5
+- ELEPHANT SLAYER: 6
 - GIANT SLAYER: 6
 - DRAGON SLAYER: 6
 - TITAN SLAYER: 8
