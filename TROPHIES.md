@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 38 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 39 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -46,11 +46,11 @@ Records from 38 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - HYDRA SLAYER: 1
 - FORTRESS SLAYER: 1
 - COLOSSUS SLAYER: 1
-- UNMAKER SLAYER: 1
 - CYCLOPS SLAYER: 1
 - PLAYER SLAYER: 1
 - TANK SLAYER: 2
 - CANNON SLAYER: 2
+- UNMAKER SLAYER: 2
 - ELEPHANT SLAYER: 3
 - GOLEM SLAYER: 3
 - MAMMOTH SLAYER: 3
@@ -78,10 +78,10 @@ Records from 38 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - possess: cannon: 1
 - possess: treant: 1
 - portal: cyclops: 1
-- sudden: lava: 1
 - portal: troll: 1
 - extinct: RED: 1
 - portal: golem: 1
+- sudden: lava: 2
 - sudden: ring: 2
 - sudden: boss: 3
 - sudden: meteors: 4
