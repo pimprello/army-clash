@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 101 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 102 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -18,10 +18,10 @@ Records from 101 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Fastest wipe-outs
 
 - **22.8 s**: indigo wins · 2026-11-03 16:17 · [I Did NOT Expect This 😳](https://youtube.com/shorts/cYrP7bJqWDE)
+- **26.7 s**: lime wins · 2026-11-03 17:16 · [Frost Witches vs DEMONS 😈](https://youtube.com/shorts/_XGpRydxeWo)
 - **30 s**: orange wins · 2026-11-02 21:24 · [The Empty Armour Kept FIGHTING 👻](https://youtube.com/shorts/FROYUz7l2_U)
 - **31.3 s**: brazil wins · 2026-11-03 06:00 · [A TORNADO Hit Mid-Battle 🌪️](https://youtube.com/shorts/0Vx4Yv3RMS4)
 - **34.4 s**: gold wins · 2026-11-03 03:03 · [👑 EMPIRE vs Orc Horde](https://youtube.com/shorts/pUvRGzSNYBM)
-- **34.7 s**: coral wins · 2026-11-03 10:25 · [Golems vs ROBOTS 🤖](https://youtube.com/shorts/-hVq0ho__IM)
 
 ## Biggest wins (troops still standing)
 
@@ -62,13 +62,13 @@ Records from 101 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - TANK SLAYER: 3
 - CANNON SLAYER: 3
 - UNMAKER SLAYER: 3
-- MAMMOTH SLAYER: 3
 - CYCLOPS SLAYER: 3
 - HELICOPTER SLAYER: 3
 - PHOENIX SLAYER: 3
 - MIRROR KING SLAYER: 4
 - GOLEM SLAYER: 4
 - HYDRA SLAYER: 4
+- MAMMOTH SLAYER: 4
 - COLOSSUS SLAYER: 5
 - ELEPHANT SLAYER: 6
 - DRAGON SLAYER: 7
@@ -96,6 +96,7 @@ Records from 101 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: SILVER: 1
 - possess: rhino: 1
 - extinct: PINK: 1
+- possess: mammoth: 1
 - possess: cannon: 2
 - possess: treant: 2
 - portal: cyclops: 2
