@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 00:50 | Knights vs Orcs vs Robots 🤯 | Australia wins | https://youtube.com/shorts/blOzCI1EoCE |
 | 2026-11-03 00:35 | 🪖 SOLDIERS vs Tank Army | Brown wins | https://youtube.com/shorts/r2iOakUwpmI |
 | 2026-11-03 00:21 | 🔥 STEEL GOBLINS vs Cosmic Fakers | Blue wins | https://youtube.com/shorts/gGvtevVjlvo |
 | 2026-11-03 00:05 | Ninja Bots vs SKY SNIPERS 🔥 | White wins | https://youtube.com/shorts/qVCL1wniQJ0 |
