@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 107 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 108 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 107 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **BRAMBLE FIREBRAND** (TREANT), 10 kills · 2026-11-03 18:48
 - **DRAVEN GRAVEBANE** (LANCER), 10 kills · 2026-11-03 18:16
 - **TOVA THE UNBROKEN** (TREANT), 19 kills · 2026-11-03 16:48
 - **ASHKA THE LUCKY** (WAR RHINO), 10 kills · 2026-11-03 16:33
@@ -47,7 +48,6 @@ Records from 107 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **NYRA STEELHEART** (OGRE), 26 kills · 2026-11-03 11:38
 - **IVOR THE MAD** (ELF ARCHER), 18 kills · 2026-11-03 11:07
 - **KAELEN FIREBRAND** (PLAGUE ALCHEMIST), 21 kills · 2026-11-03 09:26
-- **NOMAD-7** (RIFLEMAN), 10 kills · 2026-11-03 08:56
 
 ## Titles earned (rarest first)
 
@@ -81,7 +81,7 @@ Records from 107 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 4
 - wings: 5
 - venom: 16
-- swift: 16
+- swift: 17
 - spellward: 17
 - spikes: 23
 - regen: 26
@@ -106,7 +106,7 @@ Records from 107 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: golem: 2
 - extinct: GREEN: 2
 - portal: demon: 3
-- sudden: ring: 3
 - fusion: 4
+- sudden: ring: 4
 - sudden: boss: 6
 - sudden: meteors: 9

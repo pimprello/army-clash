@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 18:48 | Then the Arena Started SHRINKING 😱 | Purple wins | https://youtube.com/shorts/55OsVo5asp4 |
 | 2026-11-03 18:31 | Cosmic Bows vs Omega Flames 🤯 | Gold wins | https://youtube.com/shorts/X9efZLWnvcM |
 | 2026-11-03 18:16 | Liches vs EMPIRE 👑 | Pink wins | https://youtube.com/shorts/1cFSjx46IcI |
 | 2026-11-03 18:02 | CHAOS ARCHERS vs Toxic Muskets vs Titan Hounds 🔥 | Uk wins | https://youtube.com/shorts/JFwkxpVtfbA |
