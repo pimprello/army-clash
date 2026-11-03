@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 04:31 | ⛏️ DWARVES vs Orc Horde | Orange wins | https://youtube.com/shorts/xq3tetEodBk |
 | 2026-11-03 04:18 | Cosmic Bots vs Cyber Witches 🤯 | Red wins | https://youtube.com/shorts/gic-aRa5dr0 |
 | 2026-11-03 04:03 | 🇦🇺 Australia Forest Elves vs New Zealand Demons | Australia wins | https://youtube.com/shorts/6iqO5DaPvVg |
 | 2026-11-03 03:47 | EYE GRIFFINS vs Storm Bombers vs Turbo Snipers 🔥 | Yellow wins | https://youtube.com/shorts/bWknRUVTkUU |
