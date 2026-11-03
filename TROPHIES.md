@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 108 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 109 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 108 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **VIPER-4** (LASER TROOPER), 20 kills · 2026-11-03 18:59
 - **BRAMBLE FIREBRAND** (TREANT), 10 kills · 2026-11-03 18:48
 - **DRAVEN GRAVEBANE** (LANCER), 10 kills · 2026-11-03 18:16
 - **TOVA THE UNBROKEN** (TREANT), 19 kills · 2026-11-03 16:48
@@ -47,7 +48,6 @@ Records from 108 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **VEXA BONECRUSHER** (GRIFFIN RIDER), 13 kills · 2026-11-03 12:07
 - **NYRA STEELHEART** (OGRE), 26 kills · 2026-11-03 11:38
 - **IVOR THE MAD** (ELF ARCHER), 18 kills · 2026-11-03 11:07
-- **KAELEN FIREBRAND** (PLAGUE ALCHEMIST), 21 kills · 2026-11-03 09:26
 
 ## Titles earned (rarest first)
 
@@ -73,18 +73,18 @@ Records from 108 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - COLOSSUS SLAYER: 5
 - ELEPHANT SLAYER: 6
 - DRAGON SLAYER: 7
-- GIANT SLAYER: 9
+- GIANT SLAYER: 10
 - TITAN SLAYER: 12
 
 ## Mutations (rarest first)
 
 - vampiric: 4
 - wings: 5
-- venom: 16
-- swift: 17
-- spellward: 17
+- venom: 17
+- swift: 18
+- spellward: 18
 - spikes: 23
-- regen: 26
+- regen: 27
 
 ## Big moments
 
@@ -97,6 +97,7 @@ Records from 108 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - possess: rhino: 1
 - extinct: PINK: 1
 - possess: mammoth: 1
+- copied: giant: 1
 - possess: cannon: 2
 - possess: treant: 2
 - portal: cyclops: 2
