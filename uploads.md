@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 20:30 | 🇪🇸 Spain vs Portugal 🇵🇹 | Portugal wins | https://youtube.com/shorts/PQAg3kHEfMA |
 | 2026-11-03 20:16 | The Weapons Came ALIVE 🗡️ | Netherlands wins | https://youtube.com/shorts/HhSUHl_sjQo |
 | 2026-11-03 20:11 | They Were OUTNUMBERED... 😳 | Red wins | https://youtube.com/shorts/nAYWW5Sl-IY |
 | 2026-11-03 19:43 | 🗡️ ASSASSINS vs Samurai | Blue wins | https://youtube.com/shorts/BYTKUw_hr3k |
