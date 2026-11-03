@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 96 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 97 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 96 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 ## Hall of champions
 
+- **RUNA THE LUCKY** (STORM CALLER), 16 kills · 2026-11-03 16:03
 - **OSKA THE MAD** (WARLOCK), 17 kills · 2026-11-03 15:49
 - **KAELEN THE BOLD** (WIZARD), 13 kills · 2026-11-03 14:19
 - **GRIM SKULLTAKER** (ORC), 24 kills · 2026-11-03 13:51
@@ -47,7 +48,6 @@ Records from 96 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - **TOVA SKULLTAKER** (OGRE), 11 kills · 2026-11-03 08:13
 - **TALVO STEELHEART** (GENERAL), 21 kills · 2026-11-03 03:33
 - **GRUNDA GRAVEBANE** (WIZARD), 15 kills · 2026-11-03 01:35
-- **VIPER-2** (LASER TROOPER), 11 kills · 2026-11-02 20:43
 
 ## Titles earned (rarest first)
 
@@ -56,12 +56,12 @@ Records from 96 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - THOUSAND-MAN SLAYER: 1
 - STORM EMPEROR SLAYER: 1
 - CATHEDRAL SLAYER: 2
-- HYDRA SLAYER: 2
 - FORTRESS SLAYER: 2
 - PLAYER SLAYER: 2
 - IMMORTAL FRAUD SLAYER: 2
 - PHOENIX SLAYER: 2
 - TANK SLAYER: 3
+- HYDRA SLAYER: 3
 - COLOSSUS SLAYER: 3
 - CANNON SLAYER: 3
 - UNMAKER SLAYER: 3
@@ -77,12 +77,12 @@ Records from 96 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 ## Mutations (rarest first)
 
-- vampiric: 3
 - wings: 4
+- vampiric: 4
 - venom: 14
-- spellward: 14
 - swift: 15
-- spikes: 20
+- spellward: 15
+- spikes: 21
 - regen: 22
 
 ## Big moments
