@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 20:11 | They Were OUTNUMBERED... 😳 | Red wins | https://youtube.com/shorts/nAYWW5Sl-IY |
 | 2026-11-03 19:43 | 🗡️ ASSASSINS vs Samurai | Blue wins | https://youtube.com/shorts/BYTKUw_hr3k |
 | 2026-11-03 19:30 | 🔥 CHAOS GUARD vs Rogue Rhinos | Lime wins | https://youtube.com/shorts/_gCS22yW7ao |
 | 2026-11-03 19:14 | 🗿 GARGOYLES vs Knights | Cyan wins | https://youtube.com/shorts/N88Bccrdyo8 |
