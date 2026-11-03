@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 50 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 51 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -19,9 +19,9 @@ Records from 50 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 - **30 s**: orange wins · 2026-11-02 21:24 · [The Empty Armour Kept FIGHTING 👻](https://youtube.com/shorts/FROYUz7l2_U)
 - **34.4 s**: gold wins · 2026-11-03 03:03 · [👑 EMPIRE vs Orc Horde](https://youtube.com/shorts/pUvRGzSNYBM)
+- **34.8 s**: red wins · 2026-11-03 04:18 · [Cosmic Bots vs Cyber Witches 🤯](https://youtube.com/shorts/gic-aRa5dr0)
 - **34.9 s**: yellow wins · 2026-11-03 03:47 · [EYE GRIFFINS vs Storm Bombers vs Turbo Snipers 🔥](https://youtube.com/shorts/bWknRUVTkUU)
 - **36.1 s**: green wins · 2026-11-02 18:55 · [The Weapons Came ALIVE 🗡️](https://youtube.com/shorts/fqgv271cJu0)
-- **37.4 s**: sweden wins · 2026-11-02 23:22 · [🇳🇴 Norway vs Sweden 🇸🇪](https://youtube.com/shorts/338Ln-Otgqk)
 
 ## Biggest wins (troops still standing)
 
@@ -51,10 +51,10 @@ Records from 50 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - PLAYER SLAYER: 1
 - IMMORTAL FRAUD SLAYER: 1
 - PHOENIX SLAYER: 1
-- TANK SLAYER: 2
 - COLOSSUS SLAYER: 2
 - CANNON SLAYER: 2
 - ELEPHANT SLAYER: 3
+- TANK SLAYER: 3
 - GOLEM SLAYER: 3
 - UNMAKER SLAYER: 3
 - MAMMOTH SLAYER: 3
@@ -67,10 +67,10 @@ Records from 50 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 - wings: 1
 - vampiric: 1
-- venom: 5
+- venom: 6
 - spikes: 7
 - swift: 7
-- spellward: 7
+- spellward: 8
 - regen: 9
 
 ## Big moments
