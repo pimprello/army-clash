@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 34 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 35 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -25,11 +25,11 @@ Records from 34 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 ## Biggest wins (troops still standing)
 
+- **85 left**: 2026-11-03 00:21 · [🔥 STEEL GOBLINS vs Cosmic Fakers](https://youtube.com/shorts/gGvtevVjlvo)
 - **57 left**: 2026-11-02 23:36 · [🇵🇹 Portugal Warriors vs Spain Archers](https://youtube.com/shorts/826KinGBtaw)
 - **55 left**: 2026-11-02 21:24 · [The Empty Armour Kept FIGHTING 👻](https://youtube.com/shorts/FROYUz7l2_U)
 - **48 left**: 2026-11-02 20:09 · [METEORS Hit Mid-Battle ☄️](https://youtube.com/shorts/UCHbxIxm93I)
 - **45 left**: 2026-11-02 19:09 · [🇬🇧 UK vs France 🇫🇷](https://youtube.com/shorts/DoPnzNYJGTk)
-- **44 left**: 2026-11-02 16:28 · [The Golem Went DOWN 💀](https://youtube.com/shorts/t2hhg3XKXNY)
 
 ## Hall of champions
 
@@ -52,9 +52,9 @@ Records from 34 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - TANK SLAYER: 2
 - GOLEM SLAYER: 2
 - CANNON SLAYER: 2
-- HELICOPTER SLAYER: 2
 - ELEPHANT SLAYER: 3
 - MAMMOTH SLAYER: 3
+- HELICOPTER SLAYER: 3
 - TITAN SLAYER: 4
 - GIANT SLAYER: 5
 - DRAGON SLAYER: 6
@@ -80,7 +80,7 @@ Records from 34 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - portal: cyclops: 1
 - sudden: lava: 1
 - portal: troll: 1
-- sudden: ring: 1
 - extinct: RED: 1
+- sudden: ring: 2
 - sudden: boss: 3
 - sudden: meteors: 4

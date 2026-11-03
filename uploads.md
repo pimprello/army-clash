@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 00:21 | 🔥 STEEL GOBLINS vs Cosmic Fakers | Blue wins | https://youtube.com/shorts/gGvtevVjlvo |
 | 2026-11-03 00:05 | Ninja Bots vs SKY SNIPERS 🔥 | White wins | https://youtube.com/shorts/qVCL1wniQJ0 |
 | 2026-11-02 23:52 | A STAMPEDE Hit Mid-Battle 🦣 | Red wins | https://youtube.com/shorts/7tNJuSgdThM |
 | 2026-11-02 23:36 | 🇵🇹 Portugal Warriors vs Spain Archers | Portugal wins | https://youtube.com/shorts/826KinGBtaw |
