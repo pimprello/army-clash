@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 92 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 93 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -88,13 +88,13 @@ Records from 92 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 - extinct: AUSTRALIA: 1
 - portal: hydra: 1
-- possess: cannon: 1
 - extinct: RED: 1
 - portal: golem: 1
 - extinct: ORANGE: 1
 - extinct: BLUE: 1
 - copied: knight: 1
 - extinct: SILVER: 1
+- possess: cannon: 2
 - possess: treant: 2
 - portal: cyclops: 2
 - sudden: lava: 2

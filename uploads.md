@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 15:04 | The Airdrop Had a SURPRISE Inside 📦 | White wins | https://youtube.com/shorts/6JLHcF9xUIg |
 | 2026-11-03 14:49 | 130 Troopers vs a GLITCH Army 👾 | Cyan wins | https://youtube.com/shorts/kLIcEDleYzE |
 | 2026-11-03 14:35 | Ultra Necros vs Steel Monks 🤯 | Silver wins | https://youtube.com/shorts/krJQVE27ICI |
 | 2026-11-03 14:19 | The Smaller Army Did WHAT? 😳 | Blue wins | https://youtube.com/shorts/1TMslzStzgc |
