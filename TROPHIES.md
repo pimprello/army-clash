@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 67 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 68 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 67 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 ## Hall of champions
 
+- **NOMAD-7** (RIFLEMAN), 10 kills · 2026-11-03 08:56
 - **TOVA SKULLTAKER** (OGRE), 11 kills · 2026-11-03 08:13
 - **TALVO STEELHEART** (GENERAL), 21 kills · 2026-11-03 03:33
 - **GRUNDA GRAVEBANE** (WIZARD), 15 kills · 2026-11-03 01:35
@@ -52,7 +53,6 @@ Records from 67 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - MECH SLAYER: 1
 - CATHEDRAL SLAYER: 2
 - PHOENIX SLAYER: 2
-- ELEPHANT SLAYER: 3
 - MIRROR KING SLAYER: 3
 - TANK SLAYER: 3
 - GOLEM SLAYER: 3
@@ -61,6 +61,7 @@ Records from 67 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - UNMAKER SLAYER: 3
 - MAMMOTH SLAYER: 3
 - HELICOPTER SLAYER: 3
+- ELEPHANT SLAYER: 5
 - GIANT SLAYER: 6
 - DRAGON SLAYER: 6
 - TITAN SLAYER: 8
@@ -69,11 +70,11 @@ Records from 67 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 - vampiric: 1
 - wings: 3
-- venom: 8
 - swift: 8
 - spellward: 8
-- spikes: 9
-- regen: 10
+- venom: 9
+- spikes: 10
+- regen: 11
 
 ## Big moments
 
