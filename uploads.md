@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 09:10 | A BLIZZARD Froze the Battle ❄️ | Australia wins | https://youtube.com/shorts/cGvmv7L2Q3Y |
 | 2026-11-03 08:56 | The War Elephant Went DOWN 💀 | Blue wins | https://youtube.com/shorts/boYWX0VITjk |
 | 2026-11-03 08:41 | 🇺🇸 USA Toxic Bones vs UK Cosmic Sirens | Usa wins | https://youtube.com/shorts/OWsl1ny9nII |
 | 2026-11-03 08:26 | The Airdrop Had a SURPRISE Inside 📦 | Orange wins | https://youtube.com/shorts/UhxfN3l7jWE |
