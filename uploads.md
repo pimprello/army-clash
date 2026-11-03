@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 14:08 | 3 Armies, Only 1 SURVIVES 💀 | Green wins | https://youtube.com/shorts/MSMiO6UfhHg |
 | 2026-11-03 13:51 | The Smaller Army Did WHAT? 😳 | Green wins | https://youtube.com/shorts/m-cmxirFeG0 |
 | 2026-11-03 13:35 | Solar Bots vs Cosmic Mages 🤯 | Blue wins | https://youtube.com/shorts/FFp6HnjNX-A |
 | 2026-11-03 13:20 | The Smaller Army Did WHAT? 😳 | Orange wins | https://youtube.com/shorts/J2u7WGAUlSM |
