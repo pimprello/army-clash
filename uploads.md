@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 17:01 | TITAN vs Hydra vs Phoenix 🔥 | Red wins | https://youtube.com/shorts/Y4sOwV_Yl_E |
 | 2026-11-03 16:48 | 🌳 FOREST ELVES vs Undead Legion | Blue wins | https://youtube.com/shorts/b66zolh178c |
 | 2026-11-03 16:33 | 🔥 DRAGON RHINOS vs Bone Warlocks | Pink wins | https://youtube.com/shorts/gYgptuWGqXo |
 | 2026-11-03 16:17 | I Did NOT Expect This 😳 | Indigo wins | https://youtube.com/shorts/cYrP7bJqWDE |
