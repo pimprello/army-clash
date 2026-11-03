@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 01:05 | The Golem Went DOWN 💀 | Blue wins | https://youtube.com/shorts/H__-XSqe_2A |
 | 2026-11-03 00:50 | Knights vs Orcs vs Robots 🤯 | Australia wins | https://youtube.com/shorts/blOzCI1EoCE |
 | 2026-11-03 00:35 | 🪖 SOLDIERS vs Tank Army | Brown wins | https://youtube.com/shorts/r2iOakUwpmI |
 | 2026-11-03 00:21 | 🔥 STEEL GOBLINS vs Cosmic Fakers | Blue wins | https://youtube.com/shorts/gGvtevVjlvo |

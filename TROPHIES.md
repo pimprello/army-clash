@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 37 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 38 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -27,9 +27,9 @@ Records from 37 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 - **85 left**: 2026-11-03 00:21 · [🔥 STEEL GOBLINS vs Cosmic Fakers](https://youtube.com/shorts/gGvtevVjlvo)
 - **57 left**: 2026-11-02 23:36 · [🇵🇹 Portugal Warriors vs Spain Archers](https://youtube.com/shorts/826KinGBtaw)
+- **57 left**: 2026-11-03 01:05 · [The Golem Went DOWN 💀](https://youtube.com/shorts/H__-XSqe_2A)
 - **55 left**: 2026-11-02 21:24 · [The Empty Armour Kept FIGHTING 👻](https://youtube.com/shorts/FROYUz7l2_U)
 - **48 left**: 2026-11-02 20:09 · [METEORS Hit Mid-Battle ☄️](https://youtube.com/shorts/UCHbxIxm93I)
-- **45 left**: 2026-11-02 19:09 · [🇬🇧 UK vs France 🇫🇷](https://youtube.com/shorts/DoPnzNYJGTk)
 
 ## Hall of champions
 
@@ -50,9 +50,9 @@ Records from 37 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - CYCLOPS SLAYER: 1
 - PLAYER SLAYER: 1
 - TANK SLAYER: 2
-- GOLEM SLAYER: 2
 - CANNON SLAYER: 2
 - ELEPHANT SLAYER: 3
+- GOLEM SLAYER: 3
 - MAMMOTH SLAYER: 3
 - HELICOPTER SLAYER: 3
 - TITAN SLAYER: 4
@@ -65,7 +65,7 @@ Records from 37 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - vampiric: 1
 - venom: 2
 - swift: 4
-- spellward: 4
+- spellward: 5
 - spikes: 6
 - regen: 6
 
@@ -81,6 +81,7 @@ Records from 37 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - sudden: lava: 1
 - portal: troll: 1
 - extinct: RED: 1
+- portal: golem: 1
 - sudden: ring: 2
 - sudden: boss: 3
 - sudden: meteors: 4
