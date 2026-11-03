@@ -1,9 +1,10 @@
 # Trophy room
 
-Records from 55 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 56 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
+- **112 kills**: GIANT · 2026-11-03 05:30 · [🇧🇪 Belgium vs Netherlands 🇳🇱](https://youtube.com/shorts/NeMPZ0JTCf8)
 - **30 kills**: DRAGON · 2026-11-02 17:40 · [They Were LOSING Until This 😳](https://youtube.com/shorts/-e04vvO2yh8)
 - **26 kills**: OSKA THE WALL (LANCER) · 2026-11-02 18:40 · [The BIGGEST Comeback I've Seen 😱](https://youtube.com/shorts/Voym5nz5PNY)
 - **24 kills**: TANK · 2026-11-03 00:35 · [🪖 SOLDIERS vs Tank Army](https://youtube.com/shorts/r2iOakUwpmI)
@@ -13,7 +14,6 @@ Records from 55 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - **22 kills**: DRAGON · 2026-11-03 04:45 · [Nobody Expected the TANK to Fall 💥](https://youtube.com/shorts/lHBadLErlmY)
 - **21 kills**: TALVO STEELHEART (GENERAL) · 2026-11-03 03:33 · [The Bone Colossus Went DOWN 💀](https://youtube.com/shorts/j7nfkarWHOQ)
 - **15 kills**: GRUNDA GRAVEBANE (WIZARD) · 2026-11-03 01:35 · [Undead vs TROOPERS 🔫](https://youtube.com/shorts/YkmxyQRi1Kw)
-- **15 kills**: DREAD KNIGHT · 2026-11-03 01:51 · [3 Armies, Only 1 SURVIVES 💀](https://youtube.com/shorts/r2blt1MSEaQ)
 
 ## Fastest wipe-outs
 
@@ -68,8 +68,8 @@ Records from 55 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 - vampiric: 1
 - wings: 2
-- venom: 6
 - spikes: 7
+- venom: 7
 - swift: 7
 - spellward: 8
 - regen: 9

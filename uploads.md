@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 05:30 | 🇧🇪 Belgium vs Netherlands 🇳🇱 | Netherlands wins | https://youtube.com/shorts/NeMPZ0JTCf8 |
 | 2026-11-03 05:15 | Shadow Bows vs Turbo Mirrors 🤯 | Brown wins | https://youtube.com/shorts/cGfwiDkx1Tg |
 | 2026-11-03 05:00 | 🐎 CAVALRY vs Longbowmen | Orange wins | https://youtube.com/shorts/0ABWABNdqjE |
 | 2026-11-03 04:45 | Nobody Expected the TANK to Fall 💥 | Teal wins | https://youtube.com/shorts/lHBadLErlmY |
