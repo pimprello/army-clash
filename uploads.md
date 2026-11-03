@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 15:34 | DREAM TEAM Battle: Ultra Raiders vs Neon Mortars | Silver wins | https://youtube.com/shorts/uPs-PhtCa8o |
 | 2026-11-03 15:20 | Empire vs a DREAD KNIGHT Army 💀 | Red wins | https://youtube.com/shorts/LaCRrVxwU7k |
 | 2026-11-03 15:04 | The Airdrop Had a SURPRISE Inside 📦 | White wins | https://youtube.com/shorts/6JLHcF9xUIg |
 | 2026-11-03 14:49 | 130 Troopers vs a GLITCH Army 👾 | Cyan wins | https://youtube.com/shorts/kLIcEDleYzE |
