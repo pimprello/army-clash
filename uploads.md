@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 22:55 | The Player Went DOWN 💀 | Pink wins | https://youtube.com/shorts/qw-6X00qMNA |
 | 2026-11-03 22:41 | Helicopter Army vs SOLDIERS 🪖 | Pink wins | https://youtube.com/shorts/bWcAhRbRdQM |
 | 2026-11-03 22:28 | The Weapons Came ALIVE 🗡️ | Belgium wins | https://youtube.com/shorts/u9TmQ7jfy3Y |
 | 2026-11-03 22:12 | They Were LOSING Until This 😳 | Netherlands wins | https://youtube.com/shorts/-hvpvz0i7TA |
