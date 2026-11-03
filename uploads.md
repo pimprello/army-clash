@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 12:51 | 🇬🇧 UK vs France: WHO WINS? | Uk wins | https://youtube.com/shorts/t3BWj0jMvSI |
 | 2026-11-03 12:39 | A PORTAL Opened Mid-Battle 🌀 | Sweden wins | https://youtube.com/shorts/1Z8JJ1s8ExU |
 | 2026-11-03 12:22 | 🪞 MIRROR KING vs Pirates | Brown wins | https://youtube.com/shorts/f8kqORByDXA |
 | 2026-11-03 12:07 | FROST SAMURAI vs Wild Flames vs Titan Ninjas 🔥 | Argentina wins | https://youtube.com/shorts/4ALJ-cnKuwU |
