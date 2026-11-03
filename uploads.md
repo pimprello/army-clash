@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 04:03 | 🇦🇺 Australia Forest Elves vs New Zealand Demons | Australia wins | https://youtube.com/shorts/6iqO5DaPvVg |
 | 2026-11-03 03:47 | EYE GRIFFINS vs Storm Bombers vs Turbo Snipers 🔥 | Yellow wins | https://youtube.com/shorts/bWknRUVTkUU |
 | 2026-11-03 03:33 | The Bone Colossus Went DOWN 💀 | Pink wins | https://youtube.com/shorts/j7nfkarWHOQ |
 | 2026-11-03 03:17 | 🔥 ROYAL DWARVES vs Undying Elves | Green wins | https://youtube.com/shorts/b65Ux_nnSow |
