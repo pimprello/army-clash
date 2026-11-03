@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 11:38 | Cosmic Legion vs Ghost Ogres 🤯 | Pink wins | https://youtube.com/shorts/nT1zxGeYE1Q |
 | 2026-11-03 11:23 | One Wizard Got 18 KILLS 😳 | Germany wins | https://youtube.com/shorts/BDNJZxfoDJ0 |
 | 2026-11-03 11:07 | Horde vs Elves vs Mages 🤯 | Yellow wins | https://youtube.com/shorts/qsYbHpxJ6eM |
 | 2026-11-03 10:53 | 🧟 THOUSAND-MAN vs Soldiers | Blue wins | https://youtube.com/shorts/JaBYBiVrL6Y |
