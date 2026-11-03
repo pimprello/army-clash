@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 98 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 99 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 98 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 ## Hall of champions
 
+- **ASHKA THE LUCKY** (WAR RHINO), 10 kills · 2026-11-03 16:33
 - **RUNA THE LUCKY** (STORM CALLER), 16 kills · 2026-11-03 16:03
 - **OSKA THE MAD** (WARLOCK), 17 kills · 2026-11-03 15:49
 - **KAELEN THE BOLD** (WIZARD), 13 kills · 2026-11-03 14:19
@@ -47,7 +48,6 @@ Records from 98 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - **NOMAD-7** (RIFLEMAN), 10 kills · 2026-11-03 08:56
 - **TOVA SKULLTAKER** (OGRE), 11 kills · 2026-11-03 08:13
 - **TALVO STEELHEART** (GENERAL), 21 kills · 2026-11-03 03:33
-- **GRUNDA GRAVEBANE** (WIZARD), 15 kills · 2026-11-03 01:35
 
 ## Titles earned (rarest first)
 
@@ -62,7 +62,6 @@ Records from 98 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - PHOENIX SLAYER: 2
 - TANK SLAYER: 3
 - HYDRA SLAYER: 3
-- COLOSSUS SLAYER: 3
 - CANNON SLAYER: 3
 - UNMAKER SLAYER: 3
 - MAMMOTH SLAYER: 3
@@ -70,6 +69,7 @@ Records from 98 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - HELICOPTER SLAYER: 3
 - MIRROR KING SLAYER: 4
 - GOLEM SLAYER: 4
+- COLOSSUS SLAYER: 4
 - ELEPHANT SLAYER: 6
 - DRAGON SLAYER: 7
 - GIANT SLAYER: 9
@@ -81,7 +81,7 @@ Records from 98 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - vampiric: 4
 - venom: 14
 - swift: 15
-- spellward: 15
+- spellward: 16
 - spikes: 21
 - regen: 23
 
@@ -94,6 +94,8 @@ Records from 98 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - extinct: BLUE: 1
 - copied: knight: 1
 - extinct: SILVER: 1
+- possess: rhino: 1
+- extinct: PINK: 1
 - possess: cannon: 2
 - possess: treant: 2
 - portal: cyclops: 2

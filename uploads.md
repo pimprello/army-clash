@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 16:33 | 🔥 DRAGON RHINOS vs Bone Warlocks | Pink wins | https://youtube.com/shorts/gYgptuWGqXo |
 | 2026-11-03 16:17 | I Did NOT Expect This 😳 | Indigo wins | https://youtube.com/shorts/cYrP7bJqWDE |
 | 2026-11-03 16:03 | TOXIC RIFLES vs Mega Vampires vs Hydra Muskets 🔥 | Red wins | https://youtube.com/shorts/wOFJBWN4n0s |
 | 2026-11-03 15:49 | 😈 DEMONS vs Vampires | Blue wins | https://youtube.com/shorts/4tr0udfmBXY |
