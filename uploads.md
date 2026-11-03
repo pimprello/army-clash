@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 22:28 | The Weapons Came ALIVE 🗡️ | Belgium wins | https://youtube.com/shorts/u9TmQ7jfy3Y |
 | 2026-11-03 22:12 | They Were LOSING Until This 😳 | Netherlands wins | https://youtube.com/shorts/-hvpvz0i7TA |
 | 2026-11-03 21:57 | Steel Necros vs Cosmic Elves vs Tusk Bolts 🤯 | Red wins | https://youtube.com/shorts/NncKXBwE90c |
 | 2026-11-03 21:41 | 👹 OGRES vs Dwarves | Coral wins | https://youtube.com/shorts/CKDyCGOUDUY |
