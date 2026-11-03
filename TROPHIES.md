@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 47 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 48 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -10,10 +10,10 @@ Records from 47 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - **23 kills**: THOUSAND-MAN · 2026-11-02 19:26 · [DREAM TEAM Battle: Royal Muskets vs Solar Shields](https://youtube.com/shorts/tM__7JbzIwY)
 - **22 kills**: HELICOPTER · 2026-11-03 02:18 · [The Weapons Came ALIVE 🗡️](https://youtube.com/shorts/Oz29GzcSmHU)
 - **22 kills**: IMMORTAL FRAUD, TRUE FORM · 2026-11-03 03:17 · [🔥 ROYAL DWARVES vs Undying Elves](https://youtube.com/shorts/b65Ux_nnSow)
+- **21 kills**: TALVO STEELHEART (GENERAL) · 2026-11-03 03:33 · [The Bone Colossus Went DOWN 💀](https://youtube.com/shorts/j7nfkarWHOQ)
 - **15 kills**: GRUNDA GRAVEBANE (WIZARD) · 2026-11-03 01:35 · [Undead vs TROOPERS 🔫](https://youtube.com/shorts/YkmxyQRi1Kw)
 - **15 kills**: DREAD KNIGHT · 2026-11-03 01:51 · [3 Armies, Only 1 SURVIVES 💀](https://youtube.com/shorts/r2blt1MSEaQ)
 - **13 kills**: PELL IRONHIDE (WAR RHINO), FORTRESS SLAYER · 2026-11-02 17:56 · [Steel Raiders vs Tusk Rhinos vs Lunar Bows 🤯](https://youtube.com/shorts/oX-v7nCnbPs)
-- **12 kills**: IVOR BONECRUSHER (BERSERKER) · 2026-11-02 16:41 · [One Berserker Got 12 KILLS 😳](https://youtube.com/shorts/R-txW0YHzv4)
 
 ## Fastest wipe-outs
 
@@ -33,6 +33,7 @@ Records from 47 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 ## Hall of champions
 
+- **TALVO STEELHEART** (GENERAL), 21 kills · 2026-11-03 03:33
 - **GRUNDA GRAVEBANE** (WIZARD), 15 kills · 2026-11-03 01:35
 - **VIPER-2** (LASER TROOPER), 11 kills · 2026-11-02 20:43
 - **OSKA THE WALL** (LANCER), 26 kills · 2026-11-02 18:40
@@ -46,11 +47,11 @@ Records from 47 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - CATHEDRAL SLAYER: 1
 - HYDRA SLAYER: 1
 - FORTRESS SLAYER: 1
-- COLOSSUS SLAYER: 1
 - CYCLOPS SLAYER: 1
 - PLAYER SLAYER: 1
 - IMMORTAL FRAUD SLAYER: 1
 - TANK SLAYER: 2
+- COLOSSUS SLAYER: 2
 - CANNON SLAYER: 2
 - UNMAKER SLAYER: 2
 - ELEPHANT SLAYER: 3
@@ -65,25 +66,25 @@ Records from 47 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 - wings: 1
 - vampiric: 1
-- venom: 4
-- spellward: 6
+- venom: 5
 - spikes: 7
 - swift: 7
-- regen: 8
+- spellward: 7
+- regen: 9
 
 ## Big moments
 
 - portal: demon: 1
 - extinct: AUSTRALIA: 1
 - portal: hydra: 1
-- fusion: 1
 - possess: cannon: 1
 - possess: treant: 1
 - portal: cyclops: 1
 - portal: troll: 1
 - extinct: RED: 1
 - portal: golem: 1
+- fusion: 2
 - sudden: lava: 2
 - sudden: ring: 2
 - sudden: meteors: 4
-- sudden: boss: 5
+- sudden: boss: 6
