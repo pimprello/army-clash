@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 23:10 | 🧜‍♀️ SIRENS vs Pirates | Indigo wins | https://youtube.com/shorts/sf0FHbc79I4 |
 | 2026-11-03 22:55 | The Player Went DOWN 💀 | Pink wins | https://youtube.com/shorts/qw-6X00qMNA |
 | 2026-11-03 22:41 | Helicopter Army vs SOLDIERS 🪖 | Pink wins | https://youtube.com/shorts/bWcAhRbRdQM |
 | 2026-11-03 22:28 | The Weapons Came ALIVE 🗡️ | Belgium wins | https://youtube.com/shorts/u9TmQ7jfy3Y |
