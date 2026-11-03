@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 102 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 103 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -108,4 +108,4 @@ Records from 102 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - sudden: ring: 3
 - fusion: 4
 - sudden: boss: 6
-- sudden: meteors: 7
+- sudden: meteors: 8

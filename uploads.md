@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 17:31 | METEORS Hit Mid-Battle ☄️ | Blue wins | https://youtube.com/shorts/q702UhJ_w9Q |
 | 2026-11-03 17:16 | Frost Witches vs DEMONS 😈 | Lime wins | https://youtube.com/shorts/_XGpRydxeWo |
 | 2026-11-03 17:01 | TITAN vs Hydra vs Phoenix 🔥 | Red wins | https://youtube.com/shorts/Y4sOwV_Yl_E |
 | 2026-11-03 16:48 | 🌳 FOREST ELVES vs Undead Legion | Blue wins | https://youtube.com/shorts/b66zolh178c |
