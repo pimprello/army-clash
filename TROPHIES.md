@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 93 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 94 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -29,7 +29,7 @@ Records from 93 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - **84 left**: 2026-11-03 06:00 · [A TORNADO Hit Mid-Battle 🌪️](https://youtube.com/shorts/0Vx4Yv3RMS4)
 - **81 left**: 2026-11-03 02:04 · [115 Vampires vs 105 Samurai 🧛](https://youtube.com/shorts/Wkgai-xFqF0)
 - **77 left**: 2026-11-03 01:35 · [Undead vs TROOPERS 🔫](https://youtube.com/shorts/YkmxyQRi1Kw)
-- **67 left**: 2026-11-03 06:29 · [🐍 HYDRA ARMY vs Knights](https://youtube.com/shorts/wJ_um_JC4L0)
+- **77 left**: 2026-11-03 15:20 · [Empire vs a DREAD KNIGHT Army 💀](https://youtube.com/shorts/LaCRrVxwU7k)
 
 ## Hall of champions
 
@@ -72,7 +72,7 @@ Records from 93 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - ELEPHANT SLAYER: 6
 - DRAGON SLAYER: 7
 - GIANT SLAYER: 9
-- TITAN SLAYER: 9
+- TITAN SLAYER: 10
 
 ## Mutations (rarest first)
 
@@ -88,7 +88,6 @@ Records from 93 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 - extinct: AUSTRALIA: 1
 - portal: hydra: 1
-- extinct: RED: 1
 - portal: golem: 1
 - extinct: ORANGE: 1
 - extinct: BLUE: 1
@@ -99,6 +98,7 @@ Records from 93 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - portal: cyclops: 2
 - sudden: lava: 2
 - portal: troll: 2
+- extinct: RED: 2
 - extinct: GREEN: 2
 - portal: demon: 3
 - fusion: 3
