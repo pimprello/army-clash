@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 76 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 77 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 76 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 ## Hall of champions
 
+- **IVOR THE MAD** (ELF ARCHER), 18 kills · 2026-11-03 11:07
 - **KAELEN FIREBRAND** (PLAGUE ALCHEMIST), 21 kills · 2026-11-03 09:26
 - **NOMAD-7** (RIFLEMAN), 10 kills · 2026-11-03 08:56
 - **TOVA SKULLTAKER** (OGRE), 11 kills · 2026-11-03 08:13
@@ -66,17 +67,17 @@ Records from 76 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - GOLEM SLAYER: 4
 - ELEPHANT SLAYER: 6
 - GIANT SLAYER: 6
-- DRAGON SLAYER: 6
+- DRAGON SLAYER: 7
 - TITAN SLAYER: 9
 
 ## Mutations (rarest first)
 
 - vampiric: 2
-- wings: 3
-- spellward: 8
+- wings: 4
 - venom: 9
+- spellward: 9
 - swift: 11
-- spikes: 12
+- spikes: 13
 - regen: 13
 
 ## Big moments

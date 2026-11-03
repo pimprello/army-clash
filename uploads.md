@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 11:07 | Horde vs Elves vs Mages 🤯 | Yellow wins | https://youtube.com/shorts/qsYbHpxJ6eM |
 | 2026-11-03 10:53 | 🧟 THOUSAND-MAN vs Soldiers | Blue wins | https://youtube.com/shorts/JaBYBiVrL6Y |
 | 2026-11-03 10:40 | Steel Muskets vs CASTLE ELVES 🔥 | Red wins | https://youtube.com/shorts/xbouXT6Eu8I |
 | 2026-11-03 10:25 | Golems vs ROBOTS 🤖 | Coral wins | https://youtube.com/shorts/-hVq0ho__IM |
