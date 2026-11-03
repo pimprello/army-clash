@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 99 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 100 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 99 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 ## Hall of champions
 
+- **TOVA THE UNBROKEN** (TREANT), 19 kills · 2026-11-03 16:48
 - **ASHKA THE LUCKY** (WAR RHINO), 10 kills · 2026-11-03 16:33
 - **RUNA THE LUCKY** (STORM CALLER), 16 kills · 2026-11-03 16:03
 - **OSKA THE MAD** (WARLOCK), 17 kills · 2026-11-03 15:49
@@ -47,7 +48,6 @@ Records from 99 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - **KAELEN FIREBRAND** (PLAGUE ALCHEMIST), 21 kills · 2026-11-03 09:26
 - **NOMAD-7** (RIFLEMAN), 10 kills · 2026-11-03 08:56
 - **TOVA SKULLTAKER** (OGRE), 11 kills · 2026-11-03 08:13
-- **TALVO STEELHEART** (GENERAL), 21 kills · 2026-11-03 03:33
 
 ## Titles earned (rarest first)
 
@@ -69,7 +69,7 @@ Records from 99 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - HELICOPTER SLAYER: 3
 - MIRROR KING SLAYER: 4
 - GOLEM SLAYER: 4
-- COLOSSUS SLAYER: 4
+- COLOSSUS SLAYER: 5
 - ELEPHANT SLAYER: 6
 - DRAGON SLAYER: 7
 - GIANT SLAYER: 9
@@ -79,11 +79,11 @@ Records from 99 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 - wings: 4
 - vampiric: 4
-- venom: 14
-- swift: 15
-- spellward: 16
-- spikes: 21
-- regen: 23
+- venom: 15
+- swift: 16
+- spellward: 17
+- spikes: 22
+- regen: 24
 
 ## Big moments
 
@@ -104,7 +104,7 @@ Records from 99 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - extinct: RED: 2
 - extinct: GREEN: 2
 - portal: demon: 3
-- fusion: 3
 - sudden: ring: 3
-- sudden: meteors: 6
+- fusion: 4
 - sudden: boss: 6
+- sudden: meteors: 7
