@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 89 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 90 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 89 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 ## Hall of champions
 
+- **KAELEN THE BOLD** (WIZARD), 13 kills · 2026-11-03 14:19
 - **GRIM SKULLTAKER** (ORC), 24 kills · 2026-11-03 13:51
 - **ZEDRIK STORMBORN** (WARLOCK), 26 kills · 2026-11-03 13:35
 - **SIRA THE WALL** (WIZARD), 18 kills · 2026-11-03 13:20
@@ -47,7 +48,6 @@ Records from 89 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - **GRUNDA GRAVEBANE** (WIZARD), 15 kills · 2026-11-03 01:35
 - **VIPER-2** (LASER TROOPER), 11 kills · 2026-11-02 20:43
 - **OSKA THE WALL** (LANCER), 26 kills · 2026-11-02 18:40
-- **ASHKA SKULLTAKER** (HELLHOUND), 10 kills · 2026-11-02 18:25
 
 ## Titles earned (rarest first)
 
@@ -78,10 +78,10 @@ Records from 89 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 - vampiric: 2
 - wings: 4
-- spellward: 12
+- spellward: 13
 - venom: 14
 - swift: 14
-- spikes: 18
+- spikes: 19
 - regen: 22
 
 ## Big moments
