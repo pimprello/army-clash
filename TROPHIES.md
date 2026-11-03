@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 127 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 128 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -29,10 +29,11 @@ Records from 127 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **85 left**: 2026-11-03 00:21 · [🔥 STEEL GOBLINS vs Cosmic Fakers](https://youtube.com/shorts/gGvtevVjlvo)
 - **84 left**: 2026-11-03 06:00 · [A TORNADO Hit Mid-Battle 🌪️](https://youtube.com/shorts/0Vx4Yv3RMS4)
 - **81 left**: 2026-11-03 02:04 · [115 Vampires vs 105 Samurai 🧛](https://youtube.com/shorts/Wkgai-xFqF0)
-- **77 left**: 2026-11-03 01:35 · [Undead vs TROOPERS 🔫](https://youtube.com/shorts/YkmxyQRi1Kw)
+- **78 left**: 2026-11-03 23:40 · [A PORTAL Opened Mid-Battle 🌀](https://youtube.com/shorts/2yMTzU0CUxI)
 
 ## Hall of champions
 
+- **OSKA GRAVEBANE** (WIZARD), 12 kills · 2026-11-03 23:40
 - **PELL BONECRUSHER** (SIEGE GUNNER), 22 kills · 2026-11-03 20:16
 - **BRAMBLE BONECRUSHER** (WAR RHINO), 10 kills · 2026-11-03 19:30
 - **VIPER-4** (LASER TROOPER), 20 kills · 2026-11-03 18:59
@@ -47,7 +48,6 @@ Records from 127 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **ZEDRIK STORMBORN** (WARLOCK), 26 kills · 2026-11-03 13:35
 - **SIRA THE WALL** (WIZARD), 18 kills · 2026-11-03 13:20
 - **BRAKK BONECRUSHER** (WIZARD), 15 kills · 2026-11-03 12:39
-- **VEXA BONECRUSHER** (GRIFFIN RIDER), 13 kills · 2026-11-03 12:07
 
 ## Titles earned (rarest first)
 
@@ -55,6 +55,7 @@ Records from 127 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - THOUSAND-MAN SLAYER: 1
 - GRAVITY TYRANT SLAYER: 1
 - CATAPULT SLAYER: 1
+- STAR EATER SLAYER: 1
 - IMMORTAL FRAUD SLAYER: 2
 - MECH SLAYER: 2
 - STORM EMPEROR SLAYER: 2
@@ -65,11 +66,11 @@ Records from 127 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - UNMAKER SLAYER: 3
 - CYCLOPS SLAYER: 3
 - PLAYER SLAYER: 3
-- PHOENIX SLAYER: 3
 - MIRROR KING SLAYER: 4
 - CANNON SLAYER: 4
 - MAMMOTH SLAYER: 4
 - HELICOPTER SLAYER: 4
+- PHOENIX SLAYER: 4
 - HYDRA SLAYER: 5
 - COLOSSUS SLAYER: 5
 - GOLEM SLAYER: 6
@@ -81,7 +82,7 @@ Records from 127 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Mutations (rarest first)
 
 - vampiric: 4
-- wings: 8
+- wings: 9
 - venom: 19
 - spellward: 20
 - swift: 21
@@ -99,16 +100,17 @@ Records from 127 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: PINK: 1
 - possess: mammoth: 1
 - copied: giant: 1
+- possess: phoenix: 1
 - possess: cannon: 2
 - sudden: lava: 2
 - extinct: RED: 2
 - portal: golem: 2
 - extinct: ORANGE: 2
 - extinct: GREEN: 2
-- portal: demon: 3
 - possess: treant: 3
 - portal: cyclops: 3
 - portal: troll: 3
+- portal: demon: 4
 - fusion: 4
 - sudden: ring: 5
 - sudden: boss: 6
