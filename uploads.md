@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 03:17 | 🔥 ROYAL DWARVES vs Undying Elves | Green wins | https://youtube.com/shorts/b65Ux_nnSow |
 | 2026-11-03 03:03 | 👑 EMPIRE vs Orc Horde | Gold wins | https://youtube.com/shorts/pUvRGzSNYBM |
 | 2026-11-03 02:48 | 3 Armies, Only 1 SURVIVES 💀 | Purple wins | https://youtube.com/shorts/FZ04i5JVesY |
 | 2026-11-03 02:33 | 🇩🇪 Germany vs Italy: WHO WINS? | Italy wins | https://youtube.com/shorts/UBr9AEIeHIE |

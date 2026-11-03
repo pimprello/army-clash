@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 46 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 47 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -9,11 +9,11 @@ Records from 46 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - **24 kills**: TANK · 2026-11-03 00:35 · [🪖 SOLDIERS vs Tank Army](https://youtube.com/shorts/r2iOakUwpmI)
 - **23 kills**: THOUSAND-MAN · 2026-11-02 19:26 · [DREAM TEAM Battle: Royal Muskets vs Solar Shields](https://youtube.com/shorts/tM__7JbzIwY)
 - **22 kills**: HELICOPTER · 2026-11-03 02:18 · [The Weapons Came ALIVE 🗡️](https://youtube.com/shorts/Oz29GzcSmHU)
+- **22 kills**: IMMORTAL FRAUD, TRUE FORM · 2026-11-03 03:17 · [🔥 ROYAL DWARVES vs Undying Elves](https://youtube.com/shorts/b65Ux_nnSow)
 - **15 kills**: GRUNDA GRAVEBANE (WIZARD) · 2026-11-03 01:35 · [Undead vs TROOPERS 🔫](https://youtube.com/shorts/YkmxyQRi1Kw)
 - **15 kills**: DREAD KNIGHT · 2026-11-03 01:51 · [3 Armies, Only 1 SURVIVES 💀](https://youtube.com/shorts/r2blt1MSEaQ)
 - **13 kills**: PELL IRONHIDE (WAR RHINO), FORTRESS SLAYER · 2026-11-02 17:56 · [Steel Raiders vs Tusk Rhinos vs Lunar Bows 🤯](https://youtube.com/shorts/oX-v7nCnbPs)
 - **12 kills**: IVOR BONECRUSHER (BERSERKER) · 2026-11-02 16:41 · [One Berserker Got 12 KILLS 😳](https://youtube.com/shorts/R-txW0YHzv4)
-- **11 kills**: VIPER-2 (LASER TROOPER) · 2026-11-02 20:43 · [Robots vs GIANT ARMY 👹](https://youtube.com/shorts/iPxQZSKyT9k)
 
 ## Fastest wipe-outs
 
@@ -49,6 +49,7 @@ Records from 46 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - COLOSSUS SLAYER: 1
 - CYCLOPS SLAYER: 1
 - PLAYER SLAYER: 1
+- IMMORTAL FRAUD SLAYER: 1
 - TANK SLAYER: 2
 - CANNON SLAYER: 2
 - UNMAKER SLAYER: 2
@@ -68,7 +69,7 @@ Records from 46 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - spellward: 6
 - spikes: 7
 - swift: 7
-- regen: 7
+- regen: 8
 
 ## Big moments
 
