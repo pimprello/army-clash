@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 21:41 | 👹 OGRES vs Dwarves | Coral wins | https://youtube.com/shorts/CKDyCGOUDUY |
 | 2026-11-03 21:28 | DREAM TEAM Battle: Mega Fakers vs Lunar Knights | Orange wins | https://youtube.com/shorts/P7vUQsbfr0g |
 | 2026-11-03 21:13 | 27 Troops Fell Off the MAP 😭 | Purple wins | https://youtube.com/shorts/GB5hXx6N_LA |
 | 2026-11-03 21:00 | Stareater vs Stormemperor vs Worldroot 🤯 | Blue wins | https://youtube.com/shorts/QJFstj3yeZo |
