@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 18:02 | CHAOS ARCHERS vs Toxic Muskets vs Titan Hounds 🔥 | Uk wins | https://youtube.com/shorts/JFwkxpVtfbA |
 | 2026-11-03 17:45 | ⚡ STORM CALLERS vs Dwarves | Gold wins | https://youtube.com/shorts/Dr2VWa2_5z0 |
 | 2026-11-03 17:31 | METEORS Hit Mid-Battle ☄️ | Blue wins | https://youtube.com/shorts/q702UhJ_w9Q |
 | 2026-11-03 17:16 | Frost Witches vs DEMONS 😈 | Lime wins | https://youtube.com/shorts/_XGpRydxeWo |
