@@ -1786,6 +1786,15 @@ const RVB = (() => {
       { c: [-152, -236, 26], kind: 'crystal' }, { c: [160, -226, 26], kind: 'crystal' },
       { c: [-416, -256, 22], kind: 'mushroom' }, { c: [410, -262, 22], kind: 'mushroom' },
     ]),
+    // Castle Siege: each army starts in front of its own castle wall; reinforcements pour out through the main gate and round the open flanks
+    // (shots fly over the low walls and towers, as if fired from the battlements; troops have to use the gates)
+    // (a wide main gate and two side gates between round towers). With destructible terrain on, the walls can be smashed open.
+    castle: mirrorMap([
+      { b: [-280, -350, 190, 24], kind: 'battlement', low: 1 }, { b: [90, -350, 190, 24], kind: 'battlement', low: 1 },
+      { c: [-280, -338, 26], kind: 'tower', low: 1 }, { c: [-90, -338, 26], kind: 'tower', low: 1 }, { c: [90, -338, 26], kind: 'tower', low: 1 }, { c: [280, -338, 26], kind: 'tower', low: 1 },
+      { c: [-440, -380, 24], kind: 'tower', low: 1 }, { c: [440, -380, 24], kind: 'tower', low: 1 },
+      { d: [-170, 0, 22], kind: 'crater' }, { d: [170, 0, 22], kind: 'crater' }, { d: [0, -150, 18], kind: 'crater' },
+    ]),
     // ----- maps whose ground does something (see ARMY_MAPS) -----
     // the Godboard: a giant chessboard; squares light up and strike with lightning (red) or make troops stronger (gold)
     godboard: mirrorMap([{ c: [-300, -180, 30], kind: 'rook' }, { c: [300, -180, 30], kind: 'rook' }]),
@@ -1852,6 +1861,29 @@ const RVB = (() => {
         g.lineWidth = 2; g.beginPath(); g.arc(cx, cy, 122, 0, TAU); g.stroke();
         g.lineWidth = 3; g.strokeStyle = 'rgba(220,180,255,0.24)';
         for (let k = 0; k < 12; k++) { const a = k / 12 * TAU, r0 = 128, r1 = 144; g.beginPath(); g.moveTo(cx + Math.cos(a) * r0, cy + Math.sin(a) * r0); g.lineTo(cx + Math.cos(a + 0.12) * r1, cy + Math.sin(a + 0.12) * r1); g.lineTo(cx + Math.cos(a + 0.2) * r0, cy + Math.sin(a + 0.2) * r0); g.stroke(); }
+      },
+    },
+    // castle siege: a trampled muddy field, flagstone courtyards behind each castle wall, and a dirt road through the gates
+    castle: {
+      floor: '#221F1B', grid: 'rgba(230,210,180,0.035)', mid: 'rgba(240,225,200,0.08)',
+      texture: g => {
+        const cx = AR.w / 2, cy = AR.h / 2;
+        scatter(0xCA57, 12, S => { g.beginPath(); g.ellipse(S.range(0, AR.w), S.range(200, AR.h - 200), S.range(40, 90), S.range(22, 48), S.range(0, 3), 0, TAU); g.fillStyle = S.chance(0.5) ? 'rgba(120,90,60,0.10)' : 'rgba(0,0,0,0.14)'; g.fill(); });
+        // the road from gate to gate
+        g.fillStyle = 'rgba(140,105,70,0.13)'; g.fillRect(cx - 62, 0, 124, AR.h);
+        // flagstone courtyards (top and bottom, mirrored)
+        for (const top of [true, false]) {
+          const y0 = top ? 0 : cy + 350, y1 = top ? cy - 350 : AR.h;
+          g.fillStyle = '#2C2925'; g.fillRect(0, y0, AR.w, y1 - y0);
+          g.lineWidth = 2; g.strokeStyle = 'rgba(4,6,11,0.45)'; g.beginPath();
+          for (let y = top ? y1 : y0, r = 0; top ? y > y0 : y < y1; y += top ? -30 : 30, r++) {
+            g.moveTo(0, y); g.lineTo(AR.w, y);
+            const yn = y + (top ? -30 : 30);
+            for (let x = (r % 2) * 22; x < AR.w; x += 44) { g.moveTo(x, y); g.lineTo(x, yn); }
+          }
+          g.stroke();
+        }
+        scatter(0xCA58, 40, S => { const x = S.range(0, AR.w), y = S.range(200, AR.h - 200), l = S.range(5, 11), a = S.range(0, TAU); g.beginPath(); g.moveTo(x - Math.cos(a) * l, y - Math.sin(a) * l); g.lineTo(x + Math.cos(a) * l, y + Math.sin(a) * l); g.lineWidth = 3; g.lineCap = 'round'; g.strokeStyle = 'rgba(200,170,130,0.12)'; g.stroke(); });
       },
     },
     godboard: {
@@ -1966,6 +1998,8 @@ const RVB = (() => {
         else if (o.b) this.obstacles.push({ kind: o.kind, x0: cx0 + o.b[0], y0: cy0 + o.b[1], x1: cx0 + o.b[0] + o.b[2], y1: cy0 + o.b[1] + o.b[3] });
         else if (o.d) this.decor.push({ kind: o.kind, x: cx0 + o.d[0], y: cy0 + o.d[1], r: o.d[2] });
       }
+      // low obstacles (castle walls and towers) block troops but not shots: archers shoot over the battlements
+      for (const o of MAPS[this.opts.map] || []) if (o.low) { const ob = this.obstacles.find(q => q.kind === o.kind && (o.c ? q.circle && q.x === cx0 + o.c[0] && q.y === cy0 + o.c[1] : !q.circle && q.x0 === cx0 + o.b[0] && q.y0 === cy0 + o.b[1])); if (ob) ob.low = true; }
       const d0 = R.pick(CHANCE_DOCTRINES);
       let d1 = R.pick(CHANCE_DOCTRINES);
       if (d1 === d0 && R.chance(0.75)) while (d1 === d0) d1 = R.pick(CHANCE_DOCTRINES);
@@ -2090,6 +2124,13 @@ const RVB = (() => {
             g.beginPath(); g.arc(x, y, o.r, 0, TAU); g.fillStyle = '#4A5368'; g.fill(); g.lineWidth = 3.5; g.strokeStyle = INK; g.stroke();
             g.beginPath(); g.arc(x, y, o.r * 0.68, 0, TAU); g.fillStyle = '#5E6880'; g.fill(); g.lineWidth = 2; g.stroke();
             g.beginPath(); g.arc(x - o.r * 0.2, y - o.r * 0.25, o.r * 0.22, 0, TAU); g.fillStyle = 'rgba(255,255,255,0.18)'; g.fill();
+          } else if (o.kind === 'tower') {
+            // round castle tower from above: a ring of crenellations around a dark stone roof
+            g.beginPath(); g.arc(x, y, o.r, 0, TAU); g.fillStyle = '#646879'; g.fill(); g.lineWidth = 3.5; g.strokeStyle = INK; g.stroke();
+            g.fillStyle = '#8A8FA3'; g.lineWidth = 2;
+            for (let k = 0; k < 8; k++) { const a = k / 8 * TAU + 0.2; g.beginPath(); g.arc(x + Math.cos(a) * o.r * 0.8, y + Math.sin(a) * o.r * 0.8, o.r * 0.2, 0, TAU); g.fill(); g.stroke(); }
+            g.beginPath(); g.arc(x, y, o.r * 0.5, 0, TAU); g.fillStyle = '#474A58'; g.fill(); g.stroke();
+            g.beginPath(); g.arc(x - o.r * 0.15, y - o.r * 0.18, o.r * 0.16, 0, TAU); g.fillStyle = 'rgba(255,255,255,0.14)'; g.fill();
           } else if (o.kind === 'mesa') {
             // flat-topped desert rock seen from above: layered sandstone rings
             g.beginPath(); g.arc(x, y, o.r, 0, TAU); g.fillStyle = '#8A5A34'; g.fill(); g.lineWidth = 3.5; g.strokeStyle = INK; g.stroke();
@@ -2175,6 +2216,12 @@ const RVB = (() => {
             g.fillStyle = '#0B0C0F';
             for (const [wx, wy] of [[0.12, -0.08], [0.72, -0.08], [0.12, 0.86], [0.72, 0.86]]) { g.fillRect(x + w * wx, y + h * wy, w * 0.16, h * 0.22); }
             g.beginPath(); g.ellipse(x + w * 0.5, y + h * 0.5, w * 0.62, h * 0.8, 0, 0, TAU); g.fillStyle = 'rgba(0,0,0,0.18)'; g.fill();
+          } else if (o.kind === 'battlement') {
+            // castle wall from above: a stone walkway with crenellations (merlons) along both edges
+            roundRect(g, x, y, w, h, 3); g.fillStyle = '#646879'; g.fill(); g.lineWidth = 3.5; g.strokeStyle = INK; g.stroke();
+            g.fillStyle = '#474A58'; g.fillRect(x + 3, y + 7, w - 6, h - 14);
+            g.fillStyle = '#8A8FA3'; g.lineWidth = 2;
+            for (let bx = x + 5; bx + 12 <= x + w - 3; bx += 22) for (const by of [y + 2, y + h - 8]) { g.fillRect(bx, by, 12, 6); g.strokeRect(bx, by, 12, 6); }
           } else if (o.kind === 'crate') {
             roundRect(g, x, y, w, h, 3); g.fillStyle = '#6B5233'; g.fill(); g.lineWidth = 3; g.strokeStyle = INK; g.stroke();
             g.beginPath(); g.moveTo(x + 4, y + 4); g.lineTo(x + w - 4, y + h - 4); g.moveTo(x + w - 4, y + 4); g.lineTo(x + 4, y + h - 4); g.lineWidth = 2.5; g.strokeStyle = '#4A3822'; g.stroke();
@@ -2357,7 +2404,7 @@ const RVB = (() => {
     }
     inObstacle(x, y) {
       for (const o of this.obstacles) {
-        if (o.void) continue;
+        if (o.void || o.low) continue;
         if (o.circle ? (x - o.x) ** 2 + (y - o.y) ** 2 < o.r * o.r : x > o.x0 && x < o.x1 && y > o.y0 && y < o.y1) return o;
       }
       return null;
@@ -2855,7 +2902,7 @@ const RVB = (() => {
     findCover(u, t, U) {
       let best = null, bd = 140;
       for (const o of this.obstacles) {
-        if (o.void) continue;
+        if (o.void || o.low) continue;
         const p0 = this.closestOn(o, u.x, u.y);
         if (Math.hypot(p0.x - u.x, p0.y - u.y) > 140) continue;
         const ox = o.circle ? o.x : (o.x0 + o.x1) / 2, oy = o.circle ? o.y : (o.y0 + o.y1) / 2, size = o.circle ? o.r : Math.hypot(o.x1 - o.x0, o.y1 - o.y0) / 2;
@@ -5417,8 +5464,8 @@ const RVB = (() => {
     crown: { box: '#7C2D12', icon: '#FFD23F', chute: '#B45309', glow: '#FDE68A' },
   });
   // how tough each kind of obstacle is when terrain can be destroyed (rules.systems.destructible)
-  const OB_HP = { rock: 70, pillar: 45, wall: 55, sandbag: 40, crater: 999, roof: 120, crate: 25, tree: 35, bush: 15, ruin: 60, car: 50, crystal: 40, mushroom: 30, mesa: 160, rib: 50, gear: 999, statue: 80, pine: 35 };
-  const OB_DUST = { rock: '#8A8F98', pillar: '#B9B2A2', wall: '#B9B2A2', sandbag: '#C2A878', tree: '#5B3A22', crystal: '#C4B5FD', mushroom: '#F4A6C6', mesa: '#C98B55', rib: '#E9E2D0', crate: '#B07A3E', car: '#5B6472', roof: '#6B7280', ruin: '#8E8A80', statue: '#9AA3B0' };
+  const OB_HP = { rock: 70, pillar: 45, wall: 55, sandbag: 40, crater: 999, roof: 120, crate: 25, tree: 35, bush: 15, ruin: 60, car: 50, crystal: 40, mushroom: 30, mesa: 160, rib: 50, gear: 999, statue: 80, pine: 35, battlement: 90, tower: 140 };
+  const OB_DUST = { rock: '#8A8F98', pillar: '#B9B2A2', wall: '#B9B2A2', sandbag: '#C2A878', tree: '#5B3A22', crystal: '#C4B5FD', mushroom: '#F4A6C6', mesa: '#C98B55', rib: '#E9E2D0', crate: '#B07A3E', car: '#5B6472', roof: '#6B7280', ruin: '#8E8A80', statue: '#9AA3B0', battlement: '#A3A6B4', tower: '#A3A6B4' };
   const BIG_BLAST = { shell: 1, cannonball: 1, bomb: 1, meteor: 1, boulder: 1, slam: 1 };
   const XSHOT = { firearrow: 1, dart: 1, soul: 1, spark: 1, firebolt: 1, beam: 1, boulder: 1, flask: 1, hellfire: 1 };
 

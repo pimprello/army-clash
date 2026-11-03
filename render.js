@@ -218,7 +218,7 @@ async function main() {
   });
   const hook = title;
   const MAP_NAME = { open: 'open field', rocks: 'rocky field', ruins: 'ruins', trenches: 'trenches', city: 'city rooftops', forest: 'forest', bombed: 'bombed city', enchanted: 'fantasy land', canyon: 'canyon',
-    godboard: 'Godboard (a giant chessboard)', furnace: 'World Furnace (lava)', frozen: 'Frozen End (ice)', grave: "Titan's Grave", overgrown: 'Overgrown Kingdom', clockwork: 'Clockwork Colosseum', shattered: 'Shattered Sky (floating islands)', mirror: 'Mirror Dimension' };
+    godboard: 'Godboard (a giant chessboard)', furnace: 'World Furnace (lava)', frozen: 'Frozen End (ice)', grave: "Titan's Grave", overgrown: 'Overgrown Kingdom', clockwork: 'Clockwork Colosseum', shattered: 'Shattered Sky (floating islands)', mirror: 'Mirror Dimension', castle: 'Castle Siege' };
   const GENRE = { modern: 'modern warfare ', fantasy: 'fantasy ', mixed: 'old vs new ', scifi: 'sci-fi ', pirate: 'pirate ', horror: 'zombie ', samurai: 'samurai ', wild: 'mixed-genre ' };
   // custom teams get their own names in the title ("Storm Mages vs Dragon Bones"); army types stay in the description otherwise
   const showNames = era === 'wild';

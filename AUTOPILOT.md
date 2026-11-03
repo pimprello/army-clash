@@ -37,12 +37,12 @@ Make at most three changes, each small and easy to undo. Pick in this order.
 8. new clickbait teasers in `render.js` (each one tied to something that really happens in a battle).
 
 Rellz wants the channel to keep surprising viewers, so when a kind is due, be inventive. Ideas not built yet (take one, build it well, cross it off here):
-- ballistas, archers on castle walls, a castle siege map;
+- ballistas, archers standing on the castle walls of the Castle Siege map;
 - laser turrets in sci-fi, a ghost ship in pirate battles, a volcano eruption hazard, a ghost-ship or sandworm map hazard;
 - a duel of champions before the armies charge, a "freeze frame" VS card when two champions meet, slow-motion replay of the best kill at the end;
 - day/night or sunset versions of maps;
 - team cheers and emotes in the outro, a scoreboard of kills by troop type.
-Already built (don't rebuild): cavalry (lancers, horse archers, wolf and boar riders, griffins), war elephants, boss troops with phases (titan, hydra, walking fortress, dread knight, Mirror King, Gravity Tyrant), a volcano map (World Furnace), an ice map (Frozen End), both troop batches (including the Star Eater, Timeline Executioner, Walking Cathedral, Storm Emperor, Worldroot, Hourglass Titan, Moon Caller, Unqualified King, Undefeated General, Empty Army, the Player, the Universe, the Living Fortress, frost witches, liches, storm callers, sirens, gargoyles, assassins, ogres, mammoths, rhinos, catapults, siege gunners, drones and helicopters), living weapons, boss transformations, the blood moon, the stampede and kraken hazards, the clone ray and ghost army drops, and the factions, systems and power-ups listed in RULES.md.
+Already built (don't rebuild): cavalry (lancers, horse archers, wolf and boar riders, griffins), war elephants, boss troops with phases (titan, hydra, walking fortress, dread knight, Mirror King, Gravity Tyrant), a volcano map (World Furnace), an ice map (Frozen End), a castle siege map (`castle`, with low walls that shots fly over), both troop batches (including the Star Eater, Timeline Executioner, Walking Cathedral, Storm Emperor, Worldroot, Hourglass Titan, Moon Caller, Unqualified King, Undefeated General, Empty Army, the Player, the Universe, the Living Fortress, frost witches, liches, storm callers, sirens, gargoyles, assassins, ogres, mammoths, rhinos, catapults, siege gunners, drones and helicopters), living weapons, boss transformations, the blood moon, the stampede and kraken hazards, the clone ray and ghost army drops, and the factions, systems and power-ups listed in RULES.md.
 
 **C. Fix what looks wrong.** Render stills of two or three battles (one per era) and look at them. If anything is clipped, unreadable, overlapping or off-style, fix it.
 
@@ -72,6 +72,7 @@ Already built (don't rebuild): cavalry (lancers, horse archers, wolf and boar ri
 - Run the director over a few battles: the video must still finish at 60 s, and it should be zoomed in for roughly half the fight, not most of it.
 - Creative match-ups: `WILD=1 SEED=<n>` in the short-render copy makes one; check its title, description and the balance line in the log.
 - Render stills (a frame at about 10 seconds) of anything visual and look at them.
+- New maps: compare each line-up's win rate on the new map against `open` with 32–40 battles each (24 swings by about 10 points either way). Walls tend to help melee against archers and mages; if a map moves a melee-vs-ranged line-up too far, make its walls low (`low: 1`: they block troops but not shots) or move them out of the fighting area.
 - Run the real renderer for a short clip: copy the repo to a scratch folder, set `SECS = 3` in the copy's `render.js`, and run `MATCHUP=<n> SEED=<n> node render.js`. Check the title, description and tags in `out/meta.json`.
 
 - Background processes are stopped a few minutes after you start them, so run long test-battle jobs in the foreground, a few line-ups per command (each command can run about 10 minutes). On a 2-core runner a 60-second test battle takes about 1.5 s, and balancing one line-up takes 1–2 minutes.

@@ -2,6 +2,17 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-03 (autopilot)
+
+- **Health:** uploads are fine. The last 20 runs all posted (the few "cancelled" ones are spare scheduled starts skipped because a run was already going), the newest videos are about 15 minutes apart, and no line-ups were waiting to be balanced.
+- **Not learned from views yet:** still no `stats/summary.md`; the stats step is still refused ("insufficient authentication scopes") because the `YT_API_KEY` secret is missing.
+- **New map: Castle Siege** (`castle`). Each army starts in front of its own castle: a stone wall with crenellations, a main gate between two round towers, open flanks and corner towers, a flagstone courtyard behind it, a dirt road through the middle and catapult craters on the field. Reinforcements pour out of the courtyard through the gate and round the flanks. Arrows, bullets and spells fly over the walls (as if shot from the battlements), but troops have to go round them, and with destructible terrain on, walls and towers can be smashed. Mirrored top to bottom, so both sides get the same ground. Used in medieval, fantasy, samurai, horror, old-vs-new and creative battles; descriptions call it "the Castle Siege map".
+  - **Why the walls are low:** my first version had full walls with three gates that blocked shots. Melee armies won a lot more on it (Mages vs Horde dropped from 57% to 38%), because archers and mages got trapped against the walls. Moving the walls back, opening the flanks, letting shots fly over and swapping the middle rubble for craters fixed it.
+  - **Win rates, open ground vs castle** (top army, line formations, every system and event on): Knights vs Archers 50% → 55% (40 battles each), Mages vs Horde 57% → 43% (40), Orcs vs Mages 47% → 53% (32), Swarm vs Knights 47% → 41% (32). All within the 15-point limit, so no army sizes changed.
+- **Tested:** old line-ups play out exactly as before on old maps (same winners, times and positions); full 60-second battles on the castle map of Siege vs Fortress, Cavalry vs Longbows, Hydra vs Knights, Living Fortress vs Orcs and Samurai vs Knights, plus two untouched line-ups on the forest and bombed maps: no errors or broken positions, every battle reached an ending, troops stuck on walls at most 0.28% of the time (knights in Hydra vs Knights; well under the 0.5% limit). The director still ends at exactly 60 s and is zoomed in about 62% of the fight on both the castle and open ground. Stills at about 10 seconds of three battles (one per era) look right, and short real renders of a castle line-up and a creative castle match-up have good titles, descriptions and tags. No preview videos.
+- **Playbook:** `AUTOPILOT.md` now says to test new maps with 32–40 battles a side (24 was too noisy) and explains low walls; the castle siege map is crossed off the ideas list (ballistas and archers standing on the walls are still to do).
+- **Rellz:** add a `YT_API_KEY` secret (a YouTube Data API key from the same Google project) so the autopilot can start learning from views. Videos already posted don't change; the castle map shows up from the next videos whose turn in the map rotation lands on it.
+
 ## 2026-11-02: magic troops, the crazy units, battle systems, eight new maps
 
 Everything from Rellz's two idea lists, plus more of my own. Most videos stay 1v1 (every fourth is a three-way battle, as before).

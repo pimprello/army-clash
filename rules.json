@@ -437,6 +437,17 @@
         "wild",
         "samurai"
       ]
+    },
+    {
+      "name": "castle",
+      "eras": [
+        "medieval",
+        "fantasy",
+        "samurai",
+        "horror",
+        "mixed",
+        "wild"
+      ]
     }
   ],
   "matchups": [
