@@ -1,10 +1,11 @@
 # Trophy room
 
-Records from 121 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 122 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
 - **112 kills**: GIANT · 2026-11-03 05:30 · [🇧🇪 Belgium vs Netherlands 🇳🇱](https://youtube.com/shorts/NeMPZ0JTCf8)
+- **49 kills**: TANK · 2026-11-03 22:12 · [They Were LOSING Until This 😳](https://youtube.com/shorts/-hvpvz0i7TA)
 - **30 kills**: DRAGON · 2026-11-02 17:40 · [They Were LOSING Until This 😳](https://youtube.com/shorts/-e04vvO2yh8)
 - **29 kills**: WALKING FORTRESS · 2026-11-03 10:40 · [Steel Muskets vs CASTLE ELVES 🔥](https://youtube.com/shorts/xbouXT6Eu8I)
 - **26 kills**: OSKA THE WALL (LANCER) · 2026-11-02 18:40 · [The BIGGEST Comeback I've Seen 😱](https://youtube.com/shorts/Voym5nz5PNY)
@@ -13,7 +14,6 @@ Records from 121 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **26 kills**: STORM EMPEROR · 2026-11-03 21:00 · [Stareater vs Stormemperor vs Worldroot 🤯](https://youtube.com/shorts/QJFstj3yeZo)
 - **24 kills**: TANK · 2026-11-03 00:35 · [🪖 SOLDIERS vs Tank Army](https://youtube.com/shorts/r2iOakUwpmI)
 - **24 kills**: GRIM SKULLTAKER (ORC) · 2026-11-03 13:51 · [The Smaller Army Did WHAT? 😳](https://youtube.com/shorts/m-cmxirFeG0)
-- **23 kills**: THOUSAND-MAN · 2026-11-02 19:26 · [DREAM TEAM Battle: Royal Muskets vs Solar Shields](https://youtube.com/shorts/tM__7JbzIwY)
 
 ## Fastest wipe-outs
 
@@ -81,7 +81,7 @@ Records from 121 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Mutations (rarest first)
 
 - vampiric: 4
-- wings: 7
+- wings: 8
 - venom: 19
 - spellward: 20
 - swift: 21

@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 22:12 | They Were LOSING Until This 😳 | Netherlands wins | https://youtube.com/shorts/-hvpvz0i7TA |
 | 2026-11-03 21:57 | Steel Necros vs Cosmic Elves vs Tusk Bolts 🤯 | Red wins | https://youtube.com/shorts/NncKXBwE90c |
 | 2026-11-03 21:41 | 👹 OGRES vs Dwarves | Coral wins | https://youtube.com/shorts/CKDyCGOUDUY |
 | 2026-11-03 21:28 | DREAM TEAM Battle: Mega Fakers vs Lunar Knights | Orange wins | https://youtube.com/shorts/P7vUQsbfr0g |
