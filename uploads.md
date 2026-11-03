@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 05:00 | 🐎 CAVALRY vs Longbowmen | Orange wins | https://youtube.com/shorts/0ABWABNdqjE |
 | 2026-11-03 04:45 | Nobody Expected the TANK to Fall 💥 | Teal wins | https://youtube.com/shorts/lHBadLErlmY |
 | 2026-11-03 04:31 | ⛏️ DWARVES vs Orc Horde | Orange wins | https://youtube.com/shorts/xq3tetEodBk |
 | 2026-11-03 04:18 | Cosmic Bots vs Cyber Witches 🤯 | Red wins | https://youtube.com/shorts/gic-aRa5dr0 |
