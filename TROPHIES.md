@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 116 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 117 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -10,10 +10,10 @@ Records from 116 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **26 kills**: OSKA THE WALL (LANCER) · 2026-11-02 18:40 · [The BIGGEST Comeback I've Seen 😱](https://youtube.com/shorts/Voym5nz5PNY)
 - **26 kills**: NYRA STEELHEART (OGRE) · 2026-11-03 11:38 · [Cosmic Legion vs Ghost Ogres 🤯](https://youtube.com/shorts/nT1zxGeYE1Q)
 - **26 kills**: ZEDRIK STORMBORN (WARLOCK) · 2026-11-03 13:35 · [Solar Bots vs Cosmic Mages 🤯](https://youtube.com/shorts/FFp6HnjNX-A)
+- **26 kills**: STORM EMPEROR · 2026-11-03 21:00 · [Stareater vs Stormemperor vs Worldroot 🤯](https://youtube.com/shorts/QJFstj3yeZo)
 - **24 kills**: TANK · 2026-11-03 00:35 · [🪖 SOLDIERS vs Tank Army](https://youtube.com/shorts/r2iOakUwpmI)
 - **24 kills**: GRIM SKULLTAKER (ORC) · 2026-11-03 13:51 · [The Smaller Army Did WHAT? 😳](https://youtube.com/shorts/m-cmxirFeG0)
 - **23 kills**: THOUSAND-MAN · 2026-11-02 19:26 · [DREAM TEAM Battle: Royal Muskets vs Solar Shields](https://youtube.com/shorts/tM__7JbzIwY)
-- **22 kills**: HELICOPTER · 2026-11-03 02:18 · [The Weapons Came ALIVE 🗡️](https://youtube.com/shorts/Oz29GzcSmHU)
 
 ## Fastest wipe-outs
 
@@ -21,7 +21,7 @@ Records from 116 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **26.7 s**: lime wins · 2026-11-03 17:16 · [Frost Witches vs DEMONS 😈](https://youtube.com/shorts/_XGpRydxeWo)
 - **30 s**: orange wins · 2026-11-02 21:24 · [The Empty Armour Kept FIGHTING 👻](https://youtube.com/shorts/FROYUz7l2_U)
 - **31.3 s**: brazil wins · 2026-11-03 06:00 · [A TORNADO Hit Mid-Battle 🌪️](https://youtube.com/shorts/0Vx4Yv3RMS4)
-- **34.4 s**: gold wins · 2026-11-03 03:03 · [👑 EMPIRE vs Orc Horde](https://youtube.com/shorts/pUvRGzSNYBM)
+- **32.7 s**: blue wins · 2026-11-03 21:00 · [Stareater vs Stormemperor vs Worldroot 🤯](https://youtube.com/shorts/QJFstj3yeZo)
 
 ## Biggest wins (troops still standing)
 
@@ -55,11 +55,11 @@ Records from 116 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - KNIGHT SLAYER: 1
 - THOUSAND-MAN SLAYER: 1
 - GRAVITY TYRANT SLAYER: 1
-- WORLDROOT SLAYER: 1
 - CATHEDRAL SLAYER: 2
 - PLAYER SLAYER: 2
 - IMMORTAL FRAUD SLAYER: 2
 - STORM EMPEROR SLAYER: 2
+- WORLDROOT SLAYER: 2
 - TANK SLAYER: 3
 - FORTRESS SLAYER: 3
 - UNMAKER SLAYER: 3
@@ -80,9 +80,9 @@ Records from 116 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Mutations (rarest first)
 
 - vampiric: 4
-- wings: 6
-- spellward: 18
+- wings: 7
 - venom: 19
+- spellward: 19
 - swift: 21
 - spikes: 24
 - regen: 30
@@ -100,7 +100,6 @@ Records from 116 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - possess: mammoth: 1
 - copied: giant: 1
 - possess: cannon: 2
-- possess: treant: 2
 - portal: cyclops: 2
 - sudden: lava: 2
 - portal: troll: 2
@@ -108,6 +107,7 @@ Records from 116 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: golem: 2
 - extinct: GREEN: 2
 - portal: demon: 3
+- possess: treant: 3
 - fusion: 4
 - sudden: ring: 5
 - sudden: boss: 6
