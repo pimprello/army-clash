@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 08:41 | 🇺🇸 USA Toxic Bones vs UK Cosmic Sirens | Usa wins | https://youtube.com/shorts/OWsl1ny9nII |
 | 2026-11-03 08:26 | The Airdrop Had a SURPRISE Inside 📦 | Orange wins | https://youtube.com/shorts/UhxfN3l7jWE |
 | 2026-11-03 08:13 | The Smaller Army Did WHAT? 😳 | Pink wins | https://youtube.com/shorts/8_C8p0tbYqM |
 | 2026-11-03 07:59 | 🏰 WALKING FORTRESS vs Cyclops Army | Green wins | https://youtube.com/shorts/csCGun6thhc |
