@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 113 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 114 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 113 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **PELL BONECRUSHER** (SIEGE GUNNER), 22 kills · 2026-11-03 20:16
 - **BRAMBLE BONECRUSHER** (WAR RHINO), 10 kills · 2026-11-03 19:30
 - **VIPER-4** (LASER TROOPER), 20 kills · 2026-11-03 18:59
 - **BRAMBLE FIREBRAND** (TREANT), 10 kills · 2026-11-03 18:48
@@ -47,7 +48,6 @@ Records from 113 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **SIRA THE WALL** (WIZARD), 18 kills · 2026-11-03 13:20
 - **BRAKK BONECRUSHER** (WIZARD), 15 kills · 2026-11-03 12:39
 - **VEXA BONECRUSHER** (GRIFFIN RIDER), 13 kills · 2026-11-03 12:07
-- **NYRA STEELHEART** (OGRE), 26 kills · 2026-11-03 11:38
 
 ## Titles earned (rarest first)
 
@@ -58,10 +58,10 @@ Records from 113 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - GRAVITY TYRANT SLAYER: 1
 - WORLDROOT SLAYER: 1
 - CATHEDRAL SLAYER: 2
-- FORTRESS SLAYER: 2
 - PLAYER SLAYER: 2
 - IMMORTAL FRAUD SLAYER: 2
 - TANK SLAYER: 3
+- FORTRESS SLAYER: 3
 - UNMAKER SLAYER: 3
 - CYCLOPS SLAYER: 3
 - HELICOPTER SLAYER: 3
@@ -81,11 +81,11 @@ Records from 113 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 - vampiric: 4
 - wings: 6
-- venom: 17
-- swift: 18
+- venom: 18
 - spellward: 18
-- spikes: 23
-- regen: 28
+- swift: 19
+- spikes: 24
+- regen: 29
 
 ## Big moments
 
