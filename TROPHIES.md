@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 80 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 81 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 80 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 ## Hall of champions
 
+- **VEXA BONECRUSHER** (GRIFFIN RIDER), 13 kills · 2026-11-03 12:07
 - **NYRA STEELHEART** (OGRE), 26 kills · 2026-11-03 11:38
 - **IVOR THE MAD** (ELF ARCHER), 18 kills · 2026-11-03 11:07
 - **KAELEN FIREBRAND** (PLAGUE ALCHEMIST), 21 kills · 2026-11-03 09:26
@@ -48,13 +49,13 @@ Records from 80 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 ## Titles earned (rarest first)
 
-- HYDRA SLAYER: 1
 - CYCLOPS SLAYER: 1
 - PLAYER SLAYER: 1
 - MECH SLAYER: 1
 - KNIGHT SLAYER: 1
 - THOUSAND-MAN SLAYER: 1
 - CATHEDRAL SLAYER: 2
+- HYDRA SLAYER: 2
 - FORTRESS SLAYER: 2
 - IMMORTAL FRAUD SLAYER: 2
 - PHOENIX SLAYER: 2
@@ -76,10 +77,10 @@ Records from 80 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - vampiric: 2
 - wings: 4
 - spellward: 9
-- venom: 11
-- swift: 12
-- spikes: 15
-- regen: 15
+- venom: 12
+- swift: 13
+- spikes: 16
+- regen: 16
 
 ## Big moments
 

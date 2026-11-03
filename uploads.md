@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 12:07 | FROST SAMURAI vs Wild Flames vs Titan Ninjas 🔥 | Argentina wins | https://youtube.com/shorts/4ALJ-cnKuwU |
 | 2026-11-03 11:53 | 🇮🇹 Italy Immortal vs Germany Samurai | Germany wins | https://youtube.com/shorts/1L2KDoXASmc |
 | 2026-11-03 11:38 | Cosmic Legion vs Ghost Ogres 🤯 | Pink wins | https://youtube.com/shorts/nT1zxGeYE1Q |
 | 2026-11-03 11:23 | One Wizard Got 18 KILLS 😳 | Germany wins | https://youtube.com/shorts/BDNJZxfoDJ0 |
