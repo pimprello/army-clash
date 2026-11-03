@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 123 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 124 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -19,9 +19,9 @@ Records from 123 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 - **22.8 s**: indigo wins · 2026-11-03 16:17 · [I Did NOT Expect This 😳](https://youtube.com/shorts/cYrP7bJqWDE)
 - **26.7 s**: lime wins · 2026-11-03 17:16 · [Frost Witches vs DEMONS 😈](https://youtube.com/shorts/_XGpRydxeWo)
+- **28.2 s**: pink wins · 2026-11-03 22:41 · [Helicopter Army vs SOLDIERS 🪖](https://youtube.com/shorts/bWcAhRbRdQM)
 - **30 s**: orange wins · 2026-11-02 21:24 · [The Empty Armour Kept FIGHTING 👻](https://youtube.com/shorts/FROYUz7l2_U)
 - **30 s**: orange wins · 2026-11-03 21:28 · [DREAM TEAM Battle: Mega Fakers vs Lunar Knights](https://youtube.com/shorts/P7vUQsbfr0g)
-- **31.3 s**: brazil wins · 2026-11-03 06:00 · [A TORNADO Hit Mid-Battle 🌪️](https://youtube.com/shorts/0Vx4Yv3RMS4)
 
 ## Biggest wins (troops still standing)
 
@@ -65,12 +65,12 @@ Records from 123 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - FORTRESS SLAYER: 3
 - UNMAKER SLAYER: 3
 - CYCLOPS SLAYER: 3
-- HELICOPTER SLAYER: 3
 - PHOENIX SLAYER: 3
 - MIRROR KING SLAYER: 4
 - HYDRA SLAYER: 4
 - CANNON SLAYER: 4
 - MAMMOTH SLAYER: 4
+- HELICOPTER SLAYER: 4
 - COLOSSUS SLAYER: 5
 - GOLEM SLAYER: 6
 - DRAGON SLAYER: 7
