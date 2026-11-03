@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 118 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 119 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -20,8 +20,8 @@ Records from 118 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **22.8 s**: indigo wins · 2026-11-03 16:17 · [I Did NOT Expect This 😳](https://youtube.com/shorts/cYrP7bJqWDE)
 - **26.7 s**: lime wins · 2026-11-03 17:16 · [Frost Witches vs DEMONS 😈](https://youtube.com/shorts/_XGpRydxeWo)
 - **30 s**: orange wins · 2026-11-02 21:24 · [The Empty Armour Kept FIGHTING 👻](https://youtube.com/shorts/FROYUz7l2_U)
+- **30 s**: orange wins · 2026-11-03 21:28 · [DREAM TEAM Battle: Mega Fakers vs Lunar Knights](https://youtube.com/shorts/P7vUQsbfr0g)
 - **31.3 s**: brazil wins · 2026-11-03 06:00 · [A TORNADO Hit Mid-Battle 🌪️](https://youtube.com/shorts/0Vx4Yv3RMS4)
-- **32.7 s**: blue wins · 2026-11-03 21:00 · [Stareater vs Stormemperor vs Worldroot 🤯](https://youtube.com/shorts/QJFstj3yeZo)
 
 ## Biggest wins (troops still standing)
 
@@ -70,8 +70,8 @@ Records from 118 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - HYDRA SLAYER: 4
 - CANNON SLAYER: 4
 - MAMMOTH SLAYER: 4
-- GOLEM SLAYER: 5
 - COLOSSUS SLAYER: 5
+- GOLEM SLAYER: 6
 - DRAGON SLAYER: 7
 - ELEPHANT SLAYER: 8
 - GIANT SLAYER: 10
@@ -91,7 +91,6 @@ Records from 118 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 - extinct: AUSTRALIA: 1
 - portal: hydra: 1
-- extinct: ORANGE: 1
 - extinct: BLUE: 1
 - copied: knight: 1
 - extinct: SILVER: 1
@@ -105,6 +104,7 @@ Records from 118 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: troll: 2
 - extinct: RED: 2
 - portal: golem: 2
+- extinct: ORANGE: 2
 - extinct: GREEN: 2
 - portal: demon: 3
 - possess: treant: 3
