@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 39 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 40 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -8,12 +8,12 @@ Records from 39 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - **26 kills**: OSKA THE WALL (LANCER) · 2026-11-02 18:40 · [The BIGGEST Comeback I've Seen 😱](https://youtube.com/shorts/Voym5nz5PNY)
 - **24 kills**: TANK · 2026-11-03 00:35 · [🪖 SOLDIERS vs Tank Army](https://youtube.com/shorts/r2iOakUwpmI)
 - **23 kills**: THOUSAND-MAN · 2026-11-02 19:26 · [DREAM TEAM Battle: Royal Muskets vs Solar Shields](https://youtube.com/shorts/tM__7JbzIwY)
+- **15 kills**: GRUNDA GRAVEBANE (WIZARD) · 2026-11-03 01:35 · [Undead vs TROOPERS 🔫](https://youtube.com/shorts/YkmxyQRi1Kw)
 - **13 kills**: PELL IRONHIDE (WAR RHINO), FORTRESS SLAYER · 2026-11-02 17:56 · [Steel Raiders vs Tusk Rhinos vs Lunar Bows 🤯](https://youtube.com/shorts/oX-v7nCnbPs)
 - **12 kills**: IVOR BONECRUSHER (BERSERKER) · 2026-11-02 16:41 · [One Berserker Got 12 KILLS 😳](https://youtube.com/shorts/R-txW0YHzv4)
 - **11 kills**: VIPER-2 (LASER TROOPER) · 2026-11-02 20:43 · [Robots vs GIANT ARMY 👹](https://youtube.com/shorts/iPxQZSKyT9k)
 - **10 kills**: ASHKA SKULLTAKER (HELLHOUND) · 2026-11-02 18:25 · [DREAM TEAM Battle: Cosmic Guard vs Titan Archers](https://youtube.com/shorts/dTw-6GR3gv8)
 - **9 kills**: LASER TROOPER · 2026-11-02 16:56 · [KNIGHTS vs Orcs vs Robots 🔥](https://youtube.com/shorts/4DSixF0rr00)
-- **9 kills**: CROSSBOWMAN · 2026-11-02 17:10 · [86 Knights vs a GIANT Army 👹](https://youtube.com/shorts/NxigkIpdLJY)
 
 ## Fastest wipe-outs
 
@@ -26,13 +26,14 @@ Records from 39 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 ## Biggest wins (troops still standing)
 
 - **85 left**: 2026-11-03 00:21 · [🔥 STEEL GOBLINS vs Cosmic Fakers](https://youtube.com/shorts/gGvtevVjlvo)
+- **77 left**: 2026-11-03 01:35 · [Undead vs TROOPERS 🔫](https://youtube.com/shorts/YkmxyQRi1Kw)
 - **57 left**: 2026-11-02 23:36 · [🇵🇹 Portugal Warriors vs Spain Archers](https://youtube.com/shorts/826KinGBtaw)
 - **57 left**: 2026-11-03 01:05 · [The Golem Went DOWN 💀](https://youtube.com/shorts/H__-XSqe_2A)
 - **55 left**: 2026-11-02 21:24 · [The Empty Armour Kept FIGHTING 👻](https://youtube.com/shorts/FROYUz7l2_U)
-- **48 left**: 2026-11-02 20:09 · [METEORS Hit Mid-Battle ☄️](https://youtube.com/shorts/UCHbxIxm93I)
 
 ## Hall of champions
 
+- **GRUNDA GRAVEBANE** (WIZARD), 15 kills · 2026-11-03 01:35
 - **VIPER-2** (LASER TROOPER), 11 kills · 2026-11-02 20:43
 - **OSKA THE WALL** (LANCER), 26 kills · 2026-11-02 18:40
 - **ASHKA SKULLTAKER** (HELLHOUND), 10 kills · 2026-11-02 18:25
@@ -56,18 +57,18 @@ Records from 39 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - MAMMOTH SLAYER: 3
 - HELICOPTER SLAYER: 3
 - TITAN SLAYER: 4
-- GIANT SLAYER: 5
+- GIANT SLAYER: 6
 - DRAGON SLAYER: 6
 
 ## Mutations (rarest first)
 
 - wings: 1
 - vampiric: 1
-- venom: 2
-- swift: 4
-- spellward: 5
-- spikes: 6
-- regen: 6
+- venom: 3
+- swift: 5
+- spellward: 6
+- spikes: 7
+- regen: 7
 
 ## Big moments
 

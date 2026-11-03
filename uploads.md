@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 01:35 | Undead vs TROOPERS 🔫 | Silver wins | https://youtube.com/shorts/YkmxyQRi1Kw |
 | 2026-11-03 01:20 | DREAM TEAM Battle: Neon Mirrors vs Eye Goblins | Cyan wins | https://youtube.com/shorts/22xtxy-O75M |
 | 2026-11-03 01:05 | The Golem Went DOWN 💀 | Blue wins | https://youtube.com/shorts/H__-XSqe_2A |
 | 2026-11-03 00:50 | Knights vs Orcs vs Robots 🤯 | Australia wins | https://youtube.com/shorts/blOzCI1EoCE |
