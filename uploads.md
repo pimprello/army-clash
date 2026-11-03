@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 06:57 | 🔥 PHOENIX Army vs MECH Army | Green wins | https://youtube.com/shorts/XAk-qTggQbE |
 | 2026-11-03 06:43 | PIRATES vs Ninjas vs Archers 🔥 | Blue wins | https://youtube.com/shorts/GtYa24NCmFw |
 | 2026-11-03 06:29 | 🐍 HYDRA ARMY vs Knights | Blue wins | https://youtube.com/shorts/wJ_um_JC4L0 |
 | 2026-11-03 06:14 | 🇦🇺 Australia Bone Smiths vs New Zealand Turbo Snipers | New zealand wins | https://youtube.com/shorts/uhveINUUe6c |
