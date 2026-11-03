@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 85 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 86 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 85 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 ## Hall of champions
 
+- **SIRA THE WALL** (WIZARD), 18 kills · 2026-11-03 13:20
 - **BRAKK BONECRUSHER** (WIZARD), 15 kills · 2026-11-03 12:39
 - **VEXA BONECRUSHER** (GRIFFIN RIDER), 13 kills · 2026-11-03 12:07
 - **NYRA STEELHEART** (OGRE), 26 kills · 2026-11-03 11:38
@@ -77,11 +78,11 @@ Records from 85 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 - vampiric: 2
 - wings: 4
-- spellward: 9
+- spellward: 10
 - venom: 13
 - swift: 14
 - spikes: 17
-- regen: 19
+- regen: 20
 
 ## Big moments
 

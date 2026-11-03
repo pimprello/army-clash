@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 13:20 | The Smaller Army Did WHAT? 😳 | Orange wins | https://youtube.com/shorts/J2u7WGAUlSM |
 | 2026-11-03 13:06 | EMPIRE vs Legion vs Warband 🔥 | Purple wins | https://youtube.com/shorts/kqOcuWpnc0Y |
 | 2026-11-03 12:51 | 🇬🇧 UK vs France: WHO WINS? | Uk wins | https://youtube.com/shorts/t3BWj0jMvSI |
 | 2026-11-03 12:39 | A PORTAL Opened Mid-Battle 🌀 | Sweden wins | https://youtube.com/shorts/1Z8JJ1s8ExU |
