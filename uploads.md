@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 19:14 | 🗿 GARGOYLES vs Knights | Cyan wins | https://youtube.com/shorts/N88Bccrdyo8 |
 | 2026-11-03 18:59 | Forbidden vs Copycats vs Glitch 🤯 | Yellow wins | https://youtube.com/shorts/rIsnALlSrMo |
 | 2026-11-03 18:48 | Then the Arena Started SHRINKING 😱 | Purple wins | https://youtube.com/shorts/55OsVo5asp4 |
 | 2026-11-03 18:31 | Cosmic Bows vs Omega Flames 🤯 | Gold wins | https://youtube.com/shorts/X9efZLWnvcM |
