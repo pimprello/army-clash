@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 120 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 121 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -55,6 +55,7 @@ Records from 120 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - KNIGHT SLAYER: 1
 - THOUSAND-MAN SLAYER: 1
 - GRAVITY TYRANT SLAYER: 1
+- CATAPULT SLAYER: 1
 - CATHEDRAL SLAYER: 2
 - PLAYER SLAYER: 2
 - IMMORTAL FRAUD SLAYER: 2
@@ -73,7 +74,7 @@ Records from 120 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - COLOSSUS SLAYER: 5
 - GOLEM SLAYER: 6
 - DRAGON SLAYER: 7
-- ELEPHANT SLAYER: 8
+- ELEPHANT SLAYER: 9
 - GIANT SLAYER: 10
 - TITAN SLAYER: 12
 
@@ -82,7 +83,7 @@ Records from 120 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 4
 - wings: 7
 - venom: 19
-- spellward: 19
+- spellward: 20
 - swift: 21
 - spikes: 24
 - regen: 31
