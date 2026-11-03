@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 21:13 | 27 Troops Fell Off the MAP 😭 | Purple wins | https://youtube.com/shorts/GB5hXx6N_LA |
 | 2026-11-03 21:00 | Stareater vs Stormemperor vs Worldroot 🤯 | Blue wins | https://youtube.com/shorts/QJFstj3yeZo |
 | 2026-11-03 20:43 | MAMMOTH vs ELEPHANT 🐘 | Blue wins | https://youtube.com/shorts/GQwfzAKYf_8 |
 | 2026-11-03 20:30 | 🇪🇸 Spain vs Portugal 🇵🇹 | Portugal wins | https://youtube.com/shorts/PQAg3kHEfMA |
