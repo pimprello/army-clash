@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 14:49 | 130 Troopers vs a GLITCH Army 👾 | Cyan wins | https://youtube.com/shorts/kLIcEDleYzE |
 | 2026-11-03 14:35 | Ultra Necros vs Steel Monks 🤯 | Silver wins | https://youtube.com/shorts/krJQVE27ICI |
 | 2026-11-03 14:19 | The Smaller Army Did WHAT? 😳 | Blue wins | https://youtube.com/shorts/1TMslzStzgc |
 | 2026-11-03 14:08 | 3 Armies, Only 1 SURVIVES 💀 | Green wins | https://youtube.com/shorts/MSMiO6UfhHg |
