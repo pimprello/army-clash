@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 08:13 | The Smaller Army Did WHAT? 😳 | Pink wins | https://youtube.com/shorts/8_C8p0tbYqM |
 | 2026-11-03 07:59 | 🏰 WALKING FORTRESS vs Cyclops Army | Green wins | https://youtube.com/shorts/csCGun6thhc |
 | 2026-11-03 07:13 | The Empty Armour Kept FIGHTING 👻 | Silver wins | https://youtube.com/shorts/cX2Zxyf8MkA |
 | 2026-11-03 06:57 | 🔥 PHOENIX Army vs MECH Army | Green wins | https://youtube.com/shorts/XAk-qTggQbE |

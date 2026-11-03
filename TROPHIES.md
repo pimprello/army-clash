@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 64 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 65 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 64 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 ## Hall of champions
 
+- **TOVA SKULLTAKER** (OGRE), 11 kills · 2026-11-03 08:13
 - **TALVO STEELHEART** (GENERAL), 21 kills · 2026-11-03 03:33
 - **GRUNDA GRAVEBANE** (WIZARD), 15 kills · 2026-11-03 01:35
 - **VIPER-2** (LASER TROOPER), 11 kills · 2026-11-02 20:43
@@ -43,13 +44,13 @@ Records from 64 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 ## Titles earned (rarest first)
 
-- CATHEDRAL SLAYER: 1
 - HYDRA SLAYER: 1
 - FORTRESS SLAYER: 1
 - CYCLOPS SLAYER: 1
 - PLAYER SLAYER: 1
 - IMMORTAL FRAUD SLAYER: 1
 - MECH SLAYER: 1
+- CATHEDRAL SLAYER: 2
 - PHOENIX SLAYER: 2
 - ELEPHANT SLAYER: 3
 - MIRROR KING SLAYER: 3
@@ -68,10 +69,10 @@ Records from 64 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 - vampiric: 1
 - wings: 3
-- spikes: 8
 - venom: 8
 - swift: 8
 - spellward: 8
+- spikes: 9
 - regen: 10
 
 ## Big moments
