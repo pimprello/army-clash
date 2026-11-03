@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 69 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 70 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 69 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 ## Hall of champions
 
+- **KAELEN FIREBRAND** (PLAGUE ALCHEMIST), 21 kills · 2026-11-03 09:26
 - **NOMAD-7** (RIFLEMAN), 10 kills · 2026-11-03 08:56
 - **TOVA SKULLTAKER** (OGRE), 11 kills · 2026-11-03 08:13
 - **TALVO STEELHEART** (GENERAL), 21 kills · 2026-11-03 03:33
@@ -70,11 +71,11 @@ Records from 69 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 - vampiric: 2
 - wings: 3
-- swift: 8
 - spellward: 8
 - venom: 9
-- spikes: 10
-- regen: 11
+- swift: 9
+- spikes: 11
+- regen: 12
 
 ## Big moments
 
