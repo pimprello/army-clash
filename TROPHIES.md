@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 52 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 53 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -10,10 +10,10 @@ Records from 52 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - **23 kills**: THOUSAND-MAN · 2026-11-02 19:26 · [DREAM TEAM Battle: Royal Muskets vs Solar Shields](https://youtube.com/shorts/tM__7JbzIwY)
 - **22 kills**: HELICOPTER · 2026-11-03 02:18 · [The Weapons Came ALIVE 🗡️](https://youtube.com/shorts/Oz29GzcSmHU)
 - **22 kills**: IMMORTAL FRAUD, TRUE FORM · 2026-11-03 03:17 · [🔥 ROYAL DWARVES vs Undying Elves](https://youtube.com/shorts/b65Ux_nnSow)
+- **22 kills**: DRAGON · 2026-11-03 04:45 · [Nobody Expected the TANK to Fall 💥](https://youtube.com/shorts/lHBadLErlmY)
 - **21 kills**: TALVO STEELHEART (GENERAL) · 2026-11-03 03:33 · [The Bone Colossus Went DOWN 💀](https://youtube.com/shorts/j7nfkarWHOQ)
 - **15 kills**: GRUNDA GRAVEBANE (WIZARD) · 2026-11-03 01:35 · [Undead vs TROOPERS 🔫](https://youtube.com/shorts/YkmxyQRi1Kw)
 - **15 kills**: DREAD KNIGHT · 2026-11-03 01:51 · [3 Armies, Only 1 SURVIVES 💀](https://youtube.com/shorts/r2blt1MSEaQ)
-- **13 kills**: PELL IRONHIDE (WAR RHINO), FORTRESS SLAYER · 2026-11-02 17:56 · [Steel Raiders vs Tusk Rhinos vs Lunar Bows 🤯](https://youtube.com/shorts/oX-v7nCnbPs)
 
 ## Fastest wipe-outs
 
@@ -51,6 +51,7 @@ Records from 52 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - PLAYER SLAYER: 1
 - IMMORTAL FRAUD SLAYER: 1
 - PHOENIX SLAYER: 1
+- MECH SLAYER: 1
 - COLOSSUS SLAYER: 2
 - CANNON SLAYER: 2
 - ELEPHANT SLAYER: 3
