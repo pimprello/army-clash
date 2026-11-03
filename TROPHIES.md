@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 111 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 112 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
