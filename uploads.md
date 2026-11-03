@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 23:55 | NEON DRONES vs Mega Imps vs Wild Raiders 🔥 | Usa wins | https://youtube.com/shorts/HjSu6DoizGo |
 | 2026-11-03 23:40 | A PORTAL Opened Mid-Battle 🌀 | Lime wins | https://youtube.com/shorts/2yMTzU0CUxI |
 | 2026-11-03 23:25 | Chrono Elves vs Mech Orcs 🤯 | Silver wins | https://youtube.com/shorts/Nkc4mdU65Fc |
 | 2026-11-03 23:10 | 🧜‍♀️ SIRENS vs Pirates | Indigo wins | https://youtube.com/shorts/sf0FHbc79I4 |

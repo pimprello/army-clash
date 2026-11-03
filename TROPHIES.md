@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 128 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 129 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -82,7 +82,7 @@ Records from 128 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Mutations (rarest first)
 
 - vampiric: 4
-- wings: 9
+- wings: 10
 - venom: 19
 - spellward: 20
 - swift: 21
