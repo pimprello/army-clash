@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 07:13 | The Empty Armour Kept FIGHTING 👻 | Silver wins | https://youtube.com/shorts/cX2Zxyf8MkA |
 | 2026-11-03 06:57 | 🔥 PHOENIX Army vs MECH Army | Green wins | https://youtube.com/shorts/XAk-qTggQbE |
 | 2026-11-03 06:43 | PIRATES vs Ninjas vs Archers 🔥 | Blue wins | https://youtube.com/shorts/GtYa24NCmFw |
 | 2026-11-03 06:29 | 🐍 HYDRA ARMY vs Knights | Blue wins | https://youtube.com/shorts/wJ_um_JC4L0 |
