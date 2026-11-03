@@ -1,11 +1,12 @@
 # Trophy room
 
-Records from 74 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 75 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
 - **112 kills**: GIANT · 2026-11-03 05:30 · [🇧🇪 Belgium vs Netherlands 🇳🇱](https://youtube.com/shorts/NeMPZ0JTCf8)
 - **30 kills**: DRAGON · 2026-11-02 17:40 · [They Were LOSING Until This 😳](https://youtube.com/shorts/-e04vvO2yh8)
+- **29 kills**: WALKING FORTRESS · 2026-11-03 10:40 · [Steel Muskets vs CASTLE ELVES 🔥](https://youtube.com/shorts/xbouXT6Eu8I)
 - **26 kills**: OSKA THE WALL (LANCER) · 2026-11-02 18:40 · [The BIGGEST Comeback I've Seen 😱](https://youtube.com/shorts/Voym5nz5PNY)
 - **24 kills**: TANK · 2026-11-03 00:35 · [🪖 SOLDIERS vs Tank Army](https://youtube.com/shorts/r2iOakUwpmI)
 - **23 kills**: THOUSAND-MAN · 2026-11-02 19:26 · [DREAM TEAM Battle: Royal Muskets vs Solar Shields](https://youtube.com/shorts/tM__7JbzIwY)
@@ -13,7 +14,6 @@ Records from 74 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - **22 kills**: IMMORTAL FRAUD, TRUE FORM · 2026-11-03 03:17 · [🔥 ROYAL DWARVES vs Undying Elves](https://youtube.com/shorts/b65Ux_nnSow)
 - **22 kills**: DRAGON · 2026-11-03 04:45 · [Nobody Expected the TANK to Fall 💥](https://youtube.com/shorts/lHBadLErlmY)
 - **21 kills**: TALVO STEELHEART (GENERAL) · 2026-11-03 03:33 · [The Bone Colossus Went DOWN 💀](https://youtube.com/shorts/j7nfkarWHOQ)
-- **21 kills**: HYDRA · 2026-11-03 06:29 · [🐍 HYDRA ARMY vs Knights](https://youtube.com/shorts/wJ_um_JC4L0)
 
 ## Fastest wipe-outs
 
@@ -74,7 +74,7 @@ Records from 74 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - wings: 3
 - spellward: 8
 - venom: 9
-- swift: 10
+- swift: 11
 - spikes: 12
 - regen: 13
 

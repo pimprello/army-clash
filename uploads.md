@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 10:40 | Steel Muskets vs CASTLE ELVES 🔥 | Red wins | https://youtube.com/shorts/xbouXT6Eu8I |
 | 2026-11-03 10:25 | Golems vs ROBOTS 🤖 | Coral wins | https://youtube.com/shorts/-hVq0ho__IM |
 | 2026-11-03 10:11 | The CASTLE Was Alive 😱 | Brazil wins | https://youtube.com/shorts/M8PqEsT7pFU |
 | 2026-11-03 09:54 | Turtle Army vs GUNNERS 💥 | Green wins | https://youtube.com/shorts/kP8M0nhjws4 |
