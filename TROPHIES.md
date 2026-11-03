@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 77 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 78 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -66,7 +66,7 @@ Records from 77 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - HELICOPTER SLAYER: 3
 - GOLEM SLAYER: 4
 - ELEPHANT SLAYER: 6
-- GIANT SLAYER: 6
+- GIANT SLAYER: 7
 - DRAGON SLAYER: 7
 - TITAN SLAYER: 9
 
@@ -74,11 +74,11 @@ Records from 77 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 - vampiric: 2
 - wings: 4
-- venom: 9
 - spellward: 9
-- swift: 11
-- spikes: 13
-- regen: 13
+- venom: 10
+- swift: 12
+- spikes: 14
+- regen: 14
 
 ## Big moments
 
@@ -91,6 +91,7 @@ Records from 77 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - portal: golem: 1
 - extinct: ORANGE: 1
 - extinct: BLUE: 1
+- copied: knight: 1
 - portal: demon: 2
 - fusion: 2
 - possess: treant: 2
