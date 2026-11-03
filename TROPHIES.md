@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 45 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 46 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -18,18 +18,18 @@ Records from 45 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 ## Fastest wipe-outs
 
 - **30 s**: orange wins · 2026-11-02 21:24 · [The Empty Armour Kept FIGHTING 👻](https://youtube.com/shorts/FROYUz7l2_U)
+- **34.4 s**: gold wins · 2026-11-03 03:03 · [👑 EMPIRE vs Orc Horde](https://youtube.com/shorts/pUvRGzSNYBM)
 - **36.1 s**: green wins · 2026-11-02 18:55 · [The Weapons Came ALIVE 🗡️](https://youtube.com/shorts/fqgv271cJu0)
 - **37.4 s**: sweden wins · 2026-11-02 23:22 · [🇳🇴 Norway vs Sweden 🇸🇪](https://youtube.com/shorts/338Ln-Otgqk)
 - **38.3 s**: blue wins · 2026-11-02 20:09 · [METEORS Hit Mid-Battle ☄️](https://youtube.com/shorts/UCHbxIxm93I)
-- **38.8 s**: red wins · 2026-11-03 02:04 · [115 Vampires vs 105 Samurai 🧛](https://youtube.com/shorts/Wkgai-xFqF0)
 
 ## Biggest wins (troops still standing)
 
 - **85 left**: 2026-11-03 00:21 · [🔥 STEEL GOBLINS vs Cosmic Fakers](https://youtube.com/shorts/gGvtevVjlvo)
 - **81 left**: 2026-11-03 02:04 · [115 Vampires vs 105 Samurai 🧛](https://youtube.com/shorts/Wkgai-xFqF0)
 - **77 left**: 2026-11-03 01:35 · [Undead vs TROOPERS 🔫](https://youtube.com/shorts/YkmxyQRi1Kw)
+- **61 left**: 2026-11-03 03:03 · [👑 EMPIRE vs Orc Horde](https://youtube.com/shorts/pUvRGzSNYBM)
 - **57 left**: 2026-11-02 23:36 · [🇵🇹 Portugal Warriors vs Spain Archers](https://youtube.com/shorts/826KinGBtaw)
-- **57 left**: 2026-11-03 01:05 · [The Golem Went DOWN 💀](https://youtube.com/shorts/H__-XSqe_2A)
 
 ## Hall of champions
 
