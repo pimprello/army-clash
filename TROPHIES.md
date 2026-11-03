@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 59 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 60 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -13,7 +13,7 @@ Records from 59 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - **22 kills**: IMMORTAL FRAUD, TRUE FORM · 2026-11-03 03:17 · [🔥 ROYAL DWARVES vs Undying Elves](https://youtube.com/shorts/b65Ux_nnSow)
 - **22 kills**: DRAGON · 2026-11-03 04:45 · [Nobody Expected the TANK to Fall 💥](https://youtube.com/shorts/lHBadLErlmY)
 - **21 kills**: TALVO STEELHEART (GENERAL) · 2026-11-03 03:33 · [The Bone Colossus Went DOWN 💀](https://youtube.com/shorts/j7nfkarWHOQ)
-- **15 kills**: GRUNDA GRAVEBANE (WIZARD) · 2026-11-03 01:35 · [Undead vs TROOPERS 🔫](https://youtube.com/shorts/YkmxyQRi1Kw)
+- **21 kills**: HYDRA · 2026-11-03 06:29 · [🐍 HYDRA ARMY vs Knights](https://youtube.com/shorts/wJ_um_JC4L0)
 
 ## Fastest wipe-outs
 
@@ -29,7 +29,7 @@ Records from 59 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - **84 left**: 2026-11-03 06:00 · [A TORNADO Hit Mid-Battle 🌪️](https://youtube.com/shorts/0Vx4Yv3RMS4)
 - **81 left**: 2026-11-03 02:04 · [115 Vampires vs 105 Samurai 🧛](https://youtube.com/shorts/Wkgai-xFqF0)
 - **77 left**: 2026-11-03 01:35 · [Undead vs TROOPERS 🔫](https://youtube.com/shorts/YkmxyQRi1Kw)
-- **61 left**: 2026-11-03 03:03 · [👑 EMPIRE vs Orc Horde](https://youtube.com/shorts/pUvRGzSNYBM)
+- **67 left**: 2026-11-03 06:29 · [🐍 HYDRA ARMY vs Knights](https://youtube.com/shorts/wJ_um_JC4L0)
 
 ## Hall of champions
 
@@ -69,10 +69,10 @@ Records from 59 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - vampiric: 1
 - wings: 2
 - spikes: 7
-- venom: 7
 - swift: 7
+- venom: 8
 - spellward: 8
-- regen: 9
+- regen: 10
 
 ## Big moments
 
@@ -84,6 +84,7 @@ Records from 59 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - extinct: RED: 1
 - portal: golem: 1
 - extinct: ORANGE: 1
+- extinct: BLUE: 1
 - portal: demon: 2
 - fusion: 2
 - possess: treant: 2
