@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 110 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 111 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 110 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **BRAMBLE BONECRUSHER** (WAR RHINO), 10 kills · 2026-11-03 19:30
 - **VIPER-4** (LASER TROOPER), 20 kills · 2026-11-03 18:59
 - **BRAMBLE FIREBRAND** (TREANT), 10 kills · 2026-11-03 18:48
 - **DRAVEN GRAVEBANE** (LANCER), 10 kills · 2026-11-03 18:16
@@ -47,7 +48,6 @@ Records from 110 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **BRAKK BONECRUSHER** (WIZARD), 15 kills · 2026-11-03 12:39
 - **VEXA BONECRUSHER** (GRIFFIN RIDER), 13 kills · 2026-11-03 12:07
 - **NYRA STEELHEART** (OGRE), 26 kills · 2026-11-03 11:38
-- **IVOR THE MAD** (ELF ARCHER), 18 kills · 2026-11-03 11:07
 
 ## Titles earned (rarest first)
 
@@ -79,7 +79,7 @@ Records from 110 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Mutations (rarest first)
 
 - vampiric: 4
-- wings: 5
+- wings: 6
 - venom: 17
 - swift: 18
 - spellward: 18
