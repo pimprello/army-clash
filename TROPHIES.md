@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 84 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 85 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -81,7 +81,7 @@ Records from 84 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - venom: 13
 - swift: 14
 - spikes: 17
-- regen: 18
+- regen: 19
 
 ## Big moments
 
@@ -95,11 +95,11 @@ Records from 84 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - extinct: ORANGE: 1
 - extinct: BLUE: 1
 - copied: knight: 1
-- fusion: 2
 - possess: treant: 2
 - sudden: lava: 2
 - extinct: GREEN: 2
 - portal: demon: 3
+- fusion: 3
 - sudden: ring: 3
 - sudden: meteors: 6
 - sudden: boss: 6
