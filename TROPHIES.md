@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 86 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 87 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -9,11 +9,11 @@ Records from 86 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - **29 kills**: WALKING FORTRESS · 2026-11-03 10:40 · [Steel Muskets vs CASTLE ELVES 🔥](https://youtube.com/shorts/xbouXT6Eu8I)
 - **26 kills**: OSKA THE WALL (LANCER) · 2026-11-02 18:40 · [The BIGGEST Comeback I've Seen 😱](https://youtube.com/shorts/Voym5nz5PNY)
 - **26 kills**: NYRA STEELHEART (OGRE) · 2026-11-03 11:38 · [Cosmic Legion vs Ghost Ogres 🤯](https://youtube.com/shorts/nT1zxGeYE1Q)
+- **26 kills**: ZEDRIK STORMBORN (WARLOCK) · 2026-11-03 13:35 · [Solar Bots vs Cosmic Mages 🤯](https://youtube.com/shorts/FFp6HnjNX-A)
 - **24 kills**: TANK · 2026-11-03 00:35 · [🪖 SOLDIERS vs Tank Army](https://youtube.com/shorts/r2iOakUwpmI)
 - **23 kills**: THOUSAND-MAN · 2026-11-02 19:26 · [DREAM TEAM Battle: Royal Muskets vs Solar Shields](https://youtube.com/shorts/tM__7JbzIwY)
 - **22 kills**: HELICOPTER · 2026-11-03 02:18 · [The Weapons Came ALIVE 🗡️](https://youtube.com/shorts/Oz29GzcSmHU)
 - **22 kills**: IMMORTAL FRAUD, TRUE FORM · 2026-11-03 03:17 · [🔥 ROYAL DWARVES vs Undying Elves](https://youtube.com/shorts/b65Ux_nnSow)
-- **22 kills**: DRAGON · 2026-11-03 04:45 · [Nobody Expected the TANK to Fall 💥](https://youtube.com/shorts/lHBadLErlmY)
 
 ## Fastest wipe-outs
 
@@ -33,6 +33,7 @@ Records from 86 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 ## Hall of champions
 
+- **ZEDRIK STORMBORN** (WARLOCK), 26 kills · 2026-11-03 13:35
 - **SIRA THE WALL** (WIZARD), 18 kills · 2026-11-03 13:20
 - **BRAKK BONECRUSHER** (WIZARD), 15 kills · 2026-11-03 12:39
 - **VEXA BONECRUSHER** (GRIFFIN RIDER), 13 kills · 2026-11-03 12:07
@@ -47,7 +48,6 @@ Records from 86 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - **OSKA THE WALL** (LANCER), 26 kills · 2026-11-02 18:40
 - **ASHKA SKULLTAKER** (HELLHOUND), 10 kills · 2026-11-02 18:25
 - **PELL IRONHIDE** (WAR RHINO), 13 kills · 2026-11-02 17:56
-- **IVOR BONECRUSHER** (BERSERKER), 12 kills · 2026-11-02 16:41
 
 ## Titles earned (rarest first)
 
@@ -71,14 +71,14 @@ Records from 86 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - GOLEM SLAYER: 4
 - ELEPHANT SLAYER: 6
 - DRAGON SLAYER: 7
-- GIANT SLAYER: 8
+- GIANT SLAYER: 9
 - TITAN SLAYER: 9
 
 ## Mutations (rarest first)
 
 - vampiric: 2
 - wings: 4
-- spellward: 10
+- spellward: 11
 - venom: 13
 - swift: 14
 - spikes: 17
