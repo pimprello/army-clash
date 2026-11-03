@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 56 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 57 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -43,7 +43,6 @@ Records from 56 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 ## Titles earned (rarest first)
 
-- MIRROR KING SLAYER: 1
 - CATHEDRAL SLAYER: 1
 - HYDRA SLAYER: 1
 - FORTRESS SLAYER: 1
@@ -52,6 +51,7 @@ Records from 56 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - IMMORTAL FRAUD SLAYER: 1
 - PHOENIX SLAYER: 1
 - MECH SLAYER: 1
+- MIRROR KING SLAYER: 2
 - COLOSSUS SLAYER: 2
 - CANNON SLAYER: 2
 - ELEPHANT SLAYER: 3
