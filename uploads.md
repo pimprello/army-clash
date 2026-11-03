@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 03:47 | EYE GRIFFINS vs Storm Bombers vs Turbo Snipers 🔥 | Yellow wins | https://youtube.com/shorts/bWknRUVTkUU |
 | 2026-11-03 03:33 | The Bone Colossus Went DOWN 💀 | Pink wins | https://youtube.com/shorts/j7nfkarWHOQ |
 | 2026-11-03 03:17 | 🔥 ROYAL DWARVES vs Undying Elves | Green wins | https://youtube.com/shorts/b65Ux_nnSow |
 | 2026-11-03 03:03 | 👑 EMPIRE vs Orc Horde | Gold wins | https://youtube.com/shorts/pUvRGzSNYBM |
