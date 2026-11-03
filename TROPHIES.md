@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 87 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 88 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -11,9 +11,9 @@ Records from 87 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - **26 kills**: NYRA STEELHEART (OGRE) · 2026-11-03 11:38 · [Cosmic Legion vs Ghost Ogres 🤯](https://youtube.com/shorts/nT1zxGeYE1Q)
 - **26 kills**: ZEDRIK STORMBORN (WARLOCK) · 2026-11-03 13:35 · [Solar Bots vs Cosmic Mages 🤯](https://youtube.com/shorts/FFp6HnjNX-A)
 - **24 kills**: TANK · 2026-11-03 00:35 · [🪖 SOLDIERS vs Tank Army](https://youtube.com/shorts/r2iOakUwpmI)
+- **24 kills**: GRIM SKULLTAKER (ORC) · 2026-11-03 13:51 · [The Smaller Army Did WHAT? 😳](https://youtube.com/shorts/m-cmxirFeG0)
 - **23 kills**: THOUSAND-MAN · 2026-11-02 19:26 · [DREAM TEAM Battle: Royal Muskets vs Solar Shields](https://youtube.com/shorts/tM__7JbzIwY)
 - **22 kills**: HELICOPTER · 2026-11-03 02:18 · [The Weapons Came ALIVE 🗡️](https://youtube.com/shorts/Oz29GzcSmHU)
-- **22 kills**: IMMORTAL FRAUD, TRUE FORM · 2026-11-03 03:17 · [🔥 ROYAL DWARVES vs Undying Elves](https://youtube.com/shorts/b65Ux_nnSow)
 
 ## Fastest wipe-outs
 
@@ -33,6 +33,7 @@ Records from 87 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 ## Hall of champions
 
+- **GRIM SKULLTAKER** (ORC), 24 kills · 2026-11-03 13:51
 - **ZEDRIK STORMBORN** (WARLOCK), 26 kills · 2026-11-03 13:35
 - **SIRA THE WALL** (WIZARD), 18 kills · 2026-11-03 13:20
 - **BRAKK BONECRUSHER** (WIZARD), 15 kills · 2026-11-03 12:39
@@ -47,7 +48,6 @@ Records from 87 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - **VIPER-2** (LASER TROOPER), 11 kills · 2026-11-02 20:43
 - **OSKA THE WALL** (LANCER), 26 kills · 2026-11-02 18:40
 - **ASHKA SKULLTAKER** (HELLHOUND), 10 kills · 2026-11-02 18:25
-- **PELL IRONHIDE** (WAR RHINO), 13 kills · 2026-11-02 17:56
 
 ## Titles earned (rarest first)
 
@@ -79,10 +79,10 @@ Records from 87 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - vampiric: 2
 - wings: 4
 - spellward: 11
-- venom: 13
+- venom: 14
 - swift: 14
-- spikes: 17
-- regen: 20
+- spikes: 18
+- regen: 21
 
 ## Big moments
 
@@ -90,7 +90,6 @@ Records from 87 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - portal: hydra: 1
 - possess: cannon: 1
 - portal: cyclops: 1
-- portal: troll: 1
 - extinct: RED: 1
 - portal: golem: 1
 - extinct: ORANGE: 1
@@ -98,6 +97,7 @@ Records from 87 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - copied: knight: 1
 - possess: treant: 2
 - sudden: lava: 2
+- portal: troll: 2
 - extinct: GREEN: 2
 - portal: demon: 3
 - fusion: 3
