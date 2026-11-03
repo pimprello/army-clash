@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-03 02:48 | 3 Armies, Only 1 SURVIVES 💀 | Purple wins | https://youtube.com/shorts/FZ04i5JVesY |
 | 2026-11-03 02:33 | 🇩🇪 Germany vs Italy: WHO WINS? | Italy wins | https://youtube.com/shorts/UBr9AEIeHIE |
 | 2026-11-03 02:18 | The Weapons Came ALIVE 🗡️ | Brazil wins | https://youtube.com/shorts/Oz29GzcSmHU |
 | 2026-11-03 02:04 | 115 Vampires vs 105 Samurai 🧛 | Red wins | https://youtube.com/shorts/Wkgai-xFqF0 |
