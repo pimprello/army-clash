@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 97 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 98 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -17,19 +17,19 @@ Records from 97 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 
 ## Fastest wipe-outs
 
+- **22.8 s**: indigo wins · 2026-11-03 16:17 · [I Did NOT Expect This 😳](https://youtube.com/shorts/cYrP7bJqWDE)
 - **30 s**: orange wins · 2026-11-02 21:24 · [The Empty Armour Kept FIGHTING 👻](https://youtube.com/shorts/FROYUz7l2_U)
 - **31.3 s**: brazil wins · 2026-11-03 06:00 · [A TORNADO Hit Mid-Battle 🌪️](https://youtube.com/shorts/0Vx4Yv3RMS4)
 - **34.4 s**: gold wins · 2026-11-03 03:03 · [👑 EMPIRE vs Orc Horde](https://youtube.com/shorts/pUvRGzSNYBM)
 - **34.7 s**: coral wins · 2026-11-03 10:25 · [Golems vs ROBOTS 🤖](https://youtube.com/shorts/-hVq0ho__IM)
-- **34.8 s**: red wins · 2026-11-03 04:18 · [Cosmic Bots vs Cyber Witches 🤯](https://youtube.com/shorts/gic-aRa5dr0)
 
 ## Biggest wins (troops still standing)
 
+- **127 left**: 2026-11-03 16:17 · [I Did NOT Expect This 😳](https://youtube.com/shorts/cYrP7bJqWDE)
 - **85 left**: 2026-11-03 00:21 · [🔥 STEEL GOBLINS vs Cosmic Fakers](https://youtube.com/shorts/gGvtevVjlvo)
 - **84 left**: 2026-11-03 06:00 · [A TORNADO Hit Mid-Battle 🌪️](https://youtube.com/shorts/0Vx4Yv3RMS4)
 - **81 left**: 2026-11-03 02:04 · [115 Vampires vs 105 Samurai 🧛](https://youtube.com/shorts/Wkgai-xFqF0)
 - **77 left**: 2026-11-03 01:35 · [Undead vs TROOPERS 🔫](https://youtube.com/shorts/YkmxyQRi1Kw)
-- **77 left**: 2026-11-03 15:20 · [Empire vs a DREAD KNIGHT Army 💀](https://youtube.com/shorts/LaCRrVxwU7k)
 
 ## Hall of champions
 
@@ -83,7 +83,7 @@ Records from 97 battles with trophies (videos from 1 November 2026 on). Rebuilt 
 - swift: 15
 - spellward: 15
 - spikes: 21
-- regen: 22
+- regen: 23
 
 ## Big moments
 
