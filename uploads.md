@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 01:26 | 🔥 ROOT ZOMBIES vs Titan Guard | Gold wins | https://youtube.com/shorts/7q4_LL4r_KE |
 | 2026-11-04 01:08 | 🌩️ STORM EMPEROR vs Dragon Army | Purple wins | https://youtube.com/shorts/hV9XSn7sBlY |
 | 2026-11-04 00:53 | The War Mammoth Went DOWN 💀 | Green wins | https://youtube.com/shorts/KL2sX2gBtcU |
 | 2026-11-04 00:40 | Undead Legion vs a Walking CATHEDRAL ⛪ | Gold wins | https://youtube.com/shorts/wiD6z77XcJg |
