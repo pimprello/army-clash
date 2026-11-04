@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 217 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 218 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -124,17 +124,19 @@ Records from 217 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-21 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+24 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Nova Legion | 1 | 1 | 0 | 105 | 1 won | 1 |
+| Stormhorn Tribe | 1 | 1 | 0 | 91 | 1 won | 1 |
 | Storm Tower Order | 1 | 1 | 0 | 74 | 1 won | 1 |
 | Raven Hill Clan | 1 | 1 | 0 | 42 | 1 won | 1 |
 | Vortex Legion | 1 | 1 | 0 | 42 | 1 won | 1 |
 | Duskwing Tribe | 1 | 1 | 0 | 39 | 1 won | 1 |
 | Thornwood Company | 1 | 1 | 0 | 31 | 1 won | 1 |
 | Zenith Cohort | 1 | 1 | 0 | 30 | 1 won | 1 |
+| Brightwater Tribe | 2 | 1 | 1 | 20 | 1 won | 1 |
 | Stonewall Company | 1 | 1 | 0 | 20 | 1 won | 1 |
 | Bone Garden Coven | 1 | 1 | 0 | 19 | 1 won | 1 |
 | Red Hawk Company | 1 | 1 | 0 | 5 | 1 won | 1 |
@@ -145,9 +147,7 @@ Records from 217 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Ion Legion | 1 | 0 | 1 | 34 | 1 lost | - |
 | The Silent Mile | 1 | 0 | 1 | 29 | 1 lost | - |
 | Order of the Silver Stag | 1 | 0 | 1 | 27 | 1 lost | - |
-| Oakshield Clan | 1 | 0 | 1 | 25 | 1 lost | - |
-| Stonebridge Company | 1 | 0 | 1 | 23 | 1 lost | - |
-| Brightwater Tribe | 1 | 0 | 1 | 12 | 1 lost | - |
+| Glimmerdeep Kin | 1 | 0 | 1 | 26 | 1 lost | - |
 
 ### Great rivalries
 
@@ -155,6 +155,7 @@ No two tribes have met twice yet.
 
 ### Latest from the battlefield
 
+- 2026-11-04 23:39: The Stormhorn Tribe Take the Old Forest (first battle, first win · 91 kills)
 - 2026-11-04 23:24: The Stonewall Company Take the Open Plains (first battle, first win · 20 kills)
 - 2026-11-04 23:10: The Vortex Legion Take the Reactor (first battle, first win · 42 kills)
 - 2026-11-04 22:57: The Nova Legion Take the Crystal Grove (first battle, first win · 105 kills)
