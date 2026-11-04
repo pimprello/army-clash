@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 13:13 | 🇩🇰 Denmark vs Sweden 🇸🇪 | Denmark wins | https://youtube.com/shorts/EEo4SfZqAyI |
 | 2026-11-04 12:58 | LIGHTNING Struck the Battlefield ⚡ | Red wins | https://youtube.com/shorts/LQMPvk5R7MQ |
 | 2026-11-04 12:43 | Neon Ogres vs Royal Plague vs Lunar Bolts 🤯 | White wins | https://youtube.com/shorts/P0sqkbW2wa8 |
 | 2026-11-04 12:27 | Warriors vs GIANT ARMY 👹 | Orange wins | https://youtube.com/shorts/RK2cl49Lxzw |
