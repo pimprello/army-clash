@@ -1,11 +1,12 @@
 # Trophy room
 
-Records from 151 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 152 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
 - **112 kills**: GIANT · 2026-11-03 05:30 · [🇧🇪 Belgium vs Netherlands 🇳🇱](https://youtube.com/shorts/NeMPZ0JTCf8)
 - **49 kills**: TANK · 2026-11-03 22:12 · [They Were LOSING Until This 😳](https://youtube.com/shorts/-hvpvz0i7TA)
+- **47 kills**: LIVING FORTRESS · 2026-11-04 05:33 · [106 Orcs vs a LIVING Castle 🏰](https://youtube.com/shorts/3rsNAb0OpJA)
 - **30 kills**: DRAGON · 2026-11-02 17:40 · [They Were LOSING Until This 😳](https://youtube.com/shorts/-e04vvO2yh8)
 - **30 kills**: GIANT · 2026-11-03 22:28 · [The Weapons Came ALIVE 🗡️](https://youtube.com/shorts/u9TmQ7jfy3Y)
 - **29 kills**: WALKING FORTRESS · 2026-11-03 10:40 · [Steel Muskets vs CASTLE ELVES 🔥](https://youtube.com/shorts/xbouXT6Eu8I)
@@ -13,7 +14,6 @@ Records from 151 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **26 kills**: OSKA THE WALL (LANCER) · 2026-11-02 18:40 · [The BIGGEST Comeback I've Seen 😱](https://youtube.com/shorts/Voym5nz5PNY)
 - **26 kills**: NYRA STEELHEART (OGRE) · 2026-11-03 11:38 · [Cosmic Legion vs Ghost Ogres 🤯](https://youtube.com/shorts/nT1zxGeYE1Q)
 - **26 kills**: ZEDRIK STORMBORN (WARLOCK) · 2026-11-03 13:35 · [Solar Bots vs Cosmic Mages 🤯](https://youtube.com/shorts/FFp6HnjNX-A)
-- **26 kills**: STORM EMPEROR · 2026-11-03 21:00 · [Stareater vs Stormemperor vs Worldroot 🤯](https://youtube.com/shorts/QJFstj3yeZo)
 
 ## Fastest wipe-outs
 
@@ -104,6 +104,7 @@ Records from 151 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - possess: phoenix: 1
 - extinct: LIME: 1
 - extinct: SWEDEN: 1
+- extinct: YELLOW: 1
 - possess: cannon: 2
 - extinct: RED: 2
 - portal: golem: 2
