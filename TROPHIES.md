@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 136 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 137 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 136 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **KORRIN NIGHTFANG** (SIEGE GUNNER), 19 kills · 2026-11-04 01:53
 - **OSKA GRAVEBANE** (WIZARD), 12 kills · 2026-11-03 23:40
 - **PELL BONECRUSHER** (SIEGE GUNNER), 22 kills · 2026-11-03 20:16
 - **BRAMBLE BONECRUSHER** (WAR RHINO), 10 kills · 2026-11-03 19:30
@@ -47,7 +48,6 @@ Records from 136 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **GRIM SKULLTAKER** (ORC), 24 kills · 2026-11-03 13:51
 - **ZEDRIK STORMBORN** (WARLOCK), 26 kills · 2026-11-03 13:35
 - **SIRA THE WALL** (WIZARD), 18 kills · 2026-11-03 13:20
-- **BRAKK BONECRUSHER** (WIZARD), 15 kills · 2026-11-03 12:39
 
 ## Titles earned (rarest first)
 
@@ -63,11 +63,11 @@ Records from 136 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - FORTRESS SLAYER: 3
 - UNMAKER SLAYER: 3
 - CYCLOPS SLAYER: 3
-- PLAYER SLAYER: 3
 - STORM EMPEROR SLAYER: 3
 - MIRROR KING SLAYER: 4
 - CATHEDRAL SLAYER: 4
 - CANNON SLAYER: 4
+- PLAYER SLAYER: 4
 - HELICOPTER SLAYER: 4
 - IMMORTAL FRAUD SLAYER: 4
 - PHOENIX SLAYER: 4
@@ -83,12 +83,12 @@ Records from 136 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Mutations (rarest first)
 
 - vampiric: 4
-- wings: 11
+- wings: 12
 - venom: 19
 - spellward: 20
 - swift: 23
-- spikes: 25
-- regen: 31
+- spikes: 26
+- regen: 32
 
 ## Big moments
 
