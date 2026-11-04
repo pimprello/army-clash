@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 12:43 | Neon Ogres vs Royal Plague vs Lunar Bolts 🤯 | White wins | https://youtube.com/shorts/P0sqkbW2wa8 |
 | 2026-11-04 12:27 | Warriors vs GIANT ARMY 👹 | Orange wins | https://youtube.com/shorts/RK2cl49Lxzw |
 | 2026-11-04 12:15 | 🔥 TOXIC LANCERS vs Gold Spirits | Red wins | https://youtube.com/shorts/zSnyJBrgJYw |
 | 2026-11-04 11:58 | 97 Vikings vs 128 Knights 🪓 | Gold wins | https://youtube.com/shorts/1LlPMXcmVbE |
