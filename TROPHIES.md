@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 170 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 171 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 170 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **ASHKA THE SWIFT** (WOLF RIDER), 22 kills · 2026-11-04 10:28
 - **OSKA SKULLTAKER** (KNIGHT), 17 kills · 2026-11-04 09:43
 - **NYRA BONECRUSHER** (METEOR SHEPHERD), 10 kills · 2026-11-04 07:16
 - **ZEDRIK THE LUCKY** (FROST WITCH), 10 kills · 2026-11-04 03:22
@@ -47,7 +48,6 @@ Records from 170 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **ASHKA THE LUCKY** (WAR RHINO), 10 kills · 2026-11-03 16:33
 - **RUNA THE LUCKY** (STORM CALLER), 16 kills · 2026-11-03 16:03
 - **OSKA THE MAD** (WARLOCK), 17 kills · 2026-11-03 15:49
-- **KAELEN THE BOLD** (WIZARD), 13 kills · 2026-11-03 14:19
 
 ## Titles earned (rarest first)
 
@@ -57,12 +57,12 @@ Records from 170 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - WORLDROOT SLAYER: 2
 - STAR EATER SLAYER: 2
 - EXECUTIONER SLAYER: 2
-- TANK SLAYER: 3
 - CYCLOPS SLAYER: 3
 - MECH SLAYER: 3
 - THOUSAND-MAN SLAYER: 3
 - STORM EMPEROR SLAYER: 3
 - MIRROR KING SLAYER: 4
+- TANK SLAYER: 4
 - CATHEDRAL SLAYER: 4
 - FORTRESS SLAYER: 4
 - CANNON SLAYER: 4
@@ -88,7 +88,7 @@ Records from 170 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 22
 - swift: 26
 - spikes: 30
-- regen: 36
+- regen: 37
 
 ## Big moments
 

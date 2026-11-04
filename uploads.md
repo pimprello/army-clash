@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 10:28 | 🇮🇹 Italy vs Germany: WHO WINS? | Germany wins | https://youtube.com/shorts/E6l443nEklQ |
 | 2026-11-04 10:12 | 🔥 SPELLGUNS vs Dragon Armor | Gold wins | https://youtube.com/shorts/g__rdIjt58w |
 | 2026-11-04 09:57 | TOXIC MIRRORS vs Wild Shields vs Royal Guard 🔥 | Green wins | https://youtube.com/shorts/eS1ok2amphc |
 | 2026-11-04 09:43 | The Smaller Army Did WHAT? 😳 | Lime wins | https://youtube.com/shorts/3EKuuyyR4rY |
