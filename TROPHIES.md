@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 215 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 216 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -71,9 +71,9 @@ Records from 215 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PHOENIX SLAYER: 5
 - HYDRA SLAYER: 6
 - CANNON SLAYER: 6
-- MECH SLAYER: 6
 - COLOSSUS SLAYER: 7
 - PLAYER SLAYER: 7
+- MECH SLAYER: 7
 - ELEPHANT SLAYER: 9
 - GOLEM SLAYER: 9
 - DRAGON SLAYER: 13
@@ -124,24 +124,28 @@ Records from 215 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-14 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+18 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Nova Legion | 1 | 1 | 0 | 105 | 1 won | 1 |
 | Storm Tower Order | 1 | 1 | 0 | 74 | 1 won | 1 |
 | Raven Hill Clan | 1 | 1 | 0 | 42 | 1 won | 1 |
+| Vortex Legion | 1 | 1 | 0 | 42 | 1 won | 1 |
 | Duskwing Tribe | 1 | 1 | 0 | 39 | 1 won | 1 |
 | Thornwood Company | 1 | 1 | 0 | 31 | 1 won | 1 |
+| Zenith Cohort | 1 | 1 | 0 | 30 | 1 won | 1 |
 | Bone Garden Coven | 1 | 1 | 0 | 19 | 1 won | 1 |
 | Red Hawk Company | 1 | 1 | 0 | 5 | 1 won | 1 |
 | Frostwhisper Tribe | 2 | 0 | 2 | 68 | 2 lost | - |
 | Wildbrook Clan | 1 | 0 | 1 | 52 | 1 lost | - |
+| Comet Wing | 1 | 0 | 1 | 51 | 1 lost | - |
 | Ion Legion | 1 | 0 | 1 | 34 | 1 lost | - |
 | Order of the Silver Stag | 1 | 0 | 1 | 27 | 1 lost | - |
 | Oakshield Clan | 1 | 0 | 1 | 25 | 1 lost | - |
 | Stonebridge Company | 1 | 0 | 1 | 23 | 1 lost | - |
 | Brightwater Tribe | 1 | 0 | 1 | 12 | 1 lost | - |
+| Cipher Cohort | 1 | 0 | 1 | 7 | 1 lost | - |
 
 ### Great rivalries
 
@@ -149,6 +153,7 @@ No two tribes have met twice yet.
 
 ### Latest from the battlefield
 
+- 2026-11-04 23:10: The Vortex Legion Take the Reactor (first battle, first win · 42 kills)
 - 2026-11-04 22:57: The Nova Legion Take the Crystal Grove (first battle, first win · 105 kills)
 - 2026-11-04 22:41: The Storm Tower Order Take the Open Plains (first battle, first win · 74 kills)
 - 2026-11-04 22:25: The Duskwing Tribe Take the Open Plains (first battle, first win · 39 kills)
