@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 165 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 166 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -74,9 +74,9 @@ Records from 165 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - IMMORTAL FRAUD SLAYER: 5
 - COLOSSUS SLAYER: 7
 - PLAYER SLAYER: 7
-- GOLEM SLAYER: 8
 - DRAGON SLAYER: 8
 - ELEPHANT SLAYER: 9
+- GOLEM SLAYER: 9
 - GIANT SLAYER: 12
 - TITAN SLAYER: 13
 
@@ -107,11 +107,11 @@ Records from 165 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: YELLOW: 1
 - possess: cannon: 2
 - extinct: RED: 2
-- portal: golem: 2
 - extinct: ORANGE: 2
 - extinct: GREEN: 2
 - possess: treant: 3
 - portal: cyclops: 3
+- portal: golem: 3
 - portal: troll: 4
 - portal: demon: 5
 - fusion: 5
