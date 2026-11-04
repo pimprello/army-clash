@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 186 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 187 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -55,11 +55,11 @@ Records from 186 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - GRAVITY TYRANT SLAYER: 1
 - CATAPULT SLAYER: 1
 - WORLDROOT SLAYER: 2
-- STAR EATER SLAYER: 2
 - EXECUTIONER SLAYER: 2
 - CYCLOPS SLAYER: 3
 - THOUSAND-MAN SLAYER: 3
 - STORM EMPEROR SLAYER: 3
+- STAR EATER SLAYER: 3
 - MIRROR KING SLAYER: 4
 - TANK SLAYER: 4
 - CATHEDRAL SLAYER: 4
@@ -76,7 +76,7 @@ Records from 186 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PLAYER SLAYER: 7
 - ELEPHANT SLAYER: 9
 - GOLEM SLAYER: 9
-- DRAGON SLAYER: 9
+- DRAGON SLAYER: 10
 - GIANT SLAYER: 13
 - TITAN SLAYER: 13
 
@@ -105,6 +105,7 @@ Records from 186 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: LIME: 1
 - extinct: SWEDEN: 1
 - extinct: YELLOW: 1
+- extinct: CANADA: 1
 - possess: cannon: 2
 - extinct: RED: 2
 - extinct: ORANGE: 2
