@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 08:13 | 178 Soldiers vs a GIANT Army 👹 | Purple wins | https://youtube.com/shorts/z8ShQjbdYX4 |
 | 2026-11-04 08:01 | EYE SPEARS vs Frost Spirits vs Wild Mirrors 🔥 | Pink wins | https://youtube.com/shorts/L7O4BUZcBmQ |
 | 2026-11-04 07:45 | 143 Skeletons vs 84 Elves 💀 | Indigo wins | https://youtube.com/shorts/vZYnp04XqM0 |
 | 2026-11-04 07:16 | The Player Went DOWN 💀 | White wins | https://youtube.com/shorts/EfI_YuqnBnQ |
