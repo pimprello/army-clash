@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 158 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 159 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 158 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **NYRA BONECRUSHER** (METEOR SHEPHERD), 10 kills · 2026-11-04 07:16
 - **ZEDRIK THE LUCKY** (FROST WITCH), 10 kills · 2026-11-04 03:22
 - **KORRIN NIGHTFANG** (SIEGE GUNNER), 19 kills · 2026-11-04 01:53
 - **OSKA GRAVEBANE** (WIZARD), 12 kills · 2026-11-03 23:40
@@ -47,7 +48,6 @@ Records from 158 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **OSKA THE MAD** (WARLOCK), 17 kills · 2026-11-03 15:49
 - **KAELEN THE BOLD** (WIZARD), 13 kills · 2026-11-03 14:19
 - **GRIM SKULLTAKER** (ORC), 24 kills · 2026-11-03 13:51
-- **ZEDRIK STORMBORN** (WARLOCK), 26 kills · 2026-11-03 13:35
 
 ## Titles earned (rarest first)
 
@@ -71,8 +71,8 @@ Records from 158 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PHOENIX SLAYER: 4
 - HYDRA SLAYER: 5
 - MAMMOTH SLAYER: 5
-- PLAYER SLAYER: 5
 - IMMORTAL FRAUD SLAYER: 5
+- PLAYER SLAYER: 6
 - DRAGON SLAYER: 7
 - COLOSSUS SLAYER: 7
 - GOLEM SLAYER: 8
@@ -83,7 +83,7 @@ Records from 158 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Mutations (rarest first)
 
 - vampiric: 4
-- wings: 12
+- wings: 13
 - venom: 21
 - spellward: 21
 - swift: 25

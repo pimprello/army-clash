@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 07:16 | The Player Went DOWN 💀 | White wins | https://youtube.com/shorts/EfI_YuqnBnQ |
 | 2026-11-04 07:00 | Then the LAVA Rose 🌋 | Australia wins | https://youtube.com/shorts/xqjGlDLsBgg |
 | 2026-11-04 06:46 | 3 Armies, Only 1 SURVIVES 💀 | Red wins | https://youtube.com/shorts/n-Ha4KUtjeo |
 | 2026-11-04 06:31 | 129 Archers vs 123 Warriors 🏹 | Yellow wins | https://youtube.com/shorts/aun_4EbCoGk |
