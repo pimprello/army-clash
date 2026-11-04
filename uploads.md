@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 02:51 | OGRES vs Mammoths vs Rhinos 🔥 | Purple wins | https://youtube.com/shorts/EBVd1VdpHcY |
 | 2026-11-04 02:36 | Moon Caller vs GRIFFIN RIDERS 🦅 | Gold wins | https://youtube.com/shorts/eLzx2kmNpxE |
 | 2026-11-04 02:21 | 🔥 GHOST KNIGHTS vs Storm Rifles | Gold wins | https://youtube.com/shorts/XMYbdIb_ioo |
 | 2026-11-04 02:08 | They Were OUTNUMBERED... 😳 | Silver wins | https://youtube.com/shorts/eR-yGMtcWLQ |
