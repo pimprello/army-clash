@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 03:06 | 👑 GOBLIN KING vs Empire | Blue wins | https://youtube.com/shorts/b1Umxqbs4PE |
 | 2026-11-04 02:51 | OGRES vs Mammoths vs Rhinos 🔥 | Purple wins | https://youtube.com/shorts/EBVd1VdpHcY |
 | 2026-11-04 02:36 | Moon Caller vs GRIFFIN RIDERS 🦅 | Gold wins | https://youtube.com/shorts/eLzx2kmNpxE |
 | 2026-11-04 02:21 | 🔥 GHOST KNIGHTS vs Storm Rifles | Gold wins | https://youtube.com/shorts/XMYbdIb_ioo |
