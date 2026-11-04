@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 05:03 | 🇸🇪 Sweden vs Denmark: WHO WINS? | Sweden wins | https://youtube.com/shorts/888_D8amVuc |
 | 2026-11-04 04:49 | They Were LOSING Until This 😳 | Uk wins | https://youtube.com/shorts/XKNVA9cz0CU |
 | 2026-11-04 04:33 | The Weapons Came ALIVE 🗡️ | Canada wins | https://youtube.com/shorts/6MYzRx9GbCU |
 | 2026-11-04 04:20 | Titan Storms vs ULTRA RAIDERS 🔥 | Gold wins | https://youtube.com/shorts/n36QXQqKUB0 |

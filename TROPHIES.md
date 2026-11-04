@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 149 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 150 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -103,6 +103,7 @@ Records from 149 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - copied: giant: 1
 - possess: phoenix: 1
 - extinct: LIME: 1
+- extinct: SWEDEN: 1
 - possess: cannon: 2
 - extinct: RED: 2
 - portal: golem: 2
