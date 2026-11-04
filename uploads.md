@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 02:21 | 🔥 GHOST KNIGHTS vs Storm Rifles | Gold wins | https://youtube.com/shorts/XMYbdIb_ioo |
 | 2026-11-04 02:08 | They Were OUTNUMBERED... 😳 | Silver wins | https://youtube.com/shorts/eR-yGMtcWLQ |
 | 2026-11-04 01:53 | 3 Armies, Only 1 SURVIVES 💀 | Purple wins | https://youtube.com/shorts/mfaYIwa1DMY |
 | 2026-11-04 01:40 | Worldroot vs GOLEMS 🪨 | Pink wins | https://youtube.com/shorts/WnKjgqXR_R8 |
