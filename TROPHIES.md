@@ -1,10 +1,11 @@
 # Trophy room
 
-Records from 210 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 211 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
 - **112 kills**: GIANT · 2026-11-03 05:30 · [🇧🇪 Belgium vs Netherlands 🇳🇱](https://youtube.com/shorts/NeMPZ0JTCf8)
+- **86 kills**: STAR EATER · 2026-11-04 21:57 · [The Weapons Came ALIVE 🗡️](https://youtube.com/shorts/3bawEZ4_K_c)
 - **51 kills**: LIVING FORTRESS · 2026-11-04 13:13 · [🇩🇰 Denmark vs Sweden 🇸🇪](https://youtube.com/shorts/EEo4SfZqAyI)
 - **49 kills**: TANK · 2026-11-03 22:12 · [They Were LOSING Until This 😳](https://youtube.com/shorts/-hvpvz0i7TA)
 - **47 kills**: LIVING FORTRESS · 2026-11-04 05:33 · [106 Orcs vs a LIVING Castle 🏰](https://youtube.com/shorts/3rsNAb0OpJA)
@@ -13,7 +14,6 @@ Records from 210 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **30 kills**: GIANT · 2026-11-03 22:28 · [The Weapons Came ALIVE 🗡️](https://youtube.com/shorts/u9TmQ7jfy3Y)
 - **29 kills**: WALKING FORTRESS · 2026-11-03 10:40 · [Steel Muskets vs CASTLE ELVES 🔥](https://youtube.com/shorts/xbouXT6Eu8I)
 - **28 kills**: GIANT · 2026-11-04 08:13 · [178 Soldiers vs a GIANT Army 👹](https://youtube.com/shorts/z8ShQjbdYX4)
-- **28 kills**: TANK · 2026-11-04 14:55 · [Tank Army vs SNIPERS 🎯](https://youtube.com/shorts/_4NqBoO3lOg)
 
 ## Fastest wipe-outs
 
@@ -85,10 +85,10 @@ Records from 210 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 5
 - wings: 18
 - spellward: 27
-- venom: 29
+- venom: 30
 - swift: 31
 - spikes: 39
-- regen: 45
+- regen: 46
 
 ## Big moments
 
@@ -121,3 +121,7 @@ Records from 210 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - sudden: ring: 8
 - sudden: boss: 11
 - sudden: meteors: 12
+
+## The tribes' chronicle
+
+No tribe battles yet.
