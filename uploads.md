@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 23:24 | Omega Bots vs Cyber Gunners vs Mega Elves 🤯 | Green wins | https://youtube.com/shorts/O-LFSgjCBjc |
 | 2026-11-04 23:10 | ⚔️ CHAMPION DUEL: Mech Army vs Troopers | Silver wins | https://youtube.com/shorts/GVYqudFKOz8 |
 | 2026-11-04 22:57 | Phoenix Pikes vs WILD LEGION 🔥 | Teal wins | https://youtube.com/shorts/zga-x3ZnOUs |
 | 2026-11-04 22:41 | A TORNADO Hit Mid-Battle 🌪️ | Purple wins | https://youtube.com/shorts/L_ZQmfDkPVo |
