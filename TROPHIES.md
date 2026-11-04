@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 211 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 212 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -87,7 +87,7 @@ Records from 211 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 27
 - venom: 30
 - swift: 31
-- spikes: 39
+- spikes: 40
 - regen: 46
 
 ## Big moments
@@ -124,4 +124,19 @@ Records from 211 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-No tribe battles yet.
+4 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+
+| Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
+|---|---|---|---|---|---|---|
+| Raven Hill Clan | 1 | 1 | 0 | 42 | 1 won | 1 |
+| Thornwood Company | 1 | 1 | 0 | 31 | 1 won | 1 |
+| Order of the Silver Stag | 1 | 0 | 1 | 27 | 1 lost | - |
+| Stonebridge Company | 1 | 0 | 1 | 23 | 1 lost | - |
+
+### Great rivalries
+
+No two tribes have met twice yet.
+
+### Latest from the battlefield
+
+- 2026-11-04 22:10: The Raven Hill Clan Take the Quarry (first battle, first win · 42 kills)
