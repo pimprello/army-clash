@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 17:56 | The Smaller Army Did WHAT? 😳 | Netherlands wins | https://youtube.com/shorts/Fq7A3RsEuwY |
 | 2026-11-04 17:41 | 3 Armies, Only 1 SURVIVES 💀 | Red wins | https://youtube.com/shorts/TawA1QFFdwc |
 | 2026-11-04 17:25 | 81 Samurai vs 100 Ninjas ⚔️ | Orange wins | https://youtube.com/shorts/bT_ypP-IUWw |
 | 2026-11-04 17:13 | 🔥 SAND SMITHS vs Ghost Blades | Red wins | https://youtube.com/shorts/ONbBdmBq6ec |

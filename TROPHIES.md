@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 197 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 198 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -56,7 +56,6 @@ Records from 197 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - CATAPULT SLAYER: 1
 - WORLDROOT SLAYER: 2
 - EXECUTIONER SLAYER: 2
-- CYCLOPS SLAYER: 3
 - THOUSAND-MAN SLAYER: 3
 - STORM EMPEROR SLAYER: 3
 - STAR EATER SLAYER: 3
@@ -65,6 +64,7 @@ Records from 197 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - CATHEDRAL SLAYER: 4
 - FORTRESS SLAYER: 4
 - UNMAKER SLAYER: 4
+- CYCLOPS SLAYER: 4
 - HELICOPTER SLAYER: 4
 - PHOENIX SLAYER: 4
 - HYDRA SLAYER: 5
@@ -76,18 +76,18 @@ Records from 197 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PLAYER SLAYER: 7
 - ELEPHANT SLAYER: 9
 - GOLEM SLAYER: 9
-- DRAGON SLAYER: 12
 - GIANT SLAYER: 13
+- DRAGON SLAYER: 13
 - TITAN SLAYER: 15
 
 ## Mutations (rarest first)
 
 - vampiric: 5
-- wings: 16
-- spellward: 25
+- wings: 17
 - venom: 26
+- spellward: 26
 - swift: 27
-- spikes: 34
+- spikes: 35
 - regen: 43
 
 ## Big moments
@@ -111,12 +111,12 @@ Records from 197 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: ORANGE: 2
 - extinct: GREEN: 2
 - possess: treant: 3
-- portal: cyclops: 3
 - portal: golem: 3
+- portal: cyclops: 4
 - portal: troll: 4
 - fusion: 5
 - sudden: lava: 5
 - portal: demon: 7
 - sudden: ring: 8
-- sudden: meteors: 11
 - sudden: boss: 11
+- sudden: meteors: 12
