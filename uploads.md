@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 19:10 | One AIRSTRIKE Changed Everything ✈️ | Red wins | https://youtube.com/shorts/AXc9G0X2Wvg |
 | 2026-11-04 18:55 | DREAM TEAM Battle: Robo Pirates vs Wizard Gang | White wins | https://youtube.com/shorts/QRfq095NODk |
 | 2026-11-04 18:40 | Steel Blades vs Neon Monks vs Omega Muskets 🤯 | Brazil wins | https://youtube.com/shorts/H38TNsFWkxY |
 | 2026-11-04 18:24 | Archers vs GIANT ARMY 👹 | Yellow wins | https://youtube.com/shorts/Pz_BGBEQ8kQ |
