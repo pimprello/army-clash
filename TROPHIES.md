@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 213 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 214 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -76,9 +76,9 @@ Records from 213 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PLAYER SLAYER: 7
 - ELEPHANT SLAYER: 9
 - GOLEM SLAYER: 9
-- GIANT SLAYER: 13
 - DRAGON SLAYER: 13
-- TITAN SLAYER: 16
+- GIANT SLAYER: 14
+- TITAN SLAYER: 17
 
 ## Mutations (rarest first)
 
@@ -119,20 +119,24 @@ Records from 213 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - sudden: lava: 6
 - portal: demon: 8
 - sudden: ring: 8
-- sudden: boss: 11
 - sudden: meteors: 12
+- sudden: boss: 12
 
 ## The tribes' chronicle
 
-7 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+11 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
+| Storm Tower Order | 1 | 1 | 0 | 74 | 1 won | 1 |
 | Raven Hill Clan | 1 | 1 | 0 | 42 | 1 won | 1 |
 | Duskwing Tribe | 1 | 1 | 0 | 39 | 1 won | 1 |
 | Thornwood Company | 1 | 1 | 0 | 31 | 1 won | 1 |
+| Red Hawk Company | 1 | 1 | 0 | 5 | 1 won | 1 |
 | Frostwhisper Tribe | 1 | 0 | 1 | 52 | 1 lost | - |
+| Wildbrook Clan | 1 | 0 | 1 | 52 | 1 lost | - |
 | Order of the Silver Stag | 1 | 0 | 1 | 27 | 1 lost | - |
+| Oakshield Clan | 1 | 0 | 1 | 25 | 1 lost | - |
 | Stonebridge Company | 1 | 0 | 1 | 23 | 1 lost | - |
 | Brightwater Tribe | 1 | 0 | 1 | 12 | 1 lost | - |
 
@@ -142,5 +146,6 @@ No two tribes have met twice yet.
 
 ### Latest from the battlefield
 
+- 2026-11-04 22:41: The Storm Tower Order Take the Open Plains (first battle, first win · 74 kills)
 - 2026-11-04 22:25: The Duskwing Tribe Take the Open Plains (first battle, first win · 39 kills)
 - 2026-11-04 22:10: The Raven Hill Clan Take the Quarry (first battle, first win · 42 kills)

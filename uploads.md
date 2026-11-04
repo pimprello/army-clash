@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 22:41 | A TORNADO Hit Mid-Battle 🌪️ | Purple wins | https://youtube.com/shorts/L_ZQmfDkPVo |
 | 2026-11-04 22:25 | The Merchant Sold Them War Horn 💰 | Pink wins | https://youtube.com/shorts/-nqKHUcHzPE |
 | 2026-11-04 22:10 | Frost Vikings vs Golden Vikings 🪞 | Usa wins | https://youtube.com/shorts/X7bdwtWFnns |
 | 2026-11-04 21:57 | The Weapons Came ALIVE 🗡️ | Spain wins | https://youtube.com/shorts/3bawEZ4_K_c |
