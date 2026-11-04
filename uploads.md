@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 00:09 | ⏳ the TIME Executioner vs IMMORTAL Army | Green wins | https://youtube.com/shorts/K5te77lfQN8 |
 | 2026-11-03 23:55 | NEON DRONES vs Mega Imps vs Wild Raiders 🔥 | Usa wins | https://youtube.com/shorts/HjSu6DoizGo |
 | 2026-11-03 23:40 | A PORTAL Opened Mid-Battle 🌀 | Lime wins | https://youtube.com/shorts/2yMTzU0CUxI |
 | 2026-11-03 23:25 | Chrono Elves vs Mech Orcs 🤯 | Silver wins | https://youtube.com/shorts/Nkc4mdU65Fc |

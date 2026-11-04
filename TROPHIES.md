@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 129 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 130 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -13,7 +13,7 @@ Records from 129 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **26 kills**: NYRA STEELHEART (OGRE) · 2026-11-03 11:38 · [Cosmic Legion vs Ghost Ogres 🤯](https://youtube.com/shorts/nT1zxGeYE1Q)
 - **26 kills**: ZEDRIK STORMBORN (WARLOCK) · 2026-11-03 13:35 · [Solar Bots vs Cosmic Mages 🤯](https://youtube.com/shorts/FFp6HnjNX-A)
 - **26 kills**: STORM EMPEROR · 2026-11-03 21:00 · [Stareater vs Stormemperor vs Worldroot 🤯](https://youtube.com/shorts/QJFstj3yeZo)
-- **24 kills**: TANK · 2026-11-03 00:35 · [🪖 SOLDIERS vs Tank Army](https://youtube.com/shorts/r2iOakUwpmI)
+- **25 kills**: IMMORTAL FRAUD, TRUE FORM · 2026-11-04 00:09 · [⏳ the TIME Executioner vs IMMORTAL Army](https://youtube.com/shorts/K5te77lfQN8)
 
 ## Fastest wipe-outs
 
@@ -56,7 +56,7 @@ Records from 129 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - GRAVITY TYRANT SLAYER: 1
 - CATAPULT SLAYER: 1
 - STAR EATER SLAYER: 1
-- IMMORTAL FRAUD SLAYER: 2
+- EXECUTIONER SLAYER: 1
 - MECH SLAYER: 2
 - STORM EMPEROR SLAYER: 2
 - WORLDROOT SLAYER: 2
@@ -66,6 +66,7 @@ Records from 129 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - UNMAKER SLAYER: 3
 - CYCLOPS SLAYER: 3
 - PLAYER SLAYER: 3
+- IMMORTAL FRAUD SLAYER: 3
 - MIRROR KING SLAYER: 4
 - CANNON SLAYER: 4
 - MAMMOTH SLAYER: 4
