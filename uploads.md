@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 17:13 | 🔥 SAND SMITHS vs Ghost Blades | Red wins | https://youtube.com/shorts/ONbBdmBq6ec |
 | 2026-11-04 16:55 | METEORS Hit Mid-Battle ☄️ | Lime wins | https://youtube.com/shorts/ALi0gqUCe34 |
 | 2026-11-04 16:42 | A STAMPEDE Hit Mid-Battle 🦣 | Yellow wins | https://youtube.com/shorts/HfMhGvNg0fI |
 | 2026-11-04 16:26 | 🇫🇮 Finland vs Sweden: WHO WINS? | Finland wins | https://youtube.com/shorts/-TkBJNou_OU |
