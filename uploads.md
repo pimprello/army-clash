@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 08:58 | 3 Armies, Only 1 SURVIVES 💀 | Red wins | https://youtube.com/shorts/j5BbDD2dQEA |
 | 2026-11-04 08:43 | They Took Down a DRAGON? 🐉 | Cyan wins | https://youtube.com/shorts/sc8xHi92-18 |
 | 2026-11-04 08:31 | The Thousand-man Went DOWN 💀 | Canada wins | https://youtube.com/shorts/NB4gEZ93ejU |
 | 2026-11-04 08:13 | 178 Soldiers vs a GIANT Army 👹 | Purple wins | https://youtube.com/shorts/z8ShQjbdYX4 |
