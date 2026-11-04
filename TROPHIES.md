@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 192 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 193 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -76,9 +76,9 @@ Records from 192 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PLAYER SLAYER: 7
 - ELEPHANT SLAYER: 9
 - GOLEM SLAYER: 9
-- DRAGON SLAYER: 10
+- DRAGON SLAYER: 11
 - GIANT SLAYER: 13
-- TITAN SLAYER: 13
+- TITAN SLAYER: 14
 
 ## Mutations (rarest first)
 
@@ -118,5 +118,5 @@ Records from 192 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - sudden: lava: 5
 - portal: demon: 7
 - sudden: ring: 8
-- sudden: boss: 10
 - sudden: meteors: 11
+- sudden: boss: 11
