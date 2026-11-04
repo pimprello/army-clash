@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 16:26 | 🇫🇮 Finland vs Sweden: WHO WINS? | Finland wins | https://youtube.com/shorts/-TkBJNou_OU |
 | 2026-11-04 16:11 | Ghost Monks vs Storm Bots 🤯 | Lime wins | https://youtube.com/shorts/me5hKtgYi-c |
 | 2026-11-04 15:56 | 🧟 ZOMBIES vs Soldiers | Blue wins | https://youtube.com/shorts/lj4x1YhtDy4 |
 | 2026-11-04 15:42 | Horde vs Elves vs Mages 🤯 | Yellow wins | https://youtube.com/shorts/7Xq8F-UNx8k |
