@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 156 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 157 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -26,10 +26,10 @@ Records from 156 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Biggest wins (troops still standing)
 
 - **127 left**: 2026-11-03 16:17 · [I Did NOT Expect This 😳](https://youtube.com/shorts/cYrP7bJqWDE)
+- **104 left**: 2026-11-04 06:46 · [3 Armies, Only 1 SURVIVES 💀](https://youtube.com/shorts/n-Ha4KUtjeo)
 - **85 left**: 2026-11-03 00:21 · [🔥 STEEL GOBLINS vs Cosmic Fakers](https://youtube.com/shorts/gGvtevVjlvo)
 - **84 left**: 2026-11-03 06:00 · [A TORNADO Hit Mid-Battle 🌪️](https://youtube.com/shorts/0Vx4Yv3RMS4)
 - **81 left**: 2026-11-03 02:04 · [115 Vampires vs 105 Samurai 🧛](https://youtube.com/shorts/Wkgai-xFqF0)
-- **78 left**: 2026-11-03 23:40 · [A PORTAL Opened Mid-Battle 🌀](https://youtube.com/shorts/2yMTzU0CUxI)
 
 ## Hall of champions
 
@@ -84,7 +84,7 @@ Records from 156 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 - vampiric: 4
 - wings: 12
-- venom: 20
+- venom: 21
 - spellward: 21
 - swift: 25
 - spikes: 29
