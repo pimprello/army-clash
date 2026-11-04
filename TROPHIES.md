@@ -1,19 +1,19 @@
 # Trophy room
 
-Records from 169 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 170 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
 - **112 kills**: GIANT · 2026-11-03 05:30 · [🇧🇪 Belgium vs Netherlands 🇳🇱](https://youtube.com/shorts/NeMPZ0JTCf8)
 - **49 kills**: TANK · 2026-11-03 22:12 · [They Were LOSING Until This 😳](https://youtube.com/shorts/-hvpvz0i7TA)
 - **47 kills**: LIVING FORTRESS · 2026-11-04 05:33 · [106 Orcs vs a LIVING Castle 🏰](https://youtube.com/shorts/3rsNAb0OpJA)
+- **47 kills**: TANK · 2026-11-04 10:12 · [🔥 SPELLGUNS vs Dragon Armor](https://youtube.com/shorts/g__rdIjt58w)
 - **30 kills**: DRAGON · 2026-11-02 17:40 · [They Were LOSING Until This 😳](https://youtube.com/shorts/-e04vvO2yh8)
 - **30 kills**: GIANT · 2026-11-03 22:28 · [The Weapons Came ALIVE 🗡️](https://youtube.com/shorts/u9TmQ7jfy3Y)
 - **29 kills**: WALKING FORTRESS · 2026-11-03 10:40 · [Steel Muskets vs CASTLE ELVES 🔥](https://youtube.com/shorts/xbouXT6Eu8I)
 - **28 kills**: GIANT · 2026-11-04 08:13 · [178 Soldiers vs a GIANT Army 👹](https://youtube.com/shorts/z8ShQjbdYX4)
 - **27 kills**: HOURGLASS TITAN · 2026-11-04 02:08 · [They Were OUTNUMBERED... 😳](https://youtube.com/shorts/eR-yGMtcWLQ)
 - **26 kills**: OSKA THE WALL (LANCER) · 2026-11-02 18:40 · [The BIGGEST Comeback I've Seen 😱](https://youtube.com/shorts/Voym5nz5PNY)
-- **26 kills**: NYRA STEELHEART (OGRE) · 2026-11-03 11:38 · [Cosmic Legion vs Ghost Ogres 🤯](https://youtube.com/shorts/nT1zxGeYE1Q)
 
 ## Fastest wipe-outs
 
@@ -74,9 +74,9 @@ Records from 169 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - IMMORTAL FRAUD SLAYER: 5
 - COLOSSUS SLAYER: 7
 - PLAYER SLAYER: 7
-- DRAGON SLAYER: 8
 - ELEPHANT SLAYER: 9
 - GOLEM SLAYER: 9
+- DRAGON SLAYER: 9
 - GIANT SLAYER: 12
 - TITAN SLAYER: 13
 
