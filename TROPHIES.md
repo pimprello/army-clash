@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 180 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 181 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 180 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **VIPER-7** (LASER TROOPER), 11 kills · 2026-11-04 13:41
 - **GRIM THE MAD** (WIZARD), 12 kills · 2026-11-04 13:27
 - **NOMAD-5** (SNIPER), 13 kills · 2026-11-04 12:43
 - **SIRA NIGHTFANG** (SWORDSMAN), 11 kills · 2026-11-04 12:27
@@ -47,7 +48,6 @@ Records from 180 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **BRAMBLE BONECRUSHER** (WAR RHINO), 10 kills · 2026-11-03 19:30
 - **VIPER-4** (LASER TROOPER), 20 kills · 2026-11-03 18:59
 - **BRAMBLE FIREBRAND** (TREANT), 10 kills · 2026-11-03 18:48
-- **DRAVEN GRAVEBANE** (LANCER), 10 kills · 2026-11-03 18:16
 
 ## Titles earned (rarest first)
 
@@ -77,17 +77,17 @@ Records from 180 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - ELEPHANT SLAYER: 9
 - GOLEM SLAYER: 9
 - DRAGON SLAYER: 9
-- GIANT SLAYER: 12
+- GIANT SLAYER: 13
 - TITAN SLAYER: 13
 
 ## Mutations (rarest first)
 
-- vampiric: 4
+- vampiric: 5
 - wings: 15
 - venom: 24
 - spellward: 24
 - swift: 26
-- spikes: 31
+- spikes: 32
 - regen: 38
 
 ## Big moments
@@ -115,7 +115,7 @@ Records from 180 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: troll: 4
 - fusion: 5
 - sudden: lava: 5
-- portal: demon: 6
 - sudden: ring: 6
+- portal: demon: 7
 - sudden: boss: 9
 - sudden: meteors: 11
