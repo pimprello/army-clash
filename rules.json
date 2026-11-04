@@ -265,6 +265,90 @@
         "GREEN"
       ],
       "weight": 1
+    },
+    {
+      "teams": [
+        "MAGENTA",
+        "LIME"
+      ],
+      "weight": 1
+    },
+    {
+      "teams": [
+        "SKY",
+        "CRIMSON"
+      ],
+      "weight": 1
+    },
+    {
+      "teams": [
+        "MINT",
+        "ROSE"
+      ],
+      "weight": 1
+    },
+    {
+      "teams": [
+        "AMBER",
+        "NAVY"
+      ],
+      "weight": 1
+    },
+    {
+      "teams": [
+        "LAVENDER",
+        "OLIVE"
+      ],
+      "weight": 1
+    },
+    {
+      "teams": [
+        "SAND",
+        "PURPLE"
+      ],
+      "weight": 1
+    },
+    {
+      "teams": [
+        "CRIMSON",
+        "TEAL"
+      ],
+      "weight": 1
+    },
+    {
+      "teams": [
+        "MAGENTA",
+        "GOLD"
+      ],
+      "weight": 1
+    },
+    {
+      "teams": [
+        "OLIVE",
+        "PINK"
+      ],
+      "weight": 1
+    },
+    {
+      "teams": [
+        "MINT",
+        "RED"
+      ],
+      "weight": 1
+    },
+    {
+      "teams": [
+        "NAVY",
+        "YELLOW"
+      ],
+      "weight": 1
+    },
+    {
+      "teams": [
+        "LAVENDER",
+        "LIME"
+      ],
+      "weight": 1
     }
   ],
   "minColourGap": 30,
@@ -459,6 +543,94 @@
         "fantasy",
         "samurai",
         "horror",
+        "mixed",
+        "wild"
+      ]
+    },
+    {
+      "name": "beach",
+      "eras": [
+        "medieval",
+        "modern",
+        "pirate",
+        "samurai",
+        "fantasy",
+        "mixed",
+        "wild"
+      ]
+    },
+    {
+      "name": "snow",
+      "eras": [
+        "medieval",
+        "modern",
+        "fantasy",
+        "samurai",
+        "horror",
+        "mixed",
+        "scifi",
+        "wild"
+      ]
+    },
+    {
+      "name": "dunes",
+      "eras": [
+        "medieval",
+        "modern",
+        "pirate",
+        "fantasy",
+        "mixed",
+        "scifi",
+        "wild"
+      ]
+    },
+    {
+      "name": "swamp",
+      "eras": [
+        "medieval",
+        "fantasy",
+        "horror",
+        "pirate",
+        "mixed",
+        "wild"
+      ]
+    },
+    {
+      "name": "neon",
+      "eras": [
+        "modern",
+        "scifi",
+        "mixed",
+        "horror",
+        "wild"
+      ]
+    },
+    {
+      "name": "temple",
+      "eras": [
+        "medieval",
+        "fantasy",
+        "samurai",
+        "mixed",
+        "wild"
+      ]
+    },
+    {
+      "name": "graveyard",
+      "eras": [
+        "medieval",
+        "fantasy",
+        "horror",
+        "pirate",
+        "samurai",
+        "wild"
+      ]
+    },
+    {
+      "name": "moon",
+      "eras": [
+        "modern",
+        "scifi",
         "mixed",
         "wild"
       ]
@@ -1300,6 +1472,38 @@
           "BRAZIL"
         ],
         "weight": 1
+      },
+      {
+        "teams": [
+          "MAGENTA",
+          "LIME",
+          "SKY"
+        ],
+        "weight": 1
+      },
+      {
+        "teams": [
+          "LAVENDER",
+          "OLIVE",
+          "CRIMSON"
+        ],
+        "weight": 1
+      },
+      {
+        "teams": [
+          "SKY",
+          "OLIVE",
+          "MAGENTA"
+        ],
+        "weight": 1
+      },
+      {
+        "teams": [
+          "CRIMSON",
+          "SKY",
+          "OLIVE"
+        ],
+        "weight": 1
       }
     ],
     "lineups": [
@@ -1525,5 +1729,42 @@
     "powerups": true,
     "bossTransform": true,
     "livingWeapons": true
+  },
+  "combat": {
+    "on": true,
+    "armySize": 0.8,
+    "hp": 1.3,
+    "moves": true,
+    "fewerBullets": true,
+    "roster": true,
+    "creativeMelee": 0.75,
+    "balanceBattles": 16,
+    "balanceSteps": 5,
+    "balanceSpread": 2.5,
+    "balanceRounds3": 4
+  },
+  "modes": {
+    "shares": {
+      "classic": 4,
+      "king": 1.5,
+      "duel": 1.5,
+      "heroes": 1.2,
+      "mirror": 1.2,
+      "hill": 1.5
+    },
+    "heroStart": 1
+  },
+  "skins": {
+    "chance": 0.3,
+    "list": [
+      "royal",
+      "neon",
+      "shadow",
+      "frost",
+      "lava",
+      "ghost",
+      "toxic",
+      "gold"
+    ]
   }
 }

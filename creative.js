@@ -53,10 +53,12 @@ const TROOP_NAME = {
 const MAX_NAME = 13;
 
 // One made-up team. `avoid` = troops the other team already leads with, so the two sides look different.
-function inventSide(R, avoid) {
+// melee: chance that the main troop fights hand to hand (rules.combat.creativeMelee), so the fight is about moves, not bullets.
+function inventSide(R, avoid, melee) {
   const pool = Object.keys(NOUN).filter(k => !avoid.includes(k));
   const genre = k => RVB.UNIT_ERA[k];
-  const main = R.pick(pool);
+  const close = pool.filter(k => !RVB.UNIT[k].range);
+  const main = melee && R.chance(melee) && close.length ? R.pick(close) : R.pick(pool);
   // the second troop comes from another genre most of the time: that's the fun of it
   const crossGenre = R.chance(0.75);
   const others = pool.filter(k => k !== main && (!crossGenre || genre(k) !== genre(main)));
@@ -84,11 +86,11 @@ function inventSide(R, avoid) {
 }
 
 // A new creative match-up from a seed (the same seed always gives the same match-up).
-function invent(seed) {
+function invent(seed, { melee } = {}) {
   const R = RVB.rng((seed ^ 0xC2EA7E) >>> 0);
-  const top = inventSide(R, []);
-  let bottom = inventSide(R, [Object.keys(top.mix)[0]]);
-  for (let k = 0; k < 5 && (bottom.name === top.name || bottom.name.split(' ')[0] === top.name.split(' ')[0]); k++) bottom = inventSide(R, [Object.keys(top.mix)[0]]);
+  const top = inventSide(R, [], melee);
+  let bottom = inventSide(R, [Object.keys(top.mix)[0]], melee);
+  for (let k = 0; k < 5 && (bottom.name === top.name || bottom.name.split(' ')[0] === top.name.split(' ')[0]); k++) bottom = inventSide(R, [Object.keys(top.mix)[0]], melee);
   return { top, bottom, wild: true };
 }
 
@@ -167,13 +169,33 @@ async function balance(optsFor, { sims = 8, steps = 6, seed = 1, lo = 0.35, hi =
   } finally { runner.close(); }
 }
 
+// Tune the bottom army's size (a multiplier, starting from `start`) with quick test battles until the top side's score is about even.
+// Steers by the smooth score (half the win rate, half the share of strength left) and searches between start/spread and start*spread.
+async function tune(optsFor, { sims = 16, steps = 5, seed = 1, start = 1, spread = 2, threads, log } = {}) {
+  const runner = makeRunner(threads);
+  try {
+    const seeds = Array.from({ length: sims }, (_, i) => (((seed >>> 0) * 2654435761 + i * 40503 + 29) >>> 0) || 1);
+    let lo = start / spread, hi = start * spread, mul = start, best = null;
+    for (let s = 0; s < steps; s++) {
+      const { rate, score } = await runner.topScore(optsFor(mul), seeds);
+      const err = Math.abs(score - 0.5) * 1.5 + Math.abs(rate - 0.5) * 0.5;
+      if (!best || err < best.err) best = { mul, rate, score, err };
+      if (log) log(`  step ${s + 1}: bottom x${mul.toFixed(3)} -> top wins ${(rate * 100).toFixed(0)}%, score ${(score * 100).toFixed(0)}%`);
+      if (Math.abs(score - 0.5) < 0.02) break;
+      if (score > 0.5) lo = mul; else hi = mul;
+      mul = Math.sqrt(lo * hi);
+    }
+    return { balance: Math.round(best.mul * 1000) / 1000, rate: best.rate, score: best.score };
+  } finally { runner.close(); }
+}
+
 // A three-way creative match-up: three made-up teams that each lead with a different troop.
-function invent3(seed) {
+function invent3(seed, { melee } = {}) {
   const R = RVB.rng((seed ^ 0x3A3A3A) >>> 0);
   const sides = [];
   for (let t = 0; t < 3; t++) {
-    let s = inventSide(R, sides.map(x => Object.keys(x.mix)[0]));
-    for (let k = 0; k < 6 && sides.some(x => x.name.split(' ')[0] === s.name.split(' ')[0] || x.name === s.name); k++) s = inventSide(R, sides.map(x => Object.keys(x.mix)[0]));
+    let s = inventSide(R, sides.map(x => Object.keys(x.mix)[0]), melee);
+    for (let k = 0; k < 6 && sides.some(x => x.name.split(' ')[0] === s.name.split(' ')[0] || x.name === s.name); k++) s = inventSide(R, sides.map(x => Object.keys(x.mix)[0]), melee);
     sides.push(s);
   }
   return { three: sides, wild: true };
@@ -204,4 +226,4 @@ async function balance3(optsFor, { sims = 12, rounds = 5, seed = 1, threads, log
 }
 
 const clamp3 = m => Math.min(3, Math.max(0.25, m));
-module.exports = { invent, invent3, describeSide, balance, balance3, makeRunner, TROOP_NAME, NOUN };
+module.exports = { invent, invent3, describeSide, balance, balance3, tune, makeRunner, TROOP_NAME, NOUN };

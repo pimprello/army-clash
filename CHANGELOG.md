@@ -2,6 +2,24 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-04: intelligent combat, battle modes, skins, eight new maps, ten new colours
+
+Rellz asked for 20% fewer troops, cool fight moves instead of so many bullets, troops with different weapons and abilities, and to make it easy to see how each one is different; and for more maps, colours, match-ups, skins and battle modes. All of it is on from the next video (`rules.combat`, `rules.modes`, `rules.skins`; see RULES.md).
+
+- **Fewer troops, tougher troops:** armies are 20% smaller and each troop 30% tougher, so fights last long enough to watch the moves.
+- **Melee moves you can see**, each with its own trail and a short callout (at most three a second): blades **PARRY** and **RIPOSTE**, shields **BLOCK** and **SHIELD BASH**, axes and clubs **CLEAVE** through a group, spears, pikes and lances **PIERCE** the troop behind, maces and hammers **STUN** (stars over the head), and agile troops (ninjas, duelists, assassins, elves) **DODGE**.
+- **Different weapons:** basic soldiers and skeletons now carry a sword, sword and shield, axe, spear or mace; knights a war hammer; giants a club.
+- **Fewer bullets:** machine guns and other rapid-fire weapons fire half as many rounds, each doing double damage (same firepower, a calmer screen). Damage numbers are capped at three a second.
+- **Roster card:** for the first four seconds, a card over the scoreboard shows each army's three main troops with a portrait, the name, what it's good at (PARRIES, CLEAVES, ANTI-CAVALRY, BULLET-PROOF...) and how many. Close-up name tags show the specialty too.
+- **Five battle modes** (about six videos in ten; classic battles are still the most common): **Protect the King** (a king at the back behind a royal shield for the first 40% of the fight; when he falls, his army loses heart), **Champion Duel** (the two best fighters duel in the middle while both armies watch, then everyone charges), **Last Stand** (a small band of heroes with gold rings against a full army), **Mirror Match** (the same army on both sides) and **King of the Hill** (hold the hill in the middle to hit 25% harder). Each has its own hook, titles (`👑 Protect the KING: Knights vs Orcs`, `25 HEROES vs 80 Zombies 🛡️`) and a line in the description saying how it works.
+- **Eight army skins** (looks only): royal, neon, shadow, frost, lava, ghost, toxic and golden. About three armies in ten get one; mirror matches always do ("Neon Samurai vs Shadow Samurai").
+- **Eight new maps:** Pirate Beach, Snowy Pass, Dune Sea, Murk Swamp, Neon City, Sky Temple, Haunted Graveyard and Moon Base, each mirrored and listed for the genres it suits.
+- **Ten new colours** (magenta, sky, mint, amber, crimson, navy, lavender, olive, rose, sand) in twelve new pairs and four new three-way trios, all checked so no two teams look alike.
+- **Creative match-ups** now lead with a hand-to-hand troop three times in four.
+- **Balance:** combat changes who is strong, so every 1v1 video is now tuned on the spot with 16 quick test battles at up to five sizes before it's rendered, starting from wherever the same line-up and mode ended up last time (kept in `videos.jsonl`), so each line-up gets closer to 50/50 every time it comes round. Hand-made three-way line-ups are re-tuned the same way.
+- **Tested:** with combat switched off, old battles play out exactly as before (same survivors, same positions); battles with combat on in every mode reach an ending with no errors, most fights last 30 to 55 seconds, champion duels finish in 3 to 10 seconds, troops don't get stuck on the new maps (under 0.12% of troop-time); stills of every mode, the roster card (two and three armies), the skins, the new colours and all eight maps; short renders of every mode for titles, descriptions and tags; and a full 60-second render.
+- Videos already posted don't change; the new things start with the next video. No preview videos were made.
+
 ## 2026-11-04 (autopilot)
 
 - **Health:** uploads are fine. The last 20 runs all posted (the few "cancelled" ones are spare scheduled starts skipped because a run was already going), the newest videos are about 15 minutes apart, and no line-ups were waiting to be balanced.

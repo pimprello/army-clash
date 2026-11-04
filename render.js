@@ -13,7 +13,7 @@ registerFont(path.join(__dirname, 'fonts/BarlowCondensed-Bold.ttf'), { family: '
 
 const RVB = require('./engine.js');
 const C = require('./creative.js');
-const { makeTitle } = require('./titles.js');
+const { makeTitle, nounOf } = require('./titles.js');
 RVB.makeCanvas = (w, h) => createCanvas(w, h);
 
 const FPS = 60, SECS = 60, TOTAL = FPS * SECS, W = 1080, H = 1920, SR = 48000;
@@ -64,9 +64,49 @@ const listSlot = forced || every < 2 ? slot : slot - Math.floor((slot + 1) / eve
 // three-way: alternate between the hand-made three-way line-ups and invented ones
 const lineups3 = (tw.lineups || []).filter(m => !m.pending);
 const invent3 = three && (process.env.WILD === '1' || Math.floor(posted / Math.max(1, tw.every || 4)) % 2 === 1 || !lineups3.length);
-const mu = three
-  ? (invent3 ? C.invent3(seed) : lineups3[Math.floor(posted / Math.max(1, tw.every || 4) / 2) % lineups3.length])
-  : wild ? C.invent(seed) : matchups.length ? matchups[listSlot % matchups.length] : null;
+// Intelligent combat (rules.combat): smaller armies, visible melee moves (parry, block, cleave, pierce, stun, dodge), fewer but harder
+// bullets from rapid-fire guns, and a roster card at the start. Off when "on" is false, which keeps old seeds playing out as before.
+const combat = rules.combat && rules.combat.on !== false ? rules.combat : null;
+const melee = combat && combat.creativeMelee ? { melee: combat.creativeMelee } : undefined;
+const mu0 = three
+  ? (invent3 ? C.invent3(seed, melee) : lineups3[Math.floor(posted / Math.max(1, tw.every || 4) / 2) % lineups3.length])
+  : wild ? C.invent(seed, melee) : matchups.length ? matchups[listSlot % matchups.length] : null;
+// Battle modes (rules.modes, 1v1 only) and army skins (rules.skins, looks only) roll their own dice, so nothing else in the rotation moves.
+// MODE=king|duel|heroes|mirror|hill|none and SKINS=neon,shadow force them.
+const MR = RVB.rng((seed ^ 0x6D0DE5) >>> 0);
+const modeRoll = MR.next(), sideRoll = MR.next(), skinRolls = [MR.next(), MR.next(), MR.next(), MR.next(), MR.next(), MR.next()];
+const modeCfg = rules.modes || {};
+// troop armies (a crowd of one kind) can be mirrored or made into a band of heroes; one-of-a-kind boss armies can't
+const crowd = d => typeof d === 'string' && !!nounOf({ name: d }).count;
+let mode = null, heroTeam = 0;
+if (process.env.MODE) mode = process.env.MODE === 'none' ? null : process.env.MODE;
+else if (combat && !three && modeCfg.shares && mu0) {
+  const list = Object.entries(modeCfg.shares), total = list.reduce((a, [, w]) => a + w, 0);
+  let r = modeRoll * total;
+  for (const [k, w] of list) if ((r -= w) <= 0) { mode = k; break; }
+  if (mode === 'classic') mode = null;
+}
+let mu = mu0;
+if (mode === 'mirror') {
+  // the same army on both sides (one of the two from this line-up), told apart by colour and skin
+  const ok = wild ? [] : [0, 1].filter(i => crowd(i ? mu0.bottom : mu0.top));
+  if (!ok.length && !process.env.MODE) mode = null;
+  const s = ok.length ? ok[Math.floor(sideRoll * ok.length)] : 0, d = s ? mu0.bottom : mu0.top, tt = s ? mu0.bottomTroops : mu0.topTroops;
+  if (mode) mu = { ...mu0, top: d, bottom: d, topTroops: tt, bottomTroops: tt, balance: 1, combatBalance: 1 };
+}
+if (mode === 'heroes') {
+  // a small band of heroes (30% of the troops, each far stronger) against a full army
+  const ok = wild ? [0, 1] : [0, 1].filter(i => crowd(i ? mu0.bottom : mu0.top));
+  if (!ok.length && !process.env.MODE) mode = null;
+  heroTeam = ok.length ? ok[Math.floor(sideRoll * ok.length)] : 0;
+}
+let skins;
+if (process.env.SKINS) skins = process.env.SKINS.split(',').map(k => k || null);
+else if (combat && rules.skins && (rules.skins.list || []).length) {
+  const left = rules.skins.list.slice(), n = three ? 3 : 2, need = mode === 'mirror';
+  skins = Array.from({ length: n }, (_, i) => (need || skinRolls[i * 2] < (rules.skins.chance ?? 0.3) ? left.splice(Math.floor(skinRolls[i * 2 + 1] * left.length), 1)[0] : null));
+  if (!skins.some(Boolean)) skins = undefined;
+}
 const sides = !mu ? undefined : three ? mu.three : [mu.top, mu.bottom];
 // era (genre) comes from the two sides: 'medieval', 'modern', 'fantasy', 'scifi', 'pirate', 'horror', 'samurai',
 // 'mixed' when two army types come from different genres, 'wild' for teams that mix genres themselves
@@ -92,7 +132,9 @@ const sideTroops = mu ? [mu.topTroops || [], mu.bottomTroops || []] : [[], []];
 const extrasByTeam = sideTroops.some(l => l.length) ? sideTroops.map(l => extras.concat(l.map(type => ({ type, share: shares[type] ?? 0.12 })))) : undefined;
 const doctrines = sides;
 // balance: bottom army size relative to the top, tuned so each match-up is close to 50/50 (three-way: one size per army).
-const budgetMul = !mu ? undefined : three ? (mu.balance || [1, 1, 1]) : [1, mu.balance ?? 1];
+// (with intelligent combat on, a line-up's "combatBalance" is used: combat changes which side is stronger)
+const balOf = m => (combat && m.combatBalance !== undefined ? m.combatBalance : m.balance);
+const budgetMul = !mu ? undefined : three ? (balOf(mu) || [1, 1, 1]) : [1, balOf(mu) ?? 1];
 // Maps rotate too, among the ones allowed for this era (see rules.maps; three-way battles use maps marked "three").
 const mapList = three ? ((mu && mu.maps) || tw.maps || ['open']).map(name => ({ name })) : (rules.maps || [{ name: 'open' }]).filter(m => !m.eras || m.eras.includes(era));
 const map = process.env.MAP || (mapList.length ? mapList[(slot * 7 + 3 + shift) % mapList.length].name : 'open');
@@ -137,15 +179,43 @@ async function main() {
   // battle events (rules.events): supply drops, airstrikes, meteor showers
   const events = Array.isArray(rules.events) && rules.events.length ? rules.events : undefined;
   const systems = rules.systems || {};
+  const cmbOpts = combat ? { combat: { armySize: combat.armySize ?? 0.8, hp: combat.hp ?? 1, moves: combat.moves !== false, fewerBullets: combat.fewerBullets !== false, roster: combat.roster !== false }, mode: mode || undefined, skins, heroes: mode === 'heroes' ? heroTeam : undefined } : {};
   const optsFor = mul => ({ target: SECS, fixedLength: SECS, swordsmen, crossbowmen, map, doctrines, budgetMul: three ? mul : [bm[0], bm[1] * mul], swordsmenByTeam, extras, extrasByTeam, era, formations, events,
-    teams: three ? 3 : 2, dream: !!(wild || custom || three), ...systems });
+    teams: three ? 3 : 2, dream: !!(wild || custom || three), ...systems, ...cmbOpts });
   // a creative match-up is new, so balance it now with quick test battles on this map and these formations
-  let wildMul = three ? bm.slice(0, 3) : 1, wildRate = null;
-  if (three && invent3) {
+  let wildMul = three ? bm.slice(0, 3) : 1, wildRate = null, tuned = null;
+  // with intelligent combat on, every 1v1 battle is tuned on the spot with quick test battles (combat changes who is strong),
+  // starting from the size the same line-up and mode ended up with last time (videos.jsonl), so it gets closer every time
+  const sideName = d => (typeof d === 'object' ? d.name : d);
+  const balKey = !three && !wild && mu ? `${sideName(mu.top)}|${sideName(mu.bottom)}|${mode || 'classic'}${mode === 'heroes' ? heroTeam : ''}` : null;
+  if (combat && !three && mode !== 'mirror' && (combat.balanceSteps ?? 5) > 0) {
+    let start = mode === 'heroes' ? ((modeCfg.heroStart || 1) ** (heroTeam ? -1 : 1)) : 1;
+    try {
+      const lines = fs.readFileSync(path.join(__dirname, 'videos.jsonl'), 'utf8').trim().split('\n').reverse();
+      // (videos.jsonl keeps the bottom army's full size; it's turned back into a step on top of this line-up's size here,
+      // so a later change to the line-up's combatBalance doesn't throw the start off)
+      let near = null;
+      const rel = v => (typeof v.balance === 'number' ? v.balance / (balOf(mu) ?? 1) : v.tuned);
+      for (const ln of lines) {
+        const v = JSON.parse(ln); if (!balKey || !v.tuned || !v.balKey) continue;
+        if (v.balKey === balKey) { near = rel(v); break; }
+        // no video of this mode yet: the same line-up in another mode (not a last stand) is the next best start
+        if (near === null && mode !== 'heroes' && v.balKey.startsWith(`${sideName(mu.top)}|${sideName(mu.bottom)}|`) && !v.balKey.includes('|heroes')) near = rel(v);
+      }
+      if (near !== null) start = near;
+    } catch (e) { /* no history yet */ }
+    const b = await C.tune(optsFor, { sims: combat.balanceBattles || 16, steps: combat.balanceSteps ?? 5, seed, start, spread: combat.balanceSpread || (mode === 'heroes' ? 2.6 : 2), log: console.log });
+    wildMul = b.balance; wildRate = b.rate; tuned = b.balance;
+    console.log(`Tuned ${balKey || 'creative match-up'}: bottom x${wildMul} on top of its usual size, top won ${(b.rate * 100).toFixed(0)}% of test battles (${((Date.now() - t0) / 1000).toFixed(0)} s)`);
+  } else if (combat && three && !invent3) {
+    const b = await C.balance3(optsFor, { sims: tw.balanceBattles || 12, rounds: combat.balanceRounds3 || 4, seed, start: wildMul, log: console.log });
+    wildMul = b.balance; wildRate = b.rates;
+    console.log(`Three-way line-up ${sides.map(sideName).join(' vs ')}: sizes ${wildMul.join('/')} with combat on (${((Date.now() - t0) / 1000).toFixed(0)} s)`);
+  } else if (three && invent3) {
     const b = await C.balance3(optsFor, { sims: tw.balanceBattles || 12, rounds: tw.balanceRounds || 6, seed, log: console.log });
     wildMul = b.balance; wildRate = b.rates;
     console.log(`Three-way creative match-up ${mu.three.map(x => x.name).join(' vs ')}: sizes ${wildMul.join('/')}, wins ${b.rates.map(x => (x * 100).toFixed(0) + '%').join('/')} (${((Date.now() - t0) / 1000).toFixed(0)} s)`);
-  } else if (wild && !three) {
+  } else if (wild && !three && !combat) {
     const b = await C.balance(optsFor, { sims: creative.balanceBattles || 8, steps: creative.balanceSteps || 6, seed, log: console.log });
     wildMul = b.balance; wildRate = b.rate;
     console.log(`Creative match-up ${mu.top.name} vs ${mu.bottom.name}: bottom army x${wildMul}, top won ${(b.rate * 100).toFixed(0)}% of test battles (${((Date.now() - t0) / 1000).toFixed(0)} s)`);
@@ -201,7 +271,8 @@ async function main() {
     AUSTRALIA: '🇦🇺', NEWZEALAND: '🇳🇿', NETHERLANDS: '🇳🇱', BELGIUM: '🇧🇪', SWEDEN: '🇸🇪', NORWAY: '🇳🇴',
     DENMARK: '🇩🇰', FINLAND: '🇫🇮' };
   const EMOJI = { RED: '🔴', BLUE: '🔵', GREEN: '🟢', PURPLE: '🟣', ORANGE: '🟠', YELLOW: '🟡', PINK: '🩷', CYAN: '🩵', WHITE: '⚪', BROWN: '🟤',
-    LIME: '💚', TEAL: '🌊', GOLD: '🥇', SILVER: '🥈', INDIGO: '🫐', CORAL: '🪸', ...FLAG };
+    LIME: '💚', TEAL: '🌊', GOLD: '🥇', SILVER: '🥈', INDIGO: '🫐', CORAL: '🪸', MAGENTA: '🔮', SKY: '☁️', MINT: '🌿', AMBER: '🍯', CRIMSON: '❤️',
+    NAVY: '⚓', LAVENDER: '🪻', OLIVE: '🫒', ROSE: '🌹', SAND: '🏜️', ...FLAG };
   const teamName = k => NATION[k] || titleCase(k);
   const ns = pair.map(teamName), [n0, n1] = ns;
   const armyName = i => titleCase(RVB.docLabel(game.doc[i]));
@@ -211,20 +282,30 @@ async function main() {
   const clickbait = process.env.CLICKBAIT === '1' || (!forced && cbEvery > 1 && slot % cbEvery === Math.floor(cbEvery / 2));
   const ids = three ? [0, 1, 2] : [0, 1];
   const Fx = game.facts || {};
+  const skinNames = skins ? ids.map(i => (skins[i] && RVB.SKINS[skins[i]] ? RVB.SKINS[skins[i]].name : null)) : undefined;
   const nationBattle = pair.every(k => NATION[k]);
   const { title, kind: titleKind } = makeTitle({
     teams: pair, nations: nationBattle ? NATION : null, flags: FLAG, docs: game.doc, start: game.start.slice(0, ids.length),
     left: ids.map(t => game.alive[t] + game.reserve[t]), gained: ids.map(t => (game.gained && game.gained[t]) || 0), winner: game.winner,
     low: Fx.low, falls: Fx.falls || [], drops: Fx.drops || [], strike: Fx.strike, hazard: Fx.hazard, wild: wild || custom || (three && invent3), three, clickbait, seed,
     xf: game.xf || {}, label: RVB.labelOf, mvp: game.best && game.best[game.winner],
+    mode: game.mode || undefined, heroes: mode === 'heroes' ? heroTeam : undefined, skins: skinNames,
   });
   const hook = title;
   const MAP_NAME = { open: 'open field', rocks: 'rocky field', ruins: 'ruins', trenches: 'trenches', city: 'city rooftops', forest: 'forest', bombed: 'bombed city', enchanted: 'fantasy land', canyon: 'canyon',
-    godboard: 'Godboard (a giant chessboard)', furnace: 'World Furnace (lava)', frozen: 'Frozen End (ice)', grave: "Titan's Grave", overgrown: 'Overgrown Kingdom', clockwork: 'Clockwork Colosseum', shattered: 'Shattered Sky (floating islands)', mirror: 'Mirror Dimension', castle: 'Castle Siege' };
+    godboard: 'Godboard (a giant chessboard)', furnace: 'World Furnace (lava)', frozen: 'Frozen End (ice)', grave: "Titan's Grave", overgrown: 'Overgrown Kingdom', clockwork: 'Clockwork Colosseum', shattered: 'Shattered Sky (floating islands)', mirror: 'Mirror Dimension', castle: 'Castle Siege',
+    beach: 'Pirate Beach', snow: 'Snowy Pass', dunes: 'Dune Sea', swamp: 'Murk Swamp', neon: 'Neon City', temple: 'Sky Temple', graveyard: 'Haunted Graveyard', moon: 'Moon Base' };
+  // battle modes, said plainly in the description
+  const MODE_LINE = { king: 'Protect the King: each army has a king at the back, behind a royal shield for the first part of the battle; an army whose king falls loses heart (weaker and slower) for the rest of the fight.',
+    duel: 'Champion Duel: each army\'s best fighter duels in the middle first while both armies watch, then everyone charges.',
+    heroes: `Last Stand: one army is a small band of heroes (far stronger fighters, gold rings) against a full army.`,
+    mirror: 'Mirror Match: the same army on both sides, told apart by colour and look.',
+    hill: 'King of the Hill: the army with more troops on the hill in the middle takes it and hits 25% harder while it holds it.' };
   const GENRE = { modern: 'modern warfare ', fantasy: 'fantasy ', mixed: 'old vs new ', scifi: 'sci-fi ', pirate: 'pirate ', horror: 'zombie ', samurai: 'samurai ', wild: 'mixed-genre ' };
   // custom teams get their own names in the title ("Storm Mages vs Dragon Bones"); army types stay in the description otherwise
   const showNames = era === 'wild';
-  const who = i => `${showNames ? armyName(i) : `${ns[i]} ${armyName(i)}`} (${showNames ? `${C.describeSide(game.doc[i])}, ` : ''}`;
+  const sk = i => (skinNames && skinNames[i] ? `${skinNames[i].toLowerCase()} look, ` : '');
+  const who = i => `${showNames ? armyName(i) : `${ns[i]} ${armyName(i)}`} (${showNames ? `${C.describeSide(game.doc[i])}, ` : ''}${mode === 'heroes' && heroTeam === i ? 'heroes, ' : ''}${sk(i)}`;
   const heavyIn = k => game.doc.some(d => d[k] || (d.heavy || []).includes(k));
   const unique = (list) => [...new Set(list)];
   const meta = {
@@ -233,7 +314,7 @@ async function main() {
     description: [
       `${ids.map(i => `${EMOJI[pair[i]] || ''} ${who(i)}${three ? '' : `${formations[i]} formation, `}${game.start[i]} units)`).join(' vs ')}. Who wins? Pick your side and tell us in the comments before the end.`,
       '',
-      `A 60-second ${three ? 'three-way (1v1v1) ' : ''}${GENRE[era] || ''}battle simulation on the ${MAP_NAME[map] || map} map${showNames ? `, ${ns.join(' vs ')}` : ''}. The outcome comes from the game's rules and chance, not real footage.`,
+      `A 60-second ${three ? 'three-way (1v1v1) ' : ''}${GENRE[era] || ''}battle simulation on the ${MAP_NAME[map] || map} map${showNames ? `, ${ns.join(' vs ')}` : ''}. The outcome comes from the game's rules and chance, not real footage.${game.mode && MODE_LINE[game.mode] ? ' ' + MODE_LINE[game.mode] : ''}`,
       '',
       'Subscribe for a new battle every day.',
       '',
@@ -241,6 +322,7 @@ async function main() {
     ].slice(0, clickbait ? 5 : 7).join('\n'),
     tags: clickbait ? [] : unique([ns.map(n => n.toLowerCase()).join(' vs '), 'army battle', 'battle simulation', 'army simulation', 'who wins', 'army clash', ids.map(i => (showNames ? armyName(i) : `${ns[i]} ${armyName(i)}`).toLowerCase()).join(' vs '), 'shorts']
       .concat(three ? ['1v1v1', 'three way battle'] : [])
+      .concat({ king: ['protect the king'], duel: ['champion duel', '1v1 duel'], heroes: ['last stand', 'heroes vs army'], mirror: ['mirror match'], hill: ['king of the hill'] }[game.mode] || [])
       .concat({ modern: ['modern warfare'], fantasy: ['fantasy battle', 'dragon'], mixed: ['old vs new', 'swords vs guns'], scifi: ['sci fi battle', 'robots', 'lasers'], pirate: ['pirate battle', 'pirates'],
         horror: ['zombie battle', 'zombies'], samurai: ['samurai battle', 'ninja'], wild: wild || custom || three ? ['dream team', 'crazy matchup'] : ['crossover battle', 'crazy matchup'] }[era] || [])
       .concat(heavyIn('tank') ? ['tank battle'] : []).concat(heavyIn('dragon') ? ['dragon'] : []).concat(heavyIn('mech') ? ['mech'] : [])),
@@ -254,7 +336,13 @@ async function main() {
     wild: wild || (three && invent3) || undefined,
     three: three || undefined,
     titleKind,
-    balance: wild || (three && invent3) ? wildMul : mu ? mu.balance : undefined,
+    balance: wild || (three && invent3) || (combat && three) ? wildMul : tuned !== null && mu ? Math.round((balOf(mu) ?? 1) * tuned * 1000) / 1000 : mu ? balOf(mu) : undefined,
+    mode: game.mode || undefined,
+    heroes: mode === 'heroes' ? heroTeam : undefined,
+    skins: skinNames && skinNames.some(Boolean) ? skinNames : undefined,
+    combat: combat ? true : undefined,
+    balKey: balKey || undefined,
+    tuned: tuned ?? undefined,
     cinematic,
     hook,
     clickbait: clickbait || undefined,

@@ -100,6 +100,12 @@ function makeTitle(f) {
   if (f.strike === w) facts.push('One AIRSTRIKE Changed Everything ✈️');
   const HAZ = { tornado: 'A TORNADO Hit Mid-Battle 🌪️', earthquake: 'Then the Ground SPLIT Open 😱', blizzard: 'A BLIZZARD Froze the Battle ❄️', meteors: 'METEORS Hit Mid-Battle ☄️', lightning: 'LIGHTNING Struck the Battlefield ⚡', cannonballs: 'Cannonballs RAINED Down 💣', stampede: 'A STAMPEDE Hit Mid-Battle 🦣', kraken: 'The KRAKEN Woke Up 🐙' };
   if (HAZ[f.hazard]) facts.push(HAZ[f.hazard]);
+  // battle modes: only what really happened
+  if (f.mode === 'king' && x.kingTeam !== undefined && x.kingTeam !== w) facts.push('They Killed the KING 👑', 'The KING Fell and They RAN 👑');
+  if (f.mode === 'duel' && x.duelTeam !== undefined) facts.push(x.duelTeam === w ? 'The DUEL Decided Everything ⚔️' : 'They LOST the Duel but WON the War ⚔️');
+  if (f.mode === 'heroes') facts.push(f.heroes === w ? `${f.start[f.heroes]} HEROES Held the Line 🛡️` : 'The Last Stand FELL 💀');
+  if (f.mode === 'hill' && x.hill >= 3) facts.push(`The HILL Changed Hands ${x.hill} TIMES 🚩`);
+  else if (f.mode === 'hill' && x.hillTeam === w) facts.push('They Took the HILL and Won 🚩');
   if (f.clickbait) return { title: pick(facts.length ? facts : ['Wait for the ENDING... 😳', 'I Did NOT Expect This 😳', 'This Got WAY Too Intense 🔥', 'Nobody Saw This Coming 🤯', 'Watch Till the END 👀']), kind: 'clickbait' };
 
   // 2. the match-up itself, written to be specific and short
@@ -123,6 +129,21 @@ function makeTitle(f) {
     options.push(`${emo[0] || '🔥'} ${cap(names[0])} vs ${names[1]}`, `${names[0]} vs ${cap(names[1])} ${emo[1] || '🔥'}`);
     if (f.wild) options.push(`${names[0]} vs ${names[1]} 🤯`, `DREAM TEAM Battle: ${names[0]} vs ${names[1]}`);
   }
+  // battle modes are the hook, so their titles come first; skins name the armies ("Neon Knights vs Shadow Knights")
+  const nm = ids.map(t => (f.nations ? f.nations[f.teams[t]] : names[t]));
+  const sk = ids.map(t => (f.skins && f.skins[t] ? tc(f.skins[t]) + ' ' : ''));
+  const modeOpts = [];
+  if (N === 2 && f.mode === 'king') modeOpts.push(`👑 Protect the KING: ${nm[0]} vs ${nm[1]}`, `Kill the KING to Win 👑 ${nm[0]} vs ${nm[1]}`);
+  if (N === 2 && f.mode === 'duel') modeOpts.push(`⚔️ CHAMPION DUEL: ${nm[0]} vs ${nm[1]}`, `${nm[0]} vs ${nm[1]}, But Champions DUEL First ⚔️`);
+  if (N === 2 && f.mode === 'heroes') {
+    const h = f.heroes || 0, o = 1 - h, hn = nounOf(f.docs[h]), on = nounOf(f.docs[o]);
+    modeOpts.push(`${f.start[h]} HEROES vs ${on.count && !f.wild ? f.start[o] + ' ' : ''}${names[o]} 🛡️`,
+      `LAST STAND: ${f.start[h]} ${hn.count && !f.wild ? names[h] : 'Heroes'} vs ${on.count && !f.wild ? f.start[o] + ' ' : ''}${names[o]} 🛡️`);
+  }
+  if (N === 2 && f.mode === 'mirror') modeOpts.push(sk[0] && sk[1] ? `${sk[0]}${names[0]} vs ${sk[1]}${names[1]} 🪞` : `${names[0]} vs ${names[1]}: MIRROR MATCH 🪞`, `MIRROR MATCH: ${names[0]} vs ${cap(names[1])} 🪞`);
+  if (N === 2 && f.mode === 'hill') modeOpts.push(`🚩 KING OF THE HILL: ${nm[0]} vs ${nm[1]}`, `Hold the HILL to Win? ${nm[0]} vs ${nm[1]} 🚩`);
+  if (modeOpts.length) options.splice(0, options.length, ...modeOpts);
+  else if (N === 2 && !f.nations && sk[0] && sk[1]) options.push(`${sk[0]}${names[0]} vs ${sk[1]}${names[1]} ${emo[0] || '🔥'}`);
   // sometimes lead with what happened instead (a strong, true outcome hint)
   if (facts.length && ((f.seed >>> 5) % 3 === 0)) options.push(...facts);
   let t = pick(options);
