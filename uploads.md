@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 20:27 | 🇩🇪 Germany vs Italy 🇮🇹 | Italy wins | https://youtube.com/shorts/-s29Jc3Shhk |
 | 2026-11-04 20:14 | Archers vs SNIPERS 🎯 | Cyan wins | https://youtube.com/shorts/FgZQQpe3FPQ |
 | 2026-11-04 19:59 | SYLVAN vs Infernal vs Dwarves 🔥 | Blue wins | https://youtube.com/shorts/ECXoxC3GFFI |
 | 2026-11-04 19:56 | 🪖 SOLDIERS vs Soldiers | Brown wins | https://youtube.com/shorts/O62VjYQhACI |
