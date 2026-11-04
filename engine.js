@@ -7085,6 +7085,10 @@ const RVB = (() => {
         const v = ev[k];
         if (v && typeof v === 'object') { if (cur.has(v)) ev[k] = re(v); else if (Array.isArray(v) && v.some(x => cur.has(x))) ev[k] = v.map(re).filter(Boolean); else if (v instanceof Set) ev[k] = new Set([...v].map(re).filter(Boolean)); }
       }
+      // tribes' chiefs, the kings and the duellists also point at their rewound copies; regrouping and focus targets start fresh
+      if (this.tribes) { for (const tb of this.tribes) { tb.chief = tb.chief ? re(tb.chief) : null; tb.focus = null; } for (const c of this.units) { c.regT = 0; c.regTo = null; } }
+      if (this.kings) this.kings = this.kings.map(k => (k ? re(k) || k : k));
+      if (this.duel) { this.duel.a = re(this.duel.a) || this.duel.a; this.duel.b = re(this.duel.b) || this.duel.b; }
       this.alive = s.alive.slice(); this.reserve = s.reserve.slice(); this.waves.forEach((w, t) => w.forEach((v, i) => { v.done = s.waves[t][i]; })); this.gained = s.gained.slice(); this.deaths = s.deaths;
       this.arrows = []; this.fields = []; this.calls = []; this.spawnQ = []; this.clouds = []; this.fires = []; this.beams = []; this.rising = [];
       this.best = [null, null, null]; this.best[MONSTERS] = null;
@@ -8374,7 +8378,7 @@ const RVB = (() => {
     initTribes() {
       const TR = this.TR, o = this.trb, cx = AR.x + AR.w / 2;
       const per = this.N === 3 ? 1 : clamp(o.perArmy || 2, 1, 2);
-      this.tribes = []; this.ticker = []; this.carts = []; this.tacLabels = []; this.tradeAt = [0, 0, 0]; this.merch = null;
+      this.tribes = []; this.ticker = []; this.carts = []; this.tacLabels = []; this.tradeAt = [0, 0, 0]; this.merch = null; this.coins = [];
       this.merchAt = o.merchant === false ? Infinity : (this.fixed || this.target) * TR.range(0.36, 0.44);
       const used = new Set(), hist = (o.history && o.history.t) || {};
       for (const team of this.teamIds()) {
@@ -8503,7 +8507,9 @@ const RVB = (() => {
       const U = UNIT[u.type];
       if (U.uncounted || !this.tribes) return;
       const cost = U.cost || 1, e = this.econ, kt = from && from.tribe && from.team !== u.team ? from.tribe : null;
-      if (kt) { kt.gold += e.kill * cost * (kt.trait === 'hunters' ? 1.25 : 1); kt.kills++; kt.goldFx = this.t; if (u.tribe && u.tribe.wt + u.tribe.at >= 2) { kt.iron += 1; kt.ironFx = this.t; } }
+      // (a coin flies from the fallen troop to the killer tribe's row on the panel; looks only)
+      if (kt && this.t > 7 && this.coins.length < 14 && u.team < 3) this.coins.push({ x: u.x, y: u.y, t0: this.t, tb: kt });
+      if (kt) { kt.gold += e.kill * cost * (kt.trait === 'hunters' ? 1.25 : 1); kt.kills++; if (this.t <= 7) kt.goldFx = this.t; if (u.tribe && u.tribe.wt + u.tribe.at >= 2) { kt.iron += 1; kt.ironFx = this.t; } }
       if (u.tribe) u.tribe.gold += e.chest * cost;
       if (u.tribe && u.tribe.chief === u && !u.tribe.chiefDead) {
         const tb = u.tribe, T = this.fightT; tb.chiefDead = true;
@@ -8992,6 +8998,8 @@ const RVB = (() => {
           this.fitText(ctx, e.text, VW / 2, ty + i * 32, W - 20, i ? 19 : 22, 800, false, i ? COL.muted : e.team >= 0 ? TEAMS[e.team].l : COL.gold, 'center', 18);
         });
         ctx.globalAlpha = 1;
+        this.drawCoins(ctx);
+        ctx.globalAlpha = 1;
       }
       ctx.restore();
       ctx.textBaseline = 'alphabetic';
@@ -9044,6 +9052,7 @@ const RVB = (() => {
       // the resources and tiers: gold, iron, weapon pips (a sword) and armour pips (a shield), then the trait if there's room
       const gf = clamp(1 - (t - tb.goldFx) / 0.4, 0, 1), irf = clamp(1 - (t - tb.ironFx) / 0.4, 0, 1);
       const cx0 = narrow ? x + 16 : tx;
+      tb.coinAt = { x: cx0 + 9, y: ly };
       disc(ctx, cx0 + 9, ly, 9 + gf * 2, COL.gold, 2);
       ctx.font = font(13, 800, false); ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = '#7A5A00'; ctx.fillText('G', cx0 + 9, ly + 0.5);
       this.fitText(ctx, String(Math.floor(tb.gold)), cx0 + 23, ly, 42, 22, 800, true, gf > 0 ? COL.gold : COL.white, 'left', 18);
@@ -9067,6 +9076,20 @@ const RVB = (() => {
       ctx.font = font(18, 700, false);
       if (ctx.measureText(TRAIT[tb.trait].name).width <= right - trX) this.fitText(ctx, TRAIT[tb.trait].name, right, ly, right - trX, 18, 700, false, COL.muted, 'right', 18);
       ctx.globalAlpha = a0;
+    },
+    // loot: coins fly in an arc from where a troop fell (through the camera) to its killer tribe's gold on the panel
+    drawCoins(ctx) {
+      const t = this.t, c = this.cam, zoom = this.camOn();
+      const scr = (x, y) => (zoom ? [AR.x + (x - c.x) * c.z + AR.w / 2, AR.y + (y - c.y) * c.z + AR.h / 2] : [x, y]);
+      this.coins = this.coins.filter(o => {
+        const k = (t - o.t0) / 0.75;
+        if (k >= 1) { o.tb.goldFx = t; return false; }
+        if (!o.tb.coinAt) return true;
+        if (o.sx === undefined) [o.sx, o.sy] = scr(o.x, o.y);
+        const e = easeOutCubic(k), x = o.sx + (o.tb.coinAt.x - o.sx) * e, y = o.sy + (o.tb.coinAt.y - o.sy) * k * k - Math.sin(Math.PI * k) * 90;
+        disc(ctx, x, y, 6.5, COL.gold, 2);
+        return true;
+      });
     },
     drawStory(ctx, al) {
       const t = this.t, s = this.story, W = VW - 80, n = Math.max(0, Math.floor((t - 0.4) * 34));

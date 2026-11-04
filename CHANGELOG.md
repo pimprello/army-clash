@@ -31,6 +31,8 @@ Rellz asked for smart troops that form tribes, with a backstory, a trading syste
   - stills of the story, the panel (two and three armies), chief banners, camps, carts, the merchant and the outro line;
   - revenge and streak stories from a made-up history;
   - a full 60-second render took 4 minutes on a 2-core machine, including the tuning.
+- **Loot you can see:** after the story, a coin flies from each fallen troop to the gold of the tribe that killed it on the panel.
+- **Fix:** when the Undefeated General rewinds a battle, chiefs, kings and duellists now carry on as their rewound selves.
 - **Faster tuning:** the first video with combat on spent 2.5 minutes tuning on GitHub, so tuning now uses 12 test battles a step, stops once it's close to even, and never takes more than 80 seconds.
 - Videos already posted don't change. No preview videos were made.
 
