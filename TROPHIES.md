@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 212 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 213 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -63,13 +63,13 @@ Records from 212 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - UNMAKER SLAYER: 4
 - CYCLOPS SLAYER: 4
 - HELICOPTER SLAYER: 4
-- PHOENIX SLAYER: 4
 - STORM EMPEROR SLAYER: 4
 - TANK SLAYER: 5
 - CATHEDRAL SLAYER: 5
-- HYDRA SLAYER: 5
 - MAMMOTH SLAYER: 5
 - IMMORTAL FRAUD SLAYER: 5
+- PHOENIX SLAYER: 5
+- HYDRA SLAYER: 6
 - CANNON SLAYER: 6
 - MECH SLAYER: 6
 - COLOSSUS SLAYER: 7
@@ -78,7 +78,7 @@ Records from 212 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - GOLEM SLAYER: 9
 - GIANT SLAYER: 13
 - DRAGON SLAYER: 13
-- TITAN SLAYER: 15
+- TITAN SLAYER: 16
 
 ## Mutations (rarest first)
 
@@ -124,14 +124,17 @@ Records from 212 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-4 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+7 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Raven Hill Clan | 1 | 1 | 0 | 42 | 1 won | 1 |
+| Duskwing Tribe | 1 | 1 | 0 | 39 | 1 won | 1 |
 | Thornwood Company | 1 | 1 | 0 | 31 | 1 won | 1 |
+| Frostwhisper Tribe | 1 | 0 | 1 | 52 | 1 lost | - |
 | Order of the Silver Stag | 1 | 0 | 1 | 27 | 1 lost | - |
 | Stonebridge Company | 1 | 0 | 1 | 23 | 1 lost | - |
+| Brightwater Tribe | 1 | 0 | 1 | 12 | 1 lost | - |
 
 ### Great rivalries
 
@@ -139,4 +142,5 @@ No two tribes have met twice yet.
 
 ### Latest from the battlefield
 
+- 2026-11-04 22:25: The Duskwing Tribe Take the Open Plains (first battle, first win · 39 kills)
 - 2026-11-04 22:10: The Raven Hill Clan Take the Quarry (first battle, first win · 42 kills)
