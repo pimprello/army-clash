@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 04:20 | Titan Storms vs ULTRA RAIDERS 🔥 | Gold wins | https://youtube.com/shorts/n36QXQqKUB0 |
 | 2026-11-04 04:05 | LIGHTNING Struck the Battlefield ⚡ | Brazil wins | https://youtube.com/shorts/Lzv_DZ-d3Tk |
 | 2026-11-04 03:50 | 3 Armies, Only 1 SURVIVES 💀 | Purple wins | https://youtube.com/shorts/m7zgcQaiGqw |
 | 2026-11-04 03:36 | 🇩🇪 Germany vs Italy 🇮🇹 | Italy wins | https://youtube.com/shorts/zJP8bfpwvM0 |
