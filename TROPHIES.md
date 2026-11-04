@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 159 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 160 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -18,18 +18,18 @@ Records from 159 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Fastest wipe-outs
 
 - **22.8 s**: indigo wins · 2026-11-03 16:17 · [I Did NOT Expect This 😳](https://youtube.com/shorts/cYrP7bJqWDE)
+- **24.5 s**: indigo wins · 2026-11-04 07:45 · [143 Skeletons vs 84 Elves 💀](https://youtube.com/shorts/vZYnp04XqM0)
 - **26.7 s**: lime wins · 2026-11-03 17:16 · [Frost Witches vs DEMONS 😈](https://youtube.com/shorts/_XGpRydxeWo)
 - **28.2 s**: pink wins · 2026-11-03 22:41 · [Helicopter Army vs SOLDIERS 🪖](https://youtube.com/shorts/bWcAhRbRdQM)
 - **28.9 s**: coral wins · 2026-11-04 06:18 · [DREAM TEAM Battle: Mega Bombers vs Void Pikes](https://youtube.com/shorts/2f1V63eWCbI)
-- **30 s**: orange wins · 2026-11-02 21:24 · [The Empty Armour Kept FIGHTING 👻](https://youtube.com/shorts/FROYUz7l2_U)
 
 ## Biggest wins (troops still standing)
 
 - **127 left**: 2026-11-03 16:17 · [I Did NOT Expect This 😳](https://youtube.com/shorts/cYrP7bJqWDE)
 - **104 left**: 2026-11-04 06:46 · [3 Armies, Only 1 SURVIVES 💀](https://youtube.com/shorts/n-Ha4KUtjeo)
+- **86 left**: 2026-11-04 07:45 · [143 Skeletons vs 84 Elves 💀](https://youtube.com/shorts/vZYnp04XqM0)
 - **85 left**: 2026-11-03 00:21 · [🔥 STEEL GOBLINS vs Cosmic Fakers](https://youtube.com/shorts/gGvtevVjlvo)
 - **84 left**: 2026-11-03 06:00 · [A TORNADO Hit Mid-Battle 🌪️](https://youtube.com/shorts/0Vx4Yv3RMS4)
-- **81 left**: 2026-11-03 02:04 · [115 Vampires vs 105 Samurai 🧛](https://youtube.com/shorts/Wkgai-xFqF0)
 
 ## Hall of champions
 
@@ -85,7 +85,7 @@ Records from 159 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 4
 - wings: 13
 - venom: 21
-- spellward: 21
+- spellward: 22
 - swift: 25
 - spikes: 30
 - regen: 34
