@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 14:40 | ULTRA SAMURAI vs Mech Troopers vs Storm Bows 🔥 | Red wins | https://youtube.com/shorts/xg-cSTGGY5Q |
 | 2026-11-04 14:25 | 104 Ninjas vs 100 Snipers 🥷 | Yellow wins | https://youtube.com/shorts/TH389QbStIk |
 | 2026-11-04 14:14 | A TITAN Crashed the Battle 🗿 | Yellow wins | https://youtube.com/shorts/gUpunme12W0 |
 | 2026-11-04 13:55 | 165 Soldiers vs 158 Archers ⚔️ | Teal wins | https://youtube.com/shorts/hcYMcO9sOMU |
