@@ -55,6 +55,8 @@ const RVB = (() => {
     BELGIUM: { c: '#FFE84A', d: '#C2B200', l: '#FFF5B8', a: '#E8222F' },
     SWEDEN: { c: '#1E7FD0', d: '#0D4677', l: '#B4D8F5', a: '#FECC00' },
     NORWAY: { c: '#D9233A', d: '#850E1E', l: '#FFB6BF', a: '#FFFFFF' },
+    DENMARK: { c: '#E01E3C', d: '#8E0C20', l: '#FFB4BF', a: '#FFFFFF' },
+    FINLAND: { c: '#EEF3FA', d: '#9AA5B6', l: '#FFFFFF', a: '#003580' },
   };
   // How different two colours look to the eye (CIEDE2000; under ~30 is easy to mix up on a phone screen).
   const lab = hex => {
@@ -213,9 +215,9 @@ const RVB = (() => {
     g.fillStyle = '#C8102E'; g.fillRect(x + w / 2 - h / 10, y, h / 5, h); g.fillRect(x, y + h * 0.4, w, h / 5);
     g.restore();
   };
-  const nordic = (g, x, y, w, h, bg, cross, inner) => {
+  const nordic = (g, x, y, w, h, bg, cross, inner, thick = 0.24, at = 0.36) => {
     g.fillStyle = bg; g.fillRect(x, y, w, h);
-    const cx = x + w * 0.36, t = h * 0.24;
+    const cx = x + w * at, t = h * thick;
     g.fillStyle = cross; g.fillRect(cx - t / 2, y, t, h); g.fillRect(x, y + h / 2 - t / 2, w, t);
     if (inner) { const t2 = t * 0.5; g.fillStyle = inner; g.fillRect(cx - t2 / 2, y, t2, h); g.fillRect(x, y + h / 2 - t2 / 2, w, t2); }
   };
@@ -270,6 +272,9 @@ const RVB = (() => {
     BELGIUM: (g, x, y, w, h) => bands(g, x, y, w, h, ['#000000', '#FDDA24', '#EF3340'], true),
     SWEDEN: (g, x, y, w, h) => nordic(g, x, y, w, h, '#006AA7', '#FECC00'),
     NORWAY: (g, x, y, w, h) => nordic(g, x, y, w, h, '#BA0C2F', '#FFFFFF', '#00205B'),
+    // Denmark: a slim white cross on red; Finland: a broad blue cross on white
+    DENMARK: (g, x, y, w, h) => nordic(g, x, y, w, h, '#C8102E', '#FFFFFF', null, 0.15, 0.375),
+    FINLAND: (g, x, y, w, h) => nordic(g, x, y, w, h, '#FFFFFF', '#002F6C', null, 0.27, 0.36),
   };
   // drawn once into a small canvas (at 3x for sharp close-ups) and reused
   const flagCache = {};
@@ -1981,7 +1986,7 @@ const RVB = (() => {
         : era === 'pirate' ? ['WHO RULES THE SEAS?', 'PICK YOUR CREW', 'CUTLASS OR CANNON?', orName]
         : era === 'horror' ? ['CAN THEY SURVIVE?', 'DON\'T GET BITTEN', 'THE DEAD RISE', orName]
         : era === 'samurai' ? ['WHO HAS HONOR?', 'BLADE VS BLADE', 'PICK YOUR CLAN', orName]
-        : era === 'wild' ? ['DREAM TEAM BATTLE', 'WHO WINS THIS?', 'ANYTHING GOES', orName]
+        : era === 'wild' ? [this.opts.dream === false ? 'CLASH OF WORLDS' : 'DREAM TEAM BATTLE', 'WHO WINS THIS?', 'ANYTHING GOES', orName]
         : this.opts.era === 'fantasy'
         ? ['WHO RULES THE REALM?', 'PICK YOUR FACTION', 'MAGIC OR MIGHT?', orName]
         : this.opts.era === 'mixed'

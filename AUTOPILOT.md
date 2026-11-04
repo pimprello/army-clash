@@ -73,6 +73,7 @@ Already built (don't rebuild): cavalry (lancers, horse archers, wolf and boar ri
 - Creative match-ups: `WILD=1 SEED=<n>` in the short-render copy makes one; check its title, description and the balance line in the log.
 - Render stills (a frame at about 10 seconds) of anything visual and look at them.
 - New maps: compare each line-up's win rate on the new map against `open` with 32–40 battles each (24 swings by about 10 points either way). Walls tend to help melee against archers and mages; if a map moves a melee-vs-ranged line-up too far, make its walls low (`low: 1`: they block troops but not shots) or move them out of the fighting area.
+- Stills: in a scratch copy of the repo, add a line to `render.js`'s frame loop that saves `canvas.toBuffer('image/png')` at the frames you want (frame 600 is 10 s) and exits after the last one; to force a team pair, set `pair` from an env var just before `RVB.setTeams`.
 - Run the real renderer for a short clip: copy the repo to a scratch folder, set `SECS = 3` in the copy's `render.js`, and run `MATCHUP=<n> SEED=<n> node render.js`. Check the title, description and tags in `out/meta.json`.
 
 - Background processes are stopped a few minutes after you start them, so run long test-battle jobs in the foreground, a few line-ups per command (each command can run about 10 minutes). On a 2-core runner a 60-second test battle takes about 1.5 s, and balancing one line-up takes 1–2 minutes.

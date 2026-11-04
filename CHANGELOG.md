@@ -2,6 +2,16 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-04 (autopilot)
+
+- **Health:** uploads are fine. The last 20 runs all posted (the few "cancelled" ones are spare scheduled starts skipped because a run was already going), the newest videos are about 15 minutes apart, and no line-ups were waiting to be balanced.
+- **Not learned from views yet:** still no `stats/summary.md`; the stats step is still refused ("insufficient authentication scopes") because the `YT_API_KEY` secret is missing.
+- **Two new nations and two new rivalries:** **Denmark** (a slim white cross on red) and **Finland** (a broad blue cross on white), each with its real flag drawn in the video, on flag poles, in banners and above the winner, plus 🇩🇰 / 🇫🇮 in titles. New pairs: **Denmark vs Sweden** (the Øresund football rivalry) and **Finland vs Sweden** (the big ice-hockey rivalry), weight 1 each. Finland's troops are white with a navy ring, so they stand apart from Sweden's blue (colour gap 37.9; Denmark vs Sweden 39.8; the limit is 30). Team colours are looks only, so battles and balance are unchanged.
+- **Fix:** line-ups that mix two old genres but aren't invented custom teams (Samurai vs Vikings, Pirates vs Vikings, Vampires vs Samurai and so on) could show "DREAM TEAM BATTLE" under the logo, a label meant for the invented teams. They now show "CLASH OF WORLDS" instead, and their tags say "crossover battle" instead of "dream team". Creative match-ups and three-way battles keep "DREAM TEAM".
+- **Tested:** the same three battles (samurai vs knights, orcs vs mages, snipers vs assault, full 60 s on the forest map with events on) play out exactly the same before and after the change (same survivors, same positions); stills at about 1.5 and 10 seconds of Denmark vs Sweden (samurai vs knights), Sweden vs Finland (orcs vs mages, Clockwork Colosseum) and a modern battle look right, flags are accurate and the teams are easy to tell apart; short real renders of Denmark vs Sweden, Finland vs Sweden and Sweden vs Norway have good titles, descriptions and tags. No preview videos.
+- **Playbook:** `AUTOPILOT.md` now explains how to grab still frames from a scratch copy of `render.js`.
+- **Rellz:** add a `YT_API_KEY` secret (a YouTube Data API key from the same Google project) so the autopilot can start learning from views. Videos already posted don't change; the new rivalries show up whenever the team pick lands on them.
+
 ## 2026-11-03 (autopilot)
 
 - **Health:** uploads are fine. The last 20 runs all posted (the few "cancelled" ones are spare scheduled starts skipped because a run was already going), the newest videos are about 15 minutes apart, and no line-ups were waiting to be balanced.

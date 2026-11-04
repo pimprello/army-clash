@@ -247,6 +247,20 @@
     },
     {
       "teams": [
+        "DENMARK",
+        "SWEDEN"
+      ],
+      "weight": 1
+    },
+    {
+      "teams": [
+        "FINLAND",
+        "SWEDEN"
+      ],
+      "weight": 1
+    },
+    {
+      "teams": [
         "BLUE",
         "GREEN"
       ],
