@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 17:41 | 3 Armies, Only 1 SURVIVES 💀 | Red wins | https://youtube.com/shorts/TawA1QFFdwc |
 | 2026-11-04 17:25 | 81 Samurai vs 100 Ninjas ⚔️ | Orange wins | https://youtube.com/shorts/bT_ypP-IUWw |
 | 2026-11-04 17:13 | 🔥 SAND SMITHS vs Ghost Blades | Red wins | https://youtube.com/shorts/ONbBdmBq6ec |
 | 2026-11-04 16:55 | METEORS Hit Mid-Battle ☄️ | Lime wins | https://youtube.com/shorts/ALi0gqUCe34 |
