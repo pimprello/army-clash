@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 214 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 215 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -8,12 +8,12 @@ Records from 214 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **86 kills**: STAR EATER · 2026-11-04 21:57 · [The Weapons Came ALIVE 🗡️](https://youtube.com/shorts/3bawEZ4_K_c)
 - **51 kills**: LIVING FORTRESS · 2026-11-04 13:13 · [🇩🇰 Denmark vs Sweden 🇸🇪](https://youtube.com/shorts/EEo4SfZqAyI)
 - **49 kills**: TANK · 2026-11-03 22:12 · [They Were LOSING Until This 😳](https://youtube.com/shorts/-hvpvz0i7TA)
+- **48 kills**: PHOENIX · 2026-11-04 22:57 · [Phoenix Pikes vs WILD LEGION 🔥](https://youtube.com/shorts/zga-x3ZnOUs)
 - **47 kills**: LIVING FORTRESS · 2026-11-04 05:33 · [106 Orcs vs a LIVING Castle 🏰](https://youtube.com/shorts/3rsNAb0OpJA)
 - **47 kills**: TANK · 2026-11-04 10:12 · [🔥 SPELLGUNS vs Dragon Armor](https://youtube.com/shorts/g__rdIjt58w)
 - **30 kills**: DRAGON · 2026-11-02 17:40 · [They Were LOSING Until This 😳](https://youtube.com/shorts/-e04vvO2yh8)
 - **30 kills**: GIANT · 2026-11-03 22:28 · [The Weapons Came ALIVE 🗡️](https://youtube.com/shorts/u9TmQ7jfy3Y)
 - **29 kills**: WALKING FORTRESS · 2026-11-03 10:40 · [Steel Muskets vs CASTLE ELVES 🔥](https://youtube.com/shorts/xbouXT6Eu8I)
-- **28 kills**: GIANT · 2026-11-04 08:13 · [178 Soldiers vs a GIANT Army 👹](https://youtube.com/shorts/z8ShQjbdYX4)
 
 ## Fastest wipe-outs
 
@@ -55,18 +55,18 @@ Records from 214 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - GRAVITY TYRANT SLAYER: 1
 - CATAPULT SLAYER: 1
 - WORLDROOT SLAYER: 2
-- EXECUTIONER SLAYER: 2
 - THOUSAND-MAN SLAYER: 3
 - STAR EATER SLAYER: 3
+- EXECUTIONER SLAYER: 3
 - MIRROR KING SLAYER: 4
 - FORTRESS SLAYER: 4
 - UNMAKER SLAYER: 4
 - CYCLOPS SLAYER: 4
-- HELICOPTER SLAYER: 4
 - STORM EMPEROR SLAYER: 4
 - TANK SLAYER: 5
 - CATHEDRAL SLAYER: 5
 - MAMMOTH SLAYER: 5
+- HELICOPTER SLAYER: 5
 - IMMORTAL FRAUD SLAYER: 5
 - PHOENIX SLAYER: 5
 - HYDRA SLAYER: 6
@@ -78,12 +78,12 @@ Records from 214 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - GOLEM SLAYER: 9
 - DRAGON SLAYER: 13
 - GIANT SLAYER: 14
-- TITAN SLAYER: 17
+- TITAN SLAYER: 18
 
 ## Mutations (rarest first)
 
 - vampiric: 5
-- wings: 18
+- wings: 19
 - spellward: 27
 - venom: 30
 - swift: 31
@@ -120,21 +120,24 @@ Records from 214 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: demon: 8
 - sudden: ring: 8
 - sudden: meteors: 12
-- sudden: boss: 12
+- sudden: boss: 13
 
 ## The tribes' chronicle
 
-11 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+14 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
+| Nova Legion | 1 | 1 | 0 | 105 | 1 won | 1 |
 | Storm Tower Order | 1 | 1 | 0 | 74 | 1 won | 1 |
 | Raven Hill Clan | 1 | 1 | 0 | 42 | 1 won | 1 |
 | Duskwing Tribe | 1 | 1 | 0 | 39 | 1 won | 1 |
 | Thornwood Company | 1 | 1 | 0 | 31 | 1 won | 1 |
+| Bone Garden Coven | 1 | 1 | 0 | 19 | 1 won | 1 |
 | Red Hawk Company | 1 | 1 | 0 | 5 | 1 won | 1 |
-| Frostwhisper Tribe | 1 | 0 | 1 | 52 | 1 lost | - |
+| Frostwhisper Tribe | 2 | 0 | 2 | 68 | 2 lost | - |
 | Wildbrook Clan | 1 | 0 | 1 | 52 | 1 lost | - |
+| Ion Legion | 1 | 0 | 1 | 34 | 1 lost | - |
 | Order of the Silver Stag | 1 | 0 | 1 | 27 | 1 lost | - |
 | Oakshield Clan | 1 | 0 | 1 | 25 | 1 lost | - |
 | Stonebridge Company | 1 | 0 | 1 | 23 | 1 lost | - |
@@ -146,6 +149,7 @@ No two tribes have met twice yet.
 
 ### Latest from the battlefield
 
+- 2026-11-04 22:57: The Nova Legion Take the Crystal Grove (first battle, first win · 105 kills)
 - 2026-11-04 22:41: The Storm Tower Order Take the Open Plains (first battle, first win · 74 kills)
 - 2026-11-04 22:25: The Duskwing Tribe Take the Open Plains (first battle, first win · 39 kills)
 - 2026-11-04 22:10: The Raven Hill Clan Take the Quarry (first battle, first win · 42 kills)

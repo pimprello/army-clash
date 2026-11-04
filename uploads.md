@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 22:57 | Phoenix Pikes vs WILD LEGION 🔥 | Teal wins | https://youtube.com/shorts/zga-x3ZnOUs |
 | 2026-11-04 22:41 | A TORNADO Hit Mid-Battle 🌪️ | Purple wins | https://youtube.com/shorts/L_ZQmfDkPVo |
 | 2026-11-04 22:25 | The Merchant Sold Them War Horn 💰 | Pink wins | https://youtube.com/shorts/-nqKHUcHzPE |
 | 2026-11-04 22:10 | Frost Vikings vs Golden Vikings 🪞 | Usa wins | https://youtube.com/shorts/X7bdwtWFnns |
