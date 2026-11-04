@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 179 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 180 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 179 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **GRIM THE MAD** (WIZARD), 12 kills · 2026-11-04 13:27
 - **NOMAD-5** (SNIPER), 13 kills · 2026-11-04 12:43
 - **SIRA NIGHTFANG** (SWORDSMAN), 11 kills · 2026-11-04 12:27
 - **ORLOK THE SWIFT** (NINJA), 12 kills · 2026-11-04 10:56
@@ -47,7 +48,6 @@ Records from 179 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **VIPER-4** (LASER TROOPER), 20 kills · 2026-11-03 18:59
 - **BRAMBLE FIREBRAND** (TREANT), 10 kills · 2026-11-03 18:48
 - **DRAVEN GRAVEBANE** (LANCER), 10 kills · 2026-11-03 18:16
-- **TOVA THE UNBROKEN** (TREANT), 19 kills · 2026-11-03 16:48
 
 ## Titles earned (rarest first)
 
@@ -84,8 +84,8 @@ Records from 179 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 - vampiric: 4
 - wings: 15
-- spellward: 23
 - venom: 24
+- spellward: 24
 - swift: 26
 - spikes: 31
 - regen: 38
