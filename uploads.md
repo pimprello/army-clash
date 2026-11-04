@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 09:57 | TOXIC MIRRORS vs Wild Shields vs Royal Guard 🔥 | Green wins | https://youtube.com/shorts/eS1ok2amphc |
 | 2026-11-04 09:43 | The Smaller Army Did WHAT? 😳 | Lime wins | https://youtube.com/shorts/3EKuuyyR4rY |
 | 2026-11-04 09:30 | 🇸🇪 Sweden vs Finland: WHO WINS? | Finland wins | https://youtube.com/shorts/KMW1NThEVa4 |
 | 2026-11-04 09:13 | 🪖 SOLDIERS vs Gunners | Lime wins | https://youtube.com/shorts/3qA_aBsGOio |
