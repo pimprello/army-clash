@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 11:58 | 97 Vikings vs 128 Knights 🪓 | Gold wins | https://youtube.com/shorts/1LlPMXcmVbE |
 | 2026-11-04 10:56 | One Ninja Got 12 KILLS 😳 | Australia wins | https://youtube.com/shorts/HSRIZ31O1rY |
 | 2026-11-04 10:41 | Knights vs ARCHERS 🏹 | Gold wins | https://youtube.com/shorts/tcgmNWtHIEc |
 | 2026-11-04 10:28 | 🇮🇹 Italy vs Germany: WHO WINS? | Germany wins | https://youtube.com/shorts/E6l443nEklQ |
