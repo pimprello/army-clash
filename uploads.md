@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 09:43 | The Smaller Army Did WHAT? 😳 | Lime wins | https://youtube.com/shorts/3EKuuyyR4rY |
 | 2026-11-04 09:30 | 🇸🇪 Sweden vs Finland: WHO WINS? | Finland wins | https://youtube.com/shorts/KMW1NThEVa4 |
 | 2026-11-04 09:13 | 🪖 SOLDIERS vs Gunners | Lime wins | https://youtube.com/shorts/3qA_aBsGOio |
 | 2026-11-04 08:58 | 3 Armies, Only 1 SURVIVES 💀 | Red wins | https://youtube.com/shorts/j5BbDD2dQEA |

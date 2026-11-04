@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 167 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 168 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 167 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **OSKA SKULLTAKER** (KNIGHT), 17 kills · 2026-11-04 09:43
 - **NYRA BONECRUSHER** (METEOR SHEPHERD), 10 kills · 2026-11-04 07:16
 - **ZEDRIK THE LUCKY** (FROST WITCH), 10 kills · 2026-11-04 03:22
 - **KORRIN NIGHTFANG** (SIEGE GUNNER), 19 kills · 2026-11-04 01:53
@@ -47,7 +48,6 @@ Records from 167 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **RUNA THE LUCKY** (STORM CALLER), 16 kills · 2026-11-03 16:03
 - **OSKA THE MAD** (WARLOCK), 17 kills · 2026-11-03 15:49
 - **KAELEN THE BOLD** (WIZARD), 13 kills · 2026-11-03 14:19
-- **GRIM SKULLTAKER** (ORC), 24 kills · 2026-11-03 13:51
 
 ## Titles earned (rarest first)
 
@@ -88,7 +88,7 @@ Records from 167 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 22
 - swift: 26
 - spikes: 30
-- regen: 34
+- regen: 35
 
 ## Big moments
 
