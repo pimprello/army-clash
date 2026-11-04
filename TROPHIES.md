@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 200 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 201 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 200 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **ZERO-3** (MACHINE GUNNER), 12 kills · 2026-11-04 18:40
 - **IVOR THE BOLD** (KNIGHT), 17 kills · 2026-11-04 18:24
 - **NYRA FIREBRAND** (KNIGHT), 23 kills · 2026-11-04 16:26
 - **VIPER-8** (MACHINE GUNNER), 15 kills · 2026-11-04 15:56
@@ -47,7 +48,6 @@ Records from 200 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **NYRA BONECRUSHER** (METEOR SHEPHERD), 10 kills · 2026-11-04 07:16
 - **ZEDRIK THE LUCKY** (FROST WITCH), 10 kills · 2026-11-04 03:22
 - **KORRIN NIGHTFANG** (SIEGE GUNNER), 19 kills · 2026-11-04 01:53
-- **OSKA GRAVEBANE** (WIZARD), 12 kills · 2026-11-03 23:40
 
 ## Titles earned (rarest first)
 
@@ -57,7 +57,6 @@ Records from 200 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - WORLDROOT SLAYER: 2
 - EXECUTIONER SLAYER: 2
 - THOUSAND-MAN SLAYER: 3
-- STORM EMPEROR SLAYER: 3
 - STAR EATER SLAYER: 3
 - MIRROR KING SLAYER: 4
 - TANK SLAYER: 4
@@ -67,6 +66,7 @@ Records from 200 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - CYCLOPS SLAYER: 4
 - HELICOPTER SLAYER: 4
 - PHOENIX SLAYER: 4
+- STORM EMPEROR SLAYER: 4
 - HYDRA SLAYER: 5
 - CANNON SLAYER: 5
 - MAMMOTH SLAYER: 5
@@ -83,9 +83,9 @@ Records from 200 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Mutations (rarest first)
 
 - vampiric: 5
-- wings: 17
-- venom: 26
+- wings: 18
 - spellward: 26
+- venom: 27
 - swift: 27
 - spikes: 37
 - regen: 43
@@ -116,7 +116,7 @@ Records from 200 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: troll: 4
 - fusion: 5
 - sudden: lava: 6
-- portal: demon: 7
+- portal: demon: 8
 - sudden: ring: 8
 - sudden: boss: 11
 - sudden: meteors: 12

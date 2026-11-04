@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 18:40 | Steel Blades vs Neon Monks vs Omega Muskets 🤯 | Brazil wins | https://youtube.com/shorts/H38TNsFWkxY |
 | 2026-11-04 18:24 | Archers vs GIANT ARMY 👹 | Yellow wins | https://youtube.com/shorts/Pz_BGBEQ8kQ |
 | 2026-11-04 18:11 | 🔥 WILD ORCS vs Holy Trolls | Red wins | https://youtube.com/shorts/0ErLSUQ_yY4 |
 | 2026-11-04 17:56 | The Smaller Army Did WHAT? 😳 | Netherlands wins | https://youtube.com/shorts/Fq7A3RsEuwY |
