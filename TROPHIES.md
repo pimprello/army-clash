@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 162 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 163 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -55,13 +55,13 @@ Records from 162 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - GRAVITY TYRANT SLAYER: 1
 - CATAPULT SLAYER: 1
 - MECH SLAYER: 2
-- THOUSAND-MAN SLAYER: 2
 - WORLDROOT SLAYER: 2
 - STAR EATER SLAYER: 2
 - EXECUTIONER SLAYER: 2
 - TANK SLAYER: 3
 - FORTRESS SLAYER: 3
 - CYCLOPS SLAYER: 3
+- THOUSAND-MAN SLAYER: 3
 - STORM EMPEROR SLAYER: 3
 - MIRROR KING SLAYER: 4
 - CATHEDRAL SLAYER: 4
@@ -117,5 +117,5 @@ Records from 162 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - fusion: 5
 - sudden: lava: 5
 - sudden: ring: 6
-- sudden: boss: 8
+- sudden: boss: 9
 - sudden: meteors: 11
