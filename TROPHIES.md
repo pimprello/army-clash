@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 137 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 138 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -9,11 +9,11 @@ Records from 137 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **30 kills**: DRAGON · 2026-11-02 17:40 · [They Were LOSING Until This 😳](https://youtube.com/shorts/-e04vvO2yh8)
 - **30 kills**: GIANT · 2026-11-03 22:28 · [The Weapons Came ALIVE 🗡️](https://youtube.com/shorts/u9TmQ7jfy3Y)
 - **29 kills**: WALKING FORTRESS · 2026-11-03 10:40 · [Steel Muskets vs CASTLE ELVES 🔥](https://youtube.com/shorts/xbouXT6Eu8I)
+- **27 kills**: HOURGLASS TITAN · 2026-11-04 02:08 · [They Were OUTNUMBERED... 😳](https://youtube.com/shorts/eR-yGMtcWLQ)
 - **26 kills**: OSKA THE WALL (LANCER) · 2026-11-02 18:40 · [The BIGGEST Comeback I've Seen 😱](https://youtube.com/shorts/Voym5nz5PNY)
 - **26 kills**: NYRA STEELHEART (OGRE) · 2026-11-03 11:38 · [Cosmic Legion vs Ghost Ogres 🤯](https://youtube.com/shorts/nT1zxGeYE1Q)
 - **26 kills**: ZEDRIK STORMBORN (WARLOCK) · 2026-11-03 13:35 · [Solar Bots vs Cosmic Mages 🤯](https://youtube.com/shorts/FFp6HnjNX-A)
 - **26 kills**: STORM EMPEROR · 2026-11-03 21:00 · [Stareater vs Stormemperor vs Worldroot 🤯](https://youtube.com/shorts/QJFstj3yeZo)
-- **25 kills**: IMMORTAL FRAUD, TRUE FORM · 2026-11-04 00:09 · [⏳ the TIME Executioner vs IMMORTAL Army](https://youtube.com/shorts/K5te77lfQN8)
 
 ## Fastest wipe-outs
 
@@ -86,7 +86,7 @@ Records from 137 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - wings: 12
 - venom: 19
 - spellward: 20
-- swift: 23
+- swift: 24
 - spikes: 26
 - regen: 32
 
