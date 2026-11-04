@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 13:55 | 165 Soldiers vs 158 Archers ⚔️ | Teal wins | https://youtube.com/shorts/hcYMcO9sOMU |
 | 2026-11-04 13:41 | Vampires vs Troopers vs Knights 🤯 | Green wins | https://youtube.com/shorts/aphGs4ak4UM |
 | 2026-11-04 13:27 | 103 Orcs vs 78 Wizards 👹 | Red wins | https://youtube.com/shorts/T1Vi0PcOQHQ |
 | 2026-11-04 13:13 | 🇩🇰 Denmark vs Sweden 🇸🇪 | Denmark wins | https://youtube.com/shorts/EEo4SfZqAyI |
