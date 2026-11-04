@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 15:56 | 🧟 ZOMBIES vs Soldiers | Blue wins | https://youtube.com/shorts/lj4x1YhtDy4 |
 | 2026-11-04 15:42 | Horde vs Elves vs Mages 🤯 | Yellow wins | https://youtube.com/shorts/7Xq8F-UNx8k |
 | 2026-11-04 15:39 | Nobody Expected the TANK to Fall 💥 | Finland wins | https://youtube.com/shorts/rIkJ0CMiIN4 |
 | 2026-11-04 15:12 | 🇨🇦 Canada vs USA 🇺🇸 | Canada wins | https://youtube.com/shorts/_oJEjhs1xHw |
