@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 21:52 | METEORS Hit Mid-Battle ☄️ | Blue wins | https://youtube.com/shorts/tjXu0ltUcF0 |
 | 2026-11-04 21:28 | They Were LOSING Until This 😳 | Yellow wins | https://youtube.com/shorts/_iY-yYaG78M |
 | 2026-11-04 20:44 | The Weapons Came ALIVE 🗡️ | Sweden wins | https://youtube.com/shorts/-F2Muvk_Pwg |
 | 2026-11-04 20:27 | 🇩🇪 Germany vs Italy 🇮🇹 | Italy wins | https://youtube.com/shorts/-s29Jc3Shhk |
