@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 203 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 204 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -20,8 +20,8 @@ Records from 203 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **22.8 s**: indigo wins · 2026-11-03 16:17 · [I Did NOT Expect This 😳](https://youtube.com/shorts/cYrP7bJqWDE)
 - **24.5 s**: indigo wins · 2026-11-04 07:45 · [143 Skeletons vs 84 Elves 💀](https://youtube.com/shorts/vZYnp04XqM0)
 - **26.7 s**: lime wins · 2026-11-03 17:16 · [Frost Witches vs DEMONS 😈](https://youtube.com/shorts/_XGpRydxeWo)
+- **28.1 s**: brown wins · 2026-11-04 19:56 · [🪖 SOLDIERS vs Soldiers](https://youtube.com/shorts/O62VjYQhACI)
 - **28.2 s**: pink wins · 2026-11-03 22:41 · [Helicopter Army vs SOLDIERS 🪖](https://youtube.com/shorts/bWcAhRbRdQM)
-- **28.9 s**: coral wins · 2026-11-04 06:18 · [DREAM TEAM Battle: Mega Bombers vs Void Pikes](https://youtube.com/shorts/2f1V63eWCbI)
 
 ## Biggest wins (troops still standing)
 
@@ -86,7 +86,7 @@ Records from 203 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - wings: 18
 - spellward: 26
 - venom: 27
-- swift: 28
+- swift: 29
 - spikes: 38
 - regen: 44
 
