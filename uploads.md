@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 05:48 | One Bone Colossus Got 12 KILLS 😳 | New zealand wins | https://youtube.com/shorts/ENMoQK7iygA |
 | 2026-11-04 05:33 | 106 Orcs vs a LIVING Castle 🏰 | Yellow wins | https://youtube.com/shorts/3rsNAb0OpJA |
 | 2026-11-04 05:18 | 🇳🇴 Norway vs Sweden: WHO WINS? | Sweden wins | https://youtube.com/shorts/HVLKy1C3p3Q |
 | 2026-11-04 05:03 | 🇸🇪 Sweden vs Denmark: WHO WINS? | Sweden wins | https://youtube.com/shorts/888_D8amVuc |
