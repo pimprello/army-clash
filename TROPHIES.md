@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 208 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 209 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 208 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **ORLOK THE WALL** (WARLOCK), 15 kills · 2026-11-04 21:28
 - **NYRA THE WALL** (WIZARD), 11 kills · 2026-11-04 18:55
 - **ZERO-3** (MACHINE GUNNER), 12 kills · 2026-11-04 18:40
 - **IVOR THE BOLD** (KNIGHT), 17 kills · 2026-11-04 18:24
@@ -47,7 +48,6 @@ Records from 208 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **ASHKA THE SWIFT** (WOLF RIDER), 22 kills · 2026-11-04 10:28
 - **OSKA SKULLTAKER** (KNIGHT), 17 kills · 2026-11-04 09:43
 - **NYRA BONECRUSHER** (METEOR SHEPHERD), 10 kills · 2026-11-04 07:16
-- **ZEDRIK THE LUCKY** (FROST WITCH), 10 kills · 2026-11-04 03:22
 
 ## Titles earned (rarest first)
 
@@ -59,7 +59,6 @@ Records from 208 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - THOUSAND-MAN SLAYER: 3
 - STAR EATER SLAYER: 3
 - MIRROR KING SLAYER: 4
-- CATHEDRAL SLAYER: 4
 - FORTRESS SLAYER: 4
 - UNMAKER SLAYER: 4
 - CYCLOPS SLAYER: 4
@@ -67,11 +66,12 @@ Records from 208 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PHOENIX SLAYER: 4
 - STORM EMPEROR SLAYER: 4
 - TANK SLAYER: 5
+- CATHEDRAL SLAYER: 5
 - HYDRA SLAYER: 5
 - MAMMOTH SLAYER: 5
 - IMMORTAL FRAUD SLAYER: 5
-- MECH SLAYER: 5
 - CANNON SLAYER: 6
+- MECH SLAYER: 6
 - COLOSSUS SLAYER: 7
 - PLAYER SLAYER: 7
 - ELEPHANT SLAYER: 9
@@ -85,10 +85,10 @@ Records from 208 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 5
 - wings: 18
 - spellward: 27
-- venom: 28
-- swift: 30
+- venom: 29
+- swift: 31
 - spikes: 38
-- regen: 44
+- regen: 45
 
 ## Big moments
 
@@ -106,6 +106,7 @@ Records from 208 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: SWEDEN: 1
 - extinct: YELLOW: 1
 - extinct: CANADA: 1
+- possess: hourglass: 1
 - extinct: RED: 2
 - extinct: ORANGE: 2
 - extinct: GREEN: 2
