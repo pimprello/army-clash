@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 201 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 202 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 201 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **NYRA THE WALL** (WIZARD), 11 kills · 2026-11-04 18:55
 - **ZERO-3** (MACHINE GUNNER), 12 kills · 2026-11-04 18:40
 - **IVOR THE BOLD** (KNIGHT), 17 kills · 2026-11-04 18:24
 - **NYRA FIREBRAND** (KNIGHT), 23 kills · 2026-11-04 16:26
@@ -47,7 +48,6 @@ Records from 201 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **OSKA SKULLTAKER** (KNIGHT), 17 kills · 2026-11-04 09:43
 - **NYRA BONECRUSHER** (METEOR SHEPHERD), 10 kills · 2026-11-04 07:16
 - **ZEDRIK THE LUCKY** (FROST WITCH), 10 kills · 2026-11-04 03:22
-- **KORRIN NIGHTFANG** (SIEGE GUNNER), 19 kills · 2026-11-04 01:53
 
 ## Titles earned (rarest first)
 
@@ -68,10 +68,10 @@ Records from 201 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PHOENIX SLAYER: 4
 - STORM EMPEROR SLAYER: 4
 - HYDRA SLAYER: 5
-- CANNON SLAYER: 5
 - MAMMOTH SLAYER: 5
 - IMMORTAL FRAUD SLAYER: 5
 - MECH SLAYER: 5
+- CANNON SLAYER: 6
 - COLOSSUS SLAYER: 7
 - PLAYER SLAYER: 7
 - ELEPHANT SLAYER: 9
@@ -86,9 +86,9 @@ Records from 201 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - wings: 18
 - spellward: 26
 - venom: 27
-- swift: 27
-- spikes: 37
-- regen: 43
+- swift: 28
+- spikes: 38
+- regen: 44
 
 ## Big moments
 
