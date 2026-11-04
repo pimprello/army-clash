@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 00:40 | Undead Legion vs a Walking CATHEDRAL ⛪ | Gold wins | https://youtube.com/shorts/wiD6z77XcJg |
 | 2026-11-04 00:24 | DREAM TEAM Battle: Ghost Hollows vs Lunar Muskets | Blue wins | https://youtube.com/shorts/2RXqU0NQV6c |
 | 2026-11-04 00:09 | ⏳ the TIME Executioner vs IMMORTAL Army | Green wins | https://youtube.com/shorts/K5te77lfQN8 |
 | 2026-11-03 23:55 | NEON DRONES vs Mega Imps vs Wild Raiders 🔥 | Usa wins | https://youtube.com/shorts/HjSu6DoizGo |
