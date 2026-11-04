@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 18:24 | Archers vs GIANT ARMY 👹 | Yellow wins | https://youtube.com/shorts/Pz_BGBEQ8kQ |
 | 2026-11-04 18:11 | 🔥 WILD ORCS vs Holy Trolls | Red wins | https://youtube.com/shorts/0ErLSUQ_yY4 |
 | 2026-11-04 17:56 | The Smaller Army Did WHAT? 😳 | Netherlands wins | https://youtube.com/shorts/Fq7A3RsEuwY |
 | 2026-11-04 17:41 | 3 Armies, Only 1 SURVIVES 💀 | Red wins | https://youtube.com/shorts/TawA1QFFdwc |

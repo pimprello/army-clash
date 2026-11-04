@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 199 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 200 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 199 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **IVOR THE BOLD** (KNIGHT), 17 kills · 2026-11-04 18:24
 - **NYRA FIREBRAND** (KNIGHT), 23 kills · 2026-11-04 16:26
 - **VIPER-8** (MACHINE GUNNER), 15 kills · 2026-11-04 15:56
 - **BRAKK THE UNBROKEN** (CROSSBOWMAN), 10 kills · 2026-11-04 13:55
@@ -47,7 +48,6 @@ Records from 199 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **ZEDRIK THE LUCKY** (FROST WITCH), 10 kills · 2026-11-04 03:22
 - **KORRIN NIGHTFANG** (SIEGE GUNNER), 19 kills · 2026-11-04 01:53
 - **OSKA GRAVEBANE** (WIZARD), 12 kills · 2026-11-03 23:40
-- **PELL BONECRUSHER** (SIEGE GUNNER), 22 kills · 2026-11-03 20:16
 
 ## Titles earned (rarest first)
 
@@ -87,7 +87,7 @@ Records from 199 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - venom: 26
 - spellward: 26
 - swift: 27
-- spikes: 36
+- spikes: 37
 - regen: 43
 
 ## Big moments
