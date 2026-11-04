@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 06:31 | 129 Archers vs 123 Warriors 🏹 | Yellow wins | https://youtube.com/shorts/aun_4EbCoGk |
 | 2026-11-04 06:18 | DREAM TEAM Battle: Mega Bombers vs Void Pikes | Coral wins | https://youtube.com/shorts/2f1V63eWCbI |
 | 2026-11-04 06:02 | 🇨🇦 Canada Soldiers vs USA Knights | Canada wins | https://youtube.com/shorts/r1TvCttxbb0 |
 | 2026-11-04 05:48 | One Bone Colossus Got 12 KILLS 😳 | New zealand wins | https://youtube.com/shorts/ENMoQK7iygA |
