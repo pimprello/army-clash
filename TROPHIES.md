@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 142 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 143 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 142 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **ZEDRIK THE LUCKY** (FROST WITCH), 10 kills · 2026-11-04 03:22
 - **KORRIN NIGHTFANG** (SIEGE GUNNER), 19 kills · 2026-11-04 01:53
 - **OSKA GRAVEBANE** (WIZARD), 12 kills · 2026-11-03 23:40
 - **PELL BONECRUSHER** (SIEGE GUNNER), 22 kills · 2026-11-03 20:16
@@ -47,7 +48,6 @@ Records from 142 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **KAELEN THE BOLD** (WIZARD), 13 kills · 2026-11-03 14:19
 - **GRIM SKULLTAKER** (ORC), 24 kills · 2026-11-03 13:51
 - **ZEDRIK STORMBORN** (WARLOCK), 26 kills · 2026-11-03 13:35
-- **SIRA THE WALL** (WIZARD), 18 kills · 2026-11-03 13:20
 
 ## Titles earned (rarest first)
 
@@ -56,9 +56,9 @@ Records from 142 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - GRAVITY TYRANT SLAYER: 1
 - CATAPULT SLAYER: 1
 - STAR EATER SLAYER: 1
-- EXECUTIONER SLAYER: 1
 - MECH SLAYER: 2
 - WORLDROOT SLAYER: 2
+- EXECUTIONER SLAYER: 2
 - TANK SLAYER: 3
 - FORTRESS SLAYER: 3
 - UNMAKER SLAYER: 3
@@ -87,8 +87,8 @@ Records from 142 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - venom: 19
 - spellward: 20
 - swift: 24
-- spikes: 27
-- regen: 32
+- spikes: 28
+- regen: 33
 
 ## Big moments
 
@@ -102,6 +102,7 @@ Records from 142 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - possess: mammoth: 1
 - copied: giant: 1
 - possess: phoenix: 1
+- extinct: LIME: 1
 - possess: cannon: 2
 - extinct: RED: 2
 - portal: golem: 2

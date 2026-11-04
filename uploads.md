@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 03:22 | An ANCIENT Monster Woke Up 😱 | Lime wins | https://youtube.com/shorts/KHNp2IwX5dI |
 | 2026-11-04 03:06 | 👑 GOBLIN KING vs Empire | Blue wins | https://youtube.com/shorts/b1Umxqbs4PE |
 | 2026-11-04 02:51 | OGRES vs Mammoths vs Rhinos 🔥 | Purple wins | https://youtube.com/shorts/EBVd1VdpHcY |
 | 2026-11-04 02:36 | Moon Caller vs GRIFFIN RIDERS 🦅 | Gold wins | https://youtube.com/shorts/eLzx2kmNpxE |
