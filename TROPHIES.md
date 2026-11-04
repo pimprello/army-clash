@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 204 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 205 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -84,8 +84,8 @@ Records from 204 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 - vampiric: 5
 - wings: 18
-- spellward: 26
 - venom: 27
+- spellward: 27
 - swift: 29
 - spikes: 38
 - regen: 44
@@ -106,10 +106,10 @@ Records from 204 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: SWEDEN: 1
 - extinct: YELLOW: 1
 - extinct: CANADA: 1
-- possess: cannon: 2
 - extinct: RED: 2
 - extinct: ORANGE: 2
 - extinct: GREEN: 2
+- possess: cannon: 3
 - possess: treant: 3
 - portal: golem: 3
 - portal: cyclops: 4
