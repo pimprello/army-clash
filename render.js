@@ -14,6 +14,7 @@ registerFont(path.join(__dirname, 'fonts/BarlowCondensed-Bold.ttf'), { family: '
 const RVB = require('./engine.js');
 const C = require('./creative.js');
 const { makeTitle, nounOf } = require('./titles.js');
+const chronicle = require('./chronicle.js');
 RVB.makeCanvas = (w, h) => createCanvas(w, h);
 
 const FPS = 60, SECS = 60, TOTAL = FPS * SECS, W = 1080, H = 1920, SR = 48000;
@@ -31,6 +32,8 @@ function weighted(list) {
 }
 // Troop line-up: not random. Videos go through rules.matchups in order, one per video,
 // using how many videos are already in uploads.md to know where we are in the list.
+// every posted video so far (videos.jsonl): used for the tribes' history and as the starting size for on-the-spot tuning
+const pastVideos = (() => { try { return fs.readFileSync(path.join(__dirname, 'videos.jsonl'), 'utf8').split('\n').filter(Boolean).map(l => { try { return JSON.parse(l); } catch (e) { return null; } }).filter(Boolean); } catch (e) { return []; } })();
 const posted = fs.existsSync(path.join(__dirname, 'uploads.md'))
   ? (fs.readFileSync(path.join(__dirname, 'uploads.md'), 'utf8').match(/^\| \d{4}-/gm) || []).length : 0;
 const forcedEarly = process.env.MATCHUP !== undefined && process.env.MATCHUP !== '';
@@ -179,9 +182,12 @@ async function main() {
   // battle events (rules.events): supply drops, airstrikes, meteor showers
   const events = Array.isArray(rules.events) && rules.events.length ? rules.events : undefined;
   const systems = rules.systems || {};
+  // living tribes (rules.tribes): each army is made of tribes that earn, trade, forge and follow tactics; their history comes from past videos
+  const tribesOn = rules.tribes && rules.tribes.on;
+  const trbOpts = tribesOn ? { tribes: Object.assign({}, rules.tribes, { history: chronicle.history(pastVideos) }) } : {};
   const cmbOpts = combat ? { combat: { armySize: combat.armySize ?? 0.8, hp: combat.hp ?? 1, moves: combat.moves !== false, fewerBullets: combat.fewerBullets !== false, roster: combat.roster !== false }, mode: mode || undefined, skins, heroes: mode === 'heroes' ? heroTeam : undefined } : {};
   const optsFor = mul => ({ target: SECS, fixedLength: SECS, swordsmen, crossbowmen, map, doctrines, budgetMul: three ? mul : [bm[0], bm[1] * mul], swordsmenByTeam, extras, extrasByTeam, era, formations, events,
-    teams: three ? 3 : 2, dream: !!(wild || custom || three), ...systems, ...cmbOpts });
+    teams: three ? 3 : 2, dream: !!(wild || custom || three), ...systems, ...cmbOpts, ...trbOpts });
   // a creative match-up is new, so balance it now with quick test battles on this map and these formations
   let wildMul = three ? bm.slice(0, 3) : 1, wildRate = null, tuned = null;
   // with intelligent combat on, every 1v1 battle is tuned on the spot with quick test battles (combat changes who is strong),
@@ -191,20 +197,21 @@ async function main() {
   if (combat && !three && mode !== 'mirror' && (combat.balanceSteps ?? 5) > 0) {
     let start = mode === 'heroes' ? ((modeCfg.heroStart || 1) ** (heroTeam ? -1 : 1)) : 1;
     try {
-      const lines = fs.readFileSync(path.join(__dirname, 'videos.jsonl'), 'utf8').trim().split('\n').reverse();
+      const lines = pastVideos.slice().reverse();
       // (videos.jsonl keeps the bottom army's full size; it's turned back into a step on top of this line-up's size here,
       // so a later change to the line-up's combatBalance doesn't throw the start off)
       let near = null;
       const rel = v => (typeof v.balance === 'number' ? v.balance / (balOf(mu) ?? 1) : v.tuned);
       for (const ln of lines) {
-        const v = JSON.parse(ln); if (!balKey || !v.tuned || !v.balKey) continue;
+        const v = ln; if (!balKey || !v.tuned || !v.balKey) continue;
         if (v.balKey === balKey) { near = rel(v); break; }
         // no video of this mode yet: the same line-up in another mode (not a last stand) is the next best start
         if (near === null && mode !== 'heroes' && v.balKey.startsWith(`${sideName(mu.top)}|${sideName(mu.bottom)}|`) && !v.balKey.includes('|heroes')) near = rel(v);
       }
       if (near !== null) start = near;
     } catch (e) { /* no history yet */ }
-    const b = await C.tune(optsFor, { sims: combat.balanceBattles || 16, steps: combat.balanceSteps ?? 5, seed, start, spread: combat.balanceSpread || (mode === 'heroes' ? 2.6 : 2), log: console.log });
+    const b = await C.tune(optsFor, { sims: combat.balanceBattles || 16, steps: combat.balanceSteps ?? 5, seed, start, spread: combat.balanceSpread || (mode === 'heroes' ? 2.6 : 2),
+      maxMs: (combat.balanceSeconds || 90) * 1000, log: console.log });
     wildMul = b.balance; wildRate = b.rate; tuned = b.balance;
     console.log(`Tuned ${balKey || 'creative match-up'}: bottom x${wildMul} on top of its usual size, top won ${(b.rate * 100).toFixed(0)}% of test battles (${((Date.now() - t0) / 1000).toFixed(0)} s)`);
   } else if (combat && three && !invent3) {
@@ -282,6 +289,7 @@ async function main() {
   const clickbait = process.env.CLICKBAIT === '1' || (!forced && cbEvery > 1 && slot % cbEvery === Math.floor(cbEvery / 2));
   const ids = three ? [0, 1, 2] : [0, 1];
   const Fx = game.facts || {};
+  const tf = game.tribeFacts ? game.tribeFacts() : null;
   const skinNames = skins ? ids.map(i => (skins[i] && RVB.SKINS[skins[i]] ? RVB.SKINS[skins[i]].name : null)) : undefined;
   const nationBattle = pair.every(k => NATION[k]);
   const { title, kind: titleKind } = makeTitle({
@@ -289,7 +297,7 @@ async function main() {
     left: ids.map(t => game.alive[t] + game.reserve[t]), gained: ids.map(t => (game.gained && game.gained[t]) || 0), winner: game.winner,
     low: Fx.low, falls: Fx.falls || [], drops: Fx.drops || [], strike: Fx.strike, hazard: Fx.hazard, wild: wild || custom || (three && invent3), three, clickbait, seed,
     xf: game.xf || {}, label: RVB.labelOf, mvp: game.best && game.best[game.winner],
-    mode: game.mode || undefined, heroes: mode === 'heroes' ? heroTeam : undefined, skins: skinNames,
+    mode: game.mode || undefined, heroes: mode === 'heroes' ? heroTeam : undefined, skins: skinNames, tribes: tf,
   });
   const hook = title;
   const MAP_NAME = { open: 'open field', rocks: 'rocky field', ruins: 'ruins', trenches: 'trenches', city: 'city rooftops', forest: 'forest', bombed: 'bombed city', enchanted: 'fantasy land', canyon: 'canyon',
@@ -306,6 +314,14 @@ async function main() {
   const showNames = era === 'wild';
   const sk = i => (skinNames && skinNames[i] ? `${skinNames[i].toLowerCase()} look, ` : '');
   const who = i => `${showNames ? armyName(i) : `${ns[i]} ${armyName(i)}`} (${showNames ? `${C.describeSide(game.doc[i])}, ` : ''}${mode === 'heroes' && heroTeam === i ? 'heroes, ' : ''}${sk(i)}`;
+  // the tribes, in plain words, and the story (it's made up, and the description says so)
+  const tcName = n => n.split(' ').map(w => (['OF', 'THE'].includes(w) ? w.toLowerCase() : w.charAt(0) + w.slice(1).toLowerCase())).join(' ').replace(/^the /, 'the ');
+  const storyText = tf && tf.story ? (() => {
+    let txt = tf.story.text.toLowerCase().replace(/(^|\. )([a-z])/g, (m0, a, b) => a + b.toUpperCase());
+    for (const tb of tf.tribes) txt = txt.split(tb.name.toLowerCase()).join(tcName(tb.name).replace(/^the /, ''));
+    return txt.split(tf.stake.toLowerCase()).join(tcName(tf.stake));
+  })() : '';
+  const tribeLine = tf ? `Tribes: ${ids.map(i => `${tf.tribes.filter(x => x.team === i).map(x => tcName(x.name).replace(/^the /, 'the ').replace(/^./, c => c.toUpperCase())).join(' and ')} (${ns[i]})`).join(' vs ')}. Story (made up for fun): ${storyText} During the battle each tribe earns gold and iron, trades with its sister tribe and forges better weapons and armour.` : '';
   const heavyIn = k => game.doc.some(d => d[k] || (d.heavy || []).includes(k));
   const unique = (list) => [...new Set(list)];
   const meta = {
@@ -315,13 +331,15 @@ async function main() {
       `${ids.map(i => `${EMOJI[pair[i]] || ''} ${who(i)}${three ? '' : `${formations[i]} formation, `}${game.start[i]} units)`).join(' vs ')}. Who wins? Pick your side and tell us in the comments before the end.`,
       '',
       `A 60-second ${three ? 'three-way (1v1v1) ' : ''}${GENRE[era] || ''}battle simulation on the ${MAP_NAME[map] || map} map${showNames ? `, ${ns.join(' vs ')}` : ''}. The outcome comes from the game's rules and chance, not real footage.${game.mode && MODE_LINE[game.mode] ? ' ' + MODE_LINE[game.mode] : ''}`,
+      ...(tribeLine ? ['', tribeLine] : []),
       '',
       'Subscribe for a new battle every day.',
       '',
       `#shorts #${ns.map(n => n.toLowerCase().replace(/ /g, '')).join('vs')} #battlesimulation${three ? ' #1v1v1' : ''}`,
-    ].slice(0, clickbait ? 5 : 7).join('\n'),
+    ].slice(0, clickbait ? (tribeLine ? 7 : 5) : (tribeLine ? 9 : 7)).join('\n'),
     tags: clickbait ? [] : unique([ns.map(n => n.toLowerCase()).join(' vs '), 'army battle', 'battle simulation', 'army simulation', 'who wins', 'army clash', ids.map(i => (showNames ? armyName(i) : `${ns[i]} ${armyName(i)}`).toLowerCase()).join(' vs '), 'shorts']
       .concat(three ? ['1v1v1', 'three way battle'] : [])
+      .concat(tf ? ['tribes', 'war economy'] : [])
       .concat({ king: ['protect the king'], duel: ['champion duel', '1v1 duel'], heroes: ['last stand', 'heroes vs army'], mirror: ['mirror match'], hill: ['king of the hill'] }[game.mode] || [])
       .concat({ modern: ['modern warfare'], fantasy: ['fantasy battle', 'dragon'], mixed: ['old vs new', 'swords vs guns'], scifi: ['sci fi battle', 'robots', 'lasers'], pirate: ['pirate battle', 'pirates'],
         horror: ['zombie battle', 'zombies'], samurai: ['samurai battle', 'ninja'], wild: wild || custom || three ? ['dream team', 'crazy matchup'] : ['crossover battle', 'crazy matchup'] }[era] || [])
@@ -343,6 +361,12 @@ async function main() {
     combat: combat ? true : undefined,
     balKey: balKey || undefined,
     tuned: tuned ?? undefined,
+    winTeam: game.winner,
+    tribes: tf ? tf.tribes.map(x => ({ name: x.name, team: x.team, kills: x.kills, wt: x.wt, at: x.at })) : undefined,
+    story: tf && tf.story ? tf.story.kind : undefined,
+    storyText: storyText || undefined,
+    chron: tf ? tf.chron : undefined,
+    economy: tf ? { forges: tf.forges, trades: tf.trades, merchant: tf.merchant ? tf.merchant.name : undefined } : undefined,
     cinematic,
     hook,
     clickbait: clickbait || undefined,

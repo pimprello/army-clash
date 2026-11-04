@@ -2,6 +2,38 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-04 (later): living tribes, with a story, trading and the forge
+
+Rellz asked for smart troops that form tribes, with a backstory, a trading system and a way to build up and upgrade their weapons. All of it is on from the next video (`rules.tribes`; everything is explained in RULES.md).
+
+- **Tribes:** every army is now two tribes (three-way armies are one each), taken from a fixed pool of 112 invented tribes (16 per genre: the *Iron Boar Clan*, the *Coven of Ash*, the *Viper Company*, the *Helix Cohort*, the *Saltfang Crew*, the *House of the Red Crane* and the rest), each with its own emblem and a trait (smiths, traders, hunters, miners, zealots or stoneskin). The same tribes come back video after video. Each tribe has a **chief** carrying its banner; when a chief falls, the tribe panics for a moment.
+- **A story every battle:**
+  - two lines typed out under the battle timer at the start, and in the description (marked "made up for fun");
+  - built from what really happened in earlier videos: revenge for a past defeat, a winning streak, a tribe that has never won. Otherwise it's a raid, an oath or a first battle, always over something on the map (the mountain pass, the treasure cove, the sky-temple relic...).
+  - Rival tribes have a **blood feud**. The ending says who took the prize: "THE IRON BOAR CLAN TAKE THE MOUNTAIN PASS · REVENGE! · 31 KILLS".
+- **Gold, iron and the forge:**
+  - kills earn gold, and losses earn a little too, so a side that's behind can still come back;
+  - each tribe's camp (drawn behind its lines) digs iron;
+  - tribes buy better weapons when they're winning their fights and better armour when they're taking a beating, three tiers each with names that fit the genre (iron, steel and runic blades; hollow-point, armour-piercing and incendiary rounds; Mk II, Mk III and plasma weapons; Kevlar, ceramic and titanium...);
+  - troops show it: a glint at the weapon in the tier's colour, a metal arc on the shoulders and forge sparks.
+- **Trading:** when a tribe is short of iron or gold and its sister tribe has some to spare, a little cart carries the goods along the back line. Most battles have one to three trades.
+- **The merchant:** about 40% of the way in, a merchant's wagon arrives. Each army's richest tribe can buy a Rune of Fury (top-tier weapons), Sellswords (four hired swordsmen) or a War Horn. The side that's behind gets 30% off.
+- **Smart tactics:**
+  - every tribe picks a tactic from what it is and what's happening: shield wall, flank, focus fire (with a reticle on the shared target), hold the line, protect the chief, surround a big enemy, charge;
+  - badly hurt troops fall back to a healer or their chief once;
+  - each new tactic shows as a tag with the tribe's emblem.
+- **The war council panel:** in the empty space under the battle timer, one row per tribe (emblem, name, tactic, gold, iron, weapon and armour tiers, trait) and the last two things that happened.
+- **The chronicle:** `TROPHIES.md` now has a tribes' chronicle: standings, great rivalries and the latest results. Tribe stories and merchant items are also added to the view stats, so the autopilot can learn which ones get watched.
+- **Layout check (new):** `node check-layout.js` draws the roster card, the story, the panel and the outro line for all 113 line-ups, the three-way line-ups and invented match-ups. It fails if anything overlaps, has to be squashed, is under 18 px on the panel, or leaves its space. It found and fixed two problems before anything went out (pips running out of the narrow three-way rows, and long tribe names squashed there). The autopilot now has to run it after any overlay change.
+- **Tested:**
+  - with tribes off, battles play out exactly as before, with or without combat;
+  - test battles in every mode and on obstacle maps: no errors, most fights 40 to 50 seconds, two to four upgrades per tribe, a top-tier weapon in about half the battles, and the merchant sells something in almost every battle;
+  - stills of the story, the panel (two and three armies), chief banners, camps, carts, the merchant and the outro line;
+  - revenge and streak stories from a made-up history;
+  - a full 60-second render took 4 minutes on a 2-core machine, including the tuning.
+- **Faster tuning:** the first video with combat on spent 2.5 minutes tuning on GitHub, so tuning now uses 12 test battles a step, stops once it's close to even, and never takes more than 80 seconds.
+- Videos already posted don't change. No preview videos were made.
+
 ## 2026-11-04: intelligent combat, battle modes, skins, eight new maps, ten new colours
 
 Rellz asked for 20% fewer troops, cool fight moves instead of so many bullets, troops with different weapons and abilities, and to make it easy to see how each one is different; and for more maps, colours, match-ups, skins and battle modes. All of it is on from the next video (`rules.combat`, `rules.modes`, `rules.skins`; see RULES.md).

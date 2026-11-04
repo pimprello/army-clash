@@ -171,17 +171,19 @@ async function balance(optsFor, { sims = 8, steps = 6, seed = 1, lo = 0.35, hi =
 
 // Tune the bottom army's size (a multiplier, starting from `start`) with quick test battles until the top side's score is about even.
 // Steers by the smooth score (half the win rate, half the share of strength left) and searches between start/spread and start*spread.
-async function tune(optsFor, { sims = 16, steps = 5, seed = 1, start = 1, spread = 2, threads, log } = {}) {
-  const runner = makeRunner(threads);
+// It stops early once the score is within `close` of even, or when `maxMs` milliseconds have gone (so a video never waits too long).
+async function tune(optsFor, { sims = 16, steps = 5, seed = 1, start = 1, spread = 2, close = 0.04, maxMs = Infinity, threads, log } = {}) {
+  const runner = makeRunner(threads), t0 = Date.now();
   try {
     const seeds = Array.from({ length: sims }, (_, i) => (((seed >>> 0) * 2654435761 + i * 40503 + 29) >>> 0) || 1);
     let lo = start / spread, hi = start * spread, mul = start, best = null;
     for (let s = 0; s < steps; s++) {
+      if (best && Date.now() - t0 > maxMs) { if (log) log(`  (stopped after ${((Date.now() - t0) / 1000).toFixed(0)} s)`); break; }
       const { rate, score } = await runner.topScore(optsFor(mul), seeds);
       const err = Math.abs(score - 0.5) * 1.5 + Math.abs(rate - 0.5) * 0.5;
       if (!best || err < best.err) best = { mul, rate, score, err };
       if (log) log(`  step ${s + 1}: bottom x${mul.toFixed(3)} -> top wins ${(rate * 100).toFixed(0)}%, score ${(score * 100).toFixed(0)}%`);
-      if (Math.abs(score - 0.5) < 0.02) break;
+      if (Math.abs(score - 0.5) < close) break;
       if (score > 0.5) lo = mul; else hi = mul;
       mul = Math.sqrt(lo * hi);
     }

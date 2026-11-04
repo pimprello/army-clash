@@ -100,6 +100,17 @@ function makeTitle(f) {
   if (f.strike === w) facts.push('One AIRSTRIKE Changed Everything ✈️');
   const HAZ = { tornado: 'A TORNADO Hit Mid-Battle 🌪️', earthquake: 'Then the Ground SPLIT Open 😱', blizzard: 'A BLIZZARD Froze the Battle ❄️', meteors: 'METEORS Hit Mid-Battle ☄️', lightning: 'LIGHTNING Struck the Battlefield ⚡', cannonballs: 'Cannonballs RAINED Down 💣', stampede: 'A STAMPEDE Hit Mid-Battle 🦣', kraken: 'The KRAKEN Woke Up 🐙' };
   if (HAZ[f.hazard]) facts.push(HAZ[f.hazard]);
+  // living tribes: only what really happened (the lead tribe is the winning army's tribe with the most kills)
+  const tr = f.tribes && f.tribes.lead ? f.tribes : null;
+  if (tr) {
+    const L0 = tr.lead, nm = L0.name.replace(/^THE /, '').split(' ').map(x => (['OF', 'THE'].includes(x) ? x.toLowerCase() : x.charAt(0) + x.slice(1).toLowerCase())).join(' ');
+    if (L0.revenge) facts.push(`The ${nm} Got REVENGE ⚔️`);
+    if (L0.firstWin) facts.push(`FIRST Ever Win for the ${nm} 🏆`);
+    else if (L0.streak >= 3) facts.push(`${L0.streak} Wins in a ROW for the ${nm} 🔥`);
+    if (L0.weapon) { const [a, ...b] = L0.weapon.split(' '); facts.push(`They ${{ modern: 'Got', scifi: 'Built' }[L0.set] || 'Forged'} ${a} ${b.map(x => x.charAt(0) + x.slice(1).toLowerCase()).join(' ')} and WON 🔥`); }
+    if (tr.merchant && tr.merchant.team === w) facts.push(`The Merchant Sold Them ${tr.merchant.name.split(' ').map(x => (x === 'OF' ? 'of' : x.charAt(0) + x.slice(1).toLowerCase())).join(' ')} 💰`);
+    if (L0.chiefLost) facts.push('They Lost Their CHIEF and Still Won 😳');
+  }
   // battle modes: only what really happened
   if (f.mode === 'king' && x.kingTeam !== undefined && x.kingTeam !== w) facts.push('They Killed the KING 👑', 'The KING Fell and They RAN 👑');
   if (f.mode === 'duel' && x.duelTeam !== undefined) facts.push(x.duelTeam === w ? 'The DUEL Decided Everything ⚔️' : 'They LOST the Duel but WON the War ⚔️');

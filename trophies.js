@@ -36,7 +36,8 @@ function build(rows) {
   out.push('', '## Big moments', '');
   const mo = count('moments'); if (!mo.length) out.push('Nothing yet.');
   for (const [k, n] of mo) out.push(`- ${k.replace(':', ': ')}: ${n}`);
-  return out.join('\n') + '\n';
+  // the tribes' chronicle (records, rivalries and the latest stories), kept here because the upload step already commits this file
+  return out.join('\n') + '\n' + require('./chronicle.js').section(rows);
 }
 
 function write(dir) {

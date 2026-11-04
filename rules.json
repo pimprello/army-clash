@@ -1738,10 +1738,11 @@
     "fewerBullets": true,
     "roster": true,
     "creativeMelee": 0.75,
-    "balanceBattles": 16,
+    "balanceBattles": 12,
     "balanceSteps": 5,
     "balanceSpread": 2.5,
-    "balanceRounds3": 4
+    "balanceRounds3": 4,
+    "balanceSeconds": 80
   },
   "modes": {
     "shares": {
@@ -1766,5 +1767,23 @@
       "toxic",
       "gold"
     ]
+  },
+  "tribes": {
+    "on": true,
+    "perArmy": 2,
+    "economy": true,
+    "trading": true,
+    "merchant": true,
+    "tactics": true,
+    "story": true,
+    "chronicle": true,
+    "killGold": 1.2,
+    "lossGold": 0.4,
+    "ironEvery": 1.6,
+    "forgeGold": 11,
+    "forgeIron": 5,
+    "ironPrice": 2.5,
+    "tradeGap": 12,
+    "feudChance": 0.5
   }
 }
