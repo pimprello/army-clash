@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 198 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 199 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -87,7 +87,7 @@ Records from 198 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - venom: 26
 - spellward: 26
 - swift: 27
-- spikes: 35
+- spikes: 36
 - regen: 43
 
 ## Big moments
@@ -115,7 +115,7 @@ Records from 198 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: cyclops: 4
 - portal: troll: 4
 - fusion: 5
-- sudden: lava: 5
+- sudden: lava: 6
 - portal: demon: 7
 - sudden: ring: 8
 - sudden: boss: 11
