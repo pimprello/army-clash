@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-04 01:08 | 🌩️ STORM EMPEROR vs Dragon Army | Purple wins | https://youtube.com/shorts/hV9XSn7sBlY |
 | 2026-11-04 00:53 | The War Mammoth Went DOWN 💀 | Green wins | https://youtube.com/shorts/KL2sX2gBtcU |
 | 2026-11-04 00:40 | Undead Legion vs a Walking CATHEDRAL ⛪ | Gold wins | https://youtube.com/shorts/wiD6z77XcJg |
 | 2026-11-04 00:24 | DREAM TEAM Battle: Ghost Hollows vs Lunar Muskets | Blue wins | https://youtube.com/shorts/2RXqU0NQV6c |
