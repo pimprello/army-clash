@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 249 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 250 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -85,7 +85,7 @@ Records from 249 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 5
 - wings: 19
 - spellward: 32
-- venom: 34
+- venom: 35
 - swift: 35
 - spikes: 43
 - regen: 52
@@ -122,13 +122,13 @@ Records from 249 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: troll: 5
 - portal: demon: 8
 - sudden: ring: 9
-- sudden: lava: 11
+- sudden: lava: 12
 - sudden: boss: 13
 - sudden: meteors: 17
 
 ## The tribes' chronicle
 
-74 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+75 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
@@ -161,6 +161,7 @@ Records from 249 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 07:43: The Bilgewater Crew Take the Ruined Fort (first battle, first win · 40 kills)
 - 2026-11-05 07:28: The Crooked Spire Take the Open Plains (first ever win · 72 kills)
 - 2026-11-05 07:13: The Black Bear Clan Take the Sky-temple Relic (streak ended · 3rd win · 33 kills)
 - 2026-11-05 07:01: The Thunder Gate School Take the Bombed City (streak ended · first battle, first win · 45 kills)
@@ -170,4 +171,3 @@ Records from 249 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 05:59: The Oakshield Clan Take the Trench Line (first ever win · 8 kills)
 - 2026-11-05 05:44: The Thunder Platoon Take the Treasure Cove (revenge denied · 2nd win · 39 kills)
 - 2026-11-05 05:30: The Thunder Platoon Take the Open Plains (first battle, first win · 55 kills)
-- 2026-11-05 05:14: The Gloomcap Circle Take the Crystal Grove (first battle, first win · 18 kills)

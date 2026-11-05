@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-05 07:43 | 👑 Protect the KING: France vs UK | France wins | https://youtube.com/shorts/4VbkyW1jJxc |
 | 2026-11-05 07:28 | STORM BOARS vs Neon Raiders vs Glitch Blades 🔥 | Magenta wins | https://youtube.com/shorts/v7m-cFwMqZg |
 | 2026-11-05 07:13 | METEORS Hit Mid-Battle ☄️ | Pink wins | https://youtube.com/shorts/RmIDsyiUxIA |
 | 2026-11-05 07:01 | 🇬🇧 UK vs USA: WHO WINS? | Usa wins | https://youtube.com/shorts/Sk7tdm2NZiw |
