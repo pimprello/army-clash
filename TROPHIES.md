@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 225 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 226 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -125,7 +125,7 @@ Records from 225 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-41 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+43 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
@@ -135,13 +135,13 @@ Records from 225 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Storm Tower Order | 2 | 1 | 1 | 127 | 1 lost | 1 |
 | Wildbrook Clan | 2 | 1 | 1 | 117 | 1 won | 1 |
 | Stormhorn Tribe | 1 | 1 | 0 | 91 | 1 won | 1 |
-| Stonewall Company | 3 | 1 | 2 | 69 | 2 lost | 1 |
+| Stonewall Company | 4 | 1 | 2 | 90 | 2 lost | 1 |
+| Duskwing Tribe | 2 | 1 | 0 | 76 | 1 won | 1 |
 | Viper Company | 1 | 1 | 0 | 68 | 1 won | 1 |
 | Highmoor Clan | 1 | 1 | 0 | 66 | 1 won | 1 |
 | The Black Candle | 1 | 1 | 0 | 43 | 1 won | 1 |
 | Raven Hill Clan | 1 | 1 | 0 | 42 | 1 won | 1 |
 | Vortex Legion | 1 | 1 | 0 | 42 | 1 won | 1 |
-| Duskwing Tribe | 1 | 1 | 0 | 39 | 1 won | 1 |
 | Black Bear Clan | 1 | 1 | 0 | 39 | 1 won | 1 |
 | Thornwood Company | 1 | 1 | 0 | 31 | 1 won | 1 |
 | Zenith Cohort | 1 | 1 | 0 | 30 | 1 won | 1 |
@@ -156,6 +156,7 @@ Records from 225 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 01:35: Nobody Takes the World Furnace (the feud goes on)
 - 2026-11-05 01:25: The Orbit Legion Take the Open Plains (2nd win · 38 kills)
 - 2026-11-05 01:08: The Viper Company Take the Quarry (first battle, first win · 68 kills)
 - 2026-11-05 00:54: The Highmoor Clan Take the Clockwork Arena (first battle, first win · 66 kills)
@@ -165,4 +166,3 @@ Records from 225 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-04 23:56: The Black Candle Take the Frozen End (first battle, first win · 43 kills)
 - 2026-11-04 23:39: The Stormhorn Tribe Take the Old Forest (first battle, first win · 91 kills)
 - 2026-11-04 23:24: The Stonewall Company Take the Open Plains (first battle, first win · 20 kills)
-- 2026-11-04 23:10: The Vortex Legion Take the Reactor (first battle, first win · 42 kills)
