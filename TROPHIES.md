@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 262 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 263 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -56,13 +56,13 @@ Records from 262 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - THOUSAND-MAN SLAYER: 3
 - GRAVITY TYRANT SLAYER: 3
 - WORLDROOT SLAYER: 3
-- MIRROR KING SLAYER: 4
 - FORTRESS SLAYER: 4
-- UNMAKER SLAYER: 4
 - CYCLOPS SLAYER: 4
 - STAR EATER SLAYER: 4
 - EXECUTIONER SLAYER: 4
+- MIRROR KING SLAYER: 5
 - CATHEDRAL SLAYER: 5
+- UNMAKER SLAYER: 5
 - HELICOPTER SLAYER: 5
 - PHOENIX SLAYER: 5
 - STORM EMPEROR SLAYER: 5
@@ -78,7 +78,7 @@ Records from 262 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - GOLEM SLAYER: 10
 - GIANT SLAYER: 15
 - DRAGON SLAYER: 16
-- TITAN SLAYER: 21
+- TITAN SLAYER: 22
 
 ## Mutations (rarest first)
 
@@ -123,8 +123,8 @@ Records from 262 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: troll: 5
 - portal: demon: 9
 - sudden: ring: 9
-- sudden: boss: 13
 - sudden: lava: 13
+- sudden: boss: 14
 - sudden: meteors: 17
 
 ## The tribes' chronicle
@@ -139,7 +139,7 @@ Records from 262 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Mossback Tribe | 5 | 3 | 2 | 184 | 1 lost | 3 |
 | Black Bear Clan | 4 | 3 | 1 | 119 | 1 won | 2 |
 | Oakshield Clan | 5 | 3 | 2 | 116 | 3 won | 3 |
-| Gloomcap Circle | 3 | 3 | 0 | 52 | 3 won | 3 |
+| Gloomcap Circle | 4 | 3 | 1 | 67 | 1 lost | 3 |
 | Nova Legion | 3 | 2 | 1 | 268 | 1 lost | 2 |
 | Ashmantle Kin | 2 | 2 | 0 | 194 | 2 won | 2 |
 | Order of the Silver Stag | 5 | 2 | 3 | 184 | 2 won | 2 |
@@ -149,10 +149,10 @@ Records from 262 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Stonewall Company | 5 | 2 | 2 | 129 | 1 won | 1 |
 | Wolverine Company | 2 | 2 | 0 | 108 | 2 won | 2 |
 | Thunder Platoon | 2 | 2 | 0 | 94 | 2 won | 2 |
+| Cinderclaw Kin | 2 | 2 | 0 | 88 | 2 won | 2 |
 | Brightwater Tribe | 5 | 2 | 3 | 76 | 1 lost | 1 |
 | Orbit Legion | 2 | 2 | 0 | 73 | 2 won | 2 |
-| Golden Lion Order | 2 | 2 | 0 | 61 | 2 won | 2 |
-| Granite Battalion | 3 | 2 | 1 | 53 | 2 won | 2 |
+| Thornwood Company | 4 | 2 | 2 | 67 | 1 won | 1 |
 
 ### Great rivalries
 
@@ -160,11 +160,13 @@ Records from 262 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **Brightwater Tribe vs Glimmerdeep Kin**: met 2 times
 - **Greyfang Clan vs Order of the Silver Stag**: met 2 times, last won by Order of the Silver Stag
 - **Thunder Platoon vs Viper Company**: met 2 times, last won by Thunder Platoon
+- **Granite Battalion vs Thornwood Company**: met 2 times, last won by Thornwood Company
 - **Oakshield Clan vs Stonebridge Company**: met 2 times, last won by Oakshield Clan
 - **Ash Wolf Clan vs Oakshield Clan**: met 2 times, last won by Oakshield Clan
 
 ### Latest from the battlefield
 
+- 2026-11-05 10:56: The Thornwood Company Take the Mountain Pass (revenge! · 2nd win · 25 kills)
 - 2026-11-05 10:40: The Stonewall Company Take the City (2nd win · 39 kills)
 - 2026-11-05 10:25: The Cinderclaw Kin Take the Open Plains (first battle, first win · 67 kills)
 - 2026-11-05 10:10: The Granite Battalion Take the Sky-temple Relic (2nd win · 22 kills)
@@ -174,4 +176,3 @@ Records from 262 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 09:13: The Stormhorn Tribe Take the Desert Well (3 wins in a row · 78 kills)
 - 2026-11-05 08:55: The Stone River School Take the Overgrown Throne (first battle, first win · 156 kills)
 - 2026-11-05 08:41: The Red Hawk Company Take the Desert Well (streak ended · 3 wins in a row · 63 kills)
-- 2026-11-05 08:26: The Stormhorn Tribe Take the Open Plains (2nd win · 43 kills)
