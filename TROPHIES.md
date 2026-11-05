@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 263 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 264 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 263 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **GRUNDA STEELHEART** (WIZARD), 22 kills · 2026-11-05 11:08
 - **BRAMBLE THE MAD** (STORM CALLER), 16 kills · 2026-11-05 09:26
 - **OSKA THE MAD** (WIZARD), 11 kills · 2026-11-05 09:13
 - **ZEDRIK BONECRUSHER** (PHASE REAPER), 14 kills · 2026-11-05 07:01
@@ -47,7 +48,6 @@ Records from 263 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **NYRA THE WALL** (WIZARD), 11 kills · 2026-11-04 18:55
 - **ZERO-3** (MACHINE GUNNER), 12 kills · 2026-11-04 18:40
 - **IVOR THE BOLD** (KNIGHT), 17 kills · 2026-11-04 18:24
-- **NYRA FIREBRAND** (KNIGHT), 23 kills · 2026-11-04 16:26
 
 ## Titles earned (rarest first)
 
@@ -85,8 +85,8 @@ Records from 263 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 6
 - wings: 19
 - spellward: 33
-- swift: 35
-- venom: 36
+- swift: 36
+- venom: 37
 - spikes: 45
 - regen: 53
 
@@ -133,12 +133,13 @@ Records from 263 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
+| Mossback Tribe | 6 | 4 | 2 | 261 | 1 won | 3 |
 | Red Hawk Company | 4 | 4 | 0 | 193 | 4 won | 4 |
 | Storm Tower Order | 7 | 3 | 4 | 303 | 2 lost | 1 |
 | Stormhorn Tribe | 3 | 3 | 0 | 212 | 3 won | 3 |
-| Mossback Tribe | 5 | 3 | 2 | 184 | 1 lost | 3 |
 | Black Bear Clan | 4 | 3 | 1 | 119 | 1 won | 2 |
 | Oakshield Clan | 5 | 3 | 2 | 116 | 3 won | 3 |
+| Cinderclaw Kin | 3 | 3 | 0 | 95 | 3 won | 3 |
 | Gloomcap Circle | 4 | 3 | 1 | 67 | 1 lost | 3 |
 | Nova Legion | 3 | 2 | 1 | 268 | 1 lost | 2 |
 | Ashmantle Kin | 2 | 2 | 0 | 194 | 2 won | 2 |
@@ -147,9 +148,8 @@ Records from 263 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Iron Boar Clan | 2 | 2 | 0 | 154 | 2 won | 2 |
 | Greyfang Clan | 5 | 2 | 3 | 143 | 2 lost | 2 |
 | Stonewall Company | 5 | 2 | 2 | 129 | 1 won | 1 |
-| Wolverine Company | 2 | 2 | 0 | 108 | 2 won | 2 |
+| Wolverine Company | 3 | 2 | 1 | 124 | 1 lost | 2 |
 | Thunder Platoon | 2 | 2 | 0 | 94 | 2 won | 2 |
-| Cinderclaw Kin | 2 | 2 | 0 | 88 | 2 won | 2 |
 | Brightwater Tribe | 5 | 2 | 3 | 76 | 1 lost | 1 |
 | Orbit Legion | 2 | 2 | 0 | 73 | 2 won | 2 |
 | Thornwood Company | 4 | 2 | 2 | 67 | 1 won | 1 |
@@ -166,6 +166,7 @@ Records from 263 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 11:08: The Mossback Tribe Take the Ruined Fort (4th win · 77 kills)
 - 2026-11-05 10:56: The Thornwood Company Take the Mountain Pass (revenge! · 2nd win · 25 kills)
 - 2026-11-05 10:40: The Stonewall Company Take the City (2nd win · 39 kills)
 - 2026-11-05 10:25: The Cinderclaw Kin Take the Open Plains (first battle, first win · 67 kills)
@@ -175,4 +176,3 @@ Records from 263 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 09:26: The Red Hawk Company Take the Open Plains (4 wins in a row · 93 kills)
 - 2026-11-05 09:13: The Stormhorn Tribe Take the Desert Well (3 wins in a row · 78 kills)
 - 2026-11-05 08:55: The Stone River School Take the Overgrown Throne (first battle, first win · 156 kills)
-- 2026-11-05 08:41: The Red Hawk Company Take the Desert Well (streak ended · 3 wins in a row · 63 kills)
