@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 275 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 276 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -116,7 +116,7 @@ Records from 275 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - possess: rhino: 2
 - extinct: PURPLE: 2
 - possess: cannon: 3
-- possess: treant: 3
+- possess: treant: 4
 - portal: cyclops: 4
 - portal: golem: 4
 - portal: wolfrider: 4
@@ -134,14 +134,14 @@ Records from 275 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
+| Mossback Tribe | 7 | 5 | 2 | 314 | 2 won | 3 |
 | Red Hawk Company | 5 | 5 | 0 | 238 | 5 won | 5 |
-| Mossback Tribe | 6 | 4 | 2 | 261 | 1 won | 3 |
+| Gloomcap Circle | 6 | 4 | 2 | 121 | 1 won | 3 |
 | Order of the Silver Stag | 7 | 3 | 4 | 328 | 1 lost | 3 |
 | Storm Tower Order | 8 | 3 | 5 | 314 | 3 lost | 1 |
 | Stormhorn Tribe | 3 | 3 | 0 | 212 | 3 won | 3 |
 | Black Bear Clan | 4 | 3 | 1 | 119 | 1 won | 2 |
 | Oakshield Clan | 5 | 3 | 2 | 116 | 3 won | 3 |
-| Gloomcap Circle | 5 | 3 | 2 | 115 | 2 lost | 3 |
 | Cinderclaw Kin | 4 | 3 | 1 | 100 | 1 lost | 3 |
 | The Pale Procession | 3 | 3 | 0 | 91 | 3 won | 3 |
 | Thornwood Company | 5 | 3 | 2 | 87 | 2 won | 2 |
@@ -163,11 +163,12 @@ Records from 275 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **Greyfang Clan vs Order of the Silver Stag**: met 2 times, last won by Order of the Silver Stag
 - **Thunder Platoon vs Viper Company**: met 2 times, last won by Thunder Platoon
 - **Granite Battalion vs Thornwood Company**: met 2 times, last won by Thornwood Company
+- **Glimmerdeep Kin vs Mossback Tribe**: met 2 times, last won by Mossback Tribe
 - **Oakshield Clan vs Stonebridge Company**: met 2 times, last won by Oakshield Clan
-- **Ash Wolf Clan vs Oakshield Clan**: met 2 times, last won by Oakshield Clan
 
 ### Latest from the battlefield
 
+- 2026-11-05 14:04: The Mossback Tribe Take the Clockwork Arena (revenge denied · 5th win · 53 kills)
 - 2026-11-05 13:51: The Duskwing Tribe Take the Trench Line (streak ended · 2nd win · 85 kills)
 - 2026-11-05 13:36: The Rotting Choir Take the Neon District (streak ended · first battle, first win · 30 kills)
 - 2026-11-05 13:20: The Silverbough Circle Take the Canyon Pass (first ever win · 17 kills)
@@ -177,4 +178,3 @@ Records from 275 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 12:23: The Iron Lotus School Take the Canyon Pass (first ever win · 163 kills)
 - 2026-11-05 12:08: The Mountain Wind School Take the City (first battle, first win · 101 kills)
 - 2026-11-05 11:52: The Order of the Silver Stag Take the Sky-temple Relic (3 wins in a row · 18 kills)
-- 2026-11-05 11:39: The Pale Procession Take the Sky Islands (2nd win · 39 kills)
