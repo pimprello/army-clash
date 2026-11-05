@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 273 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 274 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -85,10 +85,10 @@ Records from 273 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 6
 - wings: 21
 - spellward: 33
-- swift: 38
-- venom: 39
+- swift: 39
+- venom: 40
 - spikes: 47
-- regen: 55
+- regen: 56
 
 ## Big moments
 
@@ -120,29 +120,30 @@ Records from 273 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: cyclops: 4
 - portal: golem: 4
 - portal: wolfrider: 4
-- fusion: 5
+- fusion: 6
 - portal: troll: 6
 - portal: demon: 9
 - sudden: ring: 9
-- sudden: lava: 13
 - sudden: boss: 14
+- sudden: lava: 14
 - sudden: meteors: 17
 
 ## The tribes' chronicle
 
-95 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+96 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Red Hawk Company | 5 | 5 | 0 | 238 | 5 won | 5 |
 | Mossback Tribe | 6 | 4 | 2 | 261 | 1 won | 3 |
+| Order of the Silver Stag | 7 | 3 | 4 | 328 | 1 lost | 3 |
 | Storm Tower Order | 8 | 3 | 5 | 314 | 3 lost | 1 |
 | Stormhorn Tribe | 3 | 3 | 0 | 212 | 3 won | 3 |
-| Order of the Silver Stag | 6 | 3 | 3 | 202 | 3 won | 3 |
 | Black Bear Clan | 4 | 3 | 1 | 119 | 1 won | 2 |
 | Oakshield Clan | 5 | 3 | 2 | 116 | 3 won | 3 |
 | Gloomcap Circle | 5 | 3 | 2 | 115 | 2 lost | 3 |
 | Cinderclaw Kin | 4 | 3 | 1 | 100 | 1 lost | 3 |
+| The Pale Procession | 3 | 3 | 0 | 91 | 3 won | 3 |
 | Thornwood Company | 5 | 3 | 2 | 87 | 2 won | 2 |
 | Bone Garden Coven | 3 | 3 | 0 | 49 | 3 won | 3 |
 | Nova Legion | 3 | 2 | 1 | 268 | 1 lost | 2 |
@@ -153,7 +154,6 @@ Records from 273 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Greyfang Clan | 5 | 2 | 3 | 143 | 2 lost | 2 |
 | Stonewall Company | 5 | 2 | 2 | 129 | 1 won | 1 |
 | Wolverine Company | 3 | 2 | 1 | 124 | 1 lost | 2 |
-| Thunder Platoon | 2 | 2 | 0 | 94 | 2 won | 2 |
 
 ### Great rivalries
 
@@ -168,6 +168,7 @@ Records from 273 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 13:36: The Rotting Choir Take the Neon District (streak ended · first battle, first win · 30 kills)
 - 2026-11-05 13:20: The Silverbough Circle Take the Canyon Pass (first ever win · 17 kills)
 - 2026-11-05 13:08: The Red Hawk Company Take the Crystal Grove (revenge denied · 5 wins in a row · 45 kills)
 - 2026-11-05 12:50: The Thornheart Circle Take the Open Plains (first battle, first win · 34 kills)
@@ -177,4 +178,3 @@ Records from 273 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 11:52: The Order of the Silver Stag Take the Sky-temple Relic (3 wins in a row · 18 kills)
 - 2026-11-05 11:39: The Pale Procession Take the Sky Islands (2nd win · 39 kills)
 - 2026-11-05 11:22: The Crooked Spire Take the Open Plains (2nd win · 42 kills)
-- 2026-11-05 11:08: The Mossback Tribe Take the Ruined Fort (4th win · 77 kills)

@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-05 13:36 | Undead Legion vs EMPIRE 👑 | Cyan wins | https://youtube.com/shorts/OasEMYYFlsQ |
 | 2026-11-05 13:20 | FIRST Ever Win for the Silverbough Circle 🏆 | Cyan wins | https://youtube.com/shorts/b2saZtqd4cA |
 | 2026-11-05 13:08 | Empire vs ORC HORDE 👹 | Blue wins | https://youtube.com/shorts/Ep85OrlVONU |
 | 2026-11-05 12:50 | The War Mammoth Went DOWN 💀 | Sweden wins | https://youtube.com/shorts/_WjG65wA_EU |
