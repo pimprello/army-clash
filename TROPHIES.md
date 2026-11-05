@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 274 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 275 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 274 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **GRUNDA STORMBORN** (ROYAL GUARD), 20 kills · 2026-11-05 13:51
 - **ASHKA THE SWIFT** (SAMURAI), 12 kills · 2026-11-05 12:23
 - **GRUNDA STEELHEART** (WIZARD), 22 kills · 2026-11-05 11:08
 - **BRAMBLE THE MAD** (STORM CALLER), 16 kills · 2026-11-05 09:26
@@ -47,7 +48,6 @@ Records from 274 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **GHOST-4** (LASER TROOPER), 24 kills · 2026-11-05 00:26
 - **ORLOK THE WALL** (WARLOCK), 15 kills · 2026-11-04 21:28
 - **NYRA THE WALL** (WIZARD), 11 kills · 2026-11-04 18:55
-- **ZERO-3** (MACHINE GUNNER), 12 kills · 2026-11-04 18:40
 
 ## Titles earned (rarest first)
 
@@ -85,9 +85,9 @@ Records from 274 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 6
 - wings: 21
 - spellward: 33
-- swift: 39
-- venom: 40
-- spikes: 47
+- swift: 40
+- venom: 41
+- spikes: 48
 - regen: 56
 
 ## Big moments
@@ -145,15 +145,15 @@ Records from 274 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Cinderclaw Kin | 4 | 3 | 1 | 100 | 1 lost | 3 |
 | The Pale Procession | 3 | 3 | 0 | 91 | 3 won | 3 |
 | Thornwood Company | 5 | 3 | 2 | 87 | 2 won | 2 |
-| Bone Garden Coven | 3 | 3 | 0 | 49 | 3 won | 3 |
+| Bone Garden Coven | 4 | 3 | 1 | 51 | 1 lost | 3 |
 | Nova Legion | 3 | 2 | 1 | 268 | 1 lost | 2 |
+| Wildbrook Clan | 6 | 2 | 4 | 267 | 1 won | 1 |
 | Ashmantle Kin | 2 | 2 | 0 | 194 | 2 won | 2 |
+| Duskwing Tribe | 5 | 2 | 2 | 182 | 1 won | 1 |
 | The Crooked Spire | 4 | 2 | 2 | 171 | 2 won | 2 |
 | Iron Boar Clan | 3 | 2 | 1 | 167 | 1 lost | 2 |
 | Ash Wolf Clan | 5 | 2 | 3 | 160 | 3 lost | 2 |
 | Greyfang Clan | 5 | 2 | 3 | 143 | 2 lost | 2 |
-| Stonewall Company | 5 | 2 | 2 | 129 | 1 won | 1 |
-| Wolverine Company | 3 | 2 | 1 | 124 | 1 lost | 2 |
 
 ### Great rivalries
 
@@ -168,6 +168,7 @@ Records from 274 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 13:51: The Duskwing Tribe Take the Trench Line (streak ended · 2nd win · 85 kills)
 - 2026-11-05 13:36: The Rotting Choir Take the Neon District (streak ended · first battle, first win · 30 kills)
 - 2026-11-05 13:20: The Silverbough Circle Take the Canyon Pass (first ever win · 17 kills)
 - 2026-11-05 13:08: The Red Hawk Company Take the Crystal Grove (revenge denied · 5 wins in a row · 45 kills)
@@ -177,4 +178,3 @@ Records from 274 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 12:08: The Mountain Wind School Take the City (first battle, first win · 101 kills)
 - 2026-11-05 11:52: The Order of the Silver Stag Take the Sky-temple Relic (3 wins in a row · 18 kills)
 - 2026-11-05 11:39: The Pale Procession Take the Sky Islands (2nd win · 39 kills)
-- 2026-11-05 11:22: The Crooked Spire Take the Open Plains (2nd win · 42 kills)
