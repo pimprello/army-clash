@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 220 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 221 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 220 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **GHOST-4** (LASER TROOPER), 24 kills · 2026-11-05 00:26
 - **ORLOK THE WALL** (WARLOCK), 15 kills · 2026-11-04 21:28
 - **NYRA THE WALL** (WIZARD), 11 kills · 2026-11-04 18:55
 - **ZERO-3** (MACHINE GUNNER), 12 kills · 2026-11-04 18:40
@@ -47,7 +48,6 @@ Records from 220 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **ORLOK THE SWIFT** (NINJA), 12 kills · 2026-11-04 10:56
 - **ASHKA THE SWIFT** (WOLF RIDER), 22 kills · 2026-11-04 10:28
 - **OSKA SKULLTAKER** (KNIGHT), 17 kills · 2026-11-04 09:43
-- **NYRA BONECRUSHER** (METEOR SHEPHERD), 10 kills · 2026-11-04 07:16
 
 ## Titles earned (rarest first)
 
@@ -84,11 +84,11 @@ Records from 220 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 - vampiric: 5
 - wings: 19
-- spellward: 28
-- venom: 30
-- swift: 31
-- spikes: 40
-- regen: 46
+- spellward: 29
+- venom: 31
+- swift: 32
+- spikes: 41
+- regen: 47
 
 ## Big moments
 
@@ -107,6 +107,7 @@ Records from 220 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: YELLOW: 1
 - extinct: CANADA: 1
 - possess: hourglass: 1
+- copied: trooper: 1
 - extinct: RED: 2
 - extinct: ORANGE: 2
 - extinct: GREEN: 2
@@ -124,13 +125,13 @@ Records from 220 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-29 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+31 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
+| Nova Legion | 2 | 2 | 0 | 236 | 2 won | 2 |
 | Storm Tower Order | 2 | 1 | 1 | 127 | 1 lost | 1 |
 | Wildbrook Clan | 2 | 1 | 1 | 117 | 1 won | 1 |
-| Nova Legion | 1 | 1 | 0 | 105 | 1 won | 1 |
 | Stormhorn Tribe | 1 | 1 | 0 | 91 | 1 won | 1 |
 | The Black Candle | 1 | 1 | 0 | 43 | 1 won | 1 |
 | Raven Hill Clan | 1 | 1 | 0 | 42 | 1 won | 1 |
@@ -144,10 +145,10 @@ Records from 220 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Stonewall Company | 1 | 1 | 0 | 20 | 1 won | 1 |
 | Bone Garden Coven | 1 | 1 | 0 | 19 | 1 won | 1 |
 | Red Hawk Company | 1 | 1 | 0 | 5 | 1 won | 1 |
+| Silverbough Circle | 1 | 0 | 1 | 78 | 1 lost | - |
 | Frostwhisper Tribe | 2 | 0 | 2 | 68 | 2 lost | - |
 | Oakshield Clan | 2 | 0 | 2 | 64 | 2 lost | - |
 | Falling Leaf School | 1 | 0 | 1 | 63 | 1 lost | - |
-| Comet Wing | 1 | 0 | 1 | 51 | 1 lost | - |
 
 ### Great rivalries
 
@@ -155,6 +156,7 @@ Records from 220 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 00:26: The Nova Legion Take the Open Plains (2nd win · 131 kills)
 - 2026-11-05 00:10: The Wildbrook Clan Take the Swamp Shrine (revenge! · first ever win · 65 kills)
 - 2026-11-04 23:56: The Black Candle Take the Frozen End (first battle, first win · 43 kills)
 - 2026-11-04 23:39: The Stormhorn Tribe Take the Old Forest (first battle, first win · 91 kills)

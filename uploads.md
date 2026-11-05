@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-05 00:26 | 3 Armies, Only 1 SURVIVES 💀 | Yellow wins | https://youtube.com/shorts/79wVPFk7Iqc |
 | 2026-11-05 00:10 | ⚔️ SOLDIERS vs Warriors | Orange wins | https://youtube.com/shorts/9XFNZYVokns |
 | 2026-11-04 23:56 | Cyber Zombies vs Steel Smiths 🤯 | White wins | https://youtube.com/shorts/hjwD7ZlJFdY |
 | 2026-11-04 23:39 | They Took the HILL and Won 🚩 | Yellow wins | https://youtube.com/shorts/6VLUY_MIFpg |
