@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 224 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 225 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -13,7 +13,7 @@ Records from 224 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **47 kills**: TANK · 2026-11-04 10:12 · [🔥 SPELLGUNS vs Dragon Armor](https://youtube.com/shorts/g__rdIjt58w)
 - **30 kills**: DRAGON · 2026-11-02 17:40 · [They Were LOSING Until This 😳](https://youtube.com/shorts/-e04vvO2yh8)
 - **30 kills**: GIANT · 2026-11-03 22:28 · [The Weapons Came ALIVE 🗡️](https://youtube.com/shorts/u9TmQ7jfy3Y)
-- **29 kills**: WALKING FORTRESS · 2026-11-03 10:40 · [Steel Muskets vs CASTLE ELVES 🔥](https://youtube.com/shorts/xbouXT6Eu8I)
+- **30 kills**: DRAGON · 2026-11-05 01:25 · [3 Armies, Only 1 SURVIVES 💀](https://youtube.com/shorts/5jm66qiMaM4)
 
 ## Fastest wipe-outs
 
@@ -51,8 +51,8 @@ Records from 224 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Titles earned (rarest first)
 
-- KNIGHT SLAYER: 1
 - CATAPULT SLAYER: 1
+- KNIGHT SLAYER: 2
 - GRAVITY TYRANT SLAYER: 2
 - WORLDROOT SLAYER: 2
 - THOUSAND-MAN SLAYER: 3
@@ -84,7 +84,7 @@ Records from 224 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 - vampiric: 5
 - wings: 19
-- spellward: 29
+- spellward: 30
 - venom: 32
 - swift: 34
 - spikes: 41
@@ -120,29 +120,29 @@ Records from 224 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: demon: 8
 - sudden: lava: 8
 - sudden: ring: 9
-- sudden: meteors: 13
 - sudden: boss: 13
+- sudden: meteors: 14
 
 ## The tribes' chronicle
 
-40 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+41 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Nova Legion | 2 | 2 | 0 | 236 | 2 won | 2 |
+| Orbit Legion | 2 | 2 | 0 | 73 | 2 won | 2 |
 | Badger Platoon | 2 | 2 | 0 | 29 | 2 won | 2 |
 | Storm Tower Order | 2 | 1 | 1 | 127 | 1 lost | 1 |
 | Wildbrook Clan | 2 | 1 | 1 | 117 | 1 won | 1 |
 | Stormhorn Tribe | 1 | 1 | 0 | 91 | 1 won | 1 |
+| Stonewall Company | 3 | 1 | 2 | 69 | 2 lost | 1 |
 | Viper Company | 1 | 1 | 0 | 68 | 1 won | 1 |
 | Highmoor Clan | 1 | 1 | 0 | 66 | 1 won | 1 |
-| Stonewall Company | 2 | 1 | 1 | 49 | 1 lost | 1 |
 | The Black Candle | 1 | 1 | 0 | 43 | 1 won | 1 |
 | Raven Hill Clan | 1 | 1 | 0 | 42 | 1 won | 1 |
 | Vortex Legion | 1 | 1 | 0 | 42 | 1 won | 1 |
 | Duskwing Tribe | 1 | 1 | 0 | 39 | 1 won | 1 |
 | Black Bear Clan | 1 | 1 | 0 | 39 | 1 won | 1 |
-| Orbit Legion | 1 | 1 | 0 | 35 | 1 won | 1 |
 | Thornwood Company | 1 | 1 | 0 | 31 | 1 won | 1 |
 | Zenith Cohort | 1 | 1 | 0 | 30 | 1 won | 1 |
 | Golden Lion Order | 1 | 1 | 0 | 27 | 1 won | 1 |
@@ -156,6 +156,7 @@ Records from 224 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 01:25: The Orbit Legion Take the Open Plains (2nd win · 38 kills)
 - 2026-11-05 01:08: The Viper Company Take the Quarry (first battle, first win · 68 kills)
 - 2026-11-05 00:54: The Highmoor Clan Take the Clockwork Arena (first battle, first win · 66 kills)
 - 2026-11-05 00:39: The Black Bear Clan Take the Bombed City (first battle, first win · 39 kills)
@@ -165,4 +166,3 @@ Records from 224 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-04 23:39: The Stormhorn Tribe Take the Old Forest (first battle, first win · 91 kills)
 - 2026-11-04 23:24: The Stonewall Company Take the Open Plains (first battle, first win · 20 kills)
 - 2026-11-04 23:10: The Vortex Legion Take the Reactor (first battle, first win · 42 kills)
-- 2026-11-04 22:57: The Nova Legion Take the Crystal Grove (first battle, first win · 105 kills)

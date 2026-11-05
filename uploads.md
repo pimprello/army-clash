@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-05 01:25 | 3 Armies, Only 1 SURVIVES 💀 | Crimson wins | https://youtube.com/shorts/5jm66qiMaM4 |
 | 2026-11-05 01:08 | 🎯 SNIPERS vs Gunners | Pink wins | https://youtube.com/shorts/CWZZ6Ya4gP8 |
 | 2026-11-05 00:54 | The Gravity Tyrant Went DOWN 💀 | Pink wins | https://youtube.com/shorts/zlPpJX1PR84 |
 | 2026-11-05 00:39 | 62 Samurai vs 91 Knights ⚔️ | Blue wins | https://youtube.com/shorts/dEKuNWdRSaE |
