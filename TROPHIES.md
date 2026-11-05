@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 223 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 224 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -86,7 +86,7 @@ Records from 223 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - wings: 19
 - spellward: 29
 - venom: 32
-- swift: 33
+- swift: 34
 - spikes: 41
 - regen: 47
 
@@ -125,15 +125,18 @@ Records from 223 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-38 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+40 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Nova Legion | 2 | 2 | 0 | 236 | 2 won | 2 |
+| Badger Platoon | 2 | 2 | 0 | 29 | 2 won | 2 |
 | Storm Tower Order | 2 | 1 | 1 | 127 | 1 lost | 1 |
 | Wildbrook Clan | 2 | 1 | 1 | 117 | 1 won | 1 |
 | Stormhorn Tribe | 1 | 1 | 0 | 91 | 1 won | 1 |
+| Viper Company | 1 | 1 | 0 | 68 | 1 won | 1 |
 | Highmoor Clan | 1 | 1 | 0 | 66 | 1 won | 1 |
+| Stonewall Company | 2 | 1 | 1 | 49 | 1 lost | 1 |
 | The Black Candle | 1 | 1 | 0 | 43 | 1 won | 1 |
 | Raven Hill Clan | 1 | 1 | 0 | 42 | 1 won | 1 |
 | Vortex Legion | 1 | 1 | 0 | 42 | 1 won | 1 |
@@ -144,11 +147,8 @@ Records from 223 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Zenith Cohort | 1 | 1 | 0 | 30 | 1 won | 1 |
 | Golden Lion Order | 1 | 1 | 0 | 27 | 1 won | 1 |
 | Brightwater Tribe | 2 | 1 | 1 | 20 | 1 won | 1 |
-| Stonewall Company | 1 | 1 | 0 | 20 | 1 won | 1 |
 | Bone Garden Coven | 1 | 1 | 0 | 19 | 1 won | 1 |
 | Iron Boar Clan | 1 | 1 | 0 | 19 | 1 won | 1 |
-| Badger Platoon | 1 | 1 | 0 | 14 | 1 won | 1 |
-| Red Hawk Company | 1 | 1 | 0 | 5 | 1 won | 1 |
 
 ### Great rivalries
 
@@ -156,6 +156,7 @@ Records from 223 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 01:08: The Viper Company Take the Quarry (first battle, first win · 68 kills)
 - 2026-11-05 00:54: The Highmoor Clan Take the Clockwork Arena (first battle, first win · 66 kills)
 - 2026-11-05 00:39: The Black Bear Clan Take the Bombed City (first battle, first win · 39 kills)
 - 2026-11-05 00:26: The Nova Legion Take the Open Plains (2nd win · 131 kills)
@@ -165,4 +166,3 @@ Records from 223 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-04 23:24: The Stonewall Company Take the Open Plains (first battle, first win · 20 kills)
 - 2026-11-04 23:10: The Vortex Legion Take the Reactor (first battle, first win · 42 kills)
 - 2026-11-04 22:57: The Nova Legion Take the Crystal Grove (first battle, first win · 105 kills)
-- 2026-11-04 22:41: The Storm Tower Order Take the Open Plains (first battle, first win · 74 kills)
