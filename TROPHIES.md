@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 296 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 297 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -126,8 +126,8 @@ Records from 296 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: troll: 8
 - sudden: ring: 9
 - portal: demon: 10
-- sudden: boss: 15
 - sudden: lava: 15
+- sudden: boss: 16
 - sudden: meteors: 18
 
 ## The tribes' chronicle
@@ -170,6 +170,7 @@ Records from 296 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 21:55: The Iron Lotus School Take the Canyon Pass (2nd win · 30 kills)
 - 2026-11-05 21:42: The House of the Silver Tiger Take the Open Plains (streak ended · 2nd win · 27 kills)
 - 2026-11-05 21:25: The Crew of the Iron Anchor Take the Mountain Pass (first ever win · 19 kills)
 - 2026-11-05 20:29: The Thunder Platoon Take the Open Plains (revenge denied · 3 wins in a row · 70 kills)
@@ -179,4 +180,3 @@ Records from 296 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 18:51: The Starweave Circle Take the Godboard (revenge denied · first ever win · 48 kills)
 - 2026-11-05 18:38: The Vector Cohort Take the Canyon Pass (first ever win · 53 kills)
 - 2026-11-05 18:23: The Duskwing Tribe Take the Trench Line (3rd win · 37 kills)
-- 2026-11-05 18:08: The Stonebridge Company Take the Overgrown Throne (2nd win · 39 kills)

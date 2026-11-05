@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-05 21:55 | CHAOS SHIELDS vs Storm Blades vs Mirror Trolls 🔥 | Green wins | https://youtube.com/shorts/sOjS9c73lUc |
 | 2026-11-05 21:42 | 🚩 KING OF THE HILL: Arcane Army vs Ninjas | Yellow wins | https://youtube.com/shorts/pAC16t0jiOQ |
 | 2026-11-05 21:25 | ⚔️ CHAMPION DUEL: Titan Reapers vs Neon Griffins | Blue wins | https://youtube.com/shorts/Sp_PPbtGu0E |
 | 2026-11-05 20:29 | An ANCIENT Monster Woke Up 😱 | Denmark wins | https://youtube.com/shorts/xLKA0NRC69Y |
