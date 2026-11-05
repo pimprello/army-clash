@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 294 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 295 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -70,15 +70,15 @@ Records from 294 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - IMMORTAL FRAUD SLAYER: 6
 - COLOSSUS SLAYER: 7
 - CANNON SLAYER: 8
-- MAMMOTH SLAYER: 8
 - ELEPHANT SLAYER: 9
+- MAMMOTH SLAYER: 9
 - PLAYER SLAYER: 9
 - MECH SLAYER: 9
 - GOLEM SLAYER: 10
 - TANK SLAYER: 11
 - GIANT SLAYER: 15
 - DRAGON SLAYER: 19
-- TITAN SLAYER: 27
+- TITAN SLAYER: 28
 
 ## Mutations (rarest first)
 
@@ -170,6 +170,7 @@ Records from 294 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 21:25: The Crew of the Iron Anchor Take the Mountain Pass (first ever win · 19 kills)
 - 2026-11-05 20:29: The Thunder Platoon Take the Open Plains (revenge denied · 3 wins in a row · 70 kills)
 - 2026-11-05 20:17: The Red Hawk Company Take the Open Plains (8th win · 71 kills)
 - 2026-11-05 20:04: The Starweave Circle Take the Sky-temple Relic (2nd win · 89 kills)
@@ -179,4 +180,3 @@ Records from 294 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 18:23: The Duskwing Tribe Take the Trench Line (3rd win · 37 kills)
 - 2026-11-05 18:08: The Stonebridge Company Take the Overgrown Throne (2nd win · 39 kills)
 - 2026-11-05 17:55: The Sunspire Kin Take the Old Forest (streak ended · first ever win · 68 kills)
-- 2026-11-05 17:36: The Order of the Silver Stag Take the Open Plains (4th win · 70 kills)
