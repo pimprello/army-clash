@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 290 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 291 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -78,7 +78,7 @@ Records from 290 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - TANK SLAYER: 11
 - GIANT SLAYER: 15
 - DRAGON SLAYER: 19
-- TITAN SLAYER: 24
+- TITAN SLAYER: 25
 
 ## Mutations (rarest first)
 
@@ -86,7 +86,7 @@ Records from 290 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - wings: 22
 - spellward: 33
 - swift: 41
-- venom: 43
+- venom: 44
 - spikes: 49
 - regen: 58
 
@@ -124,17 +124,17 @@ Records from 290 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: troll: 8
 - sudden: ring: 9
 - portal: demon: 10
-- sudden: lava: 14
 - sudden: boss: 15
+- sudden: lava: 15
 - sudden: meteors: 18
 
 ## The tribes' chronicle
 
-99 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+100 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
-| Red Hawk Company | 8 | 6 | 2 | 296 | 1 lost | 5 |
+| Red Hawk Company | 9 | 7 | 2 | 306 | 1 won | 5 |
 | Mossback Tribe | 8 | 5 | 3 | 348 | 1 lost | 3 |
 | Order of the Silver Stag | 9 | 4 | 5 | 418 | 1 won | 3 |
 | Gloomcap Circle | 6 | 4 | 2 | 121 | 1 won | 3 |
@@ -168,6 +168,7 @@ Records from 290 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 19:46: The Wormwood Coven Take the Mirror Gate (first ever win · 24 kills)
 - 2026-11-05 18:51: The Starweave Circle Take the Godboard (revenge denied · first ever win · 48 kills)
 - 2026-11-05 18:38: The Vector Cohort Take the Canyon Pass (first ever win · 53 kills)
 - 2026-11-05 18:23: The Duskwing Tribe Take the Trench Line (3rd win · 37 kills)
@@ -177,4 +178,3 @@ Records from 290 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 16:04: The Badger Platoon Take the Swamp Shrine (3 wins in a row · 51 kills)
 - 2026-11-05 15:48: The Harrier Squadron Take the World Furnace (streak ended · first ever win · 29 kills)
 - 2026-11-05 15:34: The Golden Lion Order Take the Swamp Shrine (revenge denied · 3 wins in a row · 131 kills)
-- 2026-11-05 15:22: The Copperhead Battalion Take the Canyon Pass (2nd win · 29 kills)
