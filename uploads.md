@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-05 22:26 | 🇪🇸 Spain Mega Bones vs Portugal Void Rifles | Portugal wins | https://youtube.com/shorts/7BYW3nD6pho |
 | 2026-11-05 22:12 | They Got INCENDIARY Rounds and WON 🔥 | Teal wins | https://youtube.com/shorts/SKd4vtJYnNg |
 | 2026-11-05 21:55 | CHAOS SHIELDS vs Storm Blades vs Mirror Trolls 🔥 | Green wins | https://youtube.com/shorts/sOjS9c73lUc |
 | 2026-11-05 21:42 | 🚩 KING OF THE HILL: Arcane Army vs Ninjas | Yellow wins | https://youtube.com/shorts/pAC16t0jiOQ |

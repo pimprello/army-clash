@@ -1,19 +1,19 @@
 # Trophy room
 
-Records from 298 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 299 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
 - **112 kills**: GIANT · 2026-11-03 05:30 · [🇧🇪 Belgium vs Netherlands 🇳🇱](https://youtube.com/shorts/NeMPZ0JTCf8)
 - **86 kills**: STAR EATER · 2026-11-04 21:57 · [The Weapons Came ALIVE 🗡️](https://youtube.com/shorts/3bawEZ4_K_c)
 - **60 kills**: GIANT · 2026-11-05 15:34 · [They Were OUTNUMBERED... 😳](https://youtube.com/shorts/YMOvFZK6LgE)
+- **53 kills**: STAR EATER · 2026-11-05 22:26 · [🇪🇸 Spain Mega Bones vs Portugal Void Rifles](https://youtube.com/shorts/7BYW3nD6pho)
 - **51 kills**: LIVING FORTRESS · 2026-11-04 13:13 · [🇩🇰 Denmark vs Sweden 🇸🇪](https://youtube.com/shorts/EEo4SfZqAyI)
 - **49 kills**: TANK · 2026-11-03 22:12 · [They Were LOSING Until This 😳](https://youtube.com/shorts/-hvpvz0i7TA)
 - **48 kills**: PHOENIX · 2026-11-04 22:57 · [Phoenix Pikes vs WILD LEGION 🔥](https://youtube.com/shorts/zga-x3ZnOUs)
 - **47 kills**: LIVING FORTRESS · 2026-11-04 05:33 · [106 Orcs vs a LIVING Castle 🏰](https://youtube.com/shorts/3rsNAb0OpJA)
 - **47 kills**: TANK · 2026-11-04 10:12 · [🔥 SPELLGUNS vs Dragon Armor](https://youtube.com/shorts/g__rdIjt58w)
 - **32 kills**: GIANT · 2026-11-05 07:28 · [STORM BOARS vs Neon Raiders vs Glitch Blades 🔥](https://youtube.com/shorts/v7m-cFwMqZg)
-- **30 kills**: DRAGON · 2026-11-02 17:40 · [They Were LOSING Until This 😳](https://youtube.com/shorts/-e04vvO2yh8)
 
 ## Fastest wipe-outs
 
@@ -56,7 +56,6 @@ Records from 298 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - THOUSAND-MAN SLAYER: 3
 - GRAVITY TYRANT SLAYER: 3
 - WORLDROOT SLAYER: 3
-- STAR EATER SLAYER: 4
 - EXECUTIONER SLAYER: 4
 - MIRROR KING SLAYER: 5
 - CATHEDRAL SLAYER: 5
@@ -65,6 +64,7 @@ Records from 298 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - HELICOPTER SLAYER: 5
 - PHOENIX SLAYER: 5
 - STORM EMPEROR SLAYER: 5
+- STAR EATER SLAYER: 5
 - HYDRA SLAYER: 6
 - UNMAKER SLAYER: 6
 - IMMORTAL FRAUD SLAYER: 6
@@ -146,7 +146,8 @@ Records from 298 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Stormhorn Tribe | 4 | 3 | 1 | 260 | 1 lost | 3 |
 | Duskwing Tribe | 8 | 3 | 4 | 244 | 2 lost | 2 |
 | Golden Lion Order | 5 | 3 | 2 | 219 | 2 lost | 3 |
-| Thunder Platoon | 3 | 3 | 0 | 164 | 3 won | 3 |
+| Raven Hill Clan | 5 | 3 | 2 | 188 | 2 won | 2 |
+| Thunder Platoon | 4 | 3 | 1 | 173 | 1 lost | 3 |
 | Oakshield Clan | 6 | 3 | 3 | 151 | 1 lost | 3 |
 | Black Bear Clan | 4 | 3 | 1 | 119 | 1 won | 2 |
 | Cinderclaw Kin | 4 | 3 | 1 | 100 | 1 lost | 3 |
@@ -155,7 +156,6 @@ Records from 298 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Thornwood Company | 5 | 3 | 2 | 87 | 2 won | 2 |
 | Badger Platoon | 3 | 3 | 0 | 80 | 3 won | 3 |
 | Copper Crown Company | 3 | 3 | 0 | 75 | 3 won | 3 |
-| Bone Garden Coven | 4 | 3 | 1 | 51 | 1 lost | 3 |
 
 ### Great rivalries
 
@@ -170,6 +170,7 @@ Records from 298 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 22:26: The Raven Hill Clan Take the Neon District (streak ended · 3rd win · 80 kills)
 - 2026-11-05 22:12: The Harrier Squadron Take the Frozen End (streak ended · 2nd win · 30 kills)
 - 2026-11-05 21:55: The Iron Lotus School Take the Canyon Pass (2nd win · 30 kills)
 - 2026-11-05 21:42: The House of the Silver Tiger Take the Open Plains (streak ended · 2nd win · 27 kills)
@@ -179,4 +180,3 @@ Records from 298 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 20:04: The Starweave Circle Take the Sky-temple Relic (2nd win · 89 kills)
 - 2026-11-05 19:46: The Wormwood Coven Take the Mirror Gate (first ever win · 24 kills)
 - 2026-11-05 18:51: The Starweave Circle Take the Godboard (revenge denied · first ever win · 48 kills)
-- 2026-11-05 18:38: The Vector Cohort Take the Canyon Pass (first ever win · 53 kills)
