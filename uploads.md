@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-05 06:44 | LAST STAND: 26 Robots vs Giant Army 🛡️ | Canada wins | https://youtube.com/shorts/rYjmcfg1lzY |
 | 2026-11-05 06:29 | 3 Armies, Only 1 SURVIVES 💀 | Magenta wins | https://youtube.com/shorts/v_DLdVeKvOM |
 | 2026-11-05 06:14 | ⚔️ CHAMPION DUEL: Soldiers vs Gunners | Yellow wins | https://youtube.com/shorts/lChCviVRhSk |
 | 2026-11-05 05:59 | The CASTLE Was Alive 😱 | Uk wins | https://youtube.com/shorts/1u9QBxHKEZ8 |

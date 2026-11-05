@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 245 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 246 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 245 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **COBRA-8** (LASER TROOPER), 10 kills · 2026-11-05 06:44
 - **RUNA THE SWIFT** (KNIGHT), 10 kills · 2026-11-05 04:46
 - **OSKA IRONHIDE** (WIZARD), 16 kills · 2026-11-05 04:18
 - **GRIM SKULLTAKER** (SWORDSMAN), 11 kills · 2026-11-05 03:17
@@ -47,7 +48,6 @@ Records from 245 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **VIPER-8** (MACHINE GUNNER), 15 kills · 2026-11-04 15:56
 - **BRAKK THE UNBROKEN** (CROSSBOWMAN), 10 kills · 2026-11-04 13:55
 - **VIPER-7** (LASER TROOPER), 11 kills · 2026-11-04 13:41
-- **GRIM THE MAD** (WIZARD), 12 kills · 2026-11-04 13:27
 
 ## Titles earned (rarest first)
 
@@ -77,7 +77,7 @@ Records from 245 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - GOLEM SLAYER: 9
 - PLAYER SLAYER: 9
 - DRAGON SLAYER: 13
-- GIANT SLAYER: 14
+- GIANT SLAYER: 15
 - TITAN SLAYER: 20
 
 ## Mutations (rarest first)
@@ -87,8 +87,8 @@ Records from 245 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 31
 - venom: 34
 - swift: 35
-- spikes: 42
-- regen: 51
+- spikes: 43
+- regen: 52
 
 ## Big moments
 
@@ -122,17 +122,17 @@ Records from 245 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - fusion: 5
 - portal: demon: 8
 - sudden: ring: 9
-- sudden: lava: 10
+- sudden: lava: 11
 - sudden: boss: 13
 - sudden: meteors: 16
 
 ## The tribes' chronicle
 
-68 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+70 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
-| Storm Tower Order | 5 | 3 | 2 | 289 | 1 won | 1 |
+| Storm Tower Order | 6 | 3 | 3 | 295 | 1 lost | 1 |
 | Mossback Tribe | 4 | 3 | 1 | 175 | 3 won | 3 |
 | Nova Legion | 2 | 2 | 0 | 236 | 2 won | 2 |
 | Ashmantle Kin | 2 | 2 | 0 | 194 | 2 won | 2 |
@@ -141,8 +141,8 @@ Records from 245 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Greyfang Clan | 3 | 2 | 1 | 103 | 2 won | 2 |
 | Ash Wolf Clan | 2 | 2 | 0 | 98 | 2 won | 2 |
 | Thunder Platoon | 2 | 2 | 0 | 94 | 2 won | 2 |
+| Black Bear Clan | 3 | 2 | 1 | 86 | 1 lost | 2 |
 | Orbit Legion | 2 | 2 | 0 | 73 | 2 won | 2 |
-| Black Bear Clan | 2 | 2 | 0 | 73 | 2 won | 2 |
 | Golden Lion Order | 2 | 2 | 0 | 61 | 2 won | 2 |
 | Vortex Legion | 2 | 2 | 0 | 48 | 2 won | 2 |
 | Brightwater Tribe | 4 | 2 | 2 | 47 | 1 won | 1 |
@@ -161,6 +161,7 @@ Records from 245 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 06:44: The Pulsar Wing Take the Ruined Fort (streak ended · first battle, first win · 64 kills)
 - 2026-11-05 06:29: The Mossback Tribe Take the Open Plains (3 wins in a row · 78 kills)
 - 2026-11-05 06:14: The Granite Battalion Take the World Furnace (first ever win · 18 kills)
 - 2026-11-05 05:59: The Oakshield Clan Take the Trench Line (first ever win · 8 kills)
@@ -170,4 +171,3 @@ Records from 245 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 05:00: The Wolverine Company Take the Open Plains (2nd win · 43 kills)
 - 2026-11-05 04:46: The Stonebridge Company Take the Old Forest (first ever win · 63 kills)
 - 2026-11-05 04:31: The Ash Wolf Clan Take the Open Plains (2nd win · 73 kills)
-- 2026-11-05 04:18: The Ashmantle Kin Take the Overgrown Throne (first battle, first win · 182 kills)
