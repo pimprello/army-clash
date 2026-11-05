@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 248 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 249 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -11,9 +11,9 @@ Records from 248 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **48 kills**: PHOENIX · 2026-11-04 22:57 · [Phoenix Pikes vs WILD LEGION 🔥](https://youtube.com/shorts/zga-x3ZnOUs)
 - **47 kills**: LIVING FORTRESS · 2026-11-04 05:33 · [106 Orcs vs a LIVING Castle 🏰](https://youtube.com/shorts/3rsNAb0OpJA)
 - **47 kills**: TANK · 2026-11-04 10:12 · [🔥 SPELLGUNS vs Dragon Armor](https://youtube.com/shorts/g__rdIjt58w)
+- **32 kills**: GIANT · 2026-11-05 07:28 · [STORM BOARS vs Neon Raiders vs Glitch Blades 🔥](https://youtube.com/shorts/v7m-cFwMqZg)
 - **30 kills**: DRAGON · 2026-11-02 17:40 · [They Were LOSING Until This 😳](https://youtube.com/shorts/-e04vvO2yh8)
 - **30 kills**: GIANT · 2026-11-03 22:28 · [The Weapons Came ALIVE 🗡️](https://youtube.com/shorts/u9TmQ7jfy3Y)
-- **30 kills**: DRAGON · 2026-11-05 01:25 · [3 Armies, Only 1 SURVIVES 💀](https://youtube.com/shorts/5jm66qiMaM4)
 
 ## Fastest wipe-outs
 
@@ -117,9 +117,9 @@ Records from 248 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - possess: cannon: 3
 - possess: treant: 3
 - portal: cyclops: 4
-- portal: troll: 4
 - portal: golem: 4
 - fusion: 5
+- portal: troll: 5
 - portal: demon: 8
 - sudden: ring: 9
 - sudden: lava: 11
@@ -128,7 +128,7 @@ Records from 248 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-73 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+74 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
@@ -151,7 +151,7 @@ Records from 248 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Wildbrook Clan | 3 | 1 | 2 | 182 | 1 lost | 1 |
 | Viper Company | 4 | 1 | 3 | 149 | 3 lost | 1 |
 | Stonebridge Company | 4 | 1 | 3 | 133 | 1 lost | 1 |
-| Duskwing Tribe | 4 | 1 | 2 | 97 | 2 lost | 1 |
+| The Crooked Spire | 3 | 1 | 2 | 129 | 1 won | 1 |
 
 ### Great rivalries
 
@@ -161,6 +161,7 @@ Records from 248 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 07:28: The Crooked Spire Take the Open Plains (first ever win · 72 kills)
 - 2026-11-05 07:13: The Black Bear Clan Take the Sky-temple Relic (streak ended · 3rd win · 33 kills)
 - 2026-11-05 07:01: The Thunder Gate School Take the Bombed City (streak ended · first battle, first win · 45 kills)
 - 2026-11-05 06:44: The Pulsar Wing Take the Ruined Fort (streak ended · first battle, first win · 64 kills)
@@ -170,4 +171,3 @@ Records from 248 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 05:44: The Thunder Platoon Take the Treasure Cove (revenge denied · 2nd win · 39 kills)
 - 2026-11-05 05:30: The Thunder Platoon Take the Open Plains (first battle, first win · 55 kills)
 - 2026-11-05 05:14: The Gloomcap Circle Take the Crystal Grove (first battle, first win · 18 kills)
-- 2026-11-05 05:00: The Wolverine Company Take the Open Plains (2nd win · 43 kills)
