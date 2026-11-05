@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 289 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 290 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 289 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **IVOR THE SWIFT** (TROLL), 17 kills · 2026-11-05 18:51
 - **TALVO THE SWIFT** (ROYAL GUARD), 10 kills · 2026-11-05 18:38
 - **GRUNDA STORMBORN** (ROYAL GUARD), 20 kills · 2026-11-05 13:51
 - **ASHKA THE SWIFT** (SAMURAI), 12 kills · 2026-11-05 12:23
@@ -47,7 +48,6 @@ Records from 289 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **ZEDRIK GRAVEBANE** (SWORDSMAN), 11 kills · 2026-11-05 02:48
 - **PELL STEELHEART** (GRIFFIN RIDER), 16 kills · 2026-11-05 00:54
 - **GHOST-4** (LASER TROOPER), 24 kills · 2026-11-05 00:26
-- **ORLOK THE WALL** (WARLOCK), 15 kills · 2026-11-04 21:28
 
 ## Titles earned (rarest first)
 
@@ -86,7 +86,7 @@ Records from 289 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - wings: 22
 - spellward: 33
 - swift: 41
-- venom: 42
+- venom: 43
 - spikes: 49
 - regen: 58
 
@@ -122,8 +122,8 @@ Records from 289 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: wolfrider: 5
 - fusion: 6
 - portal: troll: 8
-- portal: demon: 9
 - sudden: ring: 9
+- portal: demon: 10
 - sudden: lava: 14
 - sudden: boss: 15
 - sudden: meteors: 18
@@ -138,11 +138,11 @@ Records from 289 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Mossback Tribe | 8 | 5 | 3 | 348 | 1 lost | 3 |
 | Order of the Silver Stag | 9 | 4 | 5 | 418 | 1 won | 3 |
 | Gloomcap Circle | 6 | 4 | 2 | 121 | 1 won | 3 |
-| Storm Tower Order | 8 | 3 | 5 | 314 | 3 lost | 1 |
+| Storm Tower Order | 9 | 3 | 6 | 320 | 4 lost | 1 |
 | Nova Legion | 4 | 3 | 1 | 311 | 1 won | 2 |
 | Duskwing Tribe | 6 | 3 | 2 | 219 | 2 won | 2 |
+| Golden Lion Order | 5 | 3 | 2 | 219 | 2 lost | 3 |
 | Stormhorn Tribe | 3 | 3 | 0 | 212 | 3 won | 3 |
-| Golden Lion Order | 4 | 3 | 1 | 204 | 1 lost | 3 |
 | Frostwhisper Tribe | 5 | 3 | 2 | 157 | 3 won | 3 |
 | Black Bear Clan | 4 | 3 | 1 | 119 | 1 won | 2 |
 | Oakshield Clan | 5 | 3 | 2 | 116 | 3 won | 3 |
@@ -168,6 +168,7 @@ Records from 289 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 18:51: The Starweave Circle Take the Godboard (revenge denied · first ever win · 48 kills)
 - 2026-11-05 18:38: The Vector Cohort Take the Canyon Pass (first ever win · 53 kills)
 - 2026-11-05 18:23: The Duskwing Tribe Take the Trench Line (3rd win · 37 kills)
 - 2026-11-05 18:08: The Stonebridge Company Take the Overgrown Throne (2nd win · 39 kills)
@@ -177,4 +178,3 @@ Records from 289 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 15:48: The Harrier Squadron Take the World Furnace (streak ended · first ever win · 29 kills)
 - 2026-11-05 15:34: The Golden Lion Order Take the Swamp Shrine (revenge denied · 3 wins in a row · 131 kills)
 - 2026-11-05 15:22: The Copperhead Battalion Take the Canyon Pass (2nd win · 29 kills)
-- 2026-11-05 15:04: The Raven Hill Clan Take the Sky-temple Relic (revenge! · 2nd win · 34 kills)

@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-05 18:51 | LIGHTNING Struck the Battlefield ⚡ | Belgium wins | https://youtube.com/shorts/ry3nsmZZmhw |
 | 2026-11-05 18:38 | 3 Armies, Only 1 SURVIVES 💀 | Pink wins | https://youtube.com/shorts/ibnefSLaPyI |
 | 2026-11-05 18:23 | They SMASHED Through the Walls 💥 | Mint wins | https://youtube.com/shorts/yehtVJXv_CA |
 | 2026-11-05 18:08 | Hold the HILL to Win? Chaos Wolves vs Turbo Bows 🚩 | Orange wins | https://youtube.com/shorts/SATgDsVrjlA |
