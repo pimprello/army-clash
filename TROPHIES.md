@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 278 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 279 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -56,21 +56,21 @@ Records from 278 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - THOUSAND-MAN SLAYER: 3
 - GRAVITY TYRANT SLAYER: 3
 - WORLDROOT SLAYER: 3
-- CYCLOPS SLAYER: 4
 - STAR EATER SLAYER: 4
 - EXECUTIONER SLAYER: 4
 - MIRROR KING SLAYER: 5
 - CATHEDRAL SLAYER: 5
 - FORTRESS SLAYER: 5
 - UNMAKER SLAYER: 5
+- CYCLOPS SLAYER: 5
 - HELICOPTER SLAYER: 5
 - PHOENIX SLAYER: 5
 - STORM EMPEROR SLAYER: 5
 - HYDRA SLAYER: 6
 - IMMORTAL FRAUD SLAYER: 6
 - COLOSSUS SLAYER: 7
-- CANNON SLAYER: 7
 - MECH SLAYER: 7
+- CANNON SLAYER: 8
 - MAMMOTH SLAYER: 8
 - ELEPHANT SLAYER: 9
 - PLAYER SLAYER: 9
@@ -135,7 +135,7 @@ Records from 278 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 8 | 5 | 3 | 348 | 1 lost | 3 |
-| Red Hawk Company | 5 | 5 | 0 | 238 | 5 won | 5 |
+| Red Hawk Company | 6 | 5 | 1 | 240 | 1 lost | 5 |
 | Gloomcap Circle | 6 | 4 | 2 | 121 | 1 won | 3 |
 | Order of the Silver Stag | 7 | 3 | 4 | 328 | 1 lost | 3 |
 | Storm Tower Order | 8 | 3 | 5 | 314 | 3 lost | 1 |
@@ -157,6 +157,7 @@ Records from 278 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Great rivalries
 
+- **Brightwater Tribe vs Frostwhisper Tribe**: met 2 times, last won by Frostwhisper Tribe
 - **Storm Tower Order vs Wildbrook Clan**: met 2 times, last won by Wildbrook Clan
 - **Brightwater Tribe vs Glimmerdeep Kin**: met 2 times
 - **Iron Boar Clan vs The Crooked Spire**: met 2 times, last won by The Crooked Spire
@@ -164,10 +165,10 @@ Records from 278 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **Greyfang Clan vs Order of the Silver Stag**: met 2 times, last won by Order of the Silver Stag
 - **Thunder Platoon vs Viper Company**: met 2 times, last won by Thunder Platoon
 - **Granite Battalion vs Thornwood Company**: met 2 times, last won by Thornwood Company
-- **Glimmerdeep Kin vs Mossback Tribe**: met 2 times, last won by Mossback Tribe
 
 ### Latest from the battlefield
 
+- 2026-11-05 14:50: The House of the Black Kite Take the Bombed City (streak ended · first ever win · 38 kills)
 - 2026-11-05 14:36: The Emberroot Circle Take the Crystal Grove (revenge denied · 2nd win · 54 kills)
 - 2026-11-05 14:19: The Nova Legion Take the Open Plains (3rd win · 43 kills)
 - 2026-11-05 14:04: The Mossback Tribe Take the Clockwork Arena (revenge denied · 5th win · 53 kills)
@@ -177,4 +178,3 @@ Records from 278 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 13:08: The Red Hawk Company Take the Crystal Grove (revenge denied · 5 wins in a row · 45 kills)
 - 2026-11-05 12:50: The Thornheart Circle Take the Open Plains (first battle, first win · 34 kills)
 - 2026-11-05 12:36: The Grinning Moon Take the Mountain Pass (first battle, first win · 79 kills)
-- 2026-11-05 12:23: The Iron Lotus School Take the Canyon Pass (first ever win · 163 kills)

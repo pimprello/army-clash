@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-05 14:50 | Rogue Treants vs MEGA COPYCATS 🔥 | Teal wins | https://youtube.com/shorts/obOI1xGUFQo |
 | 2026-11-05 14:36 | A BLIZZARD Froze the Battle ❄️ | Purple wins | https://youtube.com/shorts/x7U0ICLGWsM |
 | 2026-11-05 14:19 | Pick ONE: Dragon, Armored, Mechs 👇 | Blue wins | https://youtube.com/shorts/MU7cNkicYg4 |
 | 2026-11-05 14:04 | ⚔️ CHAMPION DUEL: Forest Elves vs Demons | Orange wins | https://youtube.com/shorts/w9WyQgE3eW8 |
