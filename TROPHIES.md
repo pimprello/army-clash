@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 231 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 232 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 231 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **GRIM SKULLTAKER** (SWORDSMAN), 11 kills · 2026-11-05 03:17
 - **ZEDRIK GRAVEBANE** (SWORDSMAN), 11 kills · 2026-11-05 02:48
 - **PELL STEELHEART** (GRIFFIN RIDER), 16 kills · 2026-11-05 00:54
 - **GHOST-4** (LASER TROOPER), 24 kills · 2026-11-05 00:26
@@ -47,7 +48,6 @@ Records from 231 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **GRIM THE MAD** (WIZARD), 12 kills · 2026-11-04 13:27
 - **NOMAD-5** (SNIPER), 13 kills · 2026-11-04 12:43
 - **SIRA NIGHTFANG** (SWORDSMAN), 11 kills · 2026-11-04 12:27
-- **ORLOK THE SWIFT** (NINJA), 12 kills · 2026-11-04 10:56
 
 ## Titles earned (rarest first)
 
@@ -87,8 +87,8 @@ Records from 231 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 30
 - venom: 32
 - swift: 34
-- spikes: 41
-- regen: 49
+- spikes: 42
+- regen: 50
 
 ## Big moments
 
@@ -122,34 +122,34 @@ Records from 231 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - sudden: lava: 8
 - sudden: ring: 9
 - sudden: boss: 13
-- sudden: meteors: 15
+- sudden: meteors: 16
 
 ## The tribes' chronicle
 
-49 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+50 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Storm Tower Order | 3 | 2 | 1 | 250 | 1 won | 1 |
 | Nova Legion | 2 | 2 | 0 | 236 | 2 won | 2 |
 | Iron Boar Clan | 2 | 2 | 0 | 154 | 2 won | 2 |
+| Greyfang Clan | 3 | 2 | 1 | 103 | 2 won | 2 |
 | Orbit Legion | 2 | 2 | 0 | 73 | 2 won | 2 |
 | Black Bear Clan | 2 | 2 | 0 | 73 | 2 won | 2 |
+| Golden Lion Order | 2 | 2 | 0 | 61 | 2 won | 2 |
 | Badger Platoon | 2 | 2 | 0 | 29 | 2 won | 2 |
 | Wildbrook Clan | 2 | 1 | 1 | 117 | 1 won | 1 |
 | Stormhorn Tribe | 1 | 1 | 0 | 91 | 1 won | 1 |
 | Stonewall Company | 4 | 1 | 2 | 90 | 2 lost | 1 |
 | Duskwing Tribe | 3 | 1 | 1 | 86 | 1 lost | 1 |
+| Raven Hill Clan | 2 | 1 | 1 | 72 | 1 lost | 1 |
 | Viper Company | 1 | 1 | 0 | 68 | 1 won | 1 |
-| Greyfang Clan | 2 | 1 | 1 | 67 | 1 won | 1 |
 | Highmoor Clan | 1 | 1 | 0 | 66 | 1 won | 1 |
 | The Black Candle | 2 | 1 | 1 | 64 | 1 lost | 1 |
 | Emberroot Circle | 2 | 1 | 0 | 52 | 1 won | 1 |
 | Mossback Tribe | 2 | 1 | 1 | 47 | 1 won | 1 |
-| Raven Hill Clan | 1 | 1 | 0 | 42 | 1 won | 1 |
 | Vortex Legion | 1 | 1 | 0 | 42 | 1 won | 1 |
 | Brightwater Tribe | 3 | 1 | 2 | 41 | 1 lost | 1 |
-| Thornwood Company | 2 | 1 | 1 | 38 | 1 lost | 1 |
 
 ### Great rivalries
 
@@ -158,6 +158,7 @@ Records from 231 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 03:17: The Greyfang Clan Take the Titan's Bones (2nd win · 36 kills)
 - 2026-11-05 03:02: The Crew of the Sea Wolf Take the Desert Well (first battle, first win · 31 kills)
 - 2026-11-05 02:48: The Greyfang Clan Take the Overgrown Throne (first ever win · 43 kills)
 - 2026-11-05 02:33: The Emberroot Circle Take the Open Plains (first battle, first win · 50 kills)
@@ -167,4 +168,3 @@ Records from 231 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 01:25: The Orbit Legion Take the Open Plains (2nd win · 38 kills)
 - 2026-11-05 01:08: The Viper Company Take the Quarry (first battle, first win · 68 kills)
 - 2026-11-05 00:54: The Highmoor Clan Take the Clockwork Arena (first battle, first win · 66 kills)
-- 2026-11-05 00:39: The Black Bear Clan Take the Bombed City (first battle, first win · 39 kills)
