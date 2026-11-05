@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 270 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 271 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -70,8 +70,8 @@ Records from 270 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - CANNON SLAYER: 6
 - IMMORTAL FRAUD SLAYER: 6
 - COLOSSUS SLAYER: 7
-- MAMMOTH SLAYER: 7
 - MECH SLAYER: 7
+- MAMMOTH SLAYER: 8
 - ELEPHANT SLAYER: 9
 - TANK SLAYER: 9
 - PLAYER SLAYER: 9
@@ -87,8 +87,8 @@ Records from 270 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 33
 - swift: 38
 - venom: 39
-- spikes: 45
-- regen: 54
+- spikes: 46
+- regen: 55
 
 ## Big moments
 
@@ -130,7 +130,7 @@ Records from 270 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-92 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+93 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
@@ -168,6 +168,7 @@ Records from 270 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 12:50: The Thornheart Circle Take the Open Plains (first battle, first win · 34 kills)
 - 2026-11-05 12:36: The Grinning Moon Take the Mountain Pass (first battle, first win · 79 kills)
 - 2026-11-05 12:23: The Iron Lotus School Take the Canyon Pass (first ever win · 163 kills)
 - 2026-11-05 12:08: The Mountain Wind School Take the City (first battle, first win · 101 kills)
@@ -177,4 +178,3 @@ Records from 270 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 11:08: The Mossback Tribe Take the Ruined Fort (4th win · 77 kills)
 - 2026-11-05 10:56: The Thornwood Company Take the Mountain Pass (revenge! · 2nd win · 25 kills)
 - 2026-11-05 10:40: The Stonewall Company Take the City (2nd win · 39 kills)
-- 2026-11-05 10:25: The Cinderclaw Kin Take the Open Plains (first battle, first win · 67 kills)
