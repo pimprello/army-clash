@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 227 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 228 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -25,11 +25,11 @@ Records from 227 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Biggest wins (troops still standing)
 
+- **299 left**: 2026-11-05 02:28 · [The Ancient Titan Went DOWN 💀](https://youtube.com/shorts/UK9Rdj07rQY)
 - **127 left**: 2026-11-03 16:17 · [I Did NOT Expect This 😳](https://youtube.com/shorts/cYrP7bJqWDE)
 - **104 left**: 2026-11-04 06:46 · [3 Armies, Only 1 SURVIVES 💀](https://youtube.com/shorts/n-Ha4KUtjeo)
 - **86 left**: 2026-11-04 07:45 · [143 Skeletons vs 84 Elves 💀](https://youtube.com/shorts/vZYnp04XqM0)
 - **85 left**: 2026-11-03 00:21 · [🔥 STEEL GOBLINS vs Cosmic Fakers](https://youtube.com/shorts/gGvtevVjlvo)
-- **84 left**: 2026-11-03 06:00 · [A TORNADO Hit Mid-Battle 🌪️](https://youtube.com/shorts/0Vx4Yv3RMS4)
 
 ## Hall of champions
 
@@ -78,7 +78,7 @@ Records from 227 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - GOLEM SLAYER: 9
 - DRAGON SLAYER: 13
 - GIANT SLAYER: 14
-- TITAN SLAYER: 18
+- TITAN SLAYER: 19
 
 ## Mutations (rarest first)
 
@@ -94,7 +94,6 @@ Records from 227 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 - extinct: AUSTRALIA: 1
 - portal: hydra: 1
-- extinct: BLUE: 1
 - copied: knight: 1
 - extinct: SILVER: 1
 - possess: rhino: 1
@@ -110,6 +109,7 @@ Records from 227 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - copied: trooper: 1
 - extinct: RED: 2
 - extinct: ORANGE: 2
+- extinct: BLUE: 2
 - extinct: GREEN: 2
 - possess: cannon: 3
 - possess: treant: 3
@@ -129,18 +129,19 @@ Records from 227 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
+| Storm Tower Order | 3 | 2 | 1 | 250 | 1 won | 1 |
 | Nova Legion | 2 | 2 | 0 | 236 | 2 won | 2 |
+| Iron Boar Clan | 2 | 2 | 0 | 154 | 2 won | 2 |
 | Orbit Legion | 2 | 2 | 0 | 73 | 2 won | 2 |
 | Badger Platoon | 2 | 2 | 0 | 29 | 2 won | 2 |
-| Storm Tower Order | 2 | 1 | 1 | 127 | 1 lost | 1 |
 | Wildbrook Clan | 2 | 1 | 1 | 117 | 1 won | 1 |
 | Stormhorn Tribe | 1 | 1 | 0 | 91 | 1 won | 1 |
 | Stonewall Company | 4 | 1 | 2 | 90 | 2 lost | 1 |
 | Duskwing Tribe | 2 | 1 | 0 | 76 | 1 won | 1 |
 | Viper Company | 1 | 1 | 0 | 68 | 1 won | 1 |
 | Highmoor Clan | 1 | 1 | 0 | 66 | 1 won | 1 |
+| The Black Candle | 2 | 1 | 1 | 64 | 1 lost | 1 |
 | Mossback Tribe | 2 | 1 | 1 | 47 | 1 won | 1 |
-| The Black Candle | 1 | 1 | 0 | 43 | 1 won | 1 |
 | Raven Hill Clan | 1 | 1 | 0 | 42 | 1 won | 1 |
 | Vortex Legion | 1 | 1 | 0 | 42 | 1 won | 1 |
 | Black Bear Clan | 1 | 1 | 0 | 39 | 1 won | 1 |
@@ -148,7 +149,6 @@ Records from 227 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Zenith Cohort | 1 | 1 | 0 | 30 | 1 won | 1 |
 | Golden Lion Order | 1 | 1 | 0 | 27 | 1 won | 1 |
 | Brightwater Tribe | 2 | 1 | 1 | 20 | 1 won | 1 |
-| Bone Garden Coven | 1 | 1 | 0 | 19 | 1 won | 1 |
 
 ### Great rivalries
 
@@ -156,6 +156,7 @@ Records from 227 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 02:28: The Iron Boar Clan Take the Haunted Crypt (2nd win · 135 kills)
 - 2026-11-05 01:53: The Mossback Tribe Take the Castle (first ever win · 38 kills)
 - 2026-11-05 01:35: Nobody Takes the World Furnace (the feud goes on)
 - 2026-11-05 01:25: The Orbit Legion Take the Open Plains (2nd win · 38 kills)
@@ -165,4 +166,3 @@ Records from 227 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 00:26: The Nova Legion Take the Open Plains (2nd win · 131 kills)
 - 2026-11-05 00:10: The Wildbrook Clan Take the Swamp Shrine (revenge! · first ever win · 65 kills)
 - 2026-11-04 23:56: The Black Candle Take the Frozen End (first battle, first win · 43 kills)
-- 2026-11-04 23:39: The Stormhorn Tribe Take the Old Forest (first battle, first win · 91 kills)
