@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-05 07:01 | 🇬🇧 UK vs USA: WHO WINS? | Usa wins | https://youtube.com/shorts/Sk7tdm2NZiw |
 | 2026-11-05 06:44 | LAST STAND: 26 Robots vs Giant Army 🛡️ | Canada wins | https://youtube.com/shorts/rYjmcfg1lzY |
 | 2026-11-05 06:29 | 3 Armies, Only 1 SURVIVES 💀 | Magenta wins | https://youtube.com/shorts/v_DLdVeKvOM |
 | 2026-11-05 06:14 | ⚔️ CHAMPION DUEL: Soldiers vs Gunners | Yellow wins | https://youtube.com/shorts/lChCviVRhSk |

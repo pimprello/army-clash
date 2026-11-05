@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 246 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 247 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 246 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **ZEDRIK BONECRUSHER** (PHASE REAPER), 14 kills · 2026-11-05 07:01
 - **COBRA-8** (LASER TROOPER), 10 kills · 2026-11-05 06:44
 - **RUNA THE SWIFT** (KNIGHT), 10 kills · 2026-11-05 04:46
 - **OSKA IRONHIDE** (WIZARD), 16 kills · 2026-11-05 04:18
@@ -47,14 +48,13 @@ Records from 246 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **NYRA FIREBRAND** (KNIGHT), 23 kills · 2026-11-04 16:26
 - **VIPER-8** (MACHINE GUNNER), 15 kills · 2026-11-04 15:56
 - **BRAKK THE UNBROKEN** (CROSSBOWMAN), 10 kills · 2026-11-04 13:55
-- **VIPER-7** (LASER TROOPER), 11 kills · 2026-11-04 13:41
 
 ## Titles earned (rarest first)
 
 - CATAPULT SLAYER: 1
 - KNIGHT SLAYER: 2
-- GRAVITY TYRANT SLAYER: 2
 - THOUSAND-MAN SLAYER: 3
+- GRAVITY TYRANT SLAYER: 3
 - WORLDROOT SLAYER: 3
 - MIRROR KING SLAYER: 4
 - FORTRESS SLAYER: 4
@@ -84,7 +84,7 @@ Records from 246 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 - vampiric: 5
 - wings: 19
-- spellward: 31
+- spellward: 32
 - venom: 34
 - swift: 35
 - spikes: 43
@@ -128,12 +128,12 @@ Records from 246 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-70 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+73 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Storm Tower Order | 6 | 3 | 3 | 295 | 1 lost | 1 |
-| Mossback Tribe | 4 | 3 | 1 | 175 | 3 won | 3 |
+| Mossback Tribe | 5 | 3 | 2 | 184 | 1 lost | 3 |
 | Nova Legion | 2 | 2 | 0 | 236 | 2 won | 2 |
 | Ashmantle Kin | 2 | 2 | 0 | 194 | 2 won | 2 |
 | Iron Boar Clan | 2 | 2 | 0 | 154 | 2 won | 2 |
@@ -161,6 +161,7 @@ Records from 246 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 07:01: The Thunder Gate School Take the Bombed City (streak ended · first battle, first win · 45 kills)
 - 2026-11-05 06:44: The Pulsar Wing Take the Ruined Fort (streak ended · first battle, first win · 64 kills)
 - 2026-11-05 06:29: The Mossback Tribe Take the Open Plains (3 wins in a row · 78 kills)
 - 2026-11-05 06:14: The Granite Battalion Take the World Furnace (first ever win · 18 kills)
@@ -170,4 +171,3 @@ Records from 246 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 05:14: The Gloomcap Circle Take the Crystal Grove (first battle, first win · 18 kills)
 - 2026-11-05 05:00: The Wolverine Company Take the Open Plains (2nd win · 43 kills)
 - 2026-11-05 04:46: The Stonebridge Company Take the Old Forest (first ever win · 63 kills)
-- 2026-11-05 04:31: The Ash Wolf Clan Take the Open Plains (2nd win · 73 kills)
