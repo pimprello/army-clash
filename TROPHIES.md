@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 265 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 266 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -108,6 +108,7 @@ Records from 265 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - possess: stormemperor: 1
 - extinct: WHITE: 1
 - extinct: UK: 1
+- extinct: PURPLE: 1
 - extinct: RED: 2
 - extinct: ORANGE: 2
 - extinct: BLUE: 2
@@ -167,6 +168,7 @@ Records from 265 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 11:39: The Pale Procession Take the Sky Islands (2nd win · 39 kills)
 - 2026-11-05 11:22: The Crooked Spire Take the Open Plains (2nd win · 42 kills)
 - 2026-11-05 11:08: The Mossback Tribe Take the Ruined Fort (4th win · 77 kills)
 - 2026-11-05 10:56: The Thornwood Company Take the Mountain Pass (revenge! · 2nd win · 25 kills)
@@ -176,4 +178,3 @@ Records from 265 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 09:55: The Gloomcap Circle Take the Mirror Gate (3 wins in a row · 31 kills)
 - 2026-11-05 09:41: The Copper Crown Company Take the Castle (2nd win · 48 kills)
 - 2026-11-05 09:26: The Red Hawk Company Take the Open Plains (4 wins in a row · 93 kills)
-- 2026-11-05 09:13: The Stormhorn Tribe Take the Desert Well (3 wins in a row · 78 kills)
