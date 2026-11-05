@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 291 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 292 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 291 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **PELL GRAVEBANE** (GRIFFIN RIDER), 15 kills · 2026-11-05 20:04
 - **IVOR THE SWIFT** (TROLL), 17 kills · 2026-11-05 18:51
 - **TALVO THE SWIFT** (ROYAL GUARD), 10 kills · 2026-11-05 18:38
 - **GRUNDA STORMBORN** (ROYAL GUARD), 20 kills · 2026-11-05 13:51
@@ -47,7 +48,6 @@ Records from 291 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **GRIM SKULLTAKER** (SWORDSMAN), 11 kills · 2026-11-05 03:17
 - **ZEDRIK GRAVEBANE** (SWORDSMAN), 11 kills · 2026-11-05 02:48
 - **PELL STEELHEART** (GRIFFIN RIDER), 16 kills · 2026-11-05 00:54
-- **GHOST-4** (LASER TROOPER), 24 kills · 2026-11-05 00:26
 
 ## Titles earned (rarest first)
 
@@ -86,7 +86,7 @@ Records from 291 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - wings: 22
 - spellward: 33
 - swift: 41
-- venom: 44
+- venom: 45
 - spikes: 49
 - regen: 58
 
@@ -137,15 +137,15 @@ Records from 291 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Red Hawk Company | 9 | 7 | 2 | 306 | 1 won | 5 |
 | Mossback Tribe | 8 | 5 | 3 | 348 | 1 lost | 3 |
 | Order of the Silver Stag | 9 | 4 | 5 | 418 | 1 won | 3 |
+| Frostwhisper Tribe | 6 | 4 | 2 | 192 | 4 won | 4 |
 | Gloomcap Circle | 6 | 4 | 2 | 121 | 1 won | 3 |
 | Storm Tower Order | 9 | 3 | 6 | 320 | 4 lost | 1 |
 | Nova Legion | 4 | 3 | 1 | 311 | 1 won | 2 |
 | Duskwing Tribe | 6 | 3 | 2 | 219 | 2 won | 2 |
 | Golden Lion Order | 5 | 3 | 2 | 219 | 2 lost | 3 |
 | Stormhorn Tribe | 3 | 3 | 0 | 212 | 3 won | 3 |
-| Frostwhisper Tribe | 5 | 3 | 2 | 157 | 3 won | 3 |
+| Oakshield Clan | 6 | 3 | 3 | 151 | 1 lost | 3 |
 | Black Bear Clan | 4 | 3 | 1 | 119 | 1 won | 2 |
-| Oakshield Clan | 5 | 3 | 2 | 116 | 3 won | 3 |
 | Cinderclaw Kin | 4 | 3 | 1 | 100 | 1 lost | 3 |
 | The Pale Procession | 3 | 3 | 0 | 91 | 3 won | 3 |
 | Thornwood Company | 5 | 3 | 2 | 87 | 2 won | 2 |
@@ -168,6 +168,7 @@ Records from 291 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 20:04: The Starweave Circle Take the Sky-temple Relic (2nd win · 89 kills)
 - 2026-11-05 19:46: The Wormwood Coven Take the Mirror Gate (first ever win · 24 kills)
 - 2026-11-05 18:51: The Starweave Circle Take the Godboard (revenge denied · first ever win · 48 kills)
 - 2026-11-05 18:38: The Vector Cohort Take the Canyon Pass (first ever win · 53 kills)
@@ -177,4 +178,3 @@ Records from 291 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 17:36: The Order of the Silver Stag Take the Open Plains (4th win · 70 kills)
 - 2026-11-05 16:04: The Badger Platoon Take the Swamp Shrine (3 wins in a row · 51 kills)
 - 2026-11-05 15:48: The Harrier Squadron Take the World Furnace (streak ended · first ever win · 29 kills)
-- 2026-11-05 15:34: The Golden Lion Order Take the Swamp Shrine (revenge denied · 3 wins in a row · 131 kills)

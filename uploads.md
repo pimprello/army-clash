@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-05 20:04 | 🦅 GRIFFIN RIDERS vs Archers | Blue wins | https://youtube.com/shorts/pXpC0VLdZJ0 |
 | 2026-11-05 19:46 | The Weapons Came ALIVE 🗡️ | Red wins | https://youtube.com/shorts/QqO-dg_c-xA |
 | 2026-11-05 18:51 | LIGHTNING Struck the Battlefield ⚡ | Belgium wins | https://youtube.com/shorts/ry3nsmZZmhw |
 | 2026-11-05 18:38 | 3 Armies, Only 1 SURVIVES 💀 | Pink wins | https://youtube.com/shorts/ibnefSLaPyI |
