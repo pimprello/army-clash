@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 238 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 239 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -67,10 +67,10 @@ Records from 238 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - HELICOPTER SLAYER: 5
 - PHOENIX SLAYER: 5
 - STORM EMPEROR SLAYER: 5
-- TANK SLAYER: 6
 - HYDRA SLAYER: 6
 - CANNON SLAYER: 6
 - IMMORTAL FRAUD SLAYER: 6
+- TANK SLAYER: 7
 - COLOSSUS SLAYER: 7
 - MECH SLAYER: 7
 - ELEPHANT SLAYER: 9
@@ -85,7 +85,7 @@ Records from 238 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 5
 - wings: 19
 - spellward: 31
-- venom: 33
+- venom: 34
 - swift: 35
 - spikes: 42
 - regen: 50
@@ -128,13 +128,14 @@ Records from 238 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-61 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+62 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
-| Storm Tower Order | 4 | 2 | 2 | 289 | 1 lost | 1 |
+| Storm Tower Order | 5 | 3 | 2 | 289 | 1 won | 1 |
 | Nova Legion | 2 | 2 | 0 | 236 | 2 won | 2 |
 | Iron Boar Clan | 2 | 2 | 0 | 154 | 2 won | 2 |
+| Wolverine Company | 2 | 2 | 0 | 108 | 2 won | 2 |
 | Greyfang Clan | 3 | 2 | 1 | 103 | 2 won | 2 |
 | Ash Wolf Clan | 2 | 2 | 0 | 98 | 2 won | 2 |
 | Mossback Tribe | 3 | 2 | 1 | 97 | 2 won | 2 |
@@ -149,9 +150,8 @@ Records from 238 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Stormhorn Tribe | 1 | 1 | 0 | 91 | 1 won | 1 |
 | Stonewall Company | 4 | 1 | 2 | 90 | 2 lost | 1 |
 | Duskwing Tribe | 3 | 1 | 1 | 86 | 1 lost | 1 |
+| Viper Company | 2 | 1 | 1 | 85 | 1 lost | 1 |
 | Raven Hill Clan | 2 | 1 | 1 | 72 | 1 lost | 1 |
-| Highmoor Clan | 2 | 1 | 1 | 72 | 1 lost | 1 |
-| Viper Company | 1 | 1 | 0 | 68 | 1 won | 1 |
 
 ### Great rivalries
 
@@ -160,6 +160,7 @@ Records from 238 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 05:00: The Wolverine Company Take the Open Plains (2nd win · 43 kills)
 - 2026-11-05 04:46: The Stonebridge Company Take the Old Forest (first ever win · 63 kills)
 - 2026-11-05 04:31: The Ash Wolf Clan Take the Open Plains (2nd win · 73 kills)
 - 2026-11-05 04:18: The Ashmantle Kin Take the Overgrown Throne (first battle, first win · 182 kills)
@@ -169,4 +170,3 @@ Records from 238 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 03:17: The Greyfang Clan Take the Titan's Bones (2nd win · 36 kills)
 - 2026-11-05 03:02: The Crew of the Sea Wolf Take the Desert Well (first battle, first win · 31 kills)
 - 2026-11-05 02:48: The Greyfang Clan Take the Overgrown Throne (first ever win · 43 kills)
-- 2026-11-05 02:33: The Emberroot Circle Take the Open Plains (first battle, first win · 50 kills)
