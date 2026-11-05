@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 257 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 258 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -123,8 +123,8 @@ Records from 257 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: troll: 5
 - portal: demon: 9
 - sudden: ring: 9
-- sudden: lava: 12
 - sudden: boss: 13
+- sudden: lava: 13
 - sudden: meteors: 17
 
 ## The tribes' chronicle
@@ -141,29 +141,31 @@ Records from 257 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Oakshield Clan | 5 | 3 | 2 | 116 | 3 won | 3 |
 | Nova Legion | 3 | 2 | 1 | 268 | 1 lost | 2 |
 | Ashmantle Kin | 2 | 2 | 0 | 194 | 2 won | 2 |
+| Order of the Silver Stag | 5 | 2 | 3 | 184 | 2 won | 2 |
 | Ash Wolf Clan | 5 | 2 | 3 | 160 | 3 lost | 2 |
 | Iron Boar Clan | 2 | 2 | 0 | 154 | 2 won | 2 |
-| Greyfang Clan | 4 | 2 | 2 | 122 | 1 lost | 2 |
+| Greyfang Clan | 5 | 2 | 3 | 143 | 2 lost | 2 |
 | Wolverine Company | 2 | 2 | 0 | 108 | 2 won | 2 |
 | Thunder Platoon | 2 | 2 | 0 | 94 | 2 won | 2 |
 | Brightwater Tribe | 5 | 2 | 3 | 76 | 1 lost | 1 |
 | Orbit Legion | 2 | 2 | 0 | 73 | 2 won | 2 |
 | Golden Lion Order | 2 | 2 | 0 | 61 | 2 won | 2 |
+| Copper Crown Company | 2 | 2 | 0 | 53 | 2 won | 2 |
 | Vortex Legion | 2 | 2 | 0 | 48 | 2 won | 2 |
 | Badger Platoon | 2 | 2 | 0 | 29 | 2 won | 2 |
-| Gloomcap Circle | 2 | 2 | 0 | 21 | 2 won | 2 |
-| Wildbrook Clan | 4 | 1 | 3 | 190 | 2 lost | 1 |
 
 ### Great rivalries
 
 - **Storm Tower Order vs Wildbrook Clan**: met 2 times, last won by Wildbrook Clan
 - **Brightwater Tribe vs Glimmerdeep Kin**: met 2 times
+- **Greyfang Clan vs Order of the Silver Stag**: met 2 times, last won by Order of the Silver Stag
 - **Thunder Platoon vs Viper Company**: met 2 times, last won by Thunder Platoon
 - **Oakshield Clan vs Stonebridge Company**: met 2 times, last won by Oakshield Clan
 - **Ash Wolf Clan vs Oakshield Clan**: met 2 times, last won by Oakshield Clan
 
 ### Latest from the battlefield
 
+- 2026-11-05 09:41: The Copper Crown Company Take the Castle (2nd win · 48 kills)
 - 2026-11-05 09:26: The Red Hawk Company Take the Open Plains (4 wins in a row · 93 kills)
 - 2026-11-05 09:13: The Stormhorn Tribe Take the Desert Well (3 wins in a row · 78 kills)
 - 2026-11-05 08:55: The Stone River School Take the Overgrown Throne (first battle, first win · 156 kills)
@@ -173,4 +175,3 @@ Records from 257 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 07:56: The Gloomcap Circle Take the World Furnace (2nd win · 3 kills)
 - 2026-11-05 07:43: The Bilgewater Crew Take the Ruined Fort (first battle, first win · 40 kills)
 - 2026-11-05 07:28: The Crooked Spire Take the Open Plains (first ever win · 72 kills)
-- 2026-11-05 07:13: The Black Bear Clan Take the Sky-temple Relic (streak ended · 3rd win · 33 kills)
