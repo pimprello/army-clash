@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 244 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 245 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -128,18 +128,18 @@ Records from 244 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-67 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+68 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Storm Tower Order | 5 | 3 | 2 | 289 | 1 won | 1 |
+| Mossback Tribe | 4 | 3 | 1 | 175 | 3 won | 3 |
 | Nova Legion | 2 | 2 | 0 | 236 | 2 won | 2 |
 | Ashmantle Kin | 2 | 2 | 0 | 194 | 2 won | 2 |
 | Iron Boar Clan | 2 | 2 | 0 | 154 | 2 won | 2 |
 | Wolverine Company | 2 | 2 | 0 | 108 | 2 won | 2 |
 | Greyfang Clan | 3 | 2 | 1 | 103 | 2 won | 2 |
 | Ash Wolf Clan | 2 | 2 | 0 | 98 | 2 won | 2 |
-| Mossback Tribe | 3 | 2 | 1 | 97 | 2 won | 2 |
 | Thunder Platoon | 2 | 2 | 0 | 94 | 2 won | 2 |
 | Orbit Legion | 2 | 2 | 0 | 73 | 2 won | 2 |
 | Black Bear Clan | 2 | 2 | 0 | 73 | 2 won | 2 |
@@ -161,6 +161,7 @@ Records from 244 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 06:29: The Mossback Tribe Take the Open Plains (3 wins in a row · 78 kills)
 - 2026-11-05 06:14: The Granite Battalion Take the World Furnace (first ever win · 18 kills)
 - 2026-11-05 05:59: The Oakshield Clan Take the Trench Line (first ever win · 8 kills)
 - 2026-11-05 05:44: The Thunder Platoon Take the Treasure Cove (revenge denied · 2nd win · 39 kills)
@@ -170,4 +171,3 @@ Records from 244 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 04:46: The Stonebridge Company Take the Old Forest (first ever win · 63 kills)
 - 2026-11-05 04:31: The Ash Wolf Clan Take the Open Plains (2nd win · 73 kills)
 - 2026-11-05 04:18: The Ashmantle Kin Take the Overgrown Throne (first battle, first win · 182 kills)
-- 2026-11-05 04:03: The House of the Crimson Carp Take the Sky-temple Relic (first battle, first win · 25 kills)
