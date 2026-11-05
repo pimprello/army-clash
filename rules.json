@@ -1395,6 +1395,7 @@
     }
   ],
   "cinematic": true,
+  "sound": { "variety": 0.06, "weapons": true },
   "creative": {
     "every": 2,
     "balanceBattles": 8,

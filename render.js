@@ -196,7 +196,7 @@ async function main() {
   const cmbOpts = combat ? { combat: { armySize: combat.armySize ?? 0.8, hp: combat.hp ?? 1, moves: combat.moves !== false, fewerBullets: combat.fewerBullets !== false, roster: combat.roster !== false }, mode: mode || undefined, skins, heroes: mode === 'heroes' ? heroTeam : undefined } : {};
   const pacing = OUTRO ? { outroSecs: OUTRO, pace: VID.pace !== false } : {};
   const UIL = (rules.ui && rules.ui.layout) || 1; // 2 = the Shorts-safe layout (scoreboard on top, tribes strip above YouTube's title)
-  const optsFor = mul => ({ target: SECS, fixedLength: SECS, ...pacing, swordsmen, crossbowmen, map, doctrines, budgetMul: three ? mul : [bm[0], bm[1] * mul], swordsmenByTeam, extras, extrasByTeam, era, formations, events,
+  const optsFor = mul => ({ target: SECS, fixedLength: SECS, weaponSfx: !!(rules.sound && rules.sound.weapons), ...pacing, swordsmen, crossbowmen, map, doctrines, budgetMul: three ? mul : [bm[0], bm[1] * mul], swordsmenByTeam, extras, extrasByTeam, era, formations, events,
     teams: three ? 3 : 2, dream: !!(wild || custom || three), ...systems, ...cmbOpts, ...trbOpts, ...(UIL >= 2 ? { ui: UIL } : {}), ...(rules.ui && rules.ui.art >= 2 ? { art: rules.ui.art } : {}), ...(rules.world && rules.world.on ? { world: rules.world } : {}) });
   // a creative match-up is new, so balance it now with quick test battles on this map and these formations
   let wildMul = three ? bm.slice(0, 3) : 1, wildRate = null, tuned = null;
@@ -243,6 +243,7 @@ async function main() {
   const director = cinematic ? new RVB.Director(game, { seed }) : null;
   const synth = new RVB.Synth(SR, MAXFRAMES / FPS + 4);
   synth.reset(seed);
+  synth.variety = (rules.sound && rules.sound.variety) || 0;   // rules.json: how much each sound's pitch and volume vary (0 = off)
   const canvas = createCanvas(W, H);
   const ctx = canvas.getContext('2d');
 

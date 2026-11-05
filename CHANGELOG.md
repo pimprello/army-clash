@@ -2,6 +2,16 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-05 (later): weapons sound different
+
+Rellz asked for a wider variety of sound effects for the different weapons.
+
+- **Each weapon now has its own hit sound:** swords ring, axes and clubs chop, spears and lances stab with a whistle, maces and war hammers land with a heavy low ring, shields bash, and ninjas and assassins make a quick light *shing*. Before, every melee hit used the same clash sound. Guns, cannons, bows and magic already had their own sounds and keep them.
+- **No two hits sound exactly alike:** every sound gets a small pitch and volume change (up to about 6%), so a big fight sounds like a crowd of fighters, not one sound on repeat.
+- Both are dials in `rules.json` (`sound.weapons`, `sound.variety`, see RULES.md). They only change what you hear: the same battles were run with the old and new code and every winner, survivor count and ending time matched.
+- **Tested:** the new sounds play cleanly (no clipping or broken audio); in test battles the new hits really fire (a knights-and-spearmen battle used `crush`, `stab`, `chop` and `bonk` hundreds of times; a ninja battle used `shing`); with the dials off, the sound is exactly as before; a short real render has picture and sound and ends on time. No preview videos were made.
+- Videos already posted don't change; the new sounds start with the next video.
+
 ## 2026-11-05: Army Clash 2.0, part 1: a clean layout built for phones
 
 Rellz asked for a major UI update ("make everything look clean and smooth... make sure the ui will fit in every phone and look nice") and an easier-to-follow story. This is the first part of the 2.0 update; the rest (art pass, world events, the new market, new characters, video length and upload timing) follows in the next entries. On from the next video (`rules.ui`, explained in RULES.md).

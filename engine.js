@@ -3219,7 +3219,7 @@ const RVB = (() => {
                 this.damage(t, hit, u);
                 // a vampire's bite heals it
                 if (U.drain) { u.hp = Math.min(u.max, u.hp + hit * U.drain); u.drainFx = 1; }
-                this.snd(UNIT[t.type].block ? 'thunk' : 'clash', { pan: (u.x - AR.x) / AR.w * 1.4 - 0.7 });
+                this.snd(this.hitSfx(u, t), { pan: (u.x - AR.x) / AR.w * 1.4 - 0.7 });
                 if (u.type === 'ninja' || u.type === 'pirate') this.snd('swish', { pan: (u.x - AR.x) / AR.w * 1.4 - 0.7 });
               }
               if (this.ext) this.meleeFx(u, U, t);
@@ -4171,9 +4171,12 @@ const RVB = (() => {
       this.len = Math.ceil(sr * maxSec);
       this.L = new Float32Array(this.len);
       this.R = new Float32Array(this.len);
+      this.variety = 0; this.pk = 1; this.gk = 1;   // sound variety (rules.sound.variety): pitch and volume change per sound, 0 = off
       this.reset(1);
     }
-    reset(seed) { this.L.fill(0); this.R.fill(0); this.last = {}; this.ns = (seed >>> 0) || 1; }
+    reset(seed) { this.L.fill(0); this.R.fill(0); this.last = {}; this.ns = (seed >>> 0) || 1; this.vs = ((seed >>> 0) ^ 0x9E3779B9) >>> 0 || 1; }
+    // a separate random sequence for the variety, so the synth's own noise (and the battle) are unchanged
+    vrand() { let x = this.vs; x ^= x << 13; x ^= x >>> 17; x ^= x << 5; this.vs = x >>> 0; return (this.vs / 4294967296) * 2 - 1; }
     noise() { let x = this.ns; x ^= x << 13; x ^= x >>> 17; x ^= x << 5; this.ns = x >>> 0; return (this.ns / 4294967296) * 2 - 1; }
     gate(key, gap, t) { const l = this.last[key]; if (l !== undefined && t - l < gap) return false; this.last[key] = t; return true; }
     // Generic voice: sum of decaying partials with optional pitch glide, plus filtered noise.
@@ -4182,8 +4185,8 @@ const RVB = (() => {
       const n = Math.min(Math.floor((o.dur || 0.3) * sr), this.len - s0);
       if (n <= 0 || s0 < 0) return;
       const pan = clamp(o.pan || 0, -1, 1);
-      const gl = (o.gain || 0.2) * Math.cos(((pan + 1) * Math.PI) / 4), gr = (o.gain || 0.2) * Math.sin(((pan + 1) * Math.PI) / 4);
-      const parts = (o.partials || []).map(p => ({ f: p.f, f2: p.f2 === undefined ? p.f : p.f2, a: p.a === undefined ? 1 : p.a, k: Math.exp(-1 / ((p.decay || 0.1) * sr)), env: 1, ph: 0, glide: p.glide || 0.08, inc: (TAU * p.f) / sr, gk: Math.exp(-1 / ((p.glide || 0.08) * sr)), gd: 1 }));
+      const gl = (o.gain || 0.2) * this.gk * Math.cos(((pan + 1) * Math.PI) / 4), gr = (o.gain || 0.2) * this.gk * Math.sin(((pan + 1) * Math.PI) / 4);
+      const parts = (o.partials || []).map(p => ({ f: p.f * this.pk, f2: (p.f2 === undefined ? p.f : p.f2) * this.pk, a: p.a === undefined ? 1 : p.a, k: Math.exp(-1 / ((p.decay || 0.1) * sr)), env: 1, ph: 0, glide: p.glide || 0.08, inc: (TAU * p.f * this.pk) / sr, gk: Math.exp(-1 / ((p.glide || 0.08) * sr)), gd: 1 }));
       const nk = o.noise ? Math.exp(-1 / ((o.noise.decay || 0.03) * sr)) : 0;
       let nenv = o.noise ? o.noise.a : 0, lp = 0, hpPrev = 0;
       const lpA = o.noise ? clamp(o.noise.lp || 0.5, 0.01, 1) : 0;
@@ -4211,7 +4214,13 @@ const RVB = (() => {
         L[s0 + i] += v * gl; Rr[s0 + i] += v * gr;
       }
     }
+    // every sound gets its own small pitch and volume change (up to ±variety, volume up to 1.5× that), if variety is on
     play(ev, t) {
+      if (this.variety > 0) { this.pk = 1 + this.vrand() * this.variety; this.gk = 1 + this.vrand() * this.variety * 1.5; }
+      this.playRaw(ev, t);
+      this.pk = 1; this.gk = 1;
+    }
+    playRaw(ev, t) {
       const pan = ev.pan || 0;
       switch (ev.type) {
         case 'pluck': {
@@ -4238,6 +4247,11 @@ const RVB = (() => {
           this.voice(t, { dur: 0.6, gain: 0.2, pan, partials: [{ f: b, decay: 0.3 }, { f: b * 2.32, a: 0.6, decay: 0.2 }, { f: b * 3.81, a: 0.4, decay: 0.12 }, { f: b * 5.67, a: 0.25, decay: 0.07 }], noise: { a: 0.5, decay: 0.006, lp: 0.9, hp: true } });
           return;
         }
+        // weapon sounds: an axe or club chops, a spear or lance stabs with a whistle, a mace or hammer rings low, a light blade shings
+        case 'chop': if (this.gate('chop', 0.05, t)) this.voice(t, { dur: 0.25, gain: 0.3, pan, partials: [{ f: 210, f2: 85, glide: 0.06, decay: 0.07 }], noise: { a: 0.8, decay: 0.04, lp: 0.35 } }); return;
+        case 'stab': if (this.gate('stab', 0.04, t)) this.voice(t, { dur: 0.16, gain: 0.1, pan, partials: [{ f: 1150, f2: 650, glide: 0.05, decay: 0.05, a: 0.5 }, { f: 2300, f2: 1300, glide: 0.05, decay: 0.03, a: 0.2 }], noise: { a: 0.7, decay: 0.03, lp: 0.8, hp: true } }); return;
+        case 'crush': if (this.gate('crush', 0.06, t)) this.voice(t, { dur: 0.5, gain: 0.28, pan, partials: [{ f: 330, decay: 0.18 }, { f: 330 * 2.7, a: 0.5, decay: 0.1 }, { f: 330 * 4.1, a: 0.3, decay: 0.06 }], noise: { a: 0.9, decay: 0.02, lp: 0.4 } }); return;
+        case 'shing': if (this.gate('shing', 0.03, t)) this.voice(t, { dur: 0.12, gain: 0.07, pan, partials: [{ f: 2000, f2: 3000, glide: 0.03, decay: 0.04, a: 0.6 }], noise: { a: 0.6, decay: 0.02, lp: 0.9, hp: true } }); return;
         case 'bonk': if (this.gate('bonk', 0.1, t)) this.voice(t, { dur: 0.15, gain: 0.3, pan, partials: [{ f: 280, f2: 170, glide: 0.04, decay: 0.05 }] }); return;
         case 'wall': if (this.gate('wall', 0.12, t)) this.voice(t, { dur: 0.08, gain: 0.12, pan, partials: [{ f: 120, f2: 70, glide: 0.02, decay: 0.025 }], noise: { a: 0.3, decay: 0.01, lp: 0.3 } }); return;
         case 'shoot': if (this.gate('shoot', 0.05, t)) this.voice(t, { dur: 0.18, gain: 0.2, pan, partials: [{ f: 520, f2: 240, glide: 0.04, decay: 0.06 }], noise: { a: 0.5, decay: 0.02, lp: 0.4 } }); return;
@@ -7925,6 +7939,12 @@ const RVB = (() => {
         return hit * 0.2;
       }
       return hit;
+    },
+    // the sound of a melee hit: each weapon style has its own (off unless rules.sound.weapons is on, so old videos sound the same)
+    hitSfx(u, t) {
+      if (UNIT[t.type].block) return 'thunk';
+      if (!this.opts.weaponSfx) return 'clash';
+      return { blade: 'clash', shield: 'bonk', cleave: 'chop', thrust: 'stab', crush: 'crush', agile: 'shing' }[u.cst] || 'clash';
     },
     // after a melee hit lands: cleaves, thrusts that go through, stuns and shield bashes, and the swing's trail
     combatFx(u, U, t) {

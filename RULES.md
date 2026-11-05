@@ -121,6 +121,12 @@ Titles are written by `titles.js`, following research on what gets Shorts watche
 - **Sometimes they lead with what happened** (`Won With Only 2 LEFT 😱`, `They Took Down a DRAGON? 🐉`, `One AIRSTRIKE Changed Everything ✈️`). Every such line comes from this battle, so titles never mislead, and the description always says it's a simulation.
 - **More true outcome lines** (added 2026-11-05): `Half the Size and Still WON 😳` (the winner started with under 60% of the loser's troops), `They Barely Got SCRATCHED 😤` (the winner lost under 10% of its troops), `They Were ALMOST Wiped Out... 😱` (the winner fell below 20% of its strength at some point) and `One Troop CARRIED the Whole Army 😳` (one troop got 20+ kills). New match-up lines: `Can Orcs Survive KNIGHTS? 🛡️` and, for three-way battles, `Pick ONE: Storm Mages, Dragon Bones, Iron Orcs 👇`.
 
+## Sound
+
+- **`sound.weapons`** (on): each melee weapon has its own hit sound: swords and sabres ring (`clash`), axes, clubs and orc cleavers chop (`chop`), spears, pikes and lances stab with a whistle (`stab`), maces and war hammers ring low and heavy (`crush`), shields bash (`bonk`), and ninjas, assassins and other quick fighters make a light *shing*. Switch it off (`false`) and every melee hit uses the old clash sound.
+- **`sound.variety`** (0.06): every sound gets its own small change in pitch (up to ±6%) and volume (up to ±9%), so a hundred sword hits don't sound like one sample on repeat. 0 turns it off. The changes come from the video's seed, so the same video always sounds the same.
+- Neither setting changes how a battle plays out; they only change what you hear.
+
 ## Cinematic director
 
 With `cinematic` on, a director moves the camera and bends time, reacting to the battle:
