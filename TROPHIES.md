@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 288 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 289 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 288 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **TALVO THE SWIFT** (ROYAL GUARD), 10 kills · 2026-11-05 18:38
 - **GRUNDA STORMBORN** (ROYAL GUARD), 20 kills · 2026-11-05 13:51
 - **ASHKA THE SWIFT** (SAMURAI), 12 kills · 2026-11-05 12:23
 - **GRUNDA STEELHEART** (WIZARD), 22 kills · 2026-11-05 11:08
@@ -47,7 +48,6 @@ Records from 288 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **PELL STEELHEART** (GRIFFIN RIDER), 16 kills · 2026-11-05 00:54
 - **GHOST-4** (LASER TROOPER), 24 kills · 2026-11-05 00:26
 - **ORLOK THE WALL** (WARLOCK), 15 kills · 2026-11-04 21:28
-- **NYRA THE WALL** (WIZARD), 11 kills · 2026-11-04 18:55
 
 ## Titles earned (rarest first)
 
@@ -61,34 +61,34 @@ Records from 288 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - MIRROR KING SLAYER: 5
 - CATHEDRAL SLAYER: 5
 - FORTRESS SLAYER: 5
-- UNMAKER SLAYER: 5
 - CYCLOPS SLAYER: 5
 - HELICOPTER SLAYER: 5
 - PHOENIX SLAYER: 5
 - STORM EMPEROR SLAYER: 5
 - HYDRA SLAYER: 6
+- UNMAKER SLAYER: 6
 - IMMORTAL FRAUD SLAYER: 6
 - COLOSSUS SLAYER: 7
 - CANNON SLAYER: 8
 - MAMMOTH SLAYER: 8
-- MECH SLAYER: 8
 - ELEPHANT SLAYER: 9
 - PLAYER SLAYER: 9
+- MECH SLAYER: 9
 - GOLEM SLAYER: 10
 - TANK SLAYER: 11
 - GIANT SLAYER: 15
-- DRAGON SLAYER: 18
+- DRAGON SLAYER: 19
 - TITAN SLAYER: 24
 
 ## Mutations (rarest first)
 
 - vampiric: 7
-- wings: 21
+- wings: 22
 - spellward: 33
 - swift: 41
 - venom: 42
 - spikes: 49
-- regen: 57
+- regen: 58
 
 ## Big moments
 
@@ -168,6 +168,7 @@ Records from 288 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 18:38: The Vector Cohort Take the Canyon Pass (first ever win · 53 kills)
 - 2026-11-05 18:23: The Duskwing Tribe Take the Trench Line (3rd win · 37 kills)
 - 2026-11-05 18:08: The Stonebridge Company Take the Overgrown Throne (2nd win · 39 kills)
 - 2026-11-05 17:55: The Sunspire Kin Take the Old Forest (streak ended · first ever win · 68 kills)
@@ -177,4 +178,3 @@ Records from 288 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 15:34: The Golden Lion Order Take the Swamp Shrine (revenge denied · 3 wins in a row · 131 kills)
 - 2026-11-05 15:22: The Copperhead Battalion Take the Canyon Pass (2nd win · 29 kills)
 - 2026-11-05 15:04: The Raven Hill Clan Take the Sky-temple Relic (revenge! · 2nd win · 34 kills)
-- 2026-11-05 14:50: The House of the Black Kite Take the Bombed City (streak ended · first ever win · 38 kills)
