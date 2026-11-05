@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 269 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 270 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -83,12 +83,12 @@ Records from 269 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Mutations (rarest first)
 
 - vampiric: 6
-- wings: 20
+- wings: 21
 - spellward: 33
-- venom: 38
 - swift: 38
+- venom: 39
 - spikes: 45
-- regen: 53
+- regen: 54
 
 ## Big moments
 
@@ -121,7 +121,7 @@ Records from 269 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: golem: 4
 - portal: wolfrider: 4
 - fusion: 5
-- portal: troll: 5
+- portal: troll: 6
 - portal: demon: 9
 - sudden: ring: 9
 - sudden: lava: 13
@@ -130,13 +130,13 @@ Records from 269 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-91 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+92 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 6 | 4 | 2 | 261 | 1 won | 3 |
 | Red Hawk Company | 4 | 4 | 0 | 193 | 4 won | 4 |
-| Storm Tower Order | 7 | 3 | 4 | 303 | 2 lost | 1 |
+| Storm Tower Order | 8 | 3 | 5 | 314 | 3 lost | 1 |
 | Stormhorn Tribe | 3 | 3 | 0 | 212 | 3 won | 3 |
 | Order of the Silver Stag | 6 | 3 | 3 | 202 | 3 won | 3 |
 | Black Bear Clan | 4 | 3 | 1 | 119 | 1 won | 2 |
@@ -168,6 +168,7 @@ Records from 269 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 12:36: The Grinning Moon Take the Mountain Pass (first battle, first win · 79 kills)
 - 2026-11-05 12:23: The Iron Lotus School Take the Canyon Pass (first ever win · 163 kills)
 - 2026-11-05 12:08: The Mountain Wind School Take the City (first battle, first win · 101 kills)
 - 2026-11-05 11:52: The Order of the Silver Stag Take the Sky-temple Relic (3 wins in a row · 18 kills)
@@ -177,4 +178,3 @@ Records from 269 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 10:56: The Thornwood Company Take the Mountain Pass (revenge! · 2nd win · 25 kills)
 - 2026-11-05 10:40: The Stonewall Company Take the City (2nd win · 39 kills)
 - 2026-11-05 10:25: The Cinderclaw Kin Take the Open Plains (first battle, first win · 67 kills)
-- 2026-11-05 10:10: The Granite Battalion Take the Sky-temple Relic (2nd win · 22 kills)

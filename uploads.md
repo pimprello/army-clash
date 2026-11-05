@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-05 12:36 | LAST STAND: 20 Vampires vs 80 Knights 🛡️ | Orange wins | https://youtube.com/shorts/qfUaR0LLmEw |
 | 2026-11-05 12:23 | ZOMBIES vs Infantry vs Samurai 🔥 | Blue wins | https://youtube.com/shorts/31Y_L7ljQGw |
 | 2026-11-05 12:08 | They Killed the KING 👑 | Purple wins | https://youtube.com/shorts/3ksyqaNNhLs |
 | 2026-11-05 11:52 | DREAM TEAM Battle: Turbo Monks vs Shadow Legion | Lime wins | https://youtube.com/shorts/qnwKof9VbnA |
