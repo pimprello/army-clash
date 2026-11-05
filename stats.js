@@ -45,25 +45,39 @@ function groupBy(list, keyFn) {
   const ids = [...videos.keys()];
   const out = [];
   for (let i = 0; i < ids.length; i += 50) {
-    const q = new URLSearchParams({ part: 'statistics', id: ids.slice(i, i + 50).join(',') });
+    const q = new URLSearchParams({ part: 'statistics,contentDetails,snippet', id: ids.slice(i, i + 50).join(',') });
     if (a.key) q.set('key', a.key);
     const r = await fetch('https://www.googleapis.com/youtube/v3/videos?' + q, { headers: a.token ? { Authorization: 'Bearer ' + a.token } : {} });
     const j = await r.json();
     if (!r.ok) throw new Error(`YouTube refused the stats request (${r.status}): ${JSON.stringify(j.error && j.error.message)}. Add a YT_API_KEY secret.`);
     for (const it of j.items || []) {
-      const v = videos.get(it.id), st = it.statistics || {};
-      out.push({ ...v, views: Number(st.viewCount || 0), likes: Number(st.likeCount || 0), comments: Number(st.commentCount || 0) });
+      const v = videos.get(it.id), st = it.statistics || {}, cd = it.contentDetails || {}, sn = it.snippet || {};
+      // length in seconds (from the ISO 8601 duration, e.g. PT1M3S) and when it went public
+      const dm = /PT(?:(\d+)M)?(?:(\d+)S)?/.exec(cd.duration || '');
+      const secs = dm ? Number(dm[1] || 0) * 60 + Number(dm[2] || 0) : v.seconds;
+      out.push({ ...v, views: Number(st.viewCount || 0), likes: Number(st.likeCount || 0), comments: Number(st.commentCount || 0), secs, published: sn.publishedAt });
     }
   }
   // only judge videos at least a day old, so new uploads don't drag the numbers down
   const day = 24 * 3600 * 1000, now = Date.now();
   const mature = out.filter(v => v.date && now - Date.parse(v.date.replace(' ', 'T') + 'Z') > day);
+  // when it went up (UK time) and how long it is, so the posting times, the number of posts a day and the video length can be tuned
+  const ukHour = v => { const d = new Date(v.published || v.date.replace(' ', 'T') + 'Z'); return Number(d.toLocaleString('en-GB', { timeZone: 'Europe/London', hour: '2-digit', hour12: false })); };
+  const ukDay = v => new Date(v.published || v.date.replace(' ', 'T') + 'Z').toLocaleDateString('en-GB', { timeZone: 'Europe/London', weekday: 'short' });
+  const lenBucket = v => (v.secs ? (v.secs <= 30 ? '30 s or less' : v.secs <= 45 ? '31-45 s' : v.secs <= 60 ? '46-60 s' : v.secs <= 75 ? '61-75 s' : 'over 75 s') : undefined);
+  const perDay = new Map();
+  for (const v of mature) { const d = (v.published || v.date).slice(0, 10); if (!perDay.has(d)) perDay.set(d, []); perDay.get(d).push(v.views); }
+  const dayRows = [...perDay.entries()].sort().map(([d, a]) => `| ${d} | ${a.length} | ${median(a)} | ${a.reduce((x, y) => x + y, 0)} |`);
   const nation = t => (t && t.some(x => ['UK', 'USA', 'FRANCE', 'GERMANY', 'ITALY', 'BRAZIL', 'ARGENTINA', 'CANADA', 'SPAIN', 'PORTUGAL', 'AUSTRALIA', 'NEWZEALAND', 'NETHERLANDS', 'BELGIUM', 'SWEDEN', 'NORWAY', 'DENMARK', 'FINLAND'].includes(x)) ? 'nations' : 'colours');
   const table = (title, rows) => [`### ${title}`, '', '| Group | Videos | Median views | Average views |', '| --- | --- | --- | --- |',
     ...rows.slice(0, 15).map(r => `| ${r.k} | ${r.n} | ${r.median} | ${r.avg} |`), ''].join('\n');
   const md = [
     '# View stats', '', `Updated ${new Date().toISOString().slice(0, 16).replace('T', ' ')} UTC. ${out.length} videos, ${mature.length} at least a day old (used below). Groups need 3+ videos.`, '',
     `Total views: ${out.reduce((s, v) => s + v.views, 0)}. Median views per video: ${median(mature.map(v => v.views))}.`, '',
+    table('By upload hour (UK time)', groupBy(mature, v => `${String(ukHour(v)).padStart(2, '0')}:00`).sort((a, b) => a.k.localeCompare(b.k))),
+    table('By weekday (UK time)', groupBy(mature, ukDay)),
+    table('By video length', groupBy(mature, lenBucket)),
+    '### Posts per day', '', '| Day | Videos | Median views | Total views |', '| --- | --- | --- | --- |', ...dayRows, '',
     table('By era', groupBy(mature, v => v.era)),
     table('Creative (invented) vs list line-ups', groupBy(mature, v => (v.wild ? 'creative' : 'list'))),
     table('Cinematic camera', groupBy(mature, v => (v.cinematic ? 'on' : 'off'))),
@@ -77,6 +91,7 @@ function groupBy(list, keyFn) {
     table('By colour pair', groupBy(mature, v => v.teams && v.teams.slice().sort().join(' vs '))),
     table('By line-up', groupBy(mature, v => v.armies && v.armies.join(' vs '))),
     table('By hook', groupBy(mature, v => v.hook)),
+    table('By title kind', groupBy(mature, v => v.titleKind)),
     table('By formation (top side)', groupBy(mature, v => v.formations && v.formations[0])),
     '### Top 10 videos', '', '| Views | Likes | Title |', '| --- | --- | --- |',
     ...out.slice().sort((x, y) => y.views - x.views).slice(0, 10).map(v => `| ${v.views} | ${v.likes} | ${v.title} |`), '',
