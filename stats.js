@@ -69,12 +69,12 @@ function groupBy(list, keyFn) {
   for (const v of mature) { const d = (v.published || v.date).slice(0, 10); if (!perDay.has(d)) perDay.set(d, []); perDay.get(d).push(v.views); }
   const dayRows = [...perDay.entries()].sort().map(([d, a]) => `| ${d} | ${a.length} | ${median(a)} | ${a.reduce((x, y) => x + y, 0)} |`);
   const nation = t => (t && t.some(x => ['UK', 'USA', 'FRANCE', 'GERMANY', 'ITALY', 'BRAZIL', 'ARGENTINA', 'CANADA', 'SPAIN', 'PORTUGAL', 'AUSTRALIA', 'NEWZEALAND', 'NETHERLANDS', 'BELGIUM', 'SWEDEN', 'NORWAY', 'DENMARK', 'FINLAND'].includes(x)) ? 'nations' : 'colours');
-  const table = (title, rows) => [`### ${title}`, '', '| Group | Videos | Median views | Average views |', '| --- | --- | --- | --- |',
-    ...rows.slice(0, 15).map(r => `| ${r.k} | ${r.n} | ${r.median} | ${r.avg} |`), ''].join('\n');
+  const table = (title, rows, max = 15) => [`### ${title}`, '', '| Group | Videos | Median views | Average views |', '| --- | --- | --- | --- |',
+    ...rows.slice(0, max).map(r => `| ${r.k} | ${r.n} | ${r.median} | ${r.avg} |`), ''].join('\n');
   const md = [
     '# View stats', '', `Updated ${new Date().toISOString().slice(0, 16).replace('T', ' ')} UTC. ${out.length} videos, ${mature.length} at least a day old (used below). Groups need 3+ videos.`, '',
     `Total views: ${out.reduce((s, v) => s + v.views, 0)}. Median views per video: ${median(mature.map(v => v.views))}.`, '',
-    table('By upload hour (UK time)', groupBy(mature, v => `${String(ukHour(v)).padStart(2, '0')}:00`).sort((a, b) => a.k.localeCompare(b.k))),
+    table('By upload hour (UK time)', groupBy(mature, v => `${String(ukHour(v)).padStart(2, '0')}:00`).sort((a, b) => a.k.localeCompare(b.k)), 24),
     table('By weekday (UK time)', groupBy(mature, ukDay)),
     table('By video length', groupBy(mature, lenBucket)),
     '### Posts per day', '', '| Day | Videos | Median views | Total views |', '| --- | --- | --- | --- |', ...dayRows, '',
