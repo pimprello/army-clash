@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-05 08:10 | Then the Ground SPLIT Open 😱 | Lime wins | https://youtube.com/shorts/8DlPOUU7PAc |
 | 2026-11-05 07:56 | They Lost Their CHIEF and Still Won 😳 | Blue wins | https://youtube.com/shorts/bwqqlfM5HP8 |
 | 2026-11-05 07:43 | 👑 Protect the KING: France vs UK | France wins | https://youtube.com/shorts/4VbkyW1jJxc |
 | 2026-11-05 07:28 | STORM BOARS vs Neon Raiders vs Glitch Blades 🔥 | Magenta wins | https://youtube.com/shorts/v7m-cFwMqZg |

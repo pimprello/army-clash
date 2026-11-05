@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 251 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 252 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -135,32 +135,35 @@ Records from 251 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Storm Tower Order | 7 | 3 | 4 | 303 | 2 lost | 1 |
 | Mossback Tribe | 5 | 3 | 2 | 184 | 1 lost | 3 |
 | Black Bear Clan | 4 | 3 | 1 | 119 | 1 won | 2 |
+| Oakshield Clan | 5 | 3 | 2 | 116 | 3 won | 3 |
 | Nova Legion | 2 | 2 | 0 | 236 | 2 won | 2 |
 | Ashmantle Kin | 2 | 2 | 0 | 194 | 2 won | 2 |
 | Iron Boar Clan | 2 | 2 | 0 | 154 | 2 won | 2 |
-| Ash Wolf Clan | 3 | 2 | 1 | 121 | 1 lost | 2 |
+| Ash Wolf Clan | 4 | 2 | 2 | 143 | 2 lost | 2 |
 | Wolverine Company | 2 | 2 | 0 | 108 | 2 won | 2 |
 | Greyfang Clan | 3 | 2 | 1 | 103 | 2 won | 2 |
 | Thunder Platoon | 2 | 2 | 0 | 94 | 2 won | 2 |
-| Oakshield Clan | 4 | 2 | 2 | 86 | 2 won | 2 |
 | Orbit Legion | 2 | 2 | 0 | 73 | 2 won | 2 |
 | Golden Lion Order | 2 | 2 | 0 | 61 | 2 won | 2 |
 | Vortex Legion | 2 | 2 | 0 | 48 | 2 won | 2 |
 | Brightwater Tribe | 4 | 2 | 2 | 47 | 1 won | 1 |
+| Red Hawk Company | 2 | 2 | 0 | 37 | 2 won | 2 |
 | Badger Platoon | 2 | 2 | 0 | 29 | 2 won | 2 |
 | Gloomcap Circle | 2 | 2 | 0 | 21 | 2 won | 2 |
 | Wildbrook Clan | 3 | 1 | 2 | 182 | 1 lost | 1 |
 | Viper Company | 4 | 1 | 3 | 149 | 3 lost | 1 |
-| Stonebridge Company | 4 | 1 | 3 | 133 | 1 lost | 1 |
 
 ### Great rivalries
 
 - **Storm Tower Order vs Wildbrook Clan**: met 2 times, last won by Wildbrook Clan
 - **Brightwater Tribe vs Glimmerdeep Kin**: met 2 times
 - **Thunder Platoon vs Viper Company**: met 2 times, last won by Thunder Platoon
+- **Oakshield Clan vs Stonebridge Company**: met 2 times, last won by Oakshield Clan
+- **Ash Wolf Clan vs Oakshield Clan**: met 2 times, last won by Oakshield Clan
 
 ### Latest from the battlefield
 
+- 2026-11-05 08:10: The Red Hawk Company Take the Desert Well (revenge denied · 2nd win · 32 kills)
 - 2026-11-05 07:56: The Gloomcap Circle Take the World Furnace (2nd win · 3 kills)
 - 2026-11-05 07:43: The Bilgewater Crew Take the Ruined Fort (first battle, first win · 40 kills)
 - 2026-11-05 07:28: The Crooked Spire Take the Open Plains (first ever win · 72 kills)
@@ -170,4 +173,3 @@ Records from 251 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 06:29: The Mossback Tribe Take the Open Plains (3 wins in a row · 78 kills)
 - 2026-11-05 06:14: The Granite Battalion Take the World Furnace (first ever win · 18 kills)
 - 2026-11-05 05:59: The Oakshield Clan Take the Trench Line (first ever win · 8 kills)
-- 2026-11-05 05:44: The Thunder Platoon Take the Treasure Cove (revenge denied · 2nd win · 39 kills)
