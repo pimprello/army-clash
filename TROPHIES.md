@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 264 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 265 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -116,9 +116,9 @@ Records from 264 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - possess: rhino: 2
 - possess: cannon: 3
 - possess: treant: 3
-- portal: wolfrider: 3
 - portal: cyclops: 4
 - portal: golem: 4
+- portal: wolfrider: 4
 - fusion: 5
 - portal: troll: 5
 - portal: demon: 9
@@ -144,20 +144,21 @@ Records from 264 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Nova Legion | 3 | 2 | 1 | 268 | 1 lost | 2 |
 | Ashmantle Kin | 2 | 2 | 0 | 194 | 2 won | 2 |
 | Order of the Silver Stag | 5 | 2 | 3 | 184 | 2 won | 2 |
+| The Crooked Spire | 4 | 2 | 2 | 171 | 2 won | 2 |
+| Iron Boar Clan | 3 | 2 | 1 | 167 | 1 lost | 2 |
 | Ash Wolf Clan | 5 | 2 | 3 | 160 | 3 lost | 2 |
-| Iron Boar Clan | 2 | 2 | 0 | 154 | 2 won | 2 |
 | Greyfang Clan | 5 | 2 | 3 | 143 | 2 lost | 2 |
 | Stonewall Company | 5 | 2 | 2 | 129 | 1 won | 1 |
 | Wolverine Company | 3 | 2 | 1 | 124 | 1 lost | 2 |
 | Thunder Platoon | 2 | 2 | 0 | 94 | 2 won | 2 |
 | Brightwater Tribe | 5 | 2 | 3 | 76 | 1 lost | 1 |
 | Orbit Legion | 2 | 2 | 0 | 73 | 2 won | 2 |
-| Thornwood Company | 4 | 2 | 2 | 67 | 1 won | 1 |
 
 ### Great rivalries
 
 - **Storm Tower Order vs Wildbrook Clan**: met 2 times, last won by Wildbrook Clan
 - **Brightwater Tribe vs Glimmerdeep Kin**: met 2 times
+- **Iron Boar Clan vs The Crooked Spire**: met 2 times, last won by The Crooked Spire
 - **Greyfang Clan vs Order of the Silver Stag**: met 2 times, last won by Order of the Silver Stag
 - **Thunder Platoon vs Viper Company**: met 2 times, last won by Thunder Platoon
 - **Granite Battalion vs Thornwood Company**: met 2 times, last won by Thornwood Company
@@ -166,6 +167,7 @@ Records from 264 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 11:22: The Crooked Spire Take the Open Plains (2nd win · 42 kills)
 - 2026-11-05 11:08: The Mossback Tribe Take the Ruined Fort (4th win · 77 kills)
 - 2026-11-05 10:56: The Thornwood Company Take the Mountain Pass (revenge! · 2nd win · 25 kills)
 - 2026-11-05 10:40: The Stonewall Company Take the City (2nd win · 39 kills)
@@ -175,4 +177,3 @@ Records from 264 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 09:41: The Copper Crown Company Take the Castle (2nd win · 48 kills)
 - 2026-11-05 09:26: The Red Hawk Company Take the Open Plains (4 wins in a row · 93 kills)
 - 2026-11-05 09:13: The Stormhorn Tribe Take the Desert Well (3 wins in a row · 78 kills)
-- 2026-11-05 08:55: The Stone River School Take the Overgrown Throne (first battle, first win · 156 kills)

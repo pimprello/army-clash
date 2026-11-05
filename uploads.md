@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-05 11:22 | Storm Bolts vs Tusk Reapers vs Mech Griffins 🤯 | Green wins | https://youtube.com/shorts/5cMtn9W-9Q4 |
 | 2026-11-05 11:08 | LAST STAND: 36 Skeletons vs 101 Soldiers 🛡️ | Lavender wins | https://youtube.com/shorts/Llo38iCDCi0 |
 | 2026-11-05 10:56 | A TITAN Crashed the Battle 🗿 | Red wins | https://youtube.com/shorts/H1UR_lmVNKg |
 | 2026-11-05 10:40 | 87 Soldiers vs a TANK Army 💥 | Purple wins | https://youtube.com/shorts/-ZBGaT8PR5Y |
