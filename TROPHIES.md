@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 234 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 235 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -72,13 +72,13 @@ Records from 234 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - CANNON SLAYER: 6
 - IMMORTAL FRAUD SLAYER: 6
 - COLOSSUS SLAYER: 7
-- PLAYER SLAYER: 7
 - MECH SLAYER: 7
+- PLAYER SLAYER: 8
 - ELEPHANT SLAYER: 9
 - GOLEM SLAYER: 9
 - DRAGON SLAYER: 13
 - GIANT SLAYER: 14
-- TITAN SLAYER: 19
+- TITAN SLAYER: 20
 
 ## Mutations (rarest first)
 
@@ -95,7 +95,6 @@ Records from 234 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: AUSTRALIA: 1
 - portal: hydra: 1
 - copied: knight: 1
-- extinct: SILVER: 1
 - possess: rhino: 1
 - extinct: PINK: 1
 - possess: mammoth: 1
@@ -112,6 +111,7 @@ Records from 234 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: ORANGE: 2
 - extinct: BLUE: 2
 - extinct: GREEN: 2
+- extinct: SILVER: 2
 - possess: cannon: 3
 - possess: treant: 3
 - portal: golem: 3
@@ -126,7 +126,7 @@ Records from 234 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-56 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+59 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
@@ -158,6 +158,7 @@ Records from 234 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 04:03: The House of the Crimson Carp Take the Sky-temple Relic (first battle, first win · 25 kills)
 - 2026-11-05 03:47: The Wolverine Company Take the Mirror Gate (first battle, first win · 65 kills)
 - 2026-11-05 03:31: The Ash Wolf Clan Take the Open Plains (first battle, first win · 25 kills)
 - 2026-11-05 03:17: The Greyfang Clan Take the Titan's Bones (2nd win · 36 kills)
@@ -167,4 +168,3 @@ Records from 234 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 02:28: The Iron Boar Clan Take the Haunted Crypt (2nd win · 135 kills)
 - 2026-11-05 01:53: The Mossback Tribe Take the Castle (first ever win · 38 kills)
 - 2026-11-05 01:35: Nobody Takes the World Furnace (the feud goes on)
-- 2026-11-05 01:25: The Orbit Legion Take the Open Plains (2nd win · 38 kills)
