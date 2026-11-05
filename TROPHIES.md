@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 258 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 259 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -95,7 +95,6 @@ Records from 258 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: AUSTRALIA: 1
 - portal: hydra: 1
 - copied: knight: 1
-- possess: rhino: 1
 - extinct: PINK: 1
 - possess: mammoth: 1
 - copied: giant: 1
@@ -114,6 +113,7 @@ Records from 258 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: BLUE: 2
 - extinct: GREEN: 2
 - extinct: SILVER: 2
+- possess: rhino: 2
 - possess: cannon: 3
 - possess: treant: 3
 - portal: wolfrider: 3
@@ -129,7 +129,7 @@ Records from 258 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-81 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+82 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
@@ -139,6 +139,7 @@ Records from 258 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Mossback Tribe | 5 | 3 | 2 | 184 | 1 lost | 3 |
 | Black Bear Clan | 4 | 3 | 1 | 119 | 1 won | 2 |
 | Oakshield Clan | 5 | 3 | 2 | 116 | 3 won | 3 |
+| Gloomcap Circle | 3 | 3 | 0 | 52 | 3 won | 3 |
 | Nova Legion | 3 | 2 | 1 | 268 | 1 lost | 2 |
 | Ashmantle Kin | 2 | 2 | 0 | 194 | 2 won | 2 |
 | Order of the Silver Stag | 5 | 2 | 3 | 184 | 2 won | 2 |
@@ -152,7 +153,6 @@ Records from 258 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Golden Lion Order | 2 | 2 | 0 | 61 | 2 won | 2 |
 | Copper Crown Company | 2 | 2 | 0 | 53 | 2 won | 2 |
 | Vortex Legion | 2 | 2 | 0 | 48 | 2 won | 2 |
-| Badger Platoon | 2 | 2 | 0 | 29 | 2 won | 2 |
 
 ### Great rivalries
 
@@ -165,6 +165,7 @@ Records from 258 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 09:55: The Gloomcap Circle Take the Mirror Gate (3 wins in a row · 31 kills)
 - 2026-11-05 09:41: The Copper Crown Company Take the Castle (2nd win · 48 kills)
 - 2026-11-05 09:26: The Red Hawk Company Take the Open Plains (4 wins in a row · 93 kills)
 - 2026-11-05 09:13: The Stormhorn Tribe Take the Desert Well (3 wins in a row · 78 kills)
@@ -174,4 +175,3 @@ Records from 258 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 08:10: The Red Hawk Company Take the Desert Well (revenge denied · 2nd win · 32 kills)
 - 2026-11-05 07:56: The Gloomcap Circle Take the World Furnace (2nd win · 3 kills)
 - 2026-11-05 07:43: The Bilgewater Crew Take the Ruined Fort (first battle, first win · 40 kills)
-- 2026-11-05 07:28: The Crooked Spire Take the Open Plains (first ever win · 72 kills)
