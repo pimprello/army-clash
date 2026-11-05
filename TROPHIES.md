@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 232 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 233 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -56,21 +56,21 @@ Records from 232 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - GRAVITY TYRANT SLAYER: 2
 - THOUSAND-MAN SLAYER: 3
 - WORLDROOT SLAYER: 3
-- EXECUTIONER SLAYER: 3
 - MIRROR KING SLAYER: 4
 - FORTRESS SLAYER: 4
 - UNMAKER SLAYER: 4
 - CYCLOPS SLAYER: 4
 - STAR EATER SLAYER: 4
+- EXECUTIONER SLAYER: 4
 - TANK SLAYER: 5
 - CATHEDRAL SLAYER: 5
 - MAMMOTH SLAYER: 5
 - HELICOPTER SLAYER: 5
-- IMMORTAL FRAUD SLAYER: 5
 - PHOENIX SLAYER: 5
 - STORM EMPEROR SLAYER: 5
 - HYDRA SLAYER: 6
 - CANNON SLAYER: 6
+- IMMORTAL FRAUD SLAYER: 6
 - COLOSSUS SLAYER: 7
 - PLAYER SLAYER: 7
 - MECH SLAYER: 7
@@ -126,7 +126,7 @@ Records from 232 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-50 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+53 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
@@ -158,6 +158,7 @@ Records from 232 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 03:31: The Ash Wolf Clan Take the Open Plains (first battle, first win · 25 kills)
 - 2026-11-05 03:17: The Greyfang Clan Take the Titan's Bones (2nd win · 36 kills)
 - 2026-11-05 03:02: The Crew of the Sea Wolf Take the Desert Well (first battle, first win · 31 kills)
 - 2026-11-05 02:48: The Greyfang Clan Take the Overgrown Throne (first ever win · 43 kills)
@@ -167,4 +168,3 @@ Records from 232 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 01:35: Nobody Takes the World Furnace (the feud goes on)
 - 2026-11-05 01:25: The Orbit Legion Take the Open Plains (2nd win · 38 kills)
 - 2026-11-05 01:08: The Viper Company Take the Quarry (first battle, first win · 68 kills)
-- 2026-11-05 00:54: The Highmoor Clan Take the Clockwork Arena (first battle, first win · 66 kills)
