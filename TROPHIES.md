@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 299 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 300 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -73,8 +73,8 @@ Records from 299 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - ELEPHANT SLAYER: 9
 - MAMMOTH SLAYER: 9
 - PLAYER SLAYER: 9
-- MECH SLAYER: 9
 - GOLEM SLAYER: 10
+- MECH SLAYER: 10
 - TANK SLAYER: 11
 - GIANT SLAYER: 15
 - DRAGON SLAYER: 19
@@ -85,9 +85,9 @@ Records from 299 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 7
 - wings: 22
 - spellward: 33
-- swift: 42
+- swift: 43
 - venom: 46
-- spikes: 50
+- spikes: 51
 - regen: 60
 
 ## Big moments
@@ -124,25 +124,25 @@ Records from 299 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: wolfrider: 5
 - fusion: 6
 - portal: troll: 8
-- sudden: ring: 9
 - portal: demon: 10
+- sudden: ring: 10
 - sudden: lava: 15
 - sudden: boss: 16
 - sudden: meteors: 18
 
 ## The tribes' chronicle
 
-100 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+101 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Red Hawk Company | 10 | 8 | 2 | 377 | 2 won | 5 |
 | Mossback Tribe | 8 | 5 | 3 | 348 | 1 lost | 3 |
 | Order of the Silver Stag | 9 | 4 | 5 | 418 | 1 won | 3 |
+| Nova Legion | 5 | 4 | 1 | 320 | 2 won | 2 |
 | Frostwhisper Tribe | 6 | 4 | 2 | 192 | 4 won | 4 |
 | Gloomcap Circle | 6 | 4 | 2 | 121 | 1 won | 3 |
 | Storm Tower Order | 9 | 3 | 6 | 320 | 4 lost | 1 |
-| Nova Legion | 4 | 3 | 1 | 311 | 1 won | 2 |
 | Stormhorn Tribe | 4 | 3 | 1 | 260 | 1 lost | 3 |
 | Duskwing Tribe | 8 | 3 | 4 | 244 | 2 lost | 2 |
 | Golden Lion Order | 5 | 3 | 2 | 219 | 2 lost | 3 |
@@ -170,6 +170,7 @@ Records from 299 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 22:39: The Photon Wing Take the Bombed City (first battle, first win · 67 kills)
 - 2026-11-05 22:26: The Raven Hill Clan Take the Neon District (streak ended · 3rd win · 80 kills)
 - 2026-11-05 22:12: The Harrier Squadron Take the Frozen End (streak ended · 2nd win · 30 kills)
 - 2026-11-05 21:55: The Iron Lotus School Take the Canyon Pass (2nd win · 30 kills)
@@ -179,4 +180,3 @@ Records from 299 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 20:17: The Red Hawk Company Take the Open Plains (8th win · 71 kills)
 - 2026-11-05 20:04: The Starweave Circle Take the Sky-temple Relic (2nd win · 89 kills)
 - 2026-11-05 19:46: The Wormwood Coven Take the Mirror Gate (first ever win · 24 kills)
-- 2026-11-05 18:51: The Starweave Circle Take the Godboard (revenge denied · first ever win · 48 kills)
