@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-05 10:40 | 87 Soldiers vs a TANK Army 💥 | Purple wins | https://youtube.com/shorts/-ZBGaT8PR5Y |
 | 2026-11-05 10:25 | A STAMPEDE Hit Mid-Battle 🦣 | Blue wins | https://youtube.com/shorts/S8KrbiQRP7A |
 | 2026-11-05 10:10 | 👑 Protect the KING: Ninja Bots vs Sky Snipers | Cyan wins | https://youtube.com/shorts/emGB5tbBe_M |
 | 2026-11-05 09:55 | 🇸🇪 Sweden Lunar Rhinos vs Finland Cosmic Ninjas | Finland wins | https://youtube.com/shorts/QUAD5jmp5Ug |

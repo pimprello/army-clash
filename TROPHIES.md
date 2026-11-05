@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 261 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 262 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -72,8 +72,8 @@ Records from 261 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - COLOSSUS SLAYER: 7
 - MAMMOTH SLAYER: 7
 - MECH SLAYER: 7
-- TANK SLAYER: 8
 - ELEPHANT SLAYER: 9
+- TANK SLAYER: 9
 - PLAYER SLAYER: 9
 - GOLEM SLAYER: 10
 - GIANT SLAYER: 15
@@ -129,7 +129,7 @@ Records from 261 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-84 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+86 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
@@ -146,13 +146,13 @@ Records from 261 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Ash Wolf Clan | 5 | 2 | 3 | 160 | 3 lost | 2 |
 | Iron Boar Clan | 2 | 2 | 0 | 154 | 2 won | 2 |
 | Greyfang Clan | 5 | 2 | 3 | 143 | 2 lost | 2 |
+| Stonewall Company | 5 | 2 | 2 | 129 | 1 won | 1 |
 | Wolverine Company | 2 | 2 | 0 | 108 | 2 won | 2 |
 | Thunder Platoon | 2 | 2 | 0 | 94 | 2 won | 2 |
 | Brightwater Tribe | 5 | 2 | 3 | 76 | 1 lost | 1 |
 | Orbit Legion | 2 | 2 | 0 | 73 | 2 won | 2 |
 | Golden Lion Order | 2 | 2 | 0 | 61 | 2 won | 2 |
 | Granite Battalion | 3 | 2 | 1 | 53 | 2 won | 2 |
-| Copper Crown Company | 2 | 2 | 0 | 53 | 2 won | 2 |
 
 ### Great rivalries
 
@@ -165,6 +165,7 @@ Records from 261 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 10:40: The Stonewall Company Take the City (2nd win · 39 kills)
 - 2026-11-05 10:25: The Cinderclaw Kin Take the Open Plains (first battle, first win · 67 kills)
 - 2026-11-05 10:10: The Granite Battalion Take the Sky-temple Relic (2nd win · 22 kills)
 - 2026-11-05 09:55: The Gloomcap Circle Take the Mirror Gate (3 wins in a row · 31 kills)
@@ -174,4 +175,3 @@ Records from 261 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 08:55: The Stone River School Take the Overgrown Throne (first battle, first win · 156 kills)
 - 2026-11-05 08:41: The Red Hawk Company Take the Desert Well (streak ended · 3 wins in a row · 63 kills)
 - 2026-11-05 08:26: The Stormhorn Tribe Take the Open Plains (2nd win · 43 kills)
-- 2026-11-05 08:10: The Red Hawk Company Take the Desert Well (revenge denied · 2nd win · 32 kills)
