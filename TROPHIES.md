@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 297 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 298 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -143,19 +143,19 @@ Records from 297 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Gloomcap Circle | 6 | 4 | 2 | 121 | 1 won | 3 |
 | Storm Tower Order | 9 | 3 | 6 | 320 | 4 lost | 1 |
 | Nova Legion | 4 | 3 | 1 | 311 | 1 won | 2 |
-| Duskwing Tribe | 7 | 3 | 3 | 244 | 1 lost | 2 |
+| Stormhorn Tribe | 4 | 3 | 1 | 260 | 1 lost | 3 |
+| Duskwing Tribe | 8 | 3 | 4 | 244 | 2 lost | 2 |
 | Golden Lion Order | 5 | 3 | 2 | 219 | 2 lost | 3 |
-| Stormhorn Tribe | 3 | 3 | 0 | 212 | 3 won | 3 |
 | Thunder Platoon | 3 | 3 | 0 | 164 | 3 won | 3 |
 | Oakshield Clan | 6 | 3 | 3 | 151 | 1 lost | 3 |
 | Black Bear Clan | 4 | 3 | 1 | 119 | 1 won | 2 |
 | Cinderclaw Kin | 4 | 3 | 1 | 100 | 1 lost | 3 |
 | The Pale Procession | 3 | 3 | 0 | 91 | 3 won | 3 |
+| Hammer Platoon | 5 | 3 | 2 | 88 | 2 won | 2 |
 | Thornwood Company | 5 | 3 | 2 | 87 | 2 won | 2 |
 | Badger Platoon | 3 | 3 | 0 | 80 | 3 won | 3 |
 | Copper Crown Company | 3 | 3 | 0 | 75 | 3 won | 3 |
 | Bone Garden Coven | 4 | 3 | 1 | 51 | 1 lost | 3 |
-| Wildbrook Clan | 8 | 2 | 6 | 295 | 2 lost | 1 |
 
 ### Great rivalries
 
@@ -170,6 +170,7 @@ Records from 297 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 22:12: The Harrier Squadron Take the Frozen End (streak ended · 2nd win · 30 kills)
 - 2026-11-05 21:55: The Iron Lotus School Take the Canyon Pass (2nd win · 30 kills)
 - 2026-11-05 21:42: The House of the Silver Tiger Take the Open Plains (streak ended · 2nd win · 27 kills)
 - 2026-11-05 21:25: The Crew of the Iron Anchor Take the Mountain Pass (first ever win · 19 kills)
@@ -179,4 +180,3 @@ Records from 297 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 19:46: The Wormwood Coven Take the Mirror Gate (first ever win · 24 kills)
 - 2026-11-05 18:51: The Starweave Circle Take the Godboard (revenge denied · first ever win · 48 kills)
 - 2026-11-05 18:38: The Vector Cohort Take the Canyon Pass (first ever win · 53 kills)
-- 2026-11-05 18:23: The Duskwing Tribe Take the Trench Line (3rd win · 37 kills)
