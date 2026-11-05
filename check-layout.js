@@ -45,10 +45,11 @@ function sideOpts(m) {
 
 function run(label, opts, seed, teams, frames) {
   RVB.setTeams(...teams);
-  const g = new RVB.Army(seed, Object.assign({ target: 60, fixedLength: 60, map: 'open', events: rules.events, ...(rules.systems || {}), combat, tribes }, opts));
+  const V = rules.video || {}, len = V.outroSeconds ? (V.fightSeconds || 60) + V.outroSeconds : 60;
+  const g = new RVB.Army(seed, Object.assign({ target: len, fixedLength: len, outroSecs: V.outroSeconds || undefined, pace: V.outroSeconds ? V.pace !== false : undefined, map: 'open', events: rules.events, ...(rules.systems || {}), combat, tribes }, opts));
   let k = 0;
   for (const [at, area] of frames) {
-    if (at === 'end') { while (g.phase !== 'done' && k < 3600 && !(g.phase === 'outro' && g.outroT > 2.5)) { g.frame(1 / 60); g.sfx.length = 0; k++; } }
+    if (at === 'end') { while (!g.finished && k < 4800 && !(g.phase === 'outro' && g.outroT > Math.min(2.5, g.outroLen - 0.1))) { g.frame(1 / 60); g.sfx.length = 0; k++; } }
     else while (k < Math.round(at * 60)) { g.frame(1 / 60); g.sfx.length = 0; k++; }
     g.lay = null; g.draw(ctx);
     check(g, `${label} @${at}`, area);

@@ -404,7 +404,9 @@ const RVB = (() => {
       if (this.phase !== 'fight') return;
       this.phase = 'outro';
       // with a director, slow motion makes the game clock lag the video clock; the outro uses the video clock so the video still ends on time
-      if (this.opts.fixedLength) this.outroLen = Math.max(3, this.opts.fixedLength - (this.realT !== undefined ? this.realT : this.t));
+      // outroSecs: the video ends this long after the battle does (rules.video.outroSeconds), instead of at a fixed length
+      if (this.opts.outroSecs) this.outroLen = this.opts.outroSecs;
+      else if (this.opts.fixedLength) this.outroLen = Math.max(3, this.opts.fixedLength - (this.realT !== undefined ? this.realT : this.t));
       this.winner = winner;
       this.headline = headline;
       this.detail = detail;
@@ -2030,7 +2032,8 @@ const RVB = (() => {
         waveAt = [0.18, 0.36, 0.53, 0.69].map(f => f * F * R.range(0.97, 1.03));
         waveOf = i => { const m = (i - 1) % 20; return m < 8 ? 0 : 1 + Math.floor((m - 8) / 3); };
         this.cap = F - 3;
-        this.pushAt = [0.8 * F, 0.89 * F, 0.93 * F];
+        // with pacing (rules.video.pace) the battle is held back until near the end, so the final pushes come later too
+        this.pushAt = this.opts.pace ? [this.cap - 6, this.cap - 3, this.cap - 1.5] : [0.8 * F, 0.89 * F, 0.93 * F];
         this.pushMul = [2, 3, 5];
         this.pushSpeed = [1.15, 1.3, 1.7];
       } else {
@@ -3030,6 +3033,7 @@ const RVB = (() => {
     // colour for a banner about a fallen troop: the other side's colour (in three-way battles, the killer's)
     foeCol(u, from) { return this.N === 2 && u.team < 2 ? TEAMS[1 - u.team].c : from && TEAMS[from.team] ? TEAMS[from.team].c : COL.gold; }
     damage(u, dmg, from) {
+      if (this.paceK !== undefined) dmg *= this.paceK;
       if (this.buffs) { if (from && this.buffOn(from.team, 'rage')) dmg *= 1.5; if (this.buffOn(u.team, 'shield')) dmg *= 0.5; }
       if (this.ext) { dmg = this.dmgMod(u, dmg, from); if (!(dmg > 0)) return; }
       u.hp -= dmg; u.flash = 1;
@@ -3334,6 +3338,7 @@ const RVB = (() => {
         if (this.camEv) this.camEv.push({ type: 'push', stage: this.pushStage });
         this.snd('alarm');
       }
+      if (this.opts.pace) this.paceTick();
       if (this.N === 3) { this.endCheck3(); return; }
       const total = [this.alive[0] + this.reserve[0], this.alive[1] + this.reserve[1]];
       // safety net (director only): if slow motion left the game clock so far behind that the video is about to run out
@@ -3532,6 +3537,14 @@ const RVB = (() => {
             ctx.globalAlpha = a;
           }
           spaced(ctx, 0);
+        }
+      } else {
+        // a short outro (the video ends a few seconds after the battle): just the MVP under the result
+        const mvp = this.best && this.best[this.winner], m = clamp((k - 1.2) / 0.3, 0, 1);
+        if (mvp && (mvp.kills || 0) >= 3 && m > 0) {
+          ctx.globalAlpha = m; ctx.font = font(44, 800); spaced(ctx, 2);
+          strokeText(ctx, `MVP: ${mvp.champ || labelOf(mvp.type)} · ${mvp.kills} KILLS`, VW / 2, cy + 290 + (1 - m) * 16, COL.gold, COL.ink, 10);
+          spaced(ctx, 0); ctx.globalAlpha = 1;
         }
       }
       const c = clamp((k - Math.max(1.1, L - 2.2)) / 0.35, 0, 1);
@@ -5736,7 +5749,8 @@ const RVB = (() => {
       this.bannerQ.forEach((b, i) => { b.at = 1.2 + i * 1.7; });
       this.sysEv = [];
       if (this.sys.portals && S.chance(this.sys.portals)) this.sysEv.push({ type: 'portal', at: S.range(0.3, 0.42) * F });
-      if (this.sys.sudden) this.sysEv.push({ type: 'sudden', at: 0.62 * F, kind: S.pick(this.N === 3 ? ['ring', 'meteors', 'boss'] : ['ring', 'lava', 'meteors', 'boss']) });
+      // (with pacing on, sudden death comes 12 s before the time limit instead, so it closes the battle out right at the end)
+      if (this.sys.sudden) this.sysEv.push({ type: 'sudden', at: this.opts.pace && this.fixed ? this.fixed - 15 : 0.62 * F, kind: S.pick(this.N === 3 ? ['ring', 'meteors', 'boss'] : ['ring', 'lava', 'meteors', 'boss']) });
       if (this.sys.extinct) this.sysEv.push({ type: 'extinct', from: 0.4 * F, until: 0.62 * F });
       if (this.mapMech) this.mapInit();
     },
@@ -8360,6 +8374,28 @@ const RVB = (() => {
     }
     g.restore();
   }
+  // ----- pacing (rules.video.pace): every battle ends close to the time limit -----
+  // Twice a second, the side that's losing is compared with where it should be on a curve that reaches zero just before the limit.
+  // If it's falling faster, every hit in the battle (both sides alike) does less damage for a while; if it's well behind the curve,
+  // hits do a little more. The final pushes still finish the battle. Only damage changes, never who is stronger.
+  const ARMY_PACE = {
+    paceTick() {
+      const T = this.fightT;
+      if (T < (this.paceAt || 0)) return;
+      this.paceAt = T + 0.5;
+      const ids = this.teamIds();
+      if (!this.paceStart) this.paceStart = ids.map(t => Math.max(1, this.strength(t)));
+      const frac = ids.map((t, i) => this.strength(t) / this.paceStart[i]).sort((a, b) => b - a);
+      const P = this.opts.pace === true ? {} : this.opts.pace || {}, end = Math.max(10, this.cap - (P.margin ?? 1.5)), tgt = clamp(1 - Math.pow(T / end, P.curve ?? 1.8), 0.03, 1);
+      const r = frac[1] / tgt;
+      // under the curve: slow the fighting down (never below 15%); well over it from halfway on: speed it up a little
+      let want = r < 1 ? clamp(Math.pow(r, 1.5), P.slowest ?? 0.15, 1) : T > end * 0.45 && r > 1.3 ? clamp(Math.sqrt(r / 1.3), 1, P.fastest ?? 1.5) : 1;
+      // in the last few seconds, a side down to its last few troops is finished off rather than held on to (a wipe-out, not "time")
+      const tot = this.totals().slice().sort((a, b) => b - a);
+      if (T > end - 5 && tot[1] <= 3) want = Math.max(want, 1.5);
+      this.paceK = (this.paceK === undefined ? 1 : this.paceK) + (want - (this.paceK === undefined ? 1 : this.paceK)) * 0.5;
+    },
+  };
   // ----- living tribes: tribes with chiefs, a war economy, the forge, trading, a merchant, tactics and a story (rules.tribes) -----
   // Everything here runs on its own dice (TR), and only when opts.tribes is on, so older battles play out exactly as before.
   const tName = n => (n.startsWith('THE ') ? n : `THE ${n}`);
@@ -8499,7 +8535,9 @@ const RVB = (() => {
       this.ticker.unshift({ text, team, t: this.t });
       if (this.ticker.length > 4) this.ticker.length = 4;
     },
-    nextCost(tb) { const k = tb.ups + 1, m = tb.trait === 'smiths' ? 0.8 : 1; return { g: Math.round(this.econ.gold * k * m), i: Math.round(this.econ.ore * k * m) }; },
+    // a tribe's trait only works while its chief lives
+    hasTrait(tb, k) { return tb.trait === k && !tb.chiefDead; },
+    nextCost(tb) { const k = tb.ups + 1, m = this.hasTrait(tb, 'smiths') ? 0.8 : 1; return { g: Math.round(this.econ.gold * k * m), i: Math.round(this.econ.ore * k * m) }; },
     tribeHit(u, from, dmg) {
       if (from.tribe) from.tribe.dealt += dmg;
       if (u.tribe) { u.tribe.taken += dmg; if (UNIT[from.type].ranged) u.tribe.shot += dmg; }
@@ -8516,7 +8554,7 @@ const RVB = (() => {
       const cost = U.cost || 1, e = this.econ, kt = from && from.tribe && from.team !== u.team ? from.tribe : null;
       // (a coin flies from the fallen troop to the killer tribe's row on the panel; looks only)
       if (kt && this.t > 7 && this.coins.length < 14 && u.team < 3) this.coins.push({ x: u.x, y: u.y, t0: this.t, tb: kt });
-      if (kt) { kt.gold += e.kill * cost * (kt.trait === 'hunters' ? 1.25 : 1); kt.kills++; if (this.t <= 7) kt.goldFx = this.t; if (u.tribe && u.tribe.wt + u.tribe.at >= 2) { kt.iron += 1; kt.ironFx = this.t; } }
+      if (kt) { kt.gold += e.kill * cost * (this.hasTrait(kt, 'hunters') ? 1.25 : 1); kt.kills++; if (this.t <= 7) kt.goldFx = this.t; if (u.tribe && u.tribe.wt + u.tribe.at >= 2) { kt.iron += 1; kt.ironFx = this.t; } }
       if (u.tribe) u.tribe.gold += e.chest * cost;
       if (u.tribe && u.tribe.chief === u && !u.tribe.chiefDead) {
         const tb = u.tribe, T = this.fightT; tb.chiefDead = true;
@@ -8554,7 +8592,7 @@ const RVB = (() => {
       const T = this.fightT, sis = this.tribes.find(x => x.team === tb.team && x !== tb);
       if (!sis || T < this.tradeAt[tb.team]) return;
       const sc = this.nextCost(sis), rate = this.econ.rate;
-      const price = (buyer, seller) => rate * (buyer.trait === 'traders' ? 0.8 : 1) * (seller.trait === 'traders' ? 1.2 : 1);
+      const price = (buyer, seller) => rate * (this.hasTrait(buyer, 'traders') ? 0.8 : 1) * (this.hasTrait(seller, 'traders') ? 1.2 : 1);
       if (tb.iron < c.i && tb.gold >= c.g) {
         // buy iron from the sister tribe
         const need = Math.ceil(c.i - tb.iron), spare = Math.floor(sis.iron - (sis.gold >= sc.g ? sc.i : 0)), p = price(tb, sis);
@@ -8759,7 +8797,7 @@ const RVB = (() => {
       if (!tb) return 1;
       let k = 1 + 0.1 * tb.wt;
       if (tb.feud && u.tribe === tb.feud) k *= 1.1;
-      if (tb.trait === 'zealots' && tb.chief && !tb.chief.dead) k *= 1.08;
+      if (this.hasTrait(tb, 'zealots')) k *= 1.08;
       if (tb.hornT > this.fightT) k *= 1.3;
       return k;
     },
@@ -8767,7 +8805,7 @@ const RVB = (() => {
       const tb = u.tribe;
       if (!tb) return 1;
       let d = 1 - 0.08 * tb.at;
-      if (tb.trait === 'stoneskin') d *= 0.92;
+      if (this.hasTrait(tb, 'stoneskin')) d *= 0.92;
       if (tb.tactic === 'wall' && from && UNIT[from.type].ranged && (u.x - tb.cx) ** 2 + (u.y - tb.cy) ** 2 < 130 * 130) d *= 0.85;
       return d;
     },
@@ -8787,7 +8825,7 @@ const RVB = (() => {
       for (const tb of this.tribes) {
         tb.dealt *= dk; tb.taken *= dk; tb.shot *= sk;
         // the camp digs iron while the tribe still has troops
-        if (tb.n > 0) tb.iron += h / e.iron * (tb.trait === 'miners' ? 1.6 : 1);
+        if (tb.n > 0) tb.iron += h / e.iron * (this.hasTrait(tb, 'miners') ? 1.6 : 1);
         if (this.trb.economy !== false && T >= tb.qmAt) { tb.qmAt = T + 2; this.quartermaster(tb); }
         if (T >= tb.tacAt) { tb.tacAt = T + 1.5; if (this.trb.tactics !== false) this.decideTactic(tb); else this.tribeScan(tb); }
       }
@@ -9080,8 +9118,10 @@ const RVB = (() => {
       this.lay.push({ kind: 'coin', x: cx0 - 2, y: ly - 11, w: 22, h: 22 }, { kind: 'ingot', x: ix - 2, y: ly - 6, w: 23, h: 14 },
         { kind: 'weapon pips', x: px - 2, y: ly - 9, w: 6 + 3 * 15 + 9, h: 18 }, { kind: 'armour pips', x: sx - 7, y: ly - 8, w: 13 + 3 * 15 + 6, h: 17 });
       const trX = sx + 6 + 3 * 15 + 18;
+      // the trait, or that it's gone with the chief
+      const trait = tb.chiefDead ? 'NO CHIEF' : TRAIT[tb.trait].name;
       ctx.font = font(18, 700, false);
-      if (ctx.measureText(TRAIT[tb.trait].name).width <= right - trX) this.fitText(ctx, TRAIT[tb.trait].name, right, ly, right - trX, 18, 700, false, COL.muted, 'right', 18);
+      if (ctx.measureText(trait).width <= right - trX) this.fitText(ctx, trait, right, ly, right - trX, 18, 700, false, tb.chiefDead ? '#FF8A8A' : COL.muted, 'right', 18);
       ctx.globalAlpha = a0;
     },
     // loot: coins fly in an arc from where a troop fell (through the camera) to its killer tribe's gold on the panel
@@ -9133,7 +9173,7 @@ const RVB = (() => {
       ctx.globalAlpha = 1;
     },
   };
-  Object.assign(Army.prototype, ARMY_EXT, ARMY_DRAW, ARMY_MAPS, ARMY_EXT2, ARMY_DRAW2, ARMY_COMBAT, ARMY_TRIBES, ARMY_TRIBES_DRAW);
+  Object.assign(Army.prototype, ARMY_EXT, ARMY_DRAW, ARMY_MAPS, ARMY_EXT2, ARMY_DRAW2, ARMY_COMBAT, ARMY_TRIBES, ARMY_TRIBES_DRAW, ARMY_PACE);
 
   const GAMES = { territory: Territory, duel: Duel, army: Army };
   Object.assign(api, { rng, Match, Territory, Duel, Army, Director, Synth, GAMES, WEAPONS, DOCTRINES, MODERN_DOCTRINES, FANTASY_DOCTRINES, GENRES, UNIT_ERA, ALL_DOCTRINES, MAPS, MAP_THEME, UNIT, eraOf, fmtTime, labelOf, docLabel, MAP_MECH, SKINS, MODE_HOOK, specOf, TRIBE_POOL, TRAIT, STAKE });

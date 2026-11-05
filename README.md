@@ -1,6 +1,6 @@
 # Army Clash auto-uploader
 
-Every run makes a brand-new 60-second **Red vs Blue Army Clash** Short (1080 × 1920, 60 fps, with sound) and posts it to your YouTube channel. GitHub runs it for you about every 14½ minutes (98 a day, evenly spaced), so you don't have to press anything.
+Every run makes a brand-new **Red vs Blue Army Clash** Short (the battle ends close to 60 seconds and the video 3 seconds after) (1080 × 1920, 60 fps, with sound) and posts it to your YouTube channel. GitHub runs it for you about every 14½ minutes (98 a day, evenly spaced), so you don't have to press anything.
 
 ## One-time setup (about 15 minutes, easiest on a computer)
 

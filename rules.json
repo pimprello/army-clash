@@ -640,7 +640,8 @@
     {
       "top": "SWARM",
       "bottom": "KNIGHTS",
-      "balance": 1.11
+      "balance": 1.11,
+      "combatBalance": 1.189
     },
     {
       "top": "ARCHERS",
@@ -648,33 +649,39 @@
       "troops": [
         "swordsman"
       ],
-      "balance": 1.05
+      "balance": 1.05,
+      "combatBalance": 1.05
     },
     {
       "top": "TROOPERS",
       "bottom": "ROBOTS",
-      "balance": 1.175
+      "balance": 1.175,
+      "combatBalance": 1.097
     },
     {
       "top": "HORDE",
       "bottom": "ELVES",
-      "balance": 0.844
+      "balance": 0.844,
+      "combatBalance": 0.736
     },
     {
       "top": "GIANT",
       "bottom": "SWARM",
-      "balance": 1.012
+      "balance": 1.012,
+      "combatBalance": 1.012
     },
     {
       "top": "MECHS",
       "bottom": "DRAGON",
-      "balance": 1.066
+      "balance": 1.066,
+      "combatBalance": 1.223
     },
     {
       "era": "modern",
       "top": "INFANTRY",
       "bottom": "ASSAULT",
-      "balance": 1.08
+      "balance": 1.08,
+      "combatBalance": 1.157
     },
     {
       "top": "KNIGHTS",
@@ -682,7 +689,8 @@
       "topTroops": [
         "shieldbearer"
       ],
-      "balance": 1.08
+      "balance": 1.08,
+      "combatBalance": 0.821
     },
     {
       "top": {
@@ -708,7 +716,8 @@
           "tank"
         ]
       },
-      "balance": 0.726
+      "balance": 0.726,
+      "combatBalance": 0.955
     },
     {
       "top": "KNIGHTS",
@@ -716,12 +725,14 @@
       "troops": [
         "crossbowman"
       ],
-      "balance": 1.07
+      "balance": 1.07,
+      "combatBalance": 1.07
     },
     {
       "top": "VIKINGS",
       "bottom": "KNIGHTS",
-      "balance": 1.357
+      "balance": 1.357,
+      "combatBalance": 1.556
     },
     {
       "top": "BALANCED",
@@ -729,17 +740,20 @@
       "troops": [
         "swordsman"
       ],
-      "balance": 0.94
+      "balance": 0.94,
+      "combatBalance": 0.94
     },
     {
       "top": "PIRATES",
       "bottom": "BUCCANEERS",
-      "balance": 1
+      "balance": 1,
+      "combatBalance": 1
     },
     {
       "top": "ORCS",
       "bottom": "MAGES",
-      "balance": 0.82
+      "balance": 0.82,
+      "combatBalance": 0.766
     },
     {
       "top": "SWARM",
@@ -747,33 +761,39 @@
       "troops": [
         "crossbowman"
       ],
-      "balance": 1.097
+      "balance": 1.097,
+      "combatBalance": 1.025
     },
     {
       "top": "NINJAS",
       "bottom": "SNIPERS",
-      "balance": 1
+      "balance": 1,
+      "combatBalance": 0.872
     },
     {
       "era": "modern",
       "top": "ARMORED",
       "bottom": "SNIPERS",
-      "balance": 1.346
+      "balance": 1.346,
+      "combatBalance": 1.346
     },
     {
       "top": "ARMORED",
       "bottom": "GIANT",
-      "balance": 1.61
+      "balance": 1.61,
+      "combatBalance": 2.119
     },
     {
       "top": "ZOMBIES",
       "bottom": "INFANTRY",
-      "balance": 0.362
+      "balance": 0.362,
+      "combatBalance": 0.362
     },
     {
       "top": "KNIGHTS",
       "bottom": "GIANT",
-      "balance": 0.99
+      "balance": 0.99,
+      "combatBalance": 0.99
     },
     {
       "top": "BALANCED",
@@ -782,17 +802,20 @@
         "swordsman",
         "crossbowman"
       ],
-      "balance": 0.92
+      "balance": 0.92,
+      "combatBalance": 0.859
     },
     {
       "top": "SAMURAI",
       "bottom": "NINJAS",
-      "balance": 0.944
+      "balance": 0.944,
+      "combatBalance": 0.882
     },
     {
       "top": "DRAGON",
       "bottom": "ORCS",
-      "balance": 1.55
+      "balance": 1.55,
+      "combatBalance": 1.66
     },
     {
       "top": "ARCHERS",
@@ -800,7 +823,8 @@
       "troops": [
         "swordsman"
       ],
-      "balance": 1.09
+      "balance": 1.09,
+      "combatBalance": 0.95
     },
     {
       "top": {
@@ -822,7 +846,8 @@
           "healer": 0.2
         }
       },
-      "balance": 0.801
+      "balance": 0.801,
+      "combatBalance": 0.609
     },
     {
       "era": "modern",
@@ -831,17 +856,20 @@
       "troops": [
         "healer"
       ],
-      "balance": 0.96
+      "balance": 0.96,
+      "combatBalance": 0.96
     },
     {
       "top": "ARCHERS",
       "bottom": "SNIPERS",
-      "balance": 0.74
+      "balance": 0.74,
+      "combatBalance": 0.74
     },
     {
       "top": "BUCCANEERS",
       "bottom": "ARMORED",
-      "balance": 0.456
+      "balance": 0.456,
+      "combatBalance": 0.347
     },
     {
       "top": "KNIGHTS",
@@ -849,12 +877,14 @@
       "troops": [
         "crossbowman"
       ],
-      "balance": 1.01
+      "balance": 1.01,
+      "combatBalance": 1.01
     },
     {
       "top": "SAMURAI",
       "bottom": "VIKINGS",
-      "balance": 0.943
+      "balance": 0.943,
+      "combatBalance": 0.822
     },
     {
       "top": "GIANT",
@@ -862,17 +892,20 @@
       "troops": [
         "crossbowman"
       ],
-      "balance": 1.01
+      "balance": 1.01,
+      "combatBalance": 1.158
     },
     {
       "top": "MECHS",
       "bottom": "TROOPERS",
-      "balance": 1.033
+      "balance": 1.033,
+      "combatBalance": 1.106
     },
     {
       "top": "ELVES",
       "bottom": "ORCS",
-      "balance": 1.24
+      "balance": 1.24,
+      "combatBalance": 1.328
     },
     {
       "top": "SWARM",
@@ -880,12 +913,14 @@
       "troops": [
         "swordsman"
       ],
-      "balance": 1.131
+      "balance": 1.131,
+      "combatBalance": 1.211
     },
     {
       "top": "SAMURAI",
       "bottom": "KNIGHTS",
-      "balance": 1.349
+      "balance": 1.349,
+      "combatBalance": 1.547
     },
     {
       "era": "modern",
@@ -894,17 +929,20 @@
       "troops": [
         "healer"
       ],
-      "balance": 0.92
+      "balance": 0.92,
+      "combatBalance": 0.92
     },
     {
       "top": "DRAGON",
       "bottom": "ARMORED",
-      "balance": 1.08
+      "balance": 1.08,
+      "combatBalance": 0.821
     },
     {
       "top": "ZOMBIES",
       "bottom": "SWARM",
-      "balance": 2.711
+      "balance": 2.711,
+      "combatBalance": 1.564
     },
     {
       "top": "KNIGHTS",
@@ -912,7 +950,8 @@
       "troops": [
         "spearman"
       ],
-      "balance": 0.89
+      "balance": 0.89,
+      "combatBalance": 0.89
     },
     {
       "top": "ARCHERS",
@@ -921,7 +960,8 @@
         "shieldbearer",
         "healer"
       ],
-      "balance": 0.994
+      "balance": 0.994,
+      "combatBalance": 1.14
     },
     {
       "top": {
@@ -945,12 +985,14 @@
           "giant"
         ]
       },
-      "balance": 1.843
+      "balance": 1.843,
+      "combatBalance": 1.721
     },
     {
       "top": "MAGES",
       "bottom": "HORDE",
-      "balance": 1.416
+      "balance": 1.416,
+      "combatBalance": 1.624
     },
     {
       "top": "BALANCED",
@@ -959,18 +1001,21 @@
         "berserker",
         "spearman"
       ],
-      "balance": 0.99
+      "balance": 0.99,
+      "combatBalance": 1.136
     },
     {
       "top": "PIRATES",
       "bottom": "ORCS",
-      "balance": 0.7
+      "balance": 0.7,
+      "combatBalance": 0.75
     },
     {
       "era": "modern",
       "top": "ASSAULT",
       "bottom": "ARMORED",
-      "balance": 0.619
+      "balance": 0.619,
+      "combatBalance": 0.619
     },
     {
       "top": "SWARM",
@@ -978,7 +1023,8 @@
       "topTroops": [
         "healer"
       ],
-      "balance": 0.709
+      "balance": 0.709,
+      "combatBalance": 0.577
     },
     {
       "top": "ROBOTS",
@@ -1738,11 +1784,11 @@
     "fewerBullets": true,
     "roster": true,
     "creativeMelee": 0.75,
-    "balanceBattles": 12,
+    "balanceBattles": 10,
     "balanceSteps": 5,
     "balanceSpread": 2.5,
     "balanceRounds3": 4,
-    "balanceSeconds": 80
+    "balanceSeconds": 100
   },
   "modes": {
     "shares": {
@@ -1785,5 +1831,10 @@
     "ironPrice": 2.5,
     "tradeGap": 12,
     "feudChance": 0.5
+  },
+  "video": {
+    "fightSeconds": 60,
+    "outroSeconds": 3,
+    "pace": true
   }
 }

@@ -2,6 +2,28 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-05: the video ends 3 seconds after the battle, and battles finish around 60 seconds
+
+Rellz asked for the video to end 3 seconds after the match finishes (not at a fixed 60 seconds) and for matches to always finish roughly around 60 seconds. On from the next video (`rules.video`, explained in RULES.md).
+
+- **The video now ends 3 seconds after the battle.** Those 3 seconds show the winner, the result, the MVP, "WHO DID YOU PICK?" and the tribes' closing line. The long empty outros are gone.
+- **Battles are paced to finish close to 60 seconds:**
+  - twice a second, the losing side is compared with a curve that reaches zero just before the limit. If it's falling too fast, every hit in the battle (both sides alike) does less damage for a while; if it's well ahead of the curve, hits do a little more. Only the speed of the fighting changes, never who is stronger;
+  - the final pushes now come in the last 6 seconds;
+  - sudden death starts 12 seconds before the limit, so it closes the battle out right at the end;
+  - a side down to its last few troops in the last seconds is finished off rather than held on to.
+- **Results over 24 test battles:** half ended between 58.7 and 60 seconds, nine in ten after 54 seconds, and the earliest at 49.7 seconds (it used to be 37 seconds without pacing). About three in ten reach the limit, where time is called and the side with more troops wins, as before.
+- Most videos are now 58 to 63 seconds long (never more than 64). YouTube counts vertical videos up to 3 minutes as Shorts. The description says the real length ("A 62-second battle simulation...").
+- **Balance:** 46 line-ups have a fresh starting size from test battles with combat and tribes on (`combatBalance`); the rest start from their old size. Every video is still tuned on the spot first, now with 10 test battles a step and at most 100 seconds of tuning.
+- Also from last night: a tribe whose chief falls loses its trait for the rest of the battle (the panel says NO CHIEF), and the merchant title reads "Sold Them a War Horn".
+- **Tested:**
+  - with the new options off, old battles play out exactly as before;
+  - the end-time measurements above, plus king-mode and three-way battles;
+  - a full render: 63.1 seconds long, the battle ended at 60.0, sound the same length;
+  - a still of the last frame of a video;
+  - the layout check passes.
+- Videos already posted don't change. No preview videos were made.
+
 ## 2026-11-05 (autopilot)
 
 - **Health:** uploads are fine. The last 20 runs all posted (the few "cancelled" ones are spare scheduled starts skipped because a run was already going) and videos are about 15 minutes apart. One run (02:02 UTC) was slow: installing ffmpeg took 15 minutes on that GitHub machine and making the video took 10.5 minutes instead of the usual 4, so that gap was 35 minutes. The runs after it were back to normal, so it looks like a slow runner, not our code. No line-ups were waiting to be balanced.

@@ -26,7 +26,7 @@ const record = { date: info.date, id: info.id, title: info.title, seed: meta.see
   // intelligent combat: battle mode, skins, and the size the on-the-spot tuning settled on (the next video of this line-up starts from it)
   mode: meta.mode, heroes: meta.heroes, skins: meta.skins, combat: meta.combat, balKey: meta.balKey, tuned: meta.tuned, balance: meta.balance,
   // living tribes: which tribes fought on which side, who won, the story and the closing line (read back for the next stories)
-  tribes: meta.tribes, winTeam: meta.winTeam, story: meta.story, chron: meta.chron, economy: meta.economy };
+  tribes: meta.tribes, winTeam: meta.winTeam, story: meta.story, chron: meta.chron, economy: meta.economy, seconds: meta.seconds };
 fs.appendFileSync(path.join(__dirname, 'videos.jsonl'), JSON.stringify(record) + '\n');
 // The trophy room: records across every video so far, rebuilt from videos.jsonl each time.
 try { require('./trophies.js').write(__dirname); } catch (e) { console.log('trophy room not updated:', e.message); }

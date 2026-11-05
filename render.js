@@ -1,4 +1,5 @@
-// Renders one 60-second Army Clash Short (team colours from rules.json): 1080x1920, 60 fps, H.264 + AAC sound.
+// Renders one Army Clash Short (team colours from rules.json): 1080x1920, 60 fps, H.264 + AAC sound.
+// The battle is paced to end close to rules.video.fightSeconds, and the video ends rules.video.outroSeconds after it does.
 // Output: out/army-clash.mp4 and out/meta.json (title, description and tags for the upload).
 'use strict';
 const { createCanvas, registerFont } = require('canvas');
@@ -17,7 +18,14 @@ const { makeTitle, nounOf } = require('./titles.js');
 const chronicle = require('./chronicle.js');
 RVB.makeCanvas = (w, h) => createCanvas(w, h);
 
-const FPS = 60, SECS = 60, TOTAL = FPS * SECS, W = 1080, H = 1920, SR = 48000;
+const FPS = 60, W = 1080, H = 1920, SR = 48000;
+// Video length (rules.video): with outroSeconds set, the battle is paced to finish close to fightSeconds and the video ends
+// outroSeconds after the battle does (the safety net calls time 2 s before SECS, so a video is never longer than SECS + 1).
+// Without it, every video is exactly 60 seconds as before. SECS=<n> in the environment makes a short test clip of n seconds.
+const VID = JSON.parse(fs.readFileSync(path.join(__dirname, 'rules.json'), 'utf8')).video || {};
+const OUTRO = process.env.SECS ? 0 : VID.outroSeconds || 0;
+const SECS = process.env.SECS ? Number(process.env.SECS) : OUTRO ? (VID.fightSeconds || 60) + OUTRO : 60;
+const MAXFRAMES = FPS * (OUTRO ? SECS + 4 : SECS);
 const OUT = path.join(__dirname, 'out');
 const seed = process.env.SEED ? Number(process.env.SEED) >>> 0 : crypto.randomBytes(4).readUInt32LE(0);
 
@@ -186,7 +194,8 @@ async function main() {
   const tribesOn = rules.tribes && rules.tribes.on;
   const trbOpts = tribesOn ? { tribes: Object.assign({}, rules.tribes, { history: chronicle.history(pastVideos) }) } : {};
   const cmbOpts = combat ? { combat: { armySize: combat.armySize ?? 0.8, hp: combat.hp ?? 1, moves: combat.moves !== false, fewerBullets: combat.fewerBullets !== false, roster: combat.roster !== false }, mode: mode || undefined, skins, heroes: mode === 'heroes' ? heroTeam : undefined } : {};
-  const optsFor = mul => ({ target: SECS, fixedLength: SECS, swordsmen, crossbowmen, map, doctrines, budgetMul: three ? mul : [bm[0], bm[1] * mul], swordsmenByTeam, extras, extrasByTeam, era, formations, events,
+  const pacing = OUTRO ? { outroSecs: OUTRO, pace: VID.pace !== false } : {};
+  const optsFor = mul => ({ target: SECS, fixedLength: SECS, ...pacing, swordsmen, crossbowmen, map, doctrines, budgetMul: three ? mul : [bm[0], bm[1] * mul], swordsmenByTeam, extras, extrasByTeam, era, formations, events,
     teams: three ? 3 : 2, dream: !!(wild || custom || three), ...systems, ...cmbOpts, ...trbOpts });
   // a creative match-up is new, so balance it now with quick test battles on this map and these formations
   let wildMul = three ? bm.slice(0, 3) : 1, wildRate = null, tuned = null;
@@ -231,7 +240,7 @@ async function main() {
   // the cinematic director: camera moves, close-ups and slow motion (rules.cinematic, on unless set to false)
   const cinematic = rules.cinematic !== false && process.env.CINEMATIC !== '0';
   const director = cinematic ? new RVB.Director(game, { seed }) : null;
-  const synth = new RVB.Synth(SR, SECS + 4);
+  const synth = new RVB.Synth(SR, MAXFRAMES / FPS + 4);
   synth.reset(seed);
   const canvas = createCanvas(W, H);
   const ctx = canvas.getContext('2d');
@@ -246,20 +255,25 @@ async function main() {
     '-r', String(FPS), silent,
   ]);
 
-  for (let i = 0; i < TOTAL; i++) {
+  let nFrames = 0;
+  for (let i = 0; i < MAXFRAMES; i++) {
     game.draw(ctx);
     const frame = canvas.toBuffer('raw');
     if (!enc.p.stdin.write(frame)) await once(enc.p.stdin, 'drain');
+    nFrames++;
+    // the video ends when the outro does (outroSeconds after the battle), or at the fixed length
+    if (OUTRO && game.finished) break;
     if (director) director.advance(1 / FPS); else game.frame(1 / FPS);
     for (const ev of game.sfx) synth.play(ev, (i + 1) / FPS);
     game.sfx.length = 0;
-    if ((i + 1) % (FPS * 6) === 0) console.log(`frame ${i + 1}/${TOTAL} (${(((i + 1) / TOTAL) * 100).toFixed(0)}%) after ${((Date.now() - t0) / 1000).toFixed(0)} s`);
+    if ((i + 1) % (FPS * 6) === 0) console.log(`frame ${i + 1} (${((i + 1) / FPS).toFixed(0)} s of video) after ${((Date.now() - t0) / 1000).toFixed(0)} s`);
   }
+  const DUR = nFrames / FPS;
   enc.p.stdin.end();
   await enc.done;
 
-  // Sound: the match's sound effects, soft-limited, exactly 60 seconds.
-  const frames = SR * SECS;
+  // Sound: the match's sound effects, soft-limited, exactly as long as the video.
+  const frames = Math.round(SR * DUR);
   const gain = game.audioGain || 1;
   const L = new Float32Array(frames), R = new Float32Array(frames);
   for (let i = 0; i < frames; i++) { L[i] = Math.tanh(synth.L[i] * gain); R[i] = Math.tanh(synth.R[i] * gain); }
@@ -267,7 +281,7 @@ async function main() {
   writeWav(wav, L, R, frames);
 
   const final = path.join(OUT, 'army-clash.mp4');
-  await ffmpeg(['-i', silent, '-i', wav, '-map', '0:v:0', '-map', '1:a:0', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '160k', '-t', String(SECS), '-movflags', '+faststart', final]).done;
+  await ffmpeg(['-i', silent, '-i', wav, '-map', '0:v:0', '-map', '1:a:0', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '160k', '-t', DUR.toFixed(3), '-movflags', '+faststart', final]).done;
   fs.rmSync(silent); fs.rmSync(wav);
 
   // nations keep their usual short names (UK, USA); colours are title-cased
@@ -326,11 +340,12 @@ async function main() {
   const unique = (list) => [...new Set(list)];
   const meta = {
     seed,
+    seconds: +DUR.toFixed(2),
     title,
     description: [
       `${ids.map(i => `${EMOJI[pair[i]] || ''} ${who(i)}${three ? '' : `${formations[i]} formation, `}${game.start[i]} units)`).join(' vs ')}. Who wins? Pick your side and tell us in the comments before the end.`,
       '',
-      `A 60-second ${three ? 'three-way (1v1v1) ' : ''}${GENRE[era] || ''}battle simulation on the ${MAP_NAME[map] || map} map${showNames ? `, ${ns.join(' vs ')}` : ''}. The outcome comes from the game's rules and chance, not real footage.${game.mode && MODE_LINE[game.mode] ? ' ' + MODE_LINE[game.mode] : ''}`,
+      `A ${Math.round(DUR)}-second ${three ? 'three-way (1v1v1) ' : ''}${GENRE[era] || ''}battle simulation on the ${MAP_NAME[map] || map} map${showNames ? `, ${ns.join(' vs ')}` : ''}. The outcome comes from the game's rules and chance, not real footage.${game.mode && MODE_LINE[game.mode] ? ' ' + MODE_LINE[game.mode] : ''}`,
       ...(tribeLine ? ['', tribeLine] : []),
       '',
       'Subscribe for a new battle every day.',
@@ -382,7 +397,7 @@ async function main() {
   };
   fs.writeFileSync(path.join(OUT, 'meta.json'), JSON.stringify(meta, null, 2));
   const mb = (fs.statSync(final).size / 1048576).toFixed(1);
-  console.log(`Done in ${((Date.now() - t0) / 1000).toFixed(0)} s: ${final} (${mb} MB) | ${meta.title} | ${game.headline}, ${game.detail}`);
+  console.log(`Done in ${((Date.now() - t0) / 1000).toFixed(0)} s: ${final} (${mb} MB, ${DUR.toFixed(1)} s long, battle ended at ${game.fightT.toFixed(1)} s) | ${meta.title} | ${game.headline}, ${game.detail}`);
   if (director) console.log(`Camera: ${director.shots.map(x => `${x.kind}@${x.t}`).join(' ')}`);
 }
 

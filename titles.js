@@ -113,7 +113,7 @@ function makeTitle(f) {
     if (L0.firstWin) facts.push(`FIRST Ever Win for the ${nm} 🏆`);
     else if (L0.streak >= 3) facts.push(`${L0.streak} Wins in a ROW for the ${nm} 🔥`);
     if (L0.weapon) { const [a, ...b] = L0.weapon.split(' '); facts.push(`They ${{ modern: 'Got', scifi: 'Built' }[L0.set] || 'Forged'} ${a} ${b.map(x => x.charAt(0) + x.slice(1).toLowerCase()).join(' ')} and WON 🔥`); }
-    if (tr.merchant && tr.merchant.team === w) facts.push(`The Merchant Sold Them ${tr.merchant.name.split(' ').map(x => (x === 'OF' ? 'of' : x.charAt(0) + x.slice(1).toLowerCase())).join(' ')} 💰`);
+    if (tr.merchant && tr.merchant.team === w) facts.push(`The Merchant Sold Them ${/S$/.test(tr.merchant.name) ? '' : 'a '}${tr.merchant.name.split(' ').map(x => (x === 'OF' ? 'of' : x.charAt(0) + x.slice(1).toLowerCase())).join(' ')} 💰`);
     if (L0.chiefLost) facts.push('They Lost Their CHIEF and Still Won 😳');
   }
   // battle modes: only what really happened

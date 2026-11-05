@@ -12,7 +12,8 @@ function topWins(opts, seeds) {
     const g = new RVB.Army(s, opts);
     const three = g.N === 3, out = [null, null, null];
     if (!three) { g.startStr0 = g.strength(0); g.startStr1 = g.strength(1); }
-    for (let i = 0; i < 3600 && g.phase === 'fight'; i++) {
+    const maxF = Math.ceil(((opts.fixedLength || 60) + 2) * 60);
+    for (let i = 0; i < maxF && g.phase === 'fight'; i++) {
       g.frame(1 / 60); g.sfx.length = 0;
       // three-way: note when each army is wiped out (for a smoother balance signal than wins alone)
       if (three && i % 6 === 0) { const tt = g.totals(); for (let t = 0; t < 3; t++) if (out[t] === null && tt[t] === 0) out[t] = g.fightT; }
