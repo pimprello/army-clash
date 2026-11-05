@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 282 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 283 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -130,7 +130,7 @@ Records from 282 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-97 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+98 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
@@ -152,7 +152,7 @@ Records from 282 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Wildbrook Clan | 8 | 2 | 6 | 295 | 2 lost | 1 |
 | Ashmantle Kin | 3 | 2 | 1 | 212 | 1 lost | 2 |
 | Duskwing Tribe | 5 | 2 | 2 | 182 | 1 won | 1 |
-| The Crooked Spire | 4 | 2 | 2 | 171 | 2 won | 2 |
+| The Crooked Spire | 5 | 2 | 3 | 175 | 1 lost | 2 |
 | Iron Boar Clan | 3 | 2 | 1 | 167 | 1 lost | 2 |
 
 ### Great rivalries
@@ -168,6 +168,7 @@ Records from 282 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 15:48: The Harrier Squadron Take the World Furnace (streak ended · first ever win · 29 kills)
 - 2026-11-05 15:34: The Golden Lion Order Take the Swamp Shrine (revenge denied · 3 wins in a row · 131 kills)
 - 2026-11-05 15:22: The Copperhead Battalion Take the Canyon Pass (2nd win · 29 kills)
 - 2026-11-05 15:04: The Raven Hill Clan Take the Sky-temple Relic (revenge! · 2nd win · 34 kills)
@@ -177,4 +178,3 @@ Records from 282 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 14:04: The Mossback Tribe Take the Clockwork Arena (revenge denied · 5th win · 53 kills)
 - 2026-11-05 13:51: The Duskwing Tribe Take the Trench Line (streak ended · 2nd win · 85 kills)
 - 2026-11-05 13:36: The Rotting Choir Take the Neon District (streak ended · first battle, first win · 30 kills)
-- 2026-11-05 13:20: The Silverbough Circle Take the Canyon Pass (first ever win · 17 kills)

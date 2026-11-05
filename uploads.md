@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-05 15:48 | They Lost Their CHIEF and Still Won 😳 | Olive wins | https://youtube.com/shorts/XEQILum2VwU |
 | 2026-11-05 15:34 | They Were OUTNUMBERED... 😳 | Red wins | https://youtube.com/shorts/YMOvFZK6LgE |
 | 2026-11-05 15:22 | A TITAN Crashed the Battle 🗿 | New zealand wins | https://youtube.com/shorts/Zcs9_HgyTfQ |
 | 2026-11-05 15:04 | Cavalry vs LONGBOWMEN 🏹 | Blue wins | https://youtube.com/shorts/7JqvDTU8c_s |
