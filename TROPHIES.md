@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 253 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 254 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -27,9 +27,9 @@ Records from 253 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 - **299 left**: 2026-11-05 02:28 · [The Ancient Titan Went DOWN 💀](https://youtube.com/shorts/UK9Rdj07rQY)
 - **127 left**: 2026-11-03 16:17 · [I Did NOT Expect This 😳](https://youtube.com/shorts/cYrP7bJqWDE)
+- **124 left**: 2026-11-05 08:41 · [Hold the HILL to Win? France vs UK 🚩](https://youtube.com/shorts/LIBrnThR8kU)
 - **104 left**: 2026-11-04 06:46 · [3 Armies, Only 1 SURVIVES 💀](https://youtube.com/shorts/n-Ha4KUtjeo)
 - **86 left**: 2026-11-04 07:45 · [143 Skeletons vs 84 Elves 💀](https://youtube.com/shorts/vZYnp04XqM0)
-- **85 left**: 2026-11-03 00:21 · [🔥 STEEL GOBLINS vs Cosmic Fakers](https://youtube.com/shorts/gGvtevVjlvo)
 
 ## Hall of champions
 
@@ -78,7 +78,7 @@ Records from 253 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - GOLEM SLAYER: 10
 - DRAGON SLAYER: 14
 - GIANT SLAYER: 15
-- TITAN SLAYER: 20
+- TITAN SLAYER: 21
 
 ## Mutations (rarest first)
 
@@ -108,6 +108,7 @@ Records from 253 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - copied: trooper: 1
 - possess: stormemperor: 1
 - extinct: WHITE: 1
+- extinct: UK: 1
 - extinct: RED: 2
 - extinct: ORANGE: 2
 - extinct: BLUE: 2
@@ -136,7 +137,8 @@ Records from 253 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Mossback Tribe | 5 | 3 | 2 | 184 | 1 lost | 3 |
 | Black Bear Clan | 4 | 3 | 1 | 119 | 1 won | 2 |
 | Oakshield Clan | 5 | 3 | 2 | 116 | 3 won | 3 |
-| Nova Legion | 2 | 2 | 0 | 236 | 2 won | 2 |
+| Red Hawk Company | 3 | 3 | 0 | 100 | 3 won | 3 |
+| Nova Legion | 3 | 2 | 1 | 268 | 1 lost | 2 |
 | Ashmantle Kin | 2 | 2 | 0 | 194 | 2 won | 2 |
 | Iron Boar Clan | 2 | 2 | 0 | 154 | 2 won | 2 |
 | Ash Wolf Clan | 4 | 2 | 2 | 143 | 2 lost | 2 |
@@ -148,7 +150,6 @@ Records from 253 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Golden Lion Order | 2 | 2 | 0 | 61 | 2 won | 2 |
 | Vortex Legion | 2 | 2 | 0 | 48 | 2 won | 2 |
 | Brightwater Tribe | 4 | 2 | 2 | 47 | 1 won | 1 |
-| Red Hawk Company | 2 | 2 | 0 | 37 | 2 won | 2 |
 | Badger Platoon | 2 | 2 | 0 | 29 | 2 won | 2 |
 | Gloomcap Circle | 2 | 2 | 0 | 21 | 2 won | 2 |
 | Wildbrook Clan | 4 | 1 | 3 | 190 | 2 lost | 1 |
@@ -163,6 +164,7 @@ Records from 253 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 08:41: The Red Hawk Company Take the Desert Well (streak ended · 3 wins in a row · 63 kills)
 - 2026-11-05 08:26: The Stormhorn Tribe Take the Open Plains (2nd win · 43 kills)
 - 2026-11-05 08:10: The Red Hawk Company Take the Desert Well (revenge denied · 2nd win · 32 kills)
 - 2026-11-05 07:56: The Gloomcap Circle Take the World Furnace (2nd win · 3 kills)
@@ -172,4 +174,3 @@ Records from 253 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 07:01: The Thunder Gate School Take the Bombed City (streak ended · first battle, first win · 45 kills)
 - 2026-11-05 06:44: The Pulsar Wing Take the Ruined Fort (streak ended · first battle, first win · 64 kills)
 - 2026-11-05 06:29: The Mossback Tribe Take the Open Plains (3 wins in a row · 78 kills)
-- 2026-11-05 06:14: The Granite Battalion Take the World Furnace (first ever win · 18 kills)
