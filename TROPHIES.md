@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 247 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 248 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -74,8 +74,8 @@ Records from 247 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - MECH SLAYER: 7
 - TANK SLAYER: 8
 - ELEPHANT SLAYER: 9
-- GOLEM SLAYER: 9
 - PLAYER SLAYER: 9
+- GOLEM SLAYER: 10
 - DRAGON SLAYER: 13
 - GIANT SLAYER: 15
 - TITAN SLAYER: 20
@@ -116,15 +116,15 @@ Records from 247 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: wolfrider: 2
 - possess: cannon: 3
 - possess: treant: 3
-- portal: golem: 3
 - portal: cyclops: 4
 - portal: troll: 4
+- portal: golem: 4
 - fusion: 5
 - portal: demon: 8
 - sudden: ring: 9
 - sudden: lava: 11
 - sudden: boss: 13
-- sudden: meteors: 16
+- sudden: meteors: 17
 
 ## The tribes' chronicle
 
@@ -134,14 +134,15 @@ Records from 247 battles with trophies (videos from 1 November 2026 on). Rebuilt
 |---|---|---|---|---|---|---|
 | Storm Tower Order | 6 | 3 | 3 | 295 | 1 lost | 1 |
 | Mossback Tribe | 5 | 3 | 2 | 184 | 1 lost | 3 |
+| Black Bear Clan | 4 | 3 | 1 | 119 | 1 won | 2 |
 | Nova Legion | 2 | 2 | 0 | 236 | 2 won | 2 |
 | Ashmantle Kin | 2 | 2 | 0 | 194 | 2 won | 2 |
 | Iron Boar Clan | 2 | 2 | 0 | 154 | 2 won | 2 |
+| Ash Wolf Clan | 3 | 2 | 1 | 121 | 1 lost | 2 |
 | Wolverine Company | 2 | 2 | 0 | 108 | 2 won | 2 |
 | Greyfang Clan | 3 | 2 | 1 | 103 | 2 won | 2 |
-| Ash Wolf Clan | 2 | 2 | 0 | 98 | 2 won | 2 |
 | Thunder Platoon | 2 | 2 | 0 | 94 | 2 won | 2 |
-| Black Bear Clan | 3 | 2 | 1 | 86 | 1 lost | 2 |
+| Oakshield Clan | 4 | 2 | 2 | 86 | 2 won | 2 |
 | Orbit Legion | 2 | 2 | 0 | 73 | 2 won | 2 |
 | Golden Lion Order | 2 | 2 | 0 | 61 | 2 won | 2 |
 | Vortex Legion | 2 | 2 | 0 | 48 | 2 won | 2 |
@@ -149,9 +150,8 @@ Records from 247 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Badger Platoon | 2 | 2 | 0 | 29 | 2 won | 2 |
 | Wildbrook Clan | 3 | 1 | 2 | 182 | 1 lost | 1 |
 | Viper Company | 4 | 1 | 3 | 149 | 3 lost | 1 |
-| Stonebridge Company | 3 | 1 | 2 | 115 | 1 won | 1 |
+| Stonebridge Company | 4 | 1 | 3 | 133 | 1 lost | 1 |
 | Duskwing Tribe | 4 | 1 | 2 | 97 | 2 lost | 1 |
-| Stormhorn Tribe | 1 | 1 | 0 | 91 | 1 won | 1 |
 
 ### Great rivalries
 
@@ -161,6 +161,7 @@ Records from 247 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 07:13: The Black Bear Clan Take the Sky-temple Relic (streak ended · 3rd win · 33 kills)
 - 2026-11-05 07:01: The Thunder Gate School Take the Bombed City (streak ended · first battle, first win · 45 kills)
 - 2026-11-05 06:44: The Pulsar Wing Take the Ruined Fort (streak ended · first battle, first win · 64 kills)
 - 2026-11-05 06:29: The Mossback Tribe Take the Open Plains (3 wins in a row · 78 kills)
@@ -170,4 +171,3 @@ Records from 247 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 05:30: The Thunder Platoon Take the Open Plains (first battle, first win · 55 kills)
 - 2026-11-05 05:14: The Gloomcap Circle Take the Crystal Grove (first battle, first win · 18 kills)
 - 2026-11-05 05:00: The Wolverine Company Take the Open Plains (2nd win · 43 kills)
-- 2026-11-05 04:46: The Stonebridge Company Take the Old Forest (first ever win · 63 kills)
