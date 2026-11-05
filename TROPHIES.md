@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 219 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 220 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -119,18 +119,19 @@ Records from 219 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - sudden: lava: 7
 - portal: demon: 8
 - sudden: ring: 9
-- sudden: meteors: 12
+- sudden: meteors: 13
 - sudden: boss: 13
 
 ## The tribes' chronicle
 
-28 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+29 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
+| Storm Tower Order | 2 | 1 | 1 | 127 | 1 lost | 1 |
+| Wildbrook Clan | 2 | 1 | 1 | 117 | 1 won | 1 |
 | Nova Legion | 1 | 1 | 0 | 105 | 1 won | 1 |
 | Stormhorn Tribe | 1 | 1 | 0 | 91 | 1 won | 1 |
-| Storm Tower Order | 1 | 1 | 0 | 74 | 1 won | 1 |
 | The Black Candle | 1 | 1 | 0 | 43 | 1 won | 1 |
 | Raven Hill Clan | 1 | 1 | 0 | 42 | 1 won | 1 |
 | Vortex Legion | 1 | 1 | 0 | 42 | 1 won | 1 |
@@ -138,23 +139,23 @@ Records from 219 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Orbit Legion | 1 | 1 | 0 | 35 | 1 won | 1 |
 | Thornwood Company | 1 | 1 | 0 | 31 | 1 won | 1 |
 | Zenith Cohort | 1 | 1 | 0 | 30 | 1 won | 1 |
+| Golden Lion Order | 1 | 1 | 0 | 27 | 1 won | 1 |
 | Brightwater Tribe | 2 | 1 | 1 | 20 | 1 won | 1 |
 | Stonewall Company | 1 | 1 | 0 | 20 | 1 won | 1 |
 | Bone Garden Coven | 1 | 1 | 0 | 19 | 1 won | 1 |
 | Red Hawk Company | 1 | 1 | 0 | 5 | 1 won | 1 |
 | Frostwhisper Tribe | 2 | 0 | 2 | 68 | 2 lost | - |
+| Oakshield Clan | 2 | 0 | 2 | 64 | 2 lost | - |
 | Falling Leaf School | 1 | 0 | 1 | 63 | 1 lost | - |
-| Wildbrook Clan | 1 | 0 | 1 | 52 | 1 lost | - |
 | Comet Wing | 1 | 0 | 1 | 51 | 1 lost | - |
-| Ion Legion | 1 | 0 | 1 | 34 | 1 lost | - |
-| The Silent Mile | 1 | 0 | 1 | 29 | 1 lost | - |
 
 ### Great rivalries
 
-No two tribes have met twice yet.
+- **Storm Tower Order vs Wildbrook Clan**: met 2 times, last won by Wildbrook Clan
 
 ### Latest from the battlefield
 
+- 2026-11-05 00:10: The Wildbrook Clan Take the Swamp Shrine (revenge! · first ever win · 65 kills)
 - 2026-11-04 23:56: The Black Candle Take the Frozen End (first battle, first win · 43 kills)
 - 2026-11-04 23:39: The Stormhorn Tribe Take the Old Forest (first battle, first win · 91 kills)
 - 2026-11-04 23:24: The Stonewall Company Take the Open Plains (first battle, first win · 20 kills)
