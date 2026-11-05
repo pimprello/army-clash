@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 295 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 296 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -85,10 +85,10 @@ Records from 295 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 7
 - wings: 22
 - spellward: 33
-- swift: 41
-- venom: 45
-- spikes: 49
-- regen: 59
+- swift: 42
+- venom: 46
+- spikes: 50
+- regen: 60
 
 ## Big moments
 
@@ -143,7 +143,7 @@ Records from 295 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Gloomcap Circle | 6 | 4 | 2 | 121 | 1 won | 3 |
 | Storm Tower Order | 9 | 3 | 6 | 320 | 4 lost | 1 |
 | Nova Legion | 4 | 3 | 1 | 311 | 1 won | 2 |
-| Duskwing Tribe | 6 | 3 | 2 | 219 | 2 won | 2 |
+| Duskwing Tribe | 7 | 3 | 3 | 244 | 1 lost | 2 |
 | Golden Lion Order | 5 | 3 | 2 | 219 | 2 lost | 3 |
 | Stormhorn Tribe | 3 | 3 | 0 | 212 | 3 won | 3 |
 | Thunder Platoon | 3 | 3 | 0 | 164 | 3 won | 3 |
@@ -170,6 +170,7 @@ Records from 295 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 21:42: The House of the Silver Tiger Take the Open Plains (streak ended · 2nd win · 27 kills)
 - 2026-11-05 21:25: The Crew of the Iron Anchor Take the Mountain Pass (first ever win · 19 kills)
 - 2026-11-05 20:29: The Thunder Platoon Take the Open Plains (revenge denied · 3 wins in a row · 70 kills)
 - 2026-11-05 20:17: The Red Hawk Company Take the Open Plains (8th win · 71 kills)
@@ -179,4 +180,3 @@ Records from 295 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 18:38: The Vector Cohort Take the Canyon Pass (first ever win · 53 kills)
 - 2026-11-05 18:23: The Duskwing Tribe Take the Trench Line (3rd win · 37 kills)
 - 2026-11-05 18:08: The Stonebridge Company Take the Overgrown Throne (2nd win · 39 kills)
-- 2026-11-05 17:55: The Sunspire Kin Take the Old Forest (streak ended · first ever win · 68 kills)
