@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 267 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 268 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -78,7 +78,7 @@ Records from 267 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - GOLEM SLAYER: 10
 - GIANT SLAYER: 15
 - DRAGON SLAYER: 16
-- TITAN SLAYER: 22
+- TITAN SLAYER: 23
 
 ## Mutations (rarest first)
 
@@ -108,13 +108,13 @@ Records from 267 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - possess: stormemperor: 1
 - extinct: WHITE: 1
 - extinct: UK: 1
-- extinct: PURPLE: 1
 - extinct: RED: 2
 - extinct: ORANGE: 2
 - extinct: BLUE: 2
 - extinct: GREEN: 2
 - extinct: SILVER: 2
 - possess: rhino: 2
+- extinct: PURPLE: 2
 - possess: cannon: 3
 - possess: treant: 3
 - portal: cyclops: 4
@@ -130,7 +130,7 @@ Records from 267 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-86 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+90 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
@@ -168,6 +168,7 @@ Records from 267 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 12:08: The Mountain Wind School Take the City (first battle, first win · 101 kills)
 - 2026-11-05 11:52: The Order of the Silver Stag Take the Sky-temple Relic (3 wins in a row · 18 kills)
 - 2026-11-05 11:39: The Pale Procession Take the Sky Islands (2nd win · 39 kills)
 - 2026-11-05 11:22: The Crooked Spire Take the Open Plains (2nd win · 42 kills)
@@ -177,4 +178,3 @@ Records from 267 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 10:25: The Cinderclaw Kin Take the Open Plains (first battle, first win · 67 kills)
 - 2026-11-05 10:10: The Granite Battalion Take the Sky-temple Relic (2nd win · 22 kills)
 - 2026-11-05 09:55: The Gloomcap Circle Take the Mirror Gate (3 wins in a row · 31 kills)
-- 2026-11-05 09:41: The Copper Crown Company Take the Castle (2nd win · 48 kills)

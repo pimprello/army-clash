@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-05 12:08 | They Killed the KING 👑 | Purple wins | https://youtube.com/shorts/3ksyqaNNhLs |
 | 2026-11-05 11:52 | DREAM TEAM Battle: Turbo Monks vs Shadow Legion | Lime wins | https://youtube.com/shorts/qnwKof9VbnA |
 | 2026-11-05 11:39 | They LOST the Duel but WON the War ⚔️ | Purple wins | https://youtube.com/shorts/1f-lGgrefqM |
 | 2026-11-05 11:22 | Storm Bolts vs Tusk Reapers vs Mech Griffins 🤯 | Green wins | https://youtube.com/shorts/5cMtn9W-9Q4 |
