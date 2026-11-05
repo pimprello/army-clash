@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 256 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 257 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 256 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **BRAMBLE THE MAD** (STORM CALLER), 16 kills · 2026-11-05 09:26
 - **OSKA THE MAD** (WIZARD), 11 kills · 2026-11-05 09:13
 - **ZEDRIK BONECRUSHER** (PHASE REAPER), 14 kills · 2026-11-05 07:01
 - **COBRA-8** (LASER TROOPER), 10 kills · 2026-11-05 06:44
@@ -47,7 +48,6 @@ Records from 256 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **ZERO-3** (MACHINE GUNNER), 12 kills · 2026-11-04 18:40
 - **IVOR THE BOLD** (KNIGHT), 17 kills · 2026-11-04 18:24
 - **NYRA FIREBRAND** (KNIGHT), 23 kills · 2026-11-04 16:26
-- **VIPER-8** (MACHINE GUNNER), 15 kills · 2026-11-04 15:56
 
 ## Titles earned (rarest first)
 
@@ -82,9 +82,9 @@ Records from 256 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Mutations (rarest first)
 
-- vampiric: 5
+- vampiric: 6
 - wings: 19
-- spellward: 32
+- spellward: 33
 - venom: 35
 - swift: 35
 - spikes: 45
@@ -129,16 +129,16 @@ Records from 256 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-80 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+81 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
+| Red Hawk Company | 4 | 4 | 0 | 193 | 4 won | 4 |
 | Storm Tower Order | 7 | 3 | 4 | 303 | 2 lost | 1 |
 | Stormhorn Tribe | 3 | 3 | 0 | 212 | 3 won | 3 |
 | Mossback Tribe | 5 | 3 | 2 | 184 | 1 lost | 3 |
 | Black Bear Clan | 4 | 3 | 1 | 119 | 1 won | 2 |
 | Oakshield Clan | 5 | 3 | 2 | 116 | 3 won | 3 |
-| Red Hawk Company | 3 | 3 | 0 | 100 | 3 won | 3 |
 | Nova Legion | 3 | 2 | 1 | 268 | 1 lost | 2 |
 | Ashmantle Kin | 2 | 2 | 0 | 194 | 2 won | 2 |
 | Ash Wolf Clan | 5 | 2 | 3 | 160 | 3 lost | 2 |
@@ -146,10 +146,10 @@ Records from 256 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Greyfang Clan | 4 | 2 | 2 | 122 | 1 lost | 2 |
 | Wolverine Company | 2 | 2 | 0 | 108 | 2 won | 2 |
 | Thunder Platoon | 2 | 2 | 0 | 94 | 2 won | 2 |
+| Brightwater Tribe | 5 | 2 | 3 | 76 | 1 lost | 1 |
 | Orbit Legion | 2 | 2 | 0 | 73 | 2 won | 2 |
 | Golden Lion Order | 2 | 2 | 0 | 61 | 2 won | 2 |
 | Vortex Legion | 2 | 2 | 0 | 48 | 2 won | 2 |
-| Brightwater Tribe | 4 | 2 | 2 | 47 | 1 won | 1 |
 | Badger Platoon | 2 | 2 | 0 | 29 | 2 won | 2 |
 | Gloomcap Circle | 2 | 2 | 0 | 21 | 2 won | 2 |
 | Wildbrook Clan | 4 | 1 | 3 | 190 | 2 lost | 1 |
@@ -164,6 +164,7 @@ Records from 256 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 09:26: The Red Hawk Company Take the Open Plains (4 wins in a row · 93 kills)
 - 2026-11-05 09:13: The Stormhorn Tribe Take the Desert Well (3 wins in a row · 78 kills)
 - 2026-11-05 08:55: The Stone River School Take the Overgrown Throne (first battle, first win · 156 kills)
 - 2026-11-05 08:41: The Red Hawk Company Take the Desert Well (streak ended · 3 wins in a row · 63 kills)
@@ -173,4 +174,3 @@ Records from 256 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 07:43: The Bilgewater Crew Take the Ruined Fort (first battle, first win · 40 kills)
 - 2026-11-05 07:28: The Crooked Spire Take the Open Plains (first ever win · 72 kills)
 - 2026-11-05 07:13: The Black Bear Clan Take the Sky-temple Relic (streak ended · 3rd win · 33 kills)
-- 2026-11-05 07:01: The Thunder Gate School Take the Bombed City (streak ended · first battle, first win · 45 kills)
