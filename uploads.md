@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-05 22:54 | They Forged RUNIC Blades and WON 🔥 | Green wins | https://youtube.com/shorts/3xcZSsQn9yI |
 | 2026-11-05 22:39 | MIRROR MATCH: Robots vs ROBOTS 🪞 | Purple wins | https://youtube.com/shorts/Au1ZjJVqPTk |
 | 2026-11-05 22:26 | 🇪🇸 Spain Mega Bones vs Portugal Void Rifles | Portugal wins | https://youtube.com/shorts/7BYW3nD6pho |
 | 2026-11-05 22:12 | They Got INCENDIARY Rounds and WON 🔥 | Teal wins | https://youtube.com/shorts/SKd4vtJYnNg |

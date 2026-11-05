@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 300 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 301 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 300 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **OSKA BONECRUSHER** (WIZARD), 19 kills · 2026-11-05 22:54
 - **PELL GRAVEBANE** (GRIFFIN RIDER), 15 kills · 2026-11-05 20:04
 - **IVOR THE SWIFT** (TROLL), 17 kills · 2026-11-05 18:51
 - **TALVO THE SWIFT** (ROYAL GUARD), 10 kills · 2026-11-05 18:38
@@ -47,7 +48,6 @@ Records from 300 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **OSKA IRONHIDE** (WIZARD), 16 kills · 2026-11-05 04:18
 - **GRIM SKULLTAKER** (SWORDSMAN), 11 kills · 2026-11-05 03:17
 - **ZEDRIK GRAVEBANE** (SWORDSMAN), 11 kills · 2026-11-05 02:48
-- **PELL STEELHEART** (GRIFFIN RIDER), 16 kills · 2026-11-05 00:54
 
 ## Titles earned (rarest first)
 
@@ -84,9 +84,9 @@ Records from 300 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 - vampiric: 7
 - wings: 22
-- spellward: 33
-- swift: 43
-- venom: 46
+- spellward: 34
+- swift: 44
+- venom: 47
 - spikes: 51
 - regen: 60
 
@@ -141,8 +141,9 @@ Records from 300 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Order of the Silver Stag | 9 | 4 | 5 | 418 | 1 won | 3 |
 | Nova Legion | 5 | 4 | 1 | 320 | 2 won | 2 |
 | Frostwhisper Tribe | 6 | 4 | 2 | 192 | 4 won | 4 |
-| Gloomcap Circle | 6 | 4 | 2 | 121 | 1 won | 3 |
+| Gloomcap Circle | 7 | 4 | 3 | 148 | 1 lost | 3 |
 | Storm Tower Order | 9 | 3 | 6 | 320 | 4 lost | 1 |
+| Starweave Circle | 6 | 3 | 3 | 273 | 3 won | 3 |
 | Stormhorn Tribe | 4 | 3 | 1 | 260 | 1 lost | 3 |
 | Duskwing Tribe | 8 | 3 | 4 | 244 | 2 lost | 2 |
 | Golden Lion Order | 5 | 3 | 2 | 219 | 2 lost | 3 |
@@ -155,7 +156,6 @@ Records from 300 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Hammer Platoon | 5 | 3 | 2 | 88 | 2 won | 2 |
 | Thornwood Company | 5 | 3 | 2 | 87 | 2 won | 2 |
 | Badger Platoon | 3 | 3 | 0 | 80 | 3 won | 3 |
-| Copper Crown Company | 3 | 3 | 0 | 75 | 3 won | 3 |
 
 ### Great rivalries
 
@@ -170,6 +170,7 @@ Records from 300 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 22:54: The Starweave Circle Take the Open Plains (3 wins in a row · 110 kills)
 - 2026-11-05 22:39: The Photon Wing Take the Bombed City (first battle, first win · 67 kills)
 - 2026-11-05 22:26: The Raven Hill Clan Take the Neon District (streak ended · 3rd win · 80 kills)
 - 2026-11-05 22:12: The Harrier Squadron Take the Frozen End (streak ended · 2nd win · 30 kills)
@@ -179,4 +180,3 @@ Records from 300 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 20:29: The Thunder Platoon Take the Open Plains (revenge denied · 3 wins in a row · 70 kills)
 - 2026-11-05 20:17: The Red Hawk Company Take the Open Plains (8th win · 71 kills)
 - 2026-11-05 20:04: The Starweave Circle Take the Sky-temple Relic (2nd win · 89 kills)
-- 2026-11-05 19:46: The Wormwood Coven Take the Mirror Gate (first ever win · 24 kills)
