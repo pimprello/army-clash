@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 284 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 285 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -136,8 +136,8 @@ Records from 284 battles with trophies (videos from 1 November 2026 on). Rebuilt
 |---|---|---|---|---|---|---|
 | Red Hawk Company | 8 | 6 | 2 | 296 | 1 lost | 5 |
 | Mossback Tribe | 8 | 5 | 3 | 348 | 1 lost | 3 |
+| Order of the Silver Stag | 9 | 4 | 5 | 418 | 1 won | 3 |
 | Gloomcap Circle | 6 | 4 | 2 | 121 | 1 won | 3 |
-| Order of the Silver Stag | 8 | 3 | 5 | 348 | 2 lost | 3 |
 | Storm Tower Order | 8 | 3 | 5 | 314 | 3 lost | 1 |
 | Nova Legion | 4 | 3 | 1 | 311 | 1 won | 2 |
 | Stormhorn Tribe | 3 | 3 | 0 | 212 | 3 won | 3 |
@@ -168,6 +168,7 @@ Records from 284 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 17:36: The Order of the Silver Stag Take the Open Plains (4th win · 70 kills)
 - 2026-11-05 16:04: The Badger Platoon Take the Swamp Shrine (3 wins in a row · 51 kills)
 - 2026-11-05 15:48: The Harrier Squadron Take the World Furnace (streak ended · first ever win · 29 kills)
 - 2026-11-05 15:34: The Golden Lion Order Take the Swamp Shrine (revenge denied · 3 wins in a row · 131 kills)
@@ -177,4 +178,3 @@ Records from 284 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 14:36: The Emberroot Circle Take the Crystal Grove (revenge denied · 2nd win · 54 kills)
 - 2026-11-05 14:19: The Nova Legion Take the Open Plains (3rd win · 43 kills)
 - 2026-11-05 14:04: The Mossback Tribe Take the Clockwork Arena (revenge denied · 5th win · 53 kills)
-- 2026-11-05 13:51: The Duskwing Tribe Take the Trench Line (streak ended · 2nd win · 85 kills)
