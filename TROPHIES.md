@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 279 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 280 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -121,7 +121,7 @@ Records from 279 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: golem: 4
 - portal: wolfrider: 4
 - fusion: 6
-- portal: troll: 6
+- portal: troll: 7
 - portal: demon: 9
 - sudden: ring: 9
 - sudden: boss: 14
@@ -134,8 +134,8 @@ Records from 279 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
+| Red Hawk Company | 7 | 6 | 1 | 266 | 1 won | 5 |
 | Mossback Tribe | 8 | 5 | 3 | 348 | 1 lost | 3 |
-| Red Hawk Company | 6 | 5 | 1 | 240 | 1 lost | 5 |
 | Gloomcap Circle | 6 | 4 | 2 | 121 | 1 won | 3 |
 | Order of the Silver Stag | 7 | 3 | 4 | 328 | 1 lost | 3 |
 | Storm Tower Order | 8 | 3 | 5 | 314 | 3 lost | 1 |
@@ -147,27 +147,28 @@ Records from 279 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | The Pale Procession | 3 | 3 | 0 | 91 | 3 won | 3 |
 | Thornwood Company | 5 | 3 | 2 | 87 | 2 won | 2 |
 | Bone Garden Coven | 4 | 3 | 1 | 51 | 1 lost | 3 |
-| Wildbrook Clan | 6 | 2 | 4 | 267 | 1 won | 1 |
+| Wildbrook Clan | 7 | 2 | 5 | 281 | 1 lost | 1 |
 | Ashmantle Kin | 3 | 2 | 1 | 212 | 1 lost | 2 |
 | Duskwing Tribe | 5 | 2 | 2 | 182 | 1 won | 1 |
 | The Crooked Spire | 4 | 2 | 2 | 171 | 2 won | 2 |
 | Iron Boar Clan | 3 | 2 | 1 | 167 | 1 lost | 2 |
 | Ash Wolf Clan | 5 | 2 | 3 | 160 | 3 lost | 2 |
-| Greyfang Clan | 5 | 2 | 3 | 143 | 2 lost | 2 |
+| Greyfang Clan | 6 | 2 | 4 | 157 | 3 lost | 2 |
 
 ### Great rivalries
 
 - **Brightwater Tribe vs Frostwhisper Tribe**: met 2 times, last won by Frostwhisper Tribe
+- **Red Hawk Company vs Wildbrook Clan**: met 2 times, last won by Red Hawk Company
 - **Storm Tower Order vs Wildbrook Clan**: met 2 times, last won by Wildbrook Clan
 - **Brightwater Tribe vs Glimmerdeep Kin**: met 2 times
 - **Iron Boar Clan vs The Crooked Spire**: met 2 times, last won by The Crooked Spire
 - **Brightwater Tribe vs Emberroot Circle**: met 2 times, last won by Emberroot Circle
 - **Greyfang Clan vs Order of the Silver Stag**: met 2 times, last won by Order of the Silver Stag
-- **Thunder Platoon vs Viper Company**: met 2 times, last won by Thunder Platoon
-- **Granite Battalion vs Thornwood Company**: met 2 times, last won by Thornwood Company
+- **Greyfang Clan vs Raven Hill Clan**: met 2 times, last won by Raven Hill Clan
 
 ### Latest from the battlefield
 
+- 2026-11-05 15:04: The Raven Hill Clan Take the Sky-temple Relic (revenge! · 2nd win · 34 kills)
 - 2026-11-05 14:50: The House of the Black Kite Take the Bombed City (streak ended · first ever win · 38 kills)
 - 2026-11-05 14:36: The Emberroot Circle Take the Crystal Grove (revenge denied · 2nd win · 54 kills)
 - 2026-11-05 14:19: The Nova Legion Take the Open Plains (3rd win · 43 kills)
@@ -177,4 +178,3 @@ Records from 279 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 13:20: The Silverbough Circle Take the Canyon Pass (first ever win · 17 kills)
 - 2026-11-05 13:08: The Red Hawk Company Take the Crystal Grove (revenge denied · 5 wins in a row · 45 kills)
 - 2026-11-05 12:50: The Thornheart Circle Take the Open Plains (first battle, first win · 34 kills)
-- 2026-11-05 12:36: The Grinning Moon Take the Mountain Pass (first battle, first win · 79 kills)

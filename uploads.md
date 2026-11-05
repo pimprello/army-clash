@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-05 15:04 | Cavalry vs LONGBOWMEN 🏹 | Blue wins | https://youtube.com/shorts/7JqvDTU8c_s |
 | 2026-11-05 14:50 | Rogue Treants vs MEGA COPYCATS 🔥 | Teal wins | https://youtube.com/shorts/obOI1xGUFQo |
 | 2026-11-05 14:36 | A BLIZZARD Froze the Battle ❄️ | Purple wins | https://youtube.com/shorts/x7U0ICLGWsM |
 | 2026-11-05 14:19 | Pick ONE: Dragon, Armored, Mechs 👇 | Blue wins | https://youtube.com/shorts/MU7cNkicYg4 |
