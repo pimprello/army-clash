@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 240 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 241 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -128,7 +128,7 @@ Records from 240 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-64 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+65 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
@@ -147,10 +147,10 @@ Records from 240 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Badger Platoon | 2 | 2 | 0 | 29 | 2 won | 2 |
 | Wildbrook Clan | 3 | 1 | 2 | 182 | 1 lost | 1 |
 | Stonebridge Company | 3 | 1 | 2 | 115 | 1 won | 1 |
+| Duskwing Tribe | 4 | 1 | 2 | 97 | 2 lost | 1 |
+| Viper Company | 3 | 1 | 2 | 95 | 2 lost | 1 |
 | Stormhorn Tribe | 1 | 1 | 0 | 91 | 1 won | 1 |
 | Stonewall Company | 4 | 1 | 2 | 90 | 2 lost | 1 |
-| Duskwing Tribe | 3 | 1 | 1 | 86 | 1 lost | 1 |
-| Viper Company | 2 | 1 | 1 | 85 | 1 lost | 1 |
 | Raven Hill Clan | 2 | 1 | 1 | 72 | 1 lost | 1 |
 
 ### Great rivalries
@@ -160,6 +160,7 @@ Records from 240 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 05:30: The Thunder Platoon Take the Open Plains (first battle, first win · 55 kills)
 - 2026-11-05 05:14: The Gloomcap Circle Take the Crystal Grove (first battle, first win · 18 kills)
 - 2026-11-05 05:00: The Wolverine Company Take the Open Plains (2nd win · 43 kills)
 - 2026-11-05 04:46: The Stonebridge Company Take the Old Forest (first ever win · 63 kills)
@@ -169,4 +170,3 @@ Records from 240 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 03:47: The Wolverine Company Take the Mirror Gate (first battle, first win · 65 kills)
 - 2026-11-05 03:31: The Ash Wolf Clan Take the Open Plains (first battle, first win · 25 kills)
 - 2026-11-05 03:17: The Greyfang Clan Take the Titan's Bones (2nd win · 36 kills)
-- 2026-11-05 03:02: The Crew of the Sea Wolf Take the Desert Well (first battle, first win · 31 kills)
