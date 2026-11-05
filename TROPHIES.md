@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 268 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 269 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 268 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **ASHKA THE SWIFT** (SAMURAI), 12 kills · 2026-11-05 12:23
 - **GRUNDA STEELHEART** (WIZARD), 22 kills · 2026-11-05 11:08
 - **BRAMBLE THE MAD** (STORM CALLER), 16 kills · 2026-11-05 09:26
 - **OSKA THE MAD** (WIZARD), 11 kills · 2026-11-05 09:13
@@ -47,7 +48,6 @@ Records from 268 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **ORLOK THE WALL** (WARLOCK), 15 kills · 2026-11-04 21:28
 - **NYRA THE WALL** (WIZARD), 11 kills · 2026-11-04 18:55
 - **ZERO-3** (MACHINE GUNNER), 12 kills · 2026-11-04 18:40
-- **IVOR THE BOLD** (KNIGHT), 17 kills · 2026-11-04 18:24
 
 ## Titles earned (rarest first)
 
@@ -83,10 +83,10 @@ Records from 268 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Mutations (rarest first)
 
 - vampiric: 6
-- wings: 19
+- wings: 20
 - spellward: 33
-- venom: 37
-- swift: 37
+- venom: 38
+- swift: 38
 - spikes: 45
 - regen: 53
 
@@ -130,7 +130,7 @@ Records from 268 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-90 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+91 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
@@ -168,6 +168,7 @@ Records from 268 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 12:23: The Iron Lotus School Take the Canyon Pass (first ever win · 163 kills)
 - 2026-11-05 12:08: The Mountain Wind School Take the City (first battle, first win · 101 kills)
 - 2026-11-05 11:52: The Order of the Silver Stag Take the Sky-temple Relic (3 wins in a row · 18 kills)
 - 2026-11-05 11:39: The Pale Procession Take the Sky Islands (2nd win · 39 kills)
@@ -177,4 +178,3 @@ Records from 268 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 10:40: The Stonewall Company Take the City (2nd win · 39 kills)
 - 2026-11-05 10:25: The Cinderclaw Kin Take the Open Plains (first battle, first win · 67 kills)
 - 2026-11-05 10:10: The Granite Battalion Take the Sky-temple Relic (2nd win · 22 kills)
-- 2026-11-05 09:55: The Gloomcap Circle Take the Mirror Gate (3 wins in a row · 31 kills)
