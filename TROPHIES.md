@@ -1,11 +1,12 @@
 # Trophy room
 
-Records from 281 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 282 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
 - **112 kills**: GIANT · 2026-11-03 05:30 · [🇧🇪 Belgium vs Netherlands 🇳🇱](https://youtube.com/shorts/NeMPZ0JTCf8)
 - **86 kills**: STAR EATER · 2026-11-04 21:57 · [The Weapons Came ALIVE 🗡️](https://youtube.com/shorts/3bawEZ4_K_c)
+- **60 kills**: GIANT · 2026-11-05 15:34 · [They Were OUTNUMBERED... 😳](https://youtube.com/shorts/YMOvFZK6LgE)
 - **51 kills**: LIVING FORTRESS · 2026-11-04 13:13 · [🇩🇰 Denmark vs Sweden 🇸🇪](https://youtube.com/shorts/EEo4SfZqAyI)
 - **49 kills**: TANK · 2026-11-03 22:12 · [They Were LOSING Until This 😳](https://youtube.com/shorts/-hvpvz0i7TA)
 - **48 kills**: PHOENIX · 2026-11-04 22:57 · [Phoenix Pikes vs WILD LEGION 🔥](https://youtube.com/shorts/zga-x3ZnOUs)
@@ -13,7 +14,6 @@ Records from 281 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **47 kills**: TANK · 2026-11-04 10:12 · [🔥 SPELLGUNS vs Dragon Armor](https://youtube.com/shorts/g__rdIjt58w)
 - **32 kills**: GIANT · 2026-11-05 07:28 · [STORM BOARS vs Neon Raiders vs Glitch Blades 🔥](https://youtube.com/shorts/v7m-cFwMqZg)
 - **30 kills**: DRAGON · 2026-11-02 17:40 · [They Were LOSING Until This 😳](https://youtube.com/shorts/-e04vvO2yh8)
-- **30 kills**: GIANT · 2026-11-03 22:28 · [The Weapons Came ALIVE 🗡️](https://youtube.com/shorts/u9TmQ7jfy3Y)
 
 ## Fastest wipe-outs
 
@@ -85,10 +85,10 @@ Records from 281 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 7
 - wings: 21
 - spellward: 33
-- venom: 41
 - swift: 41
+- venom: 42
 - spikes: 48
-- regen: 56
+- regen: 57
 
 ## Big moments
 
@@ -121,7 +121,7 @@ Records from 281 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: golem: 4
 - portal: wolfrider: 4
 - fusion: 6
-- portal: troll: 7
+- portal: troll: 8
 - portal: demon: 9
 - sudden: ring: 9
 - sudden: lava: 14
@@ -137,23 +137,23 @@ Records from 281 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Red Hawk Company | 8 | 6 | 2 | 296 | 1 lost | 5 |
 | Mossback Tribe | 8 | 5 | 3 | 348 | 1 lost | 3 |
 | Gloomcap Circle | 6 | 4 | 2 | 121 | 1 won | 3 |
-| Order of the Silver Stag | 7 | 3 | 4 | 328 | 1 lost | 3 |
+| Order of the Silver Stag | 8 | 3 | 5 | 348 | 2 lost | 3 |
 | Storm Tower Order | 8 | 3 | 5 | 314 | 3 lost | 1 |
 | Nova Legion | 4 | 3 | 1 | 311 | 1 won | 2 |
 | Stormhorn Tribe | 3 | 3 | 0 | 212 | 3 won | 3 |
+| Golden Lion Order | 3 | 3 | 0 | 192 | 3 won | 3 |
 | Black Bear Clan | 4 | 3 | 1 | 119 | 1 won | 2 |
 | Oakshield Clan | 5 | 3 | 2 | 116 | 3 won | 3 |
 | Cinderclaw Kin | 4 | 3 | 1 | 100 | 1 lost | 3 |
 | The Pale Procession | 3 | 3 | 0 | 91 | 3 won | 3 |
 | Thornwood Company | 5 | 3 | 2 | 87 | 2 won | 2 |
+| Copper Crown Company | 3 | 3 | 0 | 75 | 3 won | 3 |
 | Bone Garden Coven | 4 | 3 | 1 | 51 | 1 lost | 3 |
-| Wildbrook Clan | 7 | 2 | 5 | 281 | 1 lost | 1 |
+| Wildbrook Clan | 8 | 2 | 6 | 295 | 2 lost | 1 |
 | Ashmantle Kin | 3 | 2 | 1 | 212 | 1 lost | 2 |
 | Duskwing Tribe | 5 | 2 | 2 | 182 | 1 won | 1 |
 | The Crooked Spire | 4 | 2 | 2 | 171 | 2 won | 2 |
 | Iron Boar Clan | 3 | 2 | 1 | 167 | 1 lost | 2 |
-| Ash Wolf Clan | 5 | 2 | 3 | 160 | 3 lost | 2 |
-| Greyfang Clan | 6 | 2 | 4 | 157 | 3 lost | 2 |
 
 ### Great rivalries
 
@@ -168,6 +168,7 @@ Records from 281 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 15:34: The Golden Lion Order Take the Swamp Shrine (revenge denied · 3 wins in a row · 131 kills)
 - 2026-11-05 15:22: The Copperhead Battalion Take the Canyon Pass (2nd win · 29 kills)
 - 2026-11-05 15:04: The Raven Hill Clan Take the Sky-temple Relic (revenge! · 2nd win · 34 kills)
 - 2026-11-05 14:50: The House of the Black Kite Take the Bombed City (streak ended · first ever win · 38 kills)
@@ -177,4 +178,3 @@ Records from 281 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 13:51: The Duskwing Tribe Take the Trench Line (streak ended · 2nd win · 85 kills)
 - 2026-11-05 13:36: The Rotting Choir Take the Neon District (streak ended · first battle, first win · 30 kills)
 - 2026-11-05 13:20: The Silverbough Circle Take the Canyon Pass (first ever win · 17 kills)
-- 2026-11-05 13:08: The Red Hawk Company Take the Crystal Grove (revenge denied · 5 wins in a row · 45 kills)
