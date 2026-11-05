@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-05 15:22 | A TITAN Crashed the Battle 🗿 | New zealand wins | https://youtube.com/shorts/Zcs9_HgyTfQ |
 | 2026-11-05 15:04 | Cavalry vs LONGBOWMEN 🏹 | Blue wins | https://youtube.com/shorts/7JqvDTU8c_s |
 | 2026-11-05 14:50 | Rogue Treants vs MEGA COPYCATS 🔥 | Teal wins | https://youtube.com/shorts/obOI1xGUFQo |
 | 2026-11-05 14:36 | A BLIZZARD Froze the Battle ❄️ | Purple wins | https://youtube.com/shorts/x7U0ICLGWsM |

@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 280 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 281 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -82,7 +82,7 @@ Records from 280 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Mutations (rarest first)
 
-- vampiric: 6
+- vampiric: 7
 - wings: 21
 - spellward: 33
 - venom: 41
@@ -124,8 +124,8 @@ Records from 280 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: troll: 7
 - portal: demon: 9
 - sudden: ring: 9
-- sudden: boss: 14
 - sudden: lava: 14
+- sudden: boss: 15
 - sudden: meteors: 17
 
 ## The tribes' chronicle
@@ -134,7 +134,7 @@ Records from 280 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
-| Red Hawk Company | 7 | 6 | 1 | 266 | 1 won | 5 |
+| Red Hawk Company | 8 | 6 | 2 | 296 | 1 lost | 5 |
 | Mossback Tribe | 8 | 5 | 3 | 348 | 1 lost | 3 |
 | Gloomcap Circle | 6 | 4 | 2 | 121 | 1 won | 3 |
 | Order of the Silver Stag | 7 | 3 | 4 | 328 | 1 lost | 3 |
@@ -168,6 +168,7 @@ Records from 280 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 15:22: The Copperhead Battalion Take the Canyon Pass (2nd win · 29 kills)
 - 2026-11-05 15:04: The Raven Hill Clan Take the Sky-temple Relic (revenge! · 2nd win · 34 kills)
 - 2026-11-05 14:50: The House of the Black Kite Take the Bombed City (streak ended · first ever win · 38 kills)
 - 2026-11-05 14:36: The Emberroot Circle Take the Crystal Grove (revenge denied · 2nd win · 54 kills)
@@ -177,4 +178,3 @@ Records from 280 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 13:36: The Rotting Choir Take the Neon District (streak ended · first battle, first win · 30 kills)
 - 2026-11-05 13:20: The Silverbough Circle Take the Canyon Pass (first ever win · 17 kills)
 - 2026-11-05 13:08: The Red Hawk Company Take the Crystal Grove (revenge denied · 5 wins in a row · 45 kills)
-- 2026-11-05 12:50: The Thornheart Circle Take the Open Plains (first battle, first win · 34 kills)
