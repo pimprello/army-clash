@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-05 08:55 | Steel Zombies vs CHAOS PIKES 🔥 | Gold wins | https://youtube.com/shorts/8RH6PsHXNA0 |
 | 2026-11-05 08:41 | Hold the HILL to Win? France vs UK 🚩 | Uk wins | https://youtube.com/shorts/LIBrnThR8kU |
 | 2026-11-05 08:26 | The Ogres ATE Their Own Army 😳 | Green wins | https://youtube.com/shorts/H5WeZsB5NMw |
 | 2026-11-05 08:10 | Then the Ground SPLIT Open 😱 | Lime wins | https://youtube.com/shorts/8DlPOUU7PAc |

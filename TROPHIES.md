@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 254 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 255 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -87,8 +87,8 @@ Records from 254 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 32
 - venom: 35
 - swift: 35
-- spikes: 43
-- regen: 52
+- spikes: 44
+- regen: 53
 
 ## Big moments
 
@@ -114,9 +114,9 @@ Records from 254 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: BLUE: 2
 - extinct: GREEN: 2
 - extinct: SILVER: 2
-- portal: wolfrider: 2
 - possess: cannon: 3
 - possess: treant: 3
+- portal: wolfrider: 3
 - portal: cyclops: 4
 - portal: golem: 4
 - fusion: 5
@@ -129,7 +129,7 @@ Records from 254 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-77 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+80 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
@@ -164,6 +164,7 @@ Records from 254 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 08:55: The Stone River School Take the Overgrown Throne (first battle, first win · 156 kills)
 - 2026-11-05 08:41: The Red Hawk Company Take the Desert Well (streak ended · 3 wins in a row · 63 kills)
 - 2026-11-05 08:26: The Stormhorn Tribe Take the Open Plains (2nd win · 43 kills)
 - 2026-11-05 08:10: The Red Hawk Company Take the Desert Well (revenge denied · 2nd win · 32 kills)
@@ -173,4 +174,3 @@ Records from 254 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 07:13: The Black Bear Clan Take the Sky-temple Relic (streak ended · 3rd win · 33 kills)
 - 2026-11-05 07:01: The Thunder Gate School Take the Bombed City (streak ended · first battle, first win · 45 kills)
 - 2026-11-05 06:44: The Pulsar Wing Take the Ruined Fort (streak ended · first battle, first win · 64 kills)
-- 2026-11-05 06:29: The Mossback Tribe Take the Open Plains (3 wins in a row · 78 kills)
