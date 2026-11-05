@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-05 17:55 | 👑 Protect the KING: Hydra Army vs Knights | Sand wins | https://youtube.com/shorts/Ly-gpf5Ip1I |
 | 2026-11-05 17:36 | PIRATES vs Ninjas vs Archers 🔥 | Coral wins | https://youtube.com/shorts/tS1ASgDP310 |
 | 2026-11-05 16:04 | 🗿 TITAN ARMY vs Tank Army | Navy wins | https://youtube.com/shorts/LLI4n_xx010 |
 | 2026-11-05 15:48 | They Lost Their CHIEF and Still Won 😳 | Olive wins | https://youtube.com/shorts/XEQILum2VwU |

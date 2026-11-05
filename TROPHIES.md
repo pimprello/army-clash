@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 285 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 286 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -126,7 +126,7 @@ Records from 285 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - sudden: ring: 9
 - sudden: lava: 14
 - sudden: boss: 15
-- sudden: meteors: 17
+- sudden: meteors: 18
 
 ## The tribes' chronicle
 
@@ -141,7 +141,7 @@ Records from 285 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Storm Tower Order | 8 | 3 | 5 | 314 | 3 lost | 1 |
 | Nova Legion | 4 | 3 | 1 | 311 | 1 won | 2 |
 | Stormhorn Tribe | 3 | 3 | 0 | 212 | 3 won | 3 |
-| Golden Lion Order | 3 | 3 | 0 | 192 | 3 won | 3 |
+| Golden Lion Order | 4 | 3 | 1 | 204 | 1 lost | 3 |
 | Black Bear Clan | 4 | 3 | 1 | 119 | 1 won | 2 |
 | Oakshield Clan | 5 | 3 | 2 | 116 | 3 won | 3 |
 | Cinderclaw Kin | 4 | 3 | 1 | 100 | 1 lost | 3 |
@@ -168,6 +168,7 @@ Records from 285 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 17:55: The Sunspire Kin Take the Old Forest (streak ended · first ever win · 68 kills)
 - 2026-11-05 17:36: The Order of the Silver Stag Take the Open Plains (4th win · 70 kills)
 - 2026-11-05 16:04: The Badger Platoon Take the Swamp Shrine (3 wins in a row · 51 kills)
 - 2026-11-05 15:48: The Harrier Squadron Take the World Furnace (streak ended · first ever win · 29 kills)
@@ -177,4 +178,3 @@ Records from 285 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 14:50: The House of the Black Kite Take the Bombed City (streak ended · first ever win · 38 kills)
 - 2026-11-05 14:36: The Emberroot Circle Take the Crystal Grove (revenge denied · 2nd win · 54 kills)
 - 2026-11-05 14:19: The Nova Legion Take the Open Plains (3rd win · 43 kills)
-- 2026-11-05 14:04: The Mossback Tribe Take the Clockwork Arena (revenge denied · 5th win · 53 kills)
