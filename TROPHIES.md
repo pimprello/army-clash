@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 252 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 253 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -63,7 +63,6 @@ Records from 252 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - STAR EATER SLAYER: 4
 - EXECUTIONER SLAYER: 4
 - CATHEDRAL SLAYER: 5
-- MAMMOTH SLAYER: 5
 - HELICOPTER SLAYER: 5
 - PHOENIX SLAYER: 5
 - STORM EMPEROR SLAYER: 5
@@ -71,12 +70,13 @@ Records from 252 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - CANNON SLAYER: 6
 - IMMORTAL FRAUD SLAYER: 6
 - COLOSSUS SLAYER: 7
+- MAMMOTH SLAYER: 7
 - MECH SLAYER: 7
 - TANK SLAYER: 8
 - ELEPHANT SLAYER: 9
 - PLAYER SLAYER: 9
 - GOLEM SLAYER: 10
-- DRAGON SLAYER: 13
+- DRAGON SLAYER: 14
 - GIANT SLAYER: 15
 - TITAN SLAYER: 20
 
@@ -140,6 +140,7 @@ Records from 252 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Ashmantle Kin | 2 | 2 | 0 | 194 | 2 won | 2 |
 | Iron Boar Clan | 2 | 2 | 0 | 154 | 2 won | 2 |
 | Ash Wolf Clan | 4 | 2 | 2 | 143 | 2 lost | 2 |
+| Stormhorn Tribe | 2 | 2 | 0 | 134 | 2 won | 2 |
 | Wolverine Company | 2 | 2 | 0 | 108 | 2 won | 2 |
 | Greyfang Clan | 3 | 2 | 1 | 103 | 2 won | 2 |
 | Thunder Platoon | 2 | 2 | 0 | 94 | 2 won | 2 |
@@ -150,8 +151,7 @@ Records from 252 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Red Hawk Company | 2 | 2 | 0 | 37 | 2 won | 2 |
 | Badger Platoon | 2 | 2 | 0 | 29 | 2 won | 2 |
 | Gloomcap Circle | 2 | 2 | 0 | 21 | 2 won | 2 |
-| Wildbrook Clan | 3 | 1 | 2 | 182 | 1 lost | 1 |
-| Viper Company | 4 | 1 | 3 | 149 | 3 lost | 1 |
+| Wildbrook Clan | 4 | 1 | 3 | 190 | 2 lost | 1 |
 
 ### Great rivalries
 
@@ -163,6 +163,7 @@ Records from 252 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 08:26: The Stormhorn Tribe Take the Open Plains (2nd win · 43 kills)
 - 2026-11-05 08:10: The Red Hawk Company Take the Desert Well (revenge denied · 2nd win · 32 kills)
 - 2026-11-05 07:56: The Gloomcap Circle Take the World Furnace (2nd win · 3 kills)
 - 2026-11-05 07:43: The Bilgewater Crew Take the Ruined Fort (first battle, first win · 40 kills)
@@ -172,4 +173,3 @@ Records from 252 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 06:44: The Pulsar Wing Take the Ruined Fort (streak ended · first battle, first win · 64 kills)
 - 2026-11-05 06:29: The Mossback Tribe Take the Open Plains (3 wins in a row · 78 kills)
 - 2026-11-05 06:14: The Granite Battalion Take the World Furnace (first ever win · 18 kills)
-- 2026-11-05 05:59: The Oakshield Clan Take the Trench Line (first ever win · 8 kills)
