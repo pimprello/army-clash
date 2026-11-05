@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 271 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 272 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -87,7 +87,7 @@ Records from 271 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 33
 - swift: 38
 - venom: 39
-- spikes: 46
+- spikes: 47
 - regen: 55
 
 ## Big moments
@@ -134,15 +134,16 @@ Records from 271 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
+| Red Hawk Company | 5 | 5 | 0 | 238 | 5 won | 5 |
 | Mossback Tribe | 6 | 4 | 2 | 261 | 1 won | 3 |
-| Red Hawk Company | 4 | 4 | 0 | 193 | 4 won | 4 |
 | Storm Tower Order | 8 | 3 | 5 | 314 | 3 lost | 1 |
 | Stormhorn Tribe | 3 | 3 | 0 | 212 | 3 won | 3 |
 | Order of the Silver Stag | 6 | 3 | 3 | 202 | 3 won | 3 |
 | Black Bear Clan | 4 | 3 | 1 | 119 | 1 won | 2 |
 | Oakshield Clan | 5 | 3 | 2 | 116 | 3 won | 3 |
-| Cinderclaw Kin | 3 | 3 | 0 | 95 | 3 won | 3 |
-| Gloomcap Circle | 4 | 3 | 1 | 67 | 1 lost | 3 |
+| Gloomcap Circle | 5 | 3 | 2 | 115 | 2 lost | 3 |
+| Cinderclaw Kin | 4 | 3 | 1 | 100 | 1 lost | 3 |
+| Thornwood Company | 5 | 3 | 2 | 87 | 2 won | 2 |
 | Bone Garden Coven | 3 | 3 | 0 | 49 | 3 won | 3 |
 | Nova Legion | 3 | 2 | 1 | 268 | 1 lost | 2 |
 | Ashmantle Kin | 2 | 2 | 0 | 194 | 2 won | 2 |
@@ -153,7 +154,6 @@ Records from 271 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Stonewall Company | 5 | 2 | 2 | 129 | 1 won | 1 |
 | Wolverine Company | 3 | 2 | 1 | 124 | 1 lost | 2 |
 | Thunder Platoon | 2 | 2 | 0 | 94 | 2 won | 2 |
-| Brightwater Tribe | 5 | 2 | 3 | 76 | 1 lost | 1 |
 
 ### Great rivalries
 
@@ -168,6 +168,7 @@ Records from 271 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 13:08: The Red Hawk Company Take the Crystal Grove (revenge denied · 5 wins in a row · 45 kills)
 - 2026-11-05 12:50: The Thornheart Circle Take the Open Plains (first battle, first win · 34 kills)
 - 2026-11-05 12:36: The Grinning Moon Take the Mountain Pass (first battle, first win · 79 kills)
 - 2026-11-05 12:23: The Iron Lotus School Take the Canyon Pass (first ever win · 163 kills)
@@ -177,4 +178,3 @@ Records from 271 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 11:22: The Crooked Spire Take the Open Plains (2nd win · 42 kills)
 - 2026-11-05 11:08: The Mossback Tribe Take the Ruined Fort (4th win · 77 kills)
 - 2026-11-05 10:56: The Thornwood Company Take the Mountain Pass (revenge! · 2nd win · 25 kills)
-- 2026-11-05 10:40: The Stonewall Company Take the City (2nd win · 39 kills)

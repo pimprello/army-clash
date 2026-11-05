@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-05 13:08 | Empire vs ORC HORDE 👹 | Blue wins | https://youtube.com/shorts/Ep85OrlVONU |
 | 2026-11-05 12:50 | The War Mammoth Went DOWN 💀 | Sweden wins | https://youtube.com/shorts/_WjG65wA_EU |
 | 2026-11-05 12:36 | LAST STAND: 20 Vampires vs 80 Knights 🛡️ | Orange wins | https://youtube.com/shorts/qfUaR0LLmEw |
 | 2026-11-05 12:23 | ZOMBIES vs Infantry vs Samurai 🔥 | Blue wins | https://youtube.com/shorts/31Y_L7ljQGw |
