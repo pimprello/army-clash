@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 287 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 288 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -69,9 +69,9 @@ Records from 287 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - HYDRA SLAYER: 6
 - IMMORTAL FRAUD SLAYER: 6
 - COLOSSUS SLAYER: 7
-- MECH SLAYER: 7
 - CANNON SLAYER: 8
 - MAMMOTH SLAYER: 8
+- MECH SLAYER: 8
 - ELEPHANT SLAYER: 9
 - PLAYER SLAYER: 9
 - GOLEM SLAYER: 10
@@ -130,7 +130,7 @@ Records from 287 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-98 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+99 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
@@ -140,6 +140,7 @@ Records from 287 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Gloomcap Circle | 6 | 4 | 2 | 121 | 1 won | 3 |
 | Storm Tower Order | 8 | 3 | 5 | 314 | 3 lost | 1 |
 | Nova Legion | 4 | 3 | 1 | 311 | 1 won | 2 |
+| Duskwing Tribe | 6 | 3 | 2 | 219 | 2 won | 2 |
 | Stormhorn Tribe | 3 | 3 | 0 | 212 | 3 won | 3 |
 | Golden Lion Order | 4 | 3 | 1 | 204 | 1 lost | 3 |
 | Frostwhisper Tribe | 5 | 3 | 2 | 157 | 3 won | 3 |
@@ -153,7 +154,6 @@ Records from 287 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Bone Garden Coven | 4 | 3 | 1 | 51 | 1 lost | 3 |
 | Wildbrook Clan | 8 | 2 | 6 | 295 | 2 lost | 1 |
 | Stonebridge Company | 7 | 2 | 5 | 219 | 1 won | 1 |
-| Ashmantle Kin | 3 | 2 | 1 | 212 | 1 lost | 2 |
 
 ### Great rivalries
 
@@ -168,6 +168,7 @@ Records from 287 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 18:23: The Duskwing Tribe Take the Trench Line (3rd win · 37 kills)
 - 2026-11-05 18:08: The Stonebridge Company Take the Overgrown Throne (2nd win · 39 kills)
 - 2026-11-05 17:55: The Sunspire Kin Take the Old Forest (streak ended · first ever win · 68 kills)
 - 2026-11-05 17:36: The Order of the Silver Stag Take the Open Plains (4th win · 70 kills)
@@ -177,4 +178,3 @@ Records from 287 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 15:22: The Copperhead Battalion Take the Canyon Pass (2nd win · 29 kills)
 - 2026-11-05 15:04: The Raven Hill Clan Take the Sky-temple Relic (revenge! · 2nd win · 34 kills)
 - 2026-11-05 14:50: The House of the Black Kite Take the Bombed City (streak ended · first ever win · 38 kills)
-- 2026-11-05 14:36: The Emberroot Circle Take the Crystal Grove (revenge denied · 2nd win · 54 kills)
