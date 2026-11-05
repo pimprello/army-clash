@@ -357,8 +357,19 @@ const RVB = (() => {
       }
       if (this.parts.length > 700) this.parts.splice(0, this.parts.length - 700);
     }
-    float(x, y, text, color, size = 56, life = 0.9) { this.floats.push({ x, y, text, color, size, life, age: 0 }); }
+    float(x, y, text, color, size = 56, life = 0.9) {
+      // UI 2.0: at most four floating labels a second (two while the opening story card is up), so the battle stays readable (looks only)
+      if (this.opts.ui >= 2) { if (this.t >= (this.flW || 0)) { this.flW = this.t + 1; this.flN = 0; } if (this.flN >= (this.story && this.t < 4.3 ? 2 : 4)) return; this.flN++; }
+      this.floats.push({ x, y, text, color, size, life, age: 0 });
+    }
     banner(text, color, life = 1.6) {
+      // UI 2.0: nothing covers the opening story card: banners wait until it's gone (only the last two are kept)
+      if (this.opts.ui >= 2 && this.story && this.t < 4.4) { (this.heldB || (this.heldB = [])).push({ text, color, life }); if (this.heldB.length > 2) this.heldB.shift(); return; }
+      // UI 2.0: a banner still being read (on screen under 1.1 s) isn't replaced; the new one waits its turn
+      if (this.opts.ui >= 2 && this.bannerQ && this.phase === 'fight') {
+        const cur = this.banners.find(b => b.age < 1.1 && b.age < b.life - 0.3);
+        if (cur) { this.bannerQ.push({ at: this.fightT + (1.1 - cur.age) + 0.05 + this.bannerQ.filter(q => !q.done && q.at > this.fightT).length * 1.2, text, col: color }); return; }
+      }
       // Replace a banner that is still on screen rather than stacking them.
       this.banners = this.banners.filter(b => b.age > b.life - 0.25);
       this.banners.push({ text, color, life, age: 0 });
@@ -367,6 +378,7 @@ const RVB = (() => {
     frame(dt) {
       this.t += dt;
       this.frameNo++;
+      if (this.heldB && this.t >= 4.4) { const h = this.heldB; this.heldB = null; for (const b of h) this.banner(b.text, b.color, b.life); }
       for (const p of this.parts) { p.age += dt; p.x += p.vx * dt; p.y += p.vy * dt; p.vy += p.grav * dt; p.vx *= 1 - 2.2 * dt; p.vy *= 1 - 2.2 * dt; }
       this.parts = this.parts.filter(p => p.age < p.life);
       for (const f of this.floats) f.age += dt;
@@ -551,12 +563,16 @@ const RVB = (() => {
         const outK = clamp((b.life - b.age) / 0.3, 0, 1);
         ctx.save();
         ctx.globalAlpha = outK;
-        ctx.translate(VW / 2, AR.y + 82);
+        // UI 2.0: while the roster strips are up, banners drop below the top strip(s) instead of covering them
+        const rosterUp = this.ui2 && this.cmb && this.cmb.roster && this.t > 4.0 && this.t < 8.6;
+        const by = rosterUp ? AR.y + 14 + (this.N === 3 ? 3 * 84 : 100) + 48 : AR.y + 82;
+        ctx.translate(VW / 2, by);
         ctx.scale(0.6 + 0.4 * inK, 0.6 + 0.4 * inK);
         ctx.font = font(54, 800); spaced(ctx, 3);
         const ft = [0, 1].find(i => hasFlag(TEAMS[i]) && (b.text.startsWith(TEAMS[i].name + ' ') || b.text.startsWith(TEAMS[i].name + ':')));
-        const tw = ctx.measureText(b.text).width, fw = ft !== undefined ? 66 : 0, w = tw + 70 + fw;
-        if (w > 1040) ctx.scale(1040 / w, 1040 / w);
+        const tw = ctx.measureText(b.text).width, fw = ft !== undefined ? 66 : 0, w = tw + 70 + fw, maxW = this.ui2 ? 900 : 1040;
+        if (w > maxW) ctx.scale(maxW / w, maxW / w);
+        if (this.ui2 && this.lay && inK >= 1 && outK >= 1) { const k = Math.min(1, maxW / w); this.lay.push({ kind: 'banner', x: VW / 2 - (w / 2 + 16) * k, y: by - 40 * k + (this.layDY || 0), w: (w + 32) * k, h: 80 * k, text: b.text }); }
         ctx.beginPath();
         ctx.moveTo(-w / 2 + 16, -40); ctx.lineTo(w / 2 + 16, -40); ctx.lineTo(w / 2 - 16, 40); ctx.lineTo(-w / 2 - 16, 40); ctx.closePath();
         ctx.fillStyle = b.color; ctx.fill();
@@ -2086,6 +2102,7 @@ const RVB = (() => {
       if (this.mode) this.initModes();
       if (this.trb) this.initTribes();
       if (this.ext) this.initExt();
+      if (this.opts.world) this.initWorld();
       if (this.opts.events) this.setupEvents();
     }
     // Obstacles and decoration, painted once in the same flat cartoon style as the arena.
@@ -3256,7 +3273,7 @@ const RVB = (() => {
         u.x = clamp(u.x, AR.x + u.r, AR.x + AR.w - u.r);
         u.y = clamp(u.y, AR.y + u.r, AR.y + AR.h - u.r);
       }
-      if (this.arrows.length) {
+      if (this.arrows.length && !(this.frozenT > this.fightT)) {
         const keep = [];
         for (const a of this.arrows) {
           if (LOBS[a.kind]) {
@@ -3334,7 +3351,7 @@ const RVB = (() => {
         this.speedMul = this.pushSpeed[this.pushStage];
         this.pushStage++;
         for (const u of this.units) u.retarget = 0;
-        this.banner(['FINAL PUSH', 'ALL-OUT ATTACK', 'LAST STAND'][this.pushStage - 1] + ` · DMG ×${this.dmgMul}`, COL.gold, 2.2);
+        if (!this.chapter(['THE FINAL PUSH', 'ALL-OUT ATTACK', 'LAST STAND'][this.pushStage - 1])) this.banner(['FINAL PUSH', 'ALL-OUT ATTACK', 'LAST STAND'][this.pushStage - 1] + ` · DMG ×${this.dmgMul}`, COL.gold, 2.2);
         if (this.camEv) this.camEv.push({ type: 'push', stage: this.pushStage });
         this.snd('alarm');
       }
@@ -3636,7 +3653,9 @@ const RVB = (() => {
     }
     draw(ctx) {
       this.drawBG(ctx);
-      if (this.N === 3) this.drawHUD3(ctx); else this.drawHUD(ctx, {
+      const U2 = this.ui2 = this.opts.ui >= 2;
+      if (U2) { if (this.N === 3) this.drawHUD3v2(ctx); else this.drawHUD2(ctx); }
+      else if (this.N === 3) this.drawHUD3(ctx); else this.drawHUD(ctx, {
         title: this.title, hook: this.hook,
         lv: String(this.alive[0] + this.reserve[0]), rv: String(this.alive[1] + this.reserve[1]),
         ls: `${this.skins ? this.skinName(0) : ''}${docLabel(this.doc[0])} · ${this.start[0]} UNITS`, rs: `${this.start[1]} UNITS · ${this.skins ? this.skinName(1) : ''}${docLabel(this.doc[1])}`,
@@ -3649,10 +3668,13 @@ const RVB = (() => {
         for (const u of this.units) if (u.px !== undefined) { u._x = u.x; u._y = u.y; u.x = u.px + (u.x - u.px) * al; u.y = u.py + (u.y - u.py) * al; }
         for (const a of this.arrows) if (a.px !== undefined) { a._x = a.x; a._y = a.y; a.x = a.px + (a.x - a.px) * al; a.y = a.py + (a.y - a.py) * al; }
       }
+      // UI 2.0: the whole battlefield (and everything drawn on it) is drawn 90 px higher
+      if (U2) { ctx.save(); ctx.translate(0, UI_DY); this.layDY = UI_DY; this.layReset(); }
       ctx.save();
       ctx.translate(this.shakeX, this.shakeY);
       roundRect(ctx, AR.x, AR.y, AR.w, AR.h, 18);
       ctx.save(); ctx.clip();
+      if (this.wq) this.worldPre(ctx);
       // ground, stains and map: when zoomed, copy just the part in view straight to the screen (much faster than drawing the whole layer through the camera)
       const blit = (img, S) => {
         if (!zoom) { ctx.drawImage(img, AR.x, AR.y, AR.w, AR.h); return; }
@@ -3763,8 +3785,20 @@ const RVB = (() => {
       if (this.hill) this.drawHill(ctx);
       if (this.tribes) this.drawCamps(ctx);
       if (this.skins) this.drawSkins(ctx, drawOrder, false);
+      // art finish (rules.ui.art 2): a soft contact shadow under every troop on the ground, all in one pass so no shadow covers a neighbour
+      const ART = this.opts.art >= 2;
+      if (ART) {
+        ctx.beginPath();
+        for (const u of drawOrder) {
+          if (u.dead || u.flying || UNIT[u.type].flying || u.fade === 0 || (cv && (u.x < cv.x0 - u.r || u.x > cv.x1 + u.r || u.y < cv.y0 - u.r || u.y > cv.y1 + u.r))) continue;
+          const rr = u.r * (UNIT[u.type].mount ? 1.25 : 1);
+          ctx.moveTo(u.x + rr * 0.22 + rr * 1.02, u.y + rr * 0.3); ctx.ellipse(u.x + rr * 0.22, u.y + rr * 0.3, rr * 1.02, rr * 0.8, 0, 0, TAU);
+        }
+        ctx.fillStyle = 'rgba(0,0,0,0.22)'; ctx.fill();
+      }
       for (const u of drawOrder) {
         if (u.dead || (cv && (u.x < cv.x0 - u.r || u.x > cv.x1 + u.r || u.y < cv.y0 - u.r || u.y > cv.y1 + u.r))) continue;
+        if (this.wNow && this.worldHide(u)) continue;
         const tm = TEAMS[u.team];
         if (u.fade !== undefined) { if (u.fade <= 0) continue; ctx.globalAlpha = u.fade; }
         if (u.phased) ctx.globalAlpha *= 0.35;
@@ -3793,6 +3827,7 @@ const RVB = (() => {
         const x = u.x + lx, y = u.y + ly + hop - (u.lift || 0);
         if (u.lift) ell(ctx, u.x + 6, u.y + 8, u.r, u.r * 0.6, 0, 'rgba(0,0,0,0.25)', 0);
         this.drawBody(ctx, u, x, y, tm, swordy);
+        if (ART && !(u.sheepT > this.fightT)) this.artFinish(ctx, u, x, y);
         if (u.flag) {
           // a flag on a pole, rippling a little
           const px = x + u.r * 0.6, top = y - u.r - 26;
@@ -3829,7 +3864,9 @@ const RVB = (() => {
         if (this.cmb) { ctx.font = font(20, 800); strokeText(ctx, `${labelOf(u.type).replace(/^THE /, '')} · ${specOf(u.type)}`, tx, ty - 54, '#FFFFFF', COL.ink, 5); }
         ctx.textBaseline = 'alphabetic'; ctx.globalAlpha = 1;
       }
+      if (this.wq) this.worldMid(ctx);
       if (zoom) ctx.restore();
+      if (this.wq || this.opts.art >= 2) this.worldPost(ctx);
       if (this.cine) this.drawCine(ctx);
       ctx.restore();
       ctx.restore();
@@ -3840,6 +3877,17 @@ const RVB = (() => {
       this.drawArenaFrame(ctx);
       this.drawFX(ctx);
       this.drawBanners(ctx);
+      if (U2) {
+        if (this.tribes) this.drawStory2(ctx);
+        this.drawRosterStrips(ctx);
+        this.drawChapters(ctx);
+        this.drawIntro(ctx, 'CHARGE!');
+        this.drawOutro(ctx);
+        this.drawTally(ctx);
+        ctx.restore(); this.layDY = 0;
+        if (this.tribes) this.drawCouncil2(ctx);
+        return;
+      }
       if (this.cmb) this.drawRosterCards(ctx);
       this.drawFooter(ctx, 'BATTLE TIME', fmtTime(this.fightT), false);
       if (this.tribes) this.drawCouncil(ctx);
@@ -5868,6 +5916,7 @@ const RVB = (() => {
         if (this.hill && this.hill.team === from.team) k *= this.hill.buff;
         if (u.duelist && from.duelist && this.duel && !this.duel.done) k *= this.duel.k;
         if (this.tribes) k *= this.tribeOut(u, from);
+        if (this.wq) k *= this.worldDmg(u, from);
         if (this.sys.crits && from.team !== u.team && !F.uncounted && this.SR.chance(0.07)) { k *= 2; crit = true; }
         dmg *= k;
       }
@@ -5895,7 +5944,7 @@ const RVB = (() => {
       const T = this.fightT;
       if (!crit && T < (u.numAt || 0)) return;
       if (T >= (this.numT || 0)) { this.numT = T + 1; this.numN = 0; }
-      if (this.numN >= (this.cmb ? 3 : 7)) return;
+      if (this.numN >= (this.opts.ui >= 2 ? 2 : this.cmb ? 3 : 7)) return;
       this.numN++; u.numAt = T + 0.35;
       const v = Math.max(1, Math.round(dmg * 10));
       this.float(u.x + this.FX.range(-12, 12), u.y - u.r - 6, crit ? `${v}!` : String(v), crit ? '#FF9F1C' : '#FFFFFF', crit ? 34 : 24, 0.75);
@@ -5904,6 +5953,7 @@ const RVB = (() => {
       const T = this.fightT; let k = u.auraHaste || 1;
       if (this.turboT > T) k *= 0.4;
       if (this.mod === 'fast') k *= 0.75;
+      if (this.wq) k *= this.worldCd();
       if (u.slowT > T) k *= 1.25;
       if (u.panicT > T || (this.panic[u.team] > T && !(u.crownT > T))) k *= 1.25;
       if (u.cdK) k *= u.cdK;
@@ -5913,6 +5963,7 @@ const RVB = (() => {
       if (u.planted || u.rooted) return 0;
       const T = this.fightT; let k = u.spdK || 1;
       if (this.moon && u.team !== this.moon.team) k *= 1 - 0.2 * this.moon.k;
+      if (this.wq) k *= this.worldSpd(u);
       if (u.slowT > T) k *= u.slowK;
       if (u.poisT > T) k *= 0.85;
       if (u.panicT > T || (this.panic[u.team] > T && !(u.crownT > T))) k *= 0.8;
@@ -6189,6 +6240,7 @@ const RVB = (() => {
     // ----- per-troop abilities, every tick -----
     preUnit(u, U, h) {
       const T = this.fightT;
+      if (this.frozenT > T && !(u.walkT > T)) return true; // world event: time stops for everyone but the time-walkers
       if (u.kx !== undefined) {
         u.x += u.kx * h; u.y += u.ky * h;
         const dk = Math.exp(-7 * h); u.kx *= dk; u.ky *= dk;
@@ -6555,6 +6607,7 @@ const RVB = (() => {
       this.postStep2(h);
       this.postStep3(h);
       if (this.tribes) this.postStep4(h);
+      if (this.wq) this.worldTick(h);
     },
     refreshAuras() {
       const T = this.fightT;
@@ -6651,8 +6704,8 @@ const RVB = (() => {
       if (alive.length < 2 || alive.some(t => this.strength(t) / (this.str0[t] || 1) < 0.25)) return;
       const cx = AR.x + AR.w / 2, cy = AR.y + AR.h / 2;
       this.xf.sudden = ev.kind;
-      this.banner('SUDDEN DEATH!', '#E5484D', 1.5);
-      this.bannerQ.push({ at: T + 1.6, text: { ring: 'THE ARENA SHRINKS!', lava: 'THE LAVA RISES!', meteors: 'METEOR STORM!', boss: 'A TITAN AWAKENS!' }[ev.kind], col: COL.gold });
+      if (!this.chapter(`SUDDEN DEATH: ${{ ring: 'THE ARENA SHRINKS', lava: 'THE LAVA RISES', meteors: 'METEOR STORM', boss: 'A TITAN AWAKENS' }[ev.kind]}`, '#E5484D')) this.banner('SUDDEN DEATH!', '#E5484D', 1.5);
+      if (!this.ui2) this.bannerQ.push({ at: T + 1.6, text: { ring: 'THE ARENA SHRINKS!', lava: 'THE LAVA RISES!', meteors: 'METEOR STORM!', boss: 'A TITAN AWAKENS!' }[ev.kind], col: COL.gold });
       this.snd('alarm');
       if (ev.kind === 'ring') this.ring = { t0: T, dur: 12, r0: 700, r1: 250 };
       else if (ev.kind === 'lava') this.lava = { t0: T, dur: 12, max: 300 };
@@ -7916,8 +7969,9 @@ const RVB = (() => {
     callout(u, text, col) {
       const T = this.fightT;
       if (!this.cmb || T < (u.coAt || 0)) return;
+      if (this.ui2 && this.story && this.t < 4.3) return; // UI 2.0: quiet while the opening story card is up
       if (T >= (this.coWin || 0)) { this.coWin = T + 1; this.coN = 0; }
-      if (this.coN >= 3 || T < ((this.coTxt || (this.coTxt = {}))[text] || 0)) return;
+      if (this.coN >= (this.opts.ui >= 2 ? 2 : 3) || T < ((this.coTxt || (this.coTxt = {}))[text] || 0)) return;
       this.coN++; u.coAt = T + 1.5; this.coTxt[text] = T + 0.7;
       this.float(u.x, u.y - u.r - 10, text, col, 22, 0.7);
     },
@@ -8084,10 +8138,19 @@ const RVB = (() => {
       const hx = x + Math.cos(f + 1.1) * r * 0.85, hy = y + Math.sin(f + 1.1) * r * 0.85;
       stick(ctx, hx - c * r * 0.3, hy - s * r * 0.3, hx + c * r * 0.95, hy + s * r * 0.95, 3, COL.gold);
       disc(ctx, hx + c * r * 1.05, hy + s * r * 1.05, 4, '#E5484D', 1.5);
-      ctx.save(); ctx.translate(x, y + r * 0.05); ctx.scale(r / 16, r / 16);
-      ctx.beginPath(); ctx.moveTo(-13, 7); ctx.lineTo(-13, -8); ctx.lineTo(-6, -1); ctx.lineTo(0, -12); ctx.lineTo(6, -1); ctx.lineTo(13, -8); ctx.lineTo(13, 7); ctx.closePath();
-      ctx.fillStyle = COL.gold; ctx.fill(); ctx.lineWidth = 3; ctx.lineJoin = 'round'; ctx.strokeStyle = COL.ink; ctx.stroke();
-      disc(ctx, 0, 2.5, 2.6, '#E5484D', 1); disc(ctx, -8, 3, 1.9, '#3B82F6', 1); disc(ctx, 8, 3, 1.9, '#3B82F6', 1);
+      // the crown, seen from above like everything else: a gold band sitting on the head with five points around it,
+      // a velvet cap inside, a jewel at the foot of each point and a little gold cross on top
+      const cr = r * 0.54;
+      ctx.save(); ctx.translate(x - c * r * 0.06, y - s * r * 0.06); ctx.rotate(f);
+      ctx.beginPath(); ctx.ellipse(1.5, 2.5, cr * 1.3, cr * 1.3, 0, 0, TAU); ctx.fillStyle = 'rgba(4,6,11,0.22)'; ctx.fill();
+      ctx.beginPath();
+      for (let k = 0; k < 10; k++) { const a = k / 10 * TAU, rr = k % 2 ? cr * 1.02 : cr * 1.34; k ? ctx.lineTo(Math.cos(a) * rr, Math.sin(a) * rr) : ctx.moveTo(Math.cos(a) * rr, Math.sin(a) * rr); }
+      ctx.closePath(); ctx.fillStyle = COL.gold; ctx.fill(); ctx.lineWidth = 2.5; ctx.lineJoin = 'round'; ctx.strokeStyle = COL.ink; ctx.stroke();
+      ctx.beginPath(); ctx.arc(0, 0, cr * 0.74, 0, TAU); ctx.fillStyle = '#7A1E9E'; ctx.fill(); ctx.lineWidth = 2; ctx.stroke();
+      ctx.beginPath(); ctx.arc(-cr * 0.18, -cr * 0.2, cr * 0.32, 0, TAU); ctx.fillStyle = 'rgba(255,255,255,0.16)'; ctx.fill();
+      for (let k = 0; k < 5; k++) { const a = k / 5 * TAU; disc(ctx, Math.cos(a) * cr * 0.92, Math.sin(a) * cr * 0.92, Math.max(1.6, cr * 0.15), k % 2 ? '#3B82F6' : '#E5484D', 1); }
+      ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(-cr * 0.28, 0); ctx.lineTo(cr * 0.28, 0); ctx.moveTo(0, -cr * 0.28); ctx.lineTo(0, cr * 0.28);
+      ctx.lineWidth = 4; ctx.strokeStyle = COL.ink; ctx.stroke(); ctx.lineWidth = 2; ctx.strokeStyle = COL.gold; ctx.stroke();
       ctx.restore();
     },
     // trails of melee moves, clash sparks, hero and stun marks (in the battle, under the camera)
@@ -8402,6 +8465,7 @@ const RVB = (() => {
   const sName = n => n.replace(/^THE /, '');
   const ARMY_TRIBES = {
     initTribeOpts() {
+      this.ui2 = this.opts.ui >= 2;
       const o = this.opts.tribes;
       this.trb = o && o.on ? o : null;
       if (!this.trb) return;
@@ -8463,6 +8527,14 @@ const RVB = (() => {
       }
       this.pickFeud();
       this.story = this.makeStory();
+      // the one-line version for the opening card (big type, readable at a glance), and the prize
+      const st = this.story, tr = this.tribes;
+      st.stake = STAKE[this.opts.map] || 'THE BATTLEFIELD';
+      st.hook = { revenge: 'REVENGE FOR LAST TIME', streak: `${(st.foe && st.foe.rec && st.foe.rec.s) || 2} WINS IN A ROW. WHO STOPS THEM?`, underdog: 'THEY HAVE NEVER WON. UNTIL TODAY?',
+        raid: 'THEY BURNED OUR FORGE', oath: 'AN OATH OF IRON', debut: 'THEIR FIRST BATTLE', stake: 'ONE PRIZE. ONE WINNER.' }[st.kind] || 'WHO WINS?';
+      if (st.kind === 'underdog' || st.kind === 'debut') st.hero = st.hero || tr[0];
+      // UI 2.0: the opening story card owns the top of the battlefield for the first 4 s, so the opening banners wait until after it
+      if (this.ui2) for (const q of this.bannerQ || []) if (!q.done && q.at < 4.6) q.at += 3.4;
     },
     tribeIndexFor(u, tbs, split, mem) {
       if (tbs.length < 2) return 0;
@@ -8543,7 +8615,7 @@ const RVB = (() => {
       if (u.tribe) { u.tribe.taken += dmg; if (UNIT[from.type].ranged) u.tribe.shot += dmg; }
       if (from.tribe && u.tribe && from.tribe.feud === u.tribe && !this.feudSaid) {
         this.feudSaid = true;
-        this.float(u.x, u.y - u.r - 26, 'BLOOD FEUD!', '#FF6B6B', 26, 1.2);
+        if (!this.chapter(`BLOOD FEUD: ${shortTribe(from.tribe.name)} VS ${shortTribe(u.tribe.name)}`, '#FF6B6B')) this.float(u.x, u.y - u.r - 26, 'BLOOD FEUD!', '#FF6B6B', 26, 1.2);
         this.say(`BLOOD FEUD: ${sName(from.tribe.name)} VS ${sName(u.tribe.name)}`, from.team);
         this.xf.feud = true;
       }
@@ -8559,7 +8631,7 @@ const RVB = (() => {
       if (u.tribe && u.tribe.chief === u && !u.tribe.chiefDead) {
         const tb = u.tribe, T = this.fightT; tb.chiefDead = true;
         for (const o of this.units) if (o.tribe === tb && !o.dead) o.panicT = Math.max(o.panicT || 0, T + 2.5);
-        this.banner(`CHIEF OF ${tName(tb.name)} FALLS!`, this.foeCol(u, from), 1.8);
+        if (!this.chapter(`THE CHIEF OF ${tName(tb.name)} FALLS`, TEAMS[tb.team].c)) this.banner(`CHIEF OF ${tName(tb.name)} FALLS!`, this.foeCol(u, from), 1.8);
         this.say(`THE CHIEF OF ${tName(tb.name)} HAS FALLEN`, tb.team);
         this.xf.chiefs = (this.xf.chiefs || 0) + 1;
       }
@@ -8618,7 +8690,7 @@ const RVB = (() => {
       if (!m && T >= this.merchAt) {
         const left = this.TR.chance(0.5);
         this.merch = { x: left ? AR.x + 64 : AR.x + AR.w - 64, y: AR.y + AR.h / 2, left, t0: T, end: T + 8, buyAt: this.N === 3 ? [T + 2, T + 3, T + 4] : [T + 2, T + 3.5], sold: [] };
-        this.banner('A MERCHANT ARRIVES!', COL.gold, 1.6); this.snd('bell');
+        if (!this.chapter('THE MERCHANT ARRIVES')) this.banner('A MERCHANT ARRIVES!', COL.gold, 1.6); this.snd('bell');
         this.say('A MERCHANT CARAVAN ARRIVES', -1);
         if (this.camEv) this.camEv.push({ type: 'spot', x: this.merch.x, y: this.merch.y, prio: 60, dur: 1.4, z: 1.7 });
         return;
@@ -9058,7 +9130,7 @@ const RVB = (() => {
       ctx.textAlign = align; ctx.textBaseline = 'middle'; ctx.fillStyle = color;
       ctx.fillText(text, x, y, maxW);
       const lx = align === 'left' ? x : align === 'right' ? x - w : x - w / 2;
-      if (this.lay) this.lay.push({ kind: 'text', x: lx, y: y - s * 0.5, w, h: s, text, size: s, squash: nat > maxW + 0.5 });
+      if (this.lay) this.lay.push({ kind: 'text', x: lx, y: y - s * 0.5 + (this.layDY || 0), w, h: s, text, size: s, squash: nat > maxW + 0.5 });
       return s;
     },
     drawTribeRow(ctx, tb, x, y, w, h) {
@@ -9127,7 +9199,7 @@ const RVB = (() => {
     // loot: coins fly in an arc from where a troop fell (through the camera) to its killer tribe's gold on the panel
     drawCoins(ctx) {
       const t = this.t, c = this.cam, zoom = this.camOn();
-      const scr = (x, y) => (zoom ? [AR.x + (x - c.x) * c.z + AR.w / 2, AR.y + (y - c.y) * c.z + AR.h / 2] : [x, y]);
+      const dy = this.opts.ui >= 2 ? UI_DY : 0, scr = (x, y) => (zoom ? [AR.x + (x - c.x) * c.z + AR.w / 2, AR.y + (y - c.y) * c.z + AR.h / 2 + dy] : [x, y + dy]);
       this.coins = this.coins.filter(o => {
         const k = (t - o.t0) / 0.75;
         if (k >= 1) { o.tb.goldFx = t; return false; }
@@ -9173,7 +9245,521 @@ const RVB = (() => {
       ctx.globalAlpha = 1;
     },
   };
-  Object.assign(Army.prototype, ARMY_EXT, ARMY_DRAW, ARMY_MAPS, ARMY_EXT2, ARMY_DRAW2, ARMY_COMBAT, ARMY_TRIBES, ARMY_TRIBES_DRAW, ARMY_PACE);
+  // ----- UI 2.0 (rules.ui.layout = 2): a phone-safe layout -----
+  // YouTube draws its buttons and text over a Short: search and menu icons in the top corners, the title and channel name over
+  // the bottom ~360 px, and the like/comment/share column over the right ~140 px from about mid-screen down. So the scoreboard
+  // sits at the top (with the battle clock in the centre), the battlefield is drawn 90 px higher, and the tribes' strip sits
+  // just under it, above YouTube's title. The simulation itself doesn't move: only where it's drawn.
+  const UI_DY = -90;
+  // art finish: troops that aren't round bodies (vehicles, beasts, odd shapes) get no rim highlight; plain troops get faces
+  const GLOSS_SKIP = new Set(['archer', 'tank', 'mech', 'cannon', 'turret', 'golem', 'decoy', 'thousandman', 'livingblade', 'catapult', 'fortress', 'castle', 'cathedral', 'livingfortress', 'drone', 'wisp', 'hourglass', 'theplayer', 'turtle', 'universe']);
+  const FACELESS = new Set(['soldier', 'swordsman', 'spearman', 'crossbowman', 'berserker', 'shieldbearer']);
+  const SAFE = { x0: 48, x1: 1032, top: 60, bottom: 1560, btnX: 940, btnY0: 900 };
+  const shortTribe = n => n.replace(/^THE /, '').replace(/^(ORDER|HOUSE|CREW) OF THE /, '').replace(/ (CLAN|COMPANY|TRIBE|KIN|CIRCLE|SCHOOL|ORDER)$/, '');
+  const ARMY_UI2 = {
+    // the scoreboard: logo, hook, both armies' names and live counts, the battle clock in the centre pill, and the strength bar
+    drawHUD2(ctx) {
+      const t = this.t, L = this.alive[0] + this.reserve[0], R = this.alive[1] + this.reserve[1];
+      ctx.textBaseline = 'alphabetic'; ctx.textAlign = 'center';
+      ctx.font = font(this.title.length > 15 ? 58 : 64, 800); spaced(ctx, 2); ctx.fillStyle = COL.white; ctx.fillText(this.title, VW / 2, 126);
+      ctx.font = font(28, 700, false); spaced(ctx, 6); ctx.fillStyle = COL.gold; ctx.fillText(this.hook, VW / 2, 170, 760);
+      // smooth counts: the shown number eases toward the real one
+      this.hudN = this.hudN || [L, R];
+      this.hudN = [L, R].map((v, i) => (Math.abs(v - this.hudN[i]) < 0.5 ? v : this.hudN[i] + (v - this.hudN[i]) * 0.35));
+      for (let i = 0; i < 2; i++) {
+        const tm = TEAMS[i], x = i ? VW - 96 : 96, al = i ? 'right' : 'left';
+        ctx.textAlign = al;
+        spaced(ctx, 3); ctx.font = font(32, 800); ctx.fillStyle = tm.c; ctx.fillText(tm.name, x, 224, 300);
+        spaced(ctx, 0); ctx.font = font(104, 800); ctx.fillStyle = COL.white; ctx.fillText(String(Math.round(this.hudN[i])), x, 324);
+        const lab = `${this.skins ? this.skinName(i) : ''}${docLabel(this.doc[i])}`;
+        spaced(ctx, 2); ctx.font = font(22, 700, false); ctx.fillStyle = COL.muted; ctx.fillText(lab, x, 358, 300); spaced(ctx, 0);
+        if (hasFlag(tm)) drawFlag(ctx, tm.key, i ? VW - 96 - 160 - 84 : 96 + 160, 262, 84, 56, 3);
+      }
+      // the clock pill
+      const px = VW / 2, py = 282, pw = 196, ph = 90, urgent = this.phase === 'fight' && this.cap - this.fightT < 10;
+      ctx.font = font(24, 800); spaced(ctx, 4); ctx.textAlign = 'center'; ctx.fillStyle = COL.muted; ctx.fillText('VS', px, 224); spaced(ctx, 0);
+      roundRect(ctx, px - pw / 2, py - ph / 2, pw, ph, ph / 2); ctx.fillStyle = '#121A2D'; ctx.fill(); ctx.lineWidth = 4; ctx.strokeStyle = urgent ? COL.gold : COL.frame; ctx.stroke();
+      const pulse = urgent ? 1 + 0.06 * Math.max(0, Math.cos((t % 1) * Math.PI)) : 1;
+      ctx.save(); ctx.translate(px, py + 22); ctx.scale(pulse, pulse);
+      ctx.font = font(62, 800); ctx.fillStyle = urgent ? COL.gold : COL.white; ctx.fillText(fmtTime(this.fightT), 0, 0);
+      ctx.restore();
+      this.drawBar2(ctx, [this.dispRatio, 1 - this.dispRatio]);
+    },
+    drawBar2(ctx, shares) {
+      const bx = 96, by = 374, bw = VW - 192, bh = 16;
+      ctx.save(); roundRect(ctx, bx, by, bw, bh, bh / 2); ctx.clip();
+      let x = bx;
+      shares.forEach((s, i) => { const w = bw * clamp(s, 0, 1); ctx.fillStyle = TEAMS[i].c; ctx.fillRect(x, by, w + 1, bh); x += w; });
+      ctx.fillStyle = 'rgba(255,255,255,0.2)'; ctx.fillRect(bx, by, bw, 4);
+      ctx.restore();
+      roundRect(ctx, bx, by, bw, bh, bh / 2); ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(4,6,11,0.8)'; ctx.stroke();
+      if (shares.length === 2) { const sx = bx + bw * clamp(shares[0], 0, 1); roundRect(ctx, sx - 3, by - 6, 6, bh + 12, 3); ctx.fillStyle = COL.white; ctx.fill(); }
+    },
+    drawHUD3v2(ctx) {
+      const tot = this.totals(), xs = [210, 540, 870];
+      ctx.textBaseline = 'alphabetic'; ctx.textAlign = 'center';
+      ctx.font = font(64, 800); spaced(ctx, 2); ctx.fillStyle = COL.white; ctx.fillText(this.title, VW / 2, 126);
+      ctx.font = font(28, 700, false); spaced(ctx, 6); ctx.fillStyle = COL.gold; ctx.fillText(`${this.hook}   ·   ${fmtTime(this.fightT)}`, VW / 2, 170, 820);
+      for (let tm = 0; tm < 3; tm++) {
+        const x = xs[tm];
+        spaced(ctx, 3); ctx.font = font(30, 800); ctx.fillStyle = TEAMS[tm].c; ctx.fillText(TEAMS[tm].name, x, 224, 300);
+        spaced(ctx, 0); ctx.font = font(92, 800); ctx.fillStyle = COL.white; ctx.fillText(String(tot[tm]), x, 316);
+        spaced(ctx, 1); ctx.font = font(20, 700, false); ctx.fillStyle = COL.muted; ctx.fillText(docLabel(this.doc[tm]), x, 352, 300); spaced(ctx, 0);
+      }
+      ctx.font = font(26, 800); ctx.fillStyle = 'rgba(255,255,255,0.35)'; ctx.fillText('VS', 375, 290); ctx.fillText('VS', 705, 290);
+      this.drawBar2(ctx, this.shares || [1 / 3, 1 / 3, 1 / 3]);
+    },
+    // ----- the opening: the story in two beats over the top of the battlefield (arena coordinates) -----
+    drawStory2(ctx) {
+      const s = this.story, t = this.t;
+      if (!s || t > 4.2) return;
+      const a = Math.min(clamp((t - 0.1) / 0.3, 0, 1), clamp((4.2 - t) / 0.4, 0, 1));
+      if (a <= 0) return;
+      const sides = this.N === 2 ? [0, 1] : [0, 1, 2];
+      // the rivals: the tribes the story is about (otherwise each army's first tribe)
+      const pick = team => (s.hero && s.hero.team === team ? s.hero : s.foe && s.foe.team === team ? s.foe : this.tribes.find(tb => tb.team === team));
+      const top = AR.y + 22, h = 250, x0 = AR.x + 18, w = AR.w - 36;
+      ctx.save(); ctx.globalAlpha = a;
+      roundRect(ctx, x0, top, w, h, 20); ctx.fillStyle = 'rgba(8,11,20,0.9)'; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = COL.frame; ctx.stroke();
+      const cw = w / sides.length, slide = 1 - easeOutCubic(clamp((t - 0.1) / 0.5, 0, 1));
+      sides.forEach((team, i) => {
+        const tb = pick(team), tm = TEAMS[team], cx = x0 + cw * (i + 0.5) + (i - (sides.length - 1) / 2) * 120 * slide;
+        disc(ctx, cx, top + 66, 40, tm.c, 4); drawEmblem(ctx, tb.emblem, cx, top + 66, 30);
+        this.fitText(ctx, tName(tb.name).replace(/^THE /, 'THE '), cx, top + 132, cw - 30, 30, 800, true, tm.l, 'center', 18);
+      });
+      if (sides.length === 2) { ctx.font = font(44, 800); ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; strokeText(ctx, 'VS', x0 + w / 2, top + 70, COL.white, COL.ink, 8); }
+      // beat 1: what it's about; beat 2: the prize
+      const line = t < 2.3 ? s.hook : `FOR ${s.stake}`, k = t < 2.3 ? clamp((t - 0.35) / 0.3, 0, 1) : clamp((t - 2.3) / 0.3, 0, 1);
+      ctx.globalAlpha = a * k;
+      this.fitText(ctx, line, x0 + w / 2, top + 200 + (1 - k) * 10, w - 40, 46, 800, true, t < 2.3 ? COL.white : COL.gold, 'center', 22);
+      ctx.restore(); ctx.textBaseline = 'alphabetic';
+    },
+    // chapter cards: small cards at the bottom of the battlefield when the story turns (one at a time, queued)
+    chapter(text, col = COL.gold) {
+      if (!this.ui2) return false;
+      const q = this.chapters || (this.chapters = []);
+      const last = q.length ? q[q.length - 1] : null, start = last ? Math.max(this.t, last.t0 + 1.9) : this.t;
+      q.push({ text, col, t0: start });
+      if (q.length > 4) q.shift();
+      return true;
+    },
+    drawChapters(ctx) {
+      if (!this.chapters) return;
+      for (const c of this.chapters) {
+        const k = (this.t - c.t0) / 1.8;
+        if (k < 0 || k > 1) continue;
+        // (while the roster strip is up at the bottom of the battlefield, the card sits just above it)
+        const low = this.N !== 3 && this.cmb && this.cmb.roster && this.t > 4.0 && this.t < 8.6 ? 14 + 92 + 10 : 0;
+        const a = Math.min(1, k * 8, (1 - k) * 6), y = AR.y + AR.h - 40 - low + (1 - Math.min(1, k * 8)) * 20;
+        ctx.save(); ctx.globalAlpha = a;
+        ctx.font = font(28, 800); spaced(ctx, 3);
+        const w = Math.min(2 * (SAFE.btnX - VW / 2), ctx.measureText(c.text).width + 80);
+        roundRect(ctx, VW / 2 - w / 2, y - 24, w, 48, 24); ctx.fillStyle = 'rgba(8,11,20,0.9)'; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = c.col; ctx.stroke();
+        for (const sx of [-1, 1]) { const dx = VW / 2 + sx * (w / 2 - 22); ctx.beginPath(); ctx.moveTo(dx, y - 7); ctx.lineTo(dx + 7, y); ctx.lineTo(dx, y + 7); ctx.lineTo(dx - 7, y); ctx.closePath(); ctx.fillStyle = c.col; ctx.fill(); }
+        spaced(ctx, 0);
+        this.fitText(ctx, c.text, VW / 2, y + 1, w - 76, 28, 800, true, COL.white, 'center', 18);
+        ctx.restore();
+      }
+    },
+    // ----- the roster, next to each army: its three main troops with what they're good at (arena coordinates) -----
+    drawRosterStrips(ctx) {
+      if (!this.cmb || !this.cmb.roster) return;
+      const t = this.t, t0 = 4.2, t1 = 8.4, a = Math.min(clamp((t - t0) / 0.35, 0, 1), clamp((t1 - t) / 0.4, 0, 1));
+      if (a <= 0) return;
+      if (!this.rInfo) this.drawRosterInfo();
+      const N = this.N, rh = N === 3 ? 76 : 92;
+      ctx.save(); ctx.globalAlpha = a;
+      for (let i = 0; i < N; i++) {
+        const tm = TEAMS[i], x0 = AR.x + 14, low = N !== 3 && i === 1, w = low ? SAFE.btnX - x0 : AR.w - 28;
+        const y0 = N === 3 ? AR.y + 14 + i * (rh + 8) : i === 0 ? AR.y + 14 : AR.y + AR.h - 14 - rh;
+        const sl = (1 - easeOutCubic(clamp((t - t0) / 0.45, 0, 1))) * (i % 2 ? 1 : -1) * 120;
+        ctx.save(); ctx.translate(sl, 0);
+        roundRect(ctx, x0, y0, w, rh, 16); ctx.fillStyle = 'rgba(8,11,20,0.92)'; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = rgba(tm.c, 0.8); ctx.stroke();
+        roundRect(ctx, x0, y0, 12, rh, 6); ctx.fillStyle = tm.c; ctx.fill();
+        const list = this.rInfo[i], n = Math.min(list.length, 3), cw = (w - 30) / 3, pr = Math.min(rh * 0.36, 32);
+        for (let j = 0; j < n; j++) {
+          const [type, cnt] = list[j], U = UNIT[type], cx = x0 + 22 + j * cw, px = cx + pr + 2, py = y0 + rh / 2;
+          disc(ctx, px, py, pr, 'rgba(255,255,255,0.08)', 0);
+          if (!sl) this.lay.push({ kind: 'circle', x: px - pr, y: py - pr + (this.layDY || 0), w: pr * 2, h: pr * 2 });
+          const s = clamp(pr * 0.78 / U.r, 0.3, 1.7);
+          ctx.save(); ctx.beginPath(); ctx.arc(px, py, pr, 0, TAU); ctx.clip(); ctx.translate(px, py); ctx.scale(s, s);
+          try { this.drawPortrait(ctx, type, i); } catch (e) { disc(ctx, 0, 0, U.r, tm.c, 3); }
+          ctx.restore();
+          const tx = px + pr + 10, mw = cx + cw - tx - 6, nm = labelOf(type).replace(/^THE /, '');
+          this.fitText(ctx, `${nm} ×${cnt}`, tx, py - rh * 0.17, mw, 21, 800, true, COL.white, 'left', 15);
+          this.fitText(ctx, type === 'king' && this.mode === 'king' ? 'PROTECT HIM' : specOf(type), tx, py + rh * 0.18, mw, 18, 700, false, COL.gold, 'left', 13);
+        }
+        ctx.restore();
+      }
+      ctx.restore(); ctx.textBaseline = 'alphabetic';
+    },
+    drawRosterInfo() {
+      this.rInfo = this.teamIds().map(team => {
+        const n = {};
+        for (const u of this.units) if (u.team === team && !UNIT[u.type].uncounted) n[u.type] = (n[u.type] || 0) + 1;
+        for (const w of this.waves[team]) for (const k of w.list) n[k] = (n[k] || 0) + 1;
+        return Object.entries(n).sort((p, q) => (p[0] === 'king' ? -1 : q[0] === 'king' ? 1 : 0) || ((UNIT[q[0]].rank === 0) - (UNIT[p[0]].rank === 0)) || q[1] - p[1]);
+      });
+    },
+    // ----- the war council strip under the battlefield (screen coordinates): one cell per tribe and a ticker -----
+    drawCouncil2(ctx) {
+      if (!this.tribes) return;
+      const t = this.t, x0 = 140, W = VW - 280, top = 1384;
+      this.layReset();
+      if (this.phase === 'outro' && this.outroT > 1.0) { this.drawChronicle2(ctx, clamp((this.outroT - 1.0) / 0.4, 0, 1)); return; }
+      const inK = clamp((t - 4.0) / 0.5, 0, 1);
+      if (inK <= 0) return;
+      ctx.save(); ctx.globalAlpha = inK;
+      // the ticker: the latest thing that happened
+      const e = this.ticker[0];
+      if (e) {
+        const a = clamp((t - e.t) / 0.25, 0, 1);
+        ctx.globalAlpha = inK * a;
+        this.fitText(ctx, e.text, VW / 2, top, W, 20, 800, false, e.team >= 0 ? TEAMS[e.team].l : COL.gold, 'center', 18);
+        ctx.globalAlpha = inK;
+      }
+      const three = this.N === 3, cols = three ? 3 : 2, gap = 14, cw = (W - gap * (cols - 1)) / cols, ch = three ? 140 : 72;
+      for (const tb of this.tribes) {
+        const col = tb.team, row = three ? 0 : tb.idx, x = x0 + col * (cw + gap), y = top + 22 + row * (ch + 8);
+        this.drawCell2(ctx, tb, x, y, cw, ch, three);
+      }
+      ctx.restore();
+      this.drawCoins(ctx);
+      ctx.textBaseline = 'alphabetic';
+    },
+    drawCell2(ctx, tb, x, y, w, h, tall) {
+      const tm = TEAMS[tb.team], t = this.t, dead = !tb.n && this.phase === 'fight' && this.fightT > 1, a0 = ctx.globalAlpha;
+      roundRect(ctx, x, y, w, h, 14); ctx.fillStyle = '#0A0E19'; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = dead ? 'rgba(255,255,255,0.08)' : rgba(tm.c, 0.6); ctx.stroke();
+      ctx.globalAlpha = a0 * (dead ? 0.45 : 1);
+      const er = 22, ex = x + 12 + er, ey = y + (tall ? 12 + er : h / 2);
+      disc(ctx, ex, ey, er, tm.c, 3); drawEmblem(ctx, tb.emblem, ex, ey, er * 0.74);
+      if (tb.chiefDead) { ctx.beginPath(); ctx.moveTo(ex - er * 0.7, ey + er * 0.7); ctx.lineTo(ex + er * 0.7, ey - er * 0.7); ctx.lineWidth = 4; ctx.strokeStyle = '#FF8A8A'; ctx.stroke(); }
+      this.lay.push({ kind: 'circle', x: ex - er, y: ey - er, w: er * 2, h: er * 2 });
+      const tx = ex + er + 10, right = x + w - 10;
+      let tac = this.fightT > 0.5 && tb.n ? TAC_WORD[tb.tactic] : '';
+      ctx.font = font(18, 800, false);
+      if (tac && ctx.measureText(tac).width > (tall ? right - tx : 130)) tac = TAC_SHORT[tb.tactic];
+      const tacW = tac ? Math.min(ctx.measureText(tac).width, tall ? right - tx : 130) : 0;
+      let ly;
+      if (tall) {
+        this.fitText(ctx, shortTribe(tb.name), tx, y + 24, right - tx, 22, 800, true, tm.l, 'left', 18);
+        if (tac) this.fitText(ctx, tac, tx, y + 50, right - tx, 18, 800, false, COL.gold, 'left', 18);
+        ly = y + h - 46;
+      } else {
+        this.fitText(ctx, shortTribe(tb.name), tx, y + 22, right - tx - tacW - 10, 22, 800, true, tm.l, 'left', 18);
+        if (tac) this.fitText(ctx, tac, right, y + 22, 130, 18, 800, false, COL.gold, 'right', 18);
+        ly = y + 52;
+      }
+      // gold and iron, then weapon and armour tiers (in the tall cells, the tiers get their own line)
+      const gf = clamp(1 - (t - tb.goldFx) / 0.4, 0, 1), irf = clamp(1 - (t - tb.ironFx) / 0.4, 0, 1);
+      const cx0 = tall ? x + 14 : tx;
+      tb.coinAt = { x: cx0 + 8, y: ly };
+      disc(ctx, cx0 + 8, ly, 8 + gf * 2, COL.gold, 2);
+      this.fitText(ctx, String(Math.floor(tb.gold)), cx0 + 21, ly, 40, 20, 800, true, gf > 0 ? COL.gold : COL.white, 'left', 18);
+      const ix = cx0 + 66;
+      ctx.beginPath(); ctx.moveTo(ix - 1, ly + 6); ctx.lineTo(ix + 3, ly - 5); ctx.lineTo(ix + 14, ly - 5); ctx.lineTo(ix + 18, ly + 6); ctx.closePath();
+      ctx.fillStyle = irf > 0 ? '#DCE5EE' : '#9AA3AD'; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = COL.ink; ctx.stroke();
+      this.fitText(ctx, String(Math.floor(tb.iron)), ix + 22, ly, 34, 20, 800, true, COL.white, 'left', 18);
+      const py = tall ? ly + 30 : ly, px = tall ? x + 18 : ix + 62;
+      const pip = (cx, filled, colr) => { ctx.beginPath(); ctx.arc(cx, py, 5.5, 0, TAU); ctx.fillStyle = filled ? colr : 'rgba(255,255,255,0.12)'; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = COL.ink; ctx.stroke(); };
+      ctx.lineCap = 'round';
+      ctx.beginPath(); ctx.moveTo(px, py + 7); ctx.lineTo(px + 9, py - 7); ctx.lineWidth = 4.5; ctx.strokeStyle = COL.ink; ctx.stroke(); ctx.lineWidth = 2.2; ctx.strokeStyle = '#E2E8F0'; ctx.stroke();
+      for (let k = 1; k <= 3; k++) pip(px + 5 + k * 13, tb.wt >= k, k === 3 ? W_TOP[tb.set] : k === 2 ? '#E2E8F0' : W_COL[1]);
+      const sx = px + 66;
+      ctx.beginPath(); ctx.moveTo(sx - 6, py - 6); ctx.lineTo(sx + 6, py - 6); ctx.lineTo(sx + 6, py); ctx.quadraticCurveTo(sx + 5, py + 6, sx, py + 8); ctx.quadraticCurveTo(sx - 5, py + 6, sx - 6, py); ctx.closePath();
+      ctx.fillStyle = '#9AA3AD'; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = COL.ink; ctx.stroke();
+      for (let k = 1; k <= 3; k++) pip(sx + 5 + k * 13, tb.at >= k, A_COL[k]);
+      this.lay.push({ kind: 'coin', x: cx0 - 2, y: ly - 10, w: 20, h: 20 }, { kind: 'ingot', x: ix - 2, y: ly - 6, w: 22, h: 13 },
+        { kind: 'weapon pips', x: px - 2, y: py - 8, w: 5 + 3 * 13 + 9, h: 16 }, { kind: 'armour pips', x: sx - 7, y: py - 7, w: 12 + 3 * 13 + 6, h: 15 });
+      ctx.globalAlpha = a0;
+    },
+    // art finish: one light from the top left for every round troop (a soft rim highlight), and faces for the plain troops that had none
+    artFinish(ctx, u, x, y) {
+      const U = UNIT[u.type], r = u.r;
+      if (GLOSS_SKIP.has(u.type) || U.mount || U.flying || (r > 22 && u.type !== 'giant')) return;
+      ctx.save(); ctx.lineCap = 'round';
+      ctx.beginPath(); ctx.arc(x, y, r * 0.74, Math.PI * 1.08, Math.PI * 1.46); ctx.lineWidth = Math.max(2, r * 0.17); ctx.strokeStyle = 'rgba(255,255,255,0.3)'; ctx.stroke();
+      if (FACELESS.has(u.type)) {
+        const f = u.face, fx = Math.cos(f), fy = Math.sin(f), px = -fy, py = fx, ex = x + fx * r * 0.42, ey = y + fy * r * 0.42, sp = r * 0.34, er = Math.max(1.8, r * 0.17);
+        for (const sd of [-1, 1]) {
+          const cx = ex + px * sp * sd, cy = ey + py * sp * sd;
+          ctx.beginPath(); ctx.arc(cx, cy, er, 0, TAU); ctx.fillStyle = '#FFFFFF'; ctx.fill(); ctx.lineWidth = 1.2; ctx.strokeStyle = COL.ink; ctx.stroke();
+          ctx.beginPath(); ctx.arc(cx + fx * er * 0.35, cy + fy * er * 0.35, er * 0.55, 0, TAU); ctx.fillStyle = COL.ink; ctx.fill();
+        }
+      }
+      ctx.restore();
+    },
+    drawChronicle2(ctx, al) {
+      const f = this._tf || (this._tf = this.tribeFacts()), W = VW - 280;
+      if (!f) return;
+      ctx.save(); ctx.globalAlpha = al;
+      const lead = this.winner >= 0 ? TEAMS[this.winner] : null;
+      this.fitText(ctx, f.chron[0], VW / 2, 1414, W, 34, 800, true, lead ? lead.l : COL.white, 'center', 18);
+      this.fitText(ctx, f.chron[1], VW / 2, 1462, W, 28, 800, true, COL.gold, 'center', 18);
+      ctx.restore();
+    },
+  };
+  // ----- world events (rules.world): the whole battlefield goes strange for a few seconds -----
+  // They roll their own dice (seed ^ 0x3E1D7A), so nothing else in the battle changes when they're off. Every one of them hits
+  // both sides alike: the looks change (camera roll, darkness, glitches, grading), and where the battle changes too (curving shots,
+  // frozen time, harder hits, two champions growing), it's the same for everyone.
+  const WORLD = {
+    glitch: { name: 'GLITCH', dur: 6, title: 'SIGNAL LOST', sub: 'GLITCH IN THE SIMULATION', col: '#7CF3FF' },
+    flip: { name: 'THE WORLD FLIPS', dur: 6, title: 'THE WORLD FLIPS', sub: 'EVERY SHOT CURVES', col: '#C4B5FD' },
+    mirror: { name: 'MIRROR SHIFT', dur: 6, title: 'MIRROR SHIFT', sub: 'LEFT IS RIGHT NOW', col: '#E0E7FF' },
+    blackout: { name: 'BLACKOUT', dur: 7, title: 'BLACKOUT', sub: 'ONLY GUNFIRE AND MAGIC LIGHT THE FIELD', col: '#FDE68A' },
+    freeze: { name: 'TIME STOPS', dur: 3.2, title: 'TIME STOPS', sub: 'ONLY THREE ON EACH SIDE CAN MOVE', col: '#93C5FD' },
+    bloodmoon: { name: 'BLOOD MOON', dur: 8, title: 'BLOOD MOON', sub: 'EVERY HIT 35% HARDER', col: '#FF5A5A' },
+    supersize: { name: 'SUPERSIZE', dur: 9, title: 'SUPERSIZE', sub: 'ONE CHAMPION EACH GROWS HUGE', col: '#FFD23F' },
+    rave: { name: 'RAVE', dur: 7, title: 'RAVE MODE', sub: 'EVERYONE MOVES AND STRIKES FASTER', col: '#F472B6' },
+  };
+  const WORLD_KINDS = Object.keys(WORLD);
+  // a repeatable 0..1 number for looks (no dice used, so drawing never changes the battle)
+  const easeInOut = p => (p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2);
+  const hash01 = (a, b) => { const x = Math.sin(a * 12.9898 + b * 78.233) * 43758.5453; return x - Math.floor(x); };
+  const ARMY_WORLD = {
+    initWorld() {
+      const W = this.opts.world, R = this.WR = rng(((this.seed >>> 0) ^ 0x3E1D7A) >>> 0);
+      const F = (this.opts.fixedLength || this.target || 60) - (this.opts.outroSecs || 0);
+      const list = (W.list || WORLD_KINDS).filter(k => WORLD[k]);
+      this.wq = []; this.worldLog = [];
+      if (!list.length || !R.chance(W.chance ?? 0.7)) return;
+      const pick = () => list[R.int(0, list.length - 1)];
+      const first = { kind: pick(), at: F * R.range(0.24, 0.42) };
+      if (W.at) first.at = W.at; // (tests only)
+      first.dur = WORLD[first.kind].dur;
+      this.wq.push(first);
+      if (R.chance(W.second ?? 0.3)) {
+        let k = pick(); if (k === first.kind) k = list[(list.indexOf(k) + 1) % list.length];
+        const at = first.at + first.dur + R.range(8, 14);
+        if (at + WORLD[k].dur < F * 0.82) this.wq.push({ kind: k, at, dur: WORLD[k].dur });
+      }
+      for (const e of this.wq) e.spin = R.chance(0.5) ? 1 : -1;
+    },
+    worldTick(h) {
+      const T = this.fightT;
+      this.wNow = null;
+      for (const e of this.wq) {
+        if (e.done) continue;
+        if (!e.on) { if (T >= e.at) this.worldStart(e); else continue; }
+        if (T >= e.at + e.dur) { this.worldEnd(e); continue; }
+        this.wNow = e;
+        this.worldRun(e, h);
+      }
+    },
+    worldPick(team, ok) {
+      const c = this.units.filter(u => u.team === team && !u.dead && !u.phased && !UNIT[u.type].uncounted && ok(u));
+      return c.length ? c[this.WR.int(0, c.length - 1)] : null;
+    },
+    worldStart(e) {
+      const T = this.fightT, R = this.WR, W = WORLD;
+      if (e.kind === 'mirror' && this.obstacles.length) e.kind = 'flip'; // mirroring only on open ground, so nobody lands in a wall
+      e.on = true; e.dur = W[e.kind].dur; e.t0 = T;
+      const plain = u => UNIT[u.type].rank !== 0 && !UNIT[u.type].boss && !u.boss;
+      if (e.kind === 'glitch') {
+        e.bugs = this.teamIds().map(t => this.worldPick(t, plain)).filter(Boolean);
+        for (const u of e.bugs) u.bugT = T + e.dur;
+        this.snd('glitch');
+      } else if (e.kind === 'mirror') { this.worldMirror(); this.snd('portal'); }
+      else if (e.kind === 'freeze') {
+        e.walkers = [];
+        for (const t of this.teamIds()) for (let k = 0; k < 3; k++) { const u = this.worldPick(t, u => plain(u) && !(u.walkT > T)); if (u) { u.walkT = T + e.dur; e.walkers.push(u); } }
+        this.frozenT = T + e.dur; this.snd('freeze');
+      } else if (e.kind === 'supersize') {
+        e.big = this.teamIds().map(t => this.worldPick(t, u => plain(u) && !UNIT[u.type].mount && !u.flying && u.r <= 17)).filter(Boolean);
+        for (const u of e.big) { u.grow0 = u.r; u.max *= 3; u.hp *= 3; u.dmgK = (u.dmgK || 1) * 1.8; u.bigT = T + e.dur; }
+        this.snd('evolve');
+      } else this.snd({ flip: 'whoosh', blackout: 'thud', bloodmoon: 'roar', rave: 'drum' }[e.kind] || 'whoosh');
+      this.worldLog.push(e.kind);
+      if (!this.ui2) this.banner(`${W[e.kind].name}!`, W[e.kind].col, 1.6);
+      if (this.camEv) this.camEv.push({ type: 'hitstop' });
+    },
+    worldRun(e, h) {
+      const T = this.fightT, k = clamp((T - e.t0) / 0.6, 0, 1) * clamp((e.t0 + e.dur - T) / 0.6, 0, 1);
+      if (e.kind === 'flip' && k > 0.5) {
+        // every shot curves while the world is upside down (the same for both sides)
+        const w = 1.1 * e.spin * h, c = Math.cos(w), s = Math.sin(w);
+        for (const a of this.arrows) { if (LOBS[a.kind]) continue; const vx = a.vx * c - a.vy * s; a.vy = a.vx * s + a.vy * c; a.vx = vx; }
+      } else if (e.kind === 'supersize') {
+        for (const u of e.big) {
+          if (u.dead) continue;
+          u.r = u.grow0 * (1 + 1.1 * easeOutCubic(k)); u.m = u.r * u.r;
+          if (this.obstacles.length) this.pushOut(u);
+        }
+      }
+    },
+    worldEnd(e) {
+      e.on = false; e.done = true;
+      if (e.kind === 'mirror') this.worldMirror();
+      if (e.kind === 'supersize') for (const u of e.big) {
+        u.r = u.grow0; u.m = u.r * u.r; u.max /= 3; u.dmgK /= 1.8; u.bigT = 0;
+        if (!u.dead) u.hp = Math.max(0.5, u.hp / 3);
+        if (this.obstacles.length) this.pushOut(u);
+      }
+      if (e.kind === 'freeze') this.frozenT = 0;
+    },
+    // the whole battle mirrors left to right (troops, shots, flags), so left is right
+    worldMirror() {
+      const cx = AR.x + AR.w / 2;
+      for (const o of this.units) { o.x = 2 * cx - o.x; if (o.px !== undefined) o.px = 2 * cx - o.px; o.vx = -o.vx; o.face = Math.PI - o.face; if (o.mface !== undefined) o.mface = Math.PI - o.mface; }
+      for (const a of this.arrows) { a.x = 2 * cx - a.x; a.vx = -a.vx; if (a.px !== undefined) a.px = 2 * cx - a.px; if (a.sx !== undefined) { a.sx = 2 * cx - a.sx; a.tx = 2 * cx - a.tx; } }
+      this.mirrorFx = this.t;
+    },
+    worldDmg(u, from) {
+      const T = this.fightT; let k = 1;
+      if (this.wNow && this.wNow.kind === 'bloodmoon') k *= 1.35;
+      if (from && from.bugT > T) k *= 1.6;
+      return k;
+    },
+    worldSpd(u) {
+      const T = this.fightT; let k = 1;
+      if (this.wNow && this.wNow.kind === 'rave') k *= 1.25;
+      if (u.bugT > T) k *= 1.4;
+      return k;
+    },
+    worldCd() { return this.wNow && this.wNow.kind === 'rave' ? 0.85 : 1; },
+    // ----- looks -----
+    worldK(e) { const T = this.fightT; return clamp((T - e.t0) / 0.6, 0, 1) * clamp((e.t0 + e.dur - T) / 0.6, 0, 1); },
+    // before anything is drawn on the battlefield (screen space, inside its frame)
+    worldPre(ctx) {
+      if (this.phase !== 'fight') this.wNow = null;
+      const e = this.wNow; this._wRot = false;
+      if (!e || e.kind !== 'flip') return;
+      const T = this.fightT, a = Math.PI * easeInOut(clamp((T - e.t0) / 0.7, 0, 1)) * (1 - easeInOut(clamp((T - (e.t0 + e.dur - 0.7)) / 0.7, 0, 1)));
+      if (a < 0.001) return;
+      ctx.fillStyle = '#04060C'; ctx.fillRect(AR.x, AR.y, AR.w, AR.h);
+      const cx = AR.x + AR.w / 2, cy = AR.y + AR.h / 2;
+      ctx.save(); ctx.translate(cx, cy); ctx.rotate(a * e.spin); ctx.translate(-cx, -cy); this._wRot = true;
+    },
+    // on the battlefield, under the camera (world space): the darkness of a blackout, rings on the special troops
+    worldMid(ctx) {
+      const e = this.wNow, T = this.fightT;
+      if (!e) return;
+      if (e.kind === 'blackout' && api.makeCanvas) {
+        const k = this.worldK(e), cv = this._wMask || (this._wMask = api.makeCanvas(ctx.canvas.width, ctx.canvas.height)), m = cv.getContext('2d');
+        m.setTransform(1, 0, 0, 1, 0, 0); m.clearRect(0, 0, cv.width, cv.height);
+        m.setTransform(ctx.getTransform());
+        m.globalCompositeOperation = 'source-over'; m.fillStyle = `rgba(2,3,9,${0.94 * k})`; m.fillRect(AR.x - 400, AR.y - 400, AR.w + 800, AR.h + 800);
+        m.globalCompositeOperation = 'destination-out';
+        const light = (x, y, r, a) => { const g = m.createRadialGradient(x, y, 0, x, y, r); g.addColorStop(0, `rgba(0,0,0,${a})`); g.addColorStop(1, 'rgba(0,0,0,0)'); m.fillStyle = g; m.beginPath(); m.arc(x, y, r, 0, TAU); m.fill(); };
+        for (const u of this.units) if (!u.dead) { light(u.x, u.y, u.r * 1.9, 0.45); if (u.muzzle > 0) light(u.x, u.y, 110, 0.95 * u.muzzle); if (u.flash > 0.3) light(u.x, u.y, 46, 0.6); }
+        for (const a of this.arrows) light(a.x, a.y, a.kind === 'fireball' || a.kind === 'rocket' ? 120 : 44, 0.9);
+        for (const b of this.booms || []) light(b.x, b.y, b.r * 2.2 + 60, 1);
+        for (const f of this.fires || []) if (f.x !== undefined) light(f.x, f.y, (f.r || 30) * 2, 0.85);
+        for (const b of this.beams || []) if (b.x1 !== undefined) { light(b.x0, b.y0, 70, 0.8); light(b.x1, b.y1, 90, 0.9); }
+        ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.drawImage(cv, 0, 0); ctx.restore();
+      }
+      if (e.kind === 'glitch') for (const u of e.bugs) {
+        if (u.dead) continue;
+        const j = (hash01(this.frameNo, u.gait) - 0.5) * 10;
+        ctx.save(); ctx.globalCompositeOperation = 'lighter'; ctx.lineWidth = 3;
+        ctx.strokeStyle = 'rgba(255,40,80,0.8)'; ctx.beginPath(); ctx.arc(u.x + j, u.y, u.r + 5, 0, TAU); ctx.stroke();
+        ctx.strokeStyle = 'rgba(40,240,255,0.8)'; ctx.beginPath(); ctx.arc(u.x - j, u.y + 2, u.r + 5, 0, TAU); ctx.stroke();
+        ctx.restore();
+        ctx.font = font(18, 800); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        strokeText(ctx, hash01(this.frameNo >> 3, u.gait) > 0.5 ? 'ERR#' : '0x0F', u.x + j * 0.5, u.y - u.r - 18, '#7CF3FF', COL.ink, 4);
+      }
+      if (e.kind === 'supersize') for (const u of e.big) if (!u.dead) {
+        ctx.beginPath(); ctx.arc(u.x, u.y, u.r + 7 + 2 * Math.sin(T * 8), 0, TAU); ctx.lineWidth = 4; ctx.strokeStyle = 'rgba(255,210,63,0.75)'; ctx.stroke();
+      }
+    },
+    // after the battlefield is drawn (screen space, inside its frame, never rotated): grading, glitches and the event's title
+    worldPost(ctx) {
+      if (this._wRot) { ctx.restore(); this._wRot = false; }
+      const e = this.wNow, T = this.fightT, zoom = this.camOn(), c = this.cam;
+      const scr = (x, y) => (zoom ? [AR.x + (x - c.x) * c.z + AR.w / 2, AR.y + (y - c.y) * c.z + AR.h / 2] : [x, y]);
+      if (e) {
+        const k = this.worldK(e), W = WORLD[e.kind];
+        if (e.kind === 'freeze') {
+          // the world goes grey; only the three time-walkers on each side keep their colour ring
+          ctx.save(); ctx.globalAlpha = k; ctx.globalCompositeOperation = 'saturation'; ctx.fillStyle = '#808080'; ctx.fillRect(AR.x, AR.y, AR.w, AR.h);
+          ctx.globalCompositeOperation = 'source-over'; ctx.fillStyle = 'rgba(120,170,255,0.12)'; ctx.fillRect(AR.x, AR.y, AR.w, AR.h); ctx.restore();
+          for (const u of e.walkers) if (!u.dead) { const [x, y] = scr(u.x, u.y), z = zoom ? c.z : 1; ctx.beginPath(); ctx.arc(x, y, (u.r + 7) * z, 0, TAU); ctx.lineWidth = 4; ctx.strokeStyle = TEAMS[u.team].c; ctx.stroke(); ctx.beginPath(); ctx.arc(x, y, (u.r + 12) * z, 0, TAU); ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(255,255,255,0.7)'; ctx.stroke(); }
+        } else if (e.kind === 'bloodmoon') {
+          ctx.save(); ctx.globalAlpha = k;
+          ctx.globalCompositeOperation = 'multiply'; ctx.fillStyle = '#FF8A80'; ctx.fillRect(AR.x, AR.y, AR.w, AR.h);
+          ctx.globalCompositeOperation = 'source-over';
+          const mx = AR.x + AR.w - 150, my = AR.y + 150, g = ctx.createRadialGradient(mx, my, 20, mx, my, 220);
+          g.addColorStop(0, 'rgba(255,80,60,0.45)'); g.addColorStop(1, 'rgba(255,80,60,0)'); ctx.fillStyle = g; ctx.fillRect(mx - 220, my - 220, 440, 440);
+          ctx.beginPath(); ctx.arc(mx, my, 62, 0, TAU); ctx.fillStyle = '#E63B2E'; ctx.fill(); ctx.lineWidth = 4; ctx.strokeStyle = COL.ink; ctx.stroke();
+          for (const [dx, dy, rr] of [[-18, -12, 12], [16, 14, 9], [6, -26, 6]]) { ctx.beginPath(); ctx.arc(mx + dx, my + dy, rr, 0, TAU); ctx.fillStyle = 'rgba(120,10,10,0.45)'; ctx.fill(); }
+          ctx.restore();
+        } else if (e.kind === 'rave') {
+          ctx.save(); ctx.globalCompositeOperation = 'lighter';
+          const cx = AR.x + AR.w / 2, cy = AR.y - 40, cols = ['255,60,180', '60,200,255', '255,220,60', '120,255,120'];
+          for (let i = 0; i < 4; i++) {
+            const a = Math.PI / 2 + Math.sin(T * 1.7 + i * 1.6) * 0.75;
+            ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + Math.cos(a - 0.12) * 1500, cy + Math.sin(a - 0.12) * 1500); ctx.lineTo(cx + Math.cos(a + 0.12) * 1500, cy + Math.sin(a + 0.12) * 1500); ctx.closePath();
+            ctx.fillStyle = `rgba(${cols[i]},${0.16 * k})`; ctx.fill();
+          }
+          if (((T * 8) | 0) % 2 === 0) { ctx.fillStyle = `rgba(255,255,255,${0.05 * k})`; ctx.fillRect(AR.x, AR.y, AR.w, AR.h); }
+          ctx.restore();
+          // the disco ball
+          ctx.beginPath(); ctx.arc(cx, AR.y + 36, 30, 0, TAU); ctx.fillStyle = '#C7D2FE'; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = COL.ink; ctx.stroke();
+          for (let i = -2; i <= 2; i++) for (let j = -2; j <= 2; j++) if (i * i + j * j <= 5) { ctx.fillStyle = hash01(i * 7 + j, (T * 10) | 0) > 0.5 ? '#FFFFFF' : '#818CF8'; ctx.fillRect(cx + i * 10 - 4, AR.y + 36 + j * 10 - 4, 8, 8); }
+        } else if (e.kind === 'mirror') {
+          const s = clamp((this.t - (this.mirrorFx || -9)) / 0.5, 0, 1);
+          if (s < 1) { const x = AR.x + AR.w * s; ctx.fillStyle = 'rgba(255,255,255,0.85)'; ctx.fillRect(x - 3, AR.y, 6, AR.h); ctx.fillStyle = 'rgba(200,220,255,0.25)'; ctx.fillRect(x - 40, AR.y, 80, AR.h); }
+          ctx.fillStyle = `rgba(200,220,255,${0.06 * k})`; ctx.fillRect(AR.x, AR.y, AR.w, AR.h);
+        } else if (e.kind === 'glitch') this.worldGlitch(ctx, k);
+        // the event's title: big for its first 1.4 seconds, with a colour split
+        const tt = T - e.t0;
+        if (tt < 1.5) {
+          const a = Math.min(1, tt / 0.12, (1.5 - tt) / 0.3), s = 1 + 0.25 * (1 - easeOutCubic(Math.min(1, tt / 0.3))), cx = AR.x + AR.w / 2, cy = AR.y + AR.h * 0.42;
+          ctx.save(); ctx.globalAlpha = a; ctx.translate(cx, cy); ctx.scale(s, s); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+          ctx.font = font(96, 800); spaced(ctx, 4);
+          const tw = Math.min(1, 860 / ctx.measureText(W.title).width); ctx.scale(tw, tw);
+          ctx.globalCompositeOperation = 'lighter'; ctx.fillStyle = 'rgba(255,40,90,0.7)'; ctx.fillText(W.title, -5, 0); ctx.fillStyle = 'rgba(40,220,255,0.7)'; ctx.fillText(W.title, 5, 0);
+          ctx.globalCompositeOperation = 'source-over'; strokeText(ctx, W.title, 0, 0, '#FFFFFF', COL.ink, 12);
+          spaced(ctx, 2); ctx.font = font(34, 800); strokeText(ctx, W.sub, 0, 78, W.col, COL.ink, 8); spaced(ctx, 0);
+          ctx.restore(); ctx.textBaseline = 'alphabetic';
+        }
+      }
+      // art finish: a soft vignette round the battlefield
+      if (this.opts.art >= 2) {
+        const cx = AR.x + AR.w / 2, cy = AR.y + AR.h / 2, g = this._vig || (this._vig = (() => { const v = ctx.createRadialGradient(cx, cy, AR.w * 0.42, cx, cy, AR.w * 0.78); v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(1, 'rgba(0,0,0,0.32)'); return v; })());
+        ctx.fillStyle = g; ctx.fillRect(AR.x, AR.y, AR.w, AR.h);
+      }
+    },
+    // the glitch: torn rows slid sideways, a red/cyan split, scanlines and SIGNAL LOST flickering (looks only)
+    worldGlitch(ctx, k) {
+      const n = this.frameNo, src = ctx.canvas;
+      if (api.makeCanvas && src && src.width) {
+        const m = ctx.getTransform(), X0 = Math.round(m.e + AR.x * m.a), Y0 = Math.round(m.f + AR.y * m.d), Wd = Math.round(AR.w * m.a), Hd = Math.round(AR.h * m.d);
+        const off = this._wGl || (this._wGl = api.makeCanvas(Wd, Hd)), o = off.getContext('2d');
+        o.clearRect(0, 0, Wd, Hd); o.drawImage(src, X0, Y0, Wd, Hd, 0, 0, Wd, Hd);
+        ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0);
+        // a colour split
+        ctx.globalCompositeOperation = 'lighter'; ctx.globalAlpha = 0.22 * k;
+        const sh = 6 + 8 * hash01(n, 3);
+        ctx.drawImage(off, X0 + sh, Y0); ctx.drawImage(off, X0 - sh, Y0 + 2);
+        ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1;
+        // torn rows (on about half the frames)
+        if (hash01(n >> 1, 9) < 0.55 * k + 0.1) {
+          const rows = 2 + ((hash01(n, 11) * 4) | 0);
+          for (let i = 0; i < rows; i++) {
+            const y = (hash01(n, 20 + i) * (Hd - 60)) | 0, h = 8 + ((hash01(n, 40 + i) * 50) | 0), dx = ((hash01(n, 60 + i) - 0.5) * 120 * k) | 0;
+            ctx.drawImage(off, 0, y, Wd, h, X0 + dx, Y0 + y, Wd, h);
+            if (hash01(n, 80 + i) > 0.6) { ctx.fillStyle = hash01(n, 90 + i) > 0.5 ? 'rgba(124,243,255,0.25)' : 'rgba(255,60,120,0.25)'; ctx.fillRect(X0, Y0 + y, Wd, h); }
+          }
+        }
+        ctx.restore();
+      }
+      // scanlines
+      ctx.fillStyle = `rgba(0,0,0,${0.18 * k})`;
+      for (let y = AR.y; y < AR.y + AR.h; y += 6) ctx.fillRect(AR.x, y, AR.w, 2);
+      // SIGNAL LOST, flickering after the title has gone
+      const tt = this.fightT - this.wNow.t0;
+      if (tt > 1.6 && hash01(n >> 2, 5) > 0.45) {
+        ctx.save(); ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.font = font(44, 800); spaced(ctx, 6);
+        strokeText(ctx, hash01(n >> 4, 6) > 0.3 ? 'SIGNAL LOST' : 'S1GNAL L0ST', AR.x + AR.w / 2 + (hash01(n, 7) - 0.5) * 12, AR.y + AR.h * 0.5, '#7CF3FF', COL.ink, 8);
+        spaced(ctx, 0); ctx.restore(); ctx.textBaseline = 'alphabetic';
+      }
+    },
+    // in a glitch, troops blink out for a frame now and then (looks only)
+    worldHide(u) { return this.wNow && this.wNow.kind === 'glitch' && hash01(this.frameNo >> 1, u.gait * 100) < 0.08 * this.worldK(this.wNow); },
+  };
+  Object.assign(Army.prototype, ARMY_EXT, ARMY_DRAW, ARMY_MAPS, ARMY_EXT2, ARMY_DRAW2, ARMY_COMBAT, ARMY_TRIBES, ARMY_TRIBES_DRAW, ARMY_PACE, ARMY_UI2, ARMY_WORLD);
 
   const GAMES = { territory: Territory, duel: Duel, army: Army };
   Object.assign(api, { rng, Match, Territory, Duel, Army, Director, Synth, GAMES, WEAPONS, DOCTRINES, MODERN_DOCTRINES, FANTASY_DOCTRINES, GENRES, UNIT_ERA, ALL_DOCTRINES, MAPS, MAP_THEME, UNIT, eraOf, fmtTime, labelOf, docLabel, MAP_MECH, SKINS, MODE_HOOK, specOf, TRIBE_POOL, TRAIT, STAKE });

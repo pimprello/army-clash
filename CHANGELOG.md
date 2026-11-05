@@ -2,6 +2,31 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-05: Army Clash 2.0, part 1: a clean layout built for phones
+
+Rellz asked for a major UI update ("make everything look clean and smooth... make sure the ui will fit in every phone and look nice") and an easier-to-follow story. This is the first part of the 2.0 update; the rest (art pass, world events, the new market, new characters, video length and upload timing) follows in the next entries. On from the next video (`rules.ui`, explained in RULES.md).
+
+- **Built around YouTube's Shorts overlay.** The scoreboard is at the top: logo, the hook, both armies' names and flags, live troop counts that ease up and down, and the battle clock in a centre pill that turns gold and pulses in the last 10 seconds. The battlefield is drawn 90 px higher, and the tribes' strip sits just under it, above where YouTube shows the title and channel name. Nothing is drawn under the like/comment/share buttons or within 48 px of the sides.
+- **A story you can follow in two beats.** For the first 4 seconds a card over the top of the battlefield shows the two rival tribes with their emblems and one line: what it's about ("REVENGE FOR LAST TIME", "3 WINS IN A ROW. WHO STOPS THEM?", "THEY BURNED OUR FORGE"), then what they're fighting for. Then each army's three main troops slide in on strips beside it, with what each is good at.
+- **Chapter cards** mark the turning points (the merchant arriving, a chief falling, a blood feud, the final push, sudden death): one small card at a time at the bottom of the battlefield, instead of big banners stacking up.
+- **Less clutter:** floating labels capped at four a second, callouts and damage numbers at two, banners wait their turn instead of replacing each other, and nothing covers the story card.
+- **The war council strip** under the battlefield: a ticker line and one compact cell per tribe (gold, iron, weapon and armour tiers, tactic). In the outro it shows the chronicle line.
+- **Art finish** (`rules.ui.art`): every troop on the ground casts a soft shadow (all drawn in one pass, so no shadow covers a neighbour), round troops share one light from the top left (a soft rim highlight), and the plain troops that had blank bodies (soldiers, swordsmen, spearmen, crossbowmen, berserkers, shield bearers) now have little faces like the rest.
+- **Fixed:** the king's crown now sits centred on his head (a proper top-down crown with a velvet cap, jewels and a small shadow), slightly smaller so his army's colour still shows around it.
+- **World events** (`rules.world`): about 7 battles in 10 now have one moment where the whole world goes strange, and some get a second later on. Each opens with a big title and one line saying what it does:
+  - **Glitch:** the picture tears, rows slide sideways, red and cyan split, scanlines, "SIGNAL LOST", troops blink out, and one corrupted troop on each side hits 60% harder and runs 40% faster;
+  - **The World Flips:** the camera rolls upside down and every shot curves while it's flipped;
+  - **Mirror Shift:** the whole battle mirrors left to right, then back;
+  - **Blackout:** darkness, lit only by gunfire, explosions and spells;
+  - **Time Stops:** everything freezes in grey (shots hang in the air) except three time-walkers on each side;
+  - **Blood Moon:** a red moon, and every hit does 35% more;
+  - **Supersize:** one champion on each side grows huge;
+  - **Rave Mode:** spotlights, a disco ball, and everyone moves and strikes faster.
+  All of them hit both sides alike (tested over 48 battles: no crashes, every battle still ended on time, wins split evenly). A soft vignette now frames the battlefield too.
+- **Fixed before it reached a video:** a name clash in the new code would have drawn some troops as roster strips; caught by the layout check.
+- **Tested:** the layout check now also checks the Shorts safe zone at eight moments of every battle plus the outro; it passes for all 127 battles. Battles play out exactly the same in the new and old layouts (fingerprints of five full battles match). Stills checked with a mock of YouTube's buttons and title on top.
+- Videos already posted don't change. No preview videos were made.
+
 ## 2026-11-05: the video ends 3 seconds after the battle, and battles finish around 60 seconds
 
 Rellz asked for the video to end 3 seconds after the match finishes (not at a fixed 60 seconds) and for matches to always finish roughly around 60 seconds. On from the next video (`rules.video`, explained in RULES.md).

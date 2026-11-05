@@ -19,11 +19,32 @@ const combat = Object.assign({}, rules.combat || {}, { moves: true, roster: true
 const tribes = Object.assign({}, rules.tribes || {}, { on: true });
 // areas: the roster card covers the score area; the panel sits under the battle timer
 const AREA = { roster: { x0: 30, y0: 222, x1: 1050, y1: 478, min: 12 }, council: { x0: 30, y0: 1600, x1: 1050, y1: 1912, min: 18 } };
+// UI 2.0 (rules.ui.layout 2): everything must also stay inside the Shorts safe zone: clear of the phone's edges, the top bar,
+// YouTube's title/channel line at the bottom (below y 1560) and the like/comment/share column (right of x 940, from y 900 down)
+const UI = (rules.ui && rules.ui.layout) || 1;
+const SAFE = { x0: 48, x1: 1032, y0: 60, y1: 1560, btnX: 940, btnY0: 900 };
+const MIN2 = { council: 18, story: 18, roster: 13, chapter: 18, banner: 0 };
 const cv = createCanvas(1080, 1920), ctx = cv.getContext('2d');
 const problems = [];
 const hit = (a, b) => a.x < b.x + b.w - 1 && b.x < a.x + a.w - 1 && a.y < b.y + b.h - 1 && b.y < a.y + a.h - 1;
 
+function check2(g, label) {
+  const L = g.lay || [];
+  for (const b of L) {
+    const where = b.y >= 1372 ? 'council' : b.kind === 'banner' ? 'banner' : b.y < 700 && g.t < 4.3 ? 'story' : b.y > 1290 ? 'chapter' : 'roster';
+    const nm = `"${b.text || b.kind}"`;
+    if (b.kind === 'text' && b.squash) problems.push(`${label} [${where}]: ${nm} had to be squashed to fit`);
+    if (b.kind === 'text' && b.size && b.size < MIN2[where]) problems.push(`${label} [${where}]: ${nm} is ${b.size}px (min ${MIN2[where]})`);
+    if (b.x < SAFE.x0 - 1 || b.x + b.w > SAFE.x1 + 1 || b.y < SAFE.y0 - 1 || b.y + b.h > SAFE.y1 + 1) problems.push(`${label} [${where}]: ${nm} leaves the Shorts safe zone`);
+    if (b.y + b.h > SAFE.btnY0 && b.x + b.w > SAFE.btnX + 1) problems.push(`${label} [${where}]: ${nm} goes under YouTube's like/comment buttons`);
+  }
+  for (let i = 0; i < L.length; i++) for (let j = i + 1; j < L.length; j++) {
+    if (hit(L[i], L[j])) problems.push(`${label}: "${L[i].text || L[i].kind}" overlaps "${L[j].text || L[j].kind}"`);
+  }
+}
+
 function check(g, label, area) {
+  if (UI >= 2) return check2(g, label);
   const L = (g.lay || []).filter(b => b.y >= AREA[area].y0 - 40 && b.y <= AREA[area].y1 + 40);
   const A = AREA[area];
   for (const b of L) {
@@ -44,13 +65,17 @@ function sideOpts(m) {
 }
 
 function run(label, opts, seed, teams, frames) {
+  if (process.env.VERBOSE) console.log("run", label);
   RVB.setTeams(...teams);
   const V = rules.video || {}, len = V.outroSeconds ? (V.fightSeconds || 60) + V.outroSeconds : 60;
-  const g = new RVB.Army(seed, Object.assign({ target: len, fixedLength: len, outroSecs: V.outroSeconds || undefined, pace: V.outroSeconds ? V.pace !== false : undefined, map: 'open', events: rules.events, ...(rules.systems || {}), combat, tribes }, opts));
+  const g = new RVB.Army(seed, Object.assign({ target: len, fixedLength: len, outroSecs: V.outroSeconds || undefined, pace: V.outroSeconds ? V.pace !== false : undefined, map: 'open', events: rules.events, ...(rules.systems || {}), combat, tribes }, UI >= 2 ? { ui: UI } : {}, opts));
   let k = 0;
+  // UI 2.0 has more moments to check: both beats of the story, the roster strips, the panel, chapter cards and the outro
+  if (UI >= 2) frames = [[1.2], [3.0], [5.2], [7.0], [12], [20], [33], [47]].concat(frames.some(f => f[0] === 'end') ? [['end']] : []);
   for (const [at, area] of frames) {
     if (at === 'end') { while (!g.finished && k < 4800 && !(g.phase === 'outro' && g.outroT > Math.min(2.5, g.outroLen - 0.1))) { g.frame(1 / 60); g.sfx.length = 0; k++; } }
     else while (k < Math.round(at * 60)) { g.frame(1 / 60); g.sfx.length = 0; k++; }
+    if (process.env.VERBOSE) console.log("  frame", at);
     g.lay = null; g.draw(ctx);
     check(g, `${label} @${at}`, area);
   }

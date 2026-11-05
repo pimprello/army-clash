@@ -1832,6 +1832,25 @@
     "tradeGap": 12,
     "feudChance": 0.5
   },
+  "ui": {
+    "layout": 2,
+    "art": 2
+  },
+  "world": {
+    "on": true,
+    "chance": 0.7,
+    "second": 0.3,
+    "list": [
+      "glitch",
+      "flip",
+      "mirror",
+      "blackout",
+      "freeze",
+      "bloodmoon",
+      "supersize",
+      "rave"
+    ]
+  },
   "video": {
     "fightSeconds": 60,
     "outroSeconds": 3,
