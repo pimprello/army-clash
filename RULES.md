@@ -104,10 +104,12 @@ Titles are written by `titles.js`, following research on what gets Shorts watche
 - **Never "Red vs Blue" alone.** Titles name the armies (`150 Knights vs a DRAGON Army 🐉`, `🛡️ KNIGHTS vs Vampires`), the nations (`🇬🇧 UK vs USA 🇺🇸`), the custom team names in creative videos (`DREAM TEAM Battle: Storm Mages vs Dragon Bones`), or three-way hooks (`3 Armies, Only 1 SURVIVES 💀`).
 - **Battle modes lead the title** (`⚔️ CHAMPION DUEL: Samurai vs Ninjas`, `🚩 KING OF THE HILL: UK vs France`), and their outcome lines only appear when they really happened (`They Killed the KING 👑`, `The DUEL Decided Everything ⚔️`, `25 HEROES Held the Line 🛡️`, `The HILL Changed Hands 4 TIMES 🚩`). When both armies have a skin, a title can use them (`Frost Knights vs Lava Orcs`).
 - **Sometimes they lead with what happened** (`Won With Only 2 LEFT 😱`, `They Took Down a DRAGON? 🐉`, `One AIRSTRIKE Changed Everything ✈️`). Every such line comes from this battle, so titles never mislead, and the description always says it's a simulation.
+- **More true outcome lines** (added 2026-11-05): `Half the Size and Still WON 😳` (the winner started with under 60% of the loser's troops), `They Barely Got SCRATCHED 😤` (the winner lost under 10% of its troops), `They Were ALMOST Wiped Out... 😱` (the winner fell below 20% of its strength at some point) and `One Troop CARRIED the Whole Army 😳` (one troop got 20+ kills). New match-up lines: `Can Orcs Survive KNIGHTS? 🛡️` and, for three-way battles, `Pick ONE: Storm Mages, Dragon Bones, Iron Orcs 👇`.
 
 ## Cinematic director
 
 With `cinematic` on, a director moves the camera and bends time, reacting to the battle:
+- every video ends with a winner and an outro: if close-ups leave the game clock behind near the end, the director catches up during normal-speed close-ups too, and if the video is 2 seconds from its end with the fight still going, time is called (most troops left wins, as at the normal time limit);
 - the video opens tight on the two front lines with film bars while "CHARGE!" plays;
 - first blood is a slow-motion close-up;
 - when a giant, tank, dragon, mech or cannon is about to fall, the camera gets there first and the fall plays in slow motion, with film bars and a deep thud;

@@ -2,6 +2,21 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-05 (autopilot)
+
+- **Health:** uploads are fine. The last 20 runs all posted (the few "cancelled" ones are spare scheduled starts skipped because a run was already going) and videos are about 15 minutes apart. One run (02:02 UTC) was slow: installing ffmpeg took 15 minutes on that GitHub machine and making the video took 10.5 minutes instead of the usual 4, so that gap was 35 minutes. The runs after it were back to normal, so it looks like a slow runner, not our code. No line-ups were waiting to be balanced.
+- **Not learned from views yet:** still no `stats/summary.md`; the stats step is still refused ("insufficient authentication scopes") because the `YT_API_KEY` secret is missing.
+- **Fix: videos that ended mid-fight.** Two videos (`Then the Ground SPLIT Open 😱` today and `Nobody Expected the TANK to Fall 💥` on 2 Nov) have an empty result in `uploads.md`. I re-ran today's one from its seed: it was a Champion Duel with one close-up after another near the end, so the camera never pulled back wide and the slow motion was never caught up. The video hit 60 seconds with the battle still going (game clock at 55.6 s), so there was no winner and no outro. Now:
+  - when time is running short, the director also catches up during normal-speed close-ups, not just wide shots;
+  - as a safety net, if the video is 2 seconds from its end and the fight is still going, time is called (most troops left wins, as at the normal time limit), so every video ends with a winner and an outro. That same video now ends "CRIMSON WINS · SKY RETREATS 2 VS 1".
+  - The battle itself doesn't change: over 60 test battles (1v1, creative and three-way) every winner, survivor count and ending time is the same as before; only the camera's pace near the end differs.
+- **New hook lines** (today's new thing):
+  - *Under the logo:* one new line per genre: ONLY ONE SURVIVES (three-way), MACHINES OR MEN? (sci-fi), WHO TAKES THE GOLD? (pirates), COUNT THE SURVIVORS (zombies), WHOSE BLADE IS FASTER? (samurai), THIS SHOULDN'T EXIST (dream teams), STEEL OR SORCERY? (fantasy), HISTORY VS THE FUTURE (old vs new), WHO PUSHES FIRST? (modern), WHO BREAKS FIRST? (classic).
+  - *Titles:* four new true outcome lines, each used only when it really happened: `Half the Size and Still WON 😳` (winner started with under 60% of the other army), `They Barely Got SCRATCHED 😤` (winner lost under 10%), `They Were ALMOST Wiped Out... 😱` (winner dropped below 20% of its strength), `One Troop CARRIED the Whole Army 😳` (20+ kills by one troop). Two new match-up titles: `Can Orcs Survive KNIGHTS? 🛡️` and, for three-way battles, `Pick ONE: Storm Mages, Dragon Bones, Iron Orcs 👇`.
+- **Tested:** the 60 before/after battles above; the broken video's seed re-run before and after the fix; titles checked over hundreds of made-up results (each new line only shows when its condition is true); stills at 1.5 s and 10 s of a nation battle, a creative match-up and a three-way battle (new hook shows correctly, nothing clipped); `node check-layout.js` passes.
+- **Playbook:** `AUTOPILOT.md` now explains a quick way to run battles without drawing and says every battle must end with a winner.
+- **Rellz:** add a `YT_API_KEY` secret (a YouTube Data API key from the same Google project) so the autopilot can start learning from views. Videos already posted don't change (the two with no result stay as they are). No preview videos were made.
+
 ## 2026-11-04 (later): living tribes, with a story, trading and the forge
 
 Rellz asked for smart troops that form tribes, with a backstory, a trading system and a way to build up and upgrade their weapons. All of it is on from the next video (`rules.tribes`; everything is explained in RULES.md).

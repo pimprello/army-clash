@@ -77,6 +77,7 @@ Already built (don't rebuild): living tribes (tribe pool, chiefs, feuds, stories
 - `node --check` every changed JS file, and parse `rules.json` and the workflow YAML.
 - Run a full 60-second simulation of every line-up you touched (and two you didn't). No NaN positions, no stuck troops, and the battle reaches an ending. Stuck check: on obstacle maps, troops that are slow, out of range of their target and touching an obstacle should be well under 0.5% of troop-time.
 - Run the director over a few battles: the video must still finish at 60 s, and it should be zoomed in for roughly half the fight, not most of it.
+- Quick battle checks without drawing: in a scratch copy of `render.js`, skip `game.draw` and the frame write in the frame loop when an env var is set, print `game.phase`, `game.headline` and `game.fightT` after the loop and exit; with the tuning stubbed out (`C.tune`/`C.balance`/`C.balance3` returning their start size) one 60-second battle with the director takes about 5 seconds. Every battle must end in `outro` with a headline (a video with an empty result in `uploads.md` ran out of time mid-fight).
 - Creative match-ups: `WILD=1 SEED=<n>` in the short-render copy makes one; check its title, description and the balance line in the log.
 - Render stills (a frame at about 10 seconds) of anything visual and look at them.
 - Run `node check-layout.js` (all of it) after any change to an overlay; it must pass.

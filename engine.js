@@ -1982,18 +1982,18 @@ const RVB = (() => {
       // opts.teams = 3 for a three-way battle (1v1v1)
       this.N = this.opts.teams === 3 ? 3 : 2;
       const orName = this.N === 3 ? `${TEAMS[0].name}, ${TEAMS[1].name} OR ${TEAMS[2].name}?` : `${TEAMS[0].name} OR ${TEAMS[1].name}?`;
-      this.hook = this.N === 3 ? R.pick(['WHO SURVIVES?', 'THREE WAY WAR', 'LAST ARMY STANDING', orName]) : R.pick(era === 'scifi' ? ['WHO WINS THE FUTURE?', 'LASERS OR STEEL?', 'PICK YOUR FLEET', orName]
-        : era === 'pirate' ? ['WHO RULES THE SEAS?', 'PICK YOUR CREW', 'CUTLASS OR CANNON?', orName]
-        : era === 'horror' ? ['CAN THEY SURVIVE?', 'DON\'T GET BITTEN', 'THE DEAD RISE', orName]
-        : era === 'samurai' ? ['WHO HAS HONOR?', 'BLADE VS BLADE', 'PICK YOUR CLAN', orName]
-        : era === 'wild' ? [this.opts.dream === false ? 'CLASH OF WORLDS' : 'DREAM TEAM BATTLE', 'WHO WINS THIS?', 'ANYTHING GOES', orName]
+      this.hook = this.N === 3 ? R.pick(['WHO SURVIVES?', 'THREE WAY WAR', 'LAST ARMY STANDING', 'ONLY ONE SURVIVES', orName]) : R.pick(era === 'scifi' ? ['WHO WINS THE FUTURE?', 'LASERS OR STEEL?', 'PICK YOUR FLEET', 'MACHINES OR MEN?', orName]
+        : era === 'pirate' ? ['WHO RULES THE SEAS?', 'PICK YOUR CREW', 'CUTLASS OR CANNON?', 'WHO TAKES THE GOLD?', orName]
+        : era === 'horror' ? ['CAN THEY SURVIVE?', 'DON\'T GET BITTEN', 'THE DEAD RISE', 'COUNT THE SURVIVORS', orName]
+        : era === 'samurai' ? ['WHO HAS HONOR?', 'BLADE VS BLADE', 'PICK YOUR CLAN', 'WHOSE BLADE IS FASTER?', orName]
+        : era === 'wild' ? [this.opts.dream === false ? 'CLASH OF WORLDS' : 'DREAM TEAM BATTLE', 'WHO WINS THIS?', 'ANYTHING GOES', 'THIS SHOULDN\'T EXIST', orName]
         : this.opts.era === 'fantasy'
-        ? ['WHO RULES THE REALM?', 'PICK YOUR FACTION', 'MAGIC OR MIGHT?', orName]
+        ? ['WHO RULES THE REALM?', 'PICK YOUR FACTION', 'MAGIC OR MIGHT?', 'STEEL OR SORCERY?', orName]
         : this.opts.era === 'mixed'
-        ? ['OLD VS NEW?', 'SWORDS OR GUNS?', 'CAN THE PAST WIN?', orName]
+        ? ['OLD VS NEW?', 'SWORDS OR GUNS?', 'CAN THE PAST WIN?', 'HISTORY VS THE FUTURE', orName]
         : this.opts.era === 'modern'
-        ? ['WHO WINS THE FIREFIGHT?', 'WHO HOLDS THE LINE?', 'PICK YOUR SQUAD', orName]
-        : ['WHICH ARMY SURVIVES?', 'WHO WINS THE WAR?', 'PICK YOUR ARMY', orName]);
+        ? ['WHO WINS THE FIREFIGHT?', 'WHO HOLDS THE LINE?', 'PICK YOUR SQUAD', 'WHO PUSHES FIRST?', orName]
+        : ['WHICH ARMY SURVIVES?', 'WHO WINS THE WAR?', 'PICK YOUR ARMY', 'WHO BREAKS FIRST?', orName]);
       this.booms = [];
       // opts.map picks the battlefield (see MAPS); obstacles block movement, bullets and arrows
       const cx0 = AR.x + AR.w / 2, cy0 = AR.y + AR.h / 2;
@@ -3336,10 +3336,13 @@ const RVB = (() => {
       }
       if (this.N === 3) { this.endCheck3(); return; }
       const total = [this.alive[0] + this.reserve[0], this.alive[1] + this.reserve[1]];
+      // safety net (director only): if slow motion left the game clock so far behind that the video is about to run out
+      // mid-fight, call time 2 s before the end, so every video still ends with a winner and an outro
+      const late = this.fixed && this.realT !== undefined && this.realT >= this.fixed - 2 && this.cap - this.fightT > 0.3;
       if (total[0] === 0 || total[1] === 0) {
         const w = total[0] > 0 ? 0 : 1;
         this.end(w, `${TEAMS[w].name} WINS`, `${total[w]} SURVIVOR${total[w] === 1 ? '' : 'S'} LEFT`);
-      } else if (this.fightT >= this.cap) {
+      } else if (this.fightT >= this.cap || late) {
         const hp = [0, 0]; for (const u of this.units) hp[u.team] += u.hp;
         for (let tm = 0; tm < 2; tm++) for (const wv of this.waves[tm]) if (!wv.done) for (const k of wv.list) hp[tm] += UNIT[k].hp * this.hpScale;
         if (hp[0] === hp[1] && !this.fixed) { this.cap += 2; this.banner('OVERTIME!', COL.gold); }
@@ -3359,7 +3362,7 @@ const RVB = (() => {
         const w = left.length ? left[0] : 0;
         this.retreat = -1;
         this.end(w, `${TEAMS[w].name} WINS`, `LAST ARMY STANDING · ${tot[w]} LEFT`);
-      } else if (this.fightT >= this.cap) {
+      } else if (this.fightT >= this.cap || (this.fixed && this.realT !== undefined && this.realT >= this.fixed - 2 && this.cap - this.fightT > 0.3)) {
         const hp = [0, 0, 0]; for (const u of this.units) if (u.team < 3) hp[u.team] += u.hp;
         const w = [0, 1, 2].reduce((a, b) => (tot[b] > tot[a] || (tot[b] === tot[a] && hp[b] > hp[a]) ? b : a));
         this.retreat = -2;
@@ -4405,6 +4408,10 @@ const RVB = (() => {
       if (!sh || sh.kind === 'battle' || sh.kind === 'push') {
         // catch up on time spent in slow motion, gently, while the view is wide or drifting
         if (this.debt > 0.02 && g.phase === 'fight') tts = 1 + Math.min(0.32, this.debt * 0.5);
+      } else if (tts === 1 && g.phase === 'fight' && g.fixed && this.debt > 0.02 && g.fixed - this.t < 6 + this.debt * 3) {
+        // running out of video with time still owed (one close-up after another left no wide moment to catch up in):
+        // catch up during normal-speed close-ups too, so the battle still reaches its ending before the video does
+        tts = 1 + Math.min(0.45, this.debt * 0.5);
       }
       if (this.stopT !== undefined && this.t < this.stopT + 0.15 && g.phase === 'fight') { if (this.t < this.stopT) tts = 0.04; tsRate = 40; }
       if (g.phase !== 'fight') tts = 1;

@@ -59,6 +59,10 @@ function makeTitle(f) {
   if (f.left[w] > 0 && f.left[w] <= 3) facts.push(`Won With Only ${f.left[w]} LEFT 😱`, 'This Ending Was WAY Too Close 😰');
   if (f.low && f.low[w] < 0.32) facts.push('The BIGGEST Comeback I\'ve Seen 😱', 'They Were LOSING Until This 😳');
   if (f.left[w] >= 25 && lost[w] < (f.start[w] + (f.gained[w] || 0)) * 0.3) facts.push('This Was a MASSACRE 💀', 'Total DOMINATION 😤');
+  // new (2026-11-05): stronger versions of the same true outcomes
+  if (f.start[w] < f.start[l] * 0.6) facts.push('Half the Size and Still WON 😳');
+  if (f.left[w] >= 10 && lost[w] < (f.start[w] + (f.gained[w] || 0)) * 0.1) facts.push('They Barely Got SCRATCHED 😤');
+  if (f.low && f.low[w] < 0.2) facts.push('They Were ALMOST Wiped Out... 😱');
   if (f.docs.some(d => /ZOMBIES|UNDEAD/.test(d.name)) && Math.max(...f.gained) >= 15) facts.push('The Zombies Got OUT OF CONTROL 🧟');
   if (f.falls.includes('dragon')) facts.push('They Took Down a DRAGON? 🐉');
   if (f.falls.includes('tank')) facts.push('Nobody Expected the TANK to Fall 💥');
@@ -96,6 +100,7 @@ function makeTitle(f) {
   if (x.transform) facts.push('The Last One TRANSFORMED 😱');
   if (x.living) facts.push('The Weapons Came ALIVE 🗡️');
   if (f.mvp && f.mvp.kills >= 12) facts.push(`One ${tc2(L(f.mvp.type))} Got ${f.mvp.kills} KILLS 😳`);
+  if (f.mvp && f.mvp.kills >= 20) facts.push('One Troop CARRIED the Whole Army 😳');
   if (f.drops.some(d => d.kind === 'heavy' && d.team === w)) facts.push('The Airdrop Had a SURPRISE Inside 📦');
   if (f.strike === w) facts.push('One AIRSTRIKE Changed Everything ✈️');
   const HAZ = { tornado: 'A TORNADO Hit Mid-Battle 🌪️', earthquake: 'Then the Ground SPLIT Open 😱', blizzard: 'A BLIZZARD Froze the Battle ❄️', meteors: 'METEORS Hit Mid-Battle ☄️', lightning: 'LIGHTNING Struck the Battlefield ⚡', cannonballs: 'Cannonballs RAINED Down 💣', stampede: 'A STAMPEDE Hit Mid-Battle 🦣', kraken: 'The KRAKEN Woke Up 🐙' };
@@ -122,7 +127,7 @@ function makeTitle(f) {
   // 2. the match-up itself, written to be specific and short
   const options = [];
   if (N === 3) {
-    options.push(`${names.join(' vs ')} 🤯`, '3 Armies, Only 1 SURVIVES 💀', `${cap(names[0])} vs ${names[1]} vs ${names[2]} 🔥`);
+    options.push(`${names.join(' vs ')} 🤯`, '3 Armies, Only 1 SURVIVES 💀', `${cap(names[0])} vs ${names[1]} vs ${names[2]} 🔥`, `Pick ONE: ${names.join(', ')} 👇`);
   } else if (f.nations) {
     // nation battles: the flags are the hook
     const [a, b] = f.teams;
@@ -139,6 +144,7 @@ function makeTitle(f) {
     }
     options.push(`${emo[0] || '🔥'} ${cap(names[0])} vs ${names[1]}`, `${names[0]} vs ${cap(names[1])} ${emo[1] || '🔥'}`);
     if (f.wild) options.push(`${names[0]} vs ${names[1]} 🤯`, `DREAM TEAM Battle: ${names[0]} vs ${names[1]}`);
+    if (names[0] !== names[1]) options.push(`Can ${names[1]} Survive ${cap(names[0])}? ${emo[0] || '😳'}`);
   }
   // battle modes are the hook, so their titles come first; skins name the armies ("Neon Knights vs Shadow Knights")
   const nm = ids.map(t => (f.nations ? f.nations[f.teams[t]] : names[t]));
