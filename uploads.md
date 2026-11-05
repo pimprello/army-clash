@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-05 10:10 | 👑 Protect the KING: Ninja Bots vs Sky Snipers | Cyan wins | https://youtube.com/shorts/emGB5tbBe_M |
 | 2026-11-05 09:55 | 🇸🇪 Sweden Lunar Rhinos vs Finland Cosmic Ninjas | Finland wins | https://youtube.com/shorts/QUAD5jmp5Ug |
 | 2026-11-05 09:41 | The Weapons Came ALIVE 🗡️ | Blue wins | https://youtube.com/shorts/b_UEuiIiPy0 |
 | 2026-11-05 09:26 | Turbo Storms vs Cyber Blades vs Gold Spears 🤯 | Brazil wins | https://youtube.com/shorts/5L1LVOC0kbc |
