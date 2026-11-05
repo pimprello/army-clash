@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 235 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 236 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 235 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **OSKA IRONHIDE** (WIZARD), 16 kills · 2026-11-05 04:18
 - **GRIM SKULLTAKER** (SWORDSMAN), 11 kills · 2026-11-05 03:17
 - **ZEDRIK GRAVEBANE** (SWORDSMAN), 11 kills · 2026-11-05 02:48
 - **PELL STEELHEART** (GRIFFIN RIDER), 16 kills · 2026-11-05 00:54
@@ -47,7 +48,6 @@ Records from 235 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **VIPER-7** (LASER TROOPER), 11 kills · 2026-11-04 13:41
 - **GRIM THE MAD** (WIZARD), 12 kills · 2026-11-04 13:27
 - **NOMAD-5** (SNIPER), 13 kills · 2026-11-04 12:43
-- **SIRA NIGHTFANG** (SWORDSMAN), 11 kills · 2026-11-04 12:27
 
 ## Titles earned (rarest first)
 
@@ -84,9 +84,9 @@ Records from 235 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 - vampiric: 5
 - wings: 19
-- spellward: 30
+- spellward: 31
 - venom: 32
-- swift: 34
+- swift: 35
 - spikes: 42
 - regen: 50
 
@@ -126,7 +126,7 @@ Records from 235 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-59 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+61 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
@@ -138,7 +138,9 @@ Records from 235 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Orbit Legion | 2 | 2 | 0 | 73 | 2 won | 2 |
 | Black Bear Clan | 2 | 2 | 0 | 73 | 2 won | 2 |
 | Golden Lion Order | 2 | 2 | 0 | 61 | 2 won | 2 |
+| Brightwater Tribe | 4 | 2 | 2 | 47 | 1 won | 1 |
 | Badger Platoon | 2 | 2 | 0 | 29 | 2 won | 2 |
+| Ashmantle Kin | 1 | 1 | 0 | 182 | 1 won | 1 |
 | Wildbrook Clan | 2 | 1 | 1 | 117 | 1 won | 1 |
 | Stormhorn Tribe | 1 | 1 | 0 | 91 | 1 won | 1 |
 | Stonewall Company | 4 | 1 | 2 | 90 | 2 lost | 1 |
@@ -148,8 +150,6 @@ Records from 235 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Highmoor Clan | 1 | 1 | 0 | 66 | 1 won | 1 |
 | Wolverine Company | 1 | 1 | 0 | 65 | 1 won | 1 |
 | The Black Candle | 2 | 1 | 1 | 64 | 1 lost | 1 |
-| Emberroot Circle | 2 | 1 | 0 | 52 | 1 won | 1 |
-| Vortex Legion | 1 | 1 | 0 | 42 | 1 won | 1 |
 
 ### Great rivalries
 
@@ -158,6 +158,7 @@ Records from 235 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 04:18: The Ashmantle Kin Take the Overgrown Throne (first battle, first win · 182 kills)
 - 2026-11-05 04:03: The House of the Crimson Carp Take the Sky-temple Relic (first battle, first win · 25 kills)
 - 2026-11-05 03:47: The Wolverine Company Take the Mirror Gate (first battle, first win · 65 kills)
 - 2026-11-05 03:31: The Ash Wolf Clan Take the Open Plains (first battle, first win · 25 kills)
@@ -167,4 +168,3 @@ Records from 235 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 02:33: The Emberroot Circle Take the Open Plains (first battle, first win · 50 kills)
 - 2026-11-05 02:28: The Iron Boar Clan Take the Haunted Crypt (2nd win · 135 kills)
 - 2026-11-05 01:53: The Mossback Tribe Take the Castle (first ever win · 38 kills)
-- 2026-11-05 01:35: Nobody Takes the World Furnace (the feud goes on)
