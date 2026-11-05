@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-05 00:54 | The Gravity Tyrant Went DOWN 💀 | Pink wins | https://youtube.com/shorts/zlPpJX1PR84 |
 | 2026-11-05 00:39 | 62 Samurai vs 91 Knights ⚔️ | Blue wins | https://youtube.com/shorts/dEKuNWdRSaE |
 | 2026-11-05 00:26 | 3 Armies, Only 1 SURVIVES 💀 | Yellow wins | https://youtube.com/shorts/79wVPFk7Iqc |
 | 2026-11-05 00:10 | ⚔️ SOLDIERS vs Warriors | Orange wins | https://youtube.com/shorts/9XFNZYVokns |
