@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 293 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 294 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -78,7 +78,7 @@ Records from 293 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - TANK SLAYER: 11
 - GIANT SLAYER: 15
 - DRAGON SLAYER: 19
-- TITAN SLAYER: 26
+- TITAN SLAYER: 27
 
 ## Mutations (rarest first)
 
@@ -109,6 +109,7 @@ Records from 293 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: WHITE: 1
 - extinct: UK: 1
 - extinct: OLIVE: 1
+- extinct: DENMARK: 1
 - extinct: RED: 2
 - extinct: ORANGE: 2
 - extinct: BLUE: 2
@@ -145,6 +146,7 @@ Records from 293 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Duskwing Tribe | 6 | 3 | 2 | 219 | 2 won | 2 |
 | Golden Lion Order | 5 | 3 | 2 | 219 | 2 lost | 3 |
 | Stormhorn Tribe | 3 | 3 | 0 | 212 | 3 won | 3 |
+| Thunder Platoon | 3 | 3 | 0 | 164 | 3 won | 3 |
 | Oakshield Clan | 6 | 3 | 3 | 151 | 1 lost | 3 |
 | Black Bear Clan | 4 | 3 | 1 | 119 | 1 won | 2 |
 | Cinderclaw Kin | 4 | 3 | 1 | 100 | 1 lost | 3 |
@@ -154,7 +156,6 @@ Records from 293 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Copper Crown Company | 3 | 3 | 0 | 75 | 3 won | 3 |
 | Bone Garden Coven | 4 | 3 | 1 | 51 | 1 lost | 3 |
 | Wildbrook Clan | 8 | 2 | 6 | 295 | 2 lost | 1 |
-| Stonebridge Company | 7 | 2 | 5 | 219 | 1 won | 1 |
 
 ### Great rivalries
 
@@ -169,6 +170,7 @@ Records from 293 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 20:29: The Thunder Platoon Take the Open Plains (revenge denied · 3 wins in a row · 70 kills)
 - 2026-11-05 20:17: The Red Hawk Company Take the Open Plains (8th win · 71 kills)
 - 2026-11-05 20:04: The Starweave Circle Take the Sky-temple Relic (2nd win · 89 kills)
 - 2026-11-05 19:46: The Wormwood Coven Take the Mirror Gate (first ever win · 24 kills)
@@ -178,4 +180,3 @@ Records from 293 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 18:08: The Stonebridge Company Take the Overgrown Throne (2nd win · 39 kills)
 - 2026-11-05 17:55: The Sunspire Kin Take the Old Forest (streak ended · first ever win · 68 kills)
 - 2026-11-05 17:36: The Order of the Silver Stag Take the Open Plains (4th win · 70 kills)
-- 2026-11-05 16:04: The Badger Platoon Take the Swamp Shrine (3 wins in a row · 51 kills)
