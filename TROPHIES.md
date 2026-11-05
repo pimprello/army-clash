@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 277 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 278 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -67,9 +67,9 @@ Records from 277 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PHOENIX SLAYER: 5
 - STORM EMPEROR SLAYER: 5
 - HYDRA SLAYER: 6
-- CANNON SLAYER: 6
 - IMMORTAL FRAUD SLAYER: 6
 - COLOSSUS SLAYER: 7
+- CANNON SLAYER: 7
 - MECH SLAYER: 7
 - MAMMOTH SLAYER: 8
 - ELEPHANT SLAYER: 9
@@ -130,7 +130,7 @@ Records from 277 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-96 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+97 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
@@ -148,7 +148,7 @@ Records from 277 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Thornwood Company | 5 | 3 | 2 | 87 | 2 won | 2 |
 | Bone Garden Coven | 4 | 3 | 1 | 51 | 1 lost | 3 |
 | Wildbrook Clan | 6 | 2 | 4 | 267 | 1 won | 1 |
-| Ashmantle Kin | 2 | 2 | 0 | 194 | 2 won | 2 |
+| Ashmantle Kin | 3 | 2 | 1 | 212 | 1 lost | 2 |
 | Duskwing Tribe | 5 | 2 | 2 | 182 | 1 won | 1 |
 | The Crooked Spire | 4 | 2 | 2 | 171 | 2 won | 2 |
 | Iron Boar Clan | 3 | 2 | 1 | 167 | 1 lost | 2 |
@@ -160,14 +160,15 @@ Records from 277 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **Storm Tower Order vs Wildbrook Clan**: met 2 times, last won by Wildbrook Clan
 - **Brightwater Tribe vs Glimmerdeep Kin**: met 2 times
 - **Iron Boar Clan vs The Crooked Spire**: met 2 times, last won by The Crooked Spire
+- **Brightwater Tribe vs Emberroot Circle**: met 2 times, last won by Emberroot Circle
 - **Greyfang Clan vs Order of the Silver Stag**: met 2 times, last won by Order of the Silver Stag
 - **Thunder Platoon vs Viper Company**: met 2 times, last won by Thunder Platoon
 - **Granite Battalion vs Thornwood Company**: met 2 times, last won by Thornwood Company
 - **Glimmerdeep Kin vs Mossback Tribe**: met 2 times, last won by Mossback Tribe
-- **Oakshield Clan vs Stonebridge Company**: met 2 times, last won by Oakshield Clan
 
 ### Latest from the battlefield
 
+- 2026-11-05 14:36: The Emberroot Circle Take the Crystal Grove (revenge denied · 2nd win · 54 kills)
 - 2026-11-05 14:19: The Nova Legion Take the Open Plains (3rd win · 43 kills)
 - 2026-11-05 14:04: The Mossback Tribe Take the Clockwork Arena (revenge denied · 5th win · 53 kills)
 - 2026-11-05 13:51: The Duskwing Tribe Take the Trench Line (streak ended · 2nd win · 85 kills)
@@ -177,4 +178,3 @@ Records from 277 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 12:50: The Thornheart Circle Take the Open Plains (first battle, first win · 34 kills)
 - 2026-11-05 12:36: The Grinning Moon Take the Mountain Pass (first battle, first win · 79 kills)
 - 2026-11-05 12:23: The Iron Lotus School Take the Canyon Pass (first ever win · 163 kills)
-- 2026-11-05 12:08: The Mountain Wind School Take the City (first battle, first win · 101 kills)
