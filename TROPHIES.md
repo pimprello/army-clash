@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 286 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 287 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -29,7 +29,7 @@ Records from 286 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **127 left**: 2026-11-03 16:17 · [I Did NOT Expect This 😳](https://youtube.com/shorts/cYrP7bJqWDE)
 - **124 left**: 2026-11-05 08:41 · [Hold the HILL to Win? France vs UK 🚩](https://youtube.com/shorts/LIBrnThR8kU)
 - **104 left**: 2026-11-04 06:46 · [3 Armies, Only 1 SURVIVES 💀](https://youtube.com/shorts/n-Ha4KUtjeo)
-- **86 left**: 2026-11-04 07:45 · [143 Skeletons vs 84 Elves 💀](https://youtube.com/shorts/vZYnp04XqM0)
+- **102 left**: 2026-11-05 18:08 · [Hold the HILL to Win? Chaos Wolves vs Turbo Bows 🚩](https://youtube.com/shorts/SATgDsVrjlA)
 
 ## Hall of champions
 
@@ -87,7 +87,7 @@ Records from 286 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 33
 - swift: 41
 - venom: 42
-- spikes: 48
+- spikes: 49
 - regen: 57
 
 ## Big moments
@@ -142,6 +142,7 @@ Records from 286 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Nova Legion | 4 | 3 | 1 | 311 | 1 won | 2 |
 | Stormhorn Tribe | 3 | 3 | 0 | 212 | 3 won | 3 |
 | Golden Lion Order | 4 | 3 | 1 | 204 | 1 lost | 3 |
+| Frostwhisper Tribe | 5 | 3 | 2 | 157 | 3 won | 3 |
 | Black Bear Clan | 4 | 3 | 1 | 119 | 1 won | 2 |
 | Oakshield Clan | 5 | 3 | 2 | 116 | 3 won | 3 |
 | Cinderclaw Kin | 4 | 3 | 1 | 100 | 1 lost | 3 |
@@ -151,9 +152,8 @@ Records from 286 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Copper Crown Company | 3 | 3 | 0 | 75 | 3 won | 3 |
 | Bone Garden Coven | 4 | 3 | 1 | 51 | 1 lost | 3 |
 | Wildbrook Clan | 8 | 2 | 6 | 295 | 2 lost | 1 |
+| Stonebridge Company | 7 | 2 | 5 | 219 | 1 won | 1 |
 | Ashmantle Kin | 3 | 2 | 1 | 212 | 1 lost | 2 |
-| Duskwing Tribe | 5 | 2 | 2 | 182 | 1 won | 1 |
-| The Crooked Spire | 5 | 2 | 3 | 175 | 1 lost | 2 |
 
 ### Great rivalries
 
@@ -168,6 +168,7 @@ Records from 286 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 18:08: The Stonebridge Company Take the Overgrown Throne (2nd win · 39 kills)
 - 2026-11-05 17:55: The Sunspire Kin Take the Old Forest (streak ended · first ever win · 68 kills)
 - 2026-11-05 17:36: The Order of the Silver Stag Take the Open Plains (4th win · 70 kills)
 - 2026-11-05 16:04: The Badger Platoon Take the Swamp Shrine (3 wins in a row · 51 kills)
@@ -177,4 +178,3 @@ Records from 286 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 15:04: The Raven Hill Clan Take the Sky-temple Relic (revenge! · 2nd win · 34 kills)
 - 2026-11-05 14:50: The House of the Black Kite Take the Bombed City (streak ended · first ever win · 38 kills)
 - 2026-11-05 14:36: The Emberroot Circle Take the Crystal Grove (revenge denied · 2nd win · 54 kills)
-- 2026-11-05 14:19: The Nova Legion Take the Open Plains (3rd win · 43 kills)
