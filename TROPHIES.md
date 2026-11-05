@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 221 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 222 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -85,7 +85,7 @@ Records from 221 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 5
 - wings: 19
 - spellward: 29
-- venom: 31
+- venom: 32
 - swift: 32
 - spikes: 41
 - regen: 47
@@ -117,15 +117,15 @@ Records from 221 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: cyclops: 4
 - portal: troll: 4
 - fusion: 5
-- sudden: lava: 7
 - portal: demon: 8
+- sudden: lava: 8
 - sudden: ring: 9
 - sudden: meteors: 13
 - sudden: boss: 13
 
 ## The tribes' chronicle
 
-31 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+35 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
@@ -137,6 +137,7 @@ Records from 221 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Raven Hill Clan | 1 | 1 | 0 | 42 | 1 won | 1 |
 | Vortex Legion | 1 | 1 | 0 | 42 | 1 won | 1 |
 | Duskwing Tribe | 1 | 1 | 0 | 39 | 1 won | 1 |
+| Black Bear Clan | 1 | 1 | 0 | 39 | 1 won | 1 |
 | Orbit Legion | 1 | 1 | 0 | 35 | 1 won | 1 |
 | Thornwood Company | 1 | 1 | 0 | 31 | 1 won | 1 |
 | Zenith Cohort | 1 | 1 | 0 | 30 | 1 won | 1 |
@@ -144,11 +145,10 @@ Records from 221 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Brightwater Tribe | 2 | 1 | 1 | 20 | 1 won | 1 |
 | Stonewall Company | 1 | 1 | 0 | 20 | 1 won | 1 |
 | Bone Garden Coven | 1 | 1 | 0 | 19 | 1 won | 1 |
+| Iron Boar Clan | 1 | 1 | 0 | 19 | 1 won | 1 |
 | Red Hawk Company | 1 | 1 | 0 | 5 | 1 won | 1 |
 | Silverbough Circle | 1 | 0 | 1 | 78 | 1 lost | - |
 | Frostwhisper Tribe | 2 | 0 | 2 | 68 | 2 lost | - |
-| Oakshield Clan | 2 | 0 | 2 | 64 | 2 lost | - |
-| Falling Leaf School | 1 | 0 | 1 | 63 | 1 lost | - |
 
 ### Great rivalries
 
@@ -156,6 +156,7 @@ Records from 221 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 00:39: The Black Bear Clan Take the Bombed City (first battle, first win · 39 kills)
 - 2026-11-05 00:26: The Nova Legion Take the Open Plains (2nd win · 131 kills)
 - 2026-11-05 00:10: The Wildbrook Clan Take the Swamp Shrine (revenge! · first ever win · 65 kills)
 - 2026-11-04 23:56: The Black Candle Take the Frozen End (first battle, first win · 43 kills)
@@ -165,4 +166,3 @@ Records from 221 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-04 22:57: The Nova Legion Take the Crystal Grove (first battle, first win · 105 kills)
 - 2026-11-04 22:41: The Storm Tower Order Take the Open Plains (first battle, first win · 74 kills)
 - 2026-11-04 22:25: The Duskwing Tribe Take the Open Plains (first battle, first win · 39 kills)
-- 2026-11-04 22:10: The Raven Hill Clan Take the Quarry (first battle, first win · 42 kills)
