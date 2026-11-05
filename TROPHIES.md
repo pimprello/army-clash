@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 237 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 238 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 237 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **RUNA THE SWIFT** (KNIGHT), 10 kills · 2026-11-05 04:46
 - **OSKA IRONHIDE** (WIZARD), 16 kills · 2026-11-05 04:18
 - **GRIM SKULLTAKER** (SWORDSMAN), 11 kills · 2026-11-05 03:17
 - **ZEDRIK GRAVEBANE** (SWORDSMAN), 11 kills · 2026-11-05 02:48
@@ -47,7 +48,6 @@ Records from 237 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **BRAKK THE UNBROKEN** (CROSSBOWMAN), 10 kills · 2026-11-04 13:55
 - **VIPER-7** (LASER TROOPER), 11 kills · 2026-11-04 13:41
 - **GRIM THE MAD** (WIZARD), 12 kills · 2026-11-04 13:27
-- **NOMAD-5** (SNIPER), 13 kills · 2026-11-04 12:43
 
 ## Titles earned (rarest first)
 
@@ -85,7 +85,7 @@ Records from 237 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 5
 - wings: 19
 - spellward: 31
-- venom: 32
+- venom: 33
 - swift: 35
 - spikes: 42
 - regen: 50
@@ -108,6 +108,7 @@ Records from 237 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - copied: trooper: 1
 - possess: stormemperor: 1
 - extinct: WHITE: 1
+- portal: wolfrider: 1
 - extinct: RED: 2
 - extinct: ORANGE: 2
 - extinct: BLUE: 2
@@ -131,7 +132,7 @@ Records from 237 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
-| Storm Tower Order | 3 | 2 | 1 | 250 | 1 won | 1 |
+| Storm Tower Order | 4 | 2 | 2 | 289 | 1 lost | 1 |
 | Nova Legion | 2 | 2 | 0 | 236 | 2 won | 2 |
 | Iron Boar Clan | 2 | 2 | 0 | 154 | 2 won | 2 |
 | Greyfang Clan | 3 | 2 | 1 | 103 | 2 won | 2 |
@@ -144,13 +145,13 @@ Records from 237 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Badger Platoon | 2 | 2 | 0 | 29 | 2 won | 2 |
 | Wildbrook Clan | 3 | 1 | 2 | 182 | 1 lost | 1 |
 | Ashmantle Kin | 1 | 1 | 0 | 182 | 1 won | 1 |
+| Stonebridge Company | 3 | 1 | 2 | 115 | 1 won | 1 |
 | Stormhorn Tribe | 1 | 1 | 0 | 91 | 1 won | 1 |
 | Stonewall Company | 4 | 1 | 2 | 90 | 2 lost | 1 |
 | Duskwing Tribe | 3 | 1 | 1 | 86 | 1 lost | 1 |
 | Raven Hill Clan | 2 | 1 | 1 | 72 | 1 lost | 1 |
+| Highmoor Clan | 2 | 1 | 1 | 72 | 1 lost | 1 |
 | Viper Company | 1 | 1 | 0 | 68 | 1 won | 1 |
-| Highmoor Clan | 1 | 1 | 0 | 66 | 1 won | 1 |
-| Wolverine Company | 1 | 1 | 0 | 65 | 1 won | 1 |
 
 ### Great rivalries
 
@@ -159,6 +160,7 @@ Records from 237 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 04:46: The Stonebridge Company Take the Old Forest (first ever win · 63 kills)
 - 2026-11-05 04:31: The Ash Wolf Clan Take the Open Plains (2nd win · 73 kills)
 - 2026-11-05 04:18: The Ashmantle Kin Take the Overgrown Throne (first battle, first win · 182 kills)
 - 2026-11-05 04:03: The House of the Crimson Carp Take the Sky-temple Relic (first battle, first win · 25 kills)
@@ -168,4 +170,3 @@ Records from 237 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 03:02: The Crew of the Sea Wolf Take the Desert Well (first battle, first win · 31 kills)
 - 2026-11-05 02:48: The Greyfang Clan Take the Overgrown Throne (first ever win · 43 kills)
 - 2026-11-05 02:33: The Emberroot Circle Take the Open Plains (first battle, first win · 50 kills)
-- 2026-11-05 02:28: The Iron Boar Clan Take the Haunted Crypt (2nd win · 135 kills)

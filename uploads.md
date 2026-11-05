@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-05 04:46 | The Weapons Came ALIVE 🗡️ | Silver wins | https://youtube.com/shorts/9u_E0CRKH60 |
 | 2026-11-05 04:31 | They Lost Their CHIEF and Still Won 😳 | White wins | https://youtube.com/shorts/_Xi6G2-_m_k |
 | 2026-11-05 04:18 | ⚔️ CHAMPION DUEL: Germany vs Italy | Germany wins | https://youtube.com/shorts/NEaXdOrp_oI |
 | 2026-11-05 04:03 | Omega Treants vs SHADOW WOLVES 🔥 | Silver wins | https://youtube.com/shorts/Yl08PCMIhzo |
