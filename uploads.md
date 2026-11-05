@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-05 14:19 | Pick ONE: Dragon, Armored, Mechs 👇 | Blue wins | https://youtube.com/shorts/MU7cNkicYg4 |
 | 2026-11-05 14:04 | ⚔️ CHAMPION DUEL: Forest Elves vs Demons | Orange wins | https://youtube.com/shorts/w9WyQgE3eW8 |
 | 2026-11-05 13:51 | DREAM TEAM Battle: Cannon Smiths vs Storm Zombies | Gold wins | https://youtube.com/shorts/SyHM6IvGPuU |
 | 2026-11-05 13:36 | Undead Legion vs EMPIRE 👑 | Cyan wins | https://youtube.com/shorts/OasEMYYFlsQ |
