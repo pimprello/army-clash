@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 266 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 267 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -56,12 +56,12 @@ Records from 266 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - THOUSAND-MAN SLAYER: 3
 - GRAVITY TYRANT SLAYER: 3
 - WORLDROOT SLAYER: 3
-- FORTRESS SLAYER: 4
 - CYCLOPS SLAYER: 4
 - STAR EATER SLAYER: 4
 - EXECUTIONER SLAYER: 4
 - MIRROR KING SLAYER: 5
 - CATHEDRAL SLAYER: 5
+- FORTRESS SLAYER: 5
 - UNMAKER SLAYER: 5
 - HELICOPTER SLAYER: 5
 - PHOENIX SLAYER: 5
@@ -85,8 +85,8 @@ Records from 266 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 6
 - wings: 19
 - spellward: 33
-- swift: 36
 - venom: 37
+- swift: 37
 - spikes: 45
 - regen: 53
 
@@ -138,13 +138,14 @@ Records from 266 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Red Hawk Company | 4 | 4 | 0 | 193 | 4 won | 4 |
 | Storm Tower Order | 7 | 3 | 4 | 303 | 2 lost | 1 |
 | Stormhorn Tribe | 3 | 3 | 0 | 212 | 3 won | 3 |
+| Order of the Silver Stag | 6 | 3 | 3 | 202 | 3 won | 3 |
 | Black Bear Clan | 4 | 3 | 1 | 119 | 1 won | 2 |
 | Oakshield Clan | 5 | 3 | 2 | 116 | 3 won | 3 |
 | Cinderclaw Kin | 3 | 3 | 0 | 95 | 3 won | 3 |
 | Gloomcap Circle | 4 | 3 | 1 | 67 | 1 lost | 3 |
+| Bone Garden Coven | 3 | 3 | 0 | 49 | 3 won | 3 |
 | Nova Legion | 3 | 2 | 1 | 268 | 1 lost | 2 |
 | Ashmantle Kin | 2 | 2 | 0 | 194 | 2 won | 2 |
-| Order of the Silver Stag | 5 | 2 | 3 | 184 | 2 won | 2 |
 | The Crooked Spire | 4 | 2 | 2 | 171 | 2 won | 2 |
 | Iron Boar Clan | 3 | 2 | 1 | 167 | 1 lost | 2 |
 | Ash Wolf Clan | 5 | 2 | 3 | 160 | 3 lost | 2 |
@@ -153,7 +154,6 @@ Records from 266 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Wolverine Company | 3 | 2 | 1 | 124 | 1 lost | 2 |
 | Thunder Platoon | 2 | 2 | 0 | 94 | 2 won | 2 |
 | Brightwater Tribe | 5 | 2 | 3 | 76 | 1 lost | 1 |
-| Orbit Legion | 2 | 2 | 0 | 73 | 2 won | 2 |
 
 ### Great rivalries
 
@@ -168,6 +168,7 @@ Records from 266 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 11:52: The Order of the Silver Stag Take the Sky-temple Relic (3 wins in a row · 18 kills)
 - 2026-11-05 11:39: The Pale Procession Take the Sky Islands (2nd win · 39 kills)
 - 2026-11-05 11:22: The Crooked Spire Take the Open Plains (2nd win · 42 kills)
 - 2026-11-05 11:08: The Mossback Tribe Take the Ruined Fort (4th win · 77 kills)
@@ -177,4 +178,3 @@ Records from 266 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 10:10: The Granite Battalion Take the Sky-temple Relic (2nd win · 22 kills)
 - 2026-11-05 09:55: The Gloomcap Circle Take the Mirror Gate (3 wins in a row · 31 kills)
 - 2026-11-05 09:41: The Copper Crown Company Take the Castle (2nd win · 48 kills)
-- 2026-11-05 09:26: The Red Hawk Company Take the Open Plains (4 wins in a row · 93 kills)
