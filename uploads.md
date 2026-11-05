@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-05 02:33 | STAREATER vs Stormemperor vs Worldroot 🔥 | Pink wins | https://youtube.com/shorts/KjYK9C1WU_M |
 | 2026-11-05 02:28 | The Ancient Titan Went DOWN 💀 | Blue wins | https://youtube.com/shorts/UK9Rdj07rQY |
 | 2026-11-05 01:53 | One Phoenix Got 16 KILLS 😳 | Brazil wins | https://youtube.com/shorts/UxFYlq85Eqk |
 | 2026-11-05 01:35 | Then the Ground SPLIT Open 😱 |  | https://youtube.com/shorts/_BzPRiIjAos |

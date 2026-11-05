@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 228 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 229 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -54,21 +54,21 @@ Records from 228 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - CATAPULT SLAYER: 1
 - KNIGHT SLAYER: 2
 - GRAVITY TYRANT SLAYER: 2
-- WORLDROOT SLAYER: 2
 - THOUSAND-MAN SLAYER: 3
-- STAR EATER SLAYER: 3
+- WORLDROOT SLAYER: 3
 - EXECUTIONER SLAYER: 3
 - MIRROR KING SLAYER: 4
 - FORTRESS SLAYER: 4
 - UNMAKER SLAYER: 4
 - CYCLOPS SLAYER: 4
-- STORM EMPEROR SLAYER: 4
+- STAR EATER SLAYER: 4
 - TANK SLAYER: 5
 - CATHEDRAL SLAYER: 5
 - MAMMOTH SLAYER: 5
 - HELICOPTER SLAYER: 5
 - IMMORTAL FRAUD SLAYER: 5
 - PHOENIX SLAYER: 5
+- STORM EMPEROR SLAYER: 5
 - HYDRA SLAYER: 6
 - CANNON SLAYER: 6
 - COLOSSUS SLAYER: 7
@@ -107,6 +107,7 @@ Records from 228 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: CANADA: 1
 - possess: hourglass: 1
 - copied: trooper: 1
+- possess: stormemperor: 1
 - extinct: RED: 2
 - extinct: ORANGE: 2
 - extinct: BLUE: 2
@@ -141,21 +142,23 @@ Records from 228 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Viper Company | 1 | 1 | 0 | 68 | 1 won | 1 |
 | Highmoor Clan | 1 | 1 | 0 | 66 | 1 won | 1 |
 | The Black Candle | 2 | 1 | 1 | 64 | 1 lost | 1 |
+| Emberroot Circle | 2 | 1 | 0 | 52 | 1 won | 1 |
 | Mossback Tribe | 2 | 1 | 1 | 47 | 1 won | 1 |
 | Raven Hill Clan | 1 | 1 | 0 | 42 | 1 won | 1 |
 | Vortex Legion | 1 | 1 | 0 | 42 | 1 won | 1 |
+| Brightwater Tribe | 3 | 1 | 2 | 41 | 1 lost | 1 |
 | Black Bear Clan | 1 | 1 | 0 | 39 | 1 won | 1 |
 | Thornwood Company | 1 | 1 | 0 | 31 | 1 won | 1 |
 | Zenith Cohort | 1 | 1 | 0 | 30 | 1 won | 1 |
-| Golden Lion Order | 1 | 1 | 0 | 27 | 1 won | 1 |
-| Brightwater Tribe | 2 | 1 | 1 | 20 | 1 won | 1 |
 
 ### Great rivalries
 
 - **Storm Tower Order vs Wildbrook Clan**: met 2 times, last won by Wildbrook Clan
+- **Brightwater Tribe vs Glimmerdeep Kin**: met 2 times
 
 ### Latest from the battlefield
 
+- 2026-11-05 02:33: The Emberroot Circle Take the Open Plains (first battle, first win · 50 kills)
 - 2026-11-05 02:28: The Iron Boar Clan Take the Haunted Crypt (2nd win · 135 kills)
 - 2026-11-05 01:53: The Mossback Tribe Take the Castle (first ever win · 38 kills)
 - 2026-11-05 01:35: Nobody Takes the World Furnace (the feud goes on)
@@ -165,4 +168,3 @@ Records from 228 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 00:39: The Black Bear Clan Take the Bombed City (first battle, first win · 39 kills)
 - 2026-11-05 00:26: The Nova Legion Take the Open Plains (2nd win · 131 kills)
 - 2026-11-05 00:10: The Wildbrook Clan Take the Swamp Shrine (revenge! · first ever win · 65 kills)
-- 2026-11-04 23:56: The Black Candle Take the Frozen End (first battle, first win · 43 kills)
