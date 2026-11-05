@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 260 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 261 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -85,8 +85,8 @@ Records from 260 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 6
 - wings: 19
 - spellward: 33
-- venom: 35
 - swift: 35
+- venom: 36
 - spikes: 45
 - regen: 53
 
@@ -129,7 +129,7 @@ Records from 260 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-83 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+84 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
@@ -165,6 +165,7 @@ Records from 260 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 10:25: The Cinderclaw Kin Take the Open Plains (first battle, first win · 67 kills)
 - 2026-11-05 10:10: The Granite Battalion Take the Sky-temple Relic (2nd win · 22 kills)
 - 2026-11-05 09:55: The Gloomcap Circle Take the Mirror Gate (3 wins in a row · 31 kills)
 - 2026-11-05 09:41: The Copper Crown Company Take the Castle (2nd win · 48 kills)
@@ -174,4 +175,3 @@ Records from 260 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 08:41: The Red Hawk Company Take the Desert Well (streak ended · 3 wins in a row · 63 kills)
 - 2026-11-05 08:26: The Stormhorn Tribe Take the Open Plains (2nd win · 43 kills)
 - 2026-11-05 08:10: The Red Hawk Company Take the Desert Well (revenge denied · 2nd win · 32 kills)
-- 2026-11-05 07:56: The Gloomcap Circle Take the World Furnace (2nd win · 3 kills)
