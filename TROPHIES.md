@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 243 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 244 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -88,7 +88,7 @@ Records from 243 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - venom: 34
 - swift: 35
 - spikes: 42
-- regen: 50
+- regen: 51
 
 ## Big moments
 
@@ -161,6 +161,7 @@ Records from 243 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 06:14: The Granite Battalion Take the World Furnace (first ever win · 18 kills)
 - 2026-11-05 05:59: The Oakshield Clan Take the Trench Line (first ever win · 8 kills)
 - 2026-11-05 05:44: The Thunder Platoon Take the Treasure Cove (revenge denied · 2nd win · 39 kills)
 - 2026-11-05 05:30: The Thunder Platoon Take the Open Plains (first battle, first win · 55 kills)
@@ -170,4 +171,3 @@ Records from 243 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 04:31: The Ash Wolf Clan Take the Open Plains (2nd win · 73 kills)
 - 2026-11-05 04:18: The Ashmantle Kin Take the Overgrown Throne (first battle, first win · 182 kills)
 - 2026-11-05 04:03: The House of the Crimson Carp Take the Sky-temple Relic (first battle, first win · 25 kills)
-- 2026-11-05 03:47: The Wolverine Company Take the Mirror Gate (first battle, first win · 65 kills)
