@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 242 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 243 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -108,12 +108,12 @@ Records from 242 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - copied: trooper: 1
 - possess: stormemperor: 1
 - extinct: WHITE: 1
-- portal: wolfrider: 1
 - extinct: RED: 2
 - extinct: ORANGE: 2
 - extinct: BLUE: 2
 - extinct: GREEN: 2
 - extinct: SILVER: 2
+- portal: wolfrider: 2
 - possess: cannon: 3
 - possess: treant: 3
 - portal: golem: 3
@@ -121,8 +121,8 @@ Records from 242 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: troll: 4
 - fusion: 5
 - portal: demon: 8
-- sudden: lava: 9
 - sudden: ring: 9
+- sudden: lava: 10
 - sudden: boss: 13
 - sudden: meteors: 16
 
@@ -144,6 +144,7 @@ Records from 242 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Orbit Legion | 2 | 2 | 0 | 73 | 2 won | 2 |
 | Black Bear Clan | 2 | 2 | 0 | 73 | 2 won | 2 |
 | Golden Lion Order | 2 | 2 | 0 | 61 | 2 won | 2 |
+| Vortex Legion | 2 | 2 | 0 | 48 | 2 won | 2 |
 | Brightwater Tribe | 4 | 2 | 2 | 47 | 1 won | 1 |
 | Badger Platoon | 2 | 2 | 0 | 29 | 2 won | 2 |
 | Wildbrook Clan | 3 | 1 | 2 | 182 | 1 lost | 1 |
@@ -151,7 +152,6 @@ Records from 242 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Stonebridge Company | 3 | 1 | 2 | 115 | 1 won | 1 |
 | Duskwing Tribe | 4 | 1 | 2 | 97 | 2 lost | 1 |
 | Stormhorn Tribe | 1 | 1 | 0 | 91 | 1 won | 1 |
-| Stonewall Company | 4 | 1 | 2 | 90 | 2 lost | 1 |
 
 ### Great rivalries
 
@@ -161,6 +161,7 @@ Records from 242 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 05:59: The Oakshield Clan Take the Trench Line (first ever win · 8 kills)
 - 2026-11-05 05:44: The Thunder Platoon Take the Treasure Cove (revenge denied · 2nd win · 39 kills)
 - 2026-11-05 05:30: The Thunder Platoon Take the Open Plains (first battle, first win · 55 kills)
 - 2026-11-05 05:14: The Gloomcap Circle Take the Crystal Grove (first battle, first win · 18 kills)
@@ -170,4 +171,3 @@ Records from 242 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 04:18: The Ashmantle Kin Take the Overgrown Throne (first battle, first win · 182 kills)
 - 2026-11-05 04:03: The House of the Crimson Carp Take the Sky-temple Relic (first battle, first win · 25 kills)
 - 2026-11-05 03:47: The Wolverine Company Take the Mirror Gate (first battle, first win · 65 kills)
-- 2026-11-05 03:31: The Ash Wolf Clan Take the Open Plains (first battle, first win · 25 kills)

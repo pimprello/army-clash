@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-05 05:59 | The CASTLE Was Alive 😱 | Uk wins | https://youtube.com/shorts/1u9QBxHKEZ8 |
 | 2026-11-05 05:44 | Gunners vs TANK ARMY 💥 | Cyan wins | https://youtube.com/shorts/-Nx35UgAR1A |
 | 2026-11-05 05:30 | The Smaller Army Did WHAT? 😳 | Blue wins | https://youtube.com/shorts/anQDTcljpiQ |
 | 2026-11-05 05:14 | 30 HEROES vs 57 Orcs 🛡️ | Purple wins | https://youtube.com/shorts/K2l9I_Jblww |
