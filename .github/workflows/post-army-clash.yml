@@ -2,7 +2,7 @@ name: Post Army Clash
 
 on:
   schedule:
-    # Backup timer only: the self-queuing step below does the real scheduling. One Short about every 880 seconds = 98 a day,
+    # Backup timer only (test): the self-queuing step below does the real scheduling. One Short about every 880 seconds = 98 a day,
     # evenly spaced and just under YouTube's limit of 100 uploads a day (only one run can go at a time, so this can't add extra posts).
     - cron: '7,22,37,52 * * * *'
   workflow_dispatch:
