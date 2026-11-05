@@ -2,6 +2,13 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-05 (later): a button to delete low-view videos
+
+Rellz asked to delete videos posted before today with under 100 views.
+- New manual workflow **Delete low-view videos** (Actions tab → Run workflow). Run it with `list` first: it shows every matching video in the run's summary and deletes nothing. Run it with `delete` to delete them, at most 50 a run (oldest first) so it can't eat the upload quota. Videos posted today are never touched.
+- **Rellz:** deleting needs one new secret, `YT_DELETE_REFRESH_TOKEN` (a refresh token with the full `youtube` scope; see RULES.md, "Deleting low-view videos"). Listing works with the `YT_API_KEY` you added.
+- Tested against a fake YouTube: list mode deletes nothing; delete mode deleted only matching videos from before today and stopped at the per-run limit; without the delete token it refuses.
+
 ## 2026-11-05 (later): weapons sound different
 
 Rellz asked for a wider variety of sound effects for the different weapons.

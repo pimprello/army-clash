@@ -1,0 +1,48 @@
+name: Delete low-view videos
+
+# Manual only: Actions → "Delete low-view videos" → Run workflow.
+# Run it first with mode "list" and check the list in the run's summary, then run it again with mode "delete".
+# Videos posted today (UTC) are never touched. See RULES.md, "Deleting low-view videos".
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'list = only show the videos; delete = delete them (can''t be undone)'
+        type: choice
+        options: [list, delete]
+        default: list
+      min_views:
+        description: 'Delete videos with fewer views than this'
+        type: number
+        default: 100
+      max_delete:
+        description: 'Most videos to delete in one run (each delete uses 50 units of the daily YouTube quota)'
+        type: number
+        default: 50
+
+permissions:
+  contents: read
+
+concurrency:
+  group: delete-low-views
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: ${{ inputs.mode == 'delete' && 'Delete the videos' || 'List the videos' }}
+        run: node delete-low-views.js
+        env:
+          MODE: ${{ inputs.mode }}
+          MIN_VIEWS: ${{ inputs.min_views }}
+          MAX_DELETE: ${{ inputs.max_delete }}
+          YT_API_KEY: ${{ secrets.YT_API_KEY }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_DELETE_REFRESH_TOKEN: ${{ secrets.YT_DELETE_REFRESH_TOKEN }}

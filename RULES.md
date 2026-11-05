@@ -257,6 +257,12 @@ In between, it stays on the whole arena about half the time, sometimes drifting 
 | *Mythic:* The Universe | looks like an ordinary soldier, with stars in its helmet | when it dies a universe opens and a whole squad of a random army pours out |
 | *Mythic:* Living Fortress | an ordinary castle (labelled CASTLE) | wakes up when enemies come close: legs, arms, glowing eyes, and a gate full of teeth that swallows troops whole |
 
+## Deleting low-view videos
+
+A manual button in GitHub: **Actions → Delete low-view videos → Run workflow**. Videos posted today (UTC) are never touched, and the repo doesn't change (`uploads.md` keeps its rows).
+- `mode: list` (the default) only lists the videos posted before today with fewer than `min_views` (100) views, in the run's summary. It uses the `YT_API_KEY` secret.
+- `mode: delete` deletes them, the oldest first, at most `max_delete` (50) per run; each delete uses 50 units of the same daily YouTube quota the uploads use. It needs a `YT_DELETE_REFRESH_TOKEN` secret: a refresh token made in the OAuth Playground (own credentials, the upload client's ID and secret) with the scope `https://www.googleapis.com/auth/youtube`. The upload token can't delete videos. Deleting can't be undone.
+
 ## Layout check
 
 `node check-layout.js` draws the roster card, the tribes' story, the war council panel and the outro line for every line-up, the three-way line-ups and some invented match-ups, and fails if any two texts or portraits overlap, if a text had to be squashed to fit, is smaller than allowed (18 px on the panel) or leaves its area. With `ui.layout` 2 it checks eight moments of every battle plus the outro (story card, roster strips, banners, chapter cards, council strip) and also fails if anything leaves the Shorts safe zone (48 px from the sides, below y 1560, or under the like/comment buttons: right of x 940 from y 900 down). Run it after any change to the overlays (it takes a few minutes; `node check-layout.js 20` checks the first 20 line-ups).
