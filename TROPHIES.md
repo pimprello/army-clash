@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 226 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 227 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -88,7 +88,7 @@ Records from 226 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - venom: 32
 - swift: 34
 - spikes: 41
-- regen: 47
+- regen: 48
 
 ## Big moments
 
@@ -121,11 +121,11 @@ Records from 226 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - sudden: lava: 8
 - sudden: ring: 9
 - sudden: boss: 13
-- sudden: meteors: 14
+- sudden: meteors: 15
 
 ## The tribes' chronicle
 
-43 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+46 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
@@ -139,6 +139,7 @@ Records from 226 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Duskwing Tribe | 2 | 1 | 0 | 76 | 1 won | 1 |
 | Viper Company | 1 | 1 | 0 | 68 | 1 won | 1 |
 | Highmoor Clan | 1 | 1 | 0 | 66 | 1 won | 1 |
+| Mossback Tribe | 2 | 1 | 1 | 47 | 1 won | 1 |
 | The Black Candle | 1 | 1 | 0 | 43 | 1 won | 1 |
 | Raven Hill Clan | 1 | 1 | 0 | 42 | 1 won | 1 |
 | Vortex Legion | 1 | 1 | 0 | 42 | 1 won | 1 |
@@ -148,7 +149,6 @@ Records from 226 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Golden Lion Order | 1 | 1 | 0 | 27 | 1 won | 1 |
 | Brightwater Tribe | 2 | 1 | 1 | 20 | 1 won | 1 |
 | Bone Garden Coven | 1 | 1 | 0 | 19 | 1 won | 1 |
-| Iron Boar Clan | 1 | 1 | 0 | 19 | 1 won | 1 |
 
 ### Great rivalries
 
@@ -156,6 +156,7 @@ Records from 226 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 01:53: The Mossback Tribe Take the Castle (first ever win · 38 kills)
 - 2026-11-05 01:35: Nobody Takes the World Furnace (the feud goes on)
 - 2026-11-05 01:25: The Orbit Legion Take the Open Plains (2nd win · 38 kills)
 - 2026-11-05 01:08: The Viper Company Take the Quarry (first battle, first win · 68 kills)
@@ -165,4 +166,3 @@ Records from 226 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 00:10: The Wildbrook Clan Take the Swamp Shrine (revenge! · first ever win · 65 kills)
 - 2026-11-04 23:56: The Black Candle Take the Frozen End (first battle, first win · 43 kills)
 - 2026-11-04 23:39: The Stormhorn Tribe Take the Old Forest (first battle, first win · 91 kills)
-- 2026-11-04 23:24: The Stonewall Company Take the Open Plains (first battle, first win · 20 kills)
