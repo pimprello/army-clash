@@ -1789,7 +1789,8 @@
     "balanceSteps": 5,
     "balanceSpread": 2.5,
     "balanceRounds3": 4,
-    "balanceSeconds": 100
+    "balanceSeconds": 100,
+    "smart": true
   },
   "modes": {
     "shares": {
@@ -1839,6 +1840,7 @@
   },
   "world": {
     "on": true,
+    "fire": true,
     "chance": 0.7,
     "second": 0.3,
     "list": [

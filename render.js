@@ -193,7 +193,7 @@ async function main() {
   // living tribes (rules.tribes): each army is made of tribes that earn, trade, forge and follow tactics; their history comes from past videos
   const tribesOn = rules.tribes && rules.tribes.on;
   const trbOpts = tribesOn ? { tribes: Object.assign({}, rules.tribes, { history: chronicle.history(pastVideos) }) } : {};
-  const cmbOpts = combat ? { combat: { armySize: combat.armySize ?? 0.8, hp: combat.hp ?? 1, moves: combat.moves !== false, fewerBullets: combat.fewerBullets !== false, roster: combat.roster !== false }, mode: mode || undefined, skins, heroes: mode === 'heroes' ? heroTeam : undefined } : {};
+  const cmbOpts = combat ? { combat: { armySize: combat.armySize ?? 0.8, hp: combat.hp ?? 1, moves: combat.moves !== false, fewerBullets: combat.fewerBullets !== false, roster: combat.roster !== false, smart: !!combat.smart }, mode: mode || undefined, skins, heroes: mode === 'heroes' ? heroTeam : undefined } : {};
   const pacing = OUTRO ? { outroSecs: OUTRO, pace: VID.pace !== false } : {};
   const UIL = (rules.ui && rules.ui.layout) || 1; // 2 = the Shorts-safe layout (scoreboard on top, tribes strip above YouTube's title)
   const optsFor = mul => ({ target: SECS, fixedLength: SECS, weaponSfx: !!(rules.sound && rules.sound.weapons), ...pacing, swordsmen, crossbowmen, map, doctrines, budgetMul: three ? mul : [bm[0], bm[1] * mul], swordsmenByTeam, extras, extrasByTeam, era, formations, events,

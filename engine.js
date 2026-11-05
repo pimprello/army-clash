@@ -2103,6 +2103,8 @@ const RVB = (() => {
       if (this.trb) this.initTribes();
       if (this.ext) this.initExt();
       if (this.opts.world) this.initWorld();
+      if (this.opts.art >= 2) this.slashes = [];
+      if (this.opts.fire || (this.opts.world && this.opts.world.fire)) this.initFire();
       if (this.opts.events) this.setupEvents();
     }
     // Obstacles and decoration, painted once in the same flat cartoon style as the arena.
@@ -2741,6 +2743,7 @@ const RVB = (() => {
       }
       ev.t += h;
       if (ev.t < 2) this.shake(9);
+      if (this.slashes) this.quakeFx(ev);
       if (!ev.hit && ev.t >= 0.9) {
         ev.hit = true;
         for (const u of this.units) {
@@ -2835,11 +2838,11 @@ const RVB = (() => {
           ctx.restore();
         }
       };
-      for (const pts of this.cracks || []) this.drawCrack(ctx, pts, 1);
+      if (!this.slashes) for (const pts of this.cracks || []) this.drawCrack(ctx, pts, 1);
       this.drawBoosts(ctx);
       for (const ev of this.events) {
         if (ev.type === 'stampede' || ev.type === 'kraken') this.drawEvent2(ctx, ev);
-        if (ev.type === 'earthquake' && ev.started && !ev.done) this.drawCrack(ctx, ev.pts, clamp((ev.t - 0.6) / 0.4, 0, 1));
+        if (ev.type === 'earthquake' && ev.started && !ev.done && !this.slashes) this.drawCrack(ctx, ev.pts, clamp((ev.t - 0.6) / 0.4, 0, 1));
         if (ev.type === 'tornado' && ev.started && !ev.done) {
           // a twister seen from above: spinning grey rings around a dark eye, with its shadow
           const t = this.t, x = ev.x, y = ev.y;
@@ -3023,6 +3026,8 @@ const RVB = (() => {
       if (this.ext) this.explodeFx(a);
       if (this.camEv) this.camEv.push({ type: 'blast', x: a.x, y: a.y, kind: a.kind });
       this.booms.push({ x: a.x, y: a.y, r: a.splash, t: 0, magic: a.kind === 'fireball', zap: a.kind === 'lightning' });
+      if (this.slashes && this.stains) this.scorch(a.x, a.y, a.splash, big);
+      if (this.fireG && FIERY[a.kind]) this.ignite(a.x, a.y, FIERY[a.kind]);
       const fire = a.kind === 'fireball';
       if (fire) { this.burst(a.x, a.y, '#C084FC', 10, 320, 0.45, 7); this.burst(a.x, a.y, '#FF9F1C', 6, 260, 0.35, 6); }
       else this.burst(a.x, a.y, a.kind === 'lightning' ? '#BFE6FF' : '#FF9F1C', big ? 16 : 9, big ? 420 : 300, 0.45, big ? 8 : 6);
@@ -3050,10 +3055,12 @@ const RVB = (() => {
     // colour for a banner about a fallen troop: the other side's colour (in three-way battles, the killer's)
     foeCol(u, from) { return this.N === 2 && u.team < 2 ? TEAMS[1 - u.team].c : from && TEAMS[from.team] ? TEAMS[from.team].c : COL.gold; }
     damage(u, dmg, from) {
+      const kind0 = this._kind;
       if (this.paceK !== undefined) dmg *= this.paceK;
       if (this.buffs) { if (from && this.buffOn(from.team, 'rage')) dmg *= 1.5; if (this.buffOn(u.team, 'shield')) dmg *= 0.5; }
       if (this.ext) { dmg = this.dmgMod(u, dmg, from); if (!(dmg > 0)) return; }
       u.hp -= dmg; u.flash = 1;
+      if (this.slashes && from && from.team !== u.team && !this._dot && kind0 !== 'blast') this.addSlash(u, from);
       if (this.ext) { if (from && from.team !== u.team && !u.dead) this.onHit(u, from, dmg); if (UNIT[u.type].boss || u.boss) this.bossCheck(u); }
       if (u.hp <= 0 && !u.dead) {
         if (this.ext && this.cheatDeath(u, from)) return;
@@ -3235,6 +3242,7 @@ const RVB = (() => {
           }
         }
         if (this.tribes && u.tribe) { this.tacMove(u, U, t, dvx, dvy); dvx = this.tdx; dvy = this.tdy; }
+        if (this.smart && t) { this.smartMove(u, U, t, dvx, dvy); dvx = this.sdx; dvy = this.sdy; }
         if (this.drop && !U.healer) {
           const dr = this.drop, cx = dr.x - u.x, cy = dr.y - u.y, cd = Math.hypot(cx, cy) || 1;
           if (cd < 320 && (!t || cd + 60 < Math.hypot(t.x - u.x, t.y - u.y))) {
@@ -3787,6 +3795,7 @@ const RVB = (() => {
       if (this.skins) this.drawSkins(ctx, drawOrder, false);
       // art finish (rules.ui.art 2): a soft contact shadow under every troop on the ground, all in one pass so no shadow covers a neighbour
       const ART = this.opts.art >= 2;
+      if (ART) this.drawGround2(ctx);
       if (ART) {
         ctx.beginPath();
         for (const u of drawOrder) {
@@ -3824,10 +3833,10 @@ const RVB = (() => {
           ctx.beginPath(); ctx.arc(u.x + lx, u.y + ly, u.r, 0, TAU); ctx.fillStyle = `rgba(255,255,255,${u.dodgeFx * 0.35})`; ctx.fill();
           lx += -Math.sin(u.face) * dk; ly += Math.cos(u.face) * dk;
         }
-        const x = u.x + lx, y = u.y + ly + hop - (u.lift || 0);
+        const x = u.x + lx, y = u.y + ly + hop - (u.lift || 0) - (ART && u.qT ? this.quakeHop(u) : 0);
         if (u.lift) ell(ctx, u.x + 6, u.y + 8, u.r, u.r * 0.6, 0, 'rgba(0,0,0,0.25)', 0);
         this.drawBody(ctx, u, x, y, tm, swordy);
-        if (ART && !(u.sheepT > this.fightT)) this.artFinish(ctx, u, x, y);
+        if (ART && !(u.sheepT > this.fightT)) { this.drawWear(ctx, u, x, y); this.artFinish(ctx, u, x, y); }
         if (u.flag) {
           // a flag on a pole, rippling a little
           const px = x + u.r * 0.6, top = y - u.r - 26;
@@ -3846,6 +3855,8 @@ const RVB = (() => {
         if (this.ext) this.drawStatus(ctx, u, x, y, tm);
         ctx.globalAlpha = 1;
       }
+      if (ART) this.flushArt(ctx);
+      if (this.slashes) this.drawSlashes(ctx);
       if (this.skins || this.heroTeam >= 0) this.drawSkins(ctx, drawOrder, true);
       if (this.cmb) this.drawCombatFx(ctx);
       if (this.tribes) this.drawTribeFx(ctx, drawOrder);
@@ -3866,7 +3877,7 @@ const RVB = (() => {
       }
       if (this.wq) this.worldMid(ctx);
       if (zoom) ctx.restore();
-      if (this.wq || this.opts.art >= 2) this.worldPost(ctx);
+      if (this.wq) this.worldPost(ctx);
       if (this.cine) this.drawCine(ctx);
       ctx.restore();
       ctx.restore();
@@ -4075,13 +4086,16 @@ const RVB = (() => {
           if (u.type === 'spearman') {
             // long spear pointing at the enemy; it thrusts forward on each attack
             const fx = Math.cos(u.face), fy = Math.sin(u.face), px = -fy, py = fx;
-            const reach = u.r + 26 + (u.lunge || 0) * 12;
-            const bx0 = x - fx * (u.r * 0.6), by0 = y - fy * (u.r * 0.6), tx = x + fx * reach, ty = y + fy * reach;
+            const reach = u.r + 26 + (u.lunge || 0) * 12, sd = this.slashes ? u.r * 0.82 : 0, sd2 = this.slashes ? u.r * 0.62 : 0;
+            // (art 2: held in his right hand at his side, not across his body)
+            const bx0 = x - fx * (u.r * 0.6) + px * sd, by0 = y - fy * (u.r * 0.6) + py * sd, tx = x + fx * reach + px * sd2, ty = y + fy * reach + py * sd2;
+            if (this.slashes && (u.lunge || 0) > 0.25) { ctx.lineCap = 'round'; ctx.lineWidth = 2; ctx.strokeStyle = `rgba(255,255,255,${u.lunge * 0.8})`; for (const o of [-5, 5]) { ctx.beginPath(); ctx.moveTo(tx - fx * 30 + px * o, ty - fy * 30 + py * o); ctx.lineTo(tx - fx * 8 + px * o, ty - fy * 8 + py * o); ctx.stroke(); } }
             ctx.lineCap = 'round';
             ctx.lineWidth = 6; ctx.strokeStyle = COL.ink; ctx.beginPath(); ctx.moveTo(bx0, by0); ctx.lineTo(tx, ty); ctx.stroke();
             ctx.lineWidth = 3; ctx.strokeStyle = COL.wood; ctx.beginPath(); ctx.moveTo(bx0, by0); ctx.lineTo(tx, ty); ctx.stroke();
             ctx.beginPath(); ctx.moveTo(tx + fx * 11, ty + fy * 11); ctx.lineTo(tx + px * 5, ty + py * 5); ctx.lineTo(tx - px * 5, ty - py * 5); ctx.closePath();
             ctx.fillStyle = COL.steel; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = COL.ink; ctx.stroke();
+            if (this.slashes) disc(ctx, x + px * u.r * 0.8 + fx * u.r * 0.2, y + py * u.r * 0.8 + fy * u.r * 0.2, 3.8, tm.l, 1.5); // his hand on the shaft
           }
           if (u.type === 'shieldbearer') {
             // a big tower shield held in front, with a gold boss
@@ -4138,6 +4152,13 @@ const RVB = (() => {
               const span = off - from, steps = 6;
               for (let k = 0; k < steps; k++) {
                 const a0 = u.face + from + span * (k / steps), a1 = u.face + from + span * ((k + 1) / steps);
+                if (this.slashes) {
+                  // art 2: a solid crescent swept by the blade, brightest at the leading edge
+                  const kat2 = u.type === 'samurai', R1 = u.r + (kat2 ? 28 : 22) + 3, R0 = u.r + 4 + 6 * (1 - (k + 1) / steps), lo = Math.min(a0, a1), hi = Math.max(a0, a1) + 0.02;
+                  ctx.beginPath(); ctx.arc(x, y, R1, lo, hi); ctx.arc(x, y, R0, hi, lo, true); ctx.closePath();
+                  ctx.fillStyle = `rgba(255,255,255,${(0.05 + 0.55 * ((k + 1) / steps) ** 1.5) * Math.min(1, u.swing * 1.6)})`; ctx.fill();
+                  continue;
+                }
                 ctx.beginPath(); ctx.arc(x, y, u.r + 15, Math.min(a0, a1), Math.max(a0, a1));
                 ctx.lineWidth = 3 + 8 * ((k + 1) / steps);
                 ctx.strokeStyle = `rgba(255,255,255,${(0.08 + 0.5 * ((k + 1) / steps)) * Math.min(1, u.swing * 1.6)})`;
@@ -5847,6 +5868,7 @@ const RVB = (() => {
     // ----- statuses -----
     burn(o, dps, dur, by) {
       if (o.dead || UNIT[o.type].fireproof) return;
+      if (this.fireG && by && !o.flying) this.ignite(o.x, o.y, 0.01);
       const T = this.fightT;
       o.burnD = o.burnT > T ? Math.max(o.burnD, dps) : dps; o.burnT = Math.max(o.burnT || 0, T + dur); o.burnBy = by;
     },
@@ -5994,6 +6016,8 @@ const RVB = (() => {
       // tribe tactics: shooters focus one target, the chief's guards go for whoever threatens him, flankers hunt shooters and healers
       if (this.tribes && u.tribe && !conf) { const f = this.tribeTarget(u, U); if (f) return f; }
       const flank = this.tribes && u.tribe && u.tribe.tactic === 'flank';
+      // smarter fighting: don't all pile onto one enemy; prefer enemies in front (your own lane); fast fighters go for shooters
+      const sm = this.smart && !conf ? this.smartPick(u, U) : null;
       for (const o of this.units) {
         if (o.dead || o.phased || o.ashT || o === u || o.cloak) continue;
         if (o.team === u.team && !conf) continue;
@@ -6005,6 +6029,7 @@ const RVB = (() => {
         if (hunter === 'ranged' && (O.ranged || O.healer) && d < 250000) d *= 0.25;
         if (hunter === 'commander' && (O.commander || O.rank === 0 || O.cost >= 5)) d *= 0.2;
         if (flank && (O.ranged || O.healer) && d < 360000) d *= 0.3;
+        if (sm) d = this.smartScore(u, o, O, d, sm);
         if (d < bd) { bd = d; best = o; }
       }
       return best;
@@ -6622,6 +6647,7 @@ const RVB = (() => {
       this.postStep3(h);
       if (this.tribes) this.postStep4(h);
       if (this.wq) this.worldTick(h);
+      if (this.fireG) this.fireTick();
     },
     refreshAuras() {
       const T = this.fightT;
@@ -7898,6 +7924,7 @@ const RVB = (() => {
       const c = this.opts.combat || {};
       this.cmb = c.moves || c.roster || c.fewerBullets ? c : null;
       this.CR = rng(((this.seed >>> 0) ^ 0xC0B4A7) >>> 0);
+      this.smart = !!c.smart; // smarter fighting (rules.combat.smart): spread out over targets, hold a front, flank, fall back when badly hurt
       this.skins = this.opts.skins && this.opts.skins.some(Boolean) ? this.opts.skins.map(k => (k && SKINS[k] ? k : null)) : null;
       this.mode = this.opts.mode && MODE_HOOK[this.opts.mode] ? this.opts.mode : null;
       this.heroTeam = this.mode === 'heroes' ? (this.opts.heroes || 0) : -1;
@@ -9497,15 +9524,32 @@ const RVB = (() => {
     artFinish(ctx, u, x, y) {
       const U = UNIT[u.type], r = u.r;
       if (GLOSS_SKIP.has(u.type) || U.mount || U.flying || (r > 22 && u.type !== 'giant')) return;
-      ctx.save(); ctx.lineCap = 'round';
-      ctx.beginPath(); ctx.arc(x, y, r * 0.74, Math.PI * 1.08, Math.PI * 1.46); ctx.lineWidth = Math.max(2, r * 0.17); ctx.strokeStyle = 'rgba(255,255,255,0.3)'; ctx.stroke();
+      (this._rim || (this._rim = [])).push(x, y, r);
       if (FACELESS.has(u.type)) {
+        ctx.save();
         const f = u.face, fx = Math.cos(f), fy = Math.sin(f), px = -fy, py = fx, ex = x + fx * r * 0.42, ey = y + fy * r * 0.42, sp = r * 0.34, er = Math.max(1.8, r * 0.17);
         for (const sd of [-1, 1]) {
           const cx = ex + px * sp * sd, cy = ey + py * sp * sd;
           ctx.beginPath(); ctx.arc(cx, cy, er, 0, TAU); ctx.fillStyle = '#FFFFFF'; ctx.fill(); ctx.lineWidth = 1.2; ctx.strokeStyle = COL.ink; ctx.stroke();
           ctx.beginPath(); ctx.arc(cx + fx * er * 0.35, cy + fy * er * 0.35, er * 0.55, 0, TAU); ctx.fillStyle = COL.ink; ctx.fill();
         }
+        ctx.restore();
+      }
+    },
+    // the rim lights and scuffs collected while the troops were drawn, in one batch each
+    flushArt(ctx) {
+      const R = this._rim, S = this._scr;
+      ctx.save(); ctx.lineCap = 'round';
+      if (R && R.length) {
+        ctx.beginPath();
+        for (let i = 0; i < R.length; i += 3) { const x = R[i], y = R[i + 1], r = R[i + 2]; ctx.moveTo(x + Math.cos(Math.PI * 1.08) * r * 0.74, y + Math.sin(Math.PI * 1.08) * r * 0.74); ctx.arc(x, y, r * 0.74, Math.PI * 1.08, Math.PI * 1.46); }
+        ctx.lineWidth = 2.3; ctx.strokeStyle = 'rgba(255,255,255,0.3)'; ctx.stroke(); R.length = 0;
+      }
+      if (S && S.length) {
+        ctx.beginPath(); for (let i = 0; i < S.length; i += 4) { ctx.moveTo(S[i], S[i + 1]); ctx.lineTo(S[i + 2], S[i + 3]); }
+        ctx.lineWidth = 2.6; ctx.strokeStyle = 'rgba(8,10,18,0.6)'; ctx.stroke();
+        ctx.beginPath(); for (let i = 0; i < S.length; i += 4) { ctx.moveTo(S[i] + 1.5, S[i + 1] + 1.5); ctx.lineTo(S[i + 2] + 1.5, S[i + 3] + 1.5); }
+        ctx.lineWidth = 1; ctx.strokeStyle = 'rgba(255,255,255,0.25)'; ctx.stroke(); S.length = 0;
       }
       ctx.restore();
     },
@@ -9735,11 +9779,6 @@ const RVB = (() => {
           ctx.restore(); ctx.textBaseline = 'alphabetic';
         }
       }
-      // art finish: a soft vignette round the battlefield
-      if (this.opts.art >= 2) {
-        const cx = AR.x + AR.w / 2, cy = AR.y + AR.h / 2, g = this._vig || (this._vig = (() => { const v = ctx.createRadialGradient(cx, cy, AR.w * 0.42, cx, cy, AR.w * 0.78); v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(1, 'rgba(0,0,0,0.32)'); return v; })());
-        ctx.fillStyle = g; ctx.fillRect(AR.x, AR.y, AR.w, AR.h);
-      }
     },
     // the glitch: torn rows slid sideways, a red/cyan split, scanlines and SIGNAL LOST flickering (looks only)
     worldGlitch(ctx, k) {
@@ -9779,7 +9818,240 @@ const RVB = (() => {
     // in a glitch, troops blink out for a frame now and then (looks only)
     worldHide(u) { return this.wNow && this.wNow.kind === 'glitch' && hash01(this.frameNo >> 1, u.gait * 100) < 0.08 * this.worldK(this.wNow); },
   };
-  Object.assign(Army.prototype, ARMY_EXT, ARMY_DRAW, ARMY_MAPS, ARMY_EXT2, ARMY_DRAW2, ARMY_COMBAT, ARMY_TRIBES, ARMY_TRIBES_DRAW, ARMY_PACE, ARMY_UI2, ARMY_WORLD);
+  // ----- art finish 2 (rules.ui.art 2): weapon slashes and thrusts you can see, damage that shows, cracks under the troops,
+  // scorched ground, and fire that spreads across the grass (rules.world.fire) -----
+  const NOFIRE = { frozen: 1, snow: 1, moon: 1, neon: 1, mirror: 1, godboard: 1, shattered: 1, beach: 1, dunes: 1, swamp: 1 };
+  const FIRE_CELL = 40;
+  const FIERY = { fireball: 0.12, meteor: 0.5, hellfire: 0.4, bomb: 0.3, rocket: 0.2, shell: 0.3, cannonball: 0.25, mortar: 0.3 };
+  const SLASH_STYLE = { blade: 'blade', agile: 'blade', thrust: 'thrust', cleave: 'cleave', crush: 'crush', shield: 'crush' };
+  // a lens-shaped streak (pointed at both ends): the shape of a blade's slice
+  function lens(ctx, cx, cy, ang, len, wid) {
+    const c = Math.cos(ang), s = Math.sin(ang), px = -s, py = c, hx = c * len / 2, hy = s * len / 2;
+    ctx.beginPath(); ctx.moveTo(cx - hx, cy - hy);
+    ctx.quadraticCurveTo(cx + px * wid, cy + py * wid, cx + hx, cy + hy);
+    ctx.quadraticCurveTo(cx - px * wid * 0.35, cy - py * wid * 0.35, cx - hx, cy - hy); ctx.closePath();
+  }
+  const ARMY_FX2 = {
+    // a hit you can see: a slice across the target, a spear streak through it, an axe arc or a hammer ring (looks only)
+    addSlash(u, from) {
+      const F = UNIT[from.type];
+      if (F.ranged || F.healer || UNIT[u.type].uncounted || this.slashes.length > 36) return;
+      const d = Math.hypot(u.x - from.x, u.y - from.y);
+      if (d > u.r + from.r + (F.reach || 5) + 26) return;
+      const st = F.rank === 0 ? 'crush' : SLASH_STYLE[STYLE[from.type]] || (F.sword ? 'blade' : from.type === 'spearman' || from.type === 'pikeman' || from.type === 'lancer' ? 'thrust' : 'blade');
+      this.slashes.push({ x: u.x, y: u.y, a: Math.atan2(u.y - from.y, u.x - from.x), st, t0: this.t, r: u.r, k: hash01(this.frameNo, u.gait) });
+    },
+    drawSlashes(ctx) {
+      const t = this.t;
+      this.slashes = this.slashes.filter(s => t - s.t0 < (s.st === 'crush' ? 0.32 : 0.2));
+      for (const s of this.slashes) {
+        const age = t - s.t0, life = s.st === 'crush' ? 0.32 : 0.2, p = age / life, a = 1 - p, grow = Math.min(1, age / 0.05);
+        ctx.save();
+        if (s.st === 'blade') {
+          // a diagonal slice across the target, drawn in fast and fading
+          const ang = s.a + Math.PI / 2 + (s.k - 0.5) * 1.2, len = (s.r * 3.4 + 16) * grow;
+          ctx.globalAlpha = a; lens(ctx, s.x, s.y, ang, len, 7); ctx.fillStyle = '#FFFFFF'; ctx.fill();
+          ctx.globalAlpha = a * 0.45; lens(ctx, s.x, s.y, ang, len * 1.15, 13); ctx.fillStyle = '#BFE6FF'; ctx.fill();
+        } else if (s.st === 'thrust') {
+          // a straight streak through the target, with speed lines behind it
+          const len = (s.r * 3 + 22) * grow, c = Math.cos(s.a), sn = Math.sin(s.a);
+          ctx.globalAlpha = a; lens(ctx, s.x + c * 6, s.y + sn * 6, s.a, len, 4.5); ctx.fillStyle = '#FFFFFF'; ctx.fill();
+          ctx.lineCap = 'round'; ctx.lineWidth = 2; ctx.strokeStyle = `rgba(255,255,255,${a * 0.7})`;
+          for (const o of [-7, 7]) { const ox = -sn * o, oy = c * o; ctx.beginPath(); ctx.moveTo(s.x - c * (len * 0.9) + ox, s.y - sn * (len * 0.9) + oy); ctx.lineTo(s.x - c * (len * 0.35) + ox, s.y - sn * (len * 0.35) + oy); ctx.stroke(); }
+        } else if (s.st === 'cleave') {
+          // a wide arc across the front of the target
+          const R0 = s.r + 6, R1 = s.r + 18, a0 = s.a + Math.PI - 1.1, a1 = a0 + 2.2 * grow;
+          ctx.globalAlpha = a; ctx.beginPath(); ctx.arc(s.x, s.y, R1, a0, a1); ctx.arc(s.x, s.y, R0, a1, a0, true); ctx.closePath();
+          ctx.fillStyle = '#FFE2B0'; ctx.fill();
+        } else {
+          // a heavy blow: a ring of force and a flash
+          const rr = s.r + 8 + 34 * easeOutCubic(p);
+          ctx.globalAlpha = a; ctx.beginPath(); ctx.arc(s.x, s.y, rr, 0, TAU); ctx.lineWidth = 5 * a + 1; ctx.strokeStyle = '#FFF4D6'; ctx.stroke();
+          if (p < 0.3) { ctx.globalAlpha = (0.3 - p) * 3; ctx.beginPath(); ctx.arc(s.x, s.y, s.r + 6, 0, TAU); ctx.fillStyle = '#FFFFFF'; ctx.fill(); }
+        }
+        ctx.restore();
+      }
+    },
+    // scorched ground and a crater ring where something blew up (on the ground layer, so it fades slowly)
+    scorch(x, y, r, big) {
+      const g = this.stains.getContext('2d'), cx = x - AR.x, cy = y - AR.y, rr = r * (big ? 0.95 : 0.75);
+      const gr = g.createRadialGradient(cx, cy, 0, cx, cy, rr);
+      gr.addColorStop(0, 'rgba(12,8,6,0.55)'); gr.addColorStop(0.6, 'rgba(30,20,12,0.32)'); gr.addColorStop(1, 'rgba(30,20,12,0)');
+      g.fillStyle = gr; g.beginPath(); g.arc(cx, cy, rr, 0, TAU); g.fill();
+      if (big) { g.beginPath(); g.arc(cx, cy, rr * 0.42, 0, TAU); g.lineWidth = 3; g.strokeStyle = 'rgba(0,0,0,0.35)'; g.stroke(); }
+    },
+    // the ground under the troops: earthquake cracks and burning grass
+    drawGround2(ctx) {
+      for (const pts of this.cracks || []) this.drawCrack2(ctx, pts, 1, 0);
+      for (const ev of this.events || []) if (ev.type === 'earthquake' && ev.started && !ev.done) this.drawCrack2(ctx, ev.pts, clamp((ev.t - 0.25) / 0.9, 0, 1), clamp(1 - (ev.t - 1.5) / 1.5, 0, 1));
+      if (this.fireG && this.fireG.size) this.drawFire(ctx);
+    },
+    // a crack that rips across the field from one side to the other, glowing inside at first, with small side cracks
+    drawCrack2(ctx, pts, prog, glow) {
+      if (prog <= 0) return;
+      const n = pts.length - 1, upto = prog * n, path = [];
+      for (let k = 0; k <= Math.floor(upto); k++) path.push(pts[k]);
+      const f = upto - Math.floor(upto);
+      if (f > 0 && Math.floor(upto) < n) { const [ax, ay] = pts[Math.floor(upto)], [bx, by] = pts[Math.floor(upto) + 1]; path.push([ax + (bx - ax) * f, ay + (by - ay) * f]); }
+      const line = (w, col) => { ctx.beginPath(); path.forEach(([x, y], i) => (i ? ctx.lineTo(x, y) : ctx.moveTo(x, y))); ctx.lineWidth = w; ctx.strokeStyle = col; ctx.stroke(); };
+      ctx.save(); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+      line(26, 'rgba(60,44,30,0.35)'); // churned earth either side
+      line(15, '#0A0705');
+      if (glow > 0) { line(7, `rgba(255,120,40,${0.85 * glow})`); line(3, `rgba(255,230,150,${glow})`); } else line(4, '#3A2A1C');
+      // side cracks
+      ctx.lineWidth = 4; ctx.strokeStyle = '#0A0705';
+      for (let k = 1; k < path.length - 1; k++) {
+        const [x, y] = path[k], h1 = hash01(k, pts[0][1]), side = h1 > 0.5 ? 1 : -1, len = 18 + 26 * hash01(k, 7);
+        ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + (hash01(k, 3) - 0.5) * 30, y + side * len * 0.6); ctx.lineTo(x + (hash01(k, 4) - 0.5) * 40, y + side * len); ctx.stroke();
+      }
+      ctx.restore();
+    },
+    // how high a troop is thrown by an earthquake (looks only)
+    quakeHop(u) { const k = (this.t - u.qT) / 0.6; return k > 0 && k < 1 ? Math.sin(Math.PI * k) * 36 : 0; },
+    // the earthquake, made visible: the ground rips open bit by bit, dust and rocks fly, troops near it are thrown up (looks only)
+    quakeFx(ev) {
+      const p = clamp((ev.t - 0.25) / 0.9, 0, 1), n = ev.pts.length - 1, i = Math.min(n, Math.floor(p * n));
+      if (p > 0 && p < 1 && i !== ev.fxI) {
+        ev.fxI = i; const [x, y] = ev.pts[i];
+        this.burst(x, y, '#8A7458', 7, 260, 0.8, 9, 240); this.burst(x, y, '#5B4B3A', 4, 340, 0.9, 12, 520); this.burst(x, y, '#C9B79A', 5, 90, 1.4, 16, -40);
+        this.shake(14);
+      }
+      if (ev.hit && !ev.hopped) {
+        ev.hopped = true;
+        for (const u of this.units) if (!u.dead && !u.flying) {
+          let best = Infinity;
+          for (let k = 0; k < n; k++) { const [ax, ay] = ev.pts[k], [bx, by] = ev.pts[k + 1], vx = bx - ax, vy = by - ay, f = clamp(((u.x - ax) * vx + (u.y - ay) * vy) / (vx * vx + vy * vy), 0, 1); best = Math.min(best, Math.hypot(u.x - ax - vx * f, u.y - ay - vy * f)); }
+          if (best < 110) u.qT = this.t + best / 400;
+        }
+      }
+    },
+    // ----- spreading fire (rules.world.fire): explosions and fire attacks set the grass alight; it spreads cell by cell and burns out -----
+    initFire() {
+      this.FR = rng(((this.seed >>> 0) ^ 0xF17E5) >>> 0);
+      this.fireG = new Map(); this.fireBurnt = new Map(); this.fireAt = 0;
+      this.fireOn = !NOFIRE[this.opts.map];
+    },
+    ignite(x, y, chance) {
+      if (!this.fireOn || x < AR.x || x > AR.x + AR.w || y < AR.y || y > AR.y + AR.h) return;
+      const cx = (x - AR.x) / FIRE_CELL | 0, cy = (y - AR.y) / FIRE_CELL | 0, key = cx * 64 + cy, T = this.fightT;
+      if (this.fireG.has(key) || (this.fireBurnt.get(key) || 0) > T || this.fireG.size >= 26 || T < 6 || !this.FR.chance(chance)) return;
+      this.fireG.set(key, { cx, cy, t0: T, end: T + this.FR.range(3, 4.5) });
+      if (!this.fireSaid && this.fireG.size >= 5) { this.fireSaid = true; if (!this.chapter('THE GRASS IS ON FIRE', '#FF8A3D')) this.banner('THE GRASS IS ON FIRE!', '#FF8A3D', 1.4); this.xf.fire = true; }
+    },
+    fireTick() {
+      const T = this.fightT;
+      if (!this.fireG.size || T < this.fireAt) return;
+      this.fireAt = T + 0.5;
+      const cols = Math.ceil(AR.w / FIRE_CELL), rows = Math.ceil(AR.h / FIRE_CELL), add = [];
+      for (const [key, c] of this.fireG) {
+        if (T >= c.end) {
+          this.fireG.delete(key); this.fireBurnt.set(key, T + 20);
+          if (this.stains) { const g = this.stains.getContext('2d'); g.fillStyle = 'rgba(20,14,8,0.35)'; g.beginPath(); g.arc(c.cx * FIRE_CELL + FIRE_CELL / 2, c.cy * FIRE_CELL + FIRE_CELL / 2, FIRE_CELL * 0.62, 0, TAU); g.fill(); }
+          continue;
+        }
+        for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) { const nx = c.cx + dx, ny = c.cy + dy; if (nx >= 0 && ny >= 0 && nx < cols && ny < rows && this.FR.chance(0.13)) add.push([nx, ny]); }
+      }
+      for (const [nx, ny] of add) this.ignite(AR.x + nx * FIRE_CELL + 1, AR.y + ny * FIRE_CELL + 1, 1);
+      // anyone standing in the flames catches fire (both sides alike)
+      for (const u of this.units) {
+        if (u.dead || u.flying || UNIT[u.type].fireproof) continue;
+        const key = ((u.x - AR.x) / FIRE_CELL | 0) * 64 + ((u.y - AR.y) / FIRE_CELL | 0);
+        if (this.fireG.has(key)) this.burn(u, 0.8, 1.5, null);
+      }
+    },
+    drawFire(ctx) {
+      const t = this.t;
+      ctx.save();
+      for (const c of this.fireG.values()) {
+        const x = AR.x + c.cx * FIRE_CELL + FIRE_CELL / 2, y = AR.y + c.cy * FIRE_CELL + FIRE_CELL / 2, life = clamp(Math.min((this.fightT - c.t0) / 0.6, (c.end - this.fightT) / 0.8), 0, 1);
+        ctx.globalAlpha = 0.35 * life; ctx.fillStyle = '#2A1408'; ctx.beginPath(); ctx.arc(x, y, FIRE_CELL * 0.62, 0, TAU); ctx.fill();
+        ctx.globalAlpha = life;
+        for (let k = 0; k < 3; k++) {
+          const ox = (hash01(c.cx * 7 + k, c.cy) - 0.5) * FIRE_CELL * 0.8, oy = (hash01(c.cy * 5 + k, c.cx) - 0.5) * FIRE_CELL * 0.6;
+          const fl = 0.75 + 0.25 * Math.sin(t * 14 + k * 2 + c.cx), h = (14 + 8 * hash01(k, c.cx + c.cy)) * fl;
+          ctx.beginPath(); ctx.moveTo(x + ox - 7, y + oy + 4); ctx.quadraticCurveTo(x + ox - 6, y + oy - h * 0.5, x + ox, y + oy - h); ctx.quadraticCurveTo(x + ox + 6, y + oy - h * 0.5, x + ox + 7, y + oy + 4); ctx.closePath();
+          ctx.fillStyle = '#FF6B1A'; ctx.fill();
+          ctx.beginPath(); ctx.moveTo(x + ox - 3.5, y + oy + 3); ctx.quadraticCurveTo(x + ox - 3, y + oy - h * 0.3, x + ox, y + oy - h * 0.6); ctx.quadraticCurveTo(x + ox + 3, y + oy - h * 0.3, x + ox + 3.5, y + oy + 3); ctx.closePath();
+          ctx.fillStyle = '#FFD45A'; ctx.fill();
+        }
+      }
+      ctx.restore();
+    },
+    // damage you can see: scuffs and cracks on hurt troops, smoke from damaged machines (looks only)
+    drawWear(ctx, u, x, y) {
+      const U = UNIT[u.type], hurt = 1 - u.hp / u.max, r = u.r;
+      if (hurt < 0.35 || U.uncounted) return;
+      if (MACHINE[u.type] || U.rank === 0) {
+        if (hurt > 0.5) {
+          for (let k = 0; k < 3; k++) {
+            const p = ((this.t * 0.9 + k / 3 + hash01(k, u.gait)) % 1), sx = x + (hash01(k, u.gait * 3) - 0.5) * r * 0.8 + p * 10, sy = y - p * (r + 40);
+            ctx.beginPath(); ctx.arc(sx, sy, 5 + p * 13, 0, TAU); ctx.fillStyle = `rgba(${hurt > 0.75 ? '30,30,34' : '90,92,100'},${0.5 * (1 - p)})`; ctx.fill();
+          }
+          if (hurt > 0.75 && ((this.t * 10 + u.gait * 10) | 0) % 4 === 0) { ctx.beginPath(); ctx.arc(x + (hash01(3, u.gait) - 0.5) * r, y + (hash01(4, u.gait) - 0.5) * r, 3, 0, TAU); ctx.fillStyle = '#FFD45A'; ctx.fill(); }
+        }
+        if (MACHINE[u.type]) return;
+      }
+      if (U.mount || U.flying || r > 24) return;
+      const n = hurt > 0.8 ? 3 : hurt > 0.6 ? 2 : 1, S = this._scr || (this._scr = []), seed = u.wearK || (u.wearK = [0, 1, 2].map(k => [hash01(k + 1, u.gait) * TAU, 1.2 + hash01(k, u.gait * 2)]));
+      for (let k = 0; k < n; k++) {
+        const a = seed[k][0], cx = x + Math.cos(a) * r * 0.35, cy = y + Math.sin(a) * r * 0.35, b = a + seed[k][1], l = r * 0.42, c = Math.cos(b) * l, sn = Math.sin(b) * l;
+        S.push(cx - c, cy - sn, cx + c, cy + sn);
+      }
+    },
+  };
+  // ----- smarter fighting (rules.combat.smart) -----
+  const ARMY_SMART = {
+    // how many troops are already going for each enemy (counted five times a second)
+    smartPick(u, U) {
+      const T = this.fightT;
+      if (T >= (this.tgtAt || 0)) {
+        this.tgtAt = T + 0.2; const m = this.tgtN = new Map();
+        for (const o of this.units) if (!o.dead && o.target && !o.target.dead) m.set(o.target, (m.get(o.target) || 0) + 1);
+      }
+      return { melee: !U.ranged && !U.healer && U.rank !== 0, fast: !U.ranged && U.speed >= 105 && U.rank !== 0 };
+    },
+    smartScore(u, o, O, d, sm) {
+      const n = Math.min(5, this.tgtN.get(o) || 0) - (u.target === o ? 1 : 0);
+      // a big unit can take more attackers before it counts as crowded
+      if (sm.melee && n > 0) d *= 1 + 0.45 * n / (O.rank === 0 ? 3 : 1);
+      // your own lane: enemies straight ahead count as nearer than ones far to the side
+      if (this.N === 2 && sm.melee) d += (o.x - u.x) ** 2 * 0.6;
+      // fast fighters hunt shooters and healers round the side
+      if (sm.fast && (O.ranged || O.healer) && d < 420000) d *= 0.45;
+      return d;
+    },
+    // how a troop moves: hold a front instead of everyone running to one point, fast fighters swing round the flank,
+    // and a badly hurt fighter steps back behind his friends for a moment
+    smartMove(u, U, t, dvx, dvy) {
+      this.sdx = dvx; this.sdy = dvy;
+      if (U.ranged || U.healer || U.rank === 0 || u.duelist || UNIT[u.type].king || u.flying) return;
+      const T = this.fightT, dx = t.x - u.x, dy = t.y - u.y, d = Math.hypot(dx, dy) || 1, sp = Math.hypot(dvx, dvy);
+      if (u.fallT > T) {
+        const k = U.speed * this.speedMul * 0.8;
+        this.sdx = -dx / d * k; this.sdy = -dy / d * k + (u.team === 0 ? -1 : u.team === 1 ? 1 : 0) * k * 0.3; return;
+      }
+      if (u.hp < u.max * 0.22 && T >= (u.fbAt || 0) && T < (this.cap || 99) - 8 && !(u.tribe && u.tribe.chief === u)) {
+        u.fbAt = T + 9;
+        let friends = 0; for (const o of this.near(u.x, u.y, 80)) if (o.team === u.team && o !== u) friends++;
+        if (friends >= 2) { u.fallT = T + 1.2; this.callout(u, 'FALL BACK', '#93C5FD'); return; }
+      }
+      if (!sp || d - u.r - t.r <= (U.reach || 5) + 4) return;
+      const nx = dx / d, ny = dy / d;
+      let ax = nx, ay = ny;
+      if (U.speed >= 105) {
+        // swing round the side on the way in (which side is fixed per troop)
+        const side = u.gait > Math.PI ? 1 : -1, w = 0.7 * clamp((d - 70) / 220, 0, 1);
+        ax += -ny * side * w; ay += nx * side * w;
+      } else if (this.N === 2 && d > 150) {
+        // keep the front: walk forward more than inward, so the armies meet along a line, not in one heap
+        const fwd = u.team === 0 ? 1 : -1, w = 0.45 * clamp((d - 150) / 250, 0, 1);
+        ax = ax * (1 - w); ay = ay * (1 - w) + fwd * w;
+      }
+      const al = Math.hypot(ax, ay) || 1;
+      this.sdx = ax / al * sp; this.sdy = ay / al * sp;
+    },
+  };
+  Object.assign(Army.prototype, ARMY_EXT, ARMY_DRAW, ARMY_MAPS, ARMY_EXT2, ARMY_DRAW2, ARMY_COMBAT, ARMY_TRIBES, ARMY_TRIBES_DRAW, ARMY_PACE, ARMY_UI2, ARMY_WORLD, ARMY_FX2, ARMY_SMART);
 
   const GAMES = { territory: Territory, duel: Duel, army: Army };
   Object.assign(api, { rng, Match, Territory, Duel, Army, Director, Synth, GAMES, WEAPONS, DOCTRINES, MODERN_DOCTRINES, FANTASY_DOCTRINES, GENRES, UNIT_ERA, ALL_DOCTRINES, MAPS, MAP_THEME, UNIT, eraOf, fmtTime, labelOf, docLabel, MAP_MECH, SKINS, MODE_HOOK, specOf, TRIBE_POOL, TRAIT, STAKE });

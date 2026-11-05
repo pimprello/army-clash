@@ -2,6 +2,18 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-05: Army Clash 2.0, part 2: smarter fighting, weapon hits you can see, earthquakes, spreading fire
+
+Rellz asked (09:21) for the spear to be at the spearman's side, earthquakes that actually do something you notice (and the crack line no longer drawn over the troops), more realistic looks with more visible damage, fire spreading, better weapon animations (real sword slices and spear strikes), and better fight logic ("they all just join in a pack to the nearest person"). On from the next video.
+
+- **Smarter fighting** (`rules.combat.smart`): troops spread out over the enemy instead of piling onto one, prefer enemies in their own lane so the armies meet along a front, fast fighters swing round the flank to reach shooters and healers, and a badly hurt fighter with friends nearby steps back for a moment. Tested over 32 mirror battles: the same end times and the same fairness as before.
+- **Weapons:** a sword swing now sweeps a solid crescent, and every hit shows: a bright slice across the target for blades, a streak through it for spears, an arc for axes, a ring of force for giants and hammers. Spear thrusts leave speed lines.
+- **The spearman** holds his spear in his right hand at his side, instead of it running across his body.
+- **Damage you can see:** hurt troops get scuffs and cracks; damaged machines and big units smoke (darker and sparking when nearly dead); explosions leave scorch marks and crater rings on the ground that fade slowly.
+- **Earthquakes:** the crack now rips across the field bit by bit, glowing orange inside, with dust and rocks bursting out and the screen shaking. Troops near it are thrown into the air, and the crack is drawn on the ground under the troops.
+- **Spreading fire** (`rules.world.fire`): big explosions and fire attacks can set the grass alight; it spreads patch by patch, burns everyone standing in it (both sides alike), and leaves scorched ground ("THE GRASS IS ON FIRE"). Not on snow, ice, sand or other maps that don't burn.
+- With these options off, old battles play out exactly as before (checked). No preview videos were made.
+
 ## 2026-11-05 (later): a button to delete low-view videos
 
 Rellz asked to delete videos posted before today with under 100 views.
@@ -39,7 +51,7 @@ Rellz asked for a major UI update ("make everything look clean and smooth... mak
   - **Blood Moon:** a red moon, and every hit does 35% more;
   - **Supersize:** one champion on each side grows huge;
   - **Rave Mode:** spotlights, a disco ball, and everyone moves and strikes faster.
-  All of them hit both sides alike (tested over 48 battles: no crashes, every battle still ended on time, wins split evenly). A soft vignette now frames the battlefield too.
+  All of them hit both sides alike (tested over 48 battles: no crashes, every battle still ended on time, wins split evenly).
 - **Fixed before it reached a video:** a name clash in the new code would have drawn some troops as roster strips; caught by the layout check.
 - **Tested:** the layout check now also checks the Shorts safe zone at eight moments of every battle plus the outro; it passes for all 127 battles. Battles play out exactly the same in the new and old layouts (fingerprints of five full battles match). Stills checked with a mock of YouTube's buttons and title on top.
 - Videos already posted don't change. No preview videos were made.
