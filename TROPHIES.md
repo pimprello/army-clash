@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 236 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 237 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -73,9 +73,9 @@ Records from 236 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - IMMORTAL FRAUD SLAYER: 6
 - COLOSSUS SLAYER: 7
 - MECH SLAYER: 7
-- PLAYER SLAYER: 8
 - ELEPHANT SLAYER: 9
 - GOLEM SLAYER: 9
+- PLAYER SLAYER: 9
 - DRAGON SLAYER: 13
 - GIANT SLAYER: 14
 - TITAN SLAYER: 20
@@ -107,6 +107,7 @@ Records from 236 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - possess: hourglass: 1
 - copied: trooper: 1
 - possess: stormemperor: 1
+- extinct: WHITE: 1
 - extinct: RED: 2
 - extinct: ORANGE: 2
 - extinct: BLUE: 2
@@ -134,14 +135,15 @@ Records from 236 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Nova Legion | 2 | 2 | 0 | 236 | 2 won | 2 |
 | Iron Boar Clan | 2 | 2 | 0 | 154 | 2 won | 2 |
 | Greyfang Clan | 3 | 2 | 1 | 103 | 2 won | 2 |
+| Ash Wolf Clan | 2 | 2 | 0 | 98 | 2 won | 2 |
 | Mossback Tribe | 3 | 2 | 1 | 97 | 2 won | 2 |
 | Orbit Legion | 2 | 2 | 0 | 73 | 2 won | 2 |
 | Black Bear Clan | 2 | 2 | 0 | 73 | 2 won | 2 |
 | Golden Lion Order | 2 | 2 | 0 | 61 | 2 won | 2 |
 | Brightwater Tribe | 4 | 2 | 2 | 47 | 1 won | 1 |
 | Badger Platoon | 2 | 2 | 0 | 29 | 2 won | 2 |
+| Wildbrook Clan | 3 | 1 | 2 | 182 | 1 lost | 1 |
 | Ashmantle Kin | 1 | 1 | 0 | 182 | 1 won | 1 |
-| Wildbrook Clan | 2 | 1 | 1 | 117 | 1 won | 1 |
 | Stormhorn Tribe | 1 | 1 | 0 | 91 | 1 won | 1 |
 | Stonewall Company | 4 | 1 | 2 | 90 | 2 lost | 1 |
 | Duskwing Tribe | 3 | 1 | 1 | 86 | 1 lost | 1 |
@@ -149,7 +151,6 @@ Records from 236 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Viper Company | 1 | 1 | 0 | 68 | 1 won | 1 |
 | Highmoor Clan | 1 | 1 | 0 | 66 | 1 won | 1 |
 | Wolverine Company | 1 | 1 | 0 | 65 | 1 won | 1 |
-| The Black Candle | 2 | 1 | 1 | 64 | 1 lost | 1 |
 
 ### Great rivalries
 
@@ -158,6 +159,7 @@ Records from 236 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 04:31: The Ash Wolf Clan Take the Open Plains (2nd win · 73 kills)
 - 2026-11-05 04:18: The Ashmantle Kin Take the Overgrown Throne (first battle, first win · 182 kills)
 - 2026-11-05 04:03: The House of the Crimson Carp Take the Sky-temple Relic (first battle, first win · 25 kills)
 - 2026-11-05 03:47: The Wolverine Company Take the Mirror Gate (first battle, first win · 65 kills)
@@ -167,4 +169,3 @@ Records from 236 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 02:48: The Greyfang Clan Take the Overgrown Throne (first ever win · 43 kills)
 - 2026-11-05 02:33: The Emberroot Circle Take the Open Plains (first battle, first win · 50 kills)
 - 2026-11-05 02:28: The Iron Boar Clan Take the Haunted Crypt (2nd win · 135 kills)
-- 2026-11-05 01:53: The Mossback Tribe Take the Castle (first ever win · 38 kills)
