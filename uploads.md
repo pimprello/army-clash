@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-05 05:14 | 30 HEROES vs 57 Orcs 🛡️ | Purple wins | https://youtube.com/shorts/K2l9I_Jblww |
 | 2026-11-05 05:00 | They Were LOSING Until This 😳 | Finland wins | https://youtube.com/shorts/lBndgqD4J_g |
 | 2026-11-05 04:46 | The Weapons Came ALIVE 🗡️ | Silver wins | https://youtube.com/shorts/9u_E0CRKH60 |
 | 2026-11-05 04:31 | They Lost Their CHIEF and Still Won 😳 | White wins | https://youtube.com/shorts/_Xi6G2-_m_k |

@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 239 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 240 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -128,12 +128,13 @@ Records from 239 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-62 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+64 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Storm Tower Order | 5 | 3 | 2 | 289 | 1 won | 1 |
 | Nova Legion | 2 | 2 | 0 | 236 | 2 won | 2 |
+| Ashmantle Kin | 2 | 2 | 0 | 194 | 2 won | 2 |
 | Iron Boar Clan | 2 | 2 | 0 | 154 | 2 won | 2 |
 | Wolverine Company | 2 | 2 | 0 | 108 | 2 won | 2 |
 | Greyfang Clan | 3 | 2 | 1 | 103 | 2 won | 2 |
@@ -145,7 +146,6 @@ Records from 239 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Brightwater Tribe | 4 | 2 | 2 | 47 | 1 won | 1 |
 | Badger Platoon | 2 | 2 | 0 | 29 | 2 won | 2 |
 | Wildbrook Clan | 3 | 1 | 2 | 182 | 1 lost | 1 |
-| Ashmantle Kin | 1 | 1 | 0 | 182 | 1 won | 1 |
 | Stonebridge Company | 3 | 1 | 2 | 115 | 1 won | 1 |
 | Stormhorn Tribe | 1 | 1 | 0 | 91 | 1 won | 1 |
 | Stonewall Company | 4 | 1 | 2 | 90 | 2 lost | 1 |
@@ -160,6 +160,7 @@ Records from 239 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 05:14: The Gloomcap Circle Take the Crystal Grove (first battle, first win · 18 kills)
 - 2026-11-05 05:00: The Wolverine Company Take the Open Plains (2nd win · 43 kills)
 - 2026-11-05 04:46: The Stonebridge Company Take the Old Forest (first ever win · 63 kills)
 - 2026-11-05 04:31: The Ash Wolf Clan Take the Open Plains (2nd win · 73 kills)
@@ -169,4 +170,3 @@ Records from 239 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 03:31: The Ash Wolf Clan Take the Open Plains (first battle, first win · 25 kills)
 - 2026-11-05 03:17: The Greyfang Clan Take the Titan's Bones (2nd win · 36 kills)
 - 2026-11-05 03:02: The Crew of the Sea Wolf Take the Desert Well (first battle, first win · 31 kills)
-- 2026-11-05 02:48: The Greyfang Clan Take the Overgrown Throne (first ever win · 43 kills)
