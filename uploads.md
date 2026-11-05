@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-05 20:17 | The Merchant Sold Them a War Horn 💰 | Olive wins | https://youtube.com/shorts/cfLIMTVR6jc |
 | 2026-11-05 20:04 | 🦅 GRIFFIN RIDERS vs Archers | Blue wins | https://youtube.com/shorts/pXpC0VLdZJ0 |
 | 2026-11-05 19:46 | The Weapons Came ALIVE 🗡️ | Red wins | https://youtube.com/shorts/QqO-dg_c-xA |
 | 2026-11-05 18:51 | LIGHTNING Struck the Battlefield ⚡ | Belgium wins | https://youtube.com/shorts/ry3nsmZZmhw |

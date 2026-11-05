@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 292 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 293 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -78,7 +78,7 @@ Records from 292 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - TANK SLAYER: 11
 - GIANT SLAYER: 15
 - DRAGON SLAYER: 19
-- TITAN SLAYER: 25
+- TITAN SLAYER: 26
 
 ## Mutations (rarest first)
 
@@ -88,7 +88,7 @@ Records from 292 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - swift: 41
 - venom: 45
 - spikes: 49
-- regen: 58
+- regen: 59
 
 ## Big moments
 
@@ -108,6 +108,7 @@ Records from 292 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - possess: stormemperor: 1
 - extinct: WHITE: 1
 - extinct: UK: 1
+- extinct: OLIVE: 1
 - extinct: RED: 2
 - extinct: ORANGE: 2
 - extinct: BLUE: 2
@@ -134,7 +135,7 @@ Records from 292 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
-| Red Hawk Company | 9 | 7 | 2 | 306 | 1 won | 5 |
+| Red Hawk Company | 10 | 8 | 2 | 377 | 2 won | 5 |
 | Mossback Tribe | 8 | 5 | 3 | 348 | 1 lost | 3 |
 | Order of the Silver Stag | 9 | 4 | 5 | 418 | 1 won | 3 |
 | Frostwhisper Tribe | 6 | 4 | 2 | 192 | 4 won | 4 |
@@ -168,6 +169,7 @@ Records from 292 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 20:17: The Red Hawk Company Take the Open Plains (8th win · 71 kills)
 - 2026-11-05 20:04: The Starweave Circle Take the Sky-temple Relic (2nd win · 89 kills)
 - 2026-11-05 19:46: The Wormwood Coven Take the Mirror Gate (first ever win · 24 kills)
 - 2026-11-05 18:51: The Starweave Circle Take the Godboard (revenge denied · first ever win · 48 kills)
@@ -177,4 +179,3 @@ Records from 292 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 17:55: The Sunspire Kin Take the Old Forest (streak ended · first ever win · 68 kills)
 - 2026-11-05 17:36: The Order of the Silver Stag Take the Open Plains (4th win · 70 kills)
 - 2026-11-05 16:04: The Badger Platoon Take the Swamp Shrine (3 wins in a row · 51 kills)
-- 2026-11-05 15:48: The Harrier Squadron Take the World Furnace (streak ended · first ever win · 29 kills)
