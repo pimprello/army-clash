@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-05 03:47 | 🇦🇷 Argentina vs Brazil 🇧🇷 | Brazil wins | https://youtube.com/shorts/rgIEup_XgBE |
 | 2026-11-05 03:31 | The Smaller Army Did WHAT? 😳 | Pink wins | https://youtube.com/shorts/0DZzgJi7kIY |
 | 2026-11-05 03:17 | MIRROR MATCH: Knights vs KNIGHTS 🪞 | Orange wins | https://youtube.com/shorts/tU-2yBUzT2c |
 | 2026-11-05 03:02 | 🔥 SHADOW TROLLS vs Ultra Plague | Yellow wins | https://youtube.com/shorts/TQSlei-VBFQ |
