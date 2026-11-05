@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 272 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 273 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -77,7 +77,7 @@ Records from 272 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PLAYER SLAYER: 9
 - GOLEM SLAYER: 10
 - GIANT SLAYER: 15
-- DRAGON SLAYER: 16
+- DRAGON SLAYER: 17
 - TITAN SLAYER: 23
 
 ## Mutations (rarest first)
@@ -130,7 +130,7 @@ Records from 272 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-93 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+95 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
@@ -168,6 +168,7 @@ Records from 272 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 13:20: The Silverbough Circle Take the Canyon Pass (first ever win · 17 kills)
 - 2026-11-05 13:08: The Red Hawk Company Take the Crystal Grove (revenge denied · 5 wins in a row · 45 kills)
 - 2026-11-05 12:50: The Thornheart Circle Take the Open Plains (first battle, first win · 34 kills)
 - 2026-11-05 12:36: The Grinning Moon Take the Mountain Pass (first battle, first win · 79 kills)
@@ -177,4 +178,3 @@ Records from 272 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 11:39: The Pale Procession Take the Sky Islands (2nd win · 39 kills)
 - 2026-11-05 11:22: The Crooked Spire Take the Open Plains (2nd win · 42 kills)
 - 2026-11-05 11:08: The Mossback Tribe Take the Ruined Fort (4th win · 77 kills)
-- 2026-11-05 10:56: The Thornwood Company Take the Mountain Pass (revenge! · 2nd win · 25 kills)
