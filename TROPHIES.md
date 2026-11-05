@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 302 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 303 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 302 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **IVOR THE WALL** (ORC), 18 kills · 2026-11-05 23:40
 - **BRAMBLE THE BOLD** (SWORDSMAN), 13 kills · 2026-11-05 23:11
 - **OSKA BONECRUSHER** (WIZARD), 19 kills · 2026-11-05 22:54
 - **PELL GRAVEBANE** (GRIFFIN RIDER), 15 kills · 2026-11-05 20:04
@@ -47,7 +48,6 @@ Records from 302 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **COBRA-8** (LASER TROOPER), 10 kills · 2026-11-05 06:44
 - **RUNA THE SWIFT** (KNIGHT), 10 kills · 2026-11-05 04:46
 - **OSKA IRONHIDE** (WIZARD), 16 kills · 2026-11-05 04:18
-- **GRIM SKULLTAKER** (SWORDSMAN), 11 kills · 2026-11-05 03:17
 
 ## Titles earned (rarest first)
 
@@ -68,7 +68,7 @@ Records from 302 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - HYDRA SLAYER: 6
 - UNMAKER SLAYER: 6
 - IMMORTAL FRAUD SLAYER: 6
-- COLOSSUS SLAYER: 7
+- COLOSSUS SLAYER: 8
 - CANNON SLAYER: 8
 - ELEPHANT SLAYER: 9
 - MAMMOTH SLAYER: 9
@@ -84,11 +84,11 @@ Records from 302 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 - vampiric: 7
 - wings: 22
-- spellward: 34
+- spellward: 35
 - swift: 45
-- venom: 47
+- venom: 48
 - spikes: 51
-- regen: 60
+- regen: 61
 
 ## Big moments
 
@@ -150,12 +150,12 @@ Records from 302 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Stormhorn Tribe | 4 | 3 | 1 | 260 | 1 lost | 3 |
 | Golden Lion Order | 5 | 3 | 2 | 219 | 2 lost | 3 |
 | Thunder Platoon | 4 | 3 | 1 | 173 | 1 lost | 3 |
+| Mustang Battalion | 5 | 3 | 1 | 169 | 2 won | 2 |
+| Emberroot Circle | 4 | 3 | 0 | 130 | 3 won | 3 |
 | Black Bear Clan | 4 | 3 | 1 | 119 | 1 won | 2 |
 | Cinderclaw Kin | 4 | 3 | 1 | 100 | 1 lost | 3 |
 | The Pale Procession | 3 | 3 | 0 | 91 | 3 won | 3 |
 | Hammer Platoon | 5 | 3 | 2 | 88 | 2 won | 2 |
-| Thornwood Company | 5 | 3 | 2 | 87 | 2 won | 2 |
-| Badger Platoon | 3 | 3 | 0 | 80 | 3 won | 3 |
 
 ### Great rivalries
 
@@ -170,6 +170,7 @@ Records from 302 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 23:40: The Mustang Battalion Take the Reactor (3rd win · 57 kills)
 - 2026-11-05 23:11: The Oakshield Clan Take the Treasure Cove (streak ended · 4th win · 66 kills)
 - 2026-11-05 22:54: The Starweave Circle Take the Open Plains (3 wins in a row · 110 kills)
 - 2026-11-05 22:39: The Photon Wing Take the Bombed City (first battle, first win · 67 kills)
@@ -179,4 +180,3 @@ Records from 302 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 21:42: The House of the Silver Tiger Take the Open Plains (streak ended · 2nd win · 27 kills)
 - 2026-11-05 21:25: The Crew of the Iron Anchor Take the Mountain Pass (first ever win · 19 kills)
 - 2026-11-05 20:29: The Thunder Platoon Take the Open Plains (revenge denied · 3 wins in a row · 70 kills)
-- 2026-11-05 20:17: The Red Hawk Company Take the Open Plains (8th win · 71 kills)
