@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-05 03:02 | 🔥 SHADOW TROLLS vs Ultra Plague | Yellow wins | https://youtube.com/shorts/TQSlei-VBFQ |
 | 2026-11-05 02:48 | Knights vs SOLDIERS ⚔️ | Orange wins | https://youtube.com/shorts/g12xav96kHc |
 | 2026-11-05 02:33 | STAREATER vs Stormemperor vs Worldroot 🔥 | Pink wins | https://youtube.com/shorts/KjYK9C1WU_M |
 | 2026-11-05 02:28 | The Ancient Titan Went DOWN 💀 | Blue wins | https://youtube.com/shorts/UK9Rdj07rQY |

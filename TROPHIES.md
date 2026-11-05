@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 230 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 231 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -126,7 +126,7 @@ Records from 230 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-46 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+49 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
@@ -139,7 +139,7 @@ Records from 230 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Wildbrook Clan | 2 | 1 | 1 | 117 | 1 won | 1 |
 | Stormhorn Tribe | 1 | 1 | 0 | 91 | 1 won | 1 |
 | Stonewall Company | 4 | 1 | 2 | 90 | 2 lost | 1 |
-| Duskwing Tribe | 2 | 1 | 0 | 76 | 1 won | 1 |
+| Duskwing Tribe | 3 | 1 | 1 | 86 | 1 lost | 1 |
 | Viper Company | 1 | 1 | 0 | 68 | 1 won | 1 |
 | Greyfang Clan | 2 | 1 | 1 | 67 | 1 won | 1 |
 | Highmoor Clan | 1 | 1 | 0 | 66 | 1 won | 1 |
@@ -158,6 +158,7 @@ Records from 230 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-05 03:02: The Crew of the Sea Wolf Take the Desert Well (first battle, first win · 31 kills)
 - 2026-11-05 02:48: The Greyfang Clan Take the Overgrown Throne (first ever win · 43 kills)
 - 2026-11-05 02:33: The Emberroot Circle Take the Open Plains (first battle, first win · 50 kills)
 - 2026-11-05 02:28: The Iron Boar Clan Take the Haunted Crypt (2nd win · 135 kills)
@@ -167,4 +168,3 @@ Records from 230 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 01:08: The Viper Company Take the Quarry (first battle, first win · 68 kills)
 - 2026-11-05 00:54: The Highmoor Clan Take the Clockwork Arena (first battle, first win · 66 kills)
 - 2026-11-05 00:39: The Black Bear Clan Take the Bombed City (first battle, first win · 39 kills)
-- 2026-11-05 00:26: The Nova Legion Take the Open Plains (2nd win · 131 kills)
