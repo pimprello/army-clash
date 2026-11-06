@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 345 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 346 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -69,8 +69,8 @@ Records from 345 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - UNMAKER SLAYER: 7
 - IMMORTAL FRAUD SLAYER: 7
 - COLOSSUS SLAYER: 8
-- CANNON SLAYER: 8
 - ELEPHANT SLAYER: 9
+- CANNON SLAYER: 9
 - PLAYER SLAYER: 9
 - MECH SLAYER: 10
 - TANK SLAYER: 12
@@ -86,8 +86,8 @@ Records from 345 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - wings: 26
 - spellward: 38
 - swift: 52
-- venom: 57
-- spikes: 62
+- venom: 58
+- spikes: 63
 - regen: 70
 
 ## Big moments
@@ -138,10 +138,10 @@ Records from 345 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
-| Mossback Tribe | 13 | 10 | 3 | 530 | 5 won | 5 |
+| Mossback Tribe | 14 | 11 | 3 | 554 | 6 won | 6 |
 | Red Hawk Company | 12 | 9 | 3 | 447 | 1 lost | 5 |
-| Starweave Circle | 10 | 5 | 5 | 475 | 2 lost | 5 |
-| Frostwhisper Tribe | 9 | 5 | 4 | 336 | 1 lost | 4 |
+| Frostwhisper Tribe | 10 | 6 | 4 | 369 | 1 won | 4 |
+| Starweave Circle | 11 | 5 | 6 | 492 | 3 lost | 5 |
 | Oakshield Clan | 9 | 5 | 4 | 256 | 1 won | 3 |
 | Iron Boar Clan | 6 | 5 | 1 | 197 | 3 won | 3 |
 | The Black Candle | 6 | 5 | 1 | 177 | 4 won | 4 |
@@ -161,17 +161,18 @@ Records from 345 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Great rivalries
 
+- **Mossback Tribe vs Stormhorn Tribe**: met 3 times, last won by Mossback Tribe
+- **Mossback Tribe vs Starweave Circle**: met 3 times, last won by Mossback Tribe
 - **Starweave Circle vs Storm Tower Order**: met 3 times
 - **Brightwater Tribe vs Frostwhisper Tribe**: met 2 times, last won by Frostwhisper Tribe
 - **Duskwing Tribe vs Frostwhisper Tribe**: met 2 times, last won by Frostwhisper Tribe
 - **Red Hawk Company vs Wildbrook Clan**: met 2 times, last won by Red Hawk Company
 - **Storm Tower Order vs Wildbrook Clan**: met 2 times, last won by Wildbrook Clan
 - **Cipher Cohort vs Vortex Legion**: met 2 times, last won by Cipher Cohort
-- **Brightwater Tribe vs Glimmerdeep Kin**: met 2 times
-- **Mossback Tribe vs Stormhorn Tribe**: met 2 times, last won by Mossback Tribe
 
 ### Latest from the battlefield
 
+- 2026-11-06 13:12: The Frostwhisper Tribe Take the Open Plains (revenge denied · 6th win · 33 kills)
 - 2026-11-06 12:59: The Axiom Legion Take the Canyon Pass (2nd win · 18 kills)
 - 2026-11-06 12:44: The Cinderclaw Kin Take the Titan's Bones (4th win · 65 kills)
 - 2026-11-06 12:30: The Nightjar Company Take the City (revenge denied · 2nd win · 89 kills)
@@ -181,4 +182,3 @@ Records from 345 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 11:30: The Glimmerdeep Kin Take the Quarry (4 wins in a row · 63 kills)
 - 2026-11-06 11:13: The Thunder Gate School Take the Haunted Crypt (2nd win · 22 kills)
 - 2026-11-06 11:03: The Bilgewater Crew Take the Canyon Pass (2nd win · 46 kills)
-- 2026-11-06 10:48: The Mire Witch Coven Take the Old Forest (revenge denied · 5 wins in a row · 60 kills)

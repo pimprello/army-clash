@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 13:12 | Hold the HILL to Win? Ogres vs Dwarves 🚩 | Teal wins | https://youtube.com/shorts/ilUE6SLRgv8 |
 | 2026-11-06 12:59 | 3 Armies, Only 1 SURVIVES 💀 | Green wins | https://youtube.com/shorts/sufvTcu9uRg |
 | 2026-11-06 12:44 | The Smaller Army Did WHAT? 😳 | Yellow wins | https://youtube.com/shorts/yelUV2ExM1g |
 | 2026-11-06 12:30 | The Smaller Army Did WHAT? 😳 | Gold wins | https://youtube.com/shorts/8X9phIgG06I |
