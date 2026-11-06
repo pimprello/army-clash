@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 23:06 | The Last Stand FELL 💀 | Cyan wins | https://youtube.com/shorts/ZNy8S5oQntU |
 | 2026-11-06 22:49 | The Weapons Came ALIVE 🗡️ | Blue wins | https://youtube.com/shorts/qL_aoDY5UXU |
 | 2026-11-06 21:55 | Shadow Skeletons vs Ghost Skeletons 🪞 | Yellow wins | https://youtube.com/shorts/u7tlhmjJ6X4 |
 | 2026-11-06 20:58 | ⚔️ CHAMPION DUEL: Savage Drones vs Ghost Bombers | Blue wins | https://youtube.com/shorts/dWQOLCaMnUg |

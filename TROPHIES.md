@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 377 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 378 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -88,7 +88,7 @@ Records from 377 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - swift: 54
 - venom: 61
 - spikes: 65
-- regen: 76
+- regen: 77
 
 ## Big moments
 
@@ -139,13 +139,13 @@ Records from 377 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 15 | 12 | 3 | 600 | 7 won | 7 |
-| Red Hawk Company | 12 | 9 | 3 | 447 | 1 lost | 5 |
+| Red Hawk Company | 13 | 10 | 3 | 462 | 1 won | 5 |
 | Frostwhisper Tribe | 14 | 8 | 6 | 443 | 1 lost | 4 |
 | Starweave Circle | 18 | 7 | 11 | 712 | 5 lost | 5 |
 | Thornheart Circle | 9 | 7 | 2 | 596 | 3 won | 3 |
 | Mire Witch Coven | 7 | 7 | 0 | 247 | 7 won | 7 |
 | Silverbough Circle | 19 | 6 | 13 | 838 | 2 lost | 2 |
-| Emberroot Circle | 9 | 6 | 2 | 284 | 2 won | 3 |
+| Emberroot Circle | 10 | 6 | 3 | 306 | 1 lost | 3 |
 | Duskwing Tribe | 16 | 5 | 10 | 571 | 1 won | 2 |
 | Stormhorn Tribe | 9 | 5 | 4 | 511 | 2 won | 3 |
 | Order of the Silver Stag | 11 | 5 | 6 | 505 | 1 lost | 3 |
@@ -157,7 +157,7 @@ Records from 377 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | The Black Candle | 6 | 5 | 1 | 177 | 4 won | 4 |
 | Bone Garden Coven | 8 | 5 | 3 | 120 | 1 won | 3 |
 | Wildbrook Clan | 14 | 4 | 10 | 554 | 1 won | 1 |
-| Hollowbark Kin | 12 | 4 | 8 | 355 | 1 lost | 2 |
+| Hollowbark Kin | 13 | 4 | 9 | 389 | 2 lost | 2 |
 
 ### Great rivalries
 
@@ -172,6 +172,7 @@ Records from 377 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 23:06: The Copper Crown Company Take the Reactor (streak ended · 4th win · 21 kills)
 - 2026-11-06 22:49: The Mountain Wind School Take the Canyon Pass (4th win · 82 kills)
 - 2026-11-06 21:55: The Duskwing Tribe Take the Clockwork Arena (revenge denied · 5th win · 55 kills)
 - 2026-11-06 20:58: The Copperhead Battalion Take the Trench Line (streak ended · 3rd win · 16 kills)
@@ -181,4 +182,3 @@ Records from 377 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 20:00: The Highmoor Clan Take the Open Plains (streak ended · 3rd win · 31 kills)
 - 2026-11-06 19:48: The Highmoor Clan Take the Mountain Pass (2nd win · 52 kills)
 - 2026-11-06 19:32: The Quasar Wing Take the Canyon Pass (2nd win · 83 kills)
-- 2026-11-06 19:18: The Silverbough Circle Take the City (6th win · 35 kills)
