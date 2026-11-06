@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 328 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 329 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -151,12 +151,12 @@ Records from 328 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Emberroot Circle | 6 | 4 | 1 | 224 | 1 won | 3 |
 | Gloomcap Circle | 9 | 4 | 5 | 215 | 3 lost | 3 |
 | Sunspire Kin | 6 | 4 | 2 | 201 | 2 won | 2 |
+| The Black Candle | 5 | 4 | 1 | 161 | 3 won | 3 |
 | Thornwood Company | 6 | 4 | 2 | 111 | 3 won | 3 |
 | Badger Platoon | 4 | 4 | 0 | 89 | 4 won | 4 |
 | Mire Witch Coven | 4 | 4 | 0 | 80 | 4 won | 4 |
 | Storm Tower Order | 11 | 3 | 8 | 427 | 6 lost | 1 |
 | Wildbrook Clan | 10 | 3 | 7 | 351 | 1 lost | 1 |
-| Glimmerdeep Kin | 7 | 3 | 4 | 299 | 3 won | 3 |
 
 ### Great rivalries
 
@@ -171,6 +171,7 @@ Records from 328 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 09:01: The Black Candle Take the Canyon Pass (3 wins in a row · 48 kills)
 - 2026-11-06 08:47: The Moonfang Tribe Take the Treasure Cove (2nd win · 31 kills)
 - 2026-11-06 08:34: The Duskwing Tribe Take the Treasure Cove (4th win · 41 kills)
 - 2026-11-06 08:24: The Silent Mile Take the Frozen End (2nd win · 41 kills)
@@ -180,4 +181,3 @@ Records from 328 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 06:18: The Thornheart Circle Take the Crystal Grove (streak ended · 3rd win · 120 kills)
 - 2026-11-06 06:03: The Glimmerdeep Kin Take the Canyon Pass (3 wins in a row · 57 kills)
 - 2026-11-06 05:52: The Black Candle Take the Mountain Pass (3rd win · 19 kills)
-- 2026-11-06 05:34: The Vortex Legion Take the Titan's Bones (streak ended · 3rd win · 105 kills)
