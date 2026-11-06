@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 314 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 315 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -132,7 +132,7 @@ Records from 314 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-102 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+103 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
@@ -143,6 +143,7 @@ Records from 314 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Nova Legion | 5 | 4 | 1 | 320 | 2 won | 2 |
 | Oakshield Clan | 8 | 4 | 4 | 250 | 1 lost | 3 |
 | Frostwhisper Tribe | 7 | 4 | 3 | 247 | 1 lost | 4 |
+| Golden Lion Order | 6 | 4 | 2 | 246 | 1 won | 3 |
 | Raven Hill Clan | 6 | 4 | 2 | 227 | 3 won | 3 |
 | Gloomcap Circle | 8 | 4 | 4 | 158 | 2 lost | 3 |
 | Thornwood Company | 6 | 4 | 2 | 111 | 3 won | 3 |
@@ -151,7 +152,6 @@ Records from 314 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Wildbrook Clan | 9 | 3 | 6 | 328 | 1 won | 1 |
 | Stormhorn Tribe | 5 | 3 | 2 | 293 | 2 lost | 3 |
 | Duskwing Tribe | 9 | 3 | 5 | 260 | 3 lost | 2 |
-| Golden Lion Order | 5 | 3 | 2 | 219 | 2 lost | 3 |
 | Iron Boar Clan | 4 | 3 | 1 | 179 | 1 won | 2 |
 | Thunder Platoon | 4 | 3 | 1 | 173 | 1 lost | 3 |
 | Hollowbark Kin | 5 | 3 | 2 | 170 | 1 lost | 2 |
@@ -170,6 +170,7 @@ Records from 314 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 04:36: The Golden Lion Order Take the Godboard (4th win · 27 kills)
 - 2026-11-06 04:21: The Mire Witch Coven Take the Quarry (2nd win · 32 kills)
 - 2026-11-06 04:06: The Rum Barrel Crew Take the Canyon Pass (2nd win · 29 kills)
 - 2026-11-06 03:11: The Mossback Tribe Take the Ruined Fort (streak ended · 6th win · 60 kills)
@@ -179,4 +180,3 @@ Records from 314 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 01:17: The Hollowbark Kin Take the World Furnace (2nd win · 31 kills)
 - 2026-11-06 01:02: The Kestrel Squadron Take the Ruined Fort (first ever win · 77 kills)
 - 2026-11-06 00:49: The Falling Leaf School Take the Swamp Shrine (first ever win · 49 kills)
-- 2026-11-06 00:32: The Crew of the Iron Anchor Take the Canyon Pass (2nd win · 24 kills)
