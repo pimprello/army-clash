@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 339 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 340 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 339 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **ASHKA STEELHEART** (SIEGE GUNNER), 25 kills · 2026-11-06 11:48
 - **ASHKA STEELHEART** (WARLOCK), 10 kills · 2026-11-06 11:03
 - **ECHO-3** (LASER TROOPER), 10 kills · 2026-11-06 10:03
 - **OSKA THE UNBROKEN** (SWORDSMAN), 16 kills · 2026-11-06 09:49
@@ -47,7 +48,6 @@ Records from 339 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **IVOR THE SWIFT** (TROLL), 17 kills · 2026-11-05 18:51
 - **TALVO THE SWIFT** (ROYAL GUARD), 10 kills · 2026-11-05 18:38
 - **GRUNDA STORMBORN** (ROYAL GUARD), 20 kills · 2026-11-05 13:51
-- **ASHKA THE SWIFT** (SAMURAI), 12 kills · 2026-11-05 12:23
 
 ## Titles earned (rarest first)
 
@@ -58,13 +58,13 @@ Records from 339 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - EXECUTIONER SLAYER: 4
 - MIRROR KING SLAYER: 5
 - CATHEDRAL SLAYER: 5
-- FORTRESS SLAYER: 5
 - CYCLOPS SLAYER: 5
 - HELICOPTER SLAYER: 5
 - PHOENIX SLAYER: 5
 - THOUSAND-MAN SLAYER: 5
 - STORM EMPEROR SLAYER: 5
 - STAR EATER SLAYER: 5
+- FORTRESS SLAYER: 6
 - HYDRA SLAYER: 7
 - UNMAKER SLAYER: 7
 - IMMORTAL FRAUD SLAYER: 7
@@ -85,10 +85,10 @@ Records from 339 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 8
 - wings: 26
 - spellward: 37
-- swift: 51
-- venom: 56
-- spikes: 61
-- regen: 68
+- swift: 52
+- venom: 57
+- spikes: 62
+- regen: 69
 
 ## Big moments
 
@@ -150,14 +150,14 @@ Records from 339 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Duskwing Tribe | 13 | 4 | 8 | 397 | 2 lost | 2 |
 | Glimmerdeep Kin | 8 | 4 | 4 | 362 | 4 won | 4 |
 | Nova Legion | 5 | 4 | 1 | 320 | 2 won | 2 |
-| Golden Lion Order | 6 | 4 | 2 | 246 | 1 won | 3 |
+| Golden Lion Order | 7 | 4 | 3 | 260 | 1 lost | 3 |
 | Raven Hill Clan | 6 | 4 | 2 | 227 | 3 won | 3 |
 | Emberroot Circle | 6 | 4 | 1 | 224 | 1 won | 3 |
 | Gloomcap Circle | 9 | 4 | 5 | 215 | 3 lost | 3 |
 | Sunspire Kin | 7 | 4 | 3 | 213 | 1 lost | 2 |
+| Iron Boar Clan | 5 | 4 | 1 | 184 | 2 won | 2 |
 | Thornwood Company | 6 | 4 | 2 | 111 | 3 won | 3 |
 | The Pale Procession | 4 | 4 | 0 | 93 | 4 won | 4 |
-| Badger Platoon | 4 | 4 | 0 | 89 | 4 won | 4 |
 
 ### Great rivalries
 
@@ -172,6 +172,7 @@ Records from 339 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 11:48: The Frostmere Clan Take the Sky-temple Relic (revenge! · 2nd win · 183 kills)
 - 2026-11-06 11:30: The Glimmerdeep Kin Take the Quarry (4 wins in a row · 63 kills)
 - 2026-11-06 11:13: The Thunder Gate School Take the Haunted Crypt (2nd win · 22 kills)
 - 2026-11-06 11:03: The Bilgewater Crew Take the Canyon Pass (2nd win · 46 kills)
@@ -181,4 +182,3 @@ Records from 339 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 10:03: The Photon Wing Take the Open Plains (3rd win · 103 kills)
 - 2026-11-06 09:49: The Stonebridge Company Take the Ruined Fort (3rd win · 120 kills)
 - 2026-11-06 09:34: The Vector Cohort Take the Swamp Shrine (revenge denied · 2nd win · 3 kills)
-- 2026-11-06 09:20: The Mossback Tribe Take the Titan's Bones (revenge denied · 3 wins in a row · 37 kills)

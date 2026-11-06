@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 11:48 | 🚩 KING OF THE HILL: Siege Army vs Walking Fortress | Green wins | https://youtube.com/shorts/noe0SHjATEo |
 | 2026-11-06 11:30 | 🇺🇸 USA vs Canada: WHO WINS? | Canada wins | https://youtube.com/shorts/Hdc40KjoVTY |
 | 2026-11-06 11:13 | The Airdrop Had a SURPRISE Inside 📦 | Orange wins | https://youtube.com/shorts/hdwOyPDkMmw |
 | 2026-11-06 11:03 | TITAN KNIGHTS vs Rogue Raiders vs Mech Shields 🔥 | Teal wins | https://youtube.com/shorts/Bt06olL6T9I |
