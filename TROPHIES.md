@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 322 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 323 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -133,11 +133,11 @@ Records from 322 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-106 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+107 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
-| Red Hawk Company | 10 | 8 | 2 | 377 | 2 won | 5 |
+| Red Hawk Company | 11 | 9 | 2 | 383 | 3 won | 5 |
 | Mossback Tribe | 9 | 6 | 3 | 408 | 1 won | 3 |
 | Starweave Circle | 9 | 5 | 4 | 448 | 1 lost | 5 |
 | Order of the Silver Stag | 9 | 4 | 5 | 418 | 1 won | 3 |
@@ -171,6 +171,7 @@ Records from 322 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 06:33: The House of the Jade Serpent Take the Sky Islands (first battle, first win · 20 kills)
 - 2026-11-06 06:18: The Thornheart Circle Take the Crystal Grove (streak ended · 3rd win · 120 kills)
 - 2026-11-06 06:03: The Glimmerdeep Kin Take the Canyon Pass (3 wins in a row · 57 kills)
 - 2026-11-06 05:52: The Black Candle Take the Mountain Pass (3rd win · 19 kills)
@@ -180,4 +181,3 @@ Records from 322 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 04:48: The Emberroot Circle Take the Clockwork Arena (revenge! · 4th win · 72 kills)
 - 2026-11-06 04:36: The Golden Lion Order Take the Godboard (4th win · 27 kills)
 - 2026-11-06 04:21: The Mire Witch Coven Take the Quarry (2nd win · 32 kills)
-- 2026-11-06 04:06: The Rum Barrel Crew Take the Canyon Pass (2nd win · 29 kills)
