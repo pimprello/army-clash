@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 10:48 | 5 Wins in a ROW for the Mire Witch Coven 🔥 | Purple wins | https://youtube.com/shorts/cHXGto0BUY4 |
 | 2026-11-06 10:33 | 🚩 KING OF THE HILL: Gold Mirrors vs Lunar Bots | Navy wins | https://youtube.com/shorts/OuHqCgbmXGY |
 | 2026-11-06 10:18 | 🚩 KING OF THE HILL: Forest Spirits vs Orc Horde | Purple wins | https://youtube.com/shorts/YIYUDhHNuLc |
 | 2026-11-06 10:03 | METEORS Hit Mid-Battle ☄️ | Blue wins | https://youtube.com/shorts/ooi1meSUyL0 |

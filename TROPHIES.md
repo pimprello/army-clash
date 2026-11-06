@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 335 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 336 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -85,7 +85,7 @@ Records from 335 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 8
 - wings: 25
 - spellward: 37
-- swift: 50
+- swift: 51
 - venom: 56
 - spikes: 61
 - regen: 68
@@ -142,6 +142,8 @@ Records from 335 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Starweave Circle | 10 | 5 | 5 | 475 | 2 lost | 5 |
 | Frostwhisper Tribe | 9 | 5 | 4 | 336 | 1 lost | 4 |
 | Oakshield Clan | 9 | 5 | 4 | 256 | 1 won | 3 |
+| The Black Candle | 6 | 5 | 1 | 177 | 4 won | 4 |
+| Mire Witch Coven | 5 | 5 | 0 | 140 | 5 won | 5 |
 | Thornheart Circle | 6 | 4 | 2 | 497 | 1 lost | 2 |
 | Order of the Silver Stag | 9 | 4 | 5 | 418 | 1 won | 3 |
 | Duskwing Tribe | 12 | 4 | 7 | 352 | 1 lost | 2 |
@@ -151,11 +153,9 @@ Records from 335 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Emberroot Circle | 6 | 4 | 1 | 224 | 1 won | 3 |
 | Gloomcap Circle | 9 | 4 | 5 | 215 | 3 lost | 3 |
 | Sunspire Kin | 6 | 4 | 2 | 201 | 2 won | 2 |
-| The Black Candle | 5 | 4 | 1 | 161 | 3 won | 3 |
 | Thornwood Company | 6 | 4 | 2 | 111 | 3 won | 3 |
 | The Pale Procession | 4 | 4 | 0 | 93 | 4 won | 4 |
 | Badger Platoon | 4 | 4 | 0 | 89 | 4 won | 4 |
-| Mire Witch Coven | 4 | 4 | 0 | 80 | 4 won | 4 |
 | Silverbough Circle | 12 | 3 | 9 | 612 | 1 won | 2 |
 
 ### Great rivalries
@@ -171,6 +171,7 @@ Records from 335 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 10:48: The Mire Witch Coven Take the Old Forest (revenge denied · 5 wins in a row · 60 kills)
 - 2026-11-06 10:33: The Iron Lotus School Take the Haunted Crypt (streak ended · 3 wins in a row · 39 kills)
 - 2026-11-06 10:18: The Silverbough Circle Take the Desert Well (revenge! · 3rd win · 53 kills)
 - 2026-11-06 10:03: The Photon Wing Take the Open Plains (3rd win · 103 kills)
@@ -180,4 +181,3 @@ Records from 335 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 09:01: The Black Candle Take the Canyon Pass (3 wins in a row · 48 kills)
 - 2026-11-06 08:47: The Moonfang Tribe Take the Treasure Cove (2nd win · 31 kills)
 - 2026-11-06 08:34: The Duskwing Tribe Take the Treasure Cove (4th win · 41 kills)
-- 2026-11-06 08:24: The Silent Mile Take the Frozen End (2nd win · 41 kills)
