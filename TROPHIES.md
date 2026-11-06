@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 372 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 373 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -76,7 +76,7 @@ Records from 372 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - TANK SLAYER: 13
 - GOLEM SLAYER: 13
 - MAMMOTH SLAYER: 14
-- GIANT SLAYER: 17
+- GIANT SLAYER: 18
 - DRAGON SLAYER: 20
 - TITAN SLAYER: 31
 
@@ -141,7 +141,7 @@ Records from 372 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Mossback Tribe | 15 | 12 | 3 | 600 | 7 won | 7 |
 | Red Hawk Company | 12 | 9 | 3 | 447 | 1 lost | 5 |
 | Frostwhisper Tribe | 14 | 8 | 6 | 443 | 1 lost | 4 |
-| Starweave Circle | 17 | 7 | 10 | 655 | 4 lost | 5 |
+| Starweave Circle | 18 | 7 | 11 | 712 | 5 lost | 5 |
 | Thornheart Circle | 9 | 7 | 2 | 596 | 3 won | 3 |
 | Mire Witch Coven | 7 | 7 | 0 | 247 | 7 won | 7 |
 | Silverbough Circle | 18 | 6 | 12 | 792 | 1 lost | 2 |
@@ -172,6 +172,7 @@ Records from 372 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 20:29: The Vortex Legion Take the Canyon Pass (4th win · 43 kills)
 - 2026-11-06 20:17: The Mire Witch Coven Take the Crystal Grove (revenge denied · 7 wins in a row · 97 kills)
 - 2026-11-06 20:00: The Highmoor Clan Take the Open Plains (streak ended · 3rd win · 31 kills)
 - 2026-11-06 19:48: The Highmoor Clan Take the Mountain Pass (2nd win · 52 kills)
@@ -181,4 +182,3 @@ Records from 372 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 18:47: The Glimmerdeep Kin Take the Open Plains (5 wins in a row · 31 kills)
 - 2026-11-06 18:33: The Mossback Tribe Take the Open Plains (7 wins in a row · 46 kills)
 - 2026-11-06 18:20: The Axiom Legion Take the Frozen End (3rd win · 51 kills)
-- 2026-11-06 18:04: The Crew of the Night Eel Take the Desert Well (revenge denied · first ever win · 62 kills)

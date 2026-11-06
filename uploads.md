@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 20:29 | The Merchant Sold Them a War Horn 💰 | Red wins | https://youtube.com/shorts/1d1DGOTCMbI |
 | 2026-11-06 20:17 | Kill the KING to Win 👑 Empty Army vs Soldiers | Lavender wins | https://youtube.com/shorts/N8tSA2VAiUE |
 | 2026-11-06 20:00 | They Were LOSING Until This 😳 | Usa wins | https://youtube.com/shorts/p_P1Xe8-6_I |
 | 2026-11-06 19:48 | Undefeated General vs ORC HORDE 👹 | Lavender wins | https://youtube.com/shorts/At4w6Dgw8ys |
