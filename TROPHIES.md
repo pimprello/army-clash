@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 352 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 353 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -88,7 +88,7 @@ Records from 352 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - swift: 52
 - venom: 59
 - spikes: 64
-- regen: 72
+- regen: 73
 
 ## Big moments
 
@@ -172,6 +172,7 @@ Records from 352 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 14:54: The Bone Garden Coven Take the Canyon Pass (4th win · 35 kills)
 - 2026-11-06 14:43: The Crew of the Black Gull Take the Frozen End (revenge denied · 2nd win · 65 kills)
 - 2026-11-06 14:27: The Pulsar Wing Take the Frozen End (2nd win · 33 kills)
 - 2026-11-06 14:11: The Falcon Squadron Take the Mountain Pass (first ever win · 62 kills)
@@ -181,4 +182,3 @@ Records from 352 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 13:12: The Frostwhisper Tribe Take the Open Plains (revenge denied · 6th win · 33 kills)
 - 2026-11-06 12:59: The Axiom Legion Take the Canyon Pass (2nd win · 18 kills)
 - 2026-11-06 12:44: The Cinderclaw Kin Take the Titan's Bones (4th win · 65 kills)
-- 2026-11-06 12:30: The Nightjar Company Take the City (revenge denied · 2nd win · 89 kills)
