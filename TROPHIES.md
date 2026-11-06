@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 317 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 318 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 317 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **GHOST-8** (LASER TROOPER), 10 kills · 2026-11-06 05:20
 - **OSKA THE WALL** (WIZARD), 11 kills · 2026-11-06 04:48
 - **IVOR THE WALL** (ORC), 18 kills · 2026-11-05 23:40
 - **BRAMBLE THE BOLD** (SWORDSMAN), 13 kills · 2026-11-05 23:11
@@ -47,7 +48,6 @@ Records from 317 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **OSKA THE MAD** (WIZARD), 11 kills · 2026-11-05 09:13
 - **ZEDRIK BONECRUSHER** (PHASE REAPER), 14 kills · 2026-11-05 07:01
 - **COBRA-8** (LASER TROOPER), 10 kills · 2026-11-05 06:44
-- **RUNA THE SWIFT** (KNIGHT), 10 kills · 2026-11-05 04:46
 
 ## Titles earned (rarest first)
 
@@ -85,7 +85,7 @@ Records from 317 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 7
 - wings: 24
 - spellward: 36
-- swift: 46
+- swift: 47
 - venom: 52
 - spikes: 56
 - regen: 64
@@ -163,13 +163,14 @@ Records from 317 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **Brightwater Tribe vs Frostwhisper Tribe**: met 2 times, last won by Frostwhisper Tribe
 - **Red Hawk Company vs Wildbrook Clan**: met 2 times, last won by Red Hawk Company
 - **Storm Tower Order vs Wildbrook Clan**: met 2 times, last won by Wildbrook Clan
+- **Cipher Cohort vs Vortex Legion**: met 2 times, last won by Cipher Cohort
 - **Brightwater Tribe vs Glimmerdeep Kin**: met 2 times
 - **Iron Boar Clan vs The Crooked Spire**: met 2 times, last won by The Crooked Spire
 - **Brightwater Tribe vs Emberroot Circle**: met 2 times, last won by Emberroot Circle
-- **Greyfang Clan vs Order of the Silver Stag**: met 2 times, last won by Order of the Silver Stag
 
 ### Latest from the battlefield
 
+- 2026-11-06 05:20: The Cipher Cohort Take the Sky Islands (revenge! · 2nd win · 70 kills)
 - 2026-11-06 05:05: The Sunspire Kin Take the Open Plains (3rd win · 37 kills)
 - 2026-11-06 04:48: The Emberroot Circle Take the Clockwork Arena (revenge! · 4th win · 72 kills)
 - 2026-11-06 04:36: The Golden Lion Order Take the Godboard (4th win · 27 kills)
@@ -179,4 +180,3 @@ Records from 317 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 02:54: The Thornheart Circle Take the Old Forest (2nd win · 28 kills)
 - 2026-11-06 02:43: The Wildbrook Clan Take the Haunted Crypt (streak ended · 3rd win · 33 kills)
 - 2026-11-06 01:55: The Rotting Choir Take the Open Plains (2nd win · 21 kills)
-- 2026-11-06 01:17: The Hollowbark Kin Take the World Furnace (2nd win · 31 kills)
