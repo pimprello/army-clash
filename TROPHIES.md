@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 378 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 379 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -65,10 +65,10 @@ Records from 378 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - HYDRA SLAYER: 7
 - FORTRESS SLAYER: 7
 - UNMAKER SLAYER: 7
-- CYCLOPS SLAYER: 7
 - IMMORTAL FRAUD SLAYER: 7
 - STORM EMPEROR SLAYER: 7
 - COLOSSUS SLAYER: 8
+- CYCLOPS SLAYER: 8
 - ELEPHANT SLAYER: 9
 - CANNON SLAYER: 10
 - MECH SLAYER: 10
@@ -122,8 +122,8 @@ Records from 378 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - possess: cannon: 4
 - possess: treant: 4
 - portal: golem: 6
-- portal: cyclops: 7
 - portal: wolfrider: 7
+- portal: cyclops: 8
 - fusion: 9
 - portal: demon: 12
 - portal: troll: 12
@@ -172,6 +172,7 @@ Records from 378 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 23:20: The Rotting Choir Take the Bombed City (3 wins in a row · 37 kills)
 - 2026-11-06 23:06: The Copper Crown Company Take the Reactor (streak ended · 4th win · 21 kills)
 - 2026-11-06 22:49: The Mountain Wind School Take the Canyon Pass (4th win · 82 kills)
 - 2026-11-06 21:55: The Duskwing Tribe Take the Clockwork Arena (revenge denied · 5th win · 55 kills)
@@ -181,4 +182,3 @@ Records from 378 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 20:17: The Mire Witch Coven Take the Crystal Grove (revenge denied · 7 wins in a row · 97 kills)
 - 2026-11-06 20:00: The Highmoor Clan Take the Open Plains (streak ended · 3rd win · 31 kills)
 - 2026-11-06 19:48: The Highmoor Clan Take the Mountain Pass (2nd win · 52 kills)
-- 2026-11-06 19:32: The Quasar Wing Take the Canyon Pass (2nd win · 83 kills)
