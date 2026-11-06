@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 313 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 314 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -154,8 +154,8 @@ Records from 313 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Golden Lion Order | 5 | 3 | 2 | 219 | 2 lost | 3 |
 | Iron Boar Clan | 4 | 3 | 1 | 179 | 1 won | 2 |
 | Thunder Platoon | 4 | 3 | 1 | 173 | 1 lost | 3 |
+| Hollowbark Kin | 5 | 3 | 2 | 170 | 1 lost | 2 |
 | Mustang Battalion | 5 | 3 | 1 | 169 | 2 won | 2 |
-| Emberroot Circle | 5 | 3 | 1 | 152 | 1 lost | 3 |
 
 ### Great rivalries
 
@@ -170,6 +170,7 @@ Records from 313 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 04:21: The Mire Witch Coven Take the Quarry (2nd win · 32 kills)
 - 2026-11-06 04:06: The Rum Barrel Crew Take the Canyon Pass (2nd win · 29 kills)
 - 2026-11-06 03:11: The Mossback Tribe Take the Ruined Fort (streak ended · 6th win · 60 kills)
 - 2026-11-06 02:54: The Thornheart Circle Take the Old Forest (2nd win · 28 kills)
@@ -179,4 +180,3 @@ Records from 313 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 01:02: The Kestrel Squadron Take the Ruined Fort (first ever win · 77 kills)
 - 2026-11-06 00:49: The Falling Leaf School Take the Swamp Shrine (first ever win · 49 kills)
 - 2026-11-06 00:32: The Crew of the Iron Anchor Take the Canyon Pass (2nd win · 24 kills)
-- 2026-11-06 00:27: The Glimmerdeep Kin Take the Bombed City (revenge denied · first ever win · 147 kills)
