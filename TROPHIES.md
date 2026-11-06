@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 311 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 312 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -73,8 +73,8 @@ Records from 311 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - ELEPHANT SLAYER: 9
 - MAMMOTH SLAYER: 9
 - PLAYER SLAYER: 9
-- GOLEM SLAYER: 10
 - MECH SLAYER: 10
+- GOLEM SLAYER: 11
 - TANK SLAYER: 12
 - GIANT SLAYER: 16
 - DRAGON SLAYER: 20
@@ -83,12 +83,12 @@ Records from 311 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Mutations (rarest first)
 
 - vampiric: 7
-- wings: 22
+- wings: 23
 - spellward: 35
 - swift: 46
-- venom: 50
-- spikes: 54
-- regen: 63
+- venom: 51
+- spikes: 55
+- regen: 64
 
 ## Big moments
 
@@ -120,7 +120,7 @@ Records from 311 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - possess: cannon: 3
 - possess: treant: 4
 - portal: cyclops: 4
-- portal: golem: 4
+- portal: golem: 5
 - portal: wolfrider: 5
 - fusion: 7
 - portal: troll: 8
@@ -128,7 +128,7 @@ Records from 311 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: demon: 11
 - sudden: boss: 16
 - sudden: lava: 16
-- sudden: meteors: 19
+- sudden: meteors: 20
 
 ## The tribes' chronicle
 
@@ -137,8 +137,8 @@ Records from 311 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Red Hawk Company | 10 | 8 | 2 | 377 | 2 won | 5 |
+| Mossback Tribe | 9 | 6 | 3 | 408 | 1 won | 3 |
 | Starweave Circle | 9 | 5 | 4 | 448 | 1 lost | 5 |
-| Mossback Tribe | 8 | 5 | 3 | 348 | 1 lost | 3 |
 | Order of the Silver Stag | 9 | 4 | 5 | 418 | 1 won | 3 |
 | Nova Legion | 5 | 4 | 1 | 320 | 2 won | 2 |
 | Oakshield Clan | 8 | 4 | 4 | 250 | 1 lost | 3 |
@@ -155,7 +155,7 @@ Records from 311 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Iron Boar Clan | 4 | 3 | 1 | 179 | 1 won | 2 |
 | Thunder Platoon | 4 | 3 | 1 | 173 | 1 lost | 3 |
 | Mustang Battalion | 5 | 3 | 1 | 169 | 2 won | 2 |
-| Emberroot Circle | 4 | 3 | 0 | 130 | 3 won | 3 |
+| Emberroot Circle | 5 | 3 | 1 | 152 | 1 lost | 3 |
 
 ### Great rivalries
 
@@ -170,6 +170,7 @@ Records from 311 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 03:11: The Mossback Tribe Take the Ruined Fort (streak ended · 6th win · 60 kills)
 - 2026-11-06 02:54: The Thornheart Circle Take the Old Forest (2nd win · 28 kills)
 - 2026-11-06 02:43: The Wildbrook Clan Take the Haunted Crypt (streak ended · 3rd win · 33 kills)
 - 2026-11-06 01:55: The Rotting Choir Take the Open Plains (2nd win · 21 kills)
@@ -179,4 +180,3 @@ Records from 311 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 00:32: The Crew of the Iron Anchor Take the Canyon Pass (2nd win · 24 kills)
 - 2026-11-06 00:27: The Glimmerdeep Kin Take the Bombed City (revenge denied · first ever win · 147 kills)
 - 2026-11-05 23:40: The Mustang Battalion Take the Reactor (3rd win · 57 kills)
-- 2026-11-05 23:11: The Oakshield Clan Take the Treasure Cove (streak ended · 4th win · 66 kills)
