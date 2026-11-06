@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 379 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 380 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -128,7 +128,7 @@ Records from 379 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: demon: 12
 - portal: troll: 12
 - sudden: ring: 13
-- sudden: boss: 16
+- sudden: boss: 17
 - sudden: lava: 19
 - sudden: meteors: 22
 
@@ -172,6 +172,7 @@ Records from 379 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 23:34: The Ash Wolf Clan Take the Treasure Cove (revenge denied · 4th win · 106 kills)
 - 2026-11-06 23:20: The Rotting Choir Take the Bombed City (3 wins in a row · 37 kills)
 - 2026-11-06 23:06: The Copper Crown Company Take the Reactor (streak ended · 4th win · 21 kills)
 - 2026-11-06 22:49: The Mountain Wind School Take the Canyon Pass (4th win · 82 kills)
@@ -181,4 +182,3 @@ Records from 379 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 20:29: The Vortex Legion Take the Canyon Pass (4th win · 43 kills)
 - 2026-11-06 20:17: The Mire Witch Coven Take the Crystal Grove (revenge denied · 7 wins in a row · 97 kills)
 - 2026-11-06 20:00: The Highmoor Clan Take the Open Plains (streak ended · 3rd win · 31 kills)
-- 2026-11-06 19:48: The Highmoor Clan Take the Mountain Pass (2nd win · 52 kills)
