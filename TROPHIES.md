@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 364 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 365 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -73,9 +73,9 @@ Records from 364 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - CANNON SLAYER: 10
 - PLAYER SLAYER: 10
 - MECH SLAYER: 10
-- MAMMOTH SLAYER: 12
 - TANK SLAYER: 13
 - GOLEM SLAYER: 13
+- MAMMOTH SLAYER: 14
 - GIANT SLAYER: 17
 - DRAGON SLAYER: 20
 - TITAN SLAYER: 30
@@ -88,7 +88,7 @@ Records from 364 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - swift: 53
 - venom: 60
 - spikes: 65
-- regen: 75
+- regen: 76
 
 ## Big moments
 
@@ -138,13 +138,13 @@ Records from 364 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
-| Mossback Tribe | 14 | 11 | 3 | 554 | 6 won | 6 |
+| Mossback Tribe | 15 | 12 | 3 | 600 | 7 won | 7 |
 | Red Hawk Company | 12 | 9 | 3 | 447 | 1 lost | 5 |
 | Frostwhisper Tribe | 13 | 8 | 5 | 428 | 2 won | 4 |
 | Starweave Circle | 16 | 7 | 9 | 641 | 3 lost | 5 |
 | Emberroot Circle | 9 | 6 | 2 | 284 | 2 won | 3 |
 | Mire Witch Coven | 6 | 6 | 0 | 150 | 6 won | 6 |
-| Silverbough Circle | 15 | 5 | 10 | 686 | 1 won | 2 |
+| Silverbough Circle | 16 | 5 | 11 | 713 | 1 lost | 2 |
 | Thornheart Circle | 7 | 5 | 2 | 548 | 1 won | 2 |
 | Order of the Silver Stag | 11 | 5 | 6 | 505 | 1 lost | 3 |
 | Oakshield Clan | 9 | 5 | 4 | 256 | 1 won | 3 |
@@ -168,10 +168,11 @@ Records from 364 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **Gloomcap Circle vs Starweave Circle**: met 3 times, last won by Starweave Circle
 - **Mossback Tribe vs Starweave Circle**: met 3 times, last won by Mossback Tribe
 - **Starweave Circle vs Storm Tower Order**: met 3 times
-- **Brightwater Tribe vs Frostwhisper Tribe**: met 2 times, last won by Frostwhisper Tribe
+- **Mossback Tribe vs Silverbough Circle**: met 3 times, last won by Mossback Tribe
 
 ### Latest from the battlefield
 
+- 2026-11-06 18:33: The Mossback Tribe Take the Open Plains (7 wins in a row · 46 kills)
 - 2026-11-06 18:20: The Axiom Legion Take the Frozen End (3rd win · 51 kills)
 - 2026-11-06 18:04: The Crew of the Night Eel Take the Desert Well (revenge denied · first ever win · 62 kills)
 - 2026-11-06 17:56: The Silverbough Circle Take the Mirror Gate (revenge denied · 5th win · 35 kills)
@@ -181,4 +182,3 @@ Records from 364 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 16:10: The Bone Garden Coven Take the World Furnace (5th win · 25 kills)
 - 2026-11-06 15:56: The Thornheart Circle Take the Open Plains (5th win · 51 kills)
 - 2026-11-06 15:41: The Starweave Circle Take the Clockwork Arena (revenge! · 6th win · 42 kills)
-- 2026-11-06 15:26: The Silverbough Circle Take the Clockwork Arena (revenge! · 4th win · 34 kills)
