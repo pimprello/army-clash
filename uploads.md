@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 18:47 | Moon Caller vs Griffin Riders, But Champions DUEL First ⚔️ | Red wins | https://youtube.com/shorts/m6QsBKniV8Q |
 | 2026-11-06 18:33 | OGRES vs Mammoths vs Rhinos 🔥 | Pink wins | https://youtube.com/shorts/4mz7lWT41hA |
 | 2026-11-06 18:20 | 🇵🇹 Portugal Hourglass Titan vs Spain Robots | Spain wins | https://youtube.com/shorts/BTYMWsMsg4w |
 | 2026-11-06 18:04 | They Were LOSING Until This 😳 | Navy wins | https://youtube.com/shorts/XBJ4zNKzLkU |

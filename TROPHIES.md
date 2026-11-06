@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 365 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 366 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -78,7 +78,7 @@ Records from 365 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - MAMMOTH SLAYER: 14
 - GIANT SLAYER: 17
 - DRAGON SLAYER: 20
-- TITAN SLAYER: 30
+- TITAN SLAYER: 31
 
 ## Mutations (rarest first)
 
@@ -107,7 +107,6 @@ Records from 365 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: DENMARK: 1
 - extinct: ITALY: 1
 - possess: giant: 1
-- extinct: RED: 2
 - extinct: ORANGE: 2
 - extinct: BLUE: 2
 - extinct: GREEN: 2
@@ -119,6 +118,7 @@ Records from 365 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - copied: trooper: 2
 - possess: stormemperor: 2
 - extinct: PURPLE: 2
+- extinct: RED: 3
 - possess: cannon: 4
 - possess: treant: 4
 - portal: cyclops: 6
@@ -141,12 +141,13 @@ Records from 365 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Mossback Tribe | 15 | 12 | 3 | 600 | 7 won | 7 |
 | Red Hawk Company | 12 | 9 | 3 | 447 | 1 lost | 5 |
 | Frostwhisper Tribe | 13 | 8 | 5 | 428 | 2 won | 4 |
-| Starweave Circle | 16 | 7 | 9 | 641 | 3 lost | 5 |
+| Starweave Circle | 17 | 7 | 10 | 655 | 4 lost | 5 |
+| Thornheart Circle | 8 | 6 | 2 | 565 | 2 won | 2 |
 | Emberroot Circle | 9 | 6 | 2 | 284 | 2 won | 3 |
 | Mire Witch Coven | 6 | 6 | 0 | 150 | 6 won | 6 |
 | Silverbough Circle | 16 | 5 | 11 | 713 | 1 lost | 2 |
-| Thornheart Circle | 7 | 5 | 2 | 548 | 1 won | 2 |
 | Order of the Silver Stag | 11 | 5 | 6 | 505 | 1 lost | 3 |
+| Glimmerdeep Kin | 9 | 5 | 4 | 393 | 5 won | 5 |
 | Oakshield Clan | 9 | 5 | 4 | 256 | 1 won | 3 |
 | Iron Boar Clan | 6 | 5 | 1 | 197 | 3 won | 3 |
 | The Black Candle | 6 | 5 | 1 | 177 | 4 won | 4 |
@@ -154,7 +155,6 @@ Records from 365 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Storm Tower Order | 13 | 4 | 9 | 489 | 1 lost | 1 |
 | Stormhorn Tribe | 8 | 4 | 4 | 470 | 1 won | 3 |
 | Duskwing Tribe | 14 | 4 | 9 | 456 | 3 lost | 2 |
-| Glimmerdeep Kin | 8 | 4 | 4 | 362 | 4 won | 4 |
 | Hollowbark Kin | 12 | 4 | 8 | 355 | 1 lost | 2 |
 | Nova Legion | 5 | 4 | 1 | 320 | 2 won | 2 |
 | Golden Lion Order | 8 | 4 | 4 | 272 | 2 lost | 3 |
@@ -162,16 +162,17 @@ Records from 365 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ### Great rivalries
 
 - **Frostwhisper Tribe vs Starweave Circle**: met 4 times, last won by Frostwhisper Tribe
+- **Brightwater Tribe vs Glimmerdeep Kin**: met 3 times, last won by Glimmerdeep Kin
 - **Mossback Tribe vs Stormhorn Tribe**: met 3 times, last won by Mossback Tribe
 - **Greyfang Clan vs Order of the Silver Stag**: met 3 times, last won by Order of the Silver Stag
 - **Harrier Squadron vs Mustang Battalion**: met 3 times, last won by Mustang Battalion
 - **Gloomcap Circle vs Starweave Circle**: met 3 times, last won by Starweave Circle
 - **Mossback Tribe vs Starweave Circle**: met 3 times, last won by Mossback Tribe
 - **Starweave Circle vs Storm Tower Order**: met 3 times
-- **Mossback Tribe vs Silverbough Circle**: met 3 times, last won by Mossback Tribe
 
 ### Latest from the battlefield
 
+- 2026-11-06 18:47: The Glimmerdeep Kin Take the Open Plains (5 wins in a row · 31 kills)
 - 2026-11-06 18:33: The Mossback Tribe Take the Open Plains (7 wins in a row · 46 kills)
 - 2026-11-06 18:20: The Axiom Legion Take the Frozen End (3rd win · 51 kills)
 - 2026-11-06 18:04: The Crew of the Night Eel Take the Desert Well (revenge denied · first ever win · 62 kills)
@@ -181,4 +182,3 @@ Records from 365 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 16:28: The House of the Gold Dragonfly Take the Castle (revenge denied · first ever win · 29 kills)
 - 2026-11-06 16:10: The Bone Garden Coven Take the World Furnace (5th win · 25 kills)
 - 2026-11-06 15:56: The Thornheart Circle Take the Open Plains (5th win · 51 kills)
-- 2026-11-06 15:41: The Starweave Circle Take the Clockwork Arena (revenge! · 6th win · 42 kills)
