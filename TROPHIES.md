@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 316 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 317 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -83,7 +83,7 @@ Records from 316 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Mutations (rarest first)
 
 - vampiric: 7
-- wings: 23
+- wings: 24
 - spellward: 36
 - swift: 46
 - venom: 52
@@ -117,7 +117,7 @@ Records from 316 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: SILVER: 2
 - possess: rhino: 2
 - extinct: PURPLE: 2
-- possess: cannon: 3
+- possess: cannon: 4
 - possess: treant: 4
 - portal: cyclops: 4
 - portal: golem: 5
@@ -154,8 +154,8 @@ Records from 316 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Stormhorn Tribe | 5 | 3 | 2 | 293 | 2 lost | 3 |
 | Duskwing Tribe | 9 | 3 | 5 | 260 | 3 lost | 2 |
 | Hollowbark Kin | 6 | 3 | 3 | 233 | 2 lost | 2 |
+| Sunspire Kin | 5 | 3 | 2 | 180 | 1 won | 2 |
 | Iron Boar Clan | 4 | 3 | 1 | 179 | 1 won | 2 |
-| Thunder Platoon | 4 | 3 | 1 | 173 | 1 lost | 3 |
 
 ### Great rivalries
 
@@ -170,6 +170,7 @@ Records from 316 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 05:05: The Sunspire Kin Take the Open Plains (3rd win · 37 kills)
 - 2026-11-06 04:48: The Emberroot Circle Take the Clockwork Arena (revenge! · 4th win · 72 kills)
 - 2026-11-06 04:36: The Golden Lion Order Take the Godboard (4th win · 27 kills)
 - 2026-11-06 04:21: The Mire Witch Coven Take the Quarry (2nd win · 32 kills)
@@ -179,4 +180,3 @@ Records from 316 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 02:43: The Wildbrook Clan Take the Haunted Crypt (streak ended · 3rd win · 33 kills)
 - 2026-11-06 01:55: The Rotting Choir Take the Open Plains (2nd win · 21 kills)
 - 2026-11-06 01:17: The Hollowbark Kin Take the World Furnace (2nd win · 31 kills)
-- 2026-11-06 01:02: The Kestrel Squadron Take the Ruined Fort (first ever win · 77 kills)
