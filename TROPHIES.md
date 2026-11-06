@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 344 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 345 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -62,10 +62,10 @@ Records from 344 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - HELICOPTER SLAYER: 5
 - PHOENIX SLAYER: 5
 - THOUSAND-MAN SLAYER: 5
-- FORTRESS SLAYER: 6
 - STORM EMPEROR SLAYER: 6
 - STAR EATER SLAYER: 6
 - HYDRA SLAYER: 7
+- FORTRESS SLAYER: 7
 - UNMAKER SLAYER: 7
 - IMMORTAL FRAUD SLAYER: 7
 - COLOSSUS SLAYER: 8
@@ -73,8 +73,8 @@ Records from 344 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - ELEPHANT SLAYER: 9
 - PLAYER SLAYER: 9
 - MECH SLAYER: 10
-- MAMMOTH SLAYER: 11
 - TANK SLAYER: 12
+- MAMMOTH SLAYER: 12
 - GOLEM SLAYER: 13
 - GIANT SLAYER: 17
 - DRAGON SLAYER: 20
@@ -172,6 +172,7 @@ Records from 344 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 12:59: The Axiom Legion Take the Canyon Pass (2nd win · 18 kills)
 - 2026-11-06 12:44: The Cinderclaw Kin Take the Titan's Bones (4th win · 65 kills)
 - 2026-11-06 12:30: The Nightjar Company Take the City (revenge denied · 2nd win · 89 kills)
 - 2026-11-06 12:15: The Storm Tower Order Take the Swamp Shrine (streak ended · 4th win · 57 kills)
@@ -181,4 +182,3 @@ Records from 344 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 11:13: The Thunder Gate School Take the Haunted Crypt (2nd win · 22 kills)
 - 2026-11-06 11:03: The Bilgewater Crew Take the Canyon Pass (2nd win · 46 kills)
 - 2026-11-06 10:48: The Mire Witch Coven Take the Old Forest (revenge denied · 5 wins in a row · 60 kills)
-- 2026-11-06 10:33: The Iron Lotus School Take the Haunted Crypt (streak ended · 3 wins in a row · 39 kills)

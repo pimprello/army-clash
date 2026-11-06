@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 12:59 | 3 Armies, Only 1 SURVIVES 💀 | Green wins | https://youtube.com/shorts/sufvTcu9uRg |
 | 2026-11-06 12:44 | The Smaller Army Did WHAT? 😳 | Yellow wins | https://youtube.com/shorts/yelUV2ExM1g |
 | 2026-11-06 12:30 | The Smaller Army Did WHAT? 😳 | Gold wins | https://youtube.com/shorts/8X9phIgG06I |
 | 2026-11-06 12:15 | ⚔️ CHAMPION DUEL: Mammoth Army vs War Elephants | Purple wins | https://youtube.com/shorts/ICqk3r-Ay00 |
