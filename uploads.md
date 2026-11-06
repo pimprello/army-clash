@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 15:13 | 🌑 STAR EATER vs Phoenix Army | Gold wins | https://youtube.com/shorts/W6thtdoIbng |
 | 2026-11-06 14:54 | The Smaller Army Did WHAT? 😳 | Blue wins | https://youtube.com/shorts/StbIu_v9P10 |
 | 2026-11-06 14:43 | The Weapons Came ALIVE 🗡️ | Pink wins | https://youtube.com/shorts/X2-QOq_J0Ag |
 | 2026-11-06 14:27 | The Smaller Army Did WHAT? 😳 | Navy wins | https://youtube.com/shorts/Ms4FNhNiJoo |

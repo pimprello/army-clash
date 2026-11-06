@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 353 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 354 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 353 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **ASHKA THE BOLD** (WARLOCK), 28 kills · 2026-11-06 15:13
 - **GRUNDA GRAVEBANE** (WAR RHINO), 10 kills · 2026-11-06 14:27
 - **ASHKA STEELHEART** (SIEGE GUNNER), 25 kills · 2026-11-06 11:48
 - **ASHKA STEELHEART** (WARLOCK), 10 kills · 2026-11-06 11:03
@@ -47,7 +48,6 @@ Records from 353 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **OSKA BONECRUSHER** (WIZARD), 19 kills · 2026-11-05 22:54
 - **PELL GRAVEBANE** (GRIFFIN RIDER), 15 kills · 2026-11-05 20:04
 - **IVOR THE SWIFT** (TROLL), 17 kills · 2026-11-05 18:51
-- **TALVO THE SWIFT** (ROYAL GUARD), 10 kills · 2026-11-05 18:38
 
 ## Titles earned (rarest first)
 
@@ -60,8 +60,8 @@ Records from 353 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - CATHEDRAL SLAYER: 5
 - CYCLOPS SLAYER: 5
 - HELICOPTER SLAYER: 5
-- PHOENIX SLAYER: 5
 - THOUSAND-MAN SLAYER: 5
+- PHOENIX SLAYER: 6
 - STORM EMPEROR SLAYER: 6
 - STAR EATER SLAYER: 6
 - HYDRA SLAYER: 7
@@ -83,7 +83,7 @@ Records from 353 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Mutations (rarest first)
 
 - vampiric: 8
-- wings: 26
+- wings: 27
 - spellward: 38
 - swift: 52
 - venom: 59
@@ -96,7 +96,6 @@ Records from 353 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: hydra: 1
 - extinct: PINK: 1
 - copied: giant: 1
-- possess: phoenix: 1
 - extinct: LIME: 1
 - extinct: SWEDEN: 1
 - extinct: YELLOW: 1
@@ -116,6 +115,7 @@ Records from 353 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: SILVER: 2
 - possess: rhino: 2
 - possess: mammoth: 2
+- possess: phoenix: 2
 - copied: trooper: 2
 - possess: stormemperor: 2
 - extinct: PURPLE: 2
@@ -144,20 +144,20 @@ Records from 353 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Mire Witch Coven | 6 | 6 | 0 | 150 | 6 won | 6 |
 | Starweave Circle | 11 | 5 | 6 | 492 | 3 lost | 5 |
 | Order of the Silver Stag | 10 | 5 | 5 | 486 | 2 won | 3 |
+| Emberroot Circle | 8 | 5 | 2 | 261 | 1 won | 3 |
 | Oakshield Clan | 9 | 5 | 4 | 256 | 1 won | 3 |
 | Iron Boar Clan | 6 | 5 | 1 | 197 | 3 won | 3 |
 | The Black Candle | 6 | 5 | 1 | 177 | 4 won | 4 |
 | Thornheart Circle | 6 | 4 | 2 | 497 | 1 lost | 2 |
 | Storm Tower Order | 13 | 4 | 9 | 489 | 1 lost | 1 |
+| Stormhorn Tribe | 8 | 4 | 4 | 470 | 1 won | 3 |
 | Duskwing Tribe | 13 | 4 | 8 | 397 | 2 lost | 2 |
 | Glimmerdeep Kin | 8 | 4 | 4 | 362 | 4 won | 4 |
 | Nova Legion | 5 | 4 | 1 | 320 | 2 won | 2 |
 | Hollowbark Kin | 11 | 4 | 7 | 305 | 1 won | 2 |
 | Golden Lion Order | 8 | 4 | 4 | 272 | 2 lost | 3 |
-| Emberroot Circle | 7 | 4 | 2 | 232 | 1 lost | 3 |
+| Sunspire Kin | 8 | 4 | 4 | 265 | 2 lost | 2 |
 | Raven Hill Clan | 6 | 4 | 2 | 227 | 3 won | 3 |
-| Gloomcap Circle | 9 | 4 | 5 | 215 | 3 lost | 3 |
-| Sunspire Kin | 7 | 4 | 3 | 213 | 1 lost | 2 |
 
 ### Great rivalries
 
@@ -172,6 +172,7 @@ Records from 353 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 15:13: The Stormhorn Tribe Take the Desert Well (4th win · 153 kills)
 - 2026-11-06 14:54: The Bone Garden Coven Take the Canyon Pass (4th win · 35 kills)
 - 2026-11-06 14:43: The Crew of the Black Gull Take the Frozen End (revenge denied · 2nd win · 65 kills)
 - 2026-11-06 14:27: The Pulsar Wing Take the Frozen End (2nd win · 33 kills)
@@ -181,4 +182,3 @@ Records from 353 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 13:27: The Rum Barrel Crew Take the Crystal Grove (3rd win · 22 kills)
 - 2026-11-06 13:12: The Frostwhisper Tribe Take the Open Plains (revenge denied · 6th win · 33 kills)
 - 2026-11-06 12:59: The Axiom Legion Take the Canyon Pass (2nd win · 18 kills)
-- 2026-11-06 12:44: The Cinderclaw Kin Take the Titan's Bones (4th win · 65 kills)
