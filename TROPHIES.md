@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 354 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 355 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -148,6 +148,7 @@ Records from 354 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Oakshield Clan | 9 | 5 | 4 | 256 | 1 won | 3 |
 | Iron Boar Clan | 6 | 5 | 1 | 197 | 3 won | 3 |
 | The Black Candle | 6 | 5 | 1 | 177 | 4 won | 4 |
+| Silverbough Circle | 13 | 4 | 9 | 646 | 2 won | 2 |
 | Thornheart Circle | 6 | 4 | 2 | 497 | 1 lost | 2 |
 | Storm Tower Order | 13 | 4 | 9 | 489 | 1 lost | 1 |
 | Stormhorn Tribe | 8 | 4 | 4 | 470 | 1 won | 3 |
@@ -157,7 +158,6 @@ Records from 354 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Hollowbark Kin | 11 | 4 | 7 | 305 | 1 won | 2 |
 | Golden Lion Order | 8 | 4 | 4 | 272 | 2 lost | 3 |
 | Sunspire Kin | 8 | 4 | 4 | 265 | 2 lost | 2 |
-| Raven Hill Clan | 6 | 4 | 2 | 227 | 3 won | 3 |
 
 ### Great rivalries
 
@@ -172,6 +172,7 @@ Records from 354 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 15:26: The Silverbough Circle Take the Clockwork Arena (revenge! · 4th win · 34 kills)
 - 2026-11-06 15:13: The Stormhorn Tribe Take the Desert Well (4th win · 153 kills)
 - 2026-11-06 14:54: The Bone Garden Coven Take the Canyon Pass (4th win · 35 kills)
 - 2026-11-06 14:43: The Crew of the Black Gull Take the Frozen End (revenge denied · 2nd win · 65 kills)
@@ -181,4 +182,3 @@ Records from 354 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 13:42: The Stonewall Company Take the Clockwork Arena (revenge denied · 3rd win · 36 kills)
 - 2026-11-06 13:27: The Rum Barrel Crew Take the Crystal Grove (3rd win · 22 kills)
 - 2026-11-06 13:12: The Frostwhisper Tribe Take the Open Plains (revenge denied · 6th win · 33 kills)
-- 2026-11-06 12:59: The Axiom Legion Take the Canyon Pass (2nd win · 18 kills)

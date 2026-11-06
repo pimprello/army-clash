@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 15:26 | One AIRSTRIKE Changed Everything ✈️ | Indigo wins | https://youtube.com/shorts/cDJfGbUYIJs |
 | 2026-11-06 15:13 | 🌑 STAR EATER vs Phoenix Army | Gold wins | https://youtube.com/shorts/W6thtdoIbng |
 | 2026-11-06 14:54 | The Smaller Army Did WHAT? 😳 | Blue wins | https://youtube.com/shorts/StbIu_v9P10 |
 | 2026-11-06 14:43 | The Weapons Came ALIVE 🗡️ | Pink wins | https://youtube.com/shorts/X2-QOq_J0Ag |
