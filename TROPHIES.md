@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 360 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 361 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -155,8 +155,8 @@ Records from 360 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Stormhorn Tribe | 8 | 4 | 4 | 470 | 1 won | 3 |
 | Duskwing Tribe | 13 | 4 | 8 | 397 | 2 lost | 2 |
 | Glimmerdeep Kin | 8 | 4 | 4 | 362 | 4 won | 4 |
+| Hollowbark Kin | 12 | 4 | 8 | 355 | 1 lost | 2 |
 | Nova Legion | 5 | 4 | 1 | 320 | 2 won | 2 |
-| Hollowbark Kin | 11 | 4 | 7 | 305 | 1 won | 2 |
 | Golden Lion Order | 8 | 4 | 4 | 272 | 2 lost | 3 |
 
 ### Great rivalries
@@ -172,6 +172,7 @@ Records from 360 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 17:34: The Black Bear Clan Take the Canyon Pass (4th win · 51 kills)
 - 2026-11-06 17:19: The Brightwater Tribe Take the Sky-temple Relic (4th win · 45 kills)
 - 2026-11-06 16:28: The House of the Gold Dragonfly Take the Castle (revenge denied · first ever win · 29 kills)
 - 2026-11-06 16:10: The Bone Garden Coven Take the World Furnace (5th win · 25 kills)
@@ -181,4 +182,3 @@ Records from 360 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 15:13: The Stormhorn Tribe Take the Desert Well (4th win · 153 kills)
 - 2026-11-06 14:54: The Bone Garden Coven Take the Canyon Pass (4th win · 35 kills)
 - 2026-11-06 14:43: The Crew of the Black Gull Take the Frozen End (revenge denied · 2nd win · 65 kills)
-- 2026-11-06 14:27: The Pulsar Wing Take the Frozen End (2nd win · 33 kills)
