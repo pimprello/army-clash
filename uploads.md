@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 14:11 | 🚁 HELICOPTER ARMY vs Soldiers | Mint wins | https://youtube.com/shorts/crea9_p4VeU |
 | 2026-11-06 13:58 | Pick ONE: Player, Universe, Neverlose 👇 | Teal wins | https://youtube.com/shorts/sniNTXP-jhU |
 | 2026-11-06 13:42 | They Took the HILL and Won 🚩 | Red wins | https://youtube.com/shorts/iSBbae2jECg |
 | 2026-11-06 13:27 | LAST STAND: 19 Heroes vs Toxic Bows 🛡️ | Blue wins | https://youtube.com/shorts/PbQmWRUKruE |

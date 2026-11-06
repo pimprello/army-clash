@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 349 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 350 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -121,7 +121,7 @@ Records from 349 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: PURPLE: 2
 - possess: cannon: 4
 - possess: treant: 4
-- portal: cyclops: 4
+- portal: cyclops: 5
 - portal: wolfrider: 5
 - portal: golem: 6
 - fusion: 8
@@ -129,7 +129,7 @@ Records from 349 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - sudden: ring: 11
 - portal: demon: 12
 - sudden: boss: 16
-- sudden: lava: 16
+- sudden: lava: 17
 - sudden: meteors: 21
 
 ## The tribes' chronicle
@@ -172,6 +172,7 @@ Records from 349 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 14:11: The Falcon Squadron Take the Mountain Pass (first ever win · 62 kills)
 - 2026-11-06 13:58: The Order of the Silver Stag Take the Open Plains (5th win · 68 kills)
 - 2026-11-06 13:42: The Stonewall Company Take the Clockwork Arena (revenge denied · 3rd win · 36 kills)
 - 2026-11-06 13:27: The Rum Barrel Crew Take the Crystal Grove (3rd win · 22 kills)
@@ -181,4 +182,3 @@ Records from 349 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 12:30: The Nightjar Company Take the City (revenge denied · 2nd win · 89 kills)
 - 2026-11-06 12:15: The Storm Tower Order Take the Swamp Shrine (streak ended · 4th win · 57 kills)
 - 2026-11-06 12:02: The Mossback Tribe Take the Open Plains (5 wins in a row · 51 kills)
-- 2026-11-06 11:48: The Frostmere Clan Take the Sky-temple Relic (revenge! · 2nd win · 183 kills)
