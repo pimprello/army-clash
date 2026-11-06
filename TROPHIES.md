@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 362 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 363 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 362 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **GRUNDA FIREBRAND** (SIEGE GUNNER), 10 kills · 2026-11-06 18:04
 - **ASHKA THE BOLD** (WARLOCK), 28 kills · 2026-11-06 15:13
 - **GRUNDA GRAVEBANE** (WAR RHINO), 10 kills · 2026-11-06 14:27
 - **ASHKA STEELHEART** (SIEGE GUNNER), 25 kills · 2026-11-06 11:48
@@ -47,7 +48,6 @@ Records from 362 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **BRAMBLE THE BOLD** (SWORDSMAN), 13 kills · 2026-11-05 23:11
 - **OSKA BONECRUSHER** (WIZARD), 19 kills · 2026-11-05 22:54
 - **PELL GRAVEBANE** (GRIFFIN RIDER), 15 kills · 2026-11-05 20:04
-- **IVOR THE SWIFT** (TROLL), 17 kills · 2026-11-05 18:51
 
 ## Titles earned (rarest first)
 
@@ -86,9 +86,9 @@ Records from 362 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - wings: 27
 - spellward: 38
 - swift: 53
-- venom: 59
-- spikes: 64
-- regen: 74
+- venom: 60
+- spikes: 65
+- regen: 75
 
 ## Big moments
 
@@ -123,7 +123,7 @@ Records from 362 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - possess: treant: 4
 - portal: cyclops: 5
 - portal: golem: 6
-- portal: wolfrider: 6
+- portal: wolfrider: 7
 - fusion: 9
 - portal: demon: 12
 - portal: troll: 12
@@ -146,7 +146,7 @@ Records from 362 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Mire Witch Coven | 6 | 6 | 0 | 150 | 6 won | 6 |
 | Silverbough Circle | 15 | 5 | 10 | 686 | 1 won | 2 |
 | Thornheart Circle | 7 | 5 | 2 | 548 | 1 won | 2 |
-| Order of the Silver Stag | 10 | 5 | 5 | 486 | 2 won | 3 |
+| Order of the Silver Stag | 11 | 5 | 6 | 505 | 1 lost | 3 |
 | Oakshield Clan | 9 | 5 | 4 | 256 | 1 won | 3 |
 | Iron Boar Clan | 6 | 5 | 1 | 197 | 3 won | 3 |
 | The Black Candle | 6 | 5 | 1 | 177 | 4 won | 4 |
@@ -172,6 +172,7 @@ Records from 362 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 18:04: The Crew of the Night Eel Take the Desert Well (revenge denied · first ever win · 62 kills)
 - 2026-11-06 17:56: The Silverbough Circle Take the Mirror Gate (revenge denied · 5th win · 35 kills)
 - 2026-11-06 17:34: The Black Bear Clan Take the Canyon Pass (4th win · 51 kills)
 - 2026-11-06 17:19: The Brightwater Tribe Take the Sky-temple Relic (4th win · 45 kills)
@@ -181,4 +182,3 @@ Records from 362 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 15:41: The Starweave Circle Take the Clockwork Arena (revenge! · 6th win · 42 kills)
 - 2026-11-06 15:26: The Silverbough Circle Take the Clockwork Arena (revenge! · 4th win · 34 kills)
 - 2026-11-06 15:13: The Stormhorn Tribe Take the Desert Well (4th win · 153 kills)
-- 2026-11-06 14:54: The Bone Garden Coven Take the Canyon Pass (4th win · 35 kills)
