@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 346 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 347 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -134,7 +134,7 @@ Records from 346 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-108 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+109 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
@@ -172,6 +172,7 @@ Records from 346 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 13:27: The Rum Barrel Crew Take the Crystal Grove (3rd win · 22 kills)
 - 2026-11-06 13:12: The Frostwhisper Tribe Take the Open Plains (revenge denied · 6th win · 33 kills)
 - 2026-11-06 12:59: The Axiom Legion Take the Canyon Pass (2nd win · 18 kills)
 - 2026-11-06 12:44: The Cinderclaw Kin Take the Titan's Bones (4th win · 65 kills)
@@ -181,4 +182,3 @@ Records from 346 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 11:48: The Frostmere Clan Take the Sky-temple Relic (revenge! · 2nd win · 183 kills)
 - 2026-11-06 11:30: The Glimmerdeep Kin Take the Quarry (4 wins in a row · 63 kills)
 - 2026-11-06 11:13: The Thunder Gate School Take the Haunted Crypt (2nd win · 22 kills)
-- 2026-11-06 11:03: The Bilgewater Crew Take the Canyon Pass (2nd win · 46 kills)
