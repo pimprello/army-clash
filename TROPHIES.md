@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 320 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 321 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -13,7 +13,7 @@ Records from 320 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **48 kills**: PHOENIX · 2026-11-04 22:57 · [Phoenix Pikes vs WILD LEGION 🔥](https://youtube.com/shorts/zga-x3ZnOUs)
 - **47 kills**: LIVING FORTRESS · 2026-11-04 05:33 · [106 Orcs vs a LIVING Castle 🏰](https://youtube.com/shorts/3rsNAb0OpJA)
 - **47 kills**: TANK · 2026-11-04 10:12 · [🔥 SPELLGUNS vs Dragon Armor](https://youtube.com/shorts/g__rdIjt58w)
-- **32 kills**: GIANT · 2026-11-05 07:28 · [STORM BOARS vs Neon Raiders vs Glitch Blades 🔥](https://youtube.com/shorts/v7m-cFwMqZg)
+- **34 kills**: STAR EATER · 2026-11-06 06:03 · [One Star Eater Got 34 KILLS 😳](https://youtube.com/shorts/UXnWjXJ7Quw)
 
 ## Fastest wipe-outs
 
@@ -129,11 +129,11 @@ Records from 320 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: demon: 12
 - sudden: boss: 16
 - sudden: lava: 16
-- sudden: meteors: 20
+- sudden: meteors: 21
 
 ## The tribes' chronicle
 
-104 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+105 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
@@ -152,11 +152,11 @@ Records from 320 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Badger Platoon | 4 | 4 | 0 | 89 | 4 won | 4 |
 | Storm Tower Order | 11 | 3 | 8 | 427 | 6 lost | 1 |
 | Wildbrook Clan | 10 | 3 | 7 | 351 | 1 lost | 1 |
+| Glimmerdeep Kin | 7 | 3 | 4 | 299 | 3 won | 3 |
 | Stormhorn Tribe | 5 | 3 | 2 | 293 | 2 lost | 3 |
 | Duskwing Tribe | 9 | 3 | 5 | 260 | 3 lost | 2 |
 | Hollowbark Kin | 6 | 3 | 3 | 233 | 2 lost | 2 |
 | Sunspire Kin | 5 | 3 | 2 | 180 | 1 won | 2 |
-| Iron Boar Clan | 4 | 3 | 1 | 179 | 1 won | 2 |
 
 ### Great rivalries
 
@@ -171,6 +171,7 @@ Records from 320 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 06:03: The Glimmerdeep Kin Take the Canyon Pass (3 wins in a row · 57 kills)
 - 2026-11-06 05:52: The Black Candle Take the Mountain Pass (3rd win · 19 kills)
 - 2026-11-06 05:34: The Vortex Legion Take the Titan's Bones (streak ended · 3rd win · 105 kills)
 - 2026-11-06 05:20: The Cipher Cohort Take the Sky Islands (revenge! · 2nd win · 70 kills)
@@ -180,4 +181,3 @@ Records from 320 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 04:21: The Mire Witch Coven Take the Quarry (2nd win · 32 kills)
 - 2026-11-06 04:06: The Rum Barrel Crew Take the Canyon Pass (2nd win · 29 kills)
 - 2026-11-06 03:11: The Mossback Tribe Take the Ruined Fort (streak ended · 6th win · 60 kills)
-- 2026-11-06 02:54: The Thornheart Circle Take the Old Forest (2nd win · 28 kills)
