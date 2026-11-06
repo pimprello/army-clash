@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 18:20 | 🇵🇹 Portugal Hourglass Titan vs Spain Robots | Spain wins | https://youtube.com/shorts/BTYMWsMsg4w |
 | 2026-11-06 18:04 | They Were LOSING Until This 😳 | Navy wins | https://youtube.com/shorts/XBJ4zNKzLkU |
 | 2026-11-06 17:56 | 🌳 the WORLDROOT vs GOLEM Army | Mint wins | https://youtube.com/shorts/D-SYUsWiWzM |
 | 2026-11-06 17:34 | ULTRA BOARS vs Neon Archers vs Golden Vipers 🔥 | Green wins | https://youtube.com/shorts/HmO03lxfKMI |

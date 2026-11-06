@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 363 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 364 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -56,11 +56,11 @@ Records from 363 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - GRAVITY TYRANT SLAYER: 3
 - MIRROR KING SLAYER: 5
 - CATHEDRAL SLAYER: 5
-- CYCLOPS SLAYER: 5
 - HELICOPTER SLAYER: 5
 - THOUSAND-MAN SLAYER: 5
 - WORLDROOT SLAYER: 5
 - EXECUTIONER SLAYER: 5
+- CYCLOPS SLAYER: 6
 - PHOENIX SLAYER: 6
 - STAR EATER SLAYER: 6
 - HYDRA SLAYER: 7
@@ -121,7 +121,7 @@ Records from 363 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: PURPLE: 2
 - possess: cannon: 4
 - possess: treant: 4
-- portal: cyclops: 5
+- portal: cyclops: 6
 - portal: golem: 6
 - portal: wolfrider: 7
 - fusion: 9
@@ -129,7 +129,7 @@ Records from 363 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: troll: 12
 - sudden: ring: 13
 - sudden: boss: 16
-- sudden: lava: 17
+- sudden: lava: 18
 - sudden: meteors: 22
 
 ## The tribes' chronicle
@@ -141,7 +141,7 @@ Records from 363 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Mossback Tribe | 14 | 11 | 3 | 554 | 6 won | 6 |
 | Red Hawk Company | 12 | 9 | 3 | 447 | 1 lost | 5 |
 | Frostwhisper Tribe | 13 | 8 | 5 | 428 | 2 won | 4 |
-| Starweave Circle | 15 | 7 | 8 | 593 | 2 lost | 5 |
+| Starweave Circle | 16 | 7 | 9 | 641 | 3 lost | 5 |
 | Emberroot Circle | 9 | 6 | 2 | 284 | 2 won | 3 |
 | Mire Witch Coven | 6 | 6 | 0 | 150 | 6 won | 6 |
 | Silverbough Circle | 15 | 5 | 10 | 686 | 1 won | 2 |
@@ -153,7 +153,7 @@ Records from 363 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Bone Garden Coven | 8 | 5 | 3 | 120 | 1 won | 3 |
 | Storm Tower Order | 13 | 4 | 9 | 489 | 1 lost | 1 |
 | Stormhorn Tribe | 8 | 4 | 4 | 470 | 1 won | 3 |
-| Duskwing Tribe | 13 | 4 | 8 | 397 | 2 lost | 2 |
+| Duskwing Tribe | 14 | 4 | 9 | 456 | 3 lost | 2 |
 | Glimmerdeep Kin | 8 | 4 | 4 | 362 | 4 won | 4 |
 | Hollowbark Kin | 12 | 4 | 8 | 355 | 1 lost | 2 |
 | Nova Legion | 5 | 4 | 1 | 320 | 2 won | 2 |
@@ -172,6 +172,7 @@ Records from 363 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 18:20: The Axiom Legion Take the Frozen End (3rd win · 51 kills)
 - 2026-11-06 18:04: The Crew of the Night Eel Take the Desert Well (revenge denied · first ever win · 62 kills)
 - 2026-11-06 17:56: The Silverbough Circle Take the Mirror Gate (revenge denied · 5th win · 35 kills)
 - 2026-11-06 17:34: The Black Bear Clan Take the Canyon Pass (4th win · 51 kills)
@@ -181,4 +182,3 @@ Records from 363 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 15:56: The Thornheart Circle Take the Open Plains (5th win · 51 kills)
 - 2026-11-06 15:41: The Starweave Circle Take the Clockwork Arena (revenge! · 6th win · 42 kills)
 - 2026-11-06 15:26: The Silverbough Circle Take the Clockwork Arena (revenge! · 4th win · 34 kills)
-- 2026-11-06 15:13: The Stormhorn Tribe Take the Desert Well (4th win · 153 kills)
