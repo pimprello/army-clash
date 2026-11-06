@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 09:20 | 🚩 KING OF THE HILL: Portugal vs Spain | Spain wins | https://youtube.com/shorts/1AFwOAypXqs |
 | 2026-11-06 09:01 | Half the Size and Still WON 😳 | Brazil wins | https://youtube.com/shorts/iWrDiTBwgB0 |
 | 2026-11-06 08:47 | They STOLE the War Mammoth 😈 | Argentina wins | https://youtube.com/shorts/hI004cqcX4c |
 | 2026-11-06 08:34 | DREAM TEAM Battle: Solar Blades vs Wild Knights | Pink wins | https://youtube.com/shorts/jFG_wcAPA7k |

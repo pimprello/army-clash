@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 329 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 330 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -138,7 +138,7 @@ Records from 329 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Red Hawk Company | 11 | 9 | 2 | 383 | 3 won | 5 |
-| Mossback Tribe | 10 | 7 | 3 | 425 | 2 won | 3 |
+| Mossback Tribe | 11 | 8 | 3 | 462 | 3 won | 3 |
 | Starweave Circle | 9 | 5 | 4 | 448 | 1 lost | 5 |
 | Frostwhisper Tribe | 9 | 5 | 4 | 336 | 1 lost | 4 |
 | Thornheart Circle | 6 | 4 | 2 | 497 | 1 lost | 2 |
@@ -171,6 +171,7 @@ Records from 329 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 09:20: The Mossback Tribe Take the Titan's Bones (revenge denied · 3 wins in a row · 37 kills)
 - 2026-11-06 09:01: The Black Candle Take the Canyon Pass (3 wins in a row · 48 kills)
 - 2026-11-06 08:47: The Moonfang Tribe Take the Treasure Cove (2nd win · 31 kills)
 - 2026-11-06 08:34: The Duskwing Tribe Take the Treasure Cove (4th win · 41 kills)
@@ -180,4 +181,3 @@ Records from 329 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 06:33: The House of the Jade Serpent Take the Sky Islands (first battle, first win · 20 kills)
 - 2026-11-06 06:18: The Thornheart Circle Take the Crystal Grove (streak ended · 3rd win · 120 kills)
 - 2026-11-06 06:03: The Glimmerdeep Kin Take the Canyon Pass (3 wins in a row · 57 kills)
-- 2026-11-06 05:52: The Black Candle Take the Mountain Pass (3rd win · 19 kills)
