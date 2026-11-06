@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 19:48 | Undefeated General vs ORC HORDE 👹 | Lavender wins | https://youtube.com/shorts/At4w6Dgw8ys |
 | 2026-11-06 19:32 | Pick ONE: Turbo Pirates, Wild Hounds, Chaos Legion 👇 | Yellow wins | https://youtube.com/shorts/NTuAxdGMTdU |
 | 2026-11-06 19:18 | They Joined the GOBLIN KING?! 👑 | Brown wins | https://youtube.com/shorts/K2lhRu65WRM |
 | 2026-11-06 19:03 | Kill the KING to Win 👑 Titan Samurai vs Cyber Ninjas | Silver wins | https://youtube.com/shorts/wR3CPvImOAU |

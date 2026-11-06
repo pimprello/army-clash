@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 369 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 370 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -140,7 +140,7 @@ Records from 369 battles with trophies (videos from 1 November 2026 on). Rebuilt
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 15 | 12 | 3 | 600 | 7 won | 7 |
 | Red Hawk Company | 12 | 9 | 3 | 447 | 1 lost | 5 |
-| Frostwhisper Tribe | 13 | 8 | 5 | 428 | 2 won | 4 |
+| Frostwhisper Tribe | 14 | 8 | 6 | 443 | 1 lost | 4 |
 | Starweave Circle | 17 | 7 | 10 | 655 | 4 lost | 5 |
 | Thornheart Circle | 9 | 7 | 2 | 596 | 3 won | 3 |
 | Silverbough Circle | 18 | 6 | 12 | 792 | 1 lost | 2 |
@@ -148,16 +148,16 @@ Records from 369 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Mire Witch Coven | 6 | 6 | 0 | 150 | 6 won | 6 |
 | Order of the Silver Stag | 11 | 5 | 6 | 505 | 1 lost | 3 |
 | Glimmerdeep Kin | 9 | 5 | 4 | 393 | 5 won | 5 |
+| Golden Lion Order | 9 | 5 | 4 | 282 | 1 won | 3 |
 | Oakshield Clan | 9 | 5 | 4 | 256 | 1 won | 3 |
 | Iron Boar Clan | 6 | 5 | 1 | 197 | 3 won | 3 |
 | The Black Candle | 6 | 5 | 1 | 177 | 4 won | 4 |
 | Bone Garden Coven | 8 | 5 | 3 | 120 | 1 won | 3 |
+| Duskwing Tribe | 15 | 4 | 10 | 516 | 4 lost | 2 |
 | Storm Tower Order | 13 | 4 | 9 | 489 | 1 lost | 1 |
 | Stormhorn Tribe | 8 | 4 | 4 | 470 | 1 won | 3 |
-| Duskwing Tribe | 14 | 4 | 9 | 456 | 3 lost | 2 |
 | Hollowbark Kin | 12 | 4 | 8 | 355 | 1 lost | 2 |
 | Nova Legion | 5 | 4 | 1 | 320 | 2 won | 2 |
-| Golden Lion Order | 8 | 4 | 4 | 272 | 2 lost | 3 |
 
 ### Great rivalries
 
@@ -172,6 +172,7 @@ Records from 369 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 19:48: The Highmoor Clan Take the Mountain Pass (2nd win · 52 kills)
 - 2026-11-06 19:32: The Quasar Wing Take the Canyon Pass (2nd win · 83 kills)
 - 2026-11-06 19:18: The Silverbough Circle Take the City (6th win · 35 kills)
 - 2026-11-06 19:03: The Moonfang Tribe Take the Sky-temple Relic (streak ended · 3rd win · 53 kills)
@@ -181,4 +182,3 @@ Records from 369 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 18:04: The Crew of the Night Eel Take the Desert Well (revenge denied · first ever win · 62 kills)
 - 2026-11-06 17:56: The Silverbough Circle Take the Mirror Gate (revenge denied · 5th win · 35 kills)
 - 2026-11-06 17:34: The Black Bear Clan Take the Canyon Pass (4th win · 51 kills)
-- 2026-11-06 17:19: The Brightwater Tribe Take the Sky-temple Relic (4th win · 45 kills)
