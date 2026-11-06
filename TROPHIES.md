@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 334 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 335 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -83,11 +83,11 @@ Records from 334 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Mutations (rarest first)
 
 - vampiric: 8
-- wings: 24
+- wings: 25
 - spellward: 37
 - swift: 50
 - venom: 56
-- spikes: 60
+- spikes: 61
 - regen: 68
 
 ## Big moments
@@ -124,7 +124,7 @@ Records from 334 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: wolfrider: 5
 - portal: golem: 6
 - fusion: 8
-- portal: troll: 9
+- portal: troll: 10
 - sudden: ring: 11
 - portal: demon: 12
 - sudden: boss: 16
@@ -133,7 +133,7 @@ Records from 334 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-107 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+108 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
@@ -171,6 +171,7 @@ Records from 334 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 10:33: The Iron Lotus School Take the Haunted Crypt (streak ended · 3 wins in a row · 39 kills)
 - 2026-11-06 10:18: The Silverbough Circle Take the Desert Well (revenge! · 3rd win · 53 kills)
 - 2026-11-06 10:03: The Photon Wing Take the Open Plains (3rd win · 103 kills)
 - 2026-11-06 09:49: The Stonebridge Company Take the Ruined Fort (3rd win · 120 kills)
@@ -180,4 +181,3 @@ Records from 334 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 08:47: The Moonfang Tribe Take the Treasure Cove (2nd win · 31 kills)
 - 2026-11-06 08:34: The Duskwing Tribe Take the Treasure Cove (4th win · 41 kills)
 - 2026-11-06 08:24: The Silent Mile Take the Frozen End (2nd win · 41 kills)
-- 2026-11-06 08:03: The Frostwhisper Tribe Take the Open Plains (5th win · 35 kills)
