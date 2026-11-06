@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 315 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 316 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 315 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **OSKA THE WALL** (WIZARD), 11 kills · 2026-11-06 04:48
 - **IVOR THE WALL** (ORC), 18 kills · 2026-11-05 23:40
 - **BRAMBLE THE BOLD** (SWORDSMAN), 13 kills · 2026-11-05 23:11
 - **OSKA BONECRUSHER** (WIZARD), 19 kills · 2026-11-05 22:54
@@ -47,7 +48,6 @@ Records from 315 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **ZEDRIK BONECRUSHER** (PHASE REAPER), 14 kills · 2026-11-05 07:01
 - **COBRA-8** (LASER TROOPER), 10 kills · 2026-11-05 06:44
 - **RUNA THE SWIFT** (KNIGHT), 10 kills · 2026-11-05 04:46
-- **OSKA IRONHIDE** (WIZARD), 16 kills · 2026-11-05 04:18
 
 ## Titles earned (rarest first)
 
@@ -84,10 +84,10 @@ Records from 315 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 - vampiric: 7
 - wings: 23
-- spellward: 35
+- spellward: 36
 - swift: 46
 - venom: 52
-- spikes: 55
+- spikes: 56
 - regen: 64
 
 ## Big moments
@@ -145,17 +145,17 @@ Records from 315 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Frostwhisper Tribe | 7 | 4 | 3 | 247 | 1 lost | 4 |
 | Golden Lion Order | 6 | 4 | 2 | 246 | 1 won | 3 |
 | Raven Hill Clan | 6 | 4 | 2 | 227 | 3 won | 3 |
-| Gloomcap Circle | 8 | 4 | 4 | 158 | 2 lost | 3 |
+| Emberroot Circle | 6 | 4 | 1 | 224 | 1 won | 3 |
+| Gloomcap Circle | 9 | 4 | 5 | 215 | 3 lost | 3 |
 | Thornwood Company | 6 | 4 | 2 | 111 | 3 won | 3 |
 | Badger Platoon | 4 | 4 | 0 | 89 | 4 won | 4 |
 | Storm Tower Order | 11 | 3 | 8 | 427 | 6 lost | 1 |
 | Wildbrook Clan | 9 | 3 | 6 | 328 | 1 won | 1 |
 | Stormhorn Tribe | 5 | 3 | 2 | 293 | 2 lost | 3 |
 | Duskwing Tribe | 9 | 3 | 5 | 260 | 3 lost | 2 |
+| Hollowbark Kin | 6 | 3 | 3 | 233 | 2 lost | 2 |
 | Iron Boar Clan | 4 | 3 | 1 | 179 | 1 won | 2 |
 | Thunder Platoon | 4 | 3 | 1 | 173 | 1 lost | 3 |
-| Hollowbark Kin | 5 | 3 | 2 | 170 | 1 lost | 2 |
-| Mustang Battalion | 5 | 3 | 1 | 169 | 2 won | 2 |
 
 ### Great rivalries
 
@@ -170,6 +170,7 @@ Records from 315 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 04:48: The Emberroot Circle Take the Clockwork Arena (revenge! · 4th win · 72 kills)
 - 2026-11-06 04:36: The Golden Lion Order Take the Godboard (4th win · 27 kills)
 - 2026-11-06 04:21: The Mire Witch Coven Take the Quarry (2nd win · 32 kills)
 - 2026-11-06 04:06: The Rum Barrel Crew Take the Canyon Pass (2nd win · 29 kills)
@@ -179,4 +180,3 @@ Records from 315 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 01:55: The Rotting Choir Take the Open Plains (2nd win · 21 kills)
 - 2026-11-06 01:17: The Hollowbark Kin Take the World Furnace (2nd win · 31 kills)
 - 2026-11-06 01:02: The Kestrel Squadron Take the Ruined Fort (first ever win · 77 kills)
-- 2026-11-06 00:49: The Falling Leaf School Take the Swamp Shrine (first ever win · 49 kills)

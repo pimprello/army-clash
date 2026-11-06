@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 04:48 | Lava Skeletons vs Ghost Skeletons 🪞 | Cyan wins | https://youtube.com/shorts/36nktKPdzJ4 |
 | 2026-11-06 04:36 | Castle Demons vs Solar Drones 🤯 | Sand wins | https://youtube.com/shorts/sx6pXBQ5eNM |
 | 2026-11-06 04:21 | The Merchant Sold Them a War Horn 💰 | Magenta wins | https://youtube.com/shorts/R4hN1_6xjUU |
 | 2026-11-06 04:06 | The Weapons Came ALIVE 🗡️ | Sky wins | https://youtube.com/shorts/Ec2YWCt3reY |
