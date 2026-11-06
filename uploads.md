@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 17:19 | 🇬🇧 UK vs France: WHO WINS? | Uk wins | https://youtube.com/shorts/0QuFWr8Hfts |
 | 2026-11-06 16:28 | ⚔️ CHAMPION DUEL: Portugal vs Spain | Portugal wins | https://youtube.com/shorts/qX9UAje-pyA |
 | 2026-11-06 16:10 | 12 Skeletons FUSED Into a Giant 💀 | Purple wins | https://youtube.com/shorts/GPabPYiekGM |
 | 2026-11-06 15:56 | The Weapons Came ALIVE 🗡️ | Red wins | https://youtube.com/shorts/lT-g4x6WBc8 |
