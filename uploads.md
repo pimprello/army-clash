@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 08:47 | They STOLE the War Mammoth 😈 | Argentina wins | https://youtube.com/shorts/hI004cqcX4c |
 | 2026-11-06 08:34 | DREAM TEAM Battle: Solar Blades vs Wild Knights | Pink wins | https://youtube.com/shorts/jFG_wcAPA7k |
 | 2026-11-06 08:24 | 12 Skeletons FUSED Into a Giant 💀 | Magenta wins | https://youtube.com/shorts/yOJz50cDQJg |
 | 2026-11-06 08:03 | Titan vs Hydra vs Phoenix 🤯 | Pink wins | https://youtube.com/shorts/NneD08tx9Og |

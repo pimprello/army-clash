@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 327 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 328 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -95,7 +95,6 @@ Records from 327 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: AUSTRALIA: 1
 - portal: hydra: 1
 - extinct: PINK: 1
-- possess: mammoth: 1
 - copied: giant: 1
 - possess: phoenix: 1
 - extinct: LIME: 1
@@ -117,6 +116,7 @@ Records from 327 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - copied: knight: 2
 - extinct: SILVER: 2
 - possess: rhino: 2
+- possess: mammoth: 2
 - extinct: PURPLE: 2
 - possess: cannon: 4
 - possess: treant: 4
@@ -143,7 +143,7 @@ Records from 327 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Frostwhisper Tribe | 9 | 5 | 4 | 336 | 1 lost | 4 |
 | Thornheart Circle | 6 | 4 | 2 | 497 | 1 lost | 2 |
 | Order of the Silver Stag | 9 | 4 | 5 | 418 | 1 won | 3 |
-| Duskwing Tribe | 11 | 4 | 6 | 346 | 1 won | 2 |
+| Duskwing Tribe | 12 | 4 | 7 | 352 | 1 lost | 2 |
 | Nova Legion | 5 | 4 | 1 | 320 | 2 won | 2 |
 | Oakshield Clan | 8 | 4 | 4 | 250 | 1 lost | 3 |
 | Golden Lion Order | 6 | 4 | 2 | 246 | 1 won | 3 |
@@ -171,6 +171,7 @@ Records from 327 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 08:47: The Moonfang Tribe Take the Treasure Cove (2nd win · 31 kills)
 - 2026-11-06 08:34: The Duskwing Tribe Take the Treasure Cove (4th win · 41 kills)
 - 2026-11-06 08:24: The Silent Mile Take the Frozen End (2nd win · 41 kills)
 - 2026-11-06 08:03: The Frostwhisper Tribe Take the Open Plains (5th win · 35 kills)
@@ -180,4 +181,3 @@ Records from 327 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 06:03: The Glimmerdeep Kin Take the Canyon Pass (3 wins in a row · 57 kills)
 - 2026-11-06 05:52: The Black Candle Take the Mountain Pass (3rd win · 19 kills)
 - 2026-11-06 05:34: The Vortex Legion Take the Titan's Bones (streak ended · 3rd win · 105 kills)
-- 2026-11-06 05:20: The Cipher Cohort Take the Sky Islands (revenge! · 2nd win · 70 kills)
