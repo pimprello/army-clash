@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 321 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 322 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 321 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **PELL BONECRUSHER** (WARLOCK), 10 kills · 2026-11-06 06:18
 - **GHOST-8** (LASER TROOPER), 10 kills · 2026-11-06 05:20
 - **OSKA THE WALL** (WIZARD), 11 kills · 2026-11-06 04:48
 - **IVOR THE WALL** (ORC), 18 kills · 2026-11-05 23:40
@@ -47,7 +48,6 @@ Records from 321 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **BRAMBLE THE MAD** (STORM CALLER), 16 kills · 2026-11-05 09:26
 - **OSKA THE MAD** (WIZARD), 11 kills · 2026-11-05 09:13
 - **ZEDRIK BONECRUSHER** (PHASE REAPER), 14 kills · 2026-11-05 07:01
-- **COBRA-8** (LASER TROOPER), 10 kills · 2026-11-05 06:44
 
 ## Titles earned (rarest first)
 
@@ -82,7 +82,7 @@ Records from 321 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Mutations (rarest first)
 
-- vampiric: 7
+- vampiric: 8
 - wings: 24
 - spellward: 36
 - swift: 48
@@ -133,7 +133,7 @@ Records from 321 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-105 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+106 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
@@ -148,6 +148,7 @@ Records from 321 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Raven Hill Clan | 6 | 4 | 2 | 227 | 3 won | 3 |
 | Emberroot Circle | 6 | 4 | 1 | 224 | 1 won | 3 |
 | Gloomcap Circle | 9 | 4 | 5 | 215 | 3 lost | 3 |
+| Sunspire Kin | 6 | 4 | 2 | 201 | 2 won | 2 |
 | Thornwood Company | 6 | 4 | 2 | 111 | 3 won | 3 |
 | Badger Platoon | 4 | 4 | 0 | 89 | 4 won | 4 |
 | Storm Tower Order | 11 | 3 | 8 | 427 | 6 lost | 1 |
@@ -156,7 +157,6 @@ Records from 321 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Stormhorn Tribe | 5 | 3 | 2 | 293 | 2 lost | 3 |
 | Duskwing Tribe | 9 | 3 | 5 | 260 | 3 lost | 2 |
 | Hollowbark Kin | 6 | 3 | 3 | 233 | 2 lost | 2 |
-| Sunspire Kin | 5 | 3 | 2 | 180 | 1 won | 2 |
 
 ### Great rivalries
 
@@ -171,6 +171,7 @@ Records from 321 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 06:18: The Thornheart Circle Take the Crystal Grove (streak ended · 3rd win · 120 kills)
 - 2026-11-06 06:03: The Glimmerdeep Kin Take the Canyon Pass (3 wins in a row · 57 kills)
 - 2026-11-06 05:52: The Black Candle Take the Mountain Pass (3rd win · 19 kills)
 - 2026-11-06 05:34: The Vortex Legion Take the Titan's Bones (streak ended · 3rd win · 105 kills)
@@ -180,4 +181,3 @@ Records from 321 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 04:36: The Golden Lion Order Take the Godboard (4th win · 27 kills)
 - 2026-11-06 04:21: The Mire Witch Coven Take the Quarry (2nd win · 32 kills)
 - 2026-11-06 04:06: The Rum Barrel Crew Take the Canyon Pass (2nd win · 29 kills)
-- 2026-11-06 03:11: The Mossback Tribe Take the Ruined Fort (streak ended · 6th win · 60 kills)
