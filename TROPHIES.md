@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 336 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 337 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 336 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **ASHKA STEELHEART** (WARLOCK), 10 kills · 2026-11-06 11:03
 - **ECHO-3** (LASER TROOPER), 10 kills · 2026-11-06 10:03
 - **OSKA THE UNBROKEN** (SWORDSMAN), 16 kills · 2026-11-06 09:49
 - **DRAVEN IRONHIDE** (WIZARD), 28 kills · 2026-11-06 07:19
@@ -47,7 +48,6 @@ Records from 336 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **TALVO THE SWIFT** (ROYAL GUARD), 10 kills · 2026-11-05 18:38
 - **GRUNDA STORMBORN** (ROYAL GUARD), 20 kills · 2026-11-05 13:51
 - **ASHKA THE SWIFT** (SAMURAI), 12 kills · 2026-11-05 12:23
-- **GRUNDA STEELHEART** (WIZARD), 22 kills · 2026-11-05 11:08
 
 ## Titles earned (rarest first)
 
@@ -83,7 +83,7 @@ Records from 336 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Mutations (rarest first)
 
 - vampiric: 8
-- wings: 25
+- wings: 26
 - spellward: 37
 - swift: 51
 - venom: 56
@@ -108,6 +108,7 @@ Records from 336 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: OLIVE: 1
 - extinct: DENMARK: 1
 - extinct: ITALY: 1
+- possess: giant: 1
 - extinct: RED: 2
 - extinct: ORANGE: 2
 - extinct: BLUE: 2
@@ -146,7 +147,7 @@ Records from 336 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Mire Witch Coven | 5 | 5 | 0 | 140 | 5 won | 5 |
 | Thornheart Circle | 6 | 4 | 2 | 497 | 1 lost | 2 |
 | Order of the Silver Stag | 9 | 4 | 5 | 418 | 1 won | 3 |
-| Duskwing Tribe | 12 | 4 | 7 | 352 | 1 lost | 2 |
+| Duskwing Tribe | 13 | 4 | 8 | 397 | 2 lost | 2 |
 | Nova Legion | 5 | 4 | 1 | 320 | 2 won | 2 |
 | Golden Lion Order | 6 | 4 | 2 | 246 | 1 won | 3 |
 | Raven Hill Clan | 6 | 4 | 2 | 227 | 3 won | 3 |
@@ -171,6 +172,7 @@ Records from 336 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 11:03: The Bilgewater Crew Take the Canyon Pass (2nd win · 46 kills)
 - 2026-11-06 10:48: The Mire Witch Coven Take the Old Forest (revenge denied · 5 wins in a row · 60 kills)
 - 2026-11-06 10:33: The Iron Lotus School Take the Haunted Crypt (streak ended · 3 wins in a row · 39 kills)
 - 2026-11-06 10:18: The Silverbough Circle Take the Desert Well (revenge! · 3rd win · 53 kills)
@@ -180,4 +182,3 @@ Records from 336 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 09:20: The Mossback Tribe Take the Titan's Bones (revenge denied · 3 wins in a row · 37 kills)
 - 2026-11-06 09:01: The Black Candle Take the Canyon Pass (3 wins in a row · 48 kills)
 - 2026-11-06 08:47: The Moonfang Tribe Take the Treasure Cove (2nd win · 31 kills)
-- 2026-11-06 08:34: The Duskwing Tribe Take the Treasure Cove (4th win · 41 kills)
