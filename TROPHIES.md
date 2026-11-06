@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 380 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 381 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -83,10 +83,10 @@ Records from 380 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Mutations (rarest first)
 
 - vampiric: 8
-- wings: 27
+- wings: 28
 - spellward: 38
-- swift: 54
-- venom: 61
+- swift: 55
+- venom: 62
 - spikes: 65
 - regen: 77
 
@@ -172,6 +172,7 @@ Records from 380 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 23:47: The Nightshade Coven Take the Open Plains (first ever win · 50 kills)
 - 2026-11-06 23:34: The Ash Wolf Clan Take the Treasure Cove (revenge denied · 4th win · 106 kills)
 - 2026-11-06 23:20: The Rotting Choir Take the Bombed City (3 wins in a row · 37 kills)
 - 2026-11-06 23:06: The Copper Crown Company Take the Reactor (streak ended · 4th win · 21 kills)
@@ -181,4 +182,3 @@ Records from 380 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 20:45: The Wildbrook Clan Take the Desert Well (revenge denied · 4th win · 75 kills)
 - 2026-11-06 20:29: The Vortex Legion Take the Canyon Pass (4th win · 43 kills)
 - 2026-11-06 20:17: The Mire Witch Coven Take the Crystal Grove (revenge denied · 7 wins in a row · 97 kills)
-- 2026-11-06 20:00: The Highmoor Clan Take the Open Plains (streak ended · 3rd win · 31 kills)
