@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 371 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 372 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -86,7 +86,7 @@ Records from 371 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - wings: 27
 - spellward: 38
 - swift: 54
-- venom: 60
+- venom: 61
 - spikes: 65
 - regen: 76
 
@@ -143,9 +143,9 @@ Records from 371 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Frostwhisper Tribe | 14 | 8 | 6 | 443 | 1 lost | 4 |
 | Starweave Circle | 17 | 7 | 10 | 655 | 4 lost | 5 |
 | Thornheart Circle | 9 | 7 | 2 | 596 | 3 won | 3 |
+| Mire Witch Coven | 7 | 7 | 0 | 247 | 7 won | 7 |
 | Silverbough Circle | 18 | 6 | 12 | 792 | 1 lost | 2 |
 | Emberroot Circle | 9 | 6 | 2 | 284 | 2 won | 3 |
-| Mire Witch Coven | 6 | 6 | 0 | 150 | 6 won | 6 |
 | Order of the Silver Stag | 11 | 5 | 6 | 505 | 1 lost | 3 |
 | Glimmerdeep Kin | 9 | 5 | 4 | 393 | 5 won | 5 |
 | Golden Lion Order | 9 | 5 | 4 | 282 | 1 won | 3 |
@@ -172,6 +172,7 @@ Records from 371 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 20:17: The Mire Witch Coven Take the Crystal Grove (revenge denied · 7 wins in a row · 97 kills)
 - 2026-11-06 20:00: The Highmoor Clan Take the Open Plains (streak ended · 3rd win · 31 kills)
 - 2026-11-06 19:48: The Highmoor Clan Take the Mountain Pass (2nd win · 52 kills)
 - 2026-11-06 19:32: The Quasar Wing Take the Canyon Pass (2nd win · 83 kills)
@@ -181,4 +182,3 @@ Records from 371 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 18:33: The Mossback Tribe Take the Open Plains (7 wins in a row · 46 kills)
 - 2026-11-06 18:20: The Axiom Legion Take the Frozen End (3rd win · 51 kills)
 - 2026-11-06 18:04: The Crew of the Night Eel Take the Desert Well (revenge denied · first ever win · 62 kills)
-- 2026-11-06 17:56: The Silverbough Circle Take the Mirror Gate (revenge denied · 5th win · 35 kills)
