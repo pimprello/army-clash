@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 331 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 332 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 331 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **OSKA THE UNBROKEN** (SWORDSMAN), 16 kills · 2026-11-06 09:49
 - **DRAVEN IRONHIDE** (WIZARD), 28 kills · 2026-11-06 07:19
 - **PELL BONECRUSHER** (WARLOCK), 10 kills · 2026-11-06 06:18
 - **GHOST-8** (LASER TROOPER), 10 kills · 2026-11-06 05:20
@@ -47,7 +48,6 @@ Records from 331 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **ASHKA THE SWIFT** (SAMURAI), 12 kills · 2026-11-05 12:23
 - **GRUNDA STEELHEART** (WIZARD), 22 kills · 2026-11-05 11:08
 - **BRAMBLE THE MAD** (STORM CALLER), 16 kills · 2026-11-05 09:26
-- **OSKA THE MAD** (WIZARD), 11 kills · 2026-11-05 09:13
 
 ## Titles earned (rarest first)
 
@@ -87,8 +87,8 @@ Records from 331 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 36
 - swift: 49
 - venom: 55
-- spikes: 58
-- regen: 66
+- spikes: 59
+- regen: 67
 
 ## Big moments
 
@@ -141,11 +141,11 @@ Records from 331 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Mossback Tribe | 11 | 8 | 3 | 462 | 3 won | 3 |
 | Starweave Circle | 9 | 5 | 4 | 448 | 1 lost | 5 |
 | Frostwhisper Tribe | 9 | 5 | 4 | 336 | 1 lost | 4 |
+| Oakshield Clan | 9 | 5 | 4 | 256 | 1 won | 3 |
 | Thornheart Circle | 6 | 4 | 2 | 497 | 1 lost | 2 |
 | Order of the Silver Stag | 9 | 4 | 5 | 418 | 1 won | 3 |
 | Duskwing Tribe | 12 | 4 | 7 | 352 | 1 lost | 2 |
 | Nova Legion | 5 | 4 | 1 | 320 | 2 won | 2 |
-| Oakshield Clan | 8 | 4 | 4 | 250 | 1 lost | 3 |
 | Golden Lion Order | 6 | 4 | 2 | 246 | 1 won | 3 |
 | Raven Hill Clan | 6 | 4 | 2 | 227 | 3 won | 3 |
 | Emberroot Circle | 6 | 4 | 1 | 224 | 1 won | 3 |
@@ -171,6 +171,7 @@ Records from 331 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 09:49: The Stonebridge Company Take the Ruined Fort (3rd win · 120 kills)
 - 2026-11-06 09:34: The Vector Cohort Take the Swamp Shrine (revenge denied · 2nd win · 3 kills)
 - 2026-11-06 09:20: The Mossback Tribe Take the Titan's Bones (revenge denied · 3 wins in a row · 37 kills)
 - 2026-11-06 09:01: The Black Candle Take the Canyon Pass (3 wins in a row · 48 kills)
@@ -180,4 +181,3 @@ Records from 331 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 08:03: The Frostwhisper Tribe Take the Open Plains (5th win · 35 kills)
 - 2026-11-06 07:19: The Thornheart Circle Take the Neon District (4th win · 137 kills)
 - 2026-11-06 06:33: The House of the Jade Serpent Take the Sky Islands (first battle, first win · 20 kills)
-- 2026-11-06 06:18: The Thornheart Circle Take the Crystal Grove (streak ended · 3rd win · 120 kills)
