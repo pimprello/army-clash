@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 10:18 | 🚩 KING OF THE HILL: Forest Spirits vs Orc Horde | Purple wins | https://youtube.com/shorts/YIYUDhHNuLc |
 | 2026-11-06 10:03 | METEORS Hit Mid-Battle ☄️ | Blue wins | https://youtube.com/shorts/ooi1meSUyL0 |
 | 2026-11-06 09:49 | 💀 LICHES vs Empire | Purple wins | https://youtube.com/shorts/yR0xVg48ypQ |
 | 2026-11-06 09:34 | Omega Knights vs Gold Goblins 🤯 | Purple wins | https://youtube.com/shorts/n3RkFcAkY0M |

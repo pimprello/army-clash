@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 333 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 334 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -125,7 +125,7 @@ Records from 333 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: golem: 6
 - fusion: 8
 - portal: troll: 9
-- sudden: ring: 10
+- sudden: ring: 11
 - portal: demon: 12
 - sudden: boss: 16
 - sudden: lava: 16
@@ -137,9 +137,9 @@ Records from 333 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
+| Mossback Tribe | 12 | 9 | 3 | 479 | 4 won | 4 |
 | Red Hawk Company | 11 | 9 | 2 | 383 | 3 won | 5 |
-| Mossback Tribe | 11 | 8 | 3 | 462 | 3 won | 3 |
-| Starweave Circle | 9 | 5 | 4 | 448 | 1 lost | 5 |
+| Starweave Circle | 10 | 5 | 5 | 475 | 2 lost | 5 |
 | Frostwhisper Tribe | 9 | 5 | 4 | 336 | 1 lost | 4 |
 | Oakshield Clan | 9 | 5 | 4 | 256 | 1 won | 3 |
 | Thornheart Circle | 6 | 4 | 2 | 497 | 1 lost | 2 |
@@ -156,7 +156,7 @@ Records from 333 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | The Pale Procession | 4 | 4 | 0 | 93 | 4 won | 4 |
 | Badger Platoon | 4 | 4 | 0 | 89 | 4 won | 4 |
 | Mire Witch Coven | 4 | 4 | 0 | 80 | 4 won | 4 |
-| Storm Tower Order | 11 | 3 | 8 | 427 | 6 lost | 1 |
+| Silverbough Circle | 12 | 3 | 9 | 612 | 1 won | 2 |
 
 ### Great rivalries
 
@@ -171,6 +171,7 @@ Records from 333 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 10:18: The Silverbough Circle Take the Desert Well (revenge! · 3rd win · 53 kills)
 - 2026-11-06 10:03: The Photon Wing Take the Open Plains (3rd win · 103 kills)
 - 2026-11-06 09:49: The Stonebridge Company Take the Ruined Fort (3rd win · 120 kills)
 - 2026-11-06 09:34: The Vector Cohort Take the Swamp Shrine (revenge denied · 2nd win · 3 kills)
@@ -180,4 +181,3 @@ Records from 333 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 08:34: The Duskwing Tribe Take the Treasure Cove (4th win · 41 kills)
 - 2026-11-06 08:24: The Silent Mile Take the Frozen End (2nd win · 41 kills)
 - 2026-11-06 08:03: The Frostwhisper Tribe Take the Open Plains (5th win · 35 kills)
-- 2026-11-06 07:19: The Thornheart Circle Take the Neon District (4th win · 137 kills)
