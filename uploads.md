@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 12:15 | ⚔️ CHAMPION DUEL: Mammoth Army vs War Elephants | Purple wins | https://youtube.com/shorts/ICqk3r-Ay00 |
 | 2026-11-06 12:02 | Stareater vs Stormemperor vs Worldroot 🤯 | Uk wins | https://youtube.com/shorts/yWJPu_pzAN4 |
 | 2026-11-06 11:48 | 🚩 KING OF THE HILL: Siege Army vs Walking Fortress | Green wins | https://youtube.com/shorts/noe0SHjATEo |
 | 2026-11-06 11:30 | 🇺🇸 USA vs Canada: WHO WINS? | Canada wins | https://youtube.com/shorts/Hdc40KjoVTY |

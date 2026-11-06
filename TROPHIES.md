@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 341 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 342 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -71,9 +71,9 @@ Records from 341 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - COLOSSUS SLAYER: 8
 - CANNON SLAYER: 8
 - ELEPHANT SLAYER: 9
-- MAMMOTH SLAYER: 9
 - PLAYER SLAYER: 9
 - MECH SLAYER: 10
+- MAMMOTH SLAYER: 11
 - TANK SLAYER: 12
 - GOLEM SLAYER: 13
 - GIANT SLAYER: 17
@@ -139,13 +139,15 @@ Records from 341 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 13 | 10 | 3 | 530 | 5 won | 5 |
-| Red Hawk Company | 11 | 9 | 2 | 383 | 3 won | 5 |
+| Red Hawk Company | 12 | 9 | 3 | 447 | 1 lost | 5 |
 | Starweave Circle | 10 | 5 | 5 | 475 | 2 lost | 5 |
 | Frostwhisper Tribe | 9 | 5 | 4 | 336 | 1 lost | 4 |
 | Oakshield Clan | 9 | 5 | 4 | 256 | 1 won | 3 |
+| Iron Boar Clan | 6 | 5 | 1 | 197 | 3 won | 3 |
 | The Black Candle | 6 | 5 | 1 | 177 | 4 won | 4 |
 | Mire Witch Coven | 5 | 5 | 0 | 140 | 5 won | 5 |
 | Thornheart Circle | 6 | 4 | 2 | 497 | 1 lost | 2 |
+| Storm Tower Order | 12 | 4 | 8 | 484 | 1 won | 1 |
 | Order of the Silver Stag | 9 | 4 | 5 | 418 | 1 won | 3 |
 | Duskwing Tribe | 13 | 4 | 8 | 397 | 2 lost | 2 |
 | Glimmerdeep Kin | 8 | 4 | 4 | 362 | 4 won | 4 |
@@ -155,9 +157,7 @@ Records from 341 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Emberroot Circle | 6 | 4 | 1 | 224 | 1 won | 3 |
 | Gloomcap Circle | 9 | 4 | 5 | 215 | 3 lost | 3 |
 | Sunspire Kin | 7 | 4 | 3 | 213 | 1 lost | 2 |
-| Iron Boar Clan | 5 | 4 | 1 | 184 | 2 won | 2 |
 | Thornwood Company | 6 | 4 | 2 | 111 | 3 won | 3 |
-| The Pale Procession | 4 | 4 | 0 | 93 | 4 won | 4 |
 
 ### Great rivalries
 
@@ -172,6 +172,7 @@ Records from 341 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 12:15: The Storm Tower Order Take the Swamp Shrine (streak ended · 4th win · 57 kills)
 - 2026-11-06 12:02: The Mossback Tribe Take the Open Plains (5 wins in a row · 51 kills)
 - 2026-11-06 11:48: The Frostmere Clan Take the Sky-temple Relic (revenge! · 2nd win · 183 kills)
 - 2026-11-06 11:30: The Glimmerdeep Kin Take the Quarry (4 wins in a row · 63 kills)
@@ -181,4 +182,3 @@ Records from 341 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 10:33: The Iron Lotus School Take the Haunted Crypt (streak ended · 3 wins in a row · 39 kills)
 - 2026-11-06 10:18: The Silverbough Circle Take the Desert Well (revenge! · 3rd win · 53 kills)
 - 2026-11-06 10:03: The Photon Wing Take the Open Plains (3rd win · 103 kills)
-- 2026-11-06 09:49: The Stonebridge Company Take the Ruined Fort (3rd win · 120 kills)
