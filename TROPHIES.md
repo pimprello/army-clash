@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 375 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 376 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -144,8 +144,10 @@ Records from 375 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Starweave Circle | 18 | 7 | 11 | 712 | 5 lost | 5 |
 | Thornheart Circle | 9 | 7 | 2 | 596 | 3 won | 3 |
 | Mire Witch Coven | 7 | 7 | 0 | 247 | 7 won | 7 |
-| Silverbough Circle | 18 | 6 | 12 | 792 | 1 lost | 2 |
+| Silverbough Circle | 19 | 6 | 13 | 838 | 2 lost | 2 |
 | Emberroot Circle | 9 | 6 | 2 | 284 | 2 won | 3 |
+| Duskwing Tribe | 16 | 5 | 10 | 571 | 1 won | 2 |
+| Stormhorn Tribe | 9 | 5 | 4 | 511 | 2 won | 3 |
 | Order of the Silver Stag | 11 | 5 | 6 | 505 | 1 lost | 3 |
 | Storm Tower Order | 14 | 5 | 9 | 504 | 1 won | 1 |
 | Glimmerdeep Kin | 9 | 5 | 4 | 393 | 5 won | 5 |
@@ -155,8 +157,6 @@ Records from 375 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | The Black Candle | 6 | 5 | 1 | 177 | 4 won | 4 |
 | Bone Garden Coven | 8 | 5 | 3 | 120 | 1 won | 3 |
 | Wildbrook Clan | 14 | 4 | 10 | 554 | 1 won | 1 |
-| Duskwing Tribe | 15 | 4 | 10 | 516 | 4 lost | 2 |
-| Stormhorn Tribe | 8 | 4 | 4 | 470 | 1 won | 3 |
 | Hollowbark Kin | 12 | 4 | 8 | 355 | 1 lost | 2 |
 
 ### Great rivalries
@@ -172,6 +172,7 @@ Records from 375 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 21:55: The Duskwing Tribe Take the Clockwork Arena (revenge denied · 5th win · 55 kills)
 - 2026-11-06 20:58: The Copperhead Battalion Take the Trench Line (streak ended · 3rd win · 16 kills)
 - 2026-11-06 20:45: The Wildbrook Clan Take the Desert Well (revenge denied · 4th win · 75 kills)
 - 2026-11-06 20:29: The Vortex Legion Take the Canyon Pass (4th win · 43 kills)
@@ -181,4 +182,3 @@ Records from 375 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 19:32: The Quasar Wing Take the Canyon Pass (2nd win · 83 kills)
 - 2026-11-06 19:18: The Silverbough Circle Take the City (6th win · 35 kills)
 - 2026-11-06 19:03: The Moonfang Tribe Take the Sky-temple Relic (streak ended · 3rd win · 53 kills)
-- 2026-11-06 18:47: The Glimmerdeep Kin Take the Open Plains (5 wins in a row · 31 kills)

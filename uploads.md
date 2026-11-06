@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 21:55 | Shadow Skeletons vs Ghost Skeletons 🪞 | Yellow wins | https://youtube.com/shorts/u7tlhmjJ6X4 |
 | 2026-11-06 20:58 | ⚔️ CHAMPION DUEL: Savage Drones vs Ghost Bombers | Blue wins | https://youtube.com/shorts/dWQOLCaMnUg |
 | 2026-11-06 20:45 | PLAYER vs GIANT 👹 | Teal wins | https://youtube.com/shorts/VjczIY-DMrE |
 | 2026-11-06 20:29 | The Merchant Sold Them a War Horn 💰 | Red wins | https://youtube.com/shorts/1d1DGOTCMbI |
