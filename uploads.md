@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 01:02 | 🚩 KING OF THE HILL: Ultra Ninjas vs Steel Rifles | Green wins | https://youtube.com/shorts/4JIL2-5Md3g |
 | 2026-11-06 00:49 | 94 Samurai vs a IMMORTAL Army ♾️ | Red wins | https://youtube.com/shorts/VT32IR_3bV4 |
 | 2026-11-06 00:32 | A STAMPEDE Hit Mid-Battle 🦣 | Sky wins | https://youtube.com/shorts/3tWCY6hTEHs |
 | 2026-11-06 00:27 | Copycats vs GIANT ARMY 👹 | Red wins | https://youtube.com/shorts/xO4kDF3r_3A |

@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 306 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 307 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -87,7 +87,7 @@ Records from 306 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 35
 - swift: 46
 - venom: 49
-- spikes: 52
+- spikes: 53
 - regen: 62
 
 ## Big moments
@@ -145,6 +145,7 @@ Records from 306 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Raven Hill Clan | 6 | 4 | 2 | 227 | 3 won | 3 |
 | Frostwhisper Tribe | 6 | 4 | 2 | 192 | 4 won | 4 |
 | Gloomcap Circle | 7 | 4 | 3 | 148 | 1 lost | 3 |
+| Badger Platoon | 4 | 4 | 0 | 89 | 4 won | 4 |
 | Storm Tower Order | 10 | 3 | 7 | 341 | 5 lost | 1 |
 | Stormhorn Tribe | 5 | 3 | 2 | 293 | 2 lost | 3 |
 | Duskwing Tribe | 9 | 3 | 5 | 260 | 3 lost | 2 |
@@ -155,7 +156,6 @@ Records from 306 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Black Bear Clan | 4 | 3 | 1 | 119 | 1 won | 2 |
 | Hammer Platoon | 6 | 3 | 3 | 113 | 1 lost | 2 |
 | Cinderclaw Kin | 4 | 3 | 1 | 100 | 1 lost | 3 |
-| The Pale Procession | 3 | 3 | 0 | 91 | 3 won | 3 |
 
 ### Great rivalries
 
@@ -170,6 +170,7 @@ Records from 306 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 01:02: The Kestrel Squadron Take the Ruined Fort (first ever win · 77 kills)
 - 2026-11-06 00:49: The Falling Leaf School Take the Swamp Shrine (first ever win · 49 kills)
 - 2026-11-06 00:32: The Crew of the Iron Anchor Take the Canyon Pass (2nd win · 24 kills)
 - 2026-11-06 00:27: The Glimmerdeep Kin Take the Bombed City (revenge denied · first ever win · 147 kills)
@@ -179,4 +180,3 @@ Records from 306 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 22:39: The Photon Wing Take the Bombed City (first battle, first win · 67 kills)
 - 2026-11-05 22:26: The Raven Hill Clan Take the Neon District (streak ended · 3rd win · 80 kills)
 - 2026-11-05 22:12: The Harrier Squadron Take the Frozen End (streak ended · 2nd win · 30 kills)
-- 2026-11-05 21:55: The Iron Lotus School Take the Canyon Pass (2nd win · 30 kills)
