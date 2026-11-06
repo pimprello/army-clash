@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 319 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 320 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -52,7 +52,7 @@ Records from 319 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Titles earned (rarest first)
 
 - CATAPULT SLAYER: 1
-- KNIGHT SLAYER: 2
+- KNIGHT SLAYER: 3
 - GRAVITY TYRANT SLAYER: 3
 - WORLDROOT SLAYER: 3
 - EXECUTIONER SLAYER: 4
@@ -75,20 +75,20 @@ Records from 319 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PLAYER SLAYER: 9
 - MECH SLAYER: 10
 - TANK SLAYER: 12
-- GOLEM SLAYER: 12
+- GOLEM SLAYER: 13
 - GIANT SLAYER: 17
 - DRAGON SLAYER: 20
-- TITAN SLAYER: 28
+- TITAN SLAYER: 29
 
 ## Mutations (rarest first)
 
 - vampiric: 7
 - wings: 24
 - spellward: 36
-- swift: 47
+- swift: 48
 - venom: 52
 - spikes: 56
-- regen: 64
+- regen: 65
 
 ## Big moments
 
@@ -109,6 +109,7 @@ Records from 319 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: UK: 1
 - extinct: OLIVE: 1
 - extinct: DENMARK: 1
+- extinct: ITALY: 1
 - extinct: RED: 2
 - extinct: ORANGE: 2
 - extinct: BLUE: 2
@@ -120,8 +121,8 @@ Records from 319 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - possess: cannon: 4
 - possess: treant: 4
 - portal: cyclops: 4
-- portal: golem: 5
 - portal: wolfrider: 5
+- portal: golem: 6
 - fusion: 7
 - portal: troll: 8
 - sudden: ring: 10
@@ -150,7 +151,7 @@ Records from 319 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Thornwood Company | 6 | 4 | 2 | 111 | 3 won | 3 |
 | Badger Platoon | 4 | 4 | 0 | 89 | 4 won | 4 |
 | Storm Tower Order | 11 | 3 | 8 | 427 | 6 lost | 1 |
-| Wildbrook Clan | 9 | 3 | 6 | 328 | 1 won | 1 |
+| Wildbrook Clan | 10 | 3 | 7 | 351 | 1 lost | 1 |
 | Stormhorn Tribe | 5 | 3 | 2 | 293 | 2 lost | 3 |
 | Duskwing Tribe | 9 | 3 | 5 | 260 | 3 lost | 2 |
 | Hollowbark Kin | 6 | 3 | 3 | 233 | 2 lost | 2 |
@@ -170,6 +171,7 @@ Records from 319 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 05:52: The Black Candle Take the Mountain Pass (3rd win · 19 kills)
 - 2026-11-06 05:34: The Vortex Legion Take the Titan's Bones (streak ended · 3rd win · 105 kills)
 - 2026-11-06 05:20: The Cipher Cohort Take the Sky Islands (revenge! · 2nd win · 70 kills)
 - 2026-11-06 05:05: The Sunspire Kin Take the Open Plains (3rd win · 37 kills)
@@ -179,4 +181,3 @@ Records from 319 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 04:06: The Rum Barrel Crew Take the Canyon Pass (2nd win · 29 kills)
 - 2026-11-06 03:11: The Mossback Tribe Take the Ruined Fort (streak ended · 6th win · 60 kills)
 - 2026-11-06 02:54: The Thornheart Circle Take the Old Forest (2nd win · 28 kills)
-- 2026-11-06 02:43: The Wildbrook Clan Take the Haunted Crypt (streak ended · 3rd win · 33 kills)
