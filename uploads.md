@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 20:00 | They Were LOSING Until This 😳 | Usa wins | https://youtube.com/shorts/p_P1Xe8-6_I |
 | 2026-11-06 19:48 | Undefeated General vs ORC HORDE 👹 | Lavender wins | https://youtube.com/shorts/At4w6Dgw8ys |
 | 2026-11-06 19:32 | Pick ONE: Turbo Pirates, Wild Hounds, Chaos Legion 👇 | Yellow wins | https://youtube.com/shorts/NTuAxdGMTdU |
 | 2026-11-06 19:18 | They Joined the GOBLIN KING?! 👑 | Brown wins | https://youtube.com/shorts/K2lhRu65WRM |

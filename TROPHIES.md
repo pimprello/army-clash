@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 370 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 371 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -60,12 +60,12 @@ Records from 370 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - THOUSAND-MAN SLAYER: 5
 - WORLDROOT SLAYER: 5
 - EXECUTIONER SLAYER: 5
-- CYCLOPS SLAYER: 6
 - PHOENIX SLAYER: 6
 - STAR EATER SLAYER: 6
 - HYDRA SLAYER: 7
 - FORTRESS SLAYER: 7
 - UNMAKER SLAYER: 7
+- CYCLOPS SLAYER: 7
 - IMMORTAL FRAUD SLAYER: 7
 - STORM EMPEROR SLAYER: 7
 - COLOSSUS SLAYER: 8
@@ -85,7 +85,7 @@ Records from 370 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 8
 - wings: 27
 - spellward: 38
-- swift: 53
+- swift: 54
 - venom: 60
 - spikes: 65
 - regen: 76
@@ -121,15 +121,15 @@ Records from 370 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: RED: 3
 - possess: cannon: 4
 - possess: treant: 4
-- portal: cyclops: 6
 - portal: golem: 6
+- portal: cyclops: 7
 - portal: wolfrider: 7
 - fusion: 9
 - portal: demon: 12
 - portal: troll: 12
 - sudden: ring: 13
 - sudden: boss: 16
-- sudden: lava: 18
+- sudden: lava: 19
 - sudden: meteors: 22
 
 ## The tribes' chronicle
@@ -172,6 +172,7 @@ Records from 370 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 20:00: The Highmoor Clan Take the Open Plains (streak ended · 3rd win · 31 kills)
 - 2026-11-06 19:48: The Highmoor Clan Take the Mountain Pass (2nd win · 52 kills)
 - 2026-11-06 19:32: The Quasar Wing Take the Canyon Pass (2nd win · 83 kills)
 - 2026-11-06 19:18: The Silverbough Circle Take the City (6th win · 35 kills)
@@ -181,4 +182,3 @@ Records from 370 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 18:20: The Axiom Legion Take the Frozen End (3rd win · 51 kills)
 - 2026-11-06 18:04: The Crew of the Night Eel Take the Desert Well (revenge denied · first ever win · 62 kills)
 - 2026-11-06 17:56: The Silverbough Circle Take the Mirror Gate (revenge denied · 5th win · 35 kills)
-- 2026-11-06 17:34: The Black Bear Clan Take the Canyon Pass (4th win · 51 kills)
