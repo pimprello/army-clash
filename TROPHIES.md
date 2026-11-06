@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 347 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 348 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -73,8 +73,8 @@ Records from 347 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - CANNON SLAYER: 9
 - PLAYER SLAYER: 9
 - MECH SLAYER: 10
-- TANK SLAYER: 12
 - MAMMOTH SLAYER: 12
+- TANK SLAYER: 13
 - GOLEM SLAYER: 13
 - GIANT SLAYER: 17
 - DRAGON SLAYER: 20
@@ -162,16 +162,17 @@ Records from 347 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ### Great rivalries
 
 - **Mossback Tribe vs Stormhorn Tribe**: met 3 times, last won by Mossback Tribe
+- **Harrier Squadron vs Mustang Battalion**: met 3 times, last won by Mustang Battalion
 - **Mossback Tribe vs Starweave Circle**: met 3 times, last won by Mossback Tribe
 - **Starweave Circle vs Storm Tower Order**: met 3 times
 - **Brightwater Tribe vs Frostwhisper Tribe**: met 2 times, last won by Frostwhisper Tribe
 - **Duskwing Tribe vs Frostwhisper Tribe**: met 2 times, last won by Frostwhisper Tribe
 - **Red Hawk Company vs Wildbrook Clan**: met 2 times, last won by Red Hawk Company
 - **Storm Tower Order vs Wildbrook Clan**: met 2 times, last won by Wildbrook Clan
-- **Cipher Cohort vs Vortex Legion**: met 2 times, last won by Cipher Cohort
 
 ### Latest from the battlefield
 
+- 2026-11-06 13:42: The Stonewall Company Take the Clockwork Arena (revenge denied · 3rd win · 36 kills)
 - 2026-11-06 13:27: The Rum Barrel Crew Take the Crystal Grove (3rd win · 22 kills)
 - 2026-11-06 13:12: The Frostwhisper Tribe Take the Open Plains (revenge denied · 6th win · 33 kills)
 - 2026-11-06 12:59: The Axiom Legion Take the Canyon Pass (2nd win · 18 kills)
@@ -181,4 +182,3 @@ Records from 347 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 12:02: The Mossback Tribe Take the Open Plains (5 wins in a row · 51 kills)
 - 2026-11-06 11:48: The Frostmere Clan Take the Sky-temple Relic (revenge! · 2nd win · 183 kills)
 - 2026-11-06 11:30: The Glimmerdeep Kin Take the Quarry (4 wins in a row · 63 kills)
-- 2026-11-06 11:13: The Thunder Gate School Take the Haunted Crypt (2nd win · 22 kills)

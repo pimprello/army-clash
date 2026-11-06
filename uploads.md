@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 13:42 | They Took the HILL and Won 🚩 | Red wins | https://youtube.com/shorts/iSBbae2jECg |
 | 2026-11-06 13:27 | LAST STAND: 19 Heroes vs Toxic Bows 🛡️ | Blue wins | https://youtube.com/shorts/PbQmWRUKruE |
 | 2026-11-06 13:12 | Hold the HILL to Win? Ogres vs Dwarves 🚩 | Teal wins | https://youtube.com/shorts/ilUE6SLRgv8 |
 | 2026-11-06 12:59 | 3 Armies, Only 1 SURVIVES 💀 | Green wins | https://youtube.com/shorts/sufvTcu9uRg |
