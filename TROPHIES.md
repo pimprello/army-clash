@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 348 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 349 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -71,7 +71,7 @@ Records from 348 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - COLOSSUS SLAYER: 8
 - ELEPHANT SLAYER: 9
 - CANNON SLAYER: 9
-- PLAYER SLAYER: 9
+- PLAYER SLAYER: 10
 - MECH SLAYER: 10
 - MAMMOTH SLAYER: 12
 - TANK SLAYER: 13
@@ -88,7 +88,7 @@ Records from 348 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - swift: 52
 - venom: 58
 - spikes: 63
-- regen: 70
+- regen: 71
 
 ## Big moments
 
@@ -142,13 +142,13 @@ Records from 348 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Red Hawk Company | 12 | 9 | 3 | 447 | 1 lost | 5 |
 | Frostwhisper Tribe | 10 | 6 | 4 | 369 | 1 won | 4 |
 | Starweave Circle | 11 | 5 | 6 | 492 | 3 lost | 5 |
+| Order of the Silver Stag | 10 | 5 | 5 | 486 | 2 won | 3 |
 | Oakshield Clan | 9 | 5 | 4 | 256 | 1 won | 3 |
 | Iron Boar Clan | 6 | 5 | 1 | 197 | 3 won | 3 |
 | The Black Candle | 6 | 5 | 1 | 177 | 4 won | 4 |
 | Mire Witch Coven | 5 | 5 | 0 | 140 | 5 won | 5 |
 | Thornheart Circle | 6 | 4 | 2 | 497 | 1 lost | 2 |
 | Storm Tower Order | 13 | 4 | 9 | 489 | 1 lost | 1 |
-| Order of the Silver Stag | 9 | 4 | 5 | 418 | 1 won | 3 |
 | Duskwing Tribe | 13 | 4 | 8 | 397 | 2 lost | 2 |
 | Glimmerdeep Kin | 8 | 4 | 4 | 362 | 4 won | 4 |
 | Nova Legion | 5 | 4 | 1 | 320 | 2 won | 2 |
@@ -162,16 +162,17 @@ Records from 348 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ### Great rivalries
 
 - **Mossback Tribe vs Stormhorn Tribe**: met 3 times, last won by Mossback Tribe
+- **Greyfang Clan vs Order of the Silver Stag**: met 3 times, last won by Order of the Silver Stag
 - **Harrier Squadron vs Mustang Battalion**: met 3 times, last won by Mustang Battalion
 - **Mossback Tribe vs Starweave Circle**: met 3 times, last won by Mossback Tribe
 - **Starweave Circle vs Storm Tower Order**: met 3 times
 - **Brightwater Tribe vs Frostwhisper Tribe**: met 2 times, last won by Frostwhisper Tribe
 - **Duskwing Tribe vs Frostwhisper Tribe**: met 2 times, last won by Frostwhisper Tribe
 - **Red Hawk Company vs Wildbrook Clan**: met 2 times, last won by Red Hawk Company
-- **Storm Tower Order vs Wildbrook Clan**: met 2 times, last won by Wildbrook Clan
 
 ### Latest from the battlefield
 
+- 2026-11-06 13:58: The Order of the Silver Stag Take the Open Plains (5th win · 68 kills)
 - 2026-11-06 13:42: The Stonewall Company Take the Clockwork Arena (revenge denied · 3rd win · 36 kills)
 - 2026-11-06 13:27: The Rum Barrel Crew Take the Crystal Grove (3rd win · 22 kills)
 - 2026-11-06 13:12: The Frostwhisper Tribe Take the Open Plains (revenge denied · 6th win · 33 kills)
@@ -181,4 +182,3 @@ Records from 348 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 12:15: The Storm Tower Order Take the Swamp Shrine (streak ended · 4th win · 57 kills)
 - 2026-11-06 12:02: The Mossback Tribe Take the Open Plains (5 wins in a row · 51 kills)
 - 2026-11-06 11:48: The Frostmere Clan Take the Sky-temple Relic (revenge! · 2nd win · 183 kills)
-- 2026-11-06 11:30: The Glimmerdeep Kin Take the Quarry (4 wins in a row · 63 kills)

@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 13:58 | Pick ONE: Player, Universe, Neverlose 👇 | Teal wins | https://youtube.com/shorts/sniNTXP-jhU |
 | 2026-11-06 13:42 | They Took the HILL and Won 🚩 | Red wins | https://youtube.com/shorts/iSBbae2jECg |
 | 2026-11-06 13:27 | LAST STAND: 19 Heroes vs Toxic Bows 🛡️ | Blue wins | https://youtube.com/shorts/PbQmWRUKruE |
 | 2026-11-06 13:12 | Hold the HILL to Win? Ogres vs Dwarves 🚩 | Teal wins | https://youtube.com/shorts/ilUE6SLRgv8 |
