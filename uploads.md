@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 08:24 | 12 Skeletons FUSED Into a Giant 💀 | Magenta wins | https://youtube.com/shorts/yOJz50cDQJg |
 | 2026-11-06 08:03 | Titan vs Hydra vs Phoenix 🤯 | Pink wins | https://youtube.com/shorts/NneD08tx9Og |
 | 2026-11-06 07:19 | 🌾 PEASANTS vs Skeletons | Red wins | https://youtube.com/shorts/ookRNANvpf0 |
 | 2026-11-06 06:33 | I Did NOT Expect This 😳 | White wins | https://youtube.com/shorts/T5fzdx9KhI4 |

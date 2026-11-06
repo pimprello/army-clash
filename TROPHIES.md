@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 325 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 326 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -28,8 +28,8 @@ Records from 325 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **299 left**: 2026-11-05 02:28 · [The Ancient Titan Went DOWN 💀](https://youtube.com/shorts/UK9Rdj07rQY)
 - **127 left**: 2026-11-03 16:17 · [I Did NOT Expect This 😳](https://youtube.com/shorts/cYrP7bJqWDE)
 - **124 left**: 2026-11-05 08:41 · [Hold the HILL to Win? France vs UK 🚩](https://youtube.com/shorts/LIBrnThR8kU)
+- **121 left**: 2026-11-06 08:24 · [12 Skeletons FUSED Into a Giant 💀](https://youtube.com/shorts/yOJz50cDQJg)
 - **104 left**: 2026-11-04 06:46 · [3 Armies, Only 1 SURVIVES 💀](https://youtube.com/shorts/n-Ha4KUtjeo)
-- **102 left**: 2026-11-05 18:08 · [Hold the HILL to Win? Chaos Wolves vs Turbo Bows 🚩](https://youtube.com/shorts/SATgDsVrjlA)
 
 ## Hall of champions
 
@@ -86,8 +86,8 @@ Records from 325 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - wings: 24
 - spellward: 36
 - swift: 49
-- venom: 54
-- spikes: 57
+- venom: 55
+- spikes: 58
 - regen: 66
 
 ## Big moments
@@ -123,7 +123,7 @@ Records from 325 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: cyclops: 4
 - portal: wolfrider: 5
 - portal: golem: 6
-- fusion: 7
+- fusion: 8
 - portal: troll: 9
 - sudden: ring: 10
 - portal: demon: 12
@@ -140,9 +140,9 @@ Records from 325 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Red Hawk Company | 11 | 9 | 2 | 383 | 3 won | 5 |
 | Mossback Tribe | 10 | 7 | 3 | 425 | 2 won | 3 |
 | Starweave Circle | 9 | 5 | 4 | 448 | 1 lost | 5 |
-| Frostwhisper Tribe | 8 | 5 | 3 | 282 | 1 won | 4 |
+| Frostwhisper Tribe | 9 | 5 | 4 | 336 | 1 lost | 4 |
+| Thornheart Circle | 6 | 4 | 2 | 497 | 1 lost | 2 |
 | Order of the Silver Stag | 9 | 4 | 5 | 418 | 1 won | 3 |
-| Thornheart Circle | 5 | 4 | 1 | 361 | 2 won | 2 |
 | Nova Legion | 5 | 4 | 1 | 320 | 2 won | 2 |
 | Oakshield Clan | 8 | 4 | 4 | 250 | 1 lost | 3 |
 | Golden Lion Order | 6 | 4 | 2 | 246 | 1 won | 3 |
@@ -152,11 +152,11 @@ Records from 325 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Sunspire Kin | 6 | 4 | 2 | 201 | 2 won | 2 |
 | Thornwood Company | 6 | 4 | 2 | 111 | 3 won | 3 |
 | Badger Platoon | 4 | 4 | 0 | 89 | 4 won | 4 |
+| Mire Witch Coven | 4 | 4 | 0 | 80 | 4 won | 4 |
 | Storm Tower Order | 11 | 3 | 8 | 427 | 6 lost | 1 |
 | Wildbrook Clan | 10 | 3 | 7 | 351 | 1 lost | 1 |
 | Duskwing Tribe | 10 | 3 | 6 | 305 | 4 lost | 2 |
 | Glimmerdeep Kin | 7 | 3 | 4 | 299 | 3 won | 3 |
-| Stormhorn Tribe | 5 | 3 | 2 | 293 | 2 lost | 3 |
 
 ### Great rivalries
 
@@ -171,6 +171,7 @@ Records from 325 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 08:24: The Silent Mile Take the Frozen End (2nd win · 41 kills)
 - 2026-11-06 08:03: The Frostwhisper Tribe Take the Open Plains (5th win · 35 kills)
 - 2026-11-06 07:19: The Thornheart Circle Take the Neon District (4th win · 137 kills)
 - 2026-11-06 06:33: The House of the Jade Serpent Take the Sky Islands (first battle, first win · 20 kills)
@@ -180,4 +181,3 @@ Records from 325 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 05:34: The Vortex Legion Take the Titan's Bones (streak ended · 3rd win · 105 kills)
 - 2026-11-06 05:20: The Cipher Cohort Take the Sky Islands (revenge! · 2nd win · 70 kills)
 - 2026-11-06 05:05: The Sunspire Kin Take the Open Plains (3rd win · 37 kills)
-- 2026-11-06 04:48: The Emberroot Circle Take the Clockwork Arena (revenge! · 4th win · 72 kills)
