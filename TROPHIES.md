@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 312 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 313 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -74,9 +74,9 @@ Records from 312 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - MAMMOTH SLAYER: 9
 - PLAYER SLAYER: 9
 - MECH SLAYER: 10
-- GOLEM SLAYER: 11
 - TANK SLAYER: 12
-- GIANT SLAYER: 16
+- GOLEM SLAYER: 12
+- GIANT SLAYER: 17
 - DRAGON SLAYER: 20
 - TITAN SLAYER: 28
 
@@ -86,7 +86,7 @@ Records from 312 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - wings: 23
 - spellward: 35
 - swift: 46
-- venom: 51
+- venom: 52
 - spikes: 55
 - regen: 64
 
@@ -170,6 +170,7 @@ Records from 312 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 04:06: The Rum Barrel Crew Take the Canyon Pass (2nd win · 29 kills)
 - 2026-11-06 03:11: The Mossback Tribe Take the Ruined Fort (streak ended · 6th win · 60 kills)
 - 2026-11-06 02:54: The Thornheart Circle Take the Old Forest (2nd win · 28 kills)
 - 2026-11-06 02:43: The Wildbrook Clan Take the Haunted Crypt (streak ended · 3rd win · 33 kills)
@@ -179,4 +180,3 @@ Records from 312 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 00:49: The Falling Leaf School Take the Swamp Shrine (first ever win · 49 kills)
 - 2026-11-06 00:32: The Crew of the Iron Anchor Take the Canyon Pass (2nd win · 24 kills)
 - 2026-11-06 00:27: The Glimmerdeep Kin Take the Bombed City (revenge denied · first ever win · 147 kills)
-- 2026-11-05 23:40: The Mustang Battalion Take the Reactor (3rd win · 57 kills)

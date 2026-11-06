@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 04:06 | The Weapons Came ALIVE 🗡️ | Sky wins | https://youtube.com/shorts/Ec2YWCt3reY |
 | 2026-11-06 03:11 | Billionaire vs ORCS 👹 | Teal wins | https://youtube.com/shorts/uwh95UTeWis |
 | 2026-11-06 02:54 | ⚔️ CHAMPION DUEL: Flesh Archers vs Ultra Spirits | Gold wins | https://youtube.com/shorts/AZRmbxNhwEE |
 | 2026-11-06 02:43 | 🚩 KING OF THE HILL: Unmaker vs Knights | Blue wins | https://youtube.com/shorts/o0Yxw3tWoOE |
