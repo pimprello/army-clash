@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 366 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 367 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -71,8 +71,8 @@ Records from 366 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - COLOSSUS SLAYER: 8
 - ELEPHANT SLAYER: 9
 - CANNON SLAYER: 10
-- PLAYER SLAYER: 10
 - MECH SLAYER: 10
+- PLAYER SLAYER: 11
 - TANK SLAYER: 13
 - GOLEM SLAYER: 13
 - MAMMOTH SLAYER: 14
@@ -134,7 +134,7 @@ Records from 366 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-110 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+111 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
@@ -172,6 +172,7 @@ Records from 366 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 19:03: The Moonfang Tribe Take the Sky-temple Relic (streak ended · 3rd win · 53 kills)
 - 2026-11-06 18:47: The Glimmerdeep Kin Take the Open Plains (5 wins in a row · 31 kills)
 - 2026-11-06 18:33: The Mossback Tribe Take the Open Plains (7 wins in a row · 46 kills)
 - 2026-11-06 18:20: The Axiom Legion Take the Frozen End (3rd win · 51 kills)
@@ -181,4 +182,3 @@ Records from 366 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 17:19: The Brightwater Tribe Take the Sky-temple Relic (4th win · 45 kills)
 - 2026-11-06 16:28: The House of the Gold Dragonfly Take the Castle (revenge denied · first ever win · 29 kills)
 - 2026-11-06 16:10: The Bone Garden Coven Take the World Furnace (5th win · 25 kills)
-- 2026-11-06 15:56: The Thornheart Circle Take the Open Plains (5th win · 51 kills)
