@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 332 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 333 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 332 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **ECHO-3** (LASER TROOPER), 10 kills · 2026-11-06 10:03
 - **OSKA THE UNBROKEN** (SWORDSMAN), 16 kills · 2026-11-06 09:49
 - **DRAVEN IRONHIDE** (WIZARD), 28 kills · 2026-11-06 07:19
 - **PELL BONECRUSHER** (WARLOCK), 10 kills · 2026-11-06 06:18
@@ -47,7 +48,6 @@ Records from 332 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **GRUNDA STORMBORN** (ROYAL GUARD), 20 kills · 2026-11-05 13:51
 - **ASHKA THE SWIFT** (SAMURAI), 12 kills · 2026-11-05 12:23
 - **GRUNDA STEELHEART** (WIZARD), 22 kills · 2026-11-05 11:08
-- **BRAMBLE THE MAD** (STORM CALLER), 16 kills · 2026-11-05 09:26
 
 ## Titles earned (rarest first)
 
@@ -84,11 +84,11 @@ Records from 332 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 - vampiric: 8
 - wings: 24
-- spellward: 36
-- swift: 49
-- venom: 55
-- spikes: 59
-- regen: 67
+- spellward: 37
+- swift: 50
+- venom: 56
+- spikes: 60
+- regen: 68
 
 ## Big moments
 
@@ -102,7 +102,6 @@ Records from 332 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: YELLOW: 1
 - extinct: CANADA: 1
 - possess: hourglass: 1
-- copied: trooper: 1
 - possess: stormemperor: 1
 - extinct: WHITE: 1
 - extinct: UK: 1
@@ -117,6 +116,7 @@ Records from 332 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: SILVER: 2
 - possess: rhino: 2
 - possess: mammoth: 2
+- copied: trooper: 2
 - extinct: PURPLE: 2
 - possess: cannon: 4
 - possess: treant: 4
@@ -171,6 +171,7 @@ Records from 332 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 10:03: The Photon Wing Take the Open Plains (3rd win · 103 kills)
 - 2026-11-06 09:49: The Stonebridge Company Take the Ruined Fort (3rd win · 120 kills)
 - 2026-11-06 09:34: The Vector Cohort Take the Swamp Shrine (revenge denied · 2nd win · 3 kills)
 - 2026-11-06 09:20: The Mossback Tribe Take the Titan's Bones (revenge denied · 3 wins in a row · 37 kills)
@@ -180,4 +181,3 @@ Records from 332 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 08:24: The Silent Mile Take the Frozen End (2nd win · 41 kills)
 - 2026-11-06 08:03: The Frostwhisper Tribe Take the Open Plains (5th win · 35 kills)
 - 2026-11-06 07:19: The Thornheart Circle Take the Neon District (4th win · 137 kills)
-- 2026-11-06 06:33: The House of the Jade Serpent Take the Sky Islands (first battle, first win · 20 kills)
