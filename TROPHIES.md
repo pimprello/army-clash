@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 303 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 304 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -76,7 +76,7 @@ Records from 303 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - GOLEM SLAYER: 10
 - MECH SLAYER: 10
 - TANK SLAYER: 11
-- GIANT SLAYER: 15
+- GIANT SLAYER: 16
 - DRAGON SLAYER: 19
 - TITAN SLAYER: 28
 
@@ -85,16 +85,15 @@ Records from 303 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 7
 - wings: 22
 - spellward: 35
-- swift: 45
-- venom: 48
-- spikes: 51
-- regen: 61
+- swift: 46
+- venom: 49
+- spikes: 52
+- regen: 62
 
 ## Big moments
 
 - extinct: AUSTRALIA: 1
 - portal: hydra: 1
-- copied: knight: 1
 - extinct: PINK: 1
 - possess: mammoth: 1
 - copied: giant: 1
@@ -114,6 +113,7 @@ Records from 303 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: ORANGE: 2
 - extinct: BLUE: 2
 - extinct: GREEN: 2
+- copied: knight: 2
 - extinct: SILVER: 2
 - possess: rhino: 2
 - extinct: PURPLE: 2
@@ -139,13 +139,13 @@ Records from 303 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Red Hawk Company | 10 | 8 | 2 | 377 | 2 won | 5 |
 | Mossback Tribe | 8 | 5 | 3 | 348 | 1 lost | 3 |
 | Order of the Silver Stag | 9 | 4 | 5 | 418 | 1 won | 3 |
+| Starweave Circle | 7 | 4 | 3 | 337 | 4 won | 4 |
 | Nova Legion | 5 | 4 | 1 | 320 | 2 won | 2 |
+| Oakshield Clan | 8 | 4 | 4 | 250 | 1 lost | 3 |
 | Raven Hill Clan | 6 | 4 | 2 | 227 | 3 won | 3 |
-| Oakshield Clan | 7 | 4 | 3 | 217 | 1 won | 3 |
 | Frostwhisper Tribe | 6 | 4 | 2 | 192 | 4 won | 4 |
 | Gloomcap Circle | 7 | 4 | 3 | 148 | 1 lost | 3 |
-| Storm Tower Order | 9 | 3 | 6 | 320 | 4 lost | 1 |
-| Starweave Circle | 6 | 3 | 3 | 273 | 3 won | 3 |
+| Storm Tower Order | 10 | 3 | 7 | 341 | 5 lost | 1 |
 | Duskwing Tribe | 9 | 3 | 5 | 260 | 3 lost | 2 |
 | Stormhorn Tribe | 4 | 3 | 1 | 260 | 1 lost | 3 |
 | Golden Lion Order | 5 | 3 | 2 | 219 | 2 lost | 3 |
@@ -170,6 +170,7 @@ Records from 303 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 00:27: The Glimmerdeep Kin Take the Bombed City (revenge denied · first ever win · 147 kills)
 - 2026-11-05 23:40: The Mustang Battalion Take the Reactor (3rd win · 57 kills)
 - 2026-11-05 23:11: The Oakshield Clan Take the Treasure Cove (streak ended · 4th win · 66 kills)
 - 2026-11-05 22:54: The Starweave Circle Take the Open Plains (3 wins in a row · 110 kills)
@@ -179,4 +180,3 @@ Records from 303 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 21:55: The Iron Lotus School Take the Canyon Pass (2nd win · 30 kills)
 - 2026-11-05 21:42: The House of the Silver Tiger Take the Open Plains (streak ended · 2nd win · 27 kills)
 - 2026-11-05 21:25: The Crew of the Iron Anchor Take the Mountain Pass (first ever win · 19 kills)
-- 2026-11-05 20:29: The Thunder Platoon Take the Open Plains (revenge denied · 3 wins in a row · 70 kills)
