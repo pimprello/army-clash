@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 323 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 324 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 323 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **DRAVEN IRONHIDE** (WIZARD), 28 kills · 2026-11-06 07:19
 - **PELL BONECRUSHER** (WARLOCK), 10 kills · 2026-11-06 06:18
 - **GHOST-8** (LASER TROOPER), 10 kills · 2026-11-06 05:20
 - **OSKA THE WALL** (WIZARD), 11 kills · 2026-11-06 04:48
@@ -47,7 +48,6 @@ Records from 323 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **GRUNDA STEELHEART** (WIZARD), 22 kills · 2026-11-05 11:08
 - **BRAMBLE THE MAD** (STORM CALLER), 16 kills · 2026-11-05 09:26
 - **OSKA THE MAD** (WIZARD), 11 kills · 2026-11-05 09:13
-- **ZEDRIK BONECRUSHER** (PHASE REAPER), 14 kills · 2026-11-05 07:01
 
 ## Titles earned (rarest first)
 
@@ -85,10 +85,10 @@ Records from 323 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 8
 - wings: 24
 - spellward: 36
-- swift: 48
-- venom: 52
-- spikes: 56
-- regen: 65
+- swift: 49
+- venom: 53
+- spikes: 57
+- regen: 66
 
 ## Big moments
 
@@ -124,7 +124,7 @@ Records from 323 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: wolfrider: 5
 - portal: golem: 6
 - fusion: 7
-- portal: troll: 8
+- portal: troll: 9
 - sudden: ring: 10
 - portal: demon: 12
 - sudden: boss: 16
@@ -138,9 +138,10 @@ Records from 323 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Red Hawk Company | 11 | 9 | 2 | 383 | 3 won | 5 |
-| Mossback Tribe | 9 | 6 | 3 | 408 | 1 won | 3 |
+| Mossback Tribe | 10 | 7 | 3 | 425 | 2 won | 3 |
 | Starweave Circle | 9 | 5 | 4 | 448 | 1 lost | 5 |
 | Order of the Silver Stag | 9 | 4 | 5 | 418 | 1 won | 3 |
+| Thornheart Circle | 5 | 4 | 1 | 361 | 2 won | 2 |
 | Nova Legion | 5 | 4 | 1 | 320 | 2 won | 2 |
 | Oakshield Clan | 8 | 4 | 4 | 250 | 1 lost | 3 |
 | Frostwhisper Tribe | 7 | 4 | 3 | 247 | 1 lost | 4 |
@@ -156,7 +157,6 @@ Records from 323 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Glimmerdeep Kin | 7 | 3 | 4 | 299 | 3 won | 3 |
 | Stormhorn Tribe | 5 | 3 | 2 | 293 | 2 lost | 3 |
 | Duskwing Tribe | 9 | 3 | 5 | 260 | 3 lost | 2 |
-| Hollowbark Kin | 6 | 3 | 3 | 233 | 2 lost | 2 |
 
 ### Great rivalries
 
@@ -171,6 +171,7 @@ Records from 323 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 07:19: The Thornheart Circle Take the Neon District (4th win · 137 kills)
 - 2026-11-06 06:33: The House of the Jade Serpent Take the Sky Islands (first battle, first win · 20 kills)
 - 2026-11-06 06:18: The Thornheart Circle Take the Crystal Grove (streak ended · 3rd win · 120 kills)
 - 2026-11-06 06:03: The Glimmerdeep Kin Take the Canyon Pass (3 wins in a row · 57 kills)
@@ -180,4 +181,3 @@ Records from 323 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 05:05: The Sunspire Kin Take the Open Plains (3rd win · 37 kills)
 - 2026-11-06 04:48: The Emberroot Circle Take the Clockwork Arena (revenge! · 4th win · 72 kills)
 - 2026-11-06 04:36: The Golden Lion Order Take the Godboard (4th win · 27 kills)
-- 2026-11-06 04:21: The Mire Witch Coven Take the Quarry (2nd win · 32 kills)

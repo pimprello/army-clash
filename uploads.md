@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 07:19 | 🌾 PEASANTS vs Skeletons | Red wins | https://youtube.com/shorts/ookRNANvpf0 |
 | 2026-11-06 06:33 | I Did NOT Expect This 😳 | White wins | https://youtube.com/shorts/T5fzdx9KhI4 |
 | 2026-11-06 06:18 | Kill the KING to Win 👑 Australia vs New Zealand | Australia wins | https://youtube.com/shorts/9d1ccRwuBek |
 | 2026-11-06 06:03 | One Star Eater Got 34 KILLS 😳 | Yellow wins | https://youtube.com/shorts/UXnWjXJ7Quw |
