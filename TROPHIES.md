@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 304 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 305 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -75,7 +75,7 @@ Records from 304 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PLAYER SLAYER: 9
 - GOLEM SLAYER: 10
 - MECH SLAYER: 10
-- TANK SLAYER: 11
+- TANK SLAYER: 12
 - GIANT SLAYER: 16
 - DRAGON SLAYER: 19
 - TITAN SLAYER: 28
@@ -153,9 +153,9 @@ Records from 304 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Mustang Battalion | 5 | 3 | 1 | 169 | 2 won | 2 |
 | Emberroot Circle | 4 | 3 | 0 | 130 | 3 won | 3 |
 | Black Bear Clan | 4 | 3 | 1 | 119 | 1 won | 2 |
+| Hammer Platoon | 6 | 3 | 3 | 113 | 1 lost | 2 |
 | Cinderclaw Kin | 4 | 3 | 1 | 100 | 1 lost | 3 |
 | The Pale Procession | 3 | 3 | 0 | 91 | 3 won | 3 |
-| Hammer Platoon | 5 | 3 | 2 | 88 | 2 won | 2 |
 
 ### Great rivalries
 
@@ -170,6 +170,7 @@ Records from 304 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 00:32: The Crew of the Iron Anchor Take the Canyon Pass (2nd win · 24 kills)
 - 2026-11-06 00:27: The Glimmerdeep Kin Take the Bombed City (revenge denied · first ever win · 147 kills)
 - 2026-11-05 23:40: The Mustang Battalion Take the Reactor (3rd win · 57 kills)
 - 2026-11-05 23:11: The Oakshield Clan Take the Treasure Cove (streak ended · 4th win · 66 kills)
@@ -179,4 +180,3 @@ Records from 304 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 22:12: The Harrier Squadron Take the Frozen End (streak ended · 2nd win · 30 kills)
 - 2026-11-05 21:55: The Iron Lotus School Take the Canyon Pass (2nd win · 30 kills)
 - 2026-11-05 21:42: The House of the Silver Tiger Take the Open Plains (streak ended · 2nd win · 27 kills)
-- 2026-11-05 21:25: The Crew of the Iron Anchor Take the Mountain Pass (first ever win · 19 kills)

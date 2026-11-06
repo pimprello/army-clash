@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 00:32 | A STAMPEDE Hit Mid-Battle 🦣 | Sky wins | https://youtube.com/shorts/3tWCY6hTEHs |
 | 2026-11-06 00:27 | Copycats vs GIANT ARMY 👹 | Red wins | https://youtube.com/shorts/xO4kDF3r_3A |
 | 2026-11-05 23:40 | They Were ALMOST Wiped Out... 😱 | Orange wins | https://youtube.com/shorts/cNuTrZkraLc |
 | 2026-11-05 23:11 | Thousand-Man vs SOLDIERS ⚔️ | Orange wins | https://youtube.com/shorts/zoiP36Xm9Gg |
