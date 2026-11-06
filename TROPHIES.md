@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 324 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 325 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -65,7 +65,7 @@ Records from 324 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - THOUSAND-MAN SLAYER: 5
 - STORM EMPEROR SLAYER: 5
 - STAR EATER SLAYER: 5
-- HYDRA SLAYER: 6
+- HYDRA SLAYER: 7
 - UNMAKER SLAYER: 7
 - IMMORTAL FRAUD SLAYER: 7
 - COLOSSUS SLAYER: 8
@@ -78,7 +78,7 @@ Records from 324 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - GOLEM SLAYER: 13
 - GIANT SLAYER: 17
 - DRAGON SLAYER: 20
-- TITAN SLAYER: 29
+- TITAN SLAYER: 30
 
 ## Mutations (rarest first)
 
@@ -86,7 +86,7 @@ Records from 324 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - wings: 24
 - spellward: 36
 - swift: 49
-- venom: 53
+- venom: 54
 - spikes: 57
 - regen: 66
 
@@ -140,11 +140,11 @@ Records from 324 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Red Hawk Company | 11 | 9 | 2 | 383 | 3 won | 5 |
 | Mossback Tribe | 10 | 7 | 3 | 425 | 2 won | 3 |
 | Starweave Circle | 9 | 5 | 4 | 448 | 1 lost | 5 |
+| Frostwhisper Tribe | 8 | 5 | 3 | 282 | 1 won | 4 |
 | Order of the Silver Stag | 9 | 4 | 5 | 418 | 1 won | 3 |
 | Thornheart Circle | 5 | 4 | 1 | 361 | 2 won | 2 |
 | Nova Legion | 5 | 4 | 1 | 320 | 2 won | 2 |
 | Oakshield Clan | 8 | 4 | 4 | 250 | 1 lost | 3 |
-| Frostwhisper Tribe | 7 | 4 | 3 | 247 | 1 lost | 4 |
 | Golden Lion Order | 6 | 4 | 2 | 246 | 1 won | 3 |
 | Raven Hill Clan | 6 | 4 | 2 | 227 | 3 won | 3 |
 | Emberroot Circle | 6 | 4 | 1 | 224 | 1 won | 3 |
@@ -154,23 +154,24 @@ Records from 324 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Badger Platoon | 4 | 4 | 0 | 89 | 4 won | 4 |
 | Storm Tower Order | 11 | 3 | 8 | 427 | 6 lost | 1 |
 | Wildbrook Clan | 10 | 3 | 7 | 351 | 1 lost | 1 |
+| Duskwing Tribe | 10 | 3 | 6 | 305 | 4 lost | 2 |
 | Glimmerdeep Kin | 7 | 3 | 4 | 299 | 3 won | 3 |
 | Stormhorn Tribe | 5 | 3 | 2 | 293 | 2 lost | 3 |
-| Duskwing Tribe | 9 | 3 | 5 | 260 | 3 lost | 2 |
 
 ### Great rivalries
 
 - **Starweave Circle vs Storm Tower Order**: met 3 times
 - **Brightwater Tribe vs Frostwhisper Tribe**: met 2 times, last won by Frostwhisper Tribe
+- **Duskwing Tribe vs Frostwhisper Tribe**: met 2 times, last won by Frostwhisper Tribe
 - **Red Hawk Company vs Wildbrook Clan**: met 2 times, last won by Red Hawk Company
 - **Storm Tower Order vs Wildbrook Clan**: met 2 times, last won by Wildbrook Clan
 - **Cipher Cohort vs Vortex Legion**: met 2 times, last won by Cipher Cohort
 - **Brightwater Tribe vs Glimmerdeep Kin**: met 2 times
 - **Iron Boar Clan vs The Crooked Spire**: met 2 times, last won by The Crooked Spire
-- **Brightwater Tribe vs Emberroot Circle**: met 2 times, last won by Emberroot Circle
 
 ### Latest from the battlefield
 
+- 2026-11-06 08:03: The Frostwhisper Tribe Take the Open Plains (5th win · 35 kills)
 - 2026-11-06 07:19: The Thornheart Circle Take the Neon District (4th win · 137 kills)
 - 2026-11-06 06:33: The House of the Jade Serpent Take the Sky Islands (first battle, first win · 20 kills)
 - 2026-11-06 06:18: The Thornheart Circle Take the Crystal Grove (streak ended · 3rd win · 120 kills)
@@ -180,4 +181,3 @@ Records from 324 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 05:20: The Cipher Cohort Take the Sky Islands (revenge! · 2nd win · 70 kills)
 - 2026-11-06 05:05: The Sunspire Kin Take the Open Plains (3rd win · 37 kills)
 - 2026-11-06 04:48: The Emberroot Circle Take the Clockwork Arena (revenge! · 4th win · 72 kills)
-- 2026-11-06 04:36: The Golden Lion Order Take the Godboard (4th win · 27 kills)
