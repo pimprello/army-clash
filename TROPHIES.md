@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 318 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 319 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -125,14 +125,14 @@ Records from 318 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - fusion: 7
 - portal: troll: 8
 - sudden: ring: 10
-- portal: demon: 11
+- portal: demon: 12
 - sudden: boss: 16
 - sudden: lava: 16
 - sudden: meteors: 20
 
 ## The tribes' chronicle
 
-103 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+104 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
@@ -170,6 +170,7 @@ Records from 318 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 05:34: The Vortex Legion Take the Titan's Bones (streak ended · 3rd win · 105 kills)
 - 2026-11-06 05:20: The Cipher Cohort Take the Sky Islands (revenge! · 2nd win · 70 kills)
 - 2026-11-06 05:05: The Sunspire Kin Take the Open Plains (3rd win · 37 kills)
 - 2026-11-06 04:48: The Emberroot Circle Take the Clockwork Arena (revenge! · 4th win · 72 kills)
@@ -179,4 +180,3 @@ Records from 318 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 03:11: The Mossback Tribe Take the Ruined Fort (streak ended · 6th win · 60 kills)
 - 2026-11-06 02:54: The Thornheart Circle Take the Old Forest (2nd win · 28 kills)
 - 2026-11-06 02:43: The Wildbrook Clan Take the Haunted Crypt (streak ended · 3rd win · 33 kills)
-- 2026-11-06 01:55: The Rotting Choir Take the Open Plains (2nd win · 21 kills)

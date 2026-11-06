@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 05:34 | 🇦🇺 Australia Chaos Spirits vs New Zealand Lunar Zombies | Australia wins | https://youtube.com/shorts/4qjYPOi_oB8 |
 | 2026-11-06 05:20 | They Took the HILL and Won 🚩 | Lime wins | https://youtube.com/shorts/-D5egzJz0RE |
 | 2026-11-06 05:05 | SYLVAN vs Infernal vs Dwarves 🔥 | Crimson wins | https://youtube.com/shorts/_jwn0xBK1DM |
 | 2026-11-06 04:48 | Lava Skeletons vs Ghost Skeletons 🪞 | Cyan wins | https://youtube.com/shorts/36nktKPdzJ4 |
