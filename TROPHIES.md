@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 330 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 331 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -153,10 +153,10 @@ Records from 330 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Sunspire Kin | 6 | 4 | 2 | 201 | 2 won | 2 |
 | The Black Candle | 5 | 4 | 1 | 161 | 3 won | 3 |
 | Thornwood Company | 6 | 4 | 2 | 111 | 3 won | 3 |
+| The Pale Procession | 4 | 4 | 0 | 93 | 4 won | 4 |
 | Badger Platoon | 4 | 4 | 0 | 89 | 4 won | 4 |
 | Mire Witch Coven | 4 | 4 | 0 | 80 | 4 won | 4 |
 | Storm Tower Order | 11 | 3 | 8 | 427 | 6 lost | 1 |
-| Wildbrook Clan | 10 | 3 | 7 | 351 | 1 lost | 1 |
 
 ### Great rivalries
 
@@ -171,6 +171,7 @@ Records from 330 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 09:34: The Vector Cohort Take the Swamp Shrine (revenge denied · 2nd win · 3 kills)
 - 2026-11-06 09:20: The Mossback Tribe Take the Titan's Bones (revenge denied · 3 wins in a row · 37 kills)
 - 2026-11-06 09:01: The Black Candle Take the Canyon Pass (3 wins in a row · 48 kills)
 - 2026-11-06 08:47: The Moonfang Tribe Take the Treasure Cove (2nd win · 31 kills)
@@ -180,4 +181,3 @@ Records from 330 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 07:19: The Thornheart Circle Take the Neon District (4th win · 137 kills)
 - 2026-11-06 06:33: The House of the Jade Serpent Take the Sky Islands (first battle, first win · 20 kills)
 - 2026-11-06 06:18: The Thornheart Circle Take the Crystal Grove (streak ended · 3rd win · 120 kills)
-- 2026-11-06 06:03: The Glimmerdeep Kin Take the Canyon Pass (3 wins in a row · 57 kills)
