@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 17:56 | 🌳 the WORLDROOT vs GOLEM Army | Mint wins | https://youtube.com/shorts/D-SYUsWiWzM |
 | 2026-11-06 17:34 | ULTRA BOARS vs Neon Archers vs Golden Vipers 🔥 | Green wins | https://youtube.com/shorts/HmO03lxfKMI |
 | 2026-11-06 17:19 | 🇬🇧 UK vs France: WHO WINS? | Uk wins | https://youtube.com/shorts/0QuFWr8Hfts |
 | 2026-11-06 16:28 | ⚔️ CHAMPION DUEL: Portugal vs Spain | Portugal wins | https://youtube.com/shorts/qX9UAje-pyA |

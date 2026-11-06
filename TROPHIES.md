@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 361 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 362 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -54,12 +54,12 @@ Records from 361 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - CATAPULT SLAYER: 2
 - KNIGHT SLAYER: 3
 - GRAVITY TYRANT SLAYER: 3
-- WORLDROOT SLAYER: 4
 - MIRROR KING SLAYER: 5
 - CATHEDRAL SLAYER: 5
 - CYCLOPS SLAYER: 5
 - HELICOPTER SLAYER: 5
 - THOUSAND-MAN SLAYER: 5
+- WORLDROOT SLAYER: 5
 - EXECUTIONER SLAYER: 5
 - PHOENIX SLAYER: 6
 - STAR EATER SLAYER: 6
@@ -127,7 +127,7 @@ Records from 361 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - fusion: 9
 - portal: demon: 12
 - portal: troll: 12
-- sudden: ring: 12
+- sudden: ring: 13
 - sudden: boss: 16
 - sudden: lava: 17
 - sudden: meteors: 22
@@ -140,17 +140,17 @@ Records from 361 battles with trophies (videos from 1 November 2026 on). Rebuilt
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 14 | 11 | 3 | 554 | 6 won | 6 |
 | Red Hawk Company | 12 | 9 | 3 | 447 | 1 lost | 5 |
-| Starweave Circle | 14 | 7 | 7 | 582 | 1 lost | 5 |
-| Frostwhisper Tribe | 12 | 7 | 5 | 405 | 1 won | 4 |
+| Frostwhisper Tribe | 13 | 8 | 5 | 428 | 2 won | 4 |
+| Starweave Circle | 15 | 7 | 8 | 593 | 2 lost | 5 |
 | Emberroot Circle | 9 | 6 | 2 | 284 | 2 won | 3 |
 | Mire Witch Coven | 6 | 6 | 0 | 150 | 6 won | 6 |
+| Silverbough Circle | 15 | 5 | 10 | 686 | 1 won | 2 |
 | Thornheart Circle | 7 | 5 | 2 | 548 | 1 won | 2 |
 | Order of the Silver Stag | 10 | 5 | 5 | 486 | 2 won | 3 |
 | Oakshield Clan | 9 | 5 | 4 | 256 | 1 won | 3 |
 | Iron Boar Clan | 6 | 5 | 1 | 197 | 3 won | 3 |
 | The Black Candle | 6 | 5 | 1 | 177 | 4 won | 4 |
 | Bone Garden Coven | 8 | 5 | 3 | 120 | 1 won | 3 |
-| Silverbough Circle | 14 | 4 | 10 | 651 | 1 lost | 2 |
 | Storm Tower Order | 13 | 4 | 9 | 489 | 1 lost | 1 |
 | Stormhorn Tribe | 8 | 4 | 4 | 470 | 1 won | 3 |
 | Duskwing Tribe | 13 | 4 | 8 | 397 | 2 lost | 2 |
@@ -161,17 +161,18 @@ Records from 361 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Great rivalries
 
+- **Frostwhisper Tribe vs Starweave Circle**: met 4 times, last won by Frostwhisper Tribe
 - **Mossback Tribe vs Stormhorn Tribe**: met 3 times, last won by Mossback Tribe
 - **Greyfang Clan vs Order of the Silver Stag**: met 3 times, last won by Order of the Silver Stag
 - **Harrier Squadron vs Mustang Battalion**: met 3 times, last won by Mustang Battalion
 - **Gloomcap Circle vs Starweave Circle**: met 3 times, last won by Starweave Circle
 - **Mossback Tribe vs Starweave Circle**: met 3 times, last won by Mossback Tribe
 - **Starweave Circle vs Storm Tower Order**: met 3 times
-- **Frostwhisper Tribe vs Starweave Circle**: met 3 times, last won by Frostwhisper Tribe
 - **Brightwater Tribe vs Frostwhisper Tribe**: met 2 times, last won by Frostwhisper Tribe
 
 ### Latest from the battlefield
 
+- 2026-11-06 17:56: The Silverbough Circle Take the Mirror Gate (revenge denied · 5th win · 35 kills)
 - 2026-11-06 17:34: The Black Bear Clan Take the Canyon Pass (4th win · 51 kills)
 - 2026-11-06 17:19: The Brightwater Tribe Take the Sky-temple Relic (4th win · 45 kills)
 - 2026-11-06 16:28: The House of the Gold Dragonfly Take the Castle (revenge denied · first ever win · 29 kills)
@@ -181,4 +182,3 @@ Records from 361 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 15:26: The Silverbough Circle Take the Clockwork Arena (revenge! · 4th win · 34 kills)
 - 2026-11-06 15:13: The Stormhorn Tribe Take the Desert Well (4th win · 153 kills)
 - 2026-11-06 14:54: The Bone Garden Coven Take the Canyon Pass (4th win · 35 kills)
-- 2026-11-06 14:43: The Crew of the Black Gull Take the Frozen End (revenge denied · 2nd win · 65 kills)
