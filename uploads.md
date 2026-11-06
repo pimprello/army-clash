@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 12:30 | The Smaller Army Did WHAT? 😳 | Gold wins | https://youtube.com/shorts/8X9phIgG06I |
 | 2026-11-06 12:15 | ⚔️ CHAMPION DUEL: Mammoth Army vs War Elephants | Purple wins | https://youtube.com/shorts/ICqk3r-Ay00 |
 | 2026-11-06 12:02 | Stareater vs Stormemperor vs Worldroot 🤯 | Uk wins | https://youtube.com/shorts/yWJPu_pzAN4 |
 | 2026-11-06 11:48 | 🚩 KING OF THE HILL: Siege Army vs Walking Fortress | Green wins | https://youtube.com/shorts/noe0SHjATEo |

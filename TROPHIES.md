@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 342 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 343 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -88,7 +88,7 @@ Records from 342 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - swift: 52
 - venom: 57
 - spikes: 62
-- regen: 69
+- regen: 70
 
 ## Big moments
 
@@ -125,7 +125,7 @@ Records from 342 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: wolfrider: 5
 - portal: golem: 6
 - fusion: 8
-- portal: troll: 10
+- portal: troll: 11
 - sudden: ring: 11
 - portal: demon: 12
 - sudden: boss: 16
@@ -172,6 +172,7 @@ Records from 342 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 12:30: The Nightjar Company Take the City (revenge denied · 2nd win · 89 kills)
 - 2026-11-06 12:15: The Storm Tower Order Take the Swamp Shrine (streak ended · 4th win · 57 kills)
 - 2026-11-06 12:02: The Mossback Tribe Take the Open Plains (5 wins in a row · 51 kills)
 - 2026-11-06 11:48: The Frostmere Clan Take the Sky-temple Relic (revenge! · 2nd win · 183 kills)
@@ -181,4 +182,3 @@ Records from 342 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 10:48: The Mire Witch Coven Take the Old Forest (revenge denied · 5 wins in a row · 60 kills)
 - 2026-11-06 10:33: The Iron Lotus School Take the Haunted Crypt (streak ended · 3 wins in a row · 39 kills)
 - 2026-11-06 10:18: The Silverbough Circle Take the Desert Well (revenge! · 3rd win · 53 kills)
-- 2026-11-06 10:03: The Photon Wing Take the Open Plains (3rd win · 103 kills)
