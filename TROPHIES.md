@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 368 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 369 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -143,7 +143,7 @@ Records from 368 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Frostwhisper Tribe | 13 | 8 | 5 | 428 | 2 won | 4 |
 | Starweave Circle | 17 | 7 | 10 | 655 | 4 lost | 5 |
 | Thornheart Circle | 9 | 7 | 2 | 596 | 3 won | 3 |
-| Silverbough Circle | 17 | 6 | 11 | 748 | 1 won | 2 |
+| Silverbough Circle | 18 | 6 | 12 | 792 | 1 lost | 2 |
 | Emberroot Circle | 9 | 6 | 2 | 284 | 2 won | 3 |
 | Mire Witch Coven | 6 | 6 | 0 | 150 | 6 won | 6 |
 | Order of the Silver Stag | 11 | 5 | 6 | 505 | 1 lost | 3 |
@@ -172,6 +172,7 @@ Records from 368 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 19:32: The Quasar Wing Take the Canyon Pass (2nd win · 83 kills)
 - 2026-11-06 19:18: The Silverbough Circle Take the City (6th win · 35 kills)
 - 2026-11-06 19:03: The Moonfang Tribe Take the Sky-temple Relic (streak ended · 3rd win · 53 kills)
 - 2026-11-06 18:47: The Glimmerdeep Kin Take the Open Plains (5 wins in a row · 31 kills)
@@ -181,4 +182,3 @@ Records from 368 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 17:56: The Silverbough Circle Take the Mirror Gate (revenge denied · 5th win · 35 kills)
 - 2026-11-06 17:34: The Black Bear Clan Take the Canyon Pass (4th win · 51 kills)
 - 2026-11-06 17:19: The Brightwater Tribe Take the Sky-temple Relic (4th win · 45 kills)
-- 2026-11-06 16:28: The House of the Gold Dragonfly Take the Castle (revenge denied · first ever win · 29 kills)
