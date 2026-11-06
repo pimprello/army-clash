@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 14:43 | The Weapons Came ALIVE 🗡️ | Pink wins | https://youtube.com/shorts/X2-QOq_J0Ag |
 | 2026-11-06 14:27 | The Smaller Army Did WHAT? 😳 | Navy wins | https://youtube.com/shorts/Ms4FNhNiJoo |
 | 2026-11-06 14:11 | 🚁 HELICOPTER ARMY vs Soldiers | Mint wins | https://youtube.com/shorts/crea9_p4VeU |
 | 2026-11-06 13:58 | Pick ONE: Player, Universe, Neverlose 👇 | Teal wins | https://youtube.com/shorts/sniNTXP-jhU |

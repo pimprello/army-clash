@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 351 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 352 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -70,7 +70,7 @@ Records from 351 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - IMMORTAL FRAUD SLAYER: 7
 - COLOSSUS SLAYER: 8
 - ELEPHANT SLAYER: 9
-- CANNON SLAYER: 9
+- CANNON SLAYER: 10
 - PLAYER SLAYER: 10
 - MECH SLAYER: 10
 - MAMMOTH SLAYER: 12
@@ -130,7 +130,7 @@ Records from 351 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - sudden: ring: 12
 - sudden: boss: 16
 - sudden: lava: 17
-- sudden: meteors: 21
+- sudden: meteors: 22
 
 ## The tribes' chronicle
 
@@ -172,6 +172,7 @@ Records from 351 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 14:43: The Crew of the Black Gull Take the Frozen End (revenge denied · 2nd win · 65 kills)
 - 2026-11-06 14:27: The Pulsar Wing Take the Frozen End (2nd win · 33 kills)
 - 2026-11-06 14:11: The Falcon Squadron Take the Mountain Pass (first ever win · 62 kills)
 - 2026-11-06 13:58: The Order of the Silver Stag Take the Open Plains (5th win · 68 kills)
@@ -181,4 +182,3 @@ Records from 351 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 12:59: The Axiom Legion Take the Canyon Pass (2nd win · 18 kills)
 - 2026-11-06 12:44: The Cinderclaw Kin Take the Titan's Bones (4th win · 65 kills)
 - 2026-11-06 12:30: The Nightjar Company Take the City (revenge denied · 2nd win · 89 kills)
-- 2026-11-06 12:15: The Storm Tower Order Take the Swamp Shrine (streak ended · 4th win · 57 kills)
