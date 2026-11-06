@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 02:43 | 🚩 KING OF THE HILL: Unmaker vs Knights | Blue wins | https://youtube.com/shorts/o0Yxw3tWoOE |
 | 2026-11-06 01:55 | They Took Down a DRAGON? 🐉 | Olive wins | https://youtube.com/shorts/IV6P6uyF33s |
 | 2026-11-06 01:17 | They Were OUTNUMBERED... 😳 | White wins | https://youtube.com/shorts/ZcaBOzvzXws |
 | 2026-11-06 01:02 | 🚩 KING OF THE HILL: Ultra Ninjas vs Steel Rifles | Green wins | https://youtube.com/shorts/4JIL2-5Md3g |

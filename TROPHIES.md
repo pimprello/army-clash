@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 309 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 310 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -66,7 +66,7 @@ Records from 309 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - STORM EMPEROR SLAYER: 5
 - STAR EATER SLAYER: 5
 - HYDRA SLAYER: 6
-- UNMAKER SLAYER: 6
+- UNMAKER SLAYER: 7
 - IMMORTAL FRAUD SLAYER: 7
 - COLOSSUS SLAYER: 8
 - CANNON SLAYER: 8
@@ -124,10 +124,10 @@ Records from 309 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: wolfrider: 5
 - fusion: 7
 - portal: troll: 8
-- portal: demon: 10
 - sudden: ring: 10
-- sudden: lava: 15
+- portal: demon: 11
 - sudden: boss: 16
+- sudden: lava: 16
 - sudden: meteors: 19
 
 ## The tribes' chronicle
@@ -142,11 +142,13 @@ Records from 309 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Order of the Silver Stag | 9 | 4 | 5 | 418 | 1 won | 3 |
 | Nova Legion | 5 | 4 | 1 | 320 | 2 won | 2 |
 | Oakshield Clan | 8 | 4 | 4 | 250 | 1 lost | 3 |
+| Frostwhisper Tribe | 7 | 4 | 3 | 247 | 1 lost | 4 |
 | Raven Hill Clan | 6 | 4 | 2 | 227 | 3 won | 3 |
-| Frostwhisper Tribe | 6 | 4 | 2 | 192 | 4 won | 4 |
 | Gloomcap Circle | 7 | 4 | 3 | 148 | 1 lost | 3 |
+| Thornwood Company | 6 | 4 | 2 | 111 | 3 won | 3 |
 | Badger Platoon | 4 | 4 | 0 | 89 | 4 won | 4 |
 | Storm Tower Order | 11 | 3 | 8 | 427 | 6 lost | 1 |
+| Wildbrook Clan | 9 | 3 | 6 | 328 | 1 won | 1 |
 | Stormhorn Tribe | 5 | 3 | 2 | 293 | 2 lost | 3 |
 | Duskwing Tribe | 9 | 3 | 5 | 260 | 3 lost | 2 |
 | Golden Lion Order | 5 | 3 | 2 | 219 | 2 lost | 3 |
@@ -154,8 +156,6 @@ Records from 309 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Mustang Battalion | 5 | 3 | 1 | 169 | 2 won | 2 |
 | Emberroot Circle | 4 | 3 | 0 | 130 | 3 won | 3 |
 | Black Bear Clan | 4 | 3 | 1 | 119 | 1 won | 2 |
-| Hammer Platoon | 6 | 3 | 3 | 113 | 1 lost | 2 |
-| Cinderclaw Kin | 4 | 3 | 1 | 100 | 1 lost | 3 |
 
 ### Great rivalries
 
@@ -170,6 +170,7 @@ Records from 309 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 02:43: The Wildbrook Clan Take the Haunted Crypt (streak ended · 3rd win · 33 kills)
 - 2026-11-06 01:55: The Rotting Choir Take the Open Plains (2nd win · 21 kills)
 - 2026-11-06 01:17: The Hollowbark Kin Take the World Furnace (2nd win · 31 kills)
 - 2026-11-06 01:02: The Kestrel Squadron Take the Ruined Fort (first ever win · 77 kills)
@@ -179,4 +180,3 @@ Records from 309 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 23:40: The Mustang Battalion Take the Reactor (3rd win · 57 kills)
 - 2026-11-05 23:11: The Oakshield Clan Take the Treasure Cove (streak ended · 4th win · 66 kills)
 - 2026-11-05 22:54: The Starweave Circle Take the Open Plains (3 wins in a row · 110 kills)
-- 2026-11-05 22:39: The Photon Wing Take the Bombed City (first battle, first win · 67 kills)
