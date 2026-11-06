@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 01:55 | They Took Down a DRAGON? 🐉 | Olive wins | https://youtube.com/shorts/IV6P6uyF33s |
 | 2026-11-06 01:17 | They Were OUTNUMBERED... 😳 | White wins | https://youtube.com/shorts/ZcaBOzvzXws |
 | 2026-11-06 01:02 | 🚩 KING OF THE HILL: Ultra Ninjas vs Steel Rifles | Green wins | https://youtube.com/shorts/4JIL2-5Md3g |
 | 2026-11-06 00:49 | 94 Samurai vs a IMMORTAL Army ♾️ | Red wins | https://youtube.com/shorts/VT32IR_3bV4 |

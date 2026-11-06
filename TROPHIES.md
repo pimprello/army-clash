@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 308 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 309 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -77,7 +77,7 @@ Records from 308 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - MECH SLAYER: 10
 - TANK SLAYER: 12
 - GIANT SLAYER: 16
-- DRAGON SLAYER: 19
+- DRAGON SLAYER: 20
 - TITAN SLAYER: 28
 
 ## Mutations (rarest first)
@@ -86,9 +86,9 @@ Records from 308 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - wings: 22
 - spellward: 35
 - swift: 46
-- venom: 49
-- spikes: 53
-- regen: 62
+- venom: 50
+- spikes: 54
+- regen: 63
 
 ## Big moments
 
@@ -122,7 +122,7 @@ Records from 308 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: cyclops: 4
 - portal: golem: 4
 - portal: wolfrider: 5
-- fusion: 6
+- fusion: 7
 - portal: troll: 8
 - portal: demon: 10
 - sudden: ring: 10
@@ -137,7 +137,7 @@ Records from 308 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Red Hawk Company | 10 | 8 | 2 | 377 | 2 won | 5 |
-| Starweave Circle | 8 | 5 | 3 | 353 | 5 won | 5 |
+| Starweave Circle | 9 | 5 | 4 | 448 | 1 lost | 5 |
 | Mossback Tribe | 8 | 5 | 3 | 348 | 1 lost | 3 |
 | Order of the Silver Stag | 9 | 4 | 5 | 418 | 1 won | 3 |
 | Nova Legion | 5 | 4 | 1 | 320 | 2 won | 2 |
@@ -146,7 +146,7 @@ Records from 308 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Frostwhisper Tribe | 6 | 4 | 2 | 192 | 4 won | 4 |
 | Gloomcap Circle | 7 | 4 | 3 | 148 | 1 lost | 3 |
 | Badger Platoon | 4 | 4 | 0 | 89 | 4 won | 4 |
-| Storm Tower Order | 10 | 3 | 7 | 341 | 5 lost | 1 |
+| Storm Tower Order | 11 | 3 | 8 | 427 | 6 lost | 1 |
 | Stormhorn Tribe | 5 | 3 | 2 | 293 | 2 lost | 3 |
 | Duskwing Tribe | 9 | 3 | 5 | 260 | 3 lost | 2 |
 | Golden Lion Order | 5 | 3 | 2 | 219 | 2 lost | 3 |
@@ -159,6 +159,7 @@ Records from 308 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Great rivalries
 
+- **Starweave Circle vs Storm Tower Order**: met 3 times
 - **Brightwater Tribe vs Frostwhisper Tribe**: met 2 times, last won by Frostwhisper Tribe
 - **Red Hawk Company vs Wildbrook Clan**: met 2 times, last won by Red Hawk Company
 - **Storm Tower Order vs Wildbrook Clan**: met 2 times, last won by Wildbrook Clan
@@ -166,10 +167,10 @@ Records from 308 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **Iron Boar Clan vs The Crooked Spire**: met 2 times, last won by The Crooked Spire
 - **Brightwater Tribe vs Emberroot Circle**: met 2 times, last won by Emberroot Circle
 - **Greyfang Clan vs Order of the Silver Stag**: met 2 times, last won by Order of the Silver Stag
-- **Greyfang Clan vs Raven Hill Clan**: met 2 times, last won by Raven Hill Clan
 
 ### Latest from the battlefield
 
+- 2026-11-06 01:55: The Rotting Choir Take the Open Plains (2nd win · 21 kills)
 - 2026-11-06 01:17: The Hollowbark Kin Take the World Furnace (2nd win · 31 kills)
 - 2026-11-06 01:02: The Kestrel Squadron Take the Ruined Fort (first ever win · 77 kills)
 - 2026-11-06 00:49: The Falling Leaf School Take the Swamp Shrine (first ever win · 49 kills)
@@ -179,4 +180,3 @@ Records from 308 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 23:11: The Oakshield Clan Take the Treasure Cove (streak ended · 4th win · 66 kills)
 - 2026-11-05 22:54: The Starweave Circle Take the Open Plains (3 wins in a row · 110 kills)
 - 2026-11-05 22:39: The Photon Wing Take the Bombed City (first battle, first win · 67 kills)
-- 2026-11-05 22:26: The Raven Hill Clan Take the Neon District (streak ended · 3rd win · 80 kills)
