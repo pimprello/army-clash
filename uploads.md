@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 15:56 | The Weapons Came ALIVE 🗡️ | Red wins | https://youtube.com/shorts/lT-g4x6WBc8 |
 | 2026-11-06 15:41 | He Just WOULDN'T Die 😳 | White wins | https://youtube.com/shorts/mo0gl6zSpgM |
 | 2026-11-06 15:26 | One AIRSTRIKE Changed Everything ✈️ | Indigo wins | https://youtube.com/shorts/cDJfGbUYIJs |
 | 2026-11-06 15:13 | 🌑 STAR EATER vs Phoenix Army | Gold wins | https://youtube.com/shorts/W6thtdoIbng |

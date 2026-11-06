@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 356 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 357 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -122,8 +122,8 @@ Records from 356 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - possess: cannon: 4
 - possess: treant: 4
 - portal: cyclops: 5
-- portal: wolfrider: 5
 - portal: golem: 6
+- portal: wolfrider: 6
 - fusion: 8
 - portal: demon: 12
 - portal: troll: 12
@@ -144,12 +144,12 @@ Records from 356 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Frostwhisper Tribe | 11 | 6 | 5 | 379 | 1 lost | 4 |
 | Emberroot Circle | 9 | 6 | 2 | 284 | 2 won | 3 |
 | Mire Witch Coven | 6 | 6 | 0 | 150 | 6 won | 6 |
+| Thornheart Circle | 7 | 5 | 2 | 548 | 1 won | 2 |
 | Order of the Silver Stag | 10 | 5 | 5 | 486 | 2 won | 3 |
 | Oakshield Clan | 9 | 5 | 4 | 256 | 1 won | 3 |
 | Iron Boar Clan | 6 | 5 | 1 | 197 | 3 won | 3 |
 | The Black Candle | 6 | 5 | 1 | 177 | 4 won | 4 |
 | Silverbough Circle | 13 | 4 | 9 | 646 | 2 won | 2 |
-| Thornheart Circle | 6 | 4 | 2 | 497 | 1 lost | 2 |
 | Storm Tower Order | 13 | 4 | 9 | 489 | 1 lost | 1 |
 | Stormhorn Tribe | 8 | 4 | 4 | 470 | 1 won | 3 |
 | Duskwing Tribe | 13 | 4 | 8 | 397 | 2 lost | 2 |
@@ -172,6 +172,7 @@ Records from 356 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 15:56: The Thornheart Circle Take the Open Plains (5th win · 51 kills)
 - 2026-11-06 15:41: The Starweave Circle Take the Clockwork Arena (revenge! · 6th win · 42 kills)
 - 2026-11-06 15:26: The Silverbough Circle Take the Clockwork Arena (revenge! · 4th win · 34 kills)
 - 2026-11-06 15:13: The Stormhorn Tribe Take the Desert Well (4th win · 153 kills)
@@ -181,4 +182,3 @@ Records from 356 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 14:11: The Falcon Squadron Take the Mountain Pass (first ever win · 62 kills)
 - 2026-11-06 13:58: The Order of the Silver Stag Take the Open Plains (5th win · 68 kills)
 - 2026-11-06 13:42: The Stonewall Company Take the Clockwork Arena (revenge denied · 3rd win · 36 kills)
-- 2026-11-06 13:27: The Rum Barrel Crew Take the Crystal Grove (3rd win · 22 kills)
