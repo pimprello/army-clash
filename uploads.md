@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 20:58 | ⚔️ CHAMPION DUEL: Savage Drones vs Ghost Bombers | Blue wins | https://youtube.com/shorts/dWQOLCaMnUg |
 | 2026-11-06 20:45 | PLAYER vs GIANT 👹 | Teal wins | https://youtube.com/shorts/VjczIY-DMrE |
 | 2026-11-06 20:29 | The Merchant Sold Them a War Horn 💰 | Red wins | https://youtube.com/shorts/1d1DGOTCMbI |
 | 2026-11-06 20:17 | Kill the KING to Win 👑 Empty Army vs Soldiers | Lavender wins | https://youtube.com/shorts/N8tSA2VAiUE |
