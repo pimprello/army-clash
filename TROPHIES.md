@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 350 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 351 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 350 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **GRUNDA GRAVEBANE** (WAR RHINO), 10 kills · 2026-11-06 14:27
 - **ASHKA STEELHEART** (SIEGE GUNNER), 25 kills · 2026-11-06 11:48
 - **ASHKA STEELHEART** (WARLOCK), 10 kills · 2026-11-06 11:03
 - **ECHO-3** (LASER TROOPER), 10 kills · 2026-11-06 10:03
@@ -47,7 +48,6 @@ Records from 350 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **PELL GRAVEBANE** (GRIFFIN RIDER), 15 kills · 2026-11-05 20:04
 - **IVOR THE SWIFT** (TROLL), 17 kills · 2026-11-05 18:51
 - **TALVO THE SWIFT** (ROYAL GUARD), 10 kills · 2026-11-05 18:38
-- **GRUNDA STORMBORN** (ROYAL GUARD), 20 kills · 2026-11-05 13:51
 
 ## Titles earned (rarest first)
 
@@ -86,9 +86,9 @@ Records from 350 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - wings: 26
 - spellward: 38
 - swift: 52
-- venom: 58
-- spikes: 63
-- regen: 71
+- venom: 59
+- spikes: 64
+- regen: 72
 
 ## Big moments
 
@@ -125,9 +125,9 @@ Records from 350 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: wolfrider: 5
 - portal: golem: 6
 - fusion: 8
-- portal: troll: 11
-- sudden: ring: 11
 - portal: demon: 12
+- portal: troll: 12
+- sudden: ring: 12
 - sudden: boss: 16
 - sudden: lava: 17
 - sudden: meteors: 21
@@ -141,12 +141,12 @@ Records from 350 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Mossback Tribe | 14 | 11 | 3 | 554 | 6 won | 6 |
 | Red Hawk Company | 12 | 9 | 3 | 447 | 1 lost | 5 |
 | Frostwhisper Tribe | 10 | 6 | 4 | 369 | 1 won | 4 |
+| Mire Witch Coven | 6 | 6 | 0 | 150 | 6 won | 6 |
 | Starweave Circle | 11 | 5 | 6 | 492 | 3 lost | 5 |
 | Order of the Silver Stag | 10 | 5 | 5 | 486 | 2 won | 3 |
 | Oakshield Clan | 9 | 5 | 4 | 256 | 1 won | 3 |
 | Iron Boar Clan | 6 | 5 | 1 | 197 | 3 won | 3 |
 | The Black Candle | 6 | 5 | 1 | 177 | 4 won | 4 |
-| Mire Witch Coven | 5 | 5 | 0 | 140 | 5 won | 5 |
 | Thornheart Circle | 6 | 4 | 2 | 497 | 1 lost | 2 |
 | Storm Tower Order | 13 | 4 | 9 | 489 | 1 lost | 1 |
 | Duskwing Tribe | 13 | 4 | 8 | 397 | 2 lost | 2 |
@@ -154,8 +154,8 @@ Records from 350 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Nova Legion | 5 | 4 | 1 | 320 | 2 won | 2 |
 | Hollowbark Kin | 11 | 4 | 7 | 305 | 1 won | 2 |
 | Golden Lion Order | 8 | 4 | 4 | 272 | 2 lost | 3 |
+| Emberroot Circle | 7 | 4 | 2 | 232 | 1 lost | 3 |
 | Raven Hill Clan | 6 | 4 | 2 | 227 | 3 won | 3 |
-| Emberroot Circle | 6 | 4 | 1 | 224 | 1 won | 3 |
 | Gloomcap Circle | 9 | 4 | 5 | 215 | 3 lost | 3 |
 | Sunspire Kin | 7 | 4 | 3 | 213 | 1 lost | 2 |
 
@@ -172,6 +172,7 @@ Records from 350 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 14:27: The Pulsar Wing Take the Frozen End (2nd win · 33 kills)
 - 2026-11-06 14:11: The Falcon Squadron Take the Mountain Pass (first ever win · 62 kills)
 - 2026-11-06 13:58: The Order of the Silver Stag Take the Open Plains (5th win · 68 kills)
 - 2026-11-06 13:42: The Stonewall Company Take the Clockwork Arena (revenge denied · 3rd win · 36 kills)
@@ -181,4 +182,3 @@ Records from 350 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 12:44: The Cinderclaw Kin Take the Titan's Bones (4th win · 65 kills)
 - 2026-11-06 12:30: The Nightjar Company Take the City (revenge denied · 2nd win · 89 kills)
 - 2026-11-06 12:15: The Storm Tower Order Take the Swamp Shrine (streak ended · 4th win · 57 kills)
-- 2026-11-06 12:02: The Mossback Tribe Take the Open Plains (5 wins in a row · 51 kills)
