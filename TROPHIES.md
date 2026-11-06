@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 358 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 359 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -134,13 +134,13 @@ Records from 358 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-109 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+110 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 14 | 11 | 3 | 554 | 6 won | 6 |
 | Red Hawk Company | 12 | 9 | 3 | 447 | 1 lost | 5 |
-| Starweave Circle | 12 | 6 | 6 | 534 | 1 won | 5 |
+| Starweave Circle | 13 | 7 | 6 | 551 | 2 won | 5 |
 | Frostwhisper Tribe | 11 | 6 | 5 | 379 | 1 lost | 4 |
 | Emberroot Circle | 9 | 6 | 2 | 284 | 2 won | 3 |
 | Mire Witch Coven | 6 | 6 | 0 | 150 | 6 won | 6 |
@@ -164,14 +164,15 @@ Records from 358 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **Mossback Tribe vs Stormhorn Tribe**: met 3 times, last won by Mossback Tribe
 - **Greyfang Clan vs Order of the Silver Stag**: met 3 times, last won by Order of the Silver Stag
 - **Harrier Squadron vs Mustang Battalion**: met 3 times, last won by Mustang Battalion
+- **Gloomcap Circle vs Starweave Circle**: met 3 times, last won by Starweave Circle
 - **Mossback Tribe vs Starweave Circle**: met 3 times, last won by Mossback Tribe
 - **Starweave Circle vs Storm Tower Order**: met 3 times
 - **Brightwater Tribe vs Frostwhisper Tribe**: met 2 times, last won by Frostwhisper Tribe
 - **Duskwing Tribe vs Frostwhisper Tribe**: met 2 times, last won by Frostwhisper Tribe
-- **Red Hawk Company vs Wildbrook Clan**: met 2 times, last won by Red Hawk Company
 
 ### Latest from the battlefield
 
+- 2026-11-06 16:28: The House of the Gold Dragonfly Take the Castle (revenge denied · first ever win · 29 kills)
 - 2026-11-06 16:10: The Bone Garden Coven Take the World Furnace (5th win · 25 kills)
 - 2026-11-06 15:56: The Thornheart Circle Take the Open Plains (5th win · 51 kills)
 - 2026-11-06 15:41: The Starweave Circle Take the Clockwork Arena (revenge! · 6th win · 42 kills)
@@ -181,4 +182,3 @@ Records from 358 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 14:43: The Crew of the Black Gull Take the Frozen End (revenge denied · 2nd win · 65 kills)
 - 2026-11-06 14:27: The Pulsar Wing Take the Frozen End (2nd win · 33 kills)
 - 2026-11-06 14:11: The Falcon Squadron Take the Mountain Pass (first ever win · 62 kills)
-- 2026-11-06 13:58: The Order of the Silver Stag Take the Open Plains (5th win · 68 kills)
