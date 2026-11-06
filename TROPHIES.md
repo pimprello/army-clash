@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 357 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 358 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -124,7 +124,7 @@ Records from 357 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: cyclops: 5
 - portal: golem: 6
 - portal: wolfrider: 6
-- fusion: 8
+- fusion: 9
 - portal: demon: 12
 - portal: troll: 12
 - sudden: ring: 12
@@ -149,6 +149,7 @@ Records from 357 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Oakshield Clan | 9 | 5 | 4 | 256 | 1 won | 3 |
 | Iron Boar Clan | 6 | 5 | 1 | 197 | 3 won | 3 |
 | The Black Candle | 6 | 5 | 1 | 177 | 4 won | 4 |
+| Bone Garden Coven | 8 | 5 | 3 | 120 | 1 won | 3 |
 | Silverbough Circle | 13 | 4 | 9 | 646 | 2 won | 2 |
 | Storm Tower Order | 13 | 4 | 9 | 489 | 1 lost | 1 |
 | Stormhorn Tribe | 8 | 4 | 4 | 470 | 1 won | 3 |
@@ -157,7 +158,6 @@ Records from 357 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Nova Legion | 5 | 4 | 1 | 320 | 2 won | 2 |
 | Hollowbark Kin | 11 | 4 | 7 | 305 | 1 won | 2 |
 | Golden Lion Order | 8 | 4 | 4 | 272 | 2 lost | 3 |
-| Sunspire Kin | 8 | 4 | 4 | 265 | 2 lost | 2 |
 
 ### Great rivalries
 
@@ -172,6 +172,7 @@ Records from 357 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 16:10: The Bone Garden Coven Take the World Furnace (5th win · 25 kills)
 - 2026-11-06 15:56: The Thornheart Circle Take the Open Plains (5th win · 51 kills)
 - 2026-11-06 15:41: The Starweave Circle Take the Clockwork Arena (revenge! · 6th win · 42 kills)
 - 2026-11-06 15:26: The Silverbough Circle Take the Clockwork Arena (revenge! · 4th win · 34 kills)
@@ -181,4 +182,3 @@ Records from 357 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 14:27: The Pulsar Wing Take the Frozen End (2nd win · 33 kills)
 - 2026-11-06 14:11: The Falcon Squadron Take the Mountain Pass (first ever win · 62 kills)
 - 2026-11-06 13:58: The Order of the Silver Stag Take the Open Plains (5th win · 68 kills)
-- 2026-11-06 13:42: The Stonewall Company Take the Clockwork Arena (revenge denied · 3rd win · 36 kills)

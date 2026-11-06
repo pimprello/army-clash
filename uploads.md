@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 16:10 | 12 Skeletons FUSED Into a Giant 💀 | Purple wins | https://youtube.com/shorts/GPabPYiekGM |
 | 2026-11-06 15:56 | The Weapons Came ALIVE 🗡️ | Red wins | https://youtube.com/shorts/lT-g4x6WBc8 |
 | 2026-11-06 15:41 | He Just WOULDN'T Die 😳 | White wins | https://youtube.com/shorts/mo0gl6zSpgM |
 | 2026-11-06 15:26 | One AIRSTRIKE Changed Everything ✈️ | Indigo wins | https://youtube.com/shorts/cDJfGbUYIJs |
