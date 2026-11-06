@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 326 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 327 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -143,6 +143,7 @@ Records from 326 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Frostwhisper Tribe | 9 | 5 | 4 | 336 | 1 lost | 4 |
 | Thornheart Circle | 6 | 4 | 2 | 497 | 1 lost | 2 |
 | Order of the Silver Stag | 9 | 4 | 5 | 418 | 1 won | 3 |
+| Duskwing Tribe | 11 | 4 | 6 | 346 | 1 won | 2 |
 | Nova Legion | 5 | 4 | 1 | 320 | 2 won | 2 |
 | Oakshield Clan | 8 | 4 | 4 | 250 | 1 lost | 3 |
 | Golden Lion Order | 6 | 4 | 2 | 246 | 1 won | 3 |
@@ -155,7 +156,6 @@ Records from 326 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Mire Witch Coven | 4 | 4 | 0 | 80 | 4 won | 4 |
 | Storm Tower Order | 11 | 3 | 8 | 427 | 6 lost | 1 |
 | Wildbrook Clan | 10 | 3 | 7 | 351 | 1 lost | 1 |
-| Duskwing Tribe | 10 | 3 | 6 | 305 | 4 lost | 2 |
 | Glimmerdeep Kin | 7 | 3 | 4 | 299 | 3 won | 3 |
 
 ### Great rivalries
@@ -171,6 +171,7 @@ Records from 326 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 08:34: The Duskwing Tribe Take the Treasure Cove (4th win · 41 kills)
 - 2026-11-06 08:24: The Silent Mile Take the Frozen End (2nd win · 41 kills)
 - 2026-11-06 08:03: The Frostwhisper Tribe Take the Open Plains (5th win · 35 kills)
 - 2026-11-06 07:19: The Thornheart Circle Take the Neon District (4th win · 137 kills)
@@ -180,4 +181,3 @@ Records from 326 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 05:52: The Black Candle Take the Mountain Pass (3rd win · 19 kills)
 - 2026-11-06 05:34: The Vortex Legion Take the Titan's Bones (streak ended · 3rd win · 105 kills)
 - 2026-11-06 05:20: The Cipher Cohort Take the Sky Islands (revenge! · 2nd win · 70 kills)
-- 2026-11-06 05:05: The Sunspire Kin Take the Open Plains (3rd win · 37 kills)
