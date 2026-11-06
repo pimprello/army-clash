@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 337 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 338 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -172,6 +172,7 @@ Records from 337 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 11:13: The Thunder Gate School Take the Haunted Crypt (2nd win · 22 kills)
 - 2026-11-06 11:03: The Bilgewater Crew Take the Canyon Pass (2nd win · 46 kills)
 - 2026-11-06 10:48: The Mire Witch Coven Take the Old Forest (revenge denied · 5 wins in a row · 60 kills)
 - 2026-11-06 10:33: The Iron Lotus School Take the Haunted Crypt (streak ended · 3 wins in a row · 39 kills)
@@ -181,4 +182,3 @@ Records from 337 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 09:34: The Vector Cohort Take the Swamp Shrine (revenge denied · 2nd win · 3 kills)
 - 2026-11-06 09:20: The Mossback Tribe Take the Titan's Bones (revenge denied · 3 wins in a row · 37 kills)
 - 2026-11-06 09:01: The Black Candle Take the Canyon Pass (3 wins in a row · 48 kills)
-- 2026-11-06 08:47: The Moonfang Tribe Take the Treasure Cove (2nd win · 31 kills)
