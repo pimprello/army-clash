@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 343 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 344 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -147,17 +147,17 @@ Records from 343 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | The Black Candle | 6 | 5 | 1 | 177 | 4 won | 4 |
 | Mire Witch Coven | 5 | 5 | 0 | 140 | 5 won | 5 |
 | Thornheart Circle | 6 | 4 | 2 | 497 | 1 lost | 2 |
-| Storm Tower Order | 12 | 4 | 8 | 484 | 1 won | 1 |
+| Storm Tower Order | 13 | 4 | 9 | 489 | 1 lost | 1 |
 | Order of the Silver Stag | 9 | 4 | 5 | 418 | 1 won | 3 |
 | Duskwing Tribe | 13 | 4 | 8 | 397 | 2 lost | 2 |
 | Glimmerdeep Kin | 8 | 4 | 4 | 362 | 4 won | 4 |
 | Nova Legion | 5 | 4 | 1 | 320 | 2 won | 2 |
-| Golden Lion Order | 7 | 4 | 3 | 260 | 1 lost | 3 |
+| Hollowbark Kin | 11 | 4 | 7 | 305 | 1 won | 2 |
+| Golden Lion Order | 8 | 4 | 4 | 272 | 2 lost | 3 |
 | Raven Hill Clan | 6 | 4 | 2 | 227 | 3 won | 3 |
 | Emberroot Circle | 6 | 4 | 1 | 224 | 1 won | 3 |
 | Gloomcap Circle | 9 | 4 | 5 | 215 | 3 lost | 3 |
 | Sunspire Kin | 7 | 4 | 3 | 213 | 1 lost | 2 |
-| Thornwood Company | 6 | 4 | 2 | 111 | 3 won | 3 |
 
 ### Great rivalries
 
@@ -172,6 +172,7 @@ Records from 343 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 12:44: The Cinderclaw Kin Take the Titan's Bones (4th win · 65 kills)
 - 2026-11-06 12:30: The Nightjar Company Take the City (revenge denied · 2nd win · 89 kills)
 - 2026-11-06 12:15: The Storm Tower Order Take the Swamp Shrine (streak ended · 4th win · 57 kills)
 - 2026-11-06 12:02: The Mossback Tribe Take the Open Plains (5 wins in a row · 51 kills)
@@ -181,4 +182,3 @@ Records from 343 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 11:03: The Bilgewater Crew Take the Canyon Pass (2nd win · 46 kills)
 - 2026-11-06 10:48: The Mire Witch Coven Take the Old Forest (revenge denied · 5 wins in a row · 60 kills)
 - 2026-11-06 10:33: The Iron Lotus School Take the Haunted Crypt (streak ended · 3 wins in a row · 39 kills)
-- 2026-11-06 10:18: The Silverbough Circle Take the Desert Well (revenge! · 3rd win · 53 kills)
