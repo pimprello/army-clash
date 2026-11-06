@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 376 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 377 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -134,7 +134,7 @@ Records from 376 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-111 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+112 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
@@ -172,6 +172,7 @@ Records from 376 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 22:49: The Mountain Wind School Take the Canyon Pass (4th win · 82 kills)
 - 2026-11-06 21:55: The Duskwing Tribe Take the Clockwork Arena (revenge denied · 5th win · 55 kills)
 - 2026-11-06 20:58: The Copperhead Battalion Take the Trench Line (streak ended · 3rd win · 16 kills)
 - 2026-11-06 20:45: The Wildbrook Clan Take the Desert Well (revenge denied · 4th win · 75 kills)
@@ -181,4 +182,3 @@ Records from 376 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 19:48: The Highmoor Clan Take the Mountain Pass (2nd win · 52 kills)
 - 2026-11-06 19:32: The Quasar Wing Take the Canyon Pass (2nd win · 83 kills)
 - 2026-11-06 19:18: The Silverbough Circle Take the City (6th win · 35 kills)
-- 2026-11-06 19:03: The Moonfang Tribe Take the Sky-temple Relic (streak ended · 3rd win · 53 kills)
