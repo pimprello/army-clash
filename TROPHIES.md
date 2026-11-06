@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 305 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 306 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -67,7 +67,7 @@ Records from 305 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - STAR EATER SLAYER: 5
 - HYDRA SLAYER: 6
 - UNMAKER SLAYER: 6
-- IMMORTAL FRAUD SLAYER: 6
+- IMMORTAL FRAUD SLAYER: 7
 - COLOSSUS SLAYER: 8
 - CANNON SLAYER: 8
 - ELEPHANT SLAYER: 9
@@ -128,7 +128,7 @@ Records from 305 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - sudden: ring: 10
 - sudden: lava: 15
 - sudden: boss: 16
-- sudden: meteors: 18
+- sudden: meteors: 19
 
 ## The tribes' chronicle
 
@@ -146,8 +146,8 @@ Records from 305 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Frostwhisper Tribe | 6 | 4 | 2 | 192 | 4 won | 4 |
 | Gloomcap Circle | 7 | 4 | 3 | 148 | 1 lost | 3 |
 | Storm Tower Order | 10 | 3 | 7 | 341 | 5 lost | 1 |
+| Stormhorn Tribe | 5 | 3 | 2 | 293 | 2 lost | 3 |
 | Duskwing Tribe | 9 | 3 | 5 | 260 | 3 lost | 2 |
-| Stormhorn Tribe | 4 | 3 | 1 | 260 | 1 lost | 3 |
 | Golden Lion Order | 5 | 3 | 2 | 219 | 2 lost | 3 |
 | Thunder Platoon | 4 | 3 | 1 | 173 | 1 lost | 3 |
 | Mustang Battalion | 5 | 3 | 1 | 169 | 2 won | 2 |
@@ -170,6 +170,7 @@ Records from 305 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 00:49: The Falling Leaf School Take the Swamp Shrine (first ever win · 49 kills)
 - 2026-11-06 00:32: The Crew of the Iron Anchor Take the Canyon Pass (2nd win · 24 kills)
 - 2026-11-06 00:27: The Glimmerdeep Kin Take the Bombed City (revenge denied · first ever win · 147 kills)
 - 2026-11-05 23:40: The Mustang Battalion Take the Reactor (3rd win · 57 kills)
@@ -179,4 +180,3 @@ Records from 305 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 22:26: The Raven Hill Clan Take the Neon District (streak ended · 3rd win · 80 kills)
 - 2026-11-05 22:12: The Harrier Squadron Take the Frozen End (streak ended · 2nd win · 30 kills)
 - 2026-11-05 21:55: The Iron Lotus School Take the Canyon Pass (2nd win · 30 kills)
-- 2026-11-05 21:42: The House of the Silver Tiger Take the Open Plains (streak ended · 2nd win · 27 kills)
