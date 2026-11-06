@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 307 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 308 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -132,14 +132,14 @@ Records from 307 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## The tribes' chronicle
 
-101 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
+102 tribes have fought so far. The same tribes come back video after video, and their stories build on what really happened.
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Red Hawk Company | 10 | 8 | 2 | 377 | 2 won | 5 |
+| Starweave Circle | 8 | 5 | 3 | 353 | 5 won | 5 |
 | Mossback Tribe | 8 | 5 | 3 | 348 | 1 lost | 3 |
 | Order of the Silver Stag | 9 | 4 | 5 | 418 | 1 won | 3 |
-| Starweave Circle | 7 | 4 | 3 | 337 | 4 won | 4 |
 | Nova Legion | 5 | 4 | 1 | 320 | 2 won | 2 |
 | Oakshield Clan | 8 | 4 | 4 | 250 | 1 lost | 3 |
 | Raven Hill Clan | 6 | 4 | 2 | 227 | 3 won | 3 |
@@ -170,6 +170,7 @@ Records from 307 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 01:17: The Hollowbark Kin Take the World Furnace (2nd win · 31 kills)
 - 2026-11-06 01:02: The Kestrel Squadron Take the Ruined Fort (first ever win · 77 kills)
 - 2026-11-06 00:49: The Falling Leaf School Take the Swamp Shrine (first ever win · 49 kills)
 - 2026-11-06 00:32: The Crew of the Iron Anchor Take the Canyon Pass (2nd win · 24 kills)
@@ -179,4 +180,3 @@ Records from 307 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-05 22:54: The Starweave Circle Take the Open Plains (3 wins in a row · 110 kills)
 - 2026-11-05 22:39: The Photon Wing Take the Bombed City (first battle, first win · 67 kills)
 - 2026-11-05 22:26: The Raven Hill Clan Take the Neon District (streak ended · 3rd win · 80 kills)
-- 2026-11-05 22:12: The Harrier Squadron Take the Frozen End (streak ended · 2nd win · 30 kills)
