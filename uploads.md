@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-06 11:30 | 🇺🇸 USA vs Canada: WHO WINS? | Canada wins | https://youtube.com/shorts/Hdc40KjoVTY |
 | 2026-11-06 11:13 | The Airdrop Had a SURPRISE Inside 📦 | Orange wins | https://youtube.com/shorts/hdwOyPDkMmw |
 | 2026-11-06 11:03 | TITAN KNIGHTS vs Rogue Raiders vs Mech Shields 🔥 | Teal wins | https://youtube.com/shorts/Bt06olL6T9I |
 | 2026-11-06 10:48 | 5 Wins in a ROW for the Mire Witch Coven 🔥 | Purple wins | https://youtube.com/shorts/cHXGto0BUY4 |

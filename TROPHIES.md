@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 338 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 339 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -51,7 +51,7 @@ Records from 338 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Titles earned (rarest first)
 
-- CATAPULT SLAYER: 1
+- CATAPULT SLAYER: 2
 - KNIGHT SLAYER: 3
 - GRAVITY TYRANT SLAYER: 3
 - WORLDROOT SLAYER: 3
@@ -148,16 +148,16 @@ Records from 338 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Thornheart Circle | 6 | 4 | 2 | 497 | 1 lost | 2 |
 | Order of the Silver Stag | 9 | 4 | 5 | 418 | 1 won | 3 |
 | Duskwing Tribe | 13 | 4 | 8 | 397 | 2 lost | 2 |
+| Glimmerdeep Kin | 8 | 4 | 4 | 362 | 4 won | 4 |
 | Nova Legion | 5 | 4 | 1 | 320 | 2 won | 2 |
 | Golden Lion Order | 6 | 4 | 2 | 246 | 1 won | 3 |
 | Raven Hill Clan | 6 | 4 | 2 | 227 | 3 won | 3 |
 | Emberroot Circle | 6 | 4 | 1 | 224 | 1 won | 3 |
 | Gloomcap Circle | 9 | 4 | 5 | 215 | 3 lost | 3 |
-| Sunspire Kin | 6 | 4 | 2 | 201 | 2 won | 2 |
+| Sunspire Kin | 7 | 4 | 3 | 213 | 1 lost | 2 |
 | Thornwood Company | 6 | 4 | 2 | 111 | 3 won | 3 |
 | The Pale Procession | 4 | 4 | 0 | 93 | 4 won | 4 |
 | Badger Platoon | 4 | 4 | 0 | 89 | 4 won | 4 |
-| Silverbough Circle | 12 | 3 | 9 | 612 | 1 won | 2 |
 
 ### Great rivalries
 
@@ -172,6 +172,7 @@ Records from 338 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-06 11:30: The Glimmerdeep Kin Take the Quarry (4 wins in a row · 63 kills)
 - 2026-11-06 11:13: The Thunder Gate School Take the Haunted Crypt (2nd win · 22 kills)
 - 2026-11-06 11:03: The Bilgewater Crew Take the Canyon Pass (2nd win · 46 kills)
 - 2026-11-06 10:48: The Mire Witch Coven Take the Old Forest (revenge denied · 5 wins in a row · 60 kills)
@@ -181,4 +182,3 @@ Records from 338 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 09:49: The Stonebridge Company Take the Ruined Fort (3rd win · 120 kills)
 - 2026-11-06 09:34: The Vector Cohort Take the Swamp Shrine (revenge denied · 2nd win · 3 kills)
 - 2026-11-06 09:20: The Mossback Tribe Take the Titan's Bones (revenge denied · 3 wins in a row · 37 kills)
-- 2026-11-06 09:01: The Black Candle Take the Canyon Pass (3 wins in a row · 48 kills)
