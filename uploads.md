@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 16:44 | They Got INCENDIARY Rounds and WON 🔥 | Usa wins | https://youtube.com/shorts/rKnJ3sm7Io4 |
 | 2026-11-07 16:28 | 3 Armies, Only 1 SURVIVES 💀 | Brazil wins | https://youtube.com/shorts/10MzqOSX6dM |
 | 2026-11-07 16:12 | A PORTAL Opened Mid-Battle 🌀 | Red wins | https://youtube.com/shorts/C8a4tgwB9Hs |
 | 2026-11-07 15:57 | Royal Pikes vs TURBO TROLLS 🔥 | Yellow wins | https://youtube.com/shorts/rZMw3GzJUZ0 |
