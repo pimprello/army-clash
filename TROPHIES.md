@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 405 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 406 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -83,8 +83,8 @@ Records from 405 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Mutations (rarest first)
 
 - vampiric: 8
-- wings: 29
-- spellward: 38
+- wings: 30
+- spellward: 39
 - swift: 61
 - venom: 65
 - spikes: 71
@@ -138,10 +138,10 @@ Records from 405 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
-| Mossback Tribe | 16 | 12 | 4 | 608 | 1 lost | 7 |
+| Mossback Tribe | 17 | 13 | 4 | 639 | 1 won | 7 |
 | Red Hawk Company | 15 | 10 | 5 | 495 | 2 lost | 5 |
 | Frostwhisper Tribe | 18 | 9 | 9 | 739 | 1 won | 4 |
-| Starweave Circle | 18 | 7 | 11 | 712 | 5 lost | 5 |
+| Starweave Circle | 19 | 8 | 11 | 752 | 1 won | 5 |
 | Storm Tower Order | 16 | 7 | 9 | 612 | 3 won | 3 |
 | Thornheart Circle | 9 | 7 | 2 | 596 | 3 won | 3 |
 | Raven Hill Clan | 10 | 7 | 3 | 406 | 1 won | 5 |
@@ -151,7 +151,7 @@ Records from 405 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Stormhorn Tribe | 10 | 6 | 4 | 564 | 3 won | 3 |
 | Order of the Silver Stag | 13 | 6 | 7 | 557 | 1 lost | 3 |
 | Copper Crown Company | 11 | 6 | 5 | 369 | 1 lost | 3 |
-| Emberroot Circle | 11 | 6 | 4 | 317 | 2 lost | 3 |
+| Emberroot Circle | 12 | 6 | 5 | 360 | 3 lost | 3 |
 | Golden Lion Order | 10 | 6 | 4 | 316 | 2 won | 3 |
 | Wildbrook Clan | 16 | 5 | 11 | 624 | 1 won | 1 |
 | Duskwing Tribe | 16 | 5 | 10 | 571 | 1 won | 2 |
@@ -164,14 +164,15 @@ Records from 405 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **Mossback Tribe vs Stormhorn Tribe**: met 4 times, last won by Stormhorn Tribe
 - **Frostmere Clan vs Greyfang Clan**: met 4 times, last won by Frostmere Clan
 - **Greyfang Clan vs Raven Hill Clan**: met 4 times, last won by Raven Hill Clan
+- **Gloomcap Circle vs Starweave Circle**: met 4 times, last won by Starweave Circle
 - **Frostwhisper Tribe vs Starweave Circle**: met 4 times, last won by Frostwhisper Tribe
 - **Brightwater Tribe vs Glimmerdeep Kin**: met 3 times, last won by Glimmerdeep Kin
 - **Greyfang Clan vs Order of the Silver Stag**: met 3 times, last won by Order of the Silver Stag
 - **Crew of the Black Gull vs Order of the Silver Stag**: met 3 times, last won by Order of the Silver Stag
-- **Copper Crown Company vs Wildbrook Clan**: met 3 times, last won by Wildbrook Clan
 
 ### Latest from the battlefield
 
+- 2026-11-07 05:57: The Starweave Circle Take the Quarry (revenge denied · 8th win · 40 kills)
 - 2026-11-07 05:42: The Silent Mile Take the Open Plains (3 wins in a row · 86 kills)
 - 2026-11-07 05:26: The Crew of the Sea Wolf Take the Clockwork Arena (2nd win · 54 kills)
 - 2026-11-07 05:13: The Nebula Cohort Take the Open Plains (3 wins in a row · 37 kills)
@@ -181,4 +182,3 @@ Records from 405 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 04:15: The Frostwhisper Tribe Take the Sky-temple Relic (revenge denied · 9th win · 187 kills)
 - 2026-11-07 03:58: The Raven Hill Clan Take the Open Plains (revenge denied · 5 wins in a row · 51 kills)
 - 2026-11-07 03:43: The Stone River School Take the Open Plains (3rd win · 89 kills)
-- 2026-11-07 03:29: The Granite Battalion Take the Quarry (4th win · 40 kills)
