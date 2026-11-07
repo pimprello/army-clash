@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 432 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 433 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -67,8 +67,8 @@ Records from 432 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - STORM EMPEROR SLAYER: 7
 - HYDRA SLAYER: 8
 - FORTRESS SLAYER: 8
-- ELEPHANT SLAYER: 9
 - COLOSSUS SLAYER: 9
+- ELEPHANT SLAYER: 10
 - CYCLOPS SLAYER: 10
 - MECH SLAYER: 10
 - CANNON SLAYER: 12
@@ -173,6 +173,7 @@ Records from 432 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 12:33: The Brightwater Tribe Take the Open Plains (5th win · 43 kills)
 - 2026-11-07 12:18: The Lynx Company Take the City (first ever win · 58 kills)
 - 2026-11-07 12:04: The Rotting Choir Take the Neon District (4 wins in a row · 67 kills)
 - 2026-11-07 11:49: The Stonewall Company Take the Frozen End (revenge denied · 5th win · 65 kills)
@@ -182,4 +183,3 @@ Records from 432 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 10:49: The Red Hawk Company Take the Quarry (revenge! · 3 wins in a row · 67 kills)
 - 2026-11-07 10:34: The Hollowbark Kin Take the Open Plains (6th win · 47 kills)
 - 2026-11-07 10:21: The Silverbough Circle Take the Frozen End (revenge denied · 3 wins in a row · 76 kills)
-- 2026-11-07 10:05: The Silverbough Circle Take the Mirror Gate (streak ended · 8th win · 85 kills)

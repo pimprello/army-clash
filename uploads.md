@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 12:33 | Half the Size and Still WON 😳 | Sky wins | https://youtube.com/shorts/stv2AWdG5p8 |
 | 2026-11-07 12:18 | 109 Archers vs 57 Snipers 🏹 | White wins | https://youtube.com/shorts/vGz5JJ3qNqY |
 | 2026-11-07 12:04 | Ghost Bones vs Frost Drones, But Champions DUEL First ⚔️ | Lime wins | https://youtube.com/shorts/1tjjNwTx3KA |
 | 2026-11-07 11:49 | Kill the KING to Win 👑 Italy vs Germany | Germany wins | https://youtube.com/shorts/2vaxJ4hvvZc |
