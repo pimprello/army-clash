@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 19:55 | The BIGGEST Comeback I've Seen 😱 | Canada wins | https://youtube.com/shorts/vxcPZz_79_o |
 | 2026-11-07 19:37 | Then the Ground SPLIT Open 😱 | Norway wins | https://youtube.com/shorts/_VdoOwx07kY |
 | 2026-11-07 19:22 | METEORS Hit Mid-Battle ☄️ | Crimson wins | https://youtube.com/shorts/ZzIS-0feHeY |
 | 2026-11-07 19:11 | 🇸🇪 Sweden Tank Zombies vs Finland Holy Knights | Finland wins | https://youtube.com/shorts/M6_vV_jpfs4 |

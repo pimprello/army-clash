@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 462 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 463 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 462 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **KAELEN BONECRUSHER** (BERSERKER), 11 kills · 2026-11-07 19:55
 - **DRAVEN THE BOLD** (NINJA), 15 kills · 2026-11-07 17:58
 - **BRAMBLE THE LUCKY** (KNIGHT), 11 kills · 2026-11-07 15:47
 - **TALVO THE WALL** (WIZARD), 34 kills · 2026-11-07 15:29
@@ -47,7 +48,6 @@ Records from 462 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **TOVA THE MAD** (SWORDSMAN), 10 kills · 2026-11-07 04:58
 - **GRIM THE LUCKY** (BERSERKER), 12 kills · 2026-11-07 04:26
 - **NOMAD-9** (MACHINE GUNNER), 12 kills · 2026-11-07 04:15
-- **GRIM BONECRUSHER** (SAMURAI), 14 kills · 2026-11-07 03:43
 
 ## Titles earned (rarest first)
 
@@ -85,10 +85,10 @@ Records from 462 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 9
 - wings: 32
 - spellward: 43
-- swift: 70
-- venom: 74
+- swift: 71
+- venom: 75
 - spikes: 80
-- regen: 91
+- regen: 92
 
 ## Big moments
 
@@ -173,6 +173,7 @@ Records from 462 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 19:55: The Solar Wing Take the Swamp Shrine (revenge denied · 3 wins in a row · 79 kills)
 - 2026-11-07 19:37: The Silverbough Circle Take the Castle (revenge denied · 10th win · 135 kills)
 - 2026-11-07 19:22: The Black Bear Clan Take the Open Plains (6th win · 71 kills)
 - 2026-11-07 19:11: The Harrier Squadron Take the Reactor (3 wins in a row · 62 kills)
@@ -182,4 +183,3 @@ Records from 462 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 18:12: The Oakshield Clan Take the Quarry (revenge denied · 6 wins in a row · 95 kills)
 - 2026-11-07 17:58: The Highmoor Clan Take the Sky Islands (7 wins in a row · 36 kills)
 - 2026-11-07 17:42: The Ghoul Hollow Coven Take the Ruined Fort (3 wins in a row · 105 kills)
-- 2026-11-07 17:26: The Sunspire Kin Take the Open Plains (6th win · 47 kills)
