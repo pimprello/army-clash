@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 434 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 435 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -128,8 +128,8 @@ Records from 434 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - fusion: 10
 - portal: demon: 14
 - portal: troll: 14
-- sudden: ring: 16
 - sudden: boss: 17
+- sudden: ring: 17
 - sudden: meteors: 23
 - sudden: lava: 23
 
@@ -173,6 +173,7 @@ Records from 434 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 13:02: The Still Water School Take the Reactor (streak ended · first ever win · 32 kills)
 - 2026-11-07 12:47: The Nightjar Company Take the Neon District (streak ended · 3 wins in a row · 50 kills)
 - 2026-11-07 12:33: The Brightwater Tribe Take the Open Plains (5th win · 43 kills)
 - 2026-11-07 12:18: The Lynx Company Take the City (first ever win · 58 kills)
@@ -182,4 +183,3 @@ Records from 434 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 11:18: The House of the Red Crane Take the Open Plains (3 wins in a row · 33 kills)
 - 2026-11-07 11:03: The Falcon Squadron Take the Mountain Pass (2nd win · 44 kills)
 - 2026-11-07 10:49: The Red Hawk Company Take the Quarry (revenge! · 3 wins in a row · 67 kills)
-- 2026-11-07 10:34: The Hollowbark Kin Take the Open Plains (6th win · 47 kills)
