@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 435 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 436 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -85,7 +85,7 @@ Records from 435 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 9
 - wings: 31
 - spellward: 42
-- swift: 64
+- swift: 65
 - venom: 69
 - spikes: 76
 - regen: 86
@@ -145,18 +145,18 @@ Records from 435 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Frostwhisper Tribe | 18 | 9 | 9 | 739 | 1 won | 4 |
 | Thornheart Circle | 11 | 9 | 2 | 678 | 5 won | 5 |
 | Starweave Circle | 20 | 8 | 12 | 758 | 1 lost | 5 |
+| Frostmere Clan | 17 | 8 | 9 | 625 | 1 won | 3 |
 | Oakshield Clan | 12 | 8 | 4 | 373 | 4 won | 4 |
 | Thornwood Company | 10 | 8 | 2 | 345 | 7 won | 7 |
 | Storm Tower Order | 17 | 7 | 10 | 662 | 1 lost | 3 |
-| Frostmere Clan | 16 | 7 | 9 | 601 | 1 lost | 3 |
 | Stormhorn Tribe | 11 | 7 | 4 | 578 | 4 won | 4 |
 | Hollowbark Kin | 16 | 7 | 9 | 502 | 3 won | 3 |
-| Raven Hill Clan | 12 | 7 | 5 | 454 | 2 lost | 5 |
+| Raven Hill Clan | 13 | 7 | 6 | 461 | 3 lost | 5 |
+| Copper Crown Company | 12 | 7 | 5 | 414 | 1 won | 3 |
 | Highmoor Clan | 11 | 7 | 4 | 375 | 6 won | 6 |
 | Mire Witch Coven | 9 | 7 | 2 | 322 | 2 lost | 7 |
 | Order of the Silver Stag | 13 | 6 | 7 | 557 | 1 lost | 3 |
 | Emberroot Circle | 14 | 6 | 7 | 437 | 5 lost | 3 |
-| Copper Crown Company | 11 | 6 | 5 | 369 | 1 lost | 3 |
 | Golden Lion Order | 12 | 6 | 6 | 346 | 2 lost | 3 |
 | Hammer Platoon | 11 | 6 | 5 | 302 | 3 won | 3 |
 
@@ -173,6 +173,7 @@ Records from 435 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 13:17: The Copper Crown Company Take the Desert Well (revenge denied · 7th win · 45 kills)
 - 2026-11-07 13:02: The Still Water School Take the Reactor (streak ended · first ever win · 32 kills)
 - 2026-11-07 12:47: The Nightjar Company Take the Neon District (streak ended · 3 wins in a row · 50 kills)
 - 2026-11-07 12:33: The Brightwater Tribe Take the Open Plains (5th win · 43 kills)
@@ -182,4 +183,3 @@ Records from 435 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 11:33: The Hollowbark Kin Take the Open Plains (3 wins in a row · 41 kills)
 - 2026-11-07 11:18: The House of the Red Crane Take the Open Plains (3 wins in a row · 33 kills)
 - 2026-11-07 11:03: The Falcon Squadron Take the Mountain Pass (2nd win · 44 kills)
-- 2026-11-07 10:49: The Red Hawk Company Take the Quarry (revenge! · 3 wins in a row · 67 kills)

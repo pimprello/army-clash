@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 13:17 | A BLIZZARD Froze the Battle ❄️ | Magenta wins | https://youtube.com/shorts/-gZP2vWCytc |
 | 2026-11-07 13:02 | 🇸🇪 Sweden Neon Trolls vs Norway Solar Wolves | Norway wins | https://youtube.com/shorts/HBF1O3AWlWQ |
 | 2026-11-07 12:47 | 🇧🇷 Brazil vs Argentina: WHO WINS? | Argentina wins | https://youtube.com/shorts/6Bb8d6JFvHw |
 | 2026-11-07 12:33 | Half the Size and Still WON 😳 | Sky wins | https://youtube.com/shorts/stv2AWdG5p8 |
