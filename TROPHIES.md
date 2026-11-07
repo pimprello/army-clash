@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 403 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 404 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -70,8 +70,8 @@ Records from 403 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - COLOSSUS SLAYER: 8
 - ELEPHANT SLAYER: 9
 - CYCLOPS SLAYER: 9
-- CANNON SLAYER: 10
 - MECH SLAYER: 10
+- CANNON SLAYER: 11
 - PLAYER SLAYER: 12
 - TANK SLAYER: 14
 - GOLEM SLAYER: 15
@@ -172,6 +172,7 @@ Records from 403 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 05:26: The Crew of the Sea Wolf Take the Clockwork Arena (2nd win · 54 kills)
 - 2026-11-07 05:13: The Nebula Cohort Take the Open Plains (3 wins in a row · 37 kills)
 - 2026-11-07 04:58: The Storm Tower Order Take the Sky-temple Relic (revenge denied · 3 wins in a row · 62 kills)
 - 2026-11-07 04:41: The Saltfang Crew Take the Open Plains (first ever win · 53 kills)
@@ -181,4 +182,3 @@ Records from 403 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 03:43: The Stone River School Take the Open Plains (3rd win · 89 kills)
 - 2026-11-07 03:29: The Granite Battalion Take the Quarry (4th win · 40 kills)
 - 2026-11-07 03:14: The House of the Silver Tiger Take the Desert Well (3rd win · 13 kills)
-- 2026-11-07 02:59: The Oakshield Clan Take the Overgrown Throne (3 wins in a row · 49 kills)
