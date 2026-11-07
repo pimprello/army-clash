@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 468 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 469 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -74,8 +74,8 @@ Records from 468 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - CANNON SLAYER: 13
 - PLAYER SLAYER: 14
 - TANK SLAYER: 16
-- MAMMOTH SLAYER: 16
 - GOLEM SLAYER: 17
+- MAMMOTH SLAYER: 17
 - GIANT SLAYER: 25
 - DRAGON SLAYER: 26
 - TITAN SLAYER: 32
@@ -140,12 +140,12 @@ Records from 468 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
-| Mossback Tribe | 20 | 15 | 5 | 876 | 2 won | 7 |
+| Mossback Tribe | 21 | 15 | 6 | 914 | 1 lost | 7 |
 | Red Hawk Company | 21 | 14 | 7 | 777 | 2 lost | 5 |
 | Silverbough Circle | 26 | 11 | 15 | 1252 | 2 won | 3 |
 | Oakshield Clan | 16 | 11 | 5 | 673 | 1 won | 6 |
 | Frostwhisper Tribe | 19 | 10 | 9 | 767 | 2 won | 4 |
-| Thornheart Circle | 12 | 10 | 2 | 725 | 6 won | 6 |
+| Thornheart Circle | 13 | 10 | 3 | 764 | 1 lost | 6 |
 | Thornwood Company | 13 | 10 | 3 | 396 | 1 lost | 9 |
 | Starweave Circle | 23 | 9 | 14 | 881 | 1 won | 5 |
 | Mire Witch Coven | 11 | 9 | 2 | 395 | 2 won | 7 |
@@ -174,6 +174,7 @@ Records from 468 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 22:18: The Glimmerdeep Kin Take the Open Plains (6th win · 29 kills)
 - 2026-11-07 21:06: The Mustang Battalion Take the Treasure Cove (5th win · 57 kills)
 - 2026-11-07 20:54: The Crew of the Iron Anchor Take the Haunted Crypt (3 wins in a row · 28 kills)
 - 2026-11-07 20:36: The Silverbough Circle Take the Castle (11th win · 47 kills)
@@ -183,4 +184,3 @@ Records from 468 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 19:37: The Silverbough Circle Take the Castle (revenge denied · 10th win · 135 kills)
 - 2026-11-07 19:22: The Black Bear Clan Take the Open Plains (6th win · 71 kills)
 - 2026-11-07 19:11: The Harrier Squadron Take the Reactor (3 wins in a row · 62 kills)
-- 2026-11-07 18:53: The Starweave Circle Take the Treasure Cove (9th win · 51 kills)
