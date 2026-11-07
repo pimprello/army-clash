@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 381 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 382 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -139,25 +139,25 @@ Records from 381 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 15 | 12 | 3 | 600 | 7 won | 7 |
-| Red Hawk Company | 13 | 10 | 3 | 462 | 1 won | 5 |
+| Red Hawk Company | 14 | 10 | 4 | 475 | 1 lost | 5 |
 | Frostwhisper Tribe | 14 | 8 | 6 | 443 | 1 lost | 4 |
 | Starweave Circle | 18 | 7 | 11 | 712 | 5 lost | 5 |
 | Thornheart Circle | 9 | 7 | 2 | 596 | 3 won | 3 |
 | Mire Witch Coven | 7 | 7 | 0 | 247 | 7 won | 7 |
 | Silverbough Circle | 19 | 6 | 13 | 838 | 2 lost | 2 |
+| Storm Tower Order | 15 | 6 | 9 | 550 | 2 won | 2 |
 | Emberroot Circle | 10 | 6 | 3 | 306 | 1 lost | 3 |
 | Duskwing Tribe | 16 | 5 | 10 | 571 | 1 won | 2 |
 | Stormhorn Tribe | 9 | 5 | 4 | 511 | 2 won | 3 |
 | Order of the Silver Stag | 11 | 5 | 6 | 505 | 1 lost | 3 |
-| Storm Tower Order | 14 | 5 | 9 | 504 | 1 won | 1 |
 | Glimmerdeep Kin | 9 | 5 | 4 | 393 | 5 won | 5 |
+| Copper Crown Company | 9 | 5 | 4 | 320 | 2 won | 3 |
 | Golden Lion Order | 9 | 5 | 4 | 282 | 1 won | 3 |
 | Oakshield Clan | 9 | 5 | 4 | 256 | 1 won | 3 |
 | Iron Boar Clan | 6 | 5 | 1 | 197 | 3 won | 3 |
 | The Black Candle | 6 | 5 | 1 | 177 | 4 won | 4 |
 | Bone Garden Coven | 8 | 5 | 3 | 120 | 1 won | 3 |
 | Wildbrook Clan | 14 | 4 | 10 | 554 | 1 won | 1 |
-| Hollowbark Kin | 13 | 4 | 9 | 389 | 2 lost | 2 |
 
 ### Great rivalries
 
@@ -172,6 +172,7 @@ Records from 381 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 00:07: The Copper Crown Company Take the Castle (revenge denied · 5th win · 66 kills)
 - 2026-11-06 23:47: The Nightshade Coven Take the Open Plains (first ever win · 50 kills)
 - 2026-11-06 23:34: The Ash Wolf Clan Take the Treasure Cove (revenge denied · 4th win · 106 kills)
 - 2026-11-06 23:20: The Rotting Choir Take the Bombed City (3 wins in a row · 37 kills)
@@ -181,4 +182,3 @@ Records from 381 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 20:58: The Copperhead Battalion Take the Trench Line (streak ended · 3rd win · 16 kills)
 - 2026-11-06 20:45: The Wildbrook Clan Take the Desert Well (revenge denied · 4th win · 75 kills)
 - 2026-11-06 20:29: The Vortex Legion Take the Canyon Pass (4th win · 43 kills)
-- 2026-11-06 20:17: The Mire Witch Coven Take the Crystal Grove (revenge denied · 7 wins in a row · 97 kills)

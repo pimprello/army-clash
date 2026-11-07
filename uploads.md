@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 00:07 | LIGHTNING Struck the Battlefield ⚡ | Purple wins | https://youtube.com/shorts/D9RBNM6ng2c |
 | 2026-11-06 23:47 | Zombies vs Infantry vs Samurai 🤯 | Australia wins | https://youtube.com/shorts/FjYzjSCdSNU |
 | 2026-11-06 23:34 | A TITAN Crashed the Battle 🗿 | Mint wins | https://youtube.com/shorts/ihM1tt0E88A |
 | 2026-11-06 23:20 | Kill the KING to Win 👑 Neon Vampires vs Rogue Ogres | Rose wins | https://youtube.com/shorts/LeDO-3NCCL4 |
