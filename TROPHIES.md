@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 419 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 420 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 419 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **RUNA THE BOLD** (CROSSBOWMAN), 10 kills · 2026-11-07 09:23
 - **TOVA GRAVEBANE** (SIEGE GUNNER), 10 kills · 2026-11-07 08:06
 - **ZEDRIK THE MAD** (WIZARD), 12 kills · 2026-11-07 07:38
 - **TOVA THE MAD** (SWORDSMAN), 10 kills · 2026-11-07 04:58
@@ -47,7 +48,6 @@ Records from 419 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **ASHKA STEELHEART** (SIEGE GUNNER), 25 kills · 2026-11-06 11:48
 - **ASHKA STEELHEART** (WARLOCK), 10 kills · 2026-11-06 11:03
 - **ECHO-3** (LASER TROOPER), 10 kills · 2026-11-06 10:03
-- **OSKA THE UNBROKEN** (SWORDSMAN), 16 kills · 2026-11-06 09:49
 
 ## Titles earned (rarest first)
 
@@ -87,7 +87,7 @@ Records from 419 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 40
 - swift: 63
 - venom: 66
-- spikes: 72
+- spikes: 73
 - regen: 86
 
 ## Big moments
@@ -148,15 +148,15 @@ Records from 419 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Thornwood Company | 10 | 8 | 2 | 345 | 7 won | 7 |
 | Silverbough Circle | 20 | 7 | 13 | 846 | 1 won | 2 |
 | Storm Tower Order | 16 | 7 | 9 | 612 | 3 won | 3 |
-| Raven Hill Clan | 10 | 7 | 3 | 406 | 1 won | 5 |
+| Frostmere Clan | 15 | 7 | 8 | 557 | 3 won | 3 |
+| Raven Hill Clan | 11 | 7 | 4 | 444 | 1 lost | 5 |
+| Highmoor Clan | 11 | 7 | 4 | 375 | 6 won | 6 |
 | Mire Witch Coven | 8 | 7 | 1 | 289 | 1 lost | 7 |
 | Stormhorn Tribe | 10 | 6 | 4 | 564 | 3 won | 3 |
 | Order of the Silver Stag | 13 | 6 | 7 | 557 | 1 lost | 3 |
-| Frostmere Clan | 14 | 6 | 8 | 492 | 2 won | 2 |
 | Copper Crown Company | 11 | 6 | 5 | 369 | 1 lost | 3 |
 | Emberroot Circle | 12 | 6 | 5 | 360 | 3 lost | 3 |
 | Golden Lion Order | 12 | 6 | 6 | 346 | 2 lost | 3 |
-| Highmoor Clan | 10 | 6 | 4 | 325 | 5 won | 5 |
 | Iron Boar Clan | 9 | 6 | 3 | 225 | 1 won | 3 |
 | Bone Garden Coven | 10 | 6 | 4 | 134 | 1 won | 3 |
 
@@ -173,6 +173,7 @@ Records from 419 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 09:23: The Frostmere Clan Take the Godboard (revenge! · 3 wins in a row · 65 kills)
 - 2026-11-07 09:07: The Thornwood Company Take the Overgrown Throne (revenge denied · 7 wins in a row · 36 kills)
 - 2026-11-07 08:53: The Thornwood Company Take the Frozen End (revenge denied · 6 wins in a row · 41 kills)
 - 2026-11-07 08:40: The Nightshade Coven Take the Open Plains (2nd win · 84 kills)
@@ -182,4 +183,3 @@ Records from 419 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 07:38: The Thornheart Circle Take the Open Plains (4 wins in a row · 70 kills)
 - 2026-11-07 07:24: The Hammer Platoon Take the Reactor (streak ended · 4th win · 74 kills)
 - 2026-11-07 07:10: The Zenith Cohort Take the Bombed City (revenge denied · 2nd win · 11 kills)
-- 2026-11-07 06:56: The Copperhead Battalion Take the Neon District (streak ended · 4th win · 55 kills)
