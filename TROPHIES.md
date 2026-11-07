@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 389 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 390 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -77,7 +77,7 @@ Records from 389 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - GOLEM SLAYER: 14
 - MAMMOTH SLAYER: 14
 - GIANT SLAYER: 19
-- DRAGON SLAYER: 21
+- DRAGON SLAYER: 23
 - TITAN SLAYER: 31
 
 ## Mutations (rarest first)
@@ -148,16 +148,16 @@ Records from 389 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Stormhorn Tribe | 10 | 6 | 4 | 564 | 3 won | 3 |
 | Order of the Silver Stag | 13 | 6 | 7 | 557 | 1 lost | 3 |
 | Storm Tower Order | 15 | 6 | 9 | 550 | 2 won | 2 |
-| Emberroot Circle | 10 | 6 | 3 | 306 | 1 lost | 3 |
+| Emberroot Circle | 11 | 6 | 4 | 317 | 2 lost | 3 |
 | Oakshield Clan | 10 | 6 | 4 | 283 | 2 won | 3 |
 | Duskwing Tribe | 16 | 5 | 10 | 571 | 1 won | 2 |
+| Nova Legion | 7 | 5 | 2 | 408 | 1 won | 2 |
 | Glimmerdeep Kin | 9 | 5 | 4 | 393 | 5 won | 5 |
 | Copper Crown Company | 9 | 5 | 4 | 320 | 2 won | 3 |
 | Sunspire Kin | 10 | 5 | 5 | 317 | 1 won | 2 |
 | Raven Hill Clan | 7 | 5 | 2 | 282 | 4 won | 4 |
 | Golden Lion Order | 9 | 5 | 4 | 282 | 1 won | 3 |
 | Vortex Legion | 6 | 5 | 1 | 265 | 3 won | 3 |
-| Iron Boar Clan | 6 | 5 | 1 | 197 | 3 won | 3 |
 
 ### Great rivalries
 
@@ -172,6 +172,7 @@ Records from 389 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 02:02: The Nova Legion Take the City (5th win · 72 kills)
 - 2026-11-07 01:44: The Nebula Cohort Take the Open Plains (first ever win · 29 kills)
 - 2026-11-07 01:32: The Raven Hill Clan Take the Frozen End (revenge denied · 4 wins in a row · 55 kills)
 - 2026-11-07 01:18: The Crooked Spire Take the Clockwork Arena (3rd win · 58 kills)
@@ -181,4 +182,3 @@ Records from 389 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 00:16: The Order of the Silver Stag Take the Frozen End (revenge! · 6th win · 31 kills)
 - 2026-11-07 00:07: The Copper Crown Company Take the Castle (revenge denied · 5th win · 66 kills)
 - 2026-11-06 23:47: The Nightshade Coven Take the Open Plains (first ever win · 50 kills)
-- 2026-11-06 23:34: The Ash Wolf Clan Take the Treasure Cove (revenge denied · 4th win · 106 kills)
