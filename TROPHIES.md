@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 400 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 401 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -52,8 +52,8 @@ Records from 400 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Titles earned (rarest first)
 
 - CATAPULT SLAYER: 2
-- KNIGHT SLAYER: 3
 - GRAVITY TYRANT SLAYER: 3
+- KNIGHT SLAYER: 4
 - MIRROR KING SLAYER: 5
 - CATHEDRAL SLAYER: 5
 - HELICOPTER SLAYER: 5
@@ -85,7 +85,7 @@ Records from 400 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 8
 - wings: 29
 - spellward: 38
-- swift: 59
+- swift: 60
 - venom: 65
 - spikes: 71
 - regen: 83
@@ -172,6 +172,7 @@ Records from 400 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 04:41: The Saltfang Crew Take the Open Plains (first ever win · 53 kills)
 - 2026-11-07 04:26: The Thornwood Company Take the Haunted Crypt (revenge! · 4 wins in a row · 75 kills)
 - 2026-11-07 04:15: The Frostwhisper Tribe Take the Sky-temple Relic (revenge denied · 9th win · 187 kills)
 - 2026-11-07 03:58: The Raven Hill Clan Take the Open Plains (revenge denied · 5 wins in a row · 51 kills)
@@ -181,4 +182,3 @@ Records from 400 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 02:59: The Oakshield Clan Take the Overgrown Throne (3 wins in a row · 49 kills)
 - 2026-11-07 02:44: The Golden Lion Order Take the Open Plains (6th win · 34 kills)
 - 2026-11-07 02:30: The Nightjar Company Take the City (3rd win · 61 kills)
-- 2026-11-07 02:18: The Stonewall Company Take the Castle (3 wins in a row · 172 kills)
