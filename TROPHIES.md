@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 387 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 388 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 387 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **RUNA GRAVEBANE** (KNIGHT), 12 kills · 2026-11-07 01:32
 - **GRUNDA FIREBRAND** (SIEGE GUNNER), 10 kills · 2026-11-06 18:04
 - **ASHKA THE BOLD** (WARLOCK), 28 kills · 2026-11-06 15:13
 - **GRUNDA GRAVEBANE** (WAR RHINO), 10 kills · 2026-11-06 14:27
@@ -47,7 +48,6 @@ Records from 387 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **IVOR THE WALL** (ORC), 18 kills · 2026-11-05 23:40
 - **BRAMBLE THE BOLD** (SWORDSMAN), 13 kills · 2026-11-05 23:11
 - **OSKA BONECRUSHER** (WIZARD), 19 kills · 2026-11-05 22:54
-- **PELL GRAVEBANE** (GRIFFIN RIDER), 15 kills · 2026-11-05 20:04
 
 ## Titles earned (rarest first)
 
@@ -76,18 +76,18 @@ Records from 387 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - TANK SLAYER: 13
 - GOLEM SLAYER: 14
 - MAMMOTH SLAYER: 14
-- GIANT SLAYER: 18
+- GIANT SLAYER: 19
 - DRAGON SLAYER: 20
 - TITAN SLAYER: 31
 
 ## Mutations (rarest first)
 
 - vampiric: 8
-- wings: 28
+- wings: 29
 - spellward: 38
 - swift: 55
 - venom: 62
-- spikes: 67
+- spikes: 68
 - regen: 77
 
 ## Big moments
@@ -146,18 +146,18 @@ Records from 387 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Mire Witch Coven | 7 | 7 | 0 | 247 | 7 won | 7 |
 | Silverbough Circle | 19 | 6 | 13 | 838 | 2 lost | 2 |
 | Stormhorn Tribe | 10 | 6 | 4 | 564 | 3 won | 3 |
+| Order of the Silver Stag | 13 | 6 | 7 | 557 | 1 lost | 3 |
 | Storm Tower Order | 15 | 6 | 9 | 550 | 2 won | 2 |
-| Order of the Silver Stag | 12 | 6 | 6 | 536 | 1 won | 3 |
 | Emberroot Circle | 10 | 6 | 3 | 306 | 1 lost | 3 |
+| Oakshield Clan | 10 | 6 | 4 | 283 | 2 won | 3 |
 | Duskwing Tribe | 16 | 5 | 10 | 571 | 1 won | 2 |
 | Glimmerdeep Kin | 9 | 5 | 4 | 393 | 5 won | 5 |
 | Copper Crown Company | 9 | 5 | 4 | 320 | 2 won | 3 |
 | Sunspire Kin | 10 | 5 | 5 | 317 | 1 won | 2 |
+| Raven Hill Clan | 7 | 5 | 2 | 282 | 4 won | 4 |
 | Golden Lion Order | 9 | 5 | 4 | 282 | 1 won | 3 |
 | Vortex Legion | 6 | 5 | 1 | 265 | 3 won | 3 |
-| Oakshield Clan | 9 | 5 | 4 | 256 | 1 won | 3 |
 | Iron Boar Clan | 6 | 5 | 1 | 197 | 3 won | 3 |
-| The Black Candle | 6 | 5 | 1 | 177 | 4 won | 4 |
 
 ### Great rivalries
 
@@ -165,13 +165,14 @@ Records from 387 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **Frostwhisper Tribe vs Starweave Circle**: met 4 times, last won by Frostwhisper Tribe
 - **Brightwater Tribe vs Glimmerdeep Kin**: met 3 times, last won by Glimmerdeep Kin
 - **Greyfang Clan vs Order of the Silver Stag**: met 3 times, last won by Order of the Silver Stag
+- **Greyfang Clan vs Raven Hill Clan**: met 3 times, last won by Raven Hill Clan
 - **Crew of the Black Gull vs Order of the Silver Stag**: met 3 times, last won by Order of the Silver Stag
 - **Copper Crown Company vs Wildbrook Clan**: met 3 times, last won by Wildbrook Clan
 - **Harrier Squadron vs Mustang Battalion**: met 3 times, last won by Mustang Battalion
-- **Gloomcap Circle vs Starweave Circle**: met 3 times, last won by Starweave Circle
 
 ### Latest from the battlefield
 
+- 2026-11-07 01:32: The Raven Hill Clan Take the Frozen End (revenge denied · 4 wins in a row · 55 kills)
 - 2026-11-07 01:18: The Crooked Spire Take the Clockwork Arena (3rd win · 58 kills)
 - 2026-11-07 01:02: The Stormhorn Tribe Take the Quarry (revenge! · 3 wins in a row · 53 kills)
 - 2026-11-07 00:45: The Bulldog Company Take the Open Plains (first ever win · 55 kills)
@@ -181,4 +182,3 @@ Records from 387 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 23:47: The Nightshade Coven Take the Open Plains (first ever win · 50 kills)
 - 2026-11-06 23:34: The Ash Wolf Clan Take the Treasure Cove (revenge denied · 4th win · 106 kills)
 - 2026-11-06 23:20: The Rotting Choir Take the Bombed City (3 wins in a row · 37 kills)
-- 2026-11-06 23:06: The Copper Crown Company Take the Reactor (streak ended · 4th win · 21 kills)
