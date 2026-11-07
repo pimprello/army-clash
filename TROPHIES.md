@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 454 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 455 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 454 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **DRAVEN THE BOLD** (NINJA), 15 kills · 2026-11-07 17:58
 - **BRAMBLE THE LUCKY** (KNIGHT), 11 kills · 2026-11-07 15:47
 - **TALVO THE WALL** (WIZARD), 34 kills · 2026-11-07 15:29
 - **VEXA STORMBORN** (WIZARD), 11 kills · 2026-11-07 15:13
@@ -47,7 +48,6 @@ Records from 454 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **GRIM THE LUCKY** (BERSERKER), 12 kills · 2026-11-07 04:26
 - **NOMAD-9** (MACHINE GUNNER), 12 kills · 2026-11-07 04:15
 - **GRIM BONECRUSHER** (SAMURAI), 14 kills · 2026-11-07 03:43
-- **SIRA THE BOLD** (SIEGE GUNNER), 20 kills · 2026-11-07 02:18
 
 ## Titles earned (rarest first)
 
@@ -88,7 +88,7 @@ Records from 454 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - swift: 68
 - venom: 73
 - spikes: 78
-- regen: 88
+- regen: 89
 
 ## Big moments
 
@@ -141,7 +141,7 @@ Records from 454 battles with trophies (videos from 1 November 2026 on). Rebuilt
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 19 | 14 | 5 | 835 | 1 won | 7 |
 | Red Hawk Company | 20 | 14 | 6 | 758 | 1 lost | 5 |
-| Thornwood Company | 12 | 10 | 2 | 371 | 9 won | 9 |
+| Thornwood Company | 13 | 10 | 3 | 396 | 1 lost | 9 |
 | Silverbough Circle | 24 | 9 | 15 | 1070 | 2 lost | 3 |
 | Frostwhisper Tribe | 18 | 9 | 9 | 739 | 1 won | 4 |
 | Thornheart Circle | 11 | 9 | 2 | 678 | 5 won | 5 |
@@ -151,13 +151,13 @@ Records from 454 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Frostmere Clan | 19 | 8 | 11 | 725 | 2 lost | 3 |
 | Hollowbark Kin | 18 | 8 | 10 | 586 | 1 won | 3 |
 | Raven Hill Clan | 15 | 8 | 7 | 535 | 1 won | 5 |
+| Highmoor Clan | 12 | 8 | 4 | 411 | 7 won | 7 |
 | Order of the Silver Stag | 15 | 7 | 8 | 697 | 1 lost | 3 |
 | Storm Tower Order | 17 | 7 | 10 | 662 | 1 lost | 3 |
 | Stormhorn Tribe | 11 | 7 | 4 | 578 | 4 won | 4 |
 | Emberroot Circle | 15 | 7 | 7 | 481 | 1 won | 3 |
 | Copper Crown Company | 13 | 7 | 6 | 449 | 1 lost | 3 |
 | Brightwater Tribe | 16 | 7 | 9 | 382 | 3 won | 3 |
-| Highmoor Clan | 11 | 7 | 4 | 375 | 6 won | 6 |
 | Wildbrook Clan | 19 | 6 | 13 | 766 | 1 won | 1 |
 
 ### Great rivalries
@@ -173,6 +173,7 @@ Records from 454 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 17:58: The Highmoor Clan Take the Sky Islands (7 wins in a row · 36 kills)
 - 2026-11-07 17:42: The Ghoul Hollow Coven Take the Ruined Fort (3 wins in a row · 105 kills)
 - 2026-11-07 17:26: The Sunspire Kin Take the Open Plains (6th win · 47 kills)
 - 2026-11-07 17:12: The Kestrel Squadron Take the Neon District (streak ended · 4th win · 39 kills)
@@ -182,4 +183,3 @@ Records from 454 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 16:12: The Raven Hill Clan Take the Mirror Gate (revenge denied · 8th win · 44 kills)
 - 2026-11-07 15:57: The Red Hawk Company Take the Godboard (4 wins in a row · 10 kills)
 - 2026-11-07 15:47: The Order of the Silver Stag Take the Titan's Bones (revenge! · 7th win · 54 kills)
-- 2026-11-07 15:29: The Mossback Tribe Take the Open Plains (14th win · 115 kills)

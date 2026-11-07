@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 17:58 | LIGHTNING Struck the Battlefield ⚡ | Indigo wins | https://youtube.com/shorts/9F10drdNkh0 |
 | 2026-11-07 17:42 | Royal Zombies vs Toxic Zombies 🪞 | Blue wins | https://youtube.com/shorts/JDerFGD1kQw |
 | 2026-11-07 17:26 | A PORTAL Opened Mid-Battle 🌀 | Sky wins | https://youtube.com/shorts/2wviZV4SZTc |
 | 2026-11-07 17:12 | ⚔️ CHAMPION DUEL: Dragon Army vs Tank Army | Teal wins | https://youtube.com/shorts/how5417oWRg |
