@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 410 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 411 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -57,10 +57,10 @@ Records from 410 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - MIRROR KING SLAYER: 5
 - CATHEDRAL SLAYER: 5
 - HELICOPTER SLAYER: 5
-- THOUSAND-MAN SLAYER: 5
 - WORLDROOT SLAYER: 5
 - EXECUTIONER SLAYER: 5
 - PHOENIX SLAYER: 6
+- THOUSAND-MAN SLAYER: 6
 - STAR EATER SLAYER: 6
 - HYDRA SLAYER: 7
 - FORTRESS SLAYER: 7
@@ -73,7 +73,7 @@ Records from 410 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - MECH SLAYER: 10
 - CANNON SLAYER: 11
 - PLAYER SLAYER: 12
-- TANK SLAYER: 14
+- TANK SLAYER: 15
 - GOLEM SLAYER: 15
 - MAMMOTH SLAYER: 16
 - GIANT SLAYER: 22
@@ -129,7 +129,7 @@ Records from 410 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: troll: 13
 - sudden: ring: 14
 - sudden: boss: 17
-- sudden: lava: 21
+- sudden: lava: 22
 - sudden: meteors: 23
 
 ## The tribes' chronicle
@@ -141,13 +141,13 @@ Records from 410 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Mossback Tribe | 17 | 13 | 4 | 639 | 1 won | 7 |
 | Red Hawk Company | 15 | 10 | 5 | 495 | 2 lost | 5 |
 | Frostwhisper Tribe | 18 | 9 | 9 | 739 | 1 won | 4 |
-| Starweave Circle | 19 | 8 | 11 | 752 | 1 won | 5 |
+| Starweave Circle | 20 | 8 | 12 | 758 | 1 lost | 5 |
 | Oakshield Clan | 12 | 8 | 4 | 373 | 4 won | 4 |
+| Silverbough Circle | 20 | 7 | 13 | 846 | 1 won | 2 |
 | Storm Tower Order | 16 | 7 | 9 | 612 | 3 won | 3 |
 | Thornheart Circle | 9 | 7 | 2 | 596 | 3 won | 3 |
 | Raven Hill Clan | 10 | 7 | 3 | 406 | 1 won | 5 |
 | Mire Witch Coven | 8 | 7 | 1 | 289 | 1 lost | 7 |
-| Silverbough Circle | 19 | 6 | 13 | 838 | 2 lost | 2 |
 | Stormhorn Tribe | 10 | 6 | 4 | 564 | 3 won | 3 |
 | Order of the Silver Stag | 13 | 6 | 7 | 557 | 1 lost | 3 |
 | Copper Crown Company | 11 | 6 | 5 | 369 | 1 lost | 3 |
@@ -172,6 +172,7 @@ Records from 410 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 07:10: The Zenith Cohort Take the Bombed City (revenge denied · 2nd win · 11 kills)
 - 2026-11-07 06:56: The Copperhead Battalion Take the Neon District (streak ended · 4th win · 55 kills)
 - 2026-11-07 06:39: The Black Bear Clan Take the Open Plains (5th win · 6 kills)
 - 2026-11-07 06:25: The Highmoor Clan Take the Mountain Pass (revenge! · 4 wins in a row · 45 kills)
@@ -181,4 +182,3 @@ Records from 410 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 05:26: The Crew of the Sea Wolf Take the Clockwork Arena (2nd win · 54 kills)
 - 2026-11-07 05:13: The Nebula Cohort Take the Open Plains (3 wins in a row · 37 kills)
 - 2026-11-07 04:58: The Storm Tower Order Take the Sky-temple Relic (revenge denied · 3 wins in a row · 62 kills)
-- 2026-11-07 04:41: The Saltfang Crew Take the Open Plains (first ever win · 53 kills)

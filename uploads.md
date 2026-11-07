@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 07:10 | LAST STAND: 16 Heroes vs Mega Liches 🛡️ | Red wins | https://youtube.com/shorts/7siMVoT3cIo |
 | 2026-11-07 06:56 | They Killed the KING 👑 | Australia wins | https://youtube.com/shorts/MOX7_WQ-THM |
 | 2026-11-07 06:39 | The Weapons Came ALIVE 🗡️ | Coral wins | https://youtube.com/shorts/oySG_pLeC-Q |
 | 2026-11-07 06:25 | A PORTAL Opened Mid-Battle 🌀 | Green wins | https://youtube.com/shorts/FIN3TqBVfkQ |
