@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 438 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 439 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -83,7 +83,7 @@ Records from 438 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Mutations (rarest first)
 
 - vampiric: 9
-- wings: 31
+- wings: 32
 - spellward: 42
 - swift: 66
 - venom: 69
@@ -126,8 +126,8 @@ Records from 438 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: golem: 9
 - portal: wolfrider: 9
 - fusion: 10
-- portal: demon: 14
 - portal: troll: 14
+- portal: demon: 15
 - sudden: boss: 17
 - sudden: ring: 17
 - sudden: meteors: 23
@@ -173,6 +173,7 @@ Records from 438 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 14:02: The Rotting Choir Take the Ruined Fort (revenge denied · 5 wins in a row · 232 kills)
 - 2026-11-07 13:47: The Oakshield Clan Take the Swamp Shrine (revenge denied · 5 wins in a row · 64 kills)
 - 2026-11-07 13:32: The Emberroot Circle Take the Open Plains (7th win · 44 kills)
 - 2026-11-07 13:17: The Copper Crown Company Take the Desert Well (revenge denied · 7th win · 45 kills)
@@ -182,4 +183,3 @@ Records from 438 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 12:18: The Lynx Company Take the City (first ever win · 58 kills)
 - 2026-11-07 12:04: The Rotting Choir Take the Neon District (4 wins in a row · 67 kills)
 - 2026-11-07 11:49: The Stonewall Company Take the Frozen End (revenge denied · 5th win · 65 kills)
-- 2026-11-07 11:33: The Hollowbark Kin Take the Open Plains (3 wins in a row · 41 kills)
