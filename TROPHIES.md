@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 411 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 412 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -172,6 +172,7 @@ Records from 411 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 07:24: The Hammer Platoon Take the Reactor (streak ended · 4th win · 74 kills)
 - 2026-11-07 07:10: The Zenith Cohort Take the Bombed City (revenge denied · 2nd win · 11 kills)
 - 2026-11-07 06:56: The Copperhead Battalion Take the Neon District (streak ended · 4th win · 55 kills)
 - 2026-11-07 06:39: The Black Bear Clan Take the Open Plains (5th win · 6 kills)
@@ -181,4 +182,3 @@ Records from 411 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 05:42: The Silent Mile Take the Open Plains (3 wins in a row · 86 kills)
 - 2026-11-07 05:26: The Crew of the Sea Wolf Take the Clockwork Arena (2nd win · 54 kills)
 - 2026-11-07 05:13: The Nebula Cohort Take the Open Plains (3 wins in a row · 37 kills)
-- 2026-11-07 04:58: The Storm Tower Order Take the Sky-temple Relic (revenge denied · 3 wins in a row · 62 kills)
