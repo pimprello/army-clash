@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 423 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 424 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -77,17 +77,17 @@ Records from 423 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - GOLEM SLAYER: 16
 - MAMMOTH SLAYER: 16
 - GIANT SLAYER: 22
-- DRAGON SLAYER: 23
+- DRAGON SLAYER: 24
 - TITAN SLAYER: 31
 
 ## Mutations (rarest first)
 
 - vampiric: 9
 - wings: 31
-- spellward: 41
+- spellward: 42
 - swift: 63
 - venom: 66
-- spikes: 74
+- spikes: 75
 - regen: 86
 
 ## Big moments
@@ -141,20 +141,20 @@ Records from 423 battles with trophies (videos from 1 November 2026 on). Rebuilt
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 18 | 13 | 5 | 720 | 1 lost | 7 |
 | Red Hawk Company | 17 | 12 | 5 | 654 | 2 won | 5 |
+| Silverbough Circle | 22 | 9 | 13 | 1007 | 3 won | 3 |
 | Frostwhisper Tribe | 18 | 9 | 9 | 739 | 1 won | 4 |
 | Thornheart Circle | 11 | 9 | 2 | 678 | 5 won | 5 |
-| Silverbough Circle | 21 | 8 | 13 | 931 | 2 won | 2 |
 | Starweave Circle | 20 | 8 | 12 | 758 | 1 lost | 5 |
 | Oakshield Clan | 12 | 8 | 4 | 373 | 4 won | 4 |
 | Thornwood Company | 10 | 8 | 2 | 345 | 7 won | 7 |
 | Storm Tower Order | 16 | 7 | 9 | 612 | 3 won | 3 |
 | Frostmere Clan | 16 | 7 | 9 | 601 | 1 lost | 3 |
+| Stormhorn Tribe | 11 | 7 | 4 | 578 | 4 won | 4 |
 | Raven Hill Clan | 11 | 7 | 4 | 444 | 1 lost | 5 |
 | Highmoor Clan | 11 | 7 | 4 | 375 | 6 won | 6 |
 | Mire Witch Coven | 9 | 7 | 2 | 322 | 2 lost | 7 |
-| Stormhorn Tribe | 10 | 6 | 4 | 564 | 3 won | 3 |
 | Order of the Silver Stag | 13 | 6 | 7 | 557 | 1 lost | 3 |
-| Emberroot Circle | 13 | 6 | 6 | 428 | 4 lost | 3 |
+| Emberroot Circle | 14 | 6 | 7 | 437 | 5 lost | 3 |
 | Copper Crown Company | 11 | 6 | 5 | 369 | 1 lost | 3 |
 | Golden Lion Order | 12 | 6 | 6 | 346 | 2 lost | 3 |
 | Iron Boar Clan | 9 | 6 | 3 | 225 | 1 won | 3 |
@@ -173,6 +173,7 @@ Records from 423 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 10:21: The Silverbough Circle Take the Frozen End (revenge denied · 3 wins in a row · 76 kills)
 - 2026-11-07 10:05: The Silverbough Circle Take the Mirror Gate (streak ended · 8th win · 85 kills)
 - 2026-11-07 09:48: The Falling Leaf School Take the Old Forest (streak ended · 2nd win · 78 kills)
 - 2026-11-07 09:37: The Red Hawk Company Take the Open Plains (12th win · 112 kills)
@@ -182,4 +183,3 @@ Records from 423 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 08:40: The Nightshade Coven Take the Open Plains (2nd win · 84 kills)
 - 2026-11-07 08:23: The Wolverine Company Take the Castle (streak ended · 4th win · 107 kills)
 - 2026-11-07 08:06: The Red Hawk Company Take the World Furnace (11th win · 47 kills)
-- 2026-11-07 07:56: The Highmoor Clan Take the City (5 wins in a row · 49 kills)
