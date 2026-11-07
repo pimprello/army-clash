@@ -49,7 +49,7 @@ function groupBy(list, keyFn) {
     if (a.key) q.set('key', a.key);
     const r = await fetch('https://www.googleapis.com/youtube/v3/videos?' + q, { headers: a.token ? { Authorization: 'Bearer ' + a.token } : {} });
     const j = await r.json();
-    if (!r.ok) throw new Error(`YouTube refused the stats request (${r.status}): ${JSON.stringify(j.error && j.error.message)}. Add a YT_API_KEY secret.`);
+    if (!r.ok) throw new Error(`YouTube refused the stats request (${r.status}): ${JSON.stringify(j.error && j.error.message)}. ${a.key ? 'The API key was used: check it is a YouTube Data API v3 key with that API enabled.' : 'No API key reached this run: add a repository secret named exactly YT_API_KEY (Settings → Secrets and variables → Actions).'}`);
     for (const it of j.items || []) {
       const v = videos.get(it.id), st = it.statistics || {}, cd = it.contentDetails || {}, sn = it.snippet || {};
       // length in seconds (from the ISO 8601 duration, e.g. PT1M3S) and when it went public

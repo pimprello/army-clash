@@ -51,46 +51,67 @@ const TROOP_NAME = {
   mooncaller: 'Moon Caller', unqualifiedking: 'Goblin King', generalnolose: 'Undefeated General', theplayer: 'Player', universe: 'Universe', livingfortress: 'Living Fortress',
 };
 const MAX_NAME = 13;
+// the third batch of troops (rules.cast3): only in match-ups invented with `fresh` on, so old seeds invent the same match-ups
+const NOUN3 = { builder: 'BUILDERS', bomber: 'BOMBERS', gravewitch: 'WITCHES', shaman: 'SHAMANS', goblin: 'GOBLINS', timetraveller: 'TRAVELLERS', mr3d: '3D CREW',
+  juggernaut: 'JUGGERNAUTS', hookman: 'HOOKS', bard: 'BARDS', beekeeper: 'BEEKEEPERS', chef: 'CHEFS', jester: 'JESTERS', mimic: 'MIMICS', jetpack: 'JETPACKS',
+  werewolf: 'WEREWOLVES', oracle: 'ORACLES', sumo: 'SUMOS', sandman: 'SANDMEN', valkyrie: 'VALKYRIES', paladin: 'PALADINS', pyro: 'PYROS', medicdrone: 'MEDICS',
+  yeti: 'YETIS', shadowninja: 'SHADOWS', gunslinger: 'GUNSLINGERS', axethrower: 'AXEMEN', gorgon: 'GORGONS', phalanx: 'PHALANX', tesla: 'TESLAS' };
+Object.assign(TROOP_NAME, { builder: 'builders', bomber: 'barrel bombers', gravewitch: 'grave witches', shaman: 'totem shamans', goblin: 'dark goblins', timetraveller: 'time travellers',
+  mr3d: 'Mr 3Ds', juggernaut: 'juggernauts', hookman: 'chain hooks', bard: 'bards', beekeeper: 'beekeepers', chef: 'war chefs', jester: 'jesters', mimic: 'mimics',
+  jetpack: 'jetpack troopers', werewolf: 'werewolves', oracle: 'oracles', sumo: 'sumos', sandman: 'sandmen', valkyrie: 'valkyries', paladin: 'paladins', pyro: 'flamethrowers',
+  medicdrone: 'medic drones', yeti: 'yetis', shadowninja: 'shadow ninjas', gunslinger: 'gunslingers', axethrower: 'axe throwers', gorgon: 'gorgons', phalanx: 'phalanx',
+  tesla: 'tesla gunners', balloon: 'Balloon Bomber', bonelet: 'skeletons', watchtower: 'watchtowers', totem: 'totems' });
+Object.assign(HEAVY_WORD, { balloon: 'SKY' });
+// freshness: with a count of how often each troop showed up lately, pick from the least seen (ties broken by the dice)
+const freshPick = (R, list, fresh, keep) => {
+  if (!fresh || !list.length) return R.pick(list);
+  const sc = list.map(k => [k, (fresh[k] || 0) + R.next() * 0.9]).sort((a, b) => a[1] - b[1]);
+  return sc[Math.min(sc.length - 1, R.int(0, Math.max(0, Math.min(keep || 6, sc.length) - 1)))][0];
+};
 
 // One made-up team. `avoid` = troops the other team already leads with, so the two sides look different.
 // melee: chance that the main troop fights hand to hand (rules.combat.creativeMelee), so the fight is about moves, not bullets.
-function inventSide(R, avoid, melee) {
-  const pool = Object.keys(NOUN).filter(k => !avoid.includes(k));
+function inventSide(R, avoid, melee, fresh) {
+  const nouns = fresh ? Object.assign({}, NOUN, NOUN3) : NOUN;
+  const pool = Object.keys(nouns).filter(k => !avoid.includes(k));
   const genre = k => RVB.UNIT_ERA[k];
   const close = pool.filter(k => !RVB.UNIT[k].range);
-  const main = melee && R.chance(melee) && close.length ? R.pick(close) : R.pick(pool);
+  const main = fresh ? freshPick(R, melee && R.chance(melee) && close.length ? close : pool, fresh, 8) : melee && R.chance(melee) && close.length ? R.pick(close) : R.pick(pool);
   // the second troop comes from another genre most of the time: that's the fun of it
   const crossGenre = R.chance(0.75);
   const others = pool.filter(k => k !== main && (!crossGenre || genre(k) !== genre(main)));
-  const second = R.pick(others.length ? others : pool.filter(k => k !== main));
+  const second = fresh ? freshPick(R, others.length ? others : pool.filter(k => k !== main), fresh, 10) : R.pick(others.length ? others : pool.filter(k => k !== main));
   const troops = [main, second];
-  if (R.chance(0.4)) { const third = R.pick(Object.keys(NOUN).concat(SUPPORT).filter(k => !troops.includes(k))); troops.push(third); }
+  if (R.chance(fresh ? 0.65 : 0.4)) { const rest = Object.keys(nouns).concat(SUPPORT).filter(k => !troops.includes(k)); troops.push(fresh ? freshPick(R, rest, fresh, 12) : R.pick(rest)); }
   const w = troops.map((k, i) => (i === 0 ? R.range(0.5, 0.65) : i === 1 ? R.range(0.25, 0.4) : R.range(0.08, 0.15)));
   const sum = w.reduce((a, b) => a + b, 0), mix = {};
   troops.forEach((k, i) => { mix[k] = Math.round(w[i] / sum * 100) / 100; });
   const heavy = [];
   const h = R.next();
-  if (h < 0.12) { const a = R.pick(HEAVIES); heavy.push(a, R.pick(HEAVIES.filter(k => k !== a))); }
-  else if (h < 0.5) heavy.push(R.pick(HEAVIES));
+  const HV = fresh ? HEAVIES.concat(['balloon']) : HEAVIES;
+  if (h < 0.12) { const a = fresh ? freshPick(R, HV, fresh, 6) : R.pick(HV); heavy.push(a, R.pick(HV.filter(k => k !== a))); }
+  else if (h < 0.5) heavy.push(fresh ? freshPick(R, HV, fresh, 6) : R.pick(HV));
   // a name that fits the scoreboard
   let name = '';
   for (let tries = 0; tries < 12; tries++) {
     const word = heavy.length && tries < 3 && R.chance(0.6) ? HEAVY_WORD[R.pick(heavy)] : R.pick(WORDS);
-    const noun = NOUN[tries % 2 && NOUN[second] ? second : main];
+    const noun = nouns[tries % 2 && nouns[second] ? second : main];
     name = `${word} ${noun}`;
     if (name.length <= MAX_NAME && word !== noun) break;
   }
-  if (name.length > MAX_NAME) name = NOUN[main];
+  if (name.length > MAX_NAME) name = nouns[main];
   const base = troops.filter(k => !SUPPORT.includes(k)).reduce((a, b) => (RVB.UNIT[a].cost <= RVB.UNIT[b].cost ? a : b));
   return { name, mix, heavy, base };
 }
 
 // A new creative match-up from a seed (the same seed always gives the same match-up).
-function invent(seed, { melee } = {}) {
+function invent(seed, { melee, fresh } = {}) {
   const R = RVB.rng((seed ^ 0xC2EA7E) >>> 0);
-  const top = inventSide(R, [], melee);
-  let bottom = inventSide(R, [Object.keys(top.mix)[0]], melee);
-  for (let k = 0; k < 5 && (bottom.name === top.name || bottom.name.split(' ')[0] === top.name.split(' ')[0]); k++) bottom = inventSide(R, [Object.keys(top.mix)[0]], melee);
+  const top = inventSide(R, [], melee, fresh);
+  // (with freshness, the top army's troops count as just seen, so the bottom army brings different ones)
+  const f2 = fresh ? Object.assign({}, fresh, ...Object.keys(top.mix).map(k => ({ [k]: (fresh[k] || 0) + 5 }))) : undefined;
+  let bottom = inventSide(R, [Object.keys(top.mix)[0]], melee, f2);
+  for (let k = 0; k < 5 && (bottom.name === top.name || bottom.name.split(' ')[0] === top.name.split(' ')[0]); k++) bottom = inventSide(R, [Object.keys(top.mix)[0]], melee, f2);
   return { top, bottom, wild: true };
 }
 

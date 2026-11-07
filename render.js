@@ -20,12 +20,14 @@ RVB.makeCanvas = (w, h) => createCanvas(w, h);
 
 const FPS = 60, W = 1080, H = 1920, SR = 48000;
 // Video length (rules.video): with outroSeconds set, the battle is paced to finish close to fightSeconds and the video ends
-// outroSeconds after the battle does (the safety net calls time 2 s before SECS, so a video is never longer than SECS + 1).
+// outroSeconds after the battle does (the safety net calls time 2 s before SECS, so a video is never longer than SECS + 1;
+// with the finale, rules.video.finale, the slow-motion final blow adds about 6 s more and there is no safety net).
 // Without it, every video is exactly 60 seconds as before. SECS=<n> in the environment makes a short test clip of n seconds.
 const VID = JSON.parse(fs.readFileSync(path.join(__dirname, 'rules.json'), 'utf8')).video || {};
 const OUTRO = process.env.SECS ? 0 : VID.outroSeconds || 0;
 const SECS = process.env.SECS ? Number(process.env.SECS) : OUTRO ? (VID.fightSeconds || 60) + OUTRO : 60;
-const MAXFRAMES = FPS * (OUTRO ? SECS + 4 : SECS);
+// (the finale's slow motion adds up to about 8 s after the battle: rules.video.finale)
+const MAXFRAMES = FPS * (OUTRO ? SECS + 16 : SECS);
 const OUT = path.join(__dirname, 'out');
 const seed = process.env.SEED ? Number(process.env.SEED) >>> 0 : crypto.randomBytes(4).readUInt32LE(0);
 
@@ -78,7 +80,15 @@ const invent3 = three && (process.env.WILD === '1' || Math.floor(posted / Math.m
 // Intelligent combat (rules.combat): smaller armies, visible melee moves (parry, block, cleave, pierce, stun, dodge), fewer but harder
 // bullets from rapid-fire guns, and a roster card at the start. Off when "on" is false, which keeps old seeds playing out as before.
 const combat = rules.combat && rules.combat.on !== false ? rules.combat : null;
-const melee = combat && combat.creativeMelee ? { melee: combat.creativeMelee } : undefined;
+// freshness (rules.creative.fresh): invented match-ups pick the troops seen least in the last 150 videos (videos.jsonl "units"),
+// so all 140+ troops, the new ones included, keep turning up
+const fresh = (() => {
+  if (!(rules.creative && rules.creative.fresh)) return undefined;
+  const f = {};
+  for (const v of pastVideos.slice(-150)) for (const k of v.units || []) f[k] = (f[k] || 0) + 1;
+  return f;
+})();
+const melee = combat && combat.creativeMelee ? Object.assign({ melee: combat.creativeMelee }, fresh ? { fresh } : {}) : fresh ? { fresh } : undefined;
 const mu0 = three
   ? (invent3 ? C.invent3(seed, melee) : lineups3[Math.floor(posted / Math.max(1, tw.every || 4) / 2) % lineups3.length])
   : wild ? C.invent(seed, melee) : matchups.length ? matchups[listSlot % matchups.length] : null;
@@ -237,10 +247,23 @@ async function main() {
     wildMul = b.balance; wildRate = b.rate;
     console.log(`Creative match-up ${mu.top.name} vs ${mu.bottom.name}: bottom army x${wildMul}, top won ${(b.rate * 100).toFixed(0)}% of test battles (${((Date.now() - t0) / 1000).toFixed(0)} s)`);
   }
-  const game = new RVB.Army(seed, optsFor(wildMul));
   // the cinematic director: camera moves, close-ups and slow motion (rules.cinematic, on unless set to false)
   const cinematic = rules.cinematic !== false && process.env.CINEMATIC !== '0';
-  const director = cinematic ? new RVB.Director(game, { seed }) : null;
+  // the finale (rules.video.finale): play the battle through once without drawing to find exactly when and where the
+  // final blow lands (the battle plays out the same both times), so the director can be there for it in slow motion
+  let finale = null;
+  if (cinematic && OUTRO && VID.finale !== false) {
+    const tf = Date.now(), pre = new RVB.Army(seed, optsFor(wildMul)), pd = new RVB.Director(pre, { seed });
+    pre.noLate = true;
+    for (let k = 0; pre.phase === 'fight' && k < MAXFRAMES * 3; k++) { pd.advance(1 / FPS); pre.sfx.length = 0; }
+    const d = pre.lastDeath || {}, kill = pre.endHow === 'kill';
+    finale = { t: pre.fightT, how: kill ? 'kill' : 'time', uid: kill ? d.uid : 0, by: kill ? d.by : 0, x: d.x, y: d.y };
+    console.log(`Finale: the battle ends at ${pre.fightT.toFixed(2)} s by ${kill ? `the final blow on a ${d.type}${d.byType ? ` by a ${d.byType}` : ''}` : 'time'} (found in ${((Date.now() - tf) / 1000).toFixed(0)} s)`);
+  }
+  const game = new RVB.Army(seed, optsFor(wildMul));
+  // every troop type in this battle (saved in videos.jsonl, so freshness can pick the troops seen least)
+  const unitsAtStart = [...new Set(game.units.filter(u => !RVB.UNIT[u.type].uncounted).map(u => u.type).concat(...(game.waves || []).flat().map(w => w.list || [])))];
+  const director = cinematic ? new RVB.Director(game, { seed, finale }) : null;
   const synth = new RVB.Synth(SR, MAXFRAMES / FPS + 4);
   synth.reset(seed);
   synth.variety = (rules.sound && rules.sound.variety) || 0;   // rules.json: how much each sound's pitch and volume vary (0 = off)
@@ -363,6 +386,7 @@ async function main() {
       .concat(heavyIn('tank') ? ['tank battle'] : []).concat(heavyIn('dragon') ? ['dragon'] : []).concat(heavyIn('mech') ? ['mech'] : [])),
     teams: pair,
     troops,
+    units: unitsAtStart,
     era,
     map,
     formations,

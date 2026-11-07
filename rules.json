@@ -1834,6 +1834,13 @@
     "tradeGap": 12,
     "feudChance": 0.5
   },
+  "schedule": {
+    "hours": [
+      10,
+      22
+    ],
+    "timeZone": "Europe/London"
+  },
   "ui": {
     "layout": 2,
     "art": 2
@@ -1857,6 +1864,7 @@
   "video": {
     "fightSeconds": 60,
     "outroSeconds": 3,
-    "pace": true
+    "pace": true,
+    "finale": true
   }
 }

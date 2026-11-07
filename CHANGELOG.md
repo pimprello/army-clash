@@ -2,6 +2,23 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-07 (later): two uploads a day, at 10am and 10pm
+
+Rellz asked to stop uploading and post only 2 videos a day: one straight away, then always at 10am and 10pm.
+- Stopped the posting chain (cancelled the running post, removed the self-queuing step).
+- New schedule (`rules.schedule`, `slot.js`): the workflow wakes every 10 minutes around 10am and 10pm London time and posts once per slot. A manual run posts immediately.
+- Also in this push: 30 new troops (third batch) with their own armies, ready but only used once freshness is switched on; each video now records which troop types were in it.
+
+## 2026-11-07: the slow-motion finale
+
+Rellz asked: "make it go slow mo at the end so we see how the last kill was make it cinematic ... make the ending the best part". On from the next video (`rules.video.finale`).
+
+- Before each video is drawn, the battle is played through once (no drawing, a few seconds) to find exactly when and where the final blow lands. The battle plays out the same both times (checked on 12 battles across all modes: same winner, same moment, same troop).
+- Two seconds of battle before the end, the camera goes to the troop about to fall (with its killer in shot when they're close), with film bars, at under half speed. The last 0.6 seconds slow right down and zoom in.
+- On the final blow: a white flash, the picture nearly freezes, then plays out slowly for 1.7 seconds under **FINAL BLOW** and who did it ("THE MUSKETEER ENDS IT"). Then the winner banner, confetti and fanfare. If time runs out instead, the same over the heaviest fighting with **TIME!**
+- No floating labels cover the final moments.
+- Videos are about 6 seconds longer (roughly 62 to 70 seconds). Already-posted videos don't change. No preview videos were made.
+
 ## 2026-11-05: Army Clash 2.0, part 2: smarter fighting, weapon hits you can see, earthquakes, spreading fire
 
 Rellz asked (09:21) for the spear to be at the spearman's side, earthquakes that actually do something you notice (and the crack line no longer drawn over the troops), more realistic looks with more visible damage, fire spreading, better weapon animations (real sword slices and spear strikes), and better fight logic ("they all just join in a pack to the nearest person"). On from the next video.
