@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 03:14 | Hold the HILL to Win? Iron Flames vs Frost Guard 🚩 | Lavender wins | https://youtube.com/shorts/FiPPEN9Opio |
 | 2026-11-07 02:59 | One AIRSTRIKE Changed Everything ✈️ | Olive wins | https://youtube.com/shorts/1-CnIHx2kgU |
 | 2026-11-07 02:44 | They Were OUTNUMBERED... 😳 | Lime wins | https://youtube.com/shorts/VbmdhhYXpkY |
 | 2026-11-07 02:30 | Hold the HILL to Win? USA vs Canada 🚩 | Canada wins | https://youtube.com/shorts/OKbleiTh85c |

@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 394 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 395 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -73,7 +73,7 @@ Records from 394 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - CANNON SLAYER: 10
 - MECH SLAYER: 10
 - PLAYER SLAYER: 12
-- TANK SLAYER: 13
+- TANK SLAYER: 14
 - GOLEM SLAYER: 14
 - MAMMOTH SLAYER: 16
 - GIANT SLAYER: 20
@@ -85,10 +85,10 @@ Records from 394 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 8
 - wings: 29
 - spellward: 38
-- swift: 57
+- swift: 58
 - venom: 63
 - spikes: 70
-- regen: 80
+- regen: 81
 
 ## Big moments
 
@@ -139,7 +139,7 @@ Records from 394 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 16 | 12 | 4 | 608 | 1 lost | 7 |
-| Red Hawk Company | 14 | 10 | 4 | 475 | 1 lost | 5 |
+| Red Hawk Company | 15 | 10 | 5 | 495 | 2 lost | 5 |
 | Frostwhisper Tribe | 16 | 8 | 8 | 538 | 3 lost | 4 |
 | Starweave Circle | 18 | 7 | 11 | 712 | 5 lost | 5 |
 | Thornheart Circle | 9 | 7 | 2 | 596 | 3 won | 3 |
@@ -172,6 +172,7 @@ Records from 394 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 03:14: The House of the Silver Tiger Take the Desert Well (3rd win · 13 kills)
 - 2026-11-07 02:59: The Oakshield Clan Take the Overgrown Throne (3 wins in a row · 49 kills)
 - 2026-11-07 02:44: The Golden Lion Order Take the Open Plains (6th win · 34 kills)
 - 2026-11-07 02:30: The Nightjar Company Take the City (3rd win · 61 kills)
@@ -181,4 +182,3 @@ Records from 394 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 01:32: The Raven Hill Clan Take the Frozen End (revenge denied · 4 wins in a row · 55 kills)
 - 2026-11-07 01:18: The Crooked Spire Take the Clockwork Arena (3rd win · 58 kills)
 - 2026-11-07 01:02: The Stormhorn Tribe Take the Quarry (revenge! · 3 wins in a row · 53 kills)
-- 2026-11-07 00:45: The Bulldog Company Take the Open Plains (first ever win · 55 kills)
