@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 441 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 442 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -85,7 +85,7 @@ Records from 441 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 9
 - wings: 32
 - spellward: 42
-- swift: 67
+- swift: 68
 - venom: 69
 - spikes: 77
 - regen: 88
@@ -173,6 +173,7 @@ Records from 441 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 14:43: The Zenith Cohort Take the Clockwork Arena (revenge denied · 3rd win · 58 kills)
 - 2026-11-07 14:30: The Brightwater Tribe Take the Open Plains (6th win · 56 kills)
 - 2026-11-07 14:16: The Stonebridge Company Take the Treasure Cove (revenge! · 4th win · 75 kills)
 - 2026-11-07 14:02: The Rotting Choir Take the Ruined Fort (revenge denied · 5 wins in a row · 232 kills)
@@ -182,4 +183,3 @@ Records from 441 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 13:02: The Still Water School Take the Reactor (streak ended · first ever win · 32 kills)
 - 2026-11-07 12:47: The Nightjar Company Take the Neon District (streak ended · 3 wins in a row · 50 kills)
 - 2026-11-07 12:33: The Brightwater Tribe Take the Open Plains (5th win · 43 kills)
-- 2026-11-07 12:18: The Lynx Company Take the City (first ever win · 58 kills)
