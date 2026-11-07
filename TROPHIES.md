@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 390 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 391 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 390 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **SIRA THE BOLD** (SIEGE GUNNER), 20 kills · 2026-11-07 02:18
 - **RUNA GRAVEBANE** (KNIGHT), 12 kills · 2026-11-07 01:32
 - **GRUNDA FIREBRAND** (SIEGE GUNNER), 10 kills · 2026-11-06 18:04
 - **ASHKA THE BOLD** (WARLOCK), 28 kills · 2026-11-06 15:13
@@ -47,7 +48,6 @@ Records from 390 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **OSKA THE WALL** (WIZARD), 11 kills · 2026-11-06 04:48
 - **IVOR THE WALL** (ORC), 18 kills · 2026-11-05 23:40
 - **BRAMBLE THE BOLD** (SWORDSMAN), 13 kills · 2026-11-05 23:11
-- **OSKA BONECRUSHER** (WIZARD), 19 kills · 2026-11-05 22:54
 
 ## Titles earned (rarest first)
 
@@ -75,7 +75,7 @@ Records from 390 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PLAYER SLAYER: 12
 - TANK SLAYER: 13
 - GOLEM SLAYER: 14
-- MAMMOTH SLAYER: 14
+- MAMMOTH SLAYER: 15
 - GIANT SLAYER: 19
 - DRAGON SLAYER: 23
 - TITAN SLAYER: 31
@@ -85,10 +85,10 @@ Records from 390 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 8
 - wings: 29
 - spellward: 38
-- swift: 55
-- venom: 62
-- spikes: 68
-- regen: 78
+- swift: 56
+- venom: 63
+- spikes: 69
+- regen: 79
 
 ## Big moments
 
@@ -172,6 +172,7 @@ Records from 390 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 02:18: The Stonewall Company Take the Castle (3 wins in a row · 172 kills)
 - 2026-11-07 02:02: The Nova Legion Take the City (5th win · 72 kills)
 - 2026-11-07 01:44: The Nebula Cohort Take the Open Plains (first ever win · 29 kills)
 - 2026-11-07 01:32: The Raven Hill Clan Take the Frozen End (revenge denied · 4 wins in a row · 55 kills)
@@ -181,4 +182,3 @@ Records from 390 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 00:32: The Vortex Legion Take the Frozen End (revenge denied · 3 wins in a row · 66 kills)
 - 2026-11-07 00:16: The Order of the Silver Stag Take the Frozen End (revenge! · 6th win · 31 kills)
 - 2026-11-07 00:07: The Copper Crown Company Take the Castle (revenge denied · 5th win · 66 kills)
-- 2026-11-06 23:47: The Nightshade Coven Take the Open Plains (first ever win · 50 kills)

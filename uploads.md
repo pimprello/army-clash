@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 02:18 | Half the Size and Still WON 😳 | Lavender wins | https://youtube.com/shorts/injvWuAkpiM |
 | 2026-11-07 02:02 | Mech Army vs DRAGON ARMY 🐉 | Purple wins | https://youtube.com/shorts/txH_Ca9tTvA |
 | 2026-11-07 01:44 | 3 Armies, Only 1 SURVIVES 💀 | Cyan wins | https://youtube.com/shorts/EdYJvNNH4hk |
 | 2026-11-07 01:32 | 48 HEROES Held the Line 🛡️ | Purple wins | https://youtube.com/shorts/GbaWFNuhPwk |
