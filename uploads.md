@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 18:25 | One Giant Got 38 KILLS 😳 | Red wins | https://youtube.com/shorts/MF48PV9Bt_w |
 | 2026-11-07 18:12 | Hold the HILL to Win? Knights vs Soldiers 🚩 | Lavender wins | https://youtube.com/shorts/TaiJFG06jBQ |
 | 2026-11-07 17:58 | LIGHTNING Struck the Battlefield ⚡ | Indigo wins | https://youtube.com/shorts/9F10drdNkh0 |
 | 2026-11-07 17:42 | Royal Zombies vs Toxic Zombies 🪞 | Blue wins | https://youtube.com/shorts/JDerFGD1kQw |

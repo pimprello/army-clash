@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 456 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 457 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -13,7 +13,7 @@ Records from 456 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **48 kills**: PHOENIX · 2026-11-04 22:57 · [Phoenix Pikes vs WILD LEGION 🔥](https://youtube.com/shorts/zga-x3ZnOUs)
 - **47 kills**: LIVING FORTRESS · 2026-11-04 05:33 · [106 Orcs vs a LIVING Castle 🏰](https://youtube.com/shorts/3rsNAb0OpJA)
 - **47 kills**: TANK · 2026-11-04 10:12 · [🔥 SPELLGUNS vs Dragon Armor](https://youtube.com/shorts/g__rdIjt58w)
-- **34 kills**: STAR EATER · 2026-11-06 06:03 · [One Star Eater Got 34 KILLS 😳](https://youtube.com/shorts/UXnWjXJ7Quw)
+- **38 kills**: GIANT · 2026-11-07 18:25 · [One Giant Got 38 KILLS 😳](https://youtube.com/shorts/MF48PV9Bt_w)
 
 ## Fastest wipe-outs
 
@@ -71,8 +71,8 @@ Records from 456 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - ELEPHANT SLAYER: 10
 - MECH SLAYER: 10
 - CYCLOPS SLAYER: 11
-- PLAYER SLAYER: 12
 - CANNON SLAYER: 13
+- PLAYER SLAYER: 13
 - TANK SLAYER: 15
 - MAMMOTH SLAYER: 16
 - GOLEM SLAYER: 17
@@ -155,8 +155,8 @@ Records from 456 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Order of the Silver Stag | 16 | 7 | 9 | 707 | 2 lost | 3 |
 | Storm Tower Order | 17 | 7 | 10 | 662 | 1 lost | 3 |
 | Stormhorn Tribe | 11 | 7 | 4 | 578 | 4 won | 4 |
+| Copper Crown Company | 14 | 7 | 7 | 488 | 2 lost | 3 |
 | Emberroot Circle | 15 | 7 | 7 | 481 | 1 won | 3 |
-| Copper Crown Company | 13 | 7 | 6 | 449 | 1 lost | 3 |
 | Brightwater Tribe | 16 | 7 | 9 | 382 | 3 won | 3 |
 | Wildbrook Clan | 20 | 6 | 14 | 780 | 1 lost | 1 |
 
@@ -173,6 +173,7 @@ Records from 456 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 18:25: The Kestrel Squadron Take the Open Plains (3 wins in a row · 99 kills)
 - 2026-11-07 18:12: The Oakshield Clan Take the Quarry (revenge denied · 6 wins in a row · 95 kills)
 - 2026-11-07 17:58: The Highmoor Clan Take the Sky Islands (7 wins in a row · 36 kills)
 - 2026-11-07 17:42: The Ghoul Hollow Coven Take the Ruined Fort (3 wins in a row · 105 kills)
@@ -182,4 +183,3 @@ Records from 456 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 16:44: The Viper Company Take the Quarry (3rd win · 53 kills)
 - 2026-11-07 16:28: The Prism Cohort Take the Open Plains (first ever win · 28 kills)
 - 2026-11-07 16:12: The Raven Hill Clan Take the Mirror Gate (revenge denied · 8th win · 44 kills)
-- 2026-11-07 15:57: The Red Hawk Company Take the Godboard (4 wins in a row · 10 kills)
