@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 433 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 434 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -71,8 +71,8 @@ Records from 433 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - ELEPHANT SLAYER: 10
 - CYCLOPS SLAYER: 10
 - MECH SLAYER: 10
-- CANNON SLAYER: 12
 - PLAYER SLAYER: 12
+- CANNON SLAYER: 13
 - TANK SLAYER: 15
 - GOLEM SLAYER: 16
 - MAMMOTH SLAYER: 16
@@ -86,8 +86,8 @@ Records from 433 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - wings: 31
 - spellward: 42
 - swift: 64
-- venom: 68
-- spikes: 75
+- venom: 69
+- spikes: 76
 - regen: 86
 
 ## Big moments
@@ -173,6 +173,7 @@ Records from 433 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 12:47: The Nightjar Company Take the Neon District (streak ended · 3 wins in a row · 50 kills)
 - 2026-11-07 12:33: The Brightwater Tribe Take the Open Plains (5th win · 43 kills)
 - 2026-11-07 12:18: The Lynx Company Take the City (first ever win · 58 kills)
 - 2026-11-07 12:04: The Rotting Choir Take the Neon District (4 wins in a row · 67 kills)
@@ -182,4 +183,3 @@ Records from 433 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 11:03: The Falcon Squadron Take the Mountain Pass (2nd win · 44 kills)
 - 2026-11-07 10:49: The Red Hawk Company Take the Quarry (revenge! · 3 wins in a row · 67 kills)
 - 2026-11-07 10:34: The Hollowbark Kin Take the Open Plains (6th win · 47 kills)
-- 2026-11-07 10:21: The Silverbough Circle Take the Frozen End (revenge denied · 3 wins in a row · 76 kills)
