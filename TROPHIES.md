@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 439 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 440 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -85,10 +85,10 @@ Records from 439 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 9
 - wings: 32
 - spellward: 42
-- swift: 66
+- swift: 67
 - venom: 69
-- spikes: 76
-- regen: 87
+- spikes: 77
+- regen: 88
 
 ## Big moments
 
@@ -126,12 +126,12 @@ Records from 439 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: golem: 9
 - portal: wolfrider: 9
 - fusion: 10
-- portal: troll: 14
 - portal: demon: 15
+- portal: troll: 15
 - sudden: boss: 17
 - sudden: ring: 17
-- sudden: meteors: 23
 - sudden: lava: 23
+- sudden: meteors: 24
 
 ## The tribes' chronicle
 
@@ -147,7 +147,7 @@ Records from 439 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Oakshield Clan | 13 | 9 | 4 | 437 | 5 won | 5 |
 | Thornwood Company | 11 | 9 | 2 | 348 | 8 won | 8 |
 | Starweave Circle | 21 | 8 | 13 | 778 | 2 lost | 5 |
-| Frostmere Clan | 17 | 8 | 9 | 625 | 1 won | 3 |
+| Frostmere Clan | 18 | 8 | 10 | 701 | 1 lost | 3 |
 | Storm Tower Order | 17 | 7 | 10 | 662 | 1 lost | 3 |
 | Stormhorn Tribe | 11 | 7 | 4 | 578 | 4 won | 4 |
 | Hollowbark Kin | 16 | 7 | 9 | 502 | 3 won | 3 |
@@ -156,9 +156,9 @@ Records from 439 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Copper Crown Company | 12 | 7 | 5 | 414 | 1 won | 3 |
 | Highmoor Clan | 11 | 7 | 4 | 375 | 6 won | 6 |
 | Mire Witch Coven | 9 | 7 | 2 | 322 | 2 lost | 7 |
+| Wildbrook Clan | 19 | 6 | 13 | 766 | 1 won | 1 |
 | Order of the Silver Stag | 13 | 6 | 7 | 557 | 1 lost | 3 |
 | Golden Lion Order | 12 | 6 | 6 | 346 | 2 lost | 3 |
-| Hammer Platoon | 11 | 6 | 5 | 302 | 3 won | 3 |
 
 ### Great rivalries
 
@@ -173,6 +173,7 @@ Records from 439 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 14:16: The Stonebridge Company Take the Treasure Cove (revenge! · 4th win · 75 kills)
 - 2026-11-07 14:02: The Rotting Choir Take the Ruined Fort (revenge denied · 5 wins in a row · 232 kills)
 - 2026-11-07 13:47: The Oakshield Clan Take the Swamp Shrine (revenge denied · 5 wins in a row · 64 kills)
 - 2026-11-07 13:32: The Emberroot Circle Take the Open Plains (7th win · 44 kills)
@@ -182,4 +183,3 @@ Records from 439 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 12:33: The Brightwater Tribe Take the Open Plains (5th win · 43 kills)
 - 2026-11-07 12:18: The Lynx Company Take the City (first ever win · 58 kills)
 - 2026-11-07 12:04: The Rotting Choir Take the Neon District (4 wins in a row · 67 kills)
-- 2026-11-07 11:49: The Stonewall Company Take the Frozen End (revenge denied · 5th win · 65 kills)
