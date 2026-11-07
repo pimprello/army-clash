@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 04:26 | MIRROR MATCH: Vikings vs VIKINGS 🪞 | Sweden wins | https://youtube.com/shorts/8F1SUwldDWw |
 | 2026-11-07 04:15 | The Zombies Got OUT OF CONTROL 🧟 | Mint wins | https://youtube.com/shorts/EJoncie9_as |
 | 2026-11-07 03:58 | The KING Fell and They RAN 👑 | Blue wins | https://youtube.com/shorts/XAnrXa3_t-4 |
 | 2026-11-07 03:43 | Pirates vs Ninjas vs Archers 🤯 | Red wins | https://youtube.com/shorts/NcqJ-ZNKWoY |
