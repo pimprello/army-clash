@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 08:23 | 🇵🇹 Portugal Zombies vs Spain Soldiers | Spain wins | https://youtube.com/shorts/i9cOw70eBBs |
 | 2026-11-07 08:06 | The Weapons Came ALIVE 🗡️ | Yellow wins | https://youtube.com/shorts/SXJGnttn2N4 |
 | 2026-11-07 07:56 | 👑 Protect the KING: Tank Army vs Giant Army | Mint wins | https://youtube.com/shorts/zrezuweyWVk |
 | 2026-11-07 07:38 | Half the Size and Still WON 😳 | Crimson wins | https://youtube.com/shorts/4P7cZtXMvPs |

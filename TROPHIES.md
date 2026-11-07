@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 415 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 416 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -62,11 +62,11 @@ Records from 415 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PHOENIX SLAYER: 6
 - THOUSAND-MAN SLAYER: 6
 - STAR EATER SLAYER: 6
-- HYDRA SLAYER: 7
 - FORTRESS SLAYER: 7
 - UNMAKER SLAYER: 7
 - IMMORTAL FRAUD SLAYER: 7
 - STORM EMPEROR SLAYER: 7
+- HYDRA SLAYER: 8
 - COLOSSUS SLAYER: 8
 - ELEPHANT SLAYER: 9
 - CYCLOPS SLAYER: 9
@@ -83,17 +83,16 @@ Records from 415 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Mutations (rarest first)
 
 - vampiric: 9
-- wings: 30
+- wings: 31
 - spellward: 40
-- swift: 62
-- venom: 65
+- swift: 63
+- venom: 66
 - spikes: 72
-- regen: 85
+- regen: 86
 
 ## Big moments
 
 - extinct: AUSTRALIA: 1
-- portal: hydra: 1
 - extinct: PINK: 1
 - copied: giant: 1
 - extinct: LIME: 1
@@ -108,6 +107,7 @@ Records from 415 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: ITALY: 1
 - possess: giant: 1
 - extinct: MINT: 1
+- portal: hydra: 2
 - extinct: ORANGE: 2
 - extinct: GREEN: 2
 - copied: knight: 2
@@ -173,6 +173,7 @@ Records from 415 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 08:23: The Wolverine Company Take the Castle (streak ended · 4th win · 107 kills)
 - 2026-11-07 08:06: The Red Hawk Company Take the World Furnace (11th win · 47 kills)
 - 2026-11-07 07:56: The Highmoor Clan Take the City (5 wins in a row · 49 kills)
 - 2026-11-07 07:38: The Thornheart Circle Take the Open Plains (4 wins in a row · 70 kills)
@@ -182,4 +183,3 @@ Records from 415 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 06:39: The Black Bear Clan Take the Open Plains (5th win · 6 kills)
 - 2026-11-07 06:25: The Highmoor Clan Take the Mountain Pass (revenge! · 4 wins in a row · 45 kills)
 - 2026-11-07 06:13: The Thornwood Company Take the Trench Line (5 wins in a row · 82 kills)
-- 2026-11-07 05:57: The Starweave Circle Take the Quarry (revenge denied · 8th win · 40 kills)
