@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 428 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 429 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -71,7 +71,7 @@ Records from 428 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - COLOSSUS SLAYER: 9
 - CYCLOPS SLAYER: 10
 - MECH SLAYER: 10
-- CANNON SLAYER: 11
+- CANNON SLAYER: 12
 - PLAYER SLAYER: 12
 - TANK SLAYER: 15
 - GOLEM SLAYER: 16
@@ -86,7 +86,7 @@ Records from 428 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - wings: 31
 - spellward: 42
 - swift: 63
-- venom: 66
+- venom: 67
 - spikes: 75
 - regen: 86
 
@@ -120,7 +120,7 @@ Records from 428 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: PURPLE: 2
 - extinct: RED: 3
 - extinct: BLUE: 3
-- possess: cannon: 4
+- possess: cannon: 5
 - possess: treant: 5
 - portal: cyclops: 8
 - portal: golem: 9
@@ -141,7 +141,7 @@ Records from 428 battles with trophies (videos from 1 November 2026 on). Rebuilt
 |---|---|---|---|---|---|---|
 | Red Hawk Company | 18 | 13 | 5 | 721 | 3 won | 5 |
 | Mossback Tribe | 18 | 13 | 5 | 720 | 1 lost | 7 |
-| Silverbough Circle | 22 | 9 | 13 | 1007 | 3 won | 3 |
+| Silverbough Circle | 23 | 9 | 14 | 1033 | 1 lost | 3 |
 | Frostwhisper Tribe | 18 | 9 | 9 | 739 | 1 won | 4 |
 | Thornheart Circle | 11 | 9 | 2 | 678 | 5 won | 5 |
 | Starweave Circle | 20 | 8 | 12 | 758 | 1 lost | 5 |
@@ -150,11 +150,11 @@ Records from 428 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Storm Tower Order | 17 | 7 | 10 | 662 | 1 lost | 3 |
 | Frostmere Clan | 16 | 7 | 9 | 601 | 1 lost | 3 |
 | Stormhorn Tribe | 11 | 7 | 4 | 578 | 4 won | 4 |
+| Hollowbark Kin | 16 | 7 | 9 | 502 | 3 won | 3 |
 | Raven Hill Clan | 11 | 7 | 4 | 444 | 1 lost | 5 |
 | Highmoor Clan | 11 | 7 | 4 | 375 | 6 won | 6 |
 | Mire Witch Coven | 9 | 7 | 2 | 322 | 2 lost | 7 |
 | Order of the Silver Stag | 13 | 6 | 7 | 557 | 1 lost | 3 |
-| Hollowbark Kin | 15 | 6 | 9 | 461 | 2 won | 2 |
 | Emberroot Circle | 14 | 6 | 7 | 437 | 5 lost | 3 |
 | Copper Crown Company | 11 | 6 | 5 | 369 | 1 lost | 3 |
 | Golden Lion Order | 12 | 6 | 6 | 346 | 2 lost | 3 |
@@ -173,6 +173,7 @@ Records from 428 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 11:33: The Hollowbark Kin Take the Open Plains (3 wins in a row · 41 kills)
 - 2026-11-07 11:18: The House of the Red Crane Take the Open Plains (3 wins in a row · 33 kills)
 - 2026-11-07 11:03: The Falcon Squadron Take the Mountain Pass (2nd win · 44 kills)
 - 2026-11-07 10:49: The Red Hawk Company Take the Quarry (revenge! · 3 wins in a row · 67 kills)
@@ -182,4 +183,3 @@ Records from 428 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 09:48: The Falling Leaf School Take the Old Forest (streak ended · 2nd win · 78 kills)
 - 2026-11-07 09:37: The Red Hawk Company Take the Open Plains (12th win · 112 kills)
 - 2026-11-07 09:23: The Frostmere Clan Take the Godboard (revenge! · 3 wins in a row · 65 kills)
-- 2026-11-07 09:07: The Thornwood Company Take the Overgrown Throne (revenge denied · 7 wins in a row · 36 kills)
