@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 437 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 438 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 437 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **ZEDRIK STEELHEART** (BERSERKER), 14 kills · 2026-11-07 13:47
 - **GHOST-6** (MACHINE GUNNER), 13 kills · 2026-11-07 12:18
 - **KAELEN THE WALL** (SIEGE GUNNER), 10 kills · 2026-11-07 10:05
 - **NYRA IRONHIDE** (GENERAL), 23 kills · 2026-11-07 09:37
@@ -47,7 +48,6 @@ Records from 437 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **RUNA GRAVEBANE** (KNIGHT), 12 kills · 2026-11-07 01:32
 - **GRUNDA FIREBRAND** (SIEGE GUNNER), 10 kills · 2026-11-06 18:04
 - **ASHKA THE BOLD** (WARLOCK), 28 kills · 2026-11-06 15:13
-- **GRUNDA GRAVEBANE** (WAR RHINO), 10 kills · 2026-11-06 14:27
 
 ## Titles earned (rarest first)
 
@@ -85,10 +85,10 @@ Records from 437 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 9
 - wings: 31
 - spellward: 42
-- swift: 65
+- swift: 66
 - venom: 69
 - spikes: 76
-- regen: 86
+- regen: 87
 
 ## Big moments
 
@@ -144,10 +144,10 @@ Records from 437 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Silverbough Circle | 23 | 9 | 14 | 1033 | 1 lost | 3 |
 | Frostwhisper Tribe | 18 | 9 | 9 | 739 | 1 won | 4 |
 | Thornheart Circle | 11 | 9 | 2 | 678 | 5 won | 5 |
+| Oakshield Clan | 13 | 9 | 4 | 437 | 5 won | 5 |
+| Thornwood Company | 11 | 9 | 2 | 348 | 8 won | 8 |
 | Starweave Circle | 21 | 8 | 13 | 778 | 2 lost | 5 |
 | Frostmere Clan | 17 | 8 | 9 | 625 | 1 won | 3 |
-| Oakshield Clan | 12 | 8 | 4 | 373 | 4 won | 4 |
-| Thornwood Company | 10 | 8 | 2 | 345 | 7 won | 7 |
 | Storm Tower Order | 17 | 7 | 10 | 662 | 1 lost | 3 |
 | Stormhorn Tribe | 11 | 7 | 4 | 578 | 4 won | 4 |
 | Hollowbark Kin | 16 | 7 | 9 | 502 | 3 won | 3 |
@@ -173,6 +173,7 @@ Records from 437 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 13:47: The Oakshield Clan Take the Swamp Shrine (revenge denied · 5 wins in a row · 64 kills)
 - 2026-11-07 13:32: The Emberroot Circle Take the Open Plains (7th win · 44 kills)
 - 2026-11-07 13:17: The Copper Crown Company Take the Desert Well (revenge denied · 7th win · 45 kills)
 - 2026-11-07 13:02: The Still Water School Take the Reactor (streak ended · first ever win · 32 kills)
@@ -182,4 +183,3 @@ Records from 437 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 12:04: The Rotting Choir Take the Neon District (4 wins in a row · 67 kills)
 - 2026-11-07 11:49: The Stonewall Company Take the Frozen End (revenge denied · 5th win · 65 kills)
 - 2026-11-07 11:33: The Hollowbark Kin Take the Open Plains (3 wins in a row · 41 kills)
-- 2026-11-07 11:18: The House of the Red Crane Take the Open Plains (3 wins in a row · 33 kills)

@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 13:47 | The Weapons Came ALIVE 🗡️ | Gold wins | https://youtube.com/shorts/_IY9TdwHAVs |
 | 2026-11-07 13:32 | A TORNADO Hit Mid-Battle 🌪️ | Olive wins | https://youtube.com/shorts/WQv0XWzM2yM |
 | 2026-11-07 13:17 | A BLIZZARD Froze the Battle ❄️ | Magenta wins | https://youtube.com/shorts/-gZP2vWCytc |
 | 2026-11-07 13:02 | 🇸🇪 Sweden Neon Trolls vs Norway Solar Wolves | Norway wins | https://youtube.com/shorts/HBF1O3AWlWQ |
