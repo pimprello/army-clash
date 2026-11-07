@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 431 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 432 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 431 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **GHOST-6** (MACHINE GUNNER), 13 kills · 2026-11-07 12:18
 - **KAELEN THE WALL** (SIEGE GUNNER), 10 kills · 2026-11-07 10:05
 - **NYRA IRONHIDE** (GENERAL), 23 kills · 2026-11-07 09:37
 - **RUNA THE BOLD** (CROSSBOWMAN), 10 kills · 2026-11-07 09:23
@@ -47,7 +48,6 @@ Records from 431 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **GRUNDA FIREBRAND** (SIEGE GUNNER), 10 kills · 2026-11-06 18:04
 - **ASHKA THE BOLD** (WARLOCK), 28 kills · 2026-11-06 15:13
 - **GRUNDA GRAVEBANE** (WAR RHINO), 10 kills · 2026-11-06 14:27
-- **ASHKA STEELHEART** (SIEGE GUNNER), 25 kills · 2026-11-06 11:48
 
 ## Titles earned (rarest first)
 
@@ -85,8 +85,8 @@ Records from 431 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 9
 - wings: 31
 - spellward: 42
-- swift: 63
-- venom: 67
+- swift: 64
+- venom: 68
 - spikes: 75
 - regen: 86
 
@@ -151,14 +151,14 @@ Records from 431 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Frostmere Clan | 16 | 7 | 9 | 601 | 1 lost | 3 |
 | Stormhorn Tribe | 11 | 7 | 4 | 578 | 4 won | 4 |
 | Hollowbark Kin | 16 | 7 | 9 | 502 | 3 won | 3 |
-| Raven Hill Clan | 11 | 7 | 4 | 444 | 1 lost | 5 |
+| Raven Hill Clan | 12 | 7 | 5 | 454 | 2 lost | 5 |
 | Highmoor Clan | 11 | 7 | 4 | 375 | 6 won | 6 |
 | Mire Witch Coven | 9 | 7 | 2 | 322 | 2 lost | 7 |
 | Order of the Silver Stag | 13 | 6 | 7 | 557 | 1 lost | 3 |
 | Emberroot Circle | 14 | 6 | 7 | 437 | 5 lost | 3 |
 | Copper Crown Company | 11 | 6 | 5 | 369 | 1 lost | 3 |
 | Golden Lion Order | 12 | 6 | 6 | 346 | 2 lost | 3 |
-| Iron Boar Clan | 10 | 6 | 4 | 246 | 1 lost | 3 |
+| Hammer Platoon | 11 | 6 | 5 | 302 | 3 won | 3 |
 
 ### Great rivalries
 
@@ -173,6 +173,7 @@ Records from 431 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 12:18: The Lynx Company Take the City (first ever win · 58 kills)
 - 2026-11-07 12:04: The Rotting Choir Take the Neon District (4 wins in a row · 67 kills)
 - 2026-11-07 11:49: The Stonewall Company Take the Frozen End (revenge denied · 5th win · 65 kills)
 - 2026-11-07 11:33: The Hollowbark Kin Take the Open Plains (3 wins in a row · 41 kills)
@@ -182,4 +183,3 @@ Records from 431 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 10:34: The Hollowbark Kin Take the Open Plains (6th win · 47 kills)
 - 2026-11-07 10:21: The Silverbough Circle Take the Frozen End (revenge denied · 3 wins in a row · 76 kills)
 - 2026-11-07 10:05: The Silverbough Circle Take the Mirror Gate (streak ended · 8th win · 85 kills)
-- 2026-11-07 09:48: The Falling Leaf School Take the Old Forest (streak ended · 2nd win · 78 kills)
