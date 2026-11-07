@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 03:58 | The KING Fell and They RAN 👑 | Blue wins | https://youtube.com/shorts/XAnrXa3_t-4 |
 | 2026-11-07 03:43 | Pirates vs Ninjas vs Archers 🤯 | Red wins | https://youtube.com/shorts/NcqJ-ZNKWoY |
 | 2026-11-07 03:29 | 🚩 KING OF THE HILL: Spellguns vs Dragon Armor | Blue wins | https://youtube.com/shorts/4e3S6wYRRPQ |
 | 2026-11-07 03:14 | Hold the HILL to Win? Iron Flames vs Frost Guard 🚩 | Lavender wins | https://youtube.com/shorts/FiPPEN9Opio |
