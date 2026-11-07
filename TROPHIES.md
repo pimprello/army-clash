@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 404 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 405 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -127,7 +127,7 @@ Records from 404 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: wolfrider: 9
 - portal: troll: 12
 - portal: demon: 13
-- sudden: ring: 13
+- sudden: ring: 14
 - sudden: boss: 17
 - sudden: lava: 20
 - sudden: meteors: 22
@@ -172,6 +172,7 @@ Records from 404 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 05:42: The Silent Mile Take the Open Plains (3 wins in a row · 86 kills)
 - 2026-11-07 05:26: The Crew of the Sea Wolf Take the Clockwork Arena (2nd win · 54 kills)
 - 2026-11-07 05:13: The Nebula Cohort Take the Open Plains (3 wins in a row · 37 kills)
 - 2026-11-07 04:58: The Storm Tower Order Take the Sky-temple Relic (revenge denied · 3 wins in a row · 62 kills)
@@ -181,4 +182,3 @@ Records from 404 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 03:58: The Raven Hill Clan Take the Open Plains (revenge denied · 5 wins in a row · 51 kills)
 - 2026-11-07 03:43: The Stone River School Take the Open Plains (3rd win · 89 kills)
 - 2026-11-07 03:29: The Granite Battalion Take the Quarry (4th win · 40 kills)
-- 2026-11-07 03:14: The House of the Silver Tiger Take the Desert Well (3rd win · 13 kills)

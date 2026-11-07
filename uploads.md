@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 05:42 | The Smaller Army Did WHAT? 😳 | Blue wins | https://youtube.com/shorts/X3mf9_Qcg3I |
 | 2026-11-07 05:26 | Pirates vs Pirates, But Champions DUEL First ⚔️ | Yellow wins | https://youtube.com/shorts/U0Pbvjk1u-w |
 | 2026-11-07 05:13 | Then the LAVA Rose 🌋 | Sand wins | https://youtube.com/shorts/wgZnVnvinOk |
 | 2026-11-07 04:58 | 30 HEROES vs Giant Army 🛡️ | Australia wins | https://youtube.com/shorts/RMpjtsypAt0 |
