@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 412 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 413 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 412 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **ZEDRIK THE MAD** (WIZARD), 12 kills · 2026-11-07 07:38
 - **TOVA THE MAD** (SWORDSMAN), 10 kills · 2026-11-07 04:58
 - **GRIM THE LUCKY** (BERSERKER), 12 kills · 2026-11-07 04:26
 - **NOMAD-9** (MACHINE GUNNER), 12 kills · 2026-11-07 04:15
@@ -47,7 +48,6 @@ Records from 412 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **ECHO-3** (LASER TROOPER), 10 kills · 2026-11-06 10:03
 - **OSKA THE UNBROKEN** (SWORDSMAN), 16 kills · 2026-11-06 09:49
 - **DRAVEN IRONHIDE** (WIZARD), 28 kills · 2026-11-06 07:19
-- **PELL BONECRUSHER** (WARLOCK), 10 kills · 2026-11-06 06:18
 
 ## Titles earned (rarest first)
 
@@ -84,7 +84,7 @@ Records from 412 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 - vampiric: 8
 - wings: 30
-- spellward: 39
+- spellward: 40
 - swift: 62
 - venom: 65
 - spikes: 71
@@ -138,14 +138,14 @@ Records from 412 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
-| Mossback Tribe | 17 | 13 | 4 | 639 | 1 won | 7 |
+| Mossback Tribe | 18 | 13 | 5 | 720 | 1 lost | 7 |
 | Red Hawk Company | 15 | 10 | 5 | 495 | 2 lost | 5 |
 | Frostwhisper Tribe | 18 | 9 | 9 | 739 | 1 won | 4 |
 | Starweave Circle | 20 | 8 | 12 | 758 | 1 lost | 5 |
+| Thornheart Circle | 10 | 8 | 2 | 666 | 4 won | 4 |
 | Oakshield Clan | 12 | 8 | 4 | 373 | 4 won | 4 |
 | Silverbough Circle | 20 | 7 | 13 | 846 | 1 won | 2 |
 | Storm Tower Order | 16 | 7 | 9 | 612 | 3 won | 3 |
-| Thornheart Circle | 9 | 7 | 2 | 596 | 3 won | 3 |
 | Raven Hill Clan | 10 | 7 | 3 | 406 | 1 won | 5 |
 | Mire Witch Coven | 8 | 7 | 1 | 289 | 1 lost | 7 |
 | Stormhorn Tribe | 10 | 6 | 4 | 564 | 3 won | 3 |
@@ -172,6 +172,7 @@ Records from 412 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 07:38: The Thornheart Circle Take the Open Plains (4 wins in a row · 70 kills)
 - 2026-11-07 07:24: The Hammer Platoon Take the Reactor (streak ended · 4th win · 74 kills)
 - 2026-11-07 07:10: The Zenith Cohort Take the Bombed City (revenge denied · 2nd win · 11 kills)
 - 2026-11-07 06:56: The Copperhead Battalion Take the Neon District (streak ended · 4th win · 55 kills)
@@ -181,4 +182,3 @@ Records from 412 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 05:57: The Starweave Circle Take the Quarry (revenge denied · 8th win · 40 kills)
 - 2026-11-07 05:42: The Silent Mile Take the Open Plains (3 wins in a row · 86 kills)
 - 2026-11-07 05:26: The Crew of the Sea Wolf Take the Clockwork Arena (2nd win · 54 kills)
-- 2026-11-07 05:13: The Nebula Cohort Take the Open Plains (3 wins in a row · 37 kills)
