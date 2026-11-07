@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 442 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 443 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -148,14 +148,14 @@ Records from 442 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Thornwood Company | 11 | 9 | 2 | 348 | 8 won | 8 |
 | Starweave Circle | 21 | 8 | 13 | 778 | 2 lost | 5 |
 | Frostmere Clan | 19 | 8 | 11 | 725 | 2 lost | 3 |
+| Mire Witch Coven | 10 | 8 | 2 | 334 | 1 won | 7 |
 | Storm Tower Order | 17 | 7 | 10 | 662 | 1 lost | 3 |
 | Stormhorn Tribe | 11 | 7 | 4 | 578 | 4 won | 4 |
-| Hollowbark Kin | 16 | 7 | 9 | 502 | 3 won | 3 |
+| Hollowbark Kin | 17 | 7 | 10 | 527 | 1 lost | 3 |
 | Emberroot Circle | 15 | 7 | 7 | 481 | 1 won | 3 |
 | Raven Hill Clan | 13 | 7 | 6 | 461 | 3 lost | 5 |
 | Copper Crown Company | 12 | 7 | 5 | 414 | 1 won | 3 |
 | Highmoor Clan | 11 | 7 | 4 | 375 | 6 won | 6 |
-| Mire Witch Coven | 9 | 7 | 2 | 322 | 2 lost | 7 |
 | Wildbrook Clan | 19 | 6 | 13 | 766 | 1 won | 1 |
 | Order of the Silver Stag | 13 | 6 | 7 | 557 | 1 lost | 3 |
 | Brightwater Tribe | 15 | 6 | 9 | 369 | 2 won | 2 |
@@ -173,6 +173,7 @@ Records from 442 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 14:59: The Pale Procession Take the Old Forest (revenge denied · 5th win · 13 kills)
 - 2026-11-07 14:43: The Zenith Cohort Take the Clockwork Arena (revenge denied · 3rd win · 58 kills)
 - 2026-11-07 14:30: The Brightwater Tribe Take the Open Plains (6th win · 56 kills)
 - 2026-11-07 14:16: The Stonebridge Company Take the Treasure Cove (revenge! · 4th win · 75 kills)
@@ -182,4 +183,3 @@ Records from 442 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 13:17: The Copper Crown Company Take the Desert Well (revenge denied · 7th win · 45 kills)
 - 2026-11-07 13:02: The Still Water School Take the Reactor (streak ended · first ever win · 32 kills)
 - 2026-11-07 12:47: The Nightjar Company Take the Neon District (streak ended · 3 wins in a row · 50 kills)
-- 2026-11-07 12:33: The Brightwater Tribe Take the Open Plains (5th win · 43 kills)
