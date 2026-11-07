@@ -1,1 +1,1 @@
-2026-11-06T05:34:41.682Z YouTube refused the stats request (403): "Request had insufficient authentication scopes.". Add a YT_API_KEY secret.
+2026-11-07T01:44:20.228Z YouTube refused the stats request (403): "Request had insufficient authentication scopes.". Add a YT_API_KEY secret.
