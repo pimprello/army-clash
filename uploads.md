@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 19:22 | METEORS Hit Mid-Battle ☄️ | Crimson wins | https://youtube.com/shorts/ZzIS-0feHeY |
 | 2026-11-07 19:11 | 🇸🇪 Sweden Tank Zombies vs Finland Holy Knights | Finland wins | https://youtube.com/shorts/M6_vV_jpfs4 |
 | 2026-11-07 18:53 | 🇪🇸 Spain vs Portugal 🇵🇹 | Spain wins | https://youtube.com/shorts/OkP5Rp7BdYs |
 | 2026-11-07 18:39 | LIGHTNING Struck the Battlefield ⚡ | Pink wins | https://youtube.com/shorts/dTF-kWXdR3I |

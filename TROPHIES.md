@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 460 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 461 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -86,8 +86,8 @@ Records from 460 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - wings: 32
 - spellward: 43
 - swift: 69
-- venom: 73
-- spikes: 78
+- venom: 74
+- spikes: 79
 - regen: 91
 
 ## Big moments
@@ -140,8 +140,8 @@ Records from 460 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 20 | 15 | 5 | 876 | 2 won | 7 |
-| Red Hawk Company | 20 | 14 | 6 | 758 | 1 lost | 5 |
-| Oakshield Clan | 14 | 10 | 4 | 532 | 6 won | 6 |
+| Red Hawk Company | 21 | 14 | 7 | 777 | 2 lost | 5 |
+| Oakshield Clan | 15 | 10 | 5 | 664 | 1 lost | 6 |
 | Thornwood Company | 13 | 10 | 3 | 396 | 1 lost | 9 |
 | Silverbough Circle | 24 | 9 | 15 | 1070 | 2 lost | 3 |
 | Starweave Circle | 23 | 9 | 14 | 881 | 1 won | 5 |
@@ -173,6 +173,7 @@ Records from 460 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 19:22: The Black Bear Clan Take the Open Plains (6th win · 71 kills)
 - 2026-11-07 19:11: The Harrier Squadron Take the Reactor (3 wins in a row · 62 kills)
 - 2026-11-07 18:53: The Starweave Circle Take the Treasure Cove (9th win · 51 kills)
 - 2026-11-07 18:39: The Greyfang Clan Take the Open Plains (revenge denied · 4th win · 41 kills)
@@ -182,4 +183,3 @@ Records from 460 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 17:42: The Ghoul Hollow Coven Take the Ruined Fort (3 wins in a row · 105 kills)
 - 2026-11-07 17:26: The Sunspire Kin Take the Open Plains (6th win · 47 kills)
 - 2026-11-07 17:12: The Kestrel Squadron Take the Neon District (streak ended · 4th win · 39 kills)
-- 2026-11-07 16:57: The Ghoul Hollow Coven Take the Titan's Bones (streak ended · 2nd win · 37 kills)
