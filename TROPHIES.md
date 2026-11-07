@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 427 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 428 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -173,6 +173,7 @@ Records from 427 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 11:18: The House of the Red Crane Take the Open Plains (3 wins in a row · 33 kills)
 - 2026-11-07 11:03: The Falcon Squadron Take the Mountain Pass (2nd win · 44 kills)
 - 2026-11-07 10:49: The Red Hawk Company Take the Quarry (revenge! · 3 wins in a row · 67 kills)
 - 2026-11-07 10:34: The Hollowbark Kin Take the Open Plains (6th win · 47 kills)
@@ -182,4 +183,3 @@ Records from 427 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 09:37: The Red Hawk Company Take the Open Plains (12th win · 112 kills)
 - 2026-11-07 09:23: The Frostmere Clan Take the Godboard (revenge! · 3 wins in a row · 65 kills)
 - 2026-11-07 09:07: The Thornwood Company Take the Overgrown Throne (revenge denied · 7 wins in a row · 36 kills)
-- 2026-11-07 08:53: The Thornwood Company Take the Frozen End (revenge denied · 6 wins in a row · 41 kills)

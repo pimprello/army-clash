@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 11:18 | A TORNADO Hit Mid-Battle 🌪️ | Belgium wins | https://youtube.com/shorts/EmZcG2WSBeU |
 | 2026-11-07 11:03 | ⚔️ CHAMPION DUEL: Frost Blades vs Omega Hollows | Lavender wins | https://youtube.com/shorts/m7ez5mYJJgs |
 | 2026-11-07 10:49 | The GIANT Never Saw It Coming 💀 | Olive wins | https://youtube.com/shorts/t8LKCDmmcRw |
 | 2026-11-07 10:34 | 3 Armies, Only 1 SURVIVES 💀 | Sky wins | https://youtube.com/shorts/H5tTYhtaUK4 |
