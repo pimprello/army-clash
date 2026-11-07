@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 463 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 464 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -88,7 +88,7 @@ Records from 463 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - swift: 71
 - venom: 75
 - spikes: 80
-- regen: 92
+- regen: 93
 
 ## Big moments
 
@@ -141,9 +141,9 @@ Records from 463 battles with trophies (videos from 1 November 2026 on). Rebuilt
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 20 | 15 | 5 | 876 | 2 won | 7 |
 | Red Hawk Company | 21 | 14 | 7 | 777 | 2 lost | 5 |
+| Oakshield Clan | 16 | 11 | 5 | 673 | 1 won | 6 |
 | Silverbough Circle | 25 | 10 | 15 | 1205 | 1 won | 3 |
 | Frostwhisper Tribe | 19 | 10 | 9 | 767 | 2 won | 4 |
-| Oakshield Clan | 15 | 10 | 5 | 664 | 1 lost | 6 |
 | Thornwood Company | 13 | 10 | 3 | 396 | 1 lost | 9 |
 | Starweave Circle | 23 | 9 | 14 | 881 | 1 won | 5 |
 | Thornheart Circle | 11 | 9 | 2 | 678 | 5 won | 5 |
@@ -154,11 +154,11 @@ Records from 463 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Highmoor Clan | 12 | 8 | 4 | 411 | 7 won | 7 |
 | Wildbrook Clan | 21 | 7 | 14 | 803 | 1 won | 1 |
 | Order of the Silver Stag | 17 | 7 | 10 | 717 | 3 lost | 3 |
-| Storm Tower Order | 17 | 7 | 10 | 662 | 1 lost | 3 |
+| Storm Tower Order | 18 | 7 | 11 | 679 | 2 lost | 3 |
 | Stormhorn Tribe | 12 | 7 | 5 | 596 | 1 lost | 4 |
 | Copper Crown Company | 14 | 7 | 7 | 488 | 2 lost | 3 |
 | Emberroot Circle | 15 | 7 | 7 | 481 | 1 won | 3 |
-| Brightwater Tribe | 16 | 7 | 9 | 382 | 3 won | 3 |
+| Golden Lion Order | 13 | 7 | 6 | 427 | 1 won | 3 |
 
 ### Great rivalries
 
@@ -173,6 +173,7 @@ Records from 463 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 20:07: The Golden Lion Order Take the Swamp Shrine (revenge denied · 7th win · 81 kills)
 - 2026-11-07 19:55: The Solar Wing Take the Swamp Shrine (revenge denied · 3 wins in a row · 79 kills)
 - 2026-11-07 19:37: The Silverbough Circle Take the Castle (revenge denied · 10th win · 135 kills)
 - 2026-11-07 19:22: The Black Bear Clan Take the Open Plains (6th win · 71 kills)
@@ -182,4 +183,3 @@ Records from 463 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 18:25: The Kestrel Squadron Take the Open Plains (3 wins in a row · 99 kills)
 - 2026-11-07 18:12: The Oakshield Clan Take the Quarry (revenge denied · 6 wins in a row · 95 kills)
 - 2026-11-07 17:58: The Highmoor Clan Take the Sky Islands (7 wins in a row · 36 kills)
-- 2026-11-07 17:42: The Ghoul Hollow Coven Take the Ruined Fort (3 wins in a row · 105 kills)
