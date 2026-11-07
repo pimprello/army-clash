@@ -2109,6 +2109,7 @@ const RVB = (() => {
       this.liveDecor = this.decor.some(d => d.kind === 'fire') || !!this.sparkles;
       if (this.mode) this.initModes();
       if (this.trb) this.initTribes();
+      if (this.trb && this.trb.evolve && this.trb.evolve.on !== false && this.tribes && this.tribes.length) this.initEvolve();
       if (this.ext) this.initExt();
       if (this.opts.world) this.initWorld();
       if (this.opts.art >= 2) this.slashes = [];
@@ -3871,6 +3872,7 @@ const RVB = (() => {
       if (this.skins || this.heroTeam >= 0) this.drawSkins(ctx, drawOrder, true);
       if (this.cmb) this.drawCombatFx(ctx);
       if (this.tribes) this.drawTribeFx(ctx, drawOrder);
+      if (this.evo) this.drawEvolved(ctx, drawOrder);
       if (this.events) this.drawEvents(ctx);
       if (this.ext) this.drawOver(ctx);
       this.drawMvp(ctx);
@@ -3904,6 +3906,7 @@ const RVB = (() => {
         if (this.tribes) this.drawStory2(ctx);
         this.drawRosterStrips(ctx);
         this.drawChapters(ctx);
+        if (this.evo) this.drawEvolveCards(ctx);
         this.drawIntro(ctx, 'CHARGE!');
         this.drawOutro(ctx);
         this.drawTally(ctx);
@@ -3915,6 +3918,7 @@ const RVB = (() => {
       if (this.cmb) this.drawRosterCards(ctx);
       this.drawFooter(ctx, 'BATTLE TIME', fmtTime(this.fightT), false);
       if (this.tribes) this.drawCouncil(ctx);
+      if (this.evo) this.drawEvolveCards(ctx);
       this.drawIntro(ctx, 'CHARGE!');
       this.drawOutro(ctx);
       this.drawTally(ctx);
@@ -6171,6 +6175,7 @@ const RVB = (() => {
     onHit(u, from, dmg) {
       if (this.cast3on) this.hit3(u, from, dmg);
       if (this.tribes) this.tribeHit(u, from, dmg);
+      if (this.evo) this.evoHit(u, from, dmg);
       const U = UNIT[u.type], F = UNIT[from.type], T = this.fightT;
       // mirror knight: turns into a copy of the troop that hit it
       if ((U.mirror || u.mirror) && !u.dead && T >= (u.mirrorAt || 0) && from.type !== u.type && F.rank !== 0 && !F.uncounted && !F.healer && !F.decoy) {
@@ -8813,7 +8818,7 @@ const RVB = (() => {
     },
     // a tribe's trait only works while its chief lives
     hasTrait(tb, k) { return tb.trait === k && !tb.chiefDead; },
-    nextCost(tb) { const k = tb.ups + 1, m = this.hasTrait(tb, 'smiths') ? 0.8 : 1; return { g: Math.round(this.econ.gold * k * m), i: Math.round(this.econ.ore * k * m) }; },
+    nextCost(tb) { const k = this.evo ? 1 + 0.35 * tb.ups : tb.ups + 1, m = this.hasTrait(tb, 'smiths') ? 0.8 : 1; return { g: Math.round(this.econ.gold * k * m), i: Math.round(this.econ.ore * k * m) }; },
     tribeHit(u, from, dmg) {
       if (from.tribe) from.tribe.dealt += dmg;
       if (u.tribe) { u.tribe.taken += dmg; if (UNIT[from.type].ranged) u.tribe.shot += dmg; }
@@ -8842,26 +8847,29 @@ const RVB = (() => {
     },
     // the quartermaster: buy armour when a tribe is taking more than it deals, weapons when it's winning its fights; trade when one resource is short
     quartermaster(tb) {
-      if (tb.wt >= 3 && tb.at >= 3) return;
+      const WM = this.wMax || 3, AM = this.aMax || 3;
+      if (tb.wt >= WM && tb.at >= AM) return;
       const c = this.nextCost(tb), ratio = tb.taken / Math.max(1, tb.dealt);
       let pref = tb.kind === 'shoot' ? (ratio > 1.8 ? 'a' : 'w') : ratio > 1.15 ? 'a' : 'w';
-      if (pref === 'w' && (tb.wt >= 3 || (tb.wt - tb.at >= 2 && tb.at < 3))) pref = 'a';
-      else if (pref === 'a' && (tb.at >= 3 || (tb.at - tb.wt >= 2 && tb.wt < 3))) pref = 'w';
+      if (pref === 'w' && (tb.wt >= WM || (tb.wt - tb.at >= 2 && tb.at < AM))) pref = 'a';
+      else if (pref === 'a' && (tb.at >= AM || (tb.at - tb.wt >= 2 && tb.wt < WM))) pref = 'w';
       if (tb.gold >= c.g && tb.iron >= c.i) { this.forge(tb, pref, c); return; }
       if (this.trb.trading !== false) this.tryTrade(tb, c);
     },
     forge(tb, which, c) {
       tb.gold -= c.g; tb.iron -= c.i; tb.ups++;
-      const N = TIER_NAMES[tb.set];
-      if (which === 'w') { tb.wt++; this.say(`${sName(tb.name)} FORGE ${N.w[tb.wt]} ${N.noun}`, tb.team); }
-      else { tb.at++; this.say(`${sName(tb.name)} PUT ON ${N.a[tb.at]}`, tb.team); }
+      const N = TIER_NAMES[tb.set], oldK = which === 'w' ? tb.wt : tb.at;
+      if (which === 'w') { tb.wt++; this.say(`${sName(tb.name)} FORGE ${this.wName(tb, tb.wt)} ${N.noun}`, tb.team); }
+      else { tb.at++; this.say(`${sName(tb.name)} PUT ON ${this.aName(tb, tb.at)}`, tb.team); }
+      if (this.evo) this.evolveFx(tb, which, oldK);
       tb.forgeT = this.t; tb.forged = (tb.forged || 0) + 1; this.forges = (this.forges || 0) + 1;
       // sparks fly from a few of its troops and from the anvil at its camp
       let k = 0;
       for (const u of this.units) if (u.tribe === tb && !u.dead && k++ < 10) this.burst(u.x, u.y, which === 'w' ? '#FFB020' : '#E2E8F0', 3, 140, 0.4, 4, -40);
       this.burst(tb.camp.x, tb.camp.y, '#FFB020', 8, 200, 0.5, 5, -80);
       this.snd('pickup', { team: tb.team });
-      if (which === 'w' && tb.wt === 3) { this.banner(`${sName(tb.name)} FORGE ${N.w[3]} ${N.noun}!`, TEAMS[tb.team].c, 1.6); this.xf.tier3 = this.xf.tier3 || []; this.xf.tier3.push(tb.team); }
+      if (which === 'w' && tb.wt === 3 && !this.evo) this.banner(`${sName(tb.name)} FORGE ${N.w[3]} ${N.noun}!`, TEAMS[tb.team].c, 1.6);
+      if (which === 'w' && tb.wt === 3) { this.xf.tier3 = this.xf.tier3 || []; this.xf.tier3.push(tb.team); }
     },
     // two tribes of the same army swap iron for gold (or gold for iron) when it lets one of them forge; a cart carries the goods along the back line
     tryTrade(tb, c) {
@@ -8922,7 +8930,10 @@ const RVB = (() => {
     itemName(tb, item) { return item === 'swords' && (tb.set === 'modern' || tb.set === 'scifi') ? 'MERCENARIES' : MERCH_ITEMS[item].name; },
     buyItem(tb, item, behind) {
       const T = this.fightT, name = this.itemName(tb, item);
-      if (item === 'rune') { tb.wt = 3; tb.forgeT = this.t; }
+      if (item === 'rune') {
+        if (this.evo) { const old = tb.wt; tb.wt = Math.min(this.wMax, Math.max(tb.wt + 2, 4)); tb.forgeT = this.t; this.evolveFx(tb, 'w', old); }
+        else { tb.wt = 3; tb.forgeT = this.t; }
+      }
       if (item === 'horn') { tb.hornT = T + 6; this.snd('roar'); }
       if (item === 'swords') {
         const type = { modern: 'rifleman', scifi: 'trooper' }[tb.set] || (tb.era === 'pirate' ? 'pirate' : 'swordsman');
@@ -9128,7 +9139,7 @@ const RVB = (() => {
         const f = this.feud, revenge = !!(f && f.last && (f.a === lead || f.b === lead) && f.last !== lead.name && this.story && this.story.kind === 'revenge');
         const N = TIER_NAMES[lead.set];
         out.lead = { name: lead.name, team: lead.team, kills: lead.kills, wins, streak, firstWin: r.w === 0 && r.l > 0, debut: !r.w && !r.l, revenge,
-          weapon: lead.wt >= 3 ? `${N.w[3]} ${N.noun}` : null, chiefLost: !!lead.chiefDead, set: lead.set };
+          weapon: lead.wt >= 3 ? `${this.wName ? this.wName(lead, lead.wt) : N.w[3]} ${N.noun}` : null, chiefLost: !!lead.chiefDead, set: lead.set };
         const bits = [], st = this.story;
         if (revenge) bits.push('REVENGE!');
         else if (st && st.kind === 'revenge' && st.foe && st.foe.team === lead.team) bits.push('REVENGE DENIED');
@@ -9218,6 +9229,7 @@ const RVB = (() => {
         if (!tb || u.dead || u.fade === 0) continue;
         const U = UNIT[u.type];
         if (U.rank === 0 || U.uncounted) continue;
+        if (this.evo) continue; // (the evolved looks are drawn by drawEvolved)
         if (tb.wt > 0) add(glints, tb.wt === 3 ? W_TOP[tb.set] : W_COL[tb.wt], u);
         if (tb.at > 0) add(arcs, A_COL[tb.at], u);
       }
@@ -9246,7 +9258,7 @@ const RVB = (() => {
       }
       // forge flash and hired swords
       for (const tb of this.tribes) {
-        const k = (t - tb.forgeT) / 0.6;
+        const k = this.evo ? -1 : (t - tb.forgeT) / 0.6;
         if (k < 0 || k > 1) continue;
         ctx.beginPath();
         for (const u of list) if (u.tribe === tb && !u.dead) { ctx.moveTo(u.x + u.r + 5, u.y); ctx.arc(u.x, u.y, u.r + 5, 0, TAU); }
@@ -9443,7 +9455,7 @@ const RVB = (() => {
       // the winning tribes' forge, in small type
       const ws = this.tribes.filter(tb => tb.team === this.winner);
       if (ws.length) {
-        const N = TIER_NAMES[ws[0].set], line = ws.map(tb => `${sName(tb.name)}: ${N.w[tb.wt]} ${N.noun.toLowerCase()}, ${tb.at ? N.a[tb.at].toLowerCase() : 'no armour'}`).join('   ·   ');
+        const N = TIER_NAMES[ws[0].set], line = ws.map(tb => `${sName(tb.name)}: ${this.wName(tb, tb.wt)} ${N.noun.toLowerCase()}, ${tb.at ? this.aName(tb, tb.at).toLowerCase() : 'no armour'}`).join('   ·   ');
         this.fitText(ctx, line.toUpperCase(), VW / 2, 1800, W, 19, 700, false, COL.muted, 'center', 18);
       }
       ctx.globalAlpha = 1;
@@ -9996,7 +10008,8 @@ const RVB = (() => {
       const d = Math.hypot(u.x - from.x, u.y - from.y);
       if (d > u.r + from.r + (F.reach || 5) + 26) return;
       const st = F.rank === 0 ? 'crush' : SLASH_STYLE[STYLE[from.type]] || (F.sword ? 'blade' : from.type === 'spearman' || from.type === 'pikeman' || from.type === 'lancer' ? 'thrust' : 'blade');
-      this.slashes.push({ x: u.x, y: u.y, a: Math.atan2(u.y - from.y, u.x - from.x), st, t0: this.t, r: u.r, k: hash01(this.frameNo, u.gait) });
+      const ec = this.evo && from.tribe && from.tribe.wt >= 4 ? ELEM[from.tribe.elem].col : null;
+      this.slashes.push({ x: u.x, y: u.y, a: Math.atan2(u.y - from.y, u.x - from.x), st, t0: this.t, r: u.r, k: hash01(this.frameNo, u.gait), col: ec });
     },
     drawSlashes(ctx) {
       const t = this.t;
@@ -10008,7 +10021,7 @@ const RVB = (() => {
           // a diagonal slice across the target, drawn in fast and fading
           const ang = s.a + Math.PI / 2 + (s.k - 0.5) * 1.2, len = (s.r * 3.4 + 16) * grow;
           ctx.globalAlpha = a; lens(ctx, s.x, s.y, ang, len, 7); ctx.fillStyle = '#FFFFFF'; ctx.fill();
-          ctx.globalAlpha = a * 0.45; lens(ctx, s.x, s.y, ang, len * 1.15, 13); ctx.fillStyle = '#BFE6FF'; ctx.fill();
+          ctx.globalAlpha = a * (s.col ? 0.75 : 0.45); lens(ctx, s.x, s.y, ang, len * (s.col ? 1.3 : 1.15), s.col ? 16 : 13); ctx.fillStyle = s.col || '#BFE6FF'; ctx.fill();
         } else if (s.st === 'thrust') {
           // a straight streak through the target, with speed lines behind it
           const len = (s.r * 3 + 22) * grow, c = Math.cos(s.a), sn = Math.sin(s.a);
@@ -10668,7 +10681,345 @@ const RVB = (() => {
       ctx.save(); ctx.font = font(30, 800); ctx.textAlign = 'center'; spaced(ctx, 5); strokeText(ctx, '3D MODE', AR.x + AR.w / 2, AR.y + 40, '#7CF3FF', COL.ink, 7); spaced(ctx, 0); ctx.restore();
     },
   };
-  Object.assign(Army.prototype, ARMY_EXT, ARMY_DRAW, ARMY_MAPS, ARMY_EXT2, ARMY_DRAW2, ARMY_COMBAT, ARMY_TRIBES, ARMY_TRIBES_DRAW, ARMY_PACE, ARMY_UI2, ARMY_WORLD, ARMY_FX2, ARMY_SMART, ARMY_CAST3, ARMY_CAST3_DRAW);
+  // ----- evolution (rules.tribes.evolve): every forge upgrade visibly evolves a tribe's troops, up to elemental weapons -----
+  // Weapons go up to tier 5 (tier 4 = the tribe's element, tier 5 = its master form), armour to tier 4. Each tier changes how
+  // the tribe's troops look; each weapon upgrade gets an EVOLUTION card, and the big ones a slow-motion close-up.
+  // Elements roll their own dice (seed ^ 0xE7017E); with evolve off nothing here runs.
+  const ELEM = {
+    flame: { col: '#FF6B1A', glow: '#FFB020', hit: 'BURNS ON HIT' },
+    frost: { col: '#7DD3FC', glow: '#E0F2FE', hit: 'SLOWS ON HIT' },
+    storm: { col: '#A78BFA', glow: '#FDE047', hit: 'LIGHTNING JUMPS' },
+    venom: { col: '#84CC16', glow: '#D9F99D', hit: 'POISONS ON HIT' },
+    holy: { col: '#FACC15', glow: '#FFFBEB', hit: 'HEALS ON HIT' },
+  };
+  const ELEM_KEYS = Object.keys(ELEM);
+  // tier 4 and tier 5 weapon names, by weapon set and element
+  const ELEM_W = {
+    blade: { flame: ['FLAME', 'HELLFIRE'], frost: ['FROST', 'GLACIER'], storm: ['STORM', 'THUNDERGOD'], venom: ['VENOM', 'BLACK VENOM'], holy: ['HOLY', 'SUNFORGED'] },
+    modern: { flame: ['INCENDIARY', 'DRAGONFIRE'], frost: ['CRYO', 'ABSOLUTE ZERO'], storm: ['SHOCK', 'EMP'], venom: ['TOXIC', 'NERVE-GAS'], holy: ['BLESSED', 'DIVINE'] },
+    scifi: { flame: ['PLASMA', 'NOVA'], frost: ['CRYO', 'ZERO-POINT'], storm: ['ION', 'TESLA'], venom: ['ACID', 'BIOHAZARD'], holy: ['PHOTON', 'SOLAR'] },
+    horror: { flame: ['HELLFIRE', 'INFERNAL'], frost: ['GRAVE-FROST', 'DEATHCHILL'], storm: ['WITCH-STORM', 'DOOMSTORM'], venom: ['PLAGUE', 'BLACK PLAGUE'], holy: ['BLOOD', 'VAMPIRIC'] },
+  };
+  const ELEM_A = { flame: 'EMBER-PLATE', frost: 'FROST-PLATE', storm: 'STORM-PLATE', venom: 'THORN-PLATE', holy: 'HALO-PLATE' };
+  const ARMY_EVOLVE = {
+    initEvolve() {
+      const E = this.trb.evolve, R = rng(((this.seed >>> 0) ^ 0xE7017E) >>> 0);
+      this.evo = { cards: [], show: null, next: 0 };
+      this.wMax = E.weaponMax || 5; this.aMax = E.armourMax || 4;
+      for (const team of this.teamIds()) {
+        const left = ELEM_KEYS.slice();
+        for (const tb of this.tribes.filter(x => x.team === team)) tb.elem = left.splice(R.int(0, left.length - 1), 1)[0];
+      }
+    },
+    wName(tb, k) { return k <= 3 ? TIER_NAMES[tb.set].w[k] : (ELEM_W[tb.set] || ELEM_W.blade)[tb.elem || 'flame'][Math.min(k, 5) - 4]; },
+    aName(tb, k) { return k <= 3 ? TIER_NAMES[tb.set].a[k] : ELEM_A[tb.elem || 'flame']; },
+    wCol(tb, k) { return k >= 4 ? ELEM[tb.elem].col : k === 3 ? W_TOP[tb.set] : W_COL[k]; },
+    // an upgrade has just happened: the card, the transformation on every troop of the tribe, and for the big ones a slow-motion close-up
+    evolveFx(tb, which, oldK) {
+      const newK = which === 'w' ? tb.wt : tb.at, N = TIER_NAMES[tb.set];
+      tb.evoT = this.t; tb.evoW = which;
+      const big = which === 'w' ? newK >= 3 : newK >= 4;
+      const from = which === 'w' ? `${this.wName(tb, oldK)} ${N.noun}` : oldK ? this.aName(tb, oldK) : 'NO ARMOUR';
+      const to = which === 'w' ? `${this.wName(tb, newK)} ${N.noun}` : this.aName(tb, newK);
+      const perk = which === 'w' ? (newK >= 4 ? `+${newK * 10}% DAMAGE · ${ELEM[tb.elem].hit}` : `+${newK * 10}% DAMAGE`) : `${newK * 8}% LESS DAMAGE TAKEN`;
+      if (which === 'w' || newK >= 4) {
+        this.evoAdvance(this.t);
+        const q = this.evo.cards;
+        q.push({ tb, which, from, to, perk, tier: newK, big, at: this.t });
+        // never let the queue fall far behind: drop the smallest waiting upgrades first
+        while (q.length > 2) { const i = q.findIndex(c => !c.big); q.splice(i >= 0 ? i : 0, 1); }
+      }
+      if (big) {
+        this.snd('evolve', { team: tb.team });
+        const c = tb.chief && !tb.chief.dead ? tb.chief : this.units.find(u => u.tribe === tb && !u.dead && UNIT[u.type].rank !== 0);
+        if (c && this.camEv) this.camEv.push({ type: 'spot', follow: c, prio: 66, dur: 2.0, z: 2.0, slow: newK >= 4 });
+        (this.xf.evolved || (this.xf.evolved = [])).push({ team: tb.team, name: to, tier: newK, which });
+      }
+    },
+    // tier 4 and 5 weapons: the element's effect on every hit (both sides alike: every tribe has an element)
+    evoHit(u, from, dmg) {
+      const tb = from.tribe, T = this.fightT;
+      if (!tb || tb.wt < 4 || this._evoHit || u.dead) return;
+      const p = tb.wt - 3;
+      this._evoHit = true;
+      if (tb.elem === 'flame') this.burn(u, 0.5 * p, 1.5, from);
+      else if (tb.elem === 'frost') this.slowDown(u, 0.75 - 0.1 * p, 1.2);
+      else if (tb.elem === 'venom') this.poison(u, 0.5 * p, 2, from);
+      else if (tb.elem === 'holy') { if (!from.dead) this.heal(from, dmg * 0.15 * p); }
+      else if (tb.elem === 'storm' && (u.zapT || 0) < T) {
+        u.zapT = T + 0.6;
+        const o = this.near(u.x, u.y, 90).find(o => o.team !== from.team && o !== u && !o.dead && !UNIT[o.type].uncounted);
+        if (o) { this.damage(o, dmg * 0.4 * p, from); this.beams.push({ x0: u.x, y0: u.y, x1: o.x, y1: o.y, t0: T, life: 0.2, col: ELEM.storm.glow, w: 2.5 }); }
+      }
+      this._evoHit = false;
+    },
+    // over the troops: what every tier looks like, plus the transformation the moment a tribe evolves
+    drawEvolved(ctx, list) {
+      const t = this.t, glows = new Map(), glints = new Map(), rims = new Map(), auras = new Map(), arm = new Map(), motifs = [];
+      const add = (m, k, v) => { let a = m.get(k); if (!a) m.set(k, a = []); a.push(v); };
+      for (const u of list) {
+        const tb = u.tribe;
+        if (!tb || u.dead || u.fade === 0) continue;
+        const U = UNIT[u.type];
+        if (U.rank === 0 || U.uncounted) continue;
+        const w = tb.wt, a = tb.at;
+        if (w > 0) {
+          const col = this.wCol(tb, w);
+          add(glints, col, u);
+          if (w >= 2) add(rims, w >= 4 ? ELEM[tb.elem].col : w === 3 ? col : '#E2E8F0', u);
+          if (w >= 3) add(glows, col, u);
+          if (w >= 4) motifs.push(u);
+          if (w >= 5) add(auras, ELEM[tb.elem].col, u);
+        }
+        if (a > 0) add(arm, a >= 4 ? ELEM[tb.elem].col : A_COL[a], u);
+      }
+      ctx.save(); ctx.lineCap = 'round';
+      // tier 5: an elemental aura round the whole troop
+      for (const [col, us] of auras) {
+        ctx.beginPath();
+        for (const u of us) { const rr = u.r + 5 + 1.5 * Math.sin(t * 6 + u.gait); ctx.moveTo(u.x + rr, u.y); ctx.arc(u.x, u.y, rr, 0, TAU); }
+        ctx.globalAlpha = 0.85; ctx.lineWidth = 3; ctx.strokeStyle = col; ctx.stroke(); ctx.globalAlpha = 0.18; ctx.fillStyle = col; ctx.fill(); ctx.globalAlpha = 1;
+      }
+      // armour: shoulder plates, bigger and brighter each tier
+      for (const [col, us] of arm) {
+        ctx.beginPath();
+        for (const u of us) { const b = u.face + Math.PI, sp = 0.7 + 0.12 * Math.min(u.tribe.at, 4); ctx.moveTo(u.x + Math.cos(b - sp) * (u.r - 1), u.y + Math.sin(b - sp) * (u.r - 1)); ctx.arc(u.x, u.y, u.r - 1, b - sp, b + sp); }
+        ctx.lineWidth = 7; ctx.strokeStyle = COL.ink; ctx.stroke(); ctx.lineWidth = 4; ctx.strokeStyle = col; ctx.stroke();
+      }
+      // weapon tier 2+: a rim of the weapon's colour on the front of the troop
+      for (const [col, us] of rims) {
+        ctx.beginPath();
+        for (const u of us) { ctx.moveTo(u.x + Math.cos(u.face - 0.9) * (u.r + 1.5), u.y + Math.sin(u.face - 0.9) * (u.r + 1.5)); ctx.arc(u.x, u.y, u.r + 1.5, u.face - 0.9, u.face + 0.9); }
+        ctx.lineWidth = 2.5; ctx.strokeStyle = col; ctx.stroke();
+      }
+      // weapon tier 3+: the weapon glows
+      for (const [col, us] of glows) {
+        ctx.beginPath();
+        for (const u of us) { const gx = u.x + Math.cos(u.face) * (u.r + 8), gy = u.y + Math.sin(u.face) * (u.r + 8), gr = (u.tribe.wt >= 4 ? 12 : 9) * (0.85 + 0.15 * Math.sin(t * 11 + u.gait)); ctx.moveTo(gx + gr, gy); ctx.arc(gx, gy, gr, 0, TAU); }
+        ctx.globalAlpha = 0.32; ctx.fillStyle = col; ctx.fill(); ctx.globalAlpha = 1;
+      }
+      // the glint on the weapon, bigger each tier
+      for (const [col, us] of glints) {
+        ctx.beginPath();
+        for (const u of us) {
+          const gx = u.x + Math.cos(u.face) * (u.r + 8), gy = u.y + Math.sin(u.face) * (u.r + 8), s = (3.2 + 0.7 * u.tribe.wt) * (0.8 + 0.2 * Math.sin(t * 9 + u.gait));
+          ctx.moveTo(gx, gy - s); ctx.lineTo(gx + s * 0.45, gy); ctx.lineTo(gx, gy + s); ctx.lineTo(gx - s * 0.45, gy); ctx.closePath();
+          ctx.moveTo(gx - s, gy); ctx.lineTo(gx, gy - s * 0.4); ctx.lineTo(gx + s, gy); ctx.lineTo(gx, gy + s * 0.4); ctx.closePath();
+        }
+        ctx.lineWidth = 2; ctx.strokeStyle = COL.ink; ctx.stroke(); ctx.fillStyle = col; ctx.fill();
+      }
+      // tier 4+: the element itself on the weapon (flames, frost, sparks, drips, rays)
+      for (const u of motifs) {
+        const e = u.tribe.elem, E = ELEM[e], gx = u.x + Math.cos(u.face) * (u.r + 9), gy = u.y + Math.sin(u.face) * (u.r + 9), ph = t * 8 + u.gait * 3;
+        if (e === 'flame') for (let k = 0; k < 2; k++) { const fx = gx + (k ? 4 : -3), h = 9 + 4 * Math.sin(ph + k * 2); ctx.beginPath(); ctx.moveTo(fx - 3.5, gy); ctx.quadraticCurveTo(fx - 3, gy - h * 0.6, fx, gy - h); ctx.quadraticCurveTo(fx + 3, gy - h * 0.6, fx + 3.5, gy); ctx.closePath(); ctx.fillStyle = k ? E.glow : E.col; ctx.fill(); }
+        else if (e === 'frost') { ctx.save(); ctx.translate(gx, gy); ctx.rotate(ph * 0.3); ctx.beginPath(); for (let k = 0; k < 3; k++) { const a = k * Math.PI / 3; ctx.moveTo(Math.cos(a) * 6, Math.sin(a) * 6); ctx.lineTo(-Math.cos(a) * 6, -Math.sin(a) * 6); } ctx.lineWidth = 2; ctx.strokeStyle = E.glow; ctx.stroke(); ctx.restore(); }
+        else if (e === 'storm') { ctx.beginPath(); ctx.moveTo(gx - 5, gy - 6); ctx.lineTo(gx + 1, gy - 1); ctx.lineTo(gx - 2, gy + 1); ctx.lineTo(gx + 5, gy + 7); ctx.lineWidth = 2; ctx.strokeStyle = (ph | 0) % 2 ? E.glow : '#FFFFFF'; ctx.stroke(); }
+        else if (e === 'venom') { const dy = ((ph * 0.4) % 1) * 9; ctx.beginPath(); ctx.arc(gx, gy + 3 + dy, 2.6, 0, TAU); ctx.fillStyle = E.col; ctx.fill(); }
+        else { ctx.beginPath(); for (let k = 0; k < 4; k++) { const a = ph * 0.2 + k * Math.PI / 2; ctx.moveTo(gx + Math.cos(a) * 4, gy + Math.sin(a) * 4); ctx.lineTo(gx + Math.cos(a) * 9, gy + Math.sin(a) * 9); } ctx.lineWidth = 2; ctx.strokeStyle = E.glow; ctx.stroke(); }
+      }
+      // the moment of evolving: a ring sweeps through the tribe from its chief outwards, each troop flashing and rising a little
+      for (const tb of this.tribes) {
+        const age = t - (tb.evoT ?? -9);
+        if (age < 0 || age > 1.6) continue;
+        const c = tb.chief && !tb.chief.dead ? tb.chief : { x: tb.cx, y: tb.cy }, col = tb.evoW === 'w' ? this.wCol(tb, tb.wt) : tb.at >= 4 ? ELEM[tb.elem].col : A_COL[tb.at];
+        for (const u of list) {
+          if (u.tribe !== tb || u.dead) continue;
+          const k = (age - Math.hypot(u.x - c.x, u.y - c.y) / 700) / 0.55;
+          if (k < 0 || k > 1) continue;
+          ctx.globalAlpha = 1 - k;
+          ctx.beginPath(); ctx.arc(u.x, u.y, u.r + 3 + 14 * k, 0, TAU); ctx.lineWidth = 3.5 * (1 - k) + 1; ctx.strokeStyle = col; ctx.stroke();
+          if (k < 0.35) { ctx.beginPath(); ctx.arc(u.x, u.y, u.r + 1, 0, TAU); ctx.fillStyle = 'rgba(255,255,255,0.55)'; ctx.fill(); }
+          ctx.beginPath(); ctx.moveTo(u.x - 5, u.y - u.r - 6 - 10 * k); ctx.lineTo(u.x, u.y - u.r - 12 - 10 * k); ctx.lineTo(u.x + 5, u.y - u.r - 6 - 10 * k); ctx.lineWidth = 2.5; ctx.strokeStyle = col; ctx.stroke();
+          ctx.globalAlpha = 1;
+        }
+      }
+      // shots from elemental weapons glow in the element's colour
+      ctx.globalCompositeOperation = 'lighter';
+      for (const a of this.arrows) {
+        const tb = a.from && a.from.tribe;
+        if (!tb || tb.wt < 4) continue;
+        const sp = Math.hypot(a.vx, a.vy) || 1, ux = a.vx / sp, uy = a.vy / sp;
+        ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(a.x - ux * 26, a.y - uy * 26); ctx.lineWidth = 7; ctx.strokeStyle = ELEM[tb.elem].col + '99'; ctx.stroke();
+        ctx.beginPath(); ctx.arc(a.x, a.y, 6, 0, TAU); ctx.fillStyle = ELEM[tb.elem].glow + 'AA'; ctx.fill();
+      }
+      ctx.restore();
+    },
+    // the EVOLUTION card: who evolved, from what to what, and what it does (one at a time, about 2 seconds each)
+    // which card is up at time t: each one gets its slot from the battle clock (not from when frames are drawn), one at a
+    // time with a 0.6 s gap, never before 8.8 s (the opening owns the screen until then)
+    evoAdvance(t) {
+      const E = this.evo;
+      for (;;) {
+        if (E.show) { const end = E.show.t0 + (E.show.big ? 2.3 : 1.7); if (t <= end) return; E.show = null; E.next = end + 0.6; }
+        if (!E.cards.length) return;
+        const start = Math.max(E.next, E.cards[0].at || 0, 8.8);
+        if (t < start) return;
+        E.show = E.cards.shift(); E.show.t0 = start;
+      }
+    },
+    drawEvolveCards(ctx) {
+      const E = this.evo, t = this.t;
+      if (!E || this.phase !== 'fight') return;
+      this.evoAdvance(t);
+      const c = E.show; if (!c) return;
+      const age = t - c.t0, dur = c.big ? 2.3 : 1.7;
+      const tb = c.tb, tm = TEAMS[tb.team], ecol = c.which === 'w' ? this.wCol(tb, c.tier) : c.tier >= 4 ? ELEM[tb.elem].col : A_COL[c.tier];
+      const inK = easeOutBack(clamp(age / 0.28, 0, 1)), a = Math.min(1, age / 0.12, (dur - age) / 0.25);
+      const W = 800, H = 150, cx = VW / 2, cy = AR.y + 205;
+      ctx.save(); ctx.globalAlpha = a; ctx.translate(cx, cy); ctx.scale(0.7 + 0.3 * inK, 0.7 + 0.3 * inK);
+      roundRect(ctx, -W / 2, -H / 2, W, H, 18); ctx.fillStyle = 'rgba(10,14,24,0.92)'; ctx.fill(); ctx.lineWidth = 4; ctx.strokeStyle = tm.c; ctx.stroke();
+      // the element's colour sweeping across the card
+      const sw = clamp(age / 0.5, 0, 1);
+      ctx.save(); roundRect(ctx, -W / 2, -H / 2, W, H, 18); ctx.clip();
+      const g = ctx.createLinearGradient(-W / 2, 0, -W / 2 + W * sw, 0); g.addColorStop(0, ecol + '00'); g.addColorStop(Math.max(0.01, sw * 0.9), ecol + '33'); g.addColorStop(1, ecol + '00');
+      ctx.fillStyle = g; ctx.fillRect(-W / 2, -H / 2, W, H); ctx.restore();
+      drawEmblem(ctx, tb.emblem, -W / 2 + 62, 0, 34);
+      ctx.restore();
+      // the texts (laid out in battlefield space so the layout check sees them, once the card has finished popping in)
+      const k = 0.7 + 0.3 * inK, X = x => cx + x * k, Y = y => cy + y * k, lay = this.lay;
+      if (age < 0.28) this.lay = null;
+      ctx.save(); ctx.globalAlpha = a;
+      const head = c.which === 'w' ? (c.tier >= 4 ? `${sName(tb.name)} EVOLVE` : `${sName(tb.name)} UPGRADE`) : `${sName(tb.name)} ARMOUR UP`;
+      this.fitText(ctx, head, X(-W / 2 + 120), Y(-42), 560 * k, 24 * k, 800, true, COL.gold, 'left', 16 * k);
+      this.fitText(ctx, `FROM ${c.from}`, X(-W / 2 + 120), Y(-6), 600 * k, 26 * k, 700, false, '#9AA4B2', 'left', 16 * k);
+      this.fitText(ctx, c.to, X(-W / 2 + 120), Y(32), 610 * k, 44 * k, 800, true, ecol === '#FFFFFF' ? COL.white : ecol, 'left', 22 * k);
+      this.fitText(ctx, c.perk, X(-W / 2 + 120), Y(62), 610 * k, 18 * k, 700, false, COL.white, 'left', 13 * k);
+      // tier pips
+      const max = c.which === 'w' ? (this.wMax || 5) : (this.aMax || 4);
+      for (let i = 1; i <= max; i++) { ctx.beginPath(); ctx.arc(X(W / 2 - 30 - (max - i) * 22), Y(-44), 7 * k, 0, TAU); ctx.fillStyle = i <= c.tier ? (i === c.tier ? ecol : '#CBD5E1') : 'rgba(255,255,255,0.15)'; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = COL.ink; ctx.stroke(); }
+      ctx.restore();
+      this.lay = lay;
+    },
+  };
+  // ----- the thumbnail (rules.thumbnail): one branded picture per video, the same layout every time -----
+  // Behind: a blurred, darkened moment of this battle. In front: the ARMY CLASH logo, each army's signature troop big in its
+  // colour (two of its other troops behind it), VS, the army names and sizes, and WHO WINS? It never shows who won.
+  // Key content stays inside the middle of the picture (y 150-1690), clear of YouTube's view count along the bottom.
+  const ARMY_THUMB = {
+    // the troop that stands for an army: its biggest (dragons, tanks, giants) and then its most numerous; plus two others
+    thumbPicks(list) {
+      const ok = list.filter(([t]) => UNIT[t] && !UNIT[t].uncounted && t !== 'king');
+      const pool = ok.length ? ok : list.filter(([t]) => UNIT[t]);
+      const hero = pool.slice().sort((p, q) => UNIT[q[0]].r - UNIT[p[0]].r || q[1] - p[1])[0];
+      const rest = pool.filter(p => p !== hero).sort((p, q) => q[1] - p[1]).slice(0, 2);
+      return { hero: hero ? hero[0] : 'soldier', rest: rest.map(p => p[0]) };
+    },
+    drawThumb(ctx, bg, sides, o = {}) {
+      const W = VW, H = VH, N = sides.length, ink = COL.ink;
+      ctx.save();
+      ctx.fillStyle = COL.bg1; ctx.fillRect(0, 0, W, H);
+      // 1) the battle, blurred (drawn small, then stretched back up) and darkened
+      if (bg && api.makeCanvas) {
+        // only the battlefield (not the scoreboard, which could hint at who is ahead), cut to the picture's shape
+        // blurred hard (tiny, then stretched in two steps) so troops become colour and no card or text can be read
+        // (halving step by step, since one big shrink skips pixels and leaves text readable)
+        const sw = AR.h * W / H;
+        let w = Math.round(sw / 2), h = Math.round(AR.h / 2), cur = api.makeCanvas(w, h);
+        cur.getContext('2d').drawImage(bg, AR.x + (AR.w - sw) / 2, AR.y, sw, AR.h, 0, 0, w, h);
+        while (w > 40) { const nx = api.makeCanvas(Math.round(w / 2), Math.round(h / 2)); nx.getContext('2d').drawImage(cur, 0, 0, Math.round(w / 2), Math.round(h / 2)); cur = nx; w = Math.round(w / 2); h = Math.round(h / 2); }
+        while (w < W / 4) { const nx = api.makeCanvas(w * 2, h * 2); nx.getContext('2d').drawImage(cur, 0, 0, w * 2, h * 2); cur = nx; w *= 2; h *= 2; }
+        ctx.imageSmoothingEnabled = true; ctx.drawImage(cur, -W * 0.06, -H * 0.06, W * 1.12, H * 1.12);
+      }
+      ctx.fillStyle = 'rgba(5,7,13,0.5)'; ctx.fillRect(0, 0, W, H);
+      // 2) each army's colour on its side, split by a jagged bolt
+      const cols = sides.map(s => TEAMS[s.team]);
+      if (N === 2) {
+        const top = W * 0.6, bot = W * 0.4;
+        ctx.save(); ctx.globalAlpha = 0.42;
+        ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(top, 0); ctx.lineTo(bot, H); ctx.lineTo(0, H); ctx.closePath(); ctx.fillStyle = cols[0].d; ctx.fill();
+        ctx.beginPath(); ctx.moveTo(top, 0); ctx.lineTo(W, 0); ctx.lineTo(W, H); ctx.lineTo(bot, H); ctx.closePath(); ctx.fillStyle = cols[1].d; ctx.fill();
+        ctx.restore();
+        ctx.beginPath();
+        for (let k = 0; k <= 12; k++) { const f = k / 12, x = top + (bot - top) * f + (k % 2 ? 26 : -26) * (k && k < 12 ? 1 : 0); k ? ctx.lineTo(x, f * H) : ctx.moveTo(x, 0); }
+        ctx.lineJoin = 'miter'; ctx.lineWidth = 16; ctx.strokeStyle = ink; ctx.stroke(); ctx.lineWidth = 7; ctx.strokeStyle = COL.gold; ctx.stroke();
+      } else {
+        const g = ctx.createLinearGradient(0, 0, W, 0);
+        cols.forEach((c, i) => { g.addColorStop(i / (N - 1) * 0.9 + 0.05, c.d); });
+        ctx.save(); ctx.globalAlpha = 0.42; ctx.fillStyle = g; ctx.fillRect(0, 0, W, H); ctx.restore();
+      }
+      // vignette so the middle pops
+      const v = ctx.createRadialGradient(W / 2, H * 0.47, W * 0.3, W / 2, H * 0.47, H * 0.62);
+      v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(1, 'rgba(0,0,0,0.6)'); ctx.fillStyle = v; ctx.fillRect(0, 0, W, H);
+
+      // text with a thick black outline, shrunk to fit
+      const big = (txt, x, y, maxW, size, fill, lw, rot = 0, weight = 800, italic = true) => {
+        let s = size; ctx.font = font(s, weight, italic);
+        while (s > 20 && ctx.measureText(txt).width > maxW) { s -= 2; ctx.font = font(s, weight, italic); }
+        ctx.save(); ctx.translate(x, y); ctx.rotate(rot);
+        ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.lineJoin = 'round';
+        ctx.lineWidth = lw * s / size; ctx.strokeStyle = ink; ctx.strokeText(txt, 0, 0);
+        ctx.fillStyle = fill; ctx.fillText(txt, 0, 0);
+        ctx.restore();
+        return s;
+      };
+      // a troop on a glowing badge in its army's colour
+      const badge = (type, team, x, y, r, flip, ring) => {
+        const tm = TEAMS[team], U = UNIT[type] || UNIT.soldier;
+        ctx.save();
+        ctx.shadowColor = tm.c; ctx.shadowBlur = r * 0.35;
+        disc(ctx, x, y, r + ring, ink, 0);
+        ctx.restore();
+        const gr = ctx.createRadialGradient(x - r * 0.3, y - r * 0.35, r * 0.1, x, y, r);
+        gr.addColorStop(0, tm.l); gr.addColorStop(0.55, tm.c); gr.addColorStop(1, tm.d);
+        disc(ctx, x, y, r, gr, 0);
+        ctx.save(); ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.clip();
+        disc(ctx, x, y + r * 0.08, r * 0.78, 'rgba(5,7,13,0.28)', 0);
+        const s = r * 0.62 / U.r;
+        ctx.translate(x, y + r * 0.04); ctx.scale(flip ? -s : s, s);
+        try { this.drawPortrait(ctx, type, team); } catch (e) { disc(ctx, 0, 0, U.r, tm.c, 3); }
+        ctx.restore();
+        ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.lineWidth = Math.max(6, r * 0.05); ctx.strokeStyle = ink; ctx.stroke();
+        ctx.beginPath(); ctx.arc(x, y, r - Math.max(6, r * 0.05), 0, TAU); ctx.lineWidth = Math.max(3, r * 0.022); ctx.strokeStyle = 'rgba(255,255,255,0.55)'; ctx.stroke();
+      };
+      const vs = (x, y, r) => {
+        ctx.save(); ctx.translate(x, y); ctx.rotate(-0.12);
+        ctx.beginPath();
+        for (let k = 0; k < 16; k++) { const a = k / 16 * TAU, rr = k % 2 ? r * 0.78 : r * 1.08; ctx.lineTo(Math.cos(a) * rr, Math.sin(a) * rr); }
+        ctx.closePath(); ctx.fillStyle = COL.gold; ctx.fill(); ctx.lineWidth = r * 0.1; ctx.lineJoin = 'miter'; ctx.strokeStyle = ink; ctx.stroke();
+        disc(ctx, 0, 0, r * 0.72, '#B91C1C', r * 0.07);
+        ctx.restore();
+        big('VS', x, y + r * 0.04, r * 1.2, r * 0.95, COL.white, r * 0.16, -0.12);
+      };
+
+      // 3) the logo
+      big('ARMY CLASH', W / 2, 238, W - 120, 150, COL.white, 20, -0.035);
+      ctx.save(); ctx.translate(W / 2, 330); ctx.rotate(-0.035);
+      roundRect(ctx, -300, -9, 600, 18, 9); ctx.fillStyle = COL.gold; ctx.fill(); ctx.lineWidth = 5; ctx.strokeStyle = ink; ctx.stroke();
+      ctx.restore();
+      // the mode, if there is one (always in the same ribbon)
+      if (o.tag) {
+        ctx.font = font(52, 800, true); const tw = Math.min(W - 200, ctx.measureText(o.tag).width + 70);
+        roundRect(ctx, W / 2 - tw / 2, 382, tw, 78, 16); ctx.fillStyle = '#0A0E19'; ctx.fill(); ctx.lineWidth = 6; ctx.strokeStyle = COL.gold; ctx.stroke();
+        big(o.tag, W / 2, 423, tw - 50, 52, COL.gold, 8);
+      }
+
+      // 4) the armies
+      const two = N === 2, cy = two ? 905 : 920, R = two ? 222 : 150, xs = two ? [282, W - 282] : [186, W / 2, W - 186];
+      sides.forEach((s, i) => {
+        const p = this.thumbPicks(s.list), x = xs[i], flip = two ? i === 1 : x > W / 2 + 1, back = p.rest;
+        const br = two ? 98 : 70, off = two ? [[-128, -262], [118, -282]] : [[-72, -190], [72, -200]];
+        back.forEach((t, j) => badge(t, s.team, x + (flip ? -off[j][0] : off[j][0]), cy + off[j][1], br, flip, 6));
+        badge(p.hero, s.team, x, cy, R, flip, 12);
+      });
+      if (two) vs(W / 2, cy + 10, 108);
+      else { vs((xs[0] + xs[1]) / 2, cy + 175, 62); vs((xs[1] + xs[2]) / 2, cy + 175, 62); }
+      // names under each army
+      sides.forEach((s, i) => {
+        const tm = TEAMS[s.team], x = xs[i], pw = two ? 470 : 320, ph = two ? 168 : 132, py = cy + R + (two ? 110 : 120);
+        roundRect(ctx, x - pw / 2, py - ph / 2, pw, ph, 20);
+        const gr = ctx.createLinearGradient(0, py - ph / 2, 0, py + ph / 2); gr.addColorStop(0, tm.c); gr.addColorStop(1, tm.d);
+        ctx.fillStyle = gr; ctx.fill(); ctx.lineWidth = 8; ctx.strokeStyle = ink; ctx.stroke();
+        big(s.name || tm.name, x, py - ph * 0.27, pw - 60, two ? 40 : 32, tm.l, 8);
+        big(s.label, x, py + ph * 0.14, pw - 36, two ? 84 : 58, COL.white, 12);
+        if (s.count) big(`×${s.count}`, x, py + ph / 2 + 44, pw - 40, two ? 56 : 46, COL.gold, 10);
+      });
+
+      // 5) the question (never the answer)
+      big('WHO WINS?', W / 2, 1560, W - 110, 210, COL.gold, 24, -0.05);
+      ctx.restore();
+    },
+  };
+  Object.assign(Army.prototype, ARMY_EXT, ARMY_DRAW, ARMY_MAPS, ARMY_EXT2, ARMY_DRAW2, ARMY_COMBAT, ARMY_TRIBES, ARMY_TRIBES_DRAW, ARMY_PACE, ARMY_UI2, ARMY_WORLD, ARMY_FX2, ARMY_SMART, ARMY_CAST3, ARMY_CAST3_DRAW, ARMY_EVOLVE, ARMY_THUMB);
 
   const GAMES = { territory: Territory, duel: Duel, army: Army };
   Object.assign(api, { rng, Match, Territory, Duel, Army, Director, Synth, GAMES, WEAPONS, DOCTRINES, MODERN_DOCTRINES, FANTASY_DOCTRINES, GENRES, UNIT_ERA, ALL_DOCTRINES, MAPS, MAP_THEME, UNIT, eraOf, fmtTime, labelOf, docLabel, MAP_MECH, SKINS, MODE_HOOK, specOf, TRIBE_POOL, TRAIT, STAKE });

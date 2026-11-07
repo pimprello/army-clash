@@ -286,9 +286,24 @@ async function main() {
     '-r', String(FPS), silent,
   ]);
 
+  // the thumbnail (rules.thumbnail): each army's troops at the start, and the busiest even moment of the battle as its background
+  const TH = rules.thumbnail || {};
+  const thumbLists = TH.on ? [...Array(game.N).keys()].map(t => {
+    const n = {};
+    for (const u of game.units) if (u.team === t && !RVB.UNIT[u.type].uncounted) n[u.type] = (n[u.type] || 0) + 1;
+    return Object.entries(n);
+  }) : null;
+  const thumbEnd = finale ? finale.t : 40;
+  let thumbBg = null, thumbScore = -1;
   let nFrames = 0;
   for (let i = 0; i < MAXFRAMES; i++) {
     game.draw(ctx);
+    // between 30% and 60% of the fight, twice a second: lots of troops on both sides, and neither side clearly ahead
+    if (TH.on && game.phase === 'fight' && i % 30 === 0 && game.fightT > thumbEnd * 0.3 && game.fightT < thumbEnd * 0.6) {
+      const al = [...Array(game.N).keys()].map(t => game.alive[t]), lo = Math.min(...al), hi = Math.max(...al, 1);
+      const sc = (lo / hi) * al.reduce((a, b) => a + b, 0);
+      if (sc > thumbScore) { thumbScore = sc; thumbBg = thumbBg || createCanvas(W, H); thumbBg.getContext('2d').drawImage(canvas, 0, 0); }
+    }
     const frame = canvas.toBuffer('raw');
     if (!enc.p.stdin.write(frame)) await once(enc.p.stdin, 'drain');
     nFrames++;
@@ -428,6 +443,14 @@ async function main() {
     })(),
   };
   fs.writeFileSync(path.join(OUT, 'meta.json'), JSON.stringify(meta, null, 2));
+  // the thumbnail: out/thumb.jpg (upload.js sets it on the video when YouTube allows it)
+  if (TH.on && thumbLists) {
+    const tc = createCanvas(W, H), tctx = tc.getContext('2d');
+    const sides = ids.map(i => ({ team: i, list: thumbLists[i] || [], label: RVB.docLabel(game.doc[i]), name: ns[i].toUpperCase(), count: game.start[i] }));
+    const tag = three ? '1 v 1 v 1' : game.mode && RVB.MODE_HOOK[game.mode] ? RVB.MODE_HOOK[game.mode].replace(/!$/, '') : '';
+    game.drawThumb(tctx, thumbBg || canvas, sides, { tag });
+    fs.writeFileSync(path.join(OUT, 'thumb.jpg'), tc.toBuffer('image/jpeg', { quality: 0.9 }));
+  }
   const mb = (fs.statSync(final).size / 1048576).toFixed(1);
   console.log(`Done in ${((Date.now() - t0) / 1000).toFixed(0)} s: ${final} (${mb} MB, ${DUR.toFixed(1)} s long, battle ended at ${game.fightT.toFixed(1)} s) | ${meta.title} | ${game.headline}, ${game.detail}`);
   if (director) console.log(`Camera: ${director.shots.map(x => `${x.kind}@${x.t}`).join(' ')}`);

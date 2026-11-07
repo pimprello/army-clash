@@ -58,20 +58,42 @@ async function upload() {
   });
   const j = await put.json().catch(() => ({}));
   if (!put.ok) throw new Error(`Upload failed (${put.status}): ${JSON.stringify(j)}`);
-  return j.id;
+  return { id: j.id, token };
+}
+
+// The thumbnail (out/thumb.jpg, rules.thumbnail). YouTube only lets some channels set custom thumbnails on Shorts
+// (channels in the YouTube Partner Program), so a refusal is a warning, never a failed run: the video is already up.
+async function setThumb(id, token) {
+  const pic = path.join(OUT, 'thumb.jpg');
+  if (!fs.existsSync(pic)) return 'none';
+  try {
+    const r = await fetch(`https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId=${encodeURIComponent(id)}&uploadType=media`, {
+      method: 'POST', headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'image/jpeg' }, body: fs.readFileSync(pic),
+    });
+    if (r.ok) { console.log('Thumbnail set.'); return 'set'; }
+    const j = await r.json().catch(() => ({}));
+    const why = (j.error && (j.error.message || j.error.status)) || r.statusText;
+    console.log(`::warning title=Thumbnail not set::YouTube refused the custom thumbnail (${r.status}: ${String(why).replace(/\s+/g, ' ').slice(0, 300)}). The video is up with YouTube's own thumbnail. Custom thumbnails on Shorts need the YouTube Partner Program.`);
+    return `refused ${r.status}`;
+  } catch (e) {
+    console.log(`::warning title=Thumbnail not set::${String(e.message).slice(0, 300)}`);
+    return 'error';
+  }
 }
 
 async function main() {
   if (process.env.DRY_RUN) {
-    console.log('Dry run, nothing uploaded. Would send:', JSON.stringify(body, null, 2), `\nfile: ${file} (${fs.statSync(file).size} bytes)`);
+    const pic = path.join(OUT, 'thumb.jpg');
+    console.log('Dry run, nothing uploaded. Would send:', JSON.stringify(body, null, 2), `\nfile: ${file} (${fs.statSync(file).size} bytes)`, fs.existsSync(pic) ? `\nthumbnail: ${pic} (${fs.statSync(pic).size} bytes)` : '\nno thumbnail');
     return;
   }
   for (let attempt = 1; ; attempt++) {
     try {
-      const id = await upload();
+      const { id, token } = await upload();
       const url = `https://youtube.com/shorts/${id}`;
       fs.writeFileSync(path.join(OUT, 'uploaded.json'), JSON.stringify({ id, url, title: body.snippet.title, winner: meta.winner, privacy, date: new Date().toISOString().slice(0, 16).replace('T', ' ') }, null, 2));
       console.log(`Uploaded "${body.snippet.title}" as ${privacy}: ${url}`);
+      await setThumb(id, token).catch(() => {});
       return;
     } catch (e) {
       const retry = attempt < 3 && /\((5\d\d)\b/.test(e.message);

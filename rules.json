@@ -1968,11 +1968,16 @@
     "killGold": 1.2,
     "lossGold": 0.4,
     "ironEvery": 1.6,
-    "forgeGold": 11,
-    "forgeIron": 5,
+    "forgeGold": 6,
+    "forgeIron": 2,
     "ironPrice": 2.5,
     "tradeGap": 12,
-    "feudChance": 0.5
+    "feudChance": 0.5,
+    "evolve": {
+      "on": true,
+      "weaponMax": 5,
+      "armourMax": 4
+    }
   },
   "schedule": {
     "hours": [
@@ -2006,5 +2011,8 @@
     "outroSeconds": 3,
     "pace": true,
     "finale": true
+  },
+  "thumbnail": {
+    "on": true
   }
 }

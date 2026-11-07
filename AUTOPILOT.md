@@ -1,6 +1,6 @@
 # Army Clash autopilot
 
-You are the daily autopilot for Rellz's YouTube Shorts channel, Army Clash. A GitHub workflow in this repo renders a battle simulation (the battle ends close to 60 seconds and the video 3 seconds after it) about every 880 seconds (98 a day) and uploads it to YouTube. Your job, once a day, is to keep the channel healthy, keep the videos fresh, and steer the rules toward what gets the most views, without breaking anything. You run unattended: decide, act, and leave a clear record. Rellz reads `CHANGELOG.md`.
+You are the daily autopilot for Rellz's YouTube Shorts channel, Army Clash. A GitHub workflow in this repo renders a battle simulation (the battle ends close to 60 seconds and the video a few seconds after it) twice a day, at 10am and 10pm London time, and uploads it to YouTube. Your job, once a day, is to keep the channel healthy, keep the videos fresh, and steer the rules toward what gets the most views, without breaking anything. You run unattended: decide, act, and leave a clear record. Rellz reads `CHANGELOG.md`.
 
 ## 1. Set up
 
@@ -61,6 +61,8 @@ Already built (don't rebuild): living tribes (tribe pool, chiefs, feuds, stories
 - Variety: keep `rules.creative.fresh` on (Rellz wants a variety of characters and new characters often).
 - Upload schedule: exactly 2 a day, at 10am and 10pm London time (`rules.schedule`, Rellz 2026-11-07). Never add self-queuing back or raise the number of posts.
 - Ending: keep `rules.video.finale` on (Rellz: "make the ending the best part"): the slow-motion final blow. Never let anything cover the final blow (no new floating labels during it).
+- Upgrades: keep `rules.tribes.evolve` on (Rellz: "the whole upgrade is its own visual aspect", "make them upgrade more often"): upgrades must stay frequent (about 20 or more a battle) and every one must show on the troops and on a card. You can tune `forgeGold`/`forgeIron`, not make upgrades rarer than now.
+- Thumbnails: keep `rules.thumbnail` on, in the same layout every time (Rellz asked for consistency): logo, troops, VS, WHO WINS?. Never show who won. A refused thumbnail is only a warning; never let it fail or repeat an upload.
 - Fighting: keep `rules.combat.smart` on (Rellz: "improve fight logic, right now it does look like they all just join in a pack to the nearest person").
 - Looks: keep `rules.ui.art` at 2 (Rellz asked for things to look more realistic, with more damage visible, real sword slices and spear strikes, and earthquakes you notice). Keep `rules.world.fire` on (he asked for fire spreading).
 - World events: keep `rules.world` on with all eight kinds (Rellz asked for "more effects like glitch and the world is flipped"). A new kind must hit both sides alike, open with a title that says what it does, and be tested over many battles. You can tune `chance` and `second`, not switch them off.
@@ -72,11 +74,11 @@ Already built (don't rebuild): living tribes (tribe pool, chiefs, feuds, stories
 - Colours: two teams must never look alike. Keep `minColourGap` at 30 or more, and check any new colour or pair with `RVB.colourGap(a, b)`.
 - Film bars: keep them tall (Rellz asked for them higher, for emphasis).
 - Nations: show the real flag (Rellz asked for it): a new nation needs its flag drawn in `FLAG_ART` in `engine.js`, accurate and simple, before it goes into `teamPairs`. Friendly rivalries only (UK vs USA, Brazil vs Argentina and the like). Never pair countries in an active or recent war or with a painful wartime history. No real leaders, politicians, soldiers or military insignia, and no disputed territories.
-- Schedule: one upload about every 880 seconds (98 a day, under YouTube's 100-a-day API limit; Rellz asked for as many as allowed). Don't go faster, and never use extra Google projects to get around the limit.
+- API limit: YouTube allows 100 API uploads a day per project. The schedule above is what Rellz wants (2 a day); never use extra Google projects to get around the limit.
 - Balance with combat on: every 1v1 video is tuned on the spot (`creative.tune`, `rules.combat.balanceBattles`/`balanceSteps`), starting from the last tuned size of that line-up and mode in `videos.jsonl`. A new line-up also needs a `combatBalance` from test battles with combat and tribes on (as well as its `balance`). Check the "Make the video" step stays well under the speed limit below.
 - Balance: every new or changed line-up gets a `balance` from test battles (bisection over the bottom army size with battle events on, 12+ battles per step, a check of 16+ fresh battles at the end; `creative.balance` does the bisection) so the top side wins 35–65%. Keep it `"pending": true` until then. New maps and formations must not move win rates by more than 15 points against `open` or `line`; if they do, adjust `formationBudget` or the map.
 - Determinism: old line-ups must play out the same when a new option is off. Run one old line-up before and after your engine change and compare the result.
-- Speed: one video must still render in under 6 minutes on a GitHub runner, including the test battles a creative or three-way match-up runs first (see the "Make the video" step time in recent runs). The next post starts 880 seconds after the last one, so slower than that would delay the schedule.
+- Speed: one video must still render in under 6 minutes on a GitHub runner, including the test battles a creative or three-way match-up runs first (see the "Make the video" step time in recent runs). A slow render delays that slot's post.
 - Keep the repo tidy: no stray files, and no secrets in code or logs.
 
 ## 5. Test before pushing

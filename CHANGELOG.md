@@ -2,6 +2,16 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-07 (night): upgrades you can see, and a thumbnail for every video
+
+Rellz asked for "market upgrades more visible ... evolved skins and weapons each time they upgrade and make them upgrade more often, the whole upgrade is its own visual aspect", and a consistent thumbnail on each video. On from the next video. Already-posted videos don't change.
+
+- **Evolution** (`rules.tribes.evolve`): upgrades are cheaper as they go, so a battle now has about 25 (it was a handful) and most battles have a tribe reaching tier 4 or 5. Weapons go to tier 5 and armour to tier 4. Tier 4 turns the weapon into the tribe's element (flame, frost, storm, venom or holy, each with a real effect on hit: burn, slow, chain lightning, poison, a little healing), tier 5 is its master form (FLAME then HELLFIRE, CRYO then ABSOLUTE ZERO...).
+- **You see every upgrade:** brighter rims and shoulder plates per armour tier, glowing weapons from tier 3, element-coloured weapons and sword swings at tier 4, an aura at tier 5. Each upgrade gets a card at the top of the battlefield (from what to what, the bonus, tier pips; "EVOLVE" for element tiers), and the big ones a ring sweeping out from the tribe's chief, a sound, and the camera on the chief (slow motion for tiers 4 and 5).
+- **Thumbnails** (`rules.thumbnail`): every video gets a thumbnail in the same layout: the ARMY CLASH logo, the mode, each army's signature troop big in its colour with two of its troops behind, VS, the names and sizes, and WHO WINS? (never who won), over a blurred moment of that battle. `upload.js` sets it after uploading. YouTube only allows custom thumbnails on Shorts for channels in the YouTube Partner Program, so until Army Clash is in it YouTube will refuse and the run shows a "Thumbnail not set" warning; the upload itself is unaffected. Custom Shorts thumbnails appear on the home page, search and the channel's Shorts tab, not in the Shorts feed.
+- Also fixed old notes in `AUTOPILOT.md` and `README.md` that still described 98 uploads a day.
+- Tested: old seeds play out exactly as before with evolution off; with it on, the slow-motion finale still lands on the same final blow (8 battles); upgrade counts over 6 battles (12 tier-4 and 7 tier-5 upgrades); still frames of the upgrade card and of thumbnails for 1v1, Protect the King and three-way battles; a full test render; the layout check.
+
 ## 2026-11-07 (later still): 30 new characters, more varied match-ups
 
 Rellz asked for "a variety of characters and a variety of mashups, more diverse matchups and more frequently seeing new characters". On from the next video.
