@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 392 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 393 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -75,8 +75,8 @@ Records from 392 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PLAYER SLAYER: 12
 - TANK SLAYER: 13
 - GOLEM SLAYER: 14
-- MAMMOTH SLAYER: 15
-- GIANT SLAYER: 19
+- MAMMOTH SLAYER: 16
+- GIANT SLAYER: 20
 - DRAGON SLAYER: 23
 - TITAN SLAYER: 31
 
@@ -85,10 +85,10 @@ Records from 392 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 8
 - wings: 29
 - spellward: 38
-- swift: 56
+- swift: 57
 - venom: 63
 - spikes: 69
-- regen: 79
+- regen: 80
 
 ## Big moments
 
@@ -140,7 +140,7 @@ Records from 392 battles with trophies (videos from 1 November 2026 on). Rebuilt
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 16 | 12 | 4 | 608 | 1 lost | 7 |
 | Red Hawk Company | 14 | 10 | 4 | 475 | 1 lost | 5 |
-| Frostwhisper Tribe | 15 | 8 | 7 | 492 | 2 lost | 4 |
+| Frostwhisper Tribe | 16 | 8 | 8 | 538 | 3 lost | 4 |
 | Starweave Circle | 18 | 7 | 11 | 712 | 5 lost | 5 |
 | Thornheart Circle | 9 | 7 | 2 | 596 | 3 won | 3 |
 | Mire Witch Coven | 7 | 7 | 0 | 247 | 7 won | 7 |
@@ -149,6 +149,7 @@ Records from 392 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Order of the Silver Stag | 13 | 6 | 7 | 557 | 1 lost | 3 |
 | Storm Tower Order | 15 | 6 | 9 | 550 | 2 won | 2 |
 | Emberroot Circle | 11 | 6 | 4 | 317 | 2 lost | 3 |
+| Golden Lion Order | 10 | 6 | 4 | 316 | 2 won | 3 |
 | Oakshield Clan | 10 | 6 | 4 | 283 | 2 won | 3 |
 | Duskwing Tribe | 16 | 5 | 10 | 571 | 1 won | 2 |
 | Nova Legion | 7 | 5 | 2 | 408 | 1 won | 2 |
@@ -156,7 +157,6 @@ Records from 392 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Copper Crown Company | 9 | 5 | 4 | 320 | 2 won | 3 |
 | Sunspire Kin | 10 | 5 | 5 | 317 | 1 won | 2 |
 | Raven Hill Clan | 7 | 5 | 2 | 282 | 4 won | 4 |
-| Golden Lion Order | 9 | 5 | 4 | 282 | 1 won | 3 |
 | Vortex Legion | 6 | 5 | 1 | 265 | 3 won | 3 |
 
 ### Great rivalries
@@ -172,6 +172,7 @@ Records from 392 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 02:44: The Golden Lion Order Take the Open Plains (6th win · 34 kills)
 - 2026-11-07 02:30: The Nightjar Company Take the City (3rd win · 61 kills)
 - 2026-11-07 02:18: The Stonewall Company Take the Castle (3 wins in a row · 172 kills)
 - 2026-11-07 02:02: The Nova Legion Take the City (5th win · 72 kills)
@@ -181,4 +182,3 @@ Records from 392 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 01:02: The Stormhorn Tribe Take the Quarry (revenge! · 3 wins in a row · 53 kills)
 - 2026-11-07 00:45: The Bulldog Company Take the Open Plains (first ever win · 55 kills)
 - 2026-11-07 00:32: The Vortex Legion Take the Frozen End (revenge denied · 3 wins in a row · 66 kills)
-- 2026-11-07 00:16: The Order of the Silver Stag Take the Frozen End (revenge! · 6th win · 31 kills)
