@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 20:22 | 3 Armies, Only 1 SURVIVES 💀 | Blue wins | https://youtube.com/shorts/25PVKb6ClPA |
 | 2026-11-07 20:07 | ⚔️ CHAMPION DUEL: Warriors vs Warriors | Blue wins | https://youtube.com/shorts/mLbeRJMbkFE |
 | 2026-11-07 19:55 | The BIGGEST Comeback I've Seen 😱 | Canada wins | https://youtube.com/shorts/vxcPZz_79_o |
 | 2026-11-07 19:37 | Then the Ground SPLIT Open 😱 | Norway wins | https://youtube.com/shorts/_VdoOwx07kY |

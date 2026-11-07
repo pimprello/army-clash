@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 464 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 465 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -64,15 +64,15 @@ Records from 464 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - UNMAKER SLAYER: 7
 - PHOENIX SLAYER: 7
 - STORM EMPEROR SLAYER: 7
-- FORTRESS SLAYER: 8
 - IMMORTAL FRAUD SLAYER: 8
 - HYDRA SLAYER: 9
+- FORTRESS SLAYER: 9
 - COLOSSUS SLAYER: 9
 - ELEPHANT SLAYER: 10
 - MECH SLAYER: 10
 - CYCLOPS SLAYER: 11
 - CANNON SLAYER: 13
-- PLAYER SLAYER: 13
+- PLAYER SLAYER: 14
 - TANK SLAYER: 16
 - MAMMOTH SLAYER: 16
 - GOLEM SLAYER: 17
@@ -106,6 +106,7 @@ Records from 464 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: ITALY: 1
 - possess: giant: 1
 - extinct: MINT: 1
+- possess: livingfortress: 1
 - portal: hydra: 2
 - extinct: ORANGE: 2
 - extinct: GREEN: 2
@@ -173,6 +174,7 @@ Records from 464 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 20:22: The House of the White Heron Take the Open Plains (2nd win · 47 kills)
 - 2026-11-07 20:07: The Golden Lion Order Take the Swamp Shrine (revenge denied · 7th win · 81 kills)
 - 2026-11-07 19:55: The Solar Wing Take the Swamp Shrine (revenge denied · 3 wins in a row · 79 kills)
 - 2026-11-07 19:37: The Silverbough Circle Take the Castle (revenge denied · 10th win · 135 kills)
@@ -182,4 +184,3 @@ Records from 464 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 18:39: The Greyfang Clan Take the Open Plains (revenge denied · 4th win · 41 kills)
 - 2026-11-07 18:25: The Kestrel Squadron Take the Open Plains (3 wins in a row · 99 kills)
 - 2026-11-07 18:12: The Oakshield Clan Take the Quarry (revenge denied · 6 wins in a row · 95 kills)
-- 2026-11-07 17:58: The Highmoor Clan Take the Sky Islands (7 wins in a row · 36 kills)
