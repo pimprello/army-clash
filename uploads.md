@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 04:58 | 30 HEROES vs Giant Army 🛡️ | Australia wins | https://youtube.com/shorts/RMpjtsypAt0 |
 | 2026-11-07 04:41 | 3 Armies, Only 1 SURVIVES 💀 | Crimson wins | https://youtube.com/shorts/tHpd1vhNOEM |
 | 2026-11-07 04:26 | MIRROR MATCH: Vikings vs VIKINGS 🪞 | Sweden wins | https://youtube.com/shorts/8F1SUwldDWw |
 | 2026-11-07 04:15 | The Zombies Got OUT OF CONTROL 🧟 | Mint wins | https://youtube.com/shorts/EJoncie9_as |

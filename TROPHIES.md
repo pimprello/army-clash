@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 401 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 402 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 401 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **TOVA THE MAD** (SWORDSMAN), 10 kills · 2026-11-07 04:58
 - **GRIM THE LUCKY** (BERSERKER), 12 kills · 2026-11-07 04:26
 - **NOMAD-9** (MACHINE GUNNER), 12 kills · 2026-11-07 04:15
 - **GRIM BONECRUSHER** (SAMURAI), 14 kills · 2026-11-07 03:43
@@ -47,7 +48,6 @@ Records from 401 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **OSKA THE UNBROKEN** (SWORDSMAN), 16 kills · 2026-11-06 09:49
 - **DRAVEN IRONHIDE** (WIZARD), 28 kills · 2026-11-06 07:19
 - **PELL BONECRUSHER** (WARLOCK), 10 kills · 2026-11-06 06:18
-- **GHOST-8** (LASER TROOPER), 10 kills · 2026-11-06 05:20
 
 ## Titles earned (rarest first)
 
@@ -74,9 +74,9 @@ Records from 401 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - MECH SLAYER: 10
 - PLAYER SLAYER: 12
 - TANK SLAYER: 14
-- GOLEM SLAYER: 14
+- GOLEM SLAYER: 15
 - MAMMOTH SLAYER: 16
-- GIANT SLAYER: 20
+- GIANT SLAYER: 21
 - DRAGON SLAYER: 23
 - TITAN SLAYER: 31
 
@@ -85,10 +85,10 @@ Records from 401 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 8
 - wings: 29
 - spellward: 38
-- swift: 60
+- swift: 61
 - venom: 65
 - spikes: 71
-- regen: 83
+- regen: 84
 
 ## Big moments
 
@@ -121,8 +121,8 @@ Records from 401 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: BLUE: 3
 - possess: cannon: 4
 - possess: treant: 4
-- portal: golem: 7
 - portal: cyclops: 8
+- portal: golem: 8
 - fusion: 9
 - portal: wolfrider: 9
 - portal: troll: 12
@@ -142,6 +142,7 @@ Records from 401 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Red Hawk Company | 15 | 10 | 5 | 495 | 2 lost | 5 |
 | Frostwhisper Tribe | 18 | 9 | 9 | 739 | 1 won | 4 |
 | Starweave Circle | 18 | 7 | 11 | 712 | 5 lost | 5 |
+| Storm Tower Order | 16 | 7 | 9 | 612 | 3 won | 3 |
 | Thornheart Circle | 9 | 7 | 2 | 596 | 3 won | 3 |
 | Raven Hill Clan | 10 | 7 | 3 | 406 | 1 won | 5 |
 | Oakshield Clan | 11 | 7 | 4 | 332 | 3 won | 3 |
@@ -149,29 +150,29 @@ Records from 401 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Silverbough Circle | 19 | 6 | 13 | 838 | 2 lost | 2 |
 | Stormhorn Tribe | 10 | 6 | 4 | 564 | 3 won | 3 |
 | Order of the Silver Stag | 13 | 6 | 7 | 557 | 1 lost | 3 |
-| Storm Tower Order | 15 | 6 | 9 | 550 | 2 won | 2 |
 | Copper Crown Company | 11 | 6 | 5 | 369 | 1 lost | 3 |
 | Emberroot Circle | 11 | 6 | 4 | 317 | 2 lost | 3 |
 | Golden Lion Order | 10 | 6 | 4 | 316 | 2 won | 3 |
 | Duskwing Tribe | 16 | 5 | 10 | 571 | 1 won | 2 |
+| Frostmere Clan | 13 | 5 | 8 | 462 | 1 won | 2 |
 | Hollowbark Kin | 14 | 5 | 9 | 414 | 1 won | 2 |
 | Nova Legion | 7 | 5 | 2 | 408 | 1 won | 2 |
 | Glimmerdeep Kin | 9 | 5 | 4 | 393 | 5 won | 5 |
-| Sunspire Kin | 10 | 5 | 5 | 317 | 1 won | 2 |
 
 ### Great rivalries
 
 - **Mossback Tribe vs Stormhorn Tribe**: met 4 times, last won by Stormhorn Tribe
+- **Frostmere Clan vs Greyfang Clan**: met 4 times, last won by Frostmere Clan
 - **Greyfang Clan vs Raven Hill Clan**: met 4 times, last won by Raven Hill Clan
 - **Frostwhisper Tribe vs Starweave Circle**: met 4 times, last won by Frostwhisper Tribe
 - **Brightwater Tribe vs Glimmerdeep Kin**: met 3 times, last won by Glimmerdeep Kin
 - **Greyfang Clan vs Order of the Silver Stag**: met 3 times, last won by Order of the Silver Stag
-- **Frostmere Clan vs Greyfang Clan**: met 3 times, last won by Frostmere Clan
 - **Crew of the Black Gull vs Order of the Silver Stag**: met 3 times, last won by Order of the Silver Stag
 - **Copper Crown Company vs Wildbrook Clan**: met 3 times, last won by Wildbrook Clan
 
 ### Latest from the battlefield
 
+- 2026-11-07 04:58: The Storm Tower Order Take the Sky-temple Relic (revenge denied · 3 wins in a row · 62 kills)
 - 2026-11-07 04:41: The Saltfang Crew Take the Open Plains (first ever win · 53 kills)
 - 2026-11-07 04:26: The Thornwood Company Take the Haunted Crypt (revenge! · 4 wins in a row · 75 kills)
 - 2026-11-07 04:15: The Frostwhisper Tribe Take the Sky-temple Relic (revenge denied · 9th win · 187 kills)
@@ -181,4 +182,3 @@ Records from 401 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 03:14: The House of the Silver Tiger Take the Desert Well (3rd win · 13 kills)
 - 2026-11-07 02:59: The Oakshield Clan Take the Overgrown Throne (3 wins in a row · 49 kills)
 - 2026-11-07 02:44: The Golden Lion Order Take the Open Plains (6th win · 34 kills)
-- 2026-11-07 02:30: The Nightjar Company Take the City (3rd win · 61 kills)
