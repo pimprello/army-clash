@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 391 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 392 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -172,6 +172,7 @@ Records from 391 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 02:30: The Nightjar Company Take the City (3rd win · 61 kills)
 - 2026-11-07 02:18: The Stonewall Company Take the Castle (3 wins in a row · 172 kills)
 - 2026-11-07 02:02: The Nova Legion Take the City (5th win · 72 kills)
 - 2026-11-07 01:44: The Nebula Cohort Take the Open Plains (first ever win · 29 kills)
@@ -181,4 +182,3 @@ Records from 391 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 00:45: The Bulldog Company Take the Open Plains (first ever win · 55 kills)
 - 2026-11-07 00:32: The Vortex Legion Take the Frozen End (revenge denied · 3 wins in a row · 66 kills)
 - 2026-11-07 00:16: The Order of the Silver Stag Take the Frozen End (revenge! · 6th win · 31 kills)
-- 2026-11-07 00:07: The Copper Crown Company Take the Castle (revenge denied · 5th win · 66 kills)
