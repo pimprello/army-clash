@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 07:56 | 👑 Protect the KING: Tank Army vs Giant Army | Mint wins | https://youtube.com/shorts/zrezuweyWVk |
 | 2026-11-07 07:38 | Half the Size and Still WON 😳 | Crimson wins | https://youtube.com/shorts/4P7cZtXMvPs |
 | 2026-11-07 07:24 | ⚔️ CHAMPION DUEL: Tank Army vs Snipers | Red wins | https://youtube.com/shorts/PUlwRXpOZ1k |
 | 2026-11-07 07:10 | LAST STAND: 16 Heroes vs Mega Liches 🛡️ | Red wins | https://youtube.com/shorts/7siMVoT3cIo |

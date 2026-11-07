@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 413 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 414 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -87,7 +87,7 @@ Records from 413 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 40
 - swift: 62
 - venom: 65
-- spikes: 71
+- spikes: 72
 - regen: 85
 
 ## Big moments
@@ -107,6 +107,7 @@ Records from 413 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: DENMARK: 1
 - extinct: ITALY: 1
 - possess: giant: 1
+- extinct: MINT: 1
 - extinct: ORANGE: 2
 - extinct: GREEN: 2
 - copied: knight: 2
@@ -150,14 +151,14 @@ Records from 413 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Mire Witch Coven | 8 | 7 | 1 | 289 | 1 lost | 7 |
 | Stormhorn Tribe | 10 | 6 | 4 | 564 | 3 won | 3 |
 | Order of the Silver Stag | 13 | 6 | 7 | 557 | 1 lost | 3 |
+| Frostmere Clan | 14 | 6 | 8 | 492 | 2 won | 2 |
 | Copper Crown Company | 11 | 6 | 5 | 369 | 1 lost | 3 |
 | Emberroot Circle | 12 | 6 | 5 | 360 | 3 lost | 3 |
 | Golden Lion Order | 11 | 6 | 5 | 339 | 1 lost | 3 |
+| Highmoor Clan | 10 | 6 | 4 | 325 | 5 won | 5 |
 | Thornwood Company | 8 | 6 | 2 | 268 | 5 won | 5 |
 | Wildbrook Clan | 17 | 5 | 12 | 712 | 1 lost | 1 |
 | Duskwing Tribe | 16 | 5 | 10 | 571 | 1 won | 2 |
-| Frostmere Clan | 13 | 5 | 8 | 462 | 1 won | 2 |
-| Hollowbark Kin | 14 | 5 | 9 | 414 | 1 won | 2 |
 
 ### Great rivalries
 
@@ -172,6 +173,7 @@ Records from 413 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 07:56: The Highmoor Clan Take the City (5 wins in a row · 49 kills)
 - 2026-11-07 07:38: The Thornheart Circle Take the Open Plains (4 wins in a row · 70 kills)
 - 2026-11-07 07:24: The Hammer Platoon Take the Reactor (streak ended · 4th win · 74 kills)
 - 2026-11-07 07:10: The Zenith Cohort Take the Bombed City (revenge denied · 2nd win · 11 kills)
@@ -181,4 +183,3 @@ Records from 413 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 06:13: The Thornwood Company Take the Trench Line (5 wins in a row · 82 kills)
 - 2026-11-07 05:57: The Starweave Circle Take the Quarry (revenge denied · 8th win · 40 kills)
 - 2026-11-07 05:42: The Silent Mile Take the Open Plains (3 wins in a row · 86 kills)
-- 2026-11-07 05:26: The Crew of the Sea Wolf Take the Clockwork Arena (2nd win · 54 kills)
