@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 396 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 397 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 396 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **GRIM BONECRUSHER** (SAMURAI), 14 kills · 2026-11-07 03:43
 - **SIRA THE BOLD** (SIEGE GUNNER), 20 kills · 2026-11-07 02:18
 - **RUNA GRAVEBANE** (KNIGHT), 12 kills · 2026-11-07 01:32
 - **GRUNDA FIREBRAND** (SIEGE GUNNER), 10 kills · 2026-11-06 18:04
@@ -47,7 +48,6 @@ Records from 396 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **GHOST-8** (LASER TROOPER), 10 kills · 2026-11-06 05:20
 - **OSKA THE WALL** (WIZARD), 11 kills · 2026-11-06 04:48
 - **IVOR THE WALL** (ORC), 18 kills · 2026-11-05 23:40
-- **BRAMBLE THE BOLD** (SWORDSMAN), 13 kills · 2026-11-05 23:11
 
 ## Titles earned (rarest first)
 
@@ -86,7 +86,7 @@ Records from 396 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - wings: 29
 - spellward: 38
 - swift: 58
-- venom: 63
+- venom: 64
 - spikes: 70
 - regen: 81
 
@@ -172,6 +172,7 @@ Records from 396 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 03:43: The Stone River School Take the Open Plains (3rd win · 89 kills)
 - 2026-11-07 03:29: The Granite Battalion Take the Quarry (4th win · 40 kills)
 - 2026-11-07 03:14: The House of the Silver Tiger Take the Desert Well (3rd win · 13 kills)
 - 2026-11-07 02:59: The Oakshield Clan Take the Overgrown Throne (3 wins in a row · 49 kills)
@@ -181,4 +182,3 @@ Records from 396 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 02:02: The Nova Legion Take the City (5th win · 72 kills)
 - 2026-11-07 01:44: The Nebula Cohort Take the Open Plains (first ever win · 29 kills)
 - 2026-11-07 01:32: The Raven Hill Clan Take the Frozen End (revenge denied · 4 wins in a row · 55 kills)
-- 2026-11-07 01:18: The Crooked Spire Take the Clockwork Arena (3rd win · 58 kills)
