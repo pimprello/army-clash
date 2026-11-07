@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 440 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 441 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -74,8 +74,8 @@ Records from 440 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PLAYER SLAYER: 12
 - CANNON SLAYER: 13
 - TANK SLAYER: 15
-- GOLEM SLAYER: 16
 - MAMMOTH SLAYER: 16
+- GOLEM SLAYER: 17
 - GIANT SLAYER: 23
 - DRAGON SLAYER: 24
 - TITAN SLAYER: 32
@@ -141,13 +141,13 @@ Records from 440 battles with trophies (videos from 1 November 2026 on). Rebuilt
 |---|---|---|---|---|---|---|
 | Red Hawk Company | 18 | 13 | 5 | 721 | 3 won | 5 |
 | Mossback Tribe | 18 | 13 | 5 | 720 | 1 lost | 7 |
-| Silverbough Circle | 23 | 9 | 14 | 1033 | 1 lost | 3 |
+| Silverbough Circle | 24 | 9 | 15 | 1070 | 2 lost | 3 |
 | Frostwhisper Tribe | 18 | 9 | 9 | 739 | 1 won | 4 |
 | Thornheart Circle | 11 | 9 | 2 | 678 | 5 won | 5 |
 | Oakshield Clan | 13 | 9 | 4 | 437 | 5 won | 5 |
 | Thornwood Company | 11 | 9 | 2 | 348 | 8 won | 8 |
 | Starweave Circle | 21 | 8 | 13 | 778 | 2 lost | 5 |
-| Frostmere Clan | 18 | 8 | 10 | 701 | 1 lost | 3 |
+| Frostmere Clan | 19 | 8 | 11 | 725 | 2 lost | 3 |
 | Storm Tower Order | 17 | 7 | 10 | 662 | 1 lost | 3 |
 | Stormhorn Tribe | 11 | 7 | 4 | 578 | 4 won | 4 |
 | Hollowbark Kin | 16 | 7 | 9 | 502 | 3 won | 3 |
@@ -158,7 +158,7 @@ Records from 440 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Mire Witch Coven | 9 | 7 | 2 | 322 | 2 lost | 7 |
 | Wildbrook Clan | 19 | 6 | 13 | 766 | 1 won | 1 |
 | Order of the Silver Stag | 13 | 6 | 7 | 557 | 1 lost | 3 |
-| Golden Lion Order | 12 | 6 | 6 | 346 | 2 lost | 3 |
+| Brightwater Tribe | 15 | 6 | 9 | 369 | 2 won | 2 |
 
 ### Great rivalries
 
@@ -173,6 +173,7 @@ Records from 440 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 14:30: The Brightwater Tribe Take the Open Plains (6th win · 56 kills)
 - 2026-11-07 14:16: The Stonebridge Company Take the Treasure Cove (revenge! · 4th win · 75 kills)
 - 2026-11-07 14:02: The Rotting Choir Take the Ruined Fort (revenge denied · 5 wins in a row · 232 kills)
 - 2026-11-07 13:47: The Oakshield Clan Take the Swamp Shrine (revenge denied · 5 wins in a row · 64 kills)
@@ -182,4 +183,3 @@ Records from 440 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 12:47: The Nightjar Company Take the Neon District (streak ended · 3 wins in a row · 50 kills)
 - 2026-11-07 12:33: The Brightwater Tribe Take the Open Plains (5th win · 43 kills)
 - 2026-11-07 12:18: The Lynx Company Take the City (first ever win · 58 kills)
-- 2026-11-07 12:04: The Rotting Choir Take the Neon District (4 wins in a row · 67 kills)

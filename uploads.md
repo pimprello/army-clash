@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 14:30 | Ghost Bombers vs Chaos Legion vs Storm Monks 🤯 | Purple wins | https://youtube.com/shorts/kLdGgN0O16o |
 | 2026-11-07 14:16 | They Lost Their CHIEF and Still Won 😳 | Purple wins | https://youtube.com/shorts/bTM5_R6raGI |
 | 2026-11-07 14:02 | Hold the HILL to Win? Frost Knights vs Omega Spears 🚩 | Brown wins | https://youtube.com/shorts/k-J21jmin-0 |
 | 2026-11-07 13:47 | The Weapons Came ALIVE 🗡️ | Gold wins | https://youtube.com/shorts/_IY9TdwHAVs |
