@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 408 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 409 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -85,7 +85,7 @@ Records from 408 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 8
 - wings: 30
 - spellward: 39
-- swift: 61
+- swift: 62
 - venom: 65
 - spikes: 71
 - regen: 85
@@ -146,7 +146,7 @@ Records from 408 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Storm Tower Order | 16 | 7 | 9 | 612 | 3 won | 3 |
 | Thornheart Circle | 9 | 7 | 2 | 596 | 3 won | 3 |
 | Raven Hill Clan | 10 | 7 | 3 | 406 | 1 won | 5 |
-| Mire Witch Coven | 7 | 7 | 0 | 247 | 7 won | 7 |
+| Mire Witch Coven | 8 | 7 | 1 | 289 | 1 lost | 7 |
 | Silverbough Circle | 19 | 6 | 13 | 838 | 2 lost | 2 |
 | Stormhorn Tribe | 10 | 6 | 4 | 564 | 3 won | 3 |
 | Order of the Silver Stag | 13 | 6 | 7 | 557 | 1 lost | 3 |
@@ -172,6 +172,7 @@ Records from 408 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 06:39: The Black Bear Clan Take the Open Plains (5th win · 6 kills)
 - 2026-11-07 06:25: The Highmoor Clan Take the Mountain Pass (revenge! · 4 wins in a row · 45 kills)
 - 2026-11-07 06:13: The Thornwood Company Take the Trench Line (5 wins in a row · 82 kills)
 - 2026-11-07 05:57: The Starweave Circle Take the Quarry (revenge denied · 8th win · 40 kills)
@@ -181,4 +182,3 @@ Records from 408 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 04:58: The Storm Tower Order Take the Sky-temple Relic (revenge denied · 3 wins in a row · 62 kills)
 - 2026-11-07 04:41: The Saltfang Crew Take the Open Plains (first ever win · 53 kills)
 - 2026-11-07 04:26: The Thornwood Company Take the Haunted Crypt (revenge! · 4 wins in a row · 75 kills)
-- 2026-11-07 04:15: The Frostwhisper Tribe Take the Sky-temple Relic (revenge denied · 9th win · 187 kills)
