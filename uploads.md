@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 09:48 | MIRROR MATCH: Ninjas vs NINJAS 🪞 | Yellow wins | https://youtube.com/shorts/w2VGth_J3V4 |
 | 2026-11-07 09:37 | Pick ONE: Empire, Legion, Warband 👇 | Olive wins | https://youtube.com/shorts/G3BRcxNuw84 |
 | 2026-11-07 09:23 | Warriors vs SOLDIERS ⚔️ | Navy wins | https://youtube.com/shorts/zVLh0lVunZA |
 | 2026-11-07 09:07 | 🔥 ROYAL BLADES vs Lunar Goblins | Yellow wins | https://youtube.com/shorts/KZfTE_iP-8g |

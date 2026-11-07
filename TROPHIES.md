@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 421 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 422 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -173,6 +173,7 @@ Records from 421 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 09:48: The Falling Leaf School Take the Old Forest (streak ended · 2nd win · 78 kills)
 - 2026-11-07 09:37: The Red Hawk Company Take the Open Plains (12th win · 112 kills)
 - 2026-11-07 09:23: The Frostmere Clan Take the Godboard (revenge! · 3 wins in a row · 65 kills)
 - 2026-11-07 09:07: The Thornwood Company Take the Overgrown Throne (revenge denied · 7 wins in a row · 36 kills)
@@ -182,4 +183,3 @@ Records from 421 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 08:06: The Red Hawk Company Take the World Furnace (11th win · 47 kills)
 - 2026-11-07 07:56: The Highmoor Clan Take the City (5 wins in a row · 49 kills)
 - 2026-11-07 07:38: The Thornheart Circle Take the Open Plains (4 wins in a row · 70 kills)
-- 2026-11-07 07:24: The Hammer Platoon Take the Reactor (streak ended · 4th win · 74 kills)
