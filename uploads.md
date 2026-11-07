@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 06:25 | A PORTAL Opened Mid-Battle 🌀 | Green wins | https://youtube.com/shorts/FIN3TqBVfkQ |
 | 2026-11-07 06:13 | ⚔️ CHAMPION DUEL: Wild Mirrors vs Ultra Legion | Green wins | https://youtube.com/shorts/6pKNAhPK9Mo |
 | 2026-11-07 05:57 | LIGHTNING Struck the Battlefield ⚡ | Portugal wins | https://youtube.com/shorts/1fhqbpO2QWs |
 | 2026-11-07 05:42 | The Smaller Army Did WHAT? 😳 | Blue wins | https://youtube.com/shorts/X3mf9_Qcg3I |

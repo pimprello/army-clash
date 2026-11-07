@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 407 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 408 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -88,7 +88,7 @@ Records from 407 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - swift: 61
 - venom: 65
 - spikes: 71
-- regen: 84
+- regen: 85
 
 ## Big moments
 
@@ -125,11 +125,11 @@ Records from 407 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: golem: 8
 - fusion: 9
 - portal: wolfrider: 9
-- portal: troll: 12
 - portal: demon: 13
+- portal: troll: 13
 - sudden: ring: 14
 - sudden: boss: 17
-- sudden: lava: 20
+- sudden: lava: 21
 - sudden: meteors: 23
 
 ## The tribes' chronicle
@@ -142,19 +142,19 @@ Records from 407 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Red Hawk Company | 15 | 10 | 5 | 495 | 2 lost | 5 |
 | Frostwhisper Tribe | 18 | 9 | 9 | 739 | 1 won | 4 |
 | Starweave Circle | 19 | 8 | 11 | 752 | 1 won | 5 |
+| Oakshield Clan | 12 | 8 | 4 | 373 | 4 won | 4 |
 | Storm Tower Order | 16 | 7 | 9 | 612 | 3 won | 3 |
 | Thornheart Circle | 9 | 7 | 2 | 596 | 3 won | 3 |
 | Raven Hill Clan | 10 | 7 | 3 | 406 | 1 won | 5 |
-| Oakshield Clan | 11 | 7 | 4 | 332 | 3 won | 3 |
 | Mire Witch Coven | 7 | 7 | 0 | 247 | 7 won | 7 |
 | Silverbough Circle | 19 | 6 | 13 | 838 | 2 lost | 2 |
 | Stormhorn Tribe | 10 | 6 | 4 | 564 | 3 won | 3 |
 | Order of the Silver Stag | 13 | 6 | 7 | 557 | 1 lost | 3 |
 | Copper Crown Company | 11 | 6 | 5 | 369 | 1 lost | 3 |
 | Emberroot Circle | 12 | 6 | 5 | 360 | 3 lost | 3 |
-| Golden Lion Order | 10 | 6 | 4 | 316 | 2 won | 3 |
+| Golden Lion Order | 11 | 6 | 5 | 339 | 1 lost | 3 |
 | Thornwood Company | 8 | 6 | 2 | 268 | 5 won | 5 |
-| Wildbrook Clan | 16 | 5 | 11 | 624 | 1 won | 1 |
+| Wildbrook Clan | 17 | 5 | 12 | 712 | 1 lost | 1 |
 | Duskwing Tribe | 16 | 5 | 10 | 571 | 1 won | 2 |
 | Frostmere Clan | 13 | 5 | 8 | 462 | 1 won | 2 |
 | Hollowbark Kin | 14 | 5 | 9 | 414 | 1 won | 2 |
@@ -172,6 +172,7 @@ Records from 407 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 06:25: The Highmoor Clan Take the Mountain Pass (revenge! · 4 wins in a row · 45 kills)
 - 2026-11-07 06:13: The Thornwood Company Take the Trench Line (5 wins in a row · 82 kills)
 - 2026-11-07 05:57: The Starweave Circle Take the Quarry (revenge denied · 8th win · 40 kills)
 - 2026-11-07 05:42: The Silent Mile Take the Open Plains (3 wins in a row · 86 kills)
@@ -181,4 +182,3 @@ Records from 407 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 04:41: The Saltfang Crew Take the Open Plains (first ever win · 53 kills)
 - 2026-11-07 04:26: The Thornwood Company Take the Haunted Crypt (revenge! · 4 wins in a row · 75 kills)
 - 2026-11-07 04:15: The Frostwhisper Tribe Take the Sky-temple Relic (revenge denied · 9th win · 187 kills)
-- 2026-11-07 03:58: The Raven Hill Clan Take the Open Plains (revenge denied · 5 wins in a row · 51 kills)
