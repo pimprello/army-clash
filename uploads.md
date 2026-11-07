@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 18:53 | 🇪🇸 Spain vs Portugal 🇵🇹 | Spain wins | https://youtube.com/shorts/OkP5Rp7BdYs |
 | 2026-11-07 18:39 | LIGHTNING Struck the Battlefield ⚡ | Pink wins | https://youtube.com/shorts/dTF-kWXdR3I |
 | 2026-11-07 18:25 | One Giant Got 38 KILLS 😳 | Red wins | https://youtube.com/shorts/MF48PV9Bt_w |
 | 2026-11-07 18:12 | Hold the HILL to Win? Knights vs Soldiers 🚩 | Lavender wins | https://youtube.com/shorts/TaiJFG06jBQ |

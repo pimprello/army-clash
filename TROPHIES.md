@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 458 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 459 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -144,10 +144,10 @@ Records from 458 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Oakshield Clan | 14 | 10 | 4 | 532 | 6 won | 6 |
 | Thornwood Company | 13 | 10 | 3 | 396 | 1 lost | 9 |
 | Silverbough Circle | 24 | 9 | 15 | 1070 | 2 lost | 3 |
+| Starweave Circle | 23 | 9 | 14 | 881 | 1 won | 5 |
 | Frostwhisper Tribe | 18 | 9 | 9 | 739 | 1 won | 4 |
 | Thornheart Circle | 11 | 9 | 2 | 678 | 5 won | 5 |
 | Mire Witch Coven | 11 | 9 | 2 | 395 | 2 won | 7 |
-| Starweave Circle | 22 | 8 | 14 | 830 | 3 lost | 5 |
 | Frostmere Clan | 20 | 8 | 12 | 731 | 3 lost | 3 |
 | Hollowbark Kin | 18 | 8 | 10 | 586 | 1 won | 3 |
 | Raven Hill Clan | 15 | 8 | 7 | 535 | 1 won | 5 |
@@ -173,6 +173,7 @@ Records from 458 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 18:53: The Starweave Circle Take the Treasure Cove (9th win · 51 kills)
 - 2026-11-07 18:39: The Greyfang Clan Take the Open Plains (revenge denied · 4th win · 41 kills)
 - 2026-11-07 18:25: The Kestrel Squadron Take the Open Plains (3 wins in a row · 99 kills)
 - 2026-11-07 18:12: The Oakshield Clan Take the Quarry (revenge denied · 6 wins in a row · 95 kills)
@@ -182,4 +183,3 @@ Records from 458 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 17:12: The Kestrel Squadron Take the Neon District (streak ended · 4th win · 39 kills)
 - 2026-11-07 16:57: The Ghoul Hollow Coven Take the Titan's Bones (streak ended · 2nd win · 37 kills)
 - 2026-11-07 16:44: The Viper Company Take the Quarry (3rd win · 53 kills)
-- 2026-11-07 16:28: The Prism Cohort Take the Open Plains (first ever win · 28 kills)
