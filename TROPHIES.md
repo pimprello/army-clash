@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 418 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 419 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -54,11 +54,11 @@ Records from 418 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - CATAPULT SLAYER: 2
 - GRAVITY TYRANT SLAYER: 3
 - KNIGHT SLAYER: 4
-- MIRROR KING SLAYER: 5
 - CATHEDRAL SLAYER: 5
 - HELICOPTER SLAYER: 5
 - WORLDROOT SLAYER: 5
 - EXECUTIONER SLAYER: 5
+- MIRROR KING SLAYER: 6
 - PHOENIX SLAYER: 6
 - THOUSAND-MAN SLAYER: 6
 - STAR EATER SLAYER: 6
@@ -69,12 +69,12 @@ Records from 418 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - HYDRA SLAYER: 8
 - COLOSSUS SLAYER: 8
 - ELEPHANT SLAYER: 9
-- CYCLOPS SLAYER: 9
+- CYCLOPS SLAYER: 10
 - MECH SLAYER: 10
 - CANNON SLAYER: 11
 - PLAYER SLAYER: 12
 - TANK SLAYER: 15
-- GOLEM SLAYER: 15
+- GOLEM SLAYER: 16
 - MAMMOTH SLAYER: 16
 - GIANT SLAYER: 22
 - DRAGON SLAYER: 23
@@ -123,15 +123,15 @@ Records from 418 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - possess: cannon: 4
 - possess: treant: 4
 - portal: cyclops: 8
-- portal: golem: 8
 - fusion: 9
+- portal: golem: 9
 - portal: wolfrider: 9
 - portal: demon: 13
 - portal: troll: 13
 - sudden: ring: 15
 - sudden: boss: 17
-- sudden: lava: 22
 - sudden: meteors: 23
+- sudden: lava: 23
 
 ## The tribes' chronicle
 
@@ -145,10 +145,10 @@ Records from 418 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Thornheart Circle | 11 | 9 | 2 | 678 | 5 won | 5 |
 | Starweave Circle | 20 | 8 | 12 | 758 | 1 lost | 5 |
 | Oakshield Clan | 12 | 8 | 4 | 373 | 4 won | 4 |
+| Thornwood Company | 10 | 8 | 2 | 345 | 7 won | 7 |
 | Silverbough Circle | 20 | 7 | 13 | 846 | 1 won | 2 |
 | Storm Tower Order | 16 | 7 | 9 | 612 | 3 won | 3 |
 | Raven Hill Clan | 10 | 7 | 3 | 406 | 1 won | 5 |
-| Thornwood Company | 9 | 7 | 2 | 309 | 6 won | 6 |
 | Mire Witch Coven | 8 | 7 | 1 | 289 | 1 lost | 7 |
 | Stormhorn Tribe | 10 | 6 | 4 | 564 | 3 won | 3 |
 | Order of the Silver Stag | 13 | 6 | 7 | 557 | 1 lost | 3 |
@@ -158,21 +158,22 @@ Records from 418 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Golden Lion Order | 12 | 6 | 6 | 346 | 2 lost | 3 |
 | Highmoor Clan | 10 | 6 | 4 | 325 | 5 won | 5 |
 | Iron Boar Clan | 9 | 6 | 3 | 225 | 1 won | 3 |
-| Wildbrook Clan | 17 | 5 | 12 | 712 | 1 lost | 1 |
+| Bone Garden Coven | 10 | 6 | 4 | 134 | 1 won | 3 |
 
 ### Great rivalries
 
 - **Mossback Tribe vs Stormhorn Tribe**: met 4 times, last won by Stormhorn Tribe
+- **Black Bear Clan vs Thornwood Company**: met 4 times, last won by Thornwood Company
 - **Frostmere Clan vs Greyfang Clan**: met 4 times, last won by Frostmere Clan
 - **Greyfang Clan vs Raven Hill Clan**: met 4 times, last won by Raven Hill Clan
 - **Gloomcap Circle vs Starweave Circle**: met 4 times, last won by Starweave Circle
 - **Frostwhisper Tribe vs Starweave Circle**: met 4 times, last won by Frostwhisper Tribe
 - **Brightwater Tribe vs Glimmerdeep Kin**: met 3 times, last won by Glimmerdeep Kin
 - **Greyfang Clan vs Order of the Silver Stag**: met 3 times, last won by Order of the Silver Stag
-- **Black Bear Clan vs Thornwood Company**: met 3 times, last won by Thornwood Company
 
 ### Latest from the battlefield
 
+- 2026-11-07 09:07: The Thornwood Company Take the Overgrown Throne (revenge denied · 7 wins in a row · 36 kills)
 - 2026-11-07 08:53: The Thornwood Company Take the Frozen End (revenge denied · 6 wins in a row · 41 kills)
 - 2026-11-07 08:40: The Nightshade Coven Take the Open Plains (2nd win · 84 kills)
 - 2026-11-07 08:23: The Wolverine Company Take the Castle (streak ended · 4th win · 107 kills)
@@ -182,4 +183,3 @@ Records from 418 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 07:24: The Hammer Platoon Take the Reactor (streak ended · 4th win · 74 kills)
 - 2026-11-07 07:10: The Zenith Cohort Take the Bombed City (revenge denied · 2nd win · 11 kills)
 - 2026-11-07 06:56: The Copperhead Battalion Take the Neon District (streak ended · 4th win · 55 kills)
-- 2026-11-07 06:39: The Black Bear Clan Take the Open Plains (5th win · 6 kills)
