@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 388 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 389 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -77,7 +77,7 @@ Records from 388 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - GOLEM SLAYER: 14
 - MAMMOTH SLAYER: 14
 - GIANT SLAYER: 19
-- DRAGON SLAYER: 20
+- DRAGON SLAYER: 21
 - TITAN SLAYER: 31
 
 ## Mutations (rarest first)
@@ -88,7 +88,7 @@ Records from 388 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - swift: 55
 - venom: 62
 - spikes: 68
-- regen: 77
+- regen: 78
 
 ## Big moments
 
@@ -140,7 +140,7 @@ Records from 388 battles with trophies (videos from 1 November 2026 on). Rebuilt
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 16 | 12 | 4 | 608 | 1 lost | 7 |
 | Red Hawk Company | 14 | 10 | 4 | 475 | 1 lost | 5 |
-| Frostwhisper Tribe | 14 | 8 | 6 | 443 | 1 lost | 4 |
+| Frostwhisper Tribe | 15 | 8 | 7 | 492 | 2 lost | 4 |
 | Starweave Circle | 18 | 7 | 11 | 712 | 5 lost | 5 |
 | Thornheart Circle | 9 | 7 | 2 | 596 | 3 won | 3 |
 | Mire Witch Coven | 7 | 7 | 0 | 247 | 7 won | 7 |
@@ -172,6 +172,7 @@ Records from 388 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 01:44: The Nebula Cohort Take the Open Plains (first ever win · 29 kills)
 - 2026-11-07 01:32: The Raven Hill Clan Take the Frozen End (revenge denied · 4 wins in a row · 55 kills)
 - 2026-11-07 01:18: The Crooked Spire Take the Clockwork Arena (3rd win · 58 kills)
 - 2026-11-07 01:02: The Stormhorn Tribe Take the Quarry (revenge! · 3 wins in a row · 53 kills)
@@ -181,4 +182,3 @@ Records from 388 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 00:07: The Copper Crown Company Take the Castle (revenge denied · 5th win · 66 kills)
 - 2026-11-06 23:47: The Nightshade Coven Take the Open Plains (first ever win · 50 kills)
 - 2026-11-06 23:34: The Ash Wolf Clan Take the Treasure Cove (revenge denied · 4th win · 106 kills)
-- 2026-11-06 23:20: The Rotting Choir Take the Bombed City (3 wins in a row · 37 kills)
