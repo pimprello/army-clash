@@ -7098,6 +7098,7 @@ const RVB = (() => {
     D2('TESLAS', 'trooper', { tesla: 0.4, trooper: 0.4, robot: 0.2 }));
   GENRES.pirate.push(D2('HOOKS', 'pirate', { hookman: 0.35, pirate: 0.4, musketeer: 0.25 }), D2('POWDER', 'pirate', { bomber: 0.3, pirate: 0.45, musketeer: 0.25 }));
   GENRES.samurai.push(D2('SUMO', 'ninja', { sumo: 0.25, samurai: 0.4, ninja: 0.35 }), D2('SHADOWS', 'ninja', { shadowninja: 0.45, ninja: 0.3, samurai: 0.25 }));
+  Object.assign(DOC_LABEL, { GRAVEWITCHES: 'GRAVE WITCHES', TIMEKEEPERS: 'TIME TRAVELLERS', '3D': 'MR 3D CREW', BEEKEEPERS: 'BEEKEEPERS', JETPACKS: 'JETPACK SQUAD', GUNSLINGERS: 'GUNSLINGERS', PYROS: 'FLAMETHROWERS', TESLAS: 'TESLA SQUAD', HOOKS: 'CHAIN HOOKS', POWDER: 'POWDER CREW', FEAST: 'WAR CHEFS', CIRCUS: 'JESTERS', DREAMERS: 'SANDMEN', AXES: 'AXE THROWERS', MINSTRELS: 'BARDS' });
   const UNIVERSE_ARMIES = ['skeleton', 'robot', 'ninja', 'pirate', 'orc', 'trooper', 'zombie', 'elf', 'samurai', 'vampire', 'dwarf', 'imp'];
 
   const ARMY_EXT2 = {

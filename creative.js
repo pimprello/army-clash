@@ -213,13 +213,15 @@ async function tune(optsFor, { sims = 16, steps = 5, seed = 1, start = 1, spread
 }
 
 // A three-way creative match-up: three made-up teams that each lead with a different troop.
-function invent3(seed, { melee } = {}) {
+function invent3(seed, { melee, fresh } = {}) {
   const R = RVB.rng((seed ^ 0x3A3A3A) >>> 0);
   const sides = [];
+  let f = fresh ? Object.assign({}, fresh) : undefined;
   for (let t = 0; t < 3; t++) {
-    let s = inventSide(R, sides.map(x => Object.keys(x.mix)[0]), melee);
-    for (let k = 0; k < 6 && sides.some(x => x.name.split(' ')[0] === s.name.split(' ')[0] || x.name === s.name); k++) s = inventSide(R, sides.map(x => Object.keys(x.mix)[0]), melee);
+    let s = inventSide(R, sides.map(x => Object.keys(x.mix)[0]), melee, f);
+    for (let k = 0; k < 6 && sides.some(x => x.name.split(' ')[0] === s.name.split(' ')[0] || x.name === s.name); k++) s = inventSide(R, sides.map(x => Object.keys(x.mix)[0]), melee, f);
     sides.push(s);
+    if (f) for (const k of Object.keys(s.mix)) f[k] = (f[k] || 0) + 5;
   }
   return { three: sides, wild: true };
 }

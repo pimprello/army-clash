@@ -85,7 +85,13 @@ const combat = rules.combat && rules.combat.on !== false ? rules.combat : null;
 const fresh = (() => {
   if (!(rules.creative && rules.creative.fresh)) return undefined;
   const f = {};
-  for (const v of pastVideos.slice(-150)) for (const k of v.units || []) f[k] = (f[k] || 0) + 1;
+  const docs = {}; for (const d of RVB.ALL_DOCTRINES()) docs[d.name] = d;
+  const typesOf = side => (side && typeof side === 'object' ? Object.keys(side.mix || {}).concat(side.heavy || []) : docs[side] ? Object.keys(docs[side].mix || {}).concat(docs[side].heavy || []) : []);
+  for (const v of pastVideos.slice(-150)) {
+    // (older videos didn't save their troop types: work them out from the armies)
+    const list = v.units || [...new Set([].concat(...(v.sides || v.armies || []).map(typesOf)))];
+    for (const k of list) f[k] = (f[k] || 0) + 1;
+  }
   return f;
 })();
 const melee = combat && combat.creativeMelee ? Object.assign({ melee: combat.creativeMelee }, fresh ? { fresh } : {}) : fresh ? { fresh } : undefined;

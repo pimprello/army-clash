@@ -2,6 +2,16 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-07 (later still): 30 new characters, more varied match-ups
+
+Rellz asked for "a variety of characters and a variety of mashups, more diverse matchups and more frequently seeing new characters". On from the next video.
+
+- **30 new original troops** (plus a watchtower, a war totem and one-hit skeletons they make), each with its own move and drawing:
+  Builder (builds watchtowers), Barrel Bomber (runs in and blows up), Grave Witch (raises skeletons), Totem Shaman (war totems make friends hit harder and faster), Dark Goblin (backstabs, steals gold), **Time Traveller** (when his king, chief or giant falls, he goes back in time and saves them; otherwise he rewinds everyone's wounds), **Mr 3D** (goes 3D: the battlefield turns red and cyan and he hits three times as hard, knocking enemies back), Juggernaut (tougher the more hurt he is, can't be knocked back), Chain Hook (drags shooters in), Bard (songs speed friends up), Beekeeper (bee swarms), War Chef (pies slow, feasts heal), Jester (confetti makes enemies laugh and freeze), Mimic (a treasure chest that bites), Jetpack Trooper, Werewolf (turns into a wolf when hurt), Oracle (marks the biggest threat for everyone to focus), Balloon Bomber, Sumo (stomps everyone back), Sandman (puts groups to sleep), Valkyrie (dives from the sky), Paladin (holy shields on the wounded), Flamethrower, Medic Drone, Yeti, Shadow Ninja (shadow clones), Gunslinger (six fast shots, then reload), Axe Thrower, Gorgon (turns enemies to stone), Phalanx (shield wall) and Tesla Gunner (lightning jumps between enemies). 146 troop types in all.
+- **31 new armies** built around them, and 34 new match-ups spread through the rotation.
+- **Freshness** (`rules.creative.fresh`): invented match-ups now pick the troops seen least lately, so new characters turn up first and every troop keeps coming round. Teams more often bring a third troop type.
+- Tested: every new army in battles on both sides (no errors), still frames of the new troops in action, and a full test render of an invented three-way battle with Barrel Bombers, Paladins and Yetis.
+
 ## 2026-11-07 (later): two uploads a day, at 10am and 10pm
 
 Rellz asked to stop uploading and post only 2 videos a day: one straight away, then always at 10am and 10pm.

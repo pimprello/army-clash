@@ -659,6 +659,10 @@
       "combatBalance": 1.097
     },
     {
+      "top": "BUILDERS",
+      "bottom": "VIKINGS"
+    },
+    {
       "top": "HORDE",
       "bottom": "ELVES",
       "balance": 0.844,
@@ -675,6 +679,10 @@
       "bottom": "DRAGON",
       "balance": 1.066,
       "combatBalance": 1.223
+    },
+    {
+      "top": "BOMBERS",
+      "bottom": "KNIGHTS"
     },
     {
       "era": "modern",
@@ -720,6 +728,10 @@
       "combatBalance": 0.955
     },
     {
+      "top": "JUGGERNAUTS",
+      "bottom": "ORCS"
+    },
+    {
       "top": "KNIGHTS",
       "bottom": "ARCHERS",
       "troops": [
@@ -744,6 +756,10 @@
       "combatBalance": 0.94
     },
     {
+      "top": "MINSTRELS",
+      "bottom": "SAMURAI"
+    },
+    {
       "top": "PIRATES",
       "bottom": "BUCCANEERS",
       "balance": 1,
@@ -765,6 +781,10 @@
       "combatBalance": 1.025
     },
     {
+      "top": "BEEKEEPERS",
+      "bottom": "PIRATES"
+    },
+    {
       "top": "NINJAS",
       "bottom": "SNIPERS",
       "balance": 1,
@@ -782,6 +802,10 @@
       "bottom": "GIANT",
       "balance": 1.61,
       "combatBalance": 2.119
+    },
+    {
+      "top": "FEAST",
+      "bottom": "ZOMBIES"
     },
     {
       "top": "ZOMBIES",
@@ -806,6 +830,10 @@
       "combatBalance": 0.859
     },
     {
+      "top": "CIRCUS",
+      "bottom": "NINJAS"
+    },
+    {
       "top": "SAMURAI",
       "bottom": "NINJAS",
       "balance": 0.944,
@@ -825,6 +853,10 @@
       ],
       "balance": 1.09,
       "combatBalance": 0.95
+    },
+    {
+      "top": "BALLOONS",
+      "bottom": "INFANTRY"
     },
     {
       "top": {
@@ -866,6 +898,10 @@
       "combatBalance": 0.74
     },
     {
+      "top": "PALADINS",
+      "bottom": "ZOMBIES"
+    },
+    {
       "top": "BUCCANEERS",
       "bottom": "ARMORED",
       "balance": 0.456,
@@ -887,6 +923,10 @@
       "combatBalance": 0.822
     },
     {
+      "top": "PHALANX",
+      "bottom": "VIKINGS"
+    },
+    {
       "top": "GIANT",
       "bottom": "ARCHERS",
       "troops": [
@@ -906,6 +946,10 @@
       "bottom": "ORCS",
       "balance": 1.24,
       "combatBalance": 1.328
+    },
+    {
+      "top": "TOTEMS",
+      "bottom": "KNIGHTS"
     },
     {
       "top": "SWARM",
@@ -933,6 +977,10 @@
       "combatBalance": 0.92
     },
     {
+      "top": "GOBLINS",
+      "bottom": "ELVES"
+    },
+    {
       "top": "DRAGON",
       "bottom": "ARMORED",
       "balance": 1.08,
@@ -952,6 +1000,10 @@
       ],
       "balance": 0.89,
       "combatBalance": 0.89
+    },
+    {
+      "top": "MIMICS",
+      "bottom": "PIRATES"
     },
     {
       "top": "ARCHERS",
@@ -995,6 +1047,10 @@
       "combatBalance": 1.624
     },
     {
+      "top": "ORACLES",
+      "bottom": "ORCS"
+    },
+    {
       "top": "BALANCED",
       "bottom": "BALANCED",
       "troops": [
@@ -1016,6 +1072,10 @@
       "bottom": "ARMORED",
       "balance": 0.619,
       "combatBalance": 0.619
+    },
+    {
+      "top": "DREAMERS",
+      "bottom": "SAMURAI"
     },
     {
       "top": "SWARM",
@@ -1041,6 +1101,10 @@
       "balance": 0.92
     },
     {
+      "top": "VALKYRIES",
+      "bottom": "ZOMBIES"
+    },
+    {
       "top": "PIRATES",
       "bottom": "VIKINGS",
       "balance": 0.96
@@ -1058,6 +1122,10 @@
       "top": "TROOPERS",
       "bottom": "ARCHERS",
       "balance": 1.785
+    },
+    {
+      "top": "YETIS",
+      "bottom": "BUCCANEERS"
     },
     {
       "top": "DRAGON",
@@ -1095,6 +1163,10 @@
       "balance": 1.139
     },
     {
+      "top": "AXES",
+      "bottom": "KNIGHTS"
+    },
+    {
       "era": "modern",
       "top": "COMBINED",
       "bottom": "ARMORED",
@@ -1114,6 +1186,10 @@
       "balance": 0.711
     },
     {
+      "top": "GORGONS",
+      "bottom": "VIKINGS"
+    },
+    {
       "top": "VAMPIRES",
       "bottom": "SAMURAI",
       "balance": 1.22
@@ -1127,6 +1203,10 @@
       "top": "EMPIRE",
       "bottom": "WARBAND",
       "balance": 1.164
+    },
+    {
+      "top": "GRAVEWITCHES",
+      "bottom": "PALADINS"
     },
     {
       "top": "LEGION",
@@ -1144,6 +1224,10 @@
       "balance": 1.017
     },
     {
+      "top": "WEREWOLVES",
+      "bottom": "KNIGHTS"
+    },
+    {
       "top": "CAVALRY",
       "bottom": "LONGBOWS",
       "balance": 0.74
@@ -1157,6 +1241,10 @@
       "top": "TITAN",
       "bottom": "ARMORED",
       "balance": 1.283
+    },
+    {
+      "top": "JETPACKS",
+      "bottom": "ASSAULT"
     },
     {
       "top": "HYDRA",
@@ -1174,6 +1262,10 @@
       "balance": 0.661
     },
     {
+      "top": "GUNSLINGERS",
+      "bottom": "PIRATES"
+    },
+    {
       "top": "GRIFFINS",
       "bottom": "ARCHERS",
       "balance": 1.158
@@ -1187,6 +1279,10 @@
       "top": "ARCANE",
       "bottom": "NINJAS",
       "balance": 2.615
+    },
+    {
+      "top": "PYROS",
+      "bottom": "ZOMBIES"
     },
     {
       "top": "TURTLES",
@@ -1204,6 +1300,10 @@
       "balance": 1.316
     },
     {
+      "top": "TIMEKEEPERS",
+      "bottom": "ORCS"
+    },
+    {
       "top": "COPYCATS",
       "bottom": "GIANT",
       "balance": 1.363
@@ -1217,6 +1317,10 @@
       "top": "MIRRORKING",
       "bottom": "PIRATES",
       "balance": 1.208
+    },
+    {
+      "top": "3D",
+      "bottom": "NINJAS"
     },
     {
       "top": "UNMAKER",
@@ -1234,6 +1338,10 @@
       "balance": 0.637
     },
     {
+      "top": "TESLAS",
+      "bottom": "INFANTRY"
+    },
+    {
       "top": "METEOR",
       "bottom": "HORDE",
       "balance": 1.33
@@ -1247,6 +1355,10 @@
       "top": "DREADKNIGHT",
       "bottom": "EMPIRE",
       "balance": 0.637
+    },
+    {
+      "top": "HOOKS",
+      "bottom": "PIRATES"
     },
     {
       "top": "INFERNAL",
@@ -1264,6 +1376,10 @@
       "balance": 2.157
     },
     {
+      "top": "POWDER",
+      "bottom": "SAMURAI"
+    },
+    {
       "top": "FROST",
       "bottom": "INFERNAL",
       "balance": 0.508
@@ -1277,6 +1393,10 @@
       "top": "LICHES",
       "bottom": "EMPIRE",
       "balance": 0.844
+    },
+    {
+      "top": "SUMO",
+      "bottom": "VIKINGS"
     },
     {
       "top": "SPIRITS",
@@ -1294,6 +1414,10 @@
       "balance": 1.174
     },
     {
+      "top": "SHADOWS",
+      "bottom": "GOBLINS"
+    },
+    {
       "top": "SIEGE",
       "bottom": "FORTRESS",
       "balance": 1.887
@@ -1307,6 +1431,10 @@
       "top": "RHINOS",
       "bottom": "CAVALRY",
       "balance": 1.329
+    },
+    {
+      "top": "BUILDERS",
+      "bottom": "BOMBERS"
     },
     {
       "top": "OGRES",
@@ -1324,6 +1452,10 @@
       "balance": 1.107
     },
     {
+      "top": "MIMICS",
+      "bottom": "GOBLINS"
+    },
+    {
       "top": "SIRENS",
       "bottom": "BUCCANEERS",
       "balance": 0.882
@@ -1337,6 +1469,10 @@
       "top": "TIMELINE",
       "bottom": "IMMORTAL",
       "balance": 1.091
+    },
+    {
+      "top": "TIMEKEEPERS",
+      "bottom": "3D"
     },
     {
       "top": "CATHEDRAL",
@@ -1395,11 +1531,15 @@
     }
   ],
   "cinematic": true,
-  "sound": { "variety": 0.06, "weapons": true },
+  "sound": {
+    "variety": 0.06,
+    "weapons": true
+  },
   "creative": {
     "every": 2,
     "balanceBattles": 8,
-    "balanceSteps": 6
+    "balanceSteps": 6,
+    "fresh": true
   },
   "clickbait": {
     "every": 5
