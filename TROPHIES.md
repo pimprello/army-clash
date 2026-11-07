@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 459 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 460 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -73,7 +73,7 @@ Records from 459 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - CYCLOPS SLAYER: 11
 - CANNON SLAYER: 13
 - PLAYER SLAYER: 13
-- TANK SLAYER: 15
+- TANK SLAYER: 16
 - MAMMOTH SLAYER: 16
 - GOLEM SLAYER: 17
 - GIANT SLAYER: 25
@@ -88,7 +88,7 @@ Records from 459 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - swift: 69
 - venom: 73
 - spikes: 78
-- regen: 90
+- regen: 91
 
 ## Big moments
 
@@ -139,7 +139,7 @@ Records from 459 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
-| Mossback Tribe | 19 | 14 | 5 | 835 | 1 won | 7 |
+| Mossback Tribe | 20 | 15 | 5 | 876 | 2 won | 7 |
 | Red Hawk Company | 20 | 14 | 6 | 758 | 1 lost | 5 |
 | Oakshield Clan | 14 | 10 | 4 | 532 | 6 won | 6 |
 | Thornwood Company | 13 | 10 | 3 | 396 | 1 lost | 9 |
@@ -173,6 +173,7 @@ Records from 459 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 19:11: The Harrier Squadron Take the Reactor (3 wins in a row · 62 kills)
 - 2026-11-07 18:53: The Starweave Circle Take the Treasure Cove (9th win · 51 kills)
 - 2026-11-07 18:39: The Greyfang Clan Take the Open Plains (revenge denied · 4th win · 41 kills)
 - 2026-11-07 18:25: The Kestrel Squadron Take the Open Plains (3 wins in a row · 99 kills)
@@ -182,4 +183,3 @@ Records from 459 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 17:26: The Sunspire Kin Take the Open Plains (6th win · 47 kills)
 - 2026-11-07 17:12: The Kestrel Squadron Take the Neon District (streak ended · 4th win · 39 kills)
 - 2026-11-07 16:57: The Ghoul Hollow Coven Take the Titan's Bones (streak ended · 2nd win · 37 kills)
-- 2026-11-07 16:44: The Viper Company Take the Quarry (3rd win · 53 kills)

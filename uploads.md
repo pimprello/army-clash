@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 19:11 | 🇸🇪 Sweden Tank Zombies vs Finland Holy Knights | Finland wins | https://youtube.com/shorts/M6_vV_jpfs4 |
 | 2026-11-07 18:53 | 🇪🇸 Spain vs Portugal 🇵🇹 | Spain wins | https://youtube.com/shorts/OkP5Rp7BdYs |
 | 2026-11-07 18:39 | LIGHTNING Struck the Battlefield ⚡ | Pink wins | https://youtube.com/shorts/dTF-kWXdR3I |
 | 2026-11-07 18:25 | One Giant Got 38 KILLS 😳 | Red wins | https://youtube.com/shorts/MF48PV9Bt_w |
