@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 16:12 | A PORTAL Opened Mid-Battle 🌀 | Red wins | https://youtube.com/shorts/C8a4tgwB9Hs |
 | 2026-11-07 15:57 | Royal Pikes vs TURBO TROLLS 🔥 | Yellow wins | https://youtube.com/shorts/rZMw3GzJUZ0 |
 | 2026-11-07 15:47 | LIGHTNING Struck the Battlefield ⚡ | Germany wins | https://youtube.com/shorts/zlVhw82Ak0g |
 | 2026-11-07 15:29 | Pick ONE: Forbidden, Copycats, Glitch 👇 | Olive wins | https://youtube.com/shorts/XktBojpkSp0 |
