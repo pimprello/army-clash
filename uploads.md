@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 12:04 | Ghost Bones vs Frost Drones, But Champions DUEL First ⚔️ | Lime wins | https://youtube.com/shorts/1tjjNwTx3KA |
 | 2026-11-07 11:49 | Kill the KING to Win 👑 Italy vs Germany | Germany wins | https://youtube.com/shorts/2vaxJ4hvvZc |
 | 2026-11-07 11:33 | Pick ONE: Sylvan, Infernal, Dwarves 👇 | Olive wins | https://youtube.com/shorts/30F7jWMg2RM |
 | 2026-11-07 11:18 | A TORNADO Hit Mid-Battle 🌪️ | Belgium wins | https://youtube.com/shorts/EmZcG2WSBeU |
