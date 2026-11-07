@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 398 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 399 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 398 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **NOMAD-9** (MACHINE GUNNER), 12 kills · 2026-11-07 04:15
 - **GRIM BONECRUSHER** (SAMURAI), 14 kills · 2026-11-07 03:43
 - **SIRA THE BOLD** (SIEGE GUNNER), 20 kills · 2026-11-07 02:18
 - **RUNA GRAVEBANE** (KNIGHT), 12 kills · 2026-11-07 01:32
@@ -47,7 +48,6 @@ Records from 398 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **PELL BONECRUSHER** (WARLOCK), 10 kills · 2026-11-06 06:18
 - **GHOST-8** (LASER TROOPER), 10 kills · 2026-11-06 05:20
 - **OSKA THE WALL** (WIZARD), 11 kills · 2026-11-06 04:48
-- **IVOR THE WALL** (ORC), 18 kills · 2026-11-05 23:40
 
 ## Titles earned (rarest first)
 
@@ -85,10 +85,10 @@ Records from 398 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 8
 - wings: 29
 - spellward: 38
-- swift: 58
-- venom: 64
-- spikes: 70
-- regen: 81
+- swift: 59
+- venom: 65
+- spikes: 71
+- regen: 82
 
 ## Big moments
 
@@ -123,8 +123,8 @@ Records from 398 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - possess: treant: 4
 - portal: golem: 7
 - portal: cyclops: 8
-- portal: wolfrider: 8
 - fusion: 9
+- portal: wolfrider: 9
 - portal: troll: 12
 - portal: demon: 13
 - sudden: ring: 13
@@ -140,7 +140,7 @@ Records from 398 battles with trophies (videos from 1 November 2026 on). Rebuilt
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 16 | 12 | 4 | 608 | 1 lost | 7 |
 | Red Hawk Company | 15 | 10 | 5 | 495 | 2 lost | 5 |
-| Frostwhisper Tribe | 17 | 8 | 9 | 552 | 4 lost | 4 |
+| Frostwhisper Tribe | 18 | 9 | 9 | 739 | 1 won | 4 |
 | Starweave Circle | 18 | 7 | 11 | 712 | 5 lost | 5 |
 | Thornheart Circle | 9 | 7 | 2 | 596 | 3 won | 3 |
 | Oakshield Clan | 11 | 7 | 4 | 332 | 3 won | 3 |
@@ -149,15 +149,15 @@ Records from 398 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Stormhorn Tribe | 10 | 6 | 4 | 564 | 3 won | 3 |
 | Order of the Silver Stag | 13 | 6 | 7 | 557 | 1 lost | 3 |
 | Storm Tower Order | 15 | 6 | 9 | 550 | 2 won | 2 |
+| Raven Hill Clan | 9 | 6 | 3 | 401 | 1 lost | 5 |
 | Copper Crown Company | 11 | 6 | 5 | 369 | 1 lost | 3 |
-| Raven Hill Clan | 8 | 6 | 2 | 333 | 5 won | 5 |
 | Emberroot Circle | 11 | 6 | 4 | 317 | 2 lost | 3 |
 | Golden Lion Order | 10 | 6 | 4 | 316 | 2 won | 3 |
 | Duskwing Tribe | 16 | 5 | 10 | 571 | 1 won | 2 |
+| Hollowbark Kin | 14 | 5 | 9 | 414 | 1 won | 2 |
 | Nova Legion | 7 | 5 | 2 | 408 | 1 won | 2 |
 | Glimmerdeep Kin | 9 | 5 | 4 | 393 | 5 won | 5 |
 | Sunspire Kin | 10 | 5 | 5 | 317 | 1 won | 2 |
-| Vortex Legion | 6 | 5 | 1 | 265 | 3 won | 3 |
 
 ### Great rivalries
 
@@ -172,6 +172,7 @@ Records from 398 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 04:15: The Frostwhisper Tribe Take the Sky-temple Relic (revenge denied · 9th win · 187 kills)
 - 2026-11-07 03:58: The Raven Hill Clan Take the Open Plains (revenge denied · 5 wins in a row · 51 kills)
 - 2026-11-07 03:43: The Stone River School Take the Open Plains (3rd win · 89 kills)
 - 2026-11-07 03:29: The Granite Battalion Take the Quarry (4th win · 40 kills)
@@ -181,4 +182,3 @@ Records from 398 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 02:30: The Nightjar Company Take the City (3rd win · 61 kills)
 - 2026-11-07 02:18: The Stonewall Company Take the Castle (3 wins in a row · 172 kills)
 - 2026-11-07 02:02: The Nova Legion Take the City (5th win · 72 kills)
-- 2026-11-07 01:44: The Nebula Cohort Take the Open Plains (first ever win · 29 kills)
