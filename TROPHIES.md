@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 451 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 452 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -77,7 +77,7 @@ Records from 451 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - MAMMOTH SLAYER: 16
 - GOLEM SLAYER: 17
 - GIANT SLAYER: 25
-- DRAGON SLAYER: 25
+- DRAGON SLAYER: 26
 - TITAN SLAYER: 32
 
 ## Mutations (rarest first)
@@ -146,7 +146,7 @@ Records from 451 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Frostwhisper Tribe | 18 | 9 | 9 | 739 | 1 won | 4 |
 | Thornheart Circle | 11 | 9 | 2 | 678 | 5 won | 5 |
 | Oakshield Clan | 13 | 9 | 4 | 437 | 5 won | 5 |
-| Starweave Circle | 21 | 8 | 13 | 778 | 2 lost | 5 |
+| Starweave Circle | 22 | 8 | 14 | 830 | 3 lost | 5 |
 | Frostmere Clan | 19 | 8 | 11 | 725 | 2 lost | 3 |
 | Hollowbark Kin | 18 | 8 | 10 | 586 | 1 won | 3 |
 | Raven Hill Clan | 15 | 8 | 7 | 535 | 1 won | 5 |
@@ -173,6 +173,7 @@ Records from 451 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 17:12: The Kestrel Squadron Take the Neon District (streak ended · 4th win · 39 kills)
 - 2026-11-07 16:57: The Ghoul Hollow Coven Take the Titan's Bones (streak ended · 2nd win · 37 kills)
 - 2026-11-07 16:44: The Viper Company Take the Quarry (3rd win · 53 kills)
 - 2026-11-07 16:28: The Prism Cohort Take the Open Plains (first ever win · 28 kills)
@@ -182,4 +183,3 @@ Records from 451 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 15:29: The Mossback Tribe Take the Open Plains (14th win · 115 kills)
 - 2026-11-07 15:13: The Hollowbark Kin Take the Frozen End (revenge! · 8th win · 59 kills)
 - 2026-11-07 14:59: The Pale Procession Take the Old Forest (revenge denied · 5th win · 13 kills)
-- 2026-11-07 14:43: The Zenith Cohort Take the Clockwork Arena (revenge denied · 3rd win · 58 kills)

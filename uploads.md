@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 17:12 | ⚔️ CHAMPION DUEL: Dragon Army vs Tank Army | Teal wins | https://youtube.com/shorts/how5417oWRg |
 | 2026-11-07 16:57 | 👑 Protect the KING: Dragon Guard vs Wild Storms | Yellow wins | https://youtube.com/shorts/2uS34IXSo9U |
 | 2026-11-07 16:44 | They Got INCENDIARY Rounds and WON 🔥 | Usa wins | https://youtube.com/shorts/rKnJ3sm7Io4 |
 | 2026-11-07 16:28 | 3 Armies, Only 1 SURVIVES 💀 | Brazil wins | https://youtube.com/shorts/10MzqOSX6dM |
