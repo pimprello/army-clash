@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 20:54 | 🔥 FROST HOLLOWS vs Toxic Ogres | Gold wins | https://youtube.com/shorts/yUYgHl0nBF0 |
 | 2026-11-07 20:36 | Pirates vs Orcs, But Champions DUEL First ⚔️ | Navy wins | https://youtube.com/shorts/rrSi_Cne6rk |
 | 2026-11-07 20:22 | 3 Armies, Only 1 SURVIVES 💀 | Blue wins | https://youtube.com/shorts/25PVKb6ClPA |
 | 2026-11-07 20:07 | ⚔️ CHAMPION DUEL: Warriors vs Warriors | Blue wins | https://youtube.com/shorts/mLbeRJMbkFE |

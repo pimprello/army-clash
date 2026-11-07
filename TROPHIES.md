@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 466 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 467 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -174,6 +174,7 @@ Records from 466 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 20:54: The Crew of the Iron Anchor Take the Haunted Crypt (3 wins in a row · 28 kills)
 - 2026-11-07 20:36: The Silverbough Circle Take the Castle (11th win · 47 kills)
 - 2026-11-07 20:22: The House of the White Heron Take the Open Plains (2nd win · 47 kills)
 - 2026-11-07 20:07: The Golden Lion Order Take the Swamp Shrine (revenge denied · 7th win · 81 kills)
@@ -183,4 +184,3 @@ Records from 466 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 19:11: The Harrier Squadron Take the Reactor (3 wins in a row · 62 kills)
 - 2026-11-07 18:53: The Starweave Circle Take the Treasure Cove (9th win · 51 kills)
 - 2026-11-07 18:39: The Greyfang Clan Take the Open Plains (revenge denied · 4th win · 41 kills)
-- 2026-11-07 18:25: The Kestrel Squadron Take the Open Plains (3 wins in a row · 99 kills)
