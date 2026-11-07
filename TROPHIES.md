@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 436 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 437 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -58,15 +58,15 @@ Records from 436 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - KNIGHT SLAYER: 5
 - WORLDROOT SLAYER: 5
 - EXECUTIONER SLAYER: 5
-- PHOENIX SLAYER: 6
 - THOUSAND-MAN SLAYER: 6
 - STAR EATER SLAYER: 6
 - MIRROR KING SLAYER: 7
 - UNMAKER SLAYER: 7
 - IMMORTAL FRAUD SLAYER: 7
+- PHOENIX SLAYER: 7
 - STORM EMPEROR SLAYER: 7
-- HYDRA SLAYER: 8
 - FORTRESS SLAYER: 8
+- HYDRA SLAYER: 9
 - COLOSSUS SLAYER: 9
 - ELEPHANT SLAYER: 10
 - CYCLOPS SLAYER: 10
@@ -78,7 +78,7 @@ Records from 436 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - MAMMOTH SLAYER: 16
 - GIANT SLAYER: 23
 - DRAGON SLAYER: 24
-- TITAN SLAYER: 31
+- TITAN SLAYER: 32
 
 ## Mutations (rarest first)
 
@@ -144,19 +144,19 @@ Records from 436 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Silverbough Circle | 23 | 9 | 14 | 1033 | 1 lost | 3 |
 | Frostwhisper Tribe | 18 | 9 | 9 | 739 | 1 won | 4 |
 | Thornheart Circle | 11 | 9 | 2 | 678 | 5 won | 5 |
-| Starweave Circle | 20 | 8 | 12 | 758 | 1 lost | 5 |
+| Starweave Circle | 21 | 8 | 13 | 778 | 2 lost | 5 |
 | Frostmere Clan | 17 | 8 | 9 | 625 | 1 won | 3 |
 | Oakshield Clan | 12 | 8 | 4 | 373 | 4 won | 4 |
 | Thornwood Company | 10 | 8 | 2 | 345 | 7 won | 7 |
 | Storm Tower Order | 17 | 7 | 10 | 662 | 1 lost | 3 |
 | Stormhorn Tribe | 11 | 7 | 4 | 578 | 4 won | 4 |
 | Hollowbark Kin | 16 | 7 | 9 | 502 | 3 won | 3 |
+| Emberroot Circle | 15 | 7 | 7 | 481 | 1 won | 3 |
 | Raven Hill Clan | 13 | 7 | 6 | 461 | 3 lost | 5 |
 | Copper Crown Company | 12 | 7 | 5 | 414 | 1 won | 3 |
 | Highmoor Clan | 11 | 7 | 4 | 375 | 6 won | 6 |
 | Mire Witch Coven | 9 | 7 | 2 | 322 | 2 lost | 7 |
 | Order of the Silver Stag | 13 | 6 | 7 | 557 | 1 lost | 3 |
-| Emberroot Circle | 14 | 6 | 7 | 437 | 5 lost | 3 |
 | Golden Lion Order | 12 | 6 | 6 | 346 | 2 lost | 3 |
 | Hammer Platoon | 11 | 6 | 5 | 302 | 3 won | 3 |
 
@@ -173,6 +173,7 @@ Records from 436 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 13:32: The Emberroot Circle Take the Open Plains (7th win · 44 kills)
 - 2026-11-07 13:17: The Copper Crown Company Take the Desert Well (revenge denied · 7th win · 45 kills)
 - 2026-11-07 13:02: The Still Water School Take the Reactor (streak ended · first ever win · 32 kills)
 - 2026-11-07 12:47: The Nightjar Company Take the Neon District (streak ended · 3 wins in a row · 50 kills)
@@ -182,4 +183,3 @@ Records from 436 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 11:49: The Stonewall Company Take the Frozen End (revenge denied · 5th win · 65 kills)
 - 2026-11-07 11:33: The Hollowbark Kin Take the Open Plains (3 wins in a row · 41 kills)
 - 2026-11-07 11:18: The House of the Red Crane Take the Open Plains (3 wins in a row · 33 kills)
-- 2026-11-07 11:03: The Falcon Squadron Take the Mountain Pass (2nd win · 44 kills)
