@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 450 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 451 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -76,8 +76,8 @@ Records from 450 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - TANK SLAYER: 15
 - MAMMOTH SLAYER: 16
 - GOLEM SLAYER: 17
-- DRAGON SLAYER: 24
 - GIANT SLAYER: 25
+- DRAGON SLAYER: 25
 - TITAN SLAYER: 32
 
 ## Mutations (rarest first)
@@ -173,6 +173,7 @@ Records from 450 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 16:57: The Ghoul Hollow Coven Take the Titan's Bones (streak ended · 2nd win · 37 kills)
 - 2026-11-07 16:44: The Viper Company Take the Quarry (3rd win · 53 kills)
 - 2026-11-07 16:28: The Prism Cohort Take the Open Plains (first ever win · 28 kills)
 - 2026-11-07 16:12: The Raven Hill Clan Take the Mirror Gate (revenge denied · 8th win · 44 kills)
@@ -182,4 +183,3 @@ Records from 450 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 15:13: The Hollowbark Kin Take the Frozen End (revenge! · 8th win · 59 kills)
 - 2026-11-07 14:59: The Pale Procession Take the Old Forest (revenge denied · 5th win · 13 kills)
 - 2026-11-07 14:43: The Zenith Cohort Take the Clockwork Arena (revenge denied · 3rd win · 58 kills)
-- 2026-11-07 14:30: The Brightwater Tribe Take the Open Plains (6th win · 56 kills)
