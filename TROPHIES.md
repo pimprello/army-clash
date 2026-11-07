@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 385 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 386 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -108,7 +108,6 @@ Records from 385 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: ITALY: 1
 - possess: giant: 1
 - extinct: ORANGE: 2
-- extinct: BLUE: 2
 - extinct: GREEN: 2
 - copied: knight: 2
 - extinct: SILVER: 2
@@ -119,6 +118,7 @@ Records from 385 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - possess: stormemperor: 2
 - extinct: PURPLE: 2
 - extinct: RED: 3
+- extinct: BLUE: 3
 - possess: cannon: 4
 - possess: treant: 4
 - portal: golem: 7
@@ -138,32 +138,32 @@ Records from 385 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
-| Mossback Tribe | 15 | 12 | 3 | 600 | 7 won | 7 |
+| Mossback Tribe | 16 | 12 | 4 | 608 | 1 lost | 7 |
 | Red Hawk Company | 14 | 10 | 4 | 475 | 1 lost | 5 |
 | Frostwhisper Tribe | 14 | 8 | 6 | 443 | 1 lost | 4 |
 | Starweave Circle | 18 | 7 | 11 | 712 | 5 lost | 5 |
 | Thornheart Circle | 9 | 7 | 2 | 596 | 3 won | 3 |
 | Mire Witch Coven | 7 | 7 | 0 | 247 | 7 won | 7 |
 | Silverbough Circle | 19 | 6 | 13 | 838 | 2 lost | 2 |
+| Stormhorn Tribe | 10 | 6 | 4 | 564 | 3 won | 3 |
 | Storm Tower Order | 15 | 6 | 9 | 550 | 2 won | 2 |
 | Order of the Silver Stag | 12 | 6 | 6 | 536 | 1 won | 3 |
 | Emberroot Circle | 10 | 6 | 3 | 306 | 1 lost | 3 |
 | Duskwing Tribe | 16 | 5 | 10 | 571 | 1 won | 2 |
-| Stormhorn Tribe | 9 | 5 | 4 | 511 | 2 won | 3 |
 | Glimmerdeep Kin | 9 | 5 | 4 | 393 | 5 won | 5 |
 | Copper Crown Company | 9 | 5 | 4 | 320 | 2 won | 3 |
+| Sunspire Kin | 10 | 5 | 5 | 317 | 1 won | 2 |
 | Golden Lion Order | 9 | 5 | 4 | 282 | 1 won | 3 |
 | Vortex Legion | 6 | 5 | 1 | 265 | 3 won | 3 |
 | Oakshield Clan | 9 | 5 | 4 | 256 | 1 won | 3 |
 | Iron Boar Clan | 6 | 5 | 1 | 197 | 3 won | 3 |
 | The Black Candle | 6 | 5 | 1 | 177 | 4 won | 4 |
-| Bone Garden Coven | 8 | 5 | 3 | 120 | 1 won | 3 |
 
 ### Great rivalries
 
+- **Mossback Tribe vs Stormhorn Tribe**: met 4 times, last won by Stormhorn Tribe
 - **Frostwhisper Tribe vs Starweave Circle**: met 4 times, last won by Frostwhisper Tribe
 - **Brightwater Tribe vs Glimmerdeep Kin**: met 3 times, last won by Glimmerdeep Kin
-- **Mossback Tribe vs Stormhorn Tribe**: met 3 times, last won by Mossback Tribe
 - **Greyfang Clan vs Order of the Silver Stag**: met 3 times, last won by Order of the Silver Stag
 - **Crew of the Black Gull vs Order of the Silver Stag**: met 3 times, last won by Order of the Silver Stag
 - **Copper Crown Company vs Wildbrook Clan**: met 3 times, last won by Wildbrook Clan
@@ -172,6 +172,7 @@ Records from 385 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 01:02: The Stormhorn Tribe Take the Quarry (revenge! · 3 wins in a row · 53 kills)
 - 2026-11-07 00:45: The Bulldog Company Take the Open Plains (first ever win · 55 kills)
 - 2026-11-07 00:32: The Vortex Legion Take the Frozen End (revenge denied · 3 wins in a row · 66 kills)
 - 2026-11-07 00:16: The Order of the Silver Stag Take the Frozen End (revenge! · 6th win · 31 kills)
@@ -181,4 +182,3 @@ Records from 385 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 23:20: The Rotting Choir Take the Bombed City (3 wins in a row · 37 kills)
 - 2026-11-06 23:06: The Copper Crown Company Take the Reactor (streak ended · 4th win · 21 kills)
 - 2026-11-06 22:49: The Mountain Wind School Take the Canyon Pass (4th win · 82 kills)
-- 2026-11-06 21:55: The Duskwing Tribe Take the Clockwork Arena (revenge denied · 5th win · 55 kills)
