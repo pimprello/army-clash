@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 406 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 407 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -130,7 +130,7 @@ Records from 406 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - sudden: ring: 14
 - sudden: boss: 17
 - sudden: lava: 20
-- sudden: meteors: 22
+- sudden: meteors: 23
 
 ## The tribes' chronicle
 
@@ -153,11 +153,11 @@ Records from 406 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Copper Crown Company | 11 | 6 | 5 | 369 | 1 lost | 3 |
 | Emberroot Circle | 12 | 6 | 5 | 360 | 3 lost | 3 |
 | Golden Lion Order | 10 | 6 | 4 | 316 | 2 won | 3 |
+| Thornwood Company | 8 | 6 | 2 | 268 | 5 won | 5 |
 | Wildbrook Clan | 16 | 5 | 11 | 624 | 1 won | 1 |
 | Duskwing Tribe | 16 | 5 | 10 | 571 | 1 won | 2 |
 | Frostmere Clan | 13 | 5 | 8 | 462 | 1 won | 2 |
 | Hollowbark Kin | 14 | 5 | 9 | 414 | 1 won | 2 |
-| Nova Legion | 7 | 5 | 2 | 408 | 1 won | 2 |
 
 ### Great rivalries
 
@@ -172,6 +172,7 @@ Records from 406 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 06:13: The Thornwood Company Take the Trench Line (5 wins in a row · 82 kills)
 - 2026-11-07 05:57: The Starweave Circle Take the Quarry (revenge denied · 8th win · 40 kills)
 - 2026-11-07 05:42: The Silent Mile Take the Open Plains (3 wins in a row · 86 kills)
 - 2026-11-07 05:26: The Crew of the Sea Wolf Take the Clockwork Arena (2nd win · 54 kills)
@@ -181,4 +182,3 @@ Records from 406 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 04:26: The Thornwood Company Take the Haunted Crypt (revenge! · 4 wins in a row · 75 kills)
 - 2026-11-07 04:15: The Frostwhisper Tribe Take the Sky-temple Relic (revenge denied · 9th win · 187 kills)
 - 2026-11-07 03:58: The Raven Hill Clan Take the Open Plains (revenge denied · 5 wins in a row · 51 kills)
-- 2026-11-07 03:43: The Stone River School Take the Open Plains (3rd win · 89 kills)
