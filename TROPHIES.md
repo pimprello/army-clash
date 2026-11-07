@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 461 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 462 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -85,9 +85,9 @@ Records from 461 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 9
 - wings: 32
 - spellward: 43
-- swift: 69
+- swift: 70
 - venom: 74
-- spikes: 79
+- spikes: 80
 - regen: 91
 
 ## Big moments
@@ -141,11 +141,11 @@ Records from 461 battles with trophies (videos from 1 November 2026 on). Rebuilt
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 20 | 15 | 5 | 876 | 2 won | 7 |
 | Red Hawk Company | 21 | 14 | 7 | 777 | 2 lost | 5 |
+| Silverbough Circle | 25 | 10 | 15 | 1205 | 1 won | 3 |
+| Frostwhisper Tribe | 19 | 10 | 9 | 767 | 2 won | 4 |
 | Oakshield Clan | 15 | 10 | 5 | 664 | 1 lost | 6 |
 | Thornwood Company | 13 | 10 | 3 | 396 | 1 lost | 9 |
-| Silverbough Circle | 24 | 9 | 15 | 1070 | 2 lost | 3 |
 | Starweave Circle | 23 | 9 | 14 | 881 | 1 won | 5 |
-| Frostwhisper Tribe | 18 | 9 | 9 | 739 | 1 won | 4 |
 | Thornheart Circle | 11 | 9 | 2 | 678 | 5 won | 5 |
 | Mire Witch Coven | 11 | 9 | 2 | 395 | 2 won | 7 |
 | Frostmere Clan | 20 | 8 | 12 | 731 | 3 lost | 3 |
@@ -155,7 +155,7 @@ Records from 461 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Wildbrook Clan | 21 | 7 | 14 | 803 | 1 won | 1 |
 | Order of the Silver Stag | 17 | 7 | 10 | 717 | 3 lost | 3 |
 | Storm Tower Order | 17 | 7 | 10 | 662 | 1 lost | 3 |
-| Stormhorn Tribe | 11 | 7 | 4 | 578 | 4 won | 4 |
+| Stormhorn Tribe | 12 | 7 | 5 | 596 | 1 lost | 4 |
 | Copper Crown Company | 14 | 7 | 7 | 488 | 2 lost | 3 |
 | Emberroot Circle | 15 | 7 | 7 | 481 | 1 won | 3 |
 | Brightwater Tribe | 16 | 7 | 9 | 382 | 3 won | 3 |
@@ -173,6 +173,7 @@ Records from 461 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 19:37: The Silverbough Circle Take the Castle (revenge denied · 10th win · 135 kills)
 - 2026-11-07 19:22: The Black Bear Clan Take the Open Plains (6th win · 71 kills)
 - 2026-11-07 19:11: The Harrier Squadron Take the Reactor (3 wins in a row · 62 kills)
 - 2026-11-07 18:53: The Starweave Circle Take the Treasure Cove (9th win · 51 kills)
@@ -182,4 +183,3 @@ Records from 461 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 17:58: The Highmoor Clan Take the Sky Islands (7 wins in a row · 36 kills)
 - 2026-11-07 17:42: The Ghoul Hollow Coven Take the Ruined Fort (3 wins in a row · 105 kills)
 - 2026-11-07 17:26: The Sunspire Kin Take the Open Plains (6th win · 47 kills)
-- 2026-11-07 17:12: The Kestrel Squadron Take the Neon District (streak ended · 4th win · 39 kills)
