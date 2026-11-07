@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 10:49 | The GIANT Never Saw It Coming 💀 | Olive wins | https://youtube.com/shorts/t8LKCDmmcRw |
 | 2026-11-07 10:34 | 3 Armies, Only 1 SURVIVES 💀 | Sky wins | https://youtube.com/shorts/H5tTYhtaUK4 |
 | 2026-11-07 10:21 | 🇨🇦 Canada vs USA 🇺🇸 | Canada wins | https://youtube.com/shorts/hE46P2Sy8cQ |
 | 2026-11-07 10:05 | The Merchant Sold Them a War Horn 💰 | Magenta wins | https://youtube.com/shorts/mkxTJk1HObk |
