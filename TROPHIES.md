@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 414 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 415 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 414 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **TOVA GRAVEBANE** (SIEGE GUNNER), 10 kills · 2026-11-07 08:06
 - **ZEDRIK THE MAD** (WIZARD), 12 kills · 2026-11-07 07:38
 - **TOVA THE MAD** (SWORDSMAN), 10 kills · 2026-11-07 04:58
 - **GRIM THE LUCKY** (BERSERKER), 12 kills · 2026-11-07 04:26
@@ -47,7 +48,6 @@ Records from 414 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **ASHKA STEELHEART** (WARLOCK), 10 kills · 2026-11-06 11:03
 - **ECHO-3** (LASER TROOPER), 10 kills · 2026-11-06 10:03
 - **OSKA THE UNBROKEN** (SWORDSMAN), 16 kills · 2026-11-06 09:49
-- **DRAVEN IRONHIDE** (WIZARD), 28 kills · 2026-11-06 07:19
 
 ## Titles earned (rarest first)
 
@@ -82,7 +82,7 @@ Records from 414 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Mutations (rarest first)
 
-- vampiric: 8
+- vampiric: 9
 - wings: 30
 - spellward: 40
 - swift: 62
@@ -140,10 +140,10 @@ Records from 414 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 18 | 13 | 5 | 720 | 1 lost | 7 |
-| Red Hawk Company | 15 | 10 | 5 | 495 | 2 lost | 5 |
+| Red Hawk Company | 16 | 11 | 5 | 542 | 1 won | 5 |
 | Frostwhisper Tribe | 18 | 9 | 9 | 739 | 1 won | 4 |
+| Thornheart Circle | 11 | 9 | 2 | 678 | 5 won | 5 |
 | Starweave Circle | 20 | 8 | 12 | 758 | 1 lost | 5 |
-| Thornheart Circle | 10 | 8 | 2 | 666 | 4 won | 4 |
 | Oakshield Clan | 12 | 8 | 4 | 373 | 4 won | 4 |
 | Silverbough Circle | 20 | 7 | 13 | 846 | 1 won | 2 |
 | Storm Tower Order | 16 | 7 | 9 | 612 | 3 won | 3 |
@@ -173,6 +173,7 @@ Records from 414 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 08:06: The Red Hawk Company Take the World Furnace (11th win · 47 kills)
 - 2026-11-07 07:56: The Highmoor Clan Take the City (5 wins in a row · 49 kills)
 - 2026-11-07 07:38: The Thornheart Circle Take the Open Plains (4 wins in a row · 70 kills)
 - 2026-11-07 07:24: The Hammer Platoon Take the Reactor (streak ended · 4th win · 74 kills)
@@ -182,4 +183,3 @@ Records from 414 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 06:25: The Highmoor Clan Take the Mountain Pass (revenge! · 4 wins in a row · 45 kills)
 - 2026-11-07 06:13: The Thornwood Company Take the Trench Line (5 wins in a row · 82 kills)
 - 2026-11-07 05:57: The Starweave Circle Take the Quarry (revenge denied · 8th win · 40 kills)
-- 2026-11-07 05:42: The Silent Mile Take the Open Plains (3 wins in a row · 86 kills)
