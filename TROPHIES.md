@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 393 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 394 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -87,7 +87,7 @@ Records from 393 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 38
 - swift: 57
 - venom: 63
-- spikes: 69
+- spikes: 70
 - regen: 80
 
 ## Big moments
@@ -143,18 +143,18 @@ Records from 393 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Frostwhisper Tribe | 16 | 8 | 8 | 538 | 3 lost | 4 |
 | Starweave Circle | 18 | 7 | 11 | 712 | 5 lost | 5 |
 | Thornheart Circle | 9 | 7 | 2 | 596 | 3 won | 3 |
+| Oakshield Clan | 11 | 7 | 4 | 332 | 3 won | 3 |
 | Mire Witch Coven | 7 | 7 | 0 | 247 | 7 won | 7 |
 | Silverbough Circle | 19 | 6 | 13 | 838 | 2 lost | 2 |
 | Stormhorn Tribe | 10 | 6 | 4 | 564 | 3 won | 3 |
 | Order of the Silver Stag | 13 | 6 | 7 | 557 | 1 lost | 3 |
 | Storm Tower Order | 15 | 6 | 9 | 550 | 2 won | 2 |
+| Copper Crown Company | 10 | 6 | 4 | 336 | 3 won | 3 |
 | Emberroot Circle | 11 | 6 | 4 | 317 | 2 lost | 3 |
 | Golden Lion Order | 10 | 6 | 4 | 316 | 2 won | 3 |
-| Oakshield Clan | 10 | 6 | 4 | 283 | 2 won | 3 |
 | Duskwing Tribe | 16 | 5 | 10 | 571 | 1 won | 2 |
 | Nova Legion | 7 | 5 | 2 | 408 | 1 won | 2 |
 | Glimmerdeep Kin | 9 | 5 | 4 | 393 | 5 won | 5 |
-| Copper Crown Company | 9 | 5 | 4 | 320 | 2 won | 3 |
 | Sunspire Kin | 10 | 5 | 5 | 317 | 1 won | 2 |
 | Raven Hill Clan | 7 | 5 | 2 | 282 | 4 won | 4 |
 | Vortex Legion | 6 | 5 | 1 | 265 | 3 won | 3 |
@@ -172,6 +172,7 @@ Records from 393 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 02:59: The Oakshield Clan Take the Overgrown Throne (3 wins in a row · 49 kills)
 - 2026-11-07 02:44: The Golden Lion Order Take the Open Plains (6th win · 34 kills)
 - 2026-11-07 02:30: The Nightjar Company Take the City (3rd win · 61 kills)
 - 2026-11-07 02:18: The Stonewall Company Take the Castle (3 wins in a row · 172 kills)
@@ -181,4 +182,3 @@ Records from 393 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 01:18: The Crooked Spire Take the Clockwork Arena (3rd win · 58 kills)
 - 2026-11-07 01:02: The Stormhorn Tribe Take the Quarry (revenge! · 3 wins in a row · 53 kills)
 - 2026-11-07 00:45: The Bulldog Company Take the Open Plains (first ever win · 55 kills)
-- 2026-11-07 00:32: The Vortex Legion Take the Frozen End (revenge denied · 3 wins in a row · 66 kills)

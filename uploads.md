@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 02:59 | One AIRSTRIKE Changed Everything ✈️ | Olive wins | https://youtube.com/shorts/1-CnIHx2kgU |
 | 2026-11-07 02:44 | They Were OUTNUMBERED... 😳 | Lime wins | https://youtube.com/shorts/VbmdhhYXpkY |
 | 2026-11-07 02:30 | Hold the HILL to Win? USA vs Canada 🚩 | Canada wins | https://youtube.com/shorts/OKbleiTh85c |
 | 2026-11-07 02:18 | Half the Size and Still WON 😳 | Lavender wins | https://youtube.com/shorts/injvWuAkpiM |
