@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 08:40 | 3 Armies, Only 1 SURVIVES 💀 | Brazil wins | https://youtube.com/shorts/jaqgJ_EyJns |
 | 2026-11-07 08:23 | 🇵🇹 Portugal Zombies vs Spain Soldiers | Spain wins | https://youtube.com/shorts/i9cOw70eBBs |
 | 2026-11-07 08:06 | The Weapons Came ALIVE 🗡️ | Yellow wins | https://youtube.com/shorts/SXJGnttn2N4 |
 | 2026-11-07 07:56 | 👑 Protect the KING: Tank Army vs Giant Army | Mint wins | https://youtube.com/shorts/zrezuweyWVk |

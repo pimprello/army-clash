@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 416 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 417 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -173,6 +173,7 @@ Records from 416 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 08:40: The Nightshade Coven Take the Open Plains (2nd win · 84 kills)
 - 2026-11-07 08:23: The Wolverine Company Take the Castle (streak ended · 4th win · 107 kills)
 - 2026-11-07 08:06: The Red Hawk Company Take the World Furnace (11th win · 47 kills)
 - 2026-11-07 07:56: The Highmoor Clan Take the City (5 wins in a row · 49 kills)
@@ -182,4 +183,3 @@ Records from 416 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 06:56: The Copperhead Battalion Take the Neon District (streak ended · 4th win · 55 kills)
 - 2026-11-07 06:39: The Black Bear Clan Take the Open Plains (5th win · 6 kills)
 - 2026-11-07 06:25: The Highmoor Clan Take the Mountain Pass (revenge! · 4 wins in a row · 45 kills)
-- 2026-11-07 06:13: The Thornwood Company Take the Trench Line (5 wins in a row · 82 kills)
