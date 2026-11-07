@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 465 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 466 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 465 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **BRAKK BONECRUSHER** (WIZARD), 14 kills · 2026-11-07 20:36
 - **KAELEN BONECRUSHER** (BERSERKER), 11 kills · 2026-11-07 19:55
 - **DRAVEN THE BOLD** (NINJA), 15 kills · 2026-11-07 17:58
 - **BRAMBLE THE LUCKY** (KNIGHT), 11 kills · 2026-11-07 15:47
@@ -47,7 +48,6 @@ Records from 465 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **ZEDRIK THE MAD** (WIZARD), 12 kills · 2026-11-07 07:38
 - **TOVA THE MAD** (SWORDSMAN), 10 kills · 2026-11-07 04:58
 - **GRIM THE LUCKY** (BERSERKER), 12 kills · 2026-11-07 04:26
-- **NOMAD-9** (MACHINE GUNNER), 12 kills · 2026-11-07 04:15
 
 ## Titles earned (rarest first)
 
@@ -85,10 +85,10 @@ Records from 465 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 9
 - wings: 32
 - spellward: 43
-- swift: 71
+- swift: 72
 - venom: 75
-- spikes: 80
-- regen: 93
+- spikes: 81
+- regen: 94
 
 ## Big moments
 
@@ -142,12 +142,12 @@ Records from 465 battles with trophies (videos from 1 November 2026 on). Rebuilt
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 20 | 15 | 5 | 876 | 2 won | 7 |
 | Red Hawk Company | 21 | 14 | 7 | 777 | 2 lost | 5 |
+| Silverbough Circle | 26 | 11 | 15 | 1252 | 2 won | 3 |
 | Oakshield Clan | 16 | 11 | 5 | 673 | 1 won | 6 |
-| Silverbough Circle | 25 | 10 | 15 | 1205 | 1 won | 3 |
 | Frostwhisper Tribe | 19 | 10 | 9 | 767 | 2 won | 4 |
+| Thornheart Circle | 12 | 10 | 2 | 725 | 6 won | 6 |
 | Thornwood Company | 13 | 10 | 3 | 396 | 1 lost | 9 |
 | Starweave Circle | 23 | 9 | 14 | 881 | 1 won | 5 |
-| Thornheart Circle | 11 | 9 | 2 | 678 | 5 won | 5 |
 | Mire Witch Coven | 11 | 9 | 2 | 395 | 2 won | 7 |
 | Frostmere Clan | 20 | 8 | 12 | 731 | 3 lost | 3 |
 | Hollowbark Kin | 18 | 8 | 10 | 586 | 1 won | 3 |
@@ -174,6 +174,7 @@ Records from 465 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 20:36: The Silverbough Circle Take the Castle (11th win · 47 kills)
 - 2026-11-07 20:22: The House of the White Heron Take the Open Plains (2nd win · 47 kills)
 - 2026-11-07 20:07: The Golden Lion Order Take the Swamp Shrine (revenge denied · 7th win · 81 kills)
 - 2026-11-07 19:55: The Solar Wing Take the Swamp Shrine (revenge denied · 3 wins in a row · 79 kills)
@@ -183,4 +184,3 @@ Records from 465 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 18:53: The Starweave Circle Take the Treasure Cove (9th win · 51 kills)
 - 2026-11-07 18:39: The Greyfang Clan Take the Open Plains (revenge denied · 4th win · 41 kills)
 - 2026-11-07 18:25: The Kestrel Squadron Take the Open Plains (3 wins in a row · 99 kills)
-- 2026-11-07 18:12: The Oakshield Clan Take the Quarry (revenge denied · 6 wins in a row · 95 kills)

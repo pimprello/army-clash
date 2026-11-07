@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 20:36 | Pirates vs Orcs, But Champions DUEL First ⚔️ | Navy wins | https://youtube.com/shorts/rrSi_Cne6rk |
 | 2026-11-07 20:22 | 3 Armies, Only 1 SURVIVES 💀 | Blue wins | https://youtube.com/shorts/25PVKb6ClPA |
 | 2026-11-07 20:07 | ⚔️ CHAMPION DUEL: Warriors vs Warriors | Blue wins | https://youtube.com/shorts/mLbeRJMbkFE |
 | 2026-11-07 19:55 | The BIGGEST Comeback I've Seen 😱 | Canada wins | https://youtube.com/shorts/vxcPZz_79_o |
