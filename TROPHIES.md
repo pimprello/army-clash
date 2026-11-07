@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 448 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 449 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -62,10 +62,10 @@ Records from 448 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - STAR EATER SLAYER: 6
 - MIRROR KING SLAYER: 7
 - UNMAKER SLAYER: 7
-- IMMORTAL FRAUD SLAYER: 7
 - PHOENIX SLAYER: 7
 - STORM EMPEROR SLAYER: 7
 - FORTRESS SLAYER: 8
+- IMMORTAL FRAUD SLAYER: 8
 - HYDRA SLAYER: 9
 - COLOSSUS SLAYER: 9
 - ELEPHANT SLAYER: 10
@@ -86,7 +86,7 @@ Records from 448 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - wings: 32
 - spellward: 43
 - swift: 68
-- venom: 72
+- venom: 73
 - spikes: 78
 - regen: 88
 
@@ -140,7 +140,7 @@ Records from 448 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 19 | 14 | 5 | 835 | 1 won | 7 |
-| Red Hawk Company | 19 | 14 | 5 | 731 | 4 won | 5 |
+| Red Hawk Company | 20 | 14 | 6 | 758 | 1 lost | 5 |
 | Thornwood Company | 12 | 10 | 2 | 371 | 9 won | 9 |
 | Silverbough Circle | 24 | 9 | 15 | 1070 | 2 lost | 3 |
 | Frostwhisper Tribe | 18 | 9 | 9 | 739 | 1 won | 4 |
@@ -151,8 +151,8 @@ Records from 448 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Hollowbark Kin | 18 | 8 | 10 | 586 | 1 won | 3 |
 | Raven Hill Clan | 15 | 8 | 7 | 535 | 1 won | 5 |
 | Mire Witch Coven | 10 | 8 | 2 | 334 | 1 won | 7 |
+| Order of the Silver Stag | 15 | 7 | 8 | 697 | 1 lost | 3 |
 | Storm Tower Order | 17 | 7 | 10 | 662 | 1 lost | 3 |
-| Order of the Silver Stag | 14 | 7 | 7 | 611 | 1 won | 3 |
 | Stormhorn Tribe | 11 | 7 | 4 | 578 | 4 won | 4 |
 | Emberroot Circle | 15 | 7 | 7 | 481 | 1 won | 3 |
 | Copper Crown Company | 13 | 7 | 6 | 449 | 1 lost | 3 |
@@ -173,6 +173,7 @@ Records from 448 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 16:28: The Prism Cohort Take the Open Plains (first ever win · 28 kills)
 - 2026-11-07 16:12: The Raven Hill Clan Take the Mirror Gate (revenge denied · 8th win · 44 kills)
 - 2026-11-07 15:57: The Red Hawk Company Take the Godboard (4 wins in a row · 10 kills)
 - 2026-11-07 15:47: The Order of the Silver Stag Take the Titan's Bones (revenge! · 7th win · 54 kills)
@@ -182,4 +183,3 @@ Records from 448 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 14:43: The Zenith Cohort Take the Clockwork Arena (revenge denied · 3rd win · 58 kills)
 - 2026-11-07 14:30: The Brightwater Tribe Take the Open Plains (6th win · 56 kills)
 - 2026-11-07 14:16: The Stonebridge Company Take the Treasure Cove (revenge! · 4th win · 75 kills)
-- 2026-11-07 14:02: The Rotting Choir Take the Ruined Fort (revenge denied · 5 wins in a row · 232 kills)
