@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 417 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 418 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -128,7 +128,7 @@ Records from 417 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: wolfrider: 9
 - portal: demon: 13
 - portal: troll: 13
-- sudden: ring: 14
+- sudden: ring: 15
 - sudden: boss: 17
 - sudden: lava: 22
 - sudden: meteors: 23
@@ -148,17 +148,17 @@ Records from 417 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Silverbough Circle | 20 | 7 | 13 | 846 | 1 won | 2 |
 | Storm Tower Order | 16 | 7 | 9 | 612 | 3 won | 3 |
 | Raven Hill Clan | 10 | 7 | 3 | 406 | 1 won | 5 |
+| Thornwood Company | 9 | 7 | 2 | 309 | 6 won | 6 |
 | Mire Witch Coven | 8 | 7 | 1 | 289 | 1 lost | 7 |
 | Stormhorn Tribe | 10 | 6 | 4 | 564 | 3 won | 3 |
 | Order of the Silver Stag | 13 | 6 | 7 | 557 | 1 lost | 3 |
 | Frostmere Clan | 14 | 6 | 8 | 492 | 2 won | 2 |
 | Copper Crown Company | 11 | 6 | 5 | 369 | 1 lost | 3 |
 | Emberroot Circle | 12 | 6 | 5 | 360 | 3 lost | 3 |
-| Golden Lion Order | 11 | 6 | 5 | 339 | 1 lost | 3 |
+| Golden Lion Order | 12 | 6 | 6 | 346 | 2 lost | 3 |
 | Highmoor Clan | 10 | 6 | 4 | 325 | 5 won | 5 |
-| Thornwood Company | 8 | 6 | 2 | 268 | 5 won | 5 |
+| Iron Boar Clan | 9 | 6 | 3 | 225 | 1 won | 3 |
 | Wildbrook Clan | 17 | 5 | 12 | 712 | 1 lost | 1 |
-| Duskwing Tribe | 16 | 5 | 10 | 571 | 1 won | 2 |
 
 ### Great rivalries
 
@@ -169,10 +169,11 @@ Records from 417 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **Frostwhisper Tribe vs Starweave Circle**: met 4 times, last won by Frostwhisper Tribe
 - **Brightwater Tribe vs Glimmerdeep Kin**: met 3 times, last won by Glimmerdeep Kin
 - **Greyfang Clan vs Order of the Silver Stag**: met 3 times, last won by Order of the Silver Stag
-- **Crew of the Black Gull vs Order of the Silver Stag**: met 3 times, last won by Order of the Silver Stag
+- **Black Bear Clan vs Thornwood Company**: met 3 times, last won by Thornwood Company
 
 ### Latest from the battlefield
 
+- 2026-11-07 08:53: The Thornwood Company Take the Frozen End (revenge denied · 6 wins in a row · 41 kills)
 - 2026-11-07 08:40: The Nightshade Coven Take the Open Plains (2nd win · 84 kills)
 - 2026-11-07 08:23: The Wolverine Company Take the Castle (streak ended · 4th win · 107 kills)
 - 2026-11-07 08:06: The Red Hawk Company Take the World Furnace (11th win · 47 kills)
@@ -182,4 +183,3 @@ Records from 417 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 07:10: The Zenith Cohort Take the Bombed City (revenge denied · 2nd win · 11 kills)
 - 2026-11-07 06:56: The Copperhead Battalion Take the Neon District (streak ended · 4th win · 55 kills)
 - 2026-11-07 06:39: The Black Bear Clan Take the Open Plains (5th win · 6 kills)
-- 2026-11-07 06:25: The Highmoor Clan Take the Mountain Pass (revenge! · 4 wins in a row · 45 kills)

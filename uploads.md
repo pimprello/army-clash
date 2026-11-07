@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 08:53 | 6 Wins in a ROW for the Thornwood Company 🔥 | Silver wins | https://youtube.com/shorts/MCKgYQUTY4c |
 | 2026-11-07 08:40 | 3 Armies, Only 1 SURVIVES 💀 | Brazil wins | https://youtube.com/shorts/jaqgJ_EyJns |
 | 2026-11-07 08:23 | 🇵🇹 Portugal Zombies vs Spain Soldiers | Spain wins | https://youtube.com/shorts/i9cOw70eBBs |
 | 2026-11-07 08:06 | The Weapons Came ALIVE 🗡️ | Yellow wins | https://youtube.com/shorts/SXJGnttn2N4 |
