@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 15:47 | LIGHTNING Struck the Battlefield ⚡ | Germany wins | https://youtube.com/shorts/zlVhw82Ak0g |
 | 2026-11-07 15:29 | Pick ONE: Forbidden, Copycats, Glitch 👇 | Olive wins | https://youtube.com/shorts/XktBojpkSp0 |
 | 2026-11-07 15:13 | The KING Fell and They RAN 👑 | Red wins | https://youtube.com/shorts/m98P3UIhpVE |
 | 2026-11-07 14:59 | They Lost Their CHIEF and Still Won 😳 | Argentina wins | https://youtube.com/shorts/9mc-p_El9Fw |
