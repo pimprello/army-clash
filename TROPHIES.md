@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 424 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 425 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -58,10 +58,10 @@ Records from 424 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - KNIGHT SLAYER: 5
 - WORLDROOT SLAYER: 5
 - EXECUTIONER SLAYER: 5
-- MIRROR KING SLAYER: 6
 - PHOENIX SLAYER: 6
 - THOUSAND-MAN SLAYER: 6
 - STAR EATER SLAYER: 6
+- MIRROR KING SLAYER: 7
 - UNMAKER SLAYER: 7
 - IMMORTAL FRAUD SLAYER: 7
 - STORM EMPEROR SLAYER: 7
@@ -121,14 +121,14 @@ Records from 424 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: RED: 3
 - extinct: BLUE: 3
 - possess: cannon: 4
-- possess: treant: 4
+- possess: treant: 5
 - portal: cyclops: 8
 - portal: golem: 9
 - portal: wolfrider: 9
 - fusion: 10
 - portal: demon: 13
-- portal: troll: 13
-- sudden: ring: 15
+- portal: troll: 14
+- sudden: ring: 16
 - sudden: boss: 17
 - sudden: meteors: 23
 - sudden: lava: 23
@@ -154,11 +154,11 @@ Records from 424 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Highmoor Clan | 11 | 7 | 4 | 375 | 6 won | 6 |
 | Mire Witch Coven | 9 | 7 | 2 | 322 | 2 lost | 7 |
 | Order of the Silver Stag | 13 | 6 | 7 | 557 | 1 lost | 3 |
+| Hollowbark Kin | 15 | 6 | 9 | 461 | 2 won | 2 |
 | Emberroot Circle | 14 | 6 | 7 | 437 | 5 lost | 3 |
 | Copper Crown Company | 11 | 6 | 5 | 369 | 1 lost | 3 |
 | Golden Lion Order | 12 | 6 | 6 | 346 | 2 lost | 3 |
 | Iron Boar Clan | 9 | 6 | 3 | 225 | 1 won | 3 |
-| Bone Garden Coven | 10 | 6 | 4 | 134 | 1 won | 3 |
 
 ### Great rivalries
 
@@ -173,6 +173,7 @@ Records from 424 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 10:34: The Hollowbark Kin Take the Open Plains (6th win · 47 kills)
 - 2026-11-07 10:21: The Silverbough Circle Take the Frozen End (revenge denied · 3 wins in a row · 76 kills)
 - 2026-11-07 10:05: The Silverbough Circle Take the Mirror Gate (streak ended · 8th win · 85 kills)
 - 2026-11-07 09:48: The Falling Leaf School Take the Old Forest (streak ended · 2nd win · 78 kills)
@@ -182,4 +183,3 @@ Records from 424 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 08:53: The Thornwood Company Take the Frozen End (revenge denied · 6 wins in a row · 41 kills)
 - 2026-11-07 08:40: The Nightshade Coven Take the Open Plains (2nd win · 84 kills)
 - 2026-11-07 08:23: The Wolverine Company Take the Castle (streak ended · 4th win · 107 kills)
-- 2026-11-07 08:06: The Red Hawk Company Take the World Furnace (11th win · 47 kills)

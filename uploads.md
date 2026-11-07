@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 10:34 | 3 Armies, Only 1 SURVIVES 💀 | Sky wins | https://youtube.com/shorts/H5tTYhtaUK4 |
 | 2026-11-07 10:21 | 🇨🇦 Canada vs USA 🇺🇸 | Canada wins | https://youtube.com/shorts/hE46P2Sy8cQ |
 | 2026-11-07 10:05 | The Merchant Sold Them a War Horn 💰 | Magenta wins | https://youtube.com/shorts/mkxTJk1HObk |
 | 2026-11-07 09:48 | MIRROR MATCH: Ninjas vs NINJAS 🪞 | Yellow wins | https://youtube.com/shorts/w2VGth_J3V4 |
