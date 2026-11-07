@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 01:18 | LIGHTNING Struck the Battlefield ⚡ | Canada wins | https://youtube.com/shorts/gjVRQYbD6a8 |
 | 2026-11-07 01:02 | Kill the KING to Win 👑 Skeletons vs Elves | Blue wins | https://youtube.com/shorts/eCsFRvLGdaE |
 | 2026-11-07 00:45 | They Were LOSING Until This 😳 | Blue wins | https://youtube.com/shorts/VolKXrYvuDc |
 | 2026-11-07 00:32 | 🇳🇴 Norway Troopers vs Sweden Robots | Sweden wins | https://youtube.com/shorts/tyjhCVB40Ps |

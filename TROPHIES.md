@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 386 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 387 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -87,7 +87,7 @@ Records from 386 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 38
 - swift: 55
 - venom: 62
-- spikes: 66
+- spikes: 67
 - regen: 77
 
 ## Big moments
@@ -125,8 +125,8 @@ Records from 386 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: wolfrider: 7
 - portal: cyclops: 8
 - fusion: 9
-- portal: demon: 12
 - portal: troll: 12
+- portal: demon: 13
 - sudden: ring: 13
 - sudden: boss: 17
 - sudden: lava: 19
@@ -172,6 +172,7 @@ Records from 386 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 01:18: The Crooked Spire Take the Clockwork Arena (3rd win · 58 kills)
 - 2026-11-07 01:02: The Stormhorn Tribe Take the Quarry (revenge! · 3 wins in a row · 53 kills)
 - 2026-11-07 00:45: The Bulldog Company Take the Open Plains (first ever win · 55 kills)
 - 2026-11-07 00:32: The Vortex Legion Take the Frozen End (revenge denied · 3 wins in a row · 66 kills)
@@ -181,4 +182,3 @@ Records from 386 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 23:34: The Ash Wolf Clan Take the Treasure Cove (revenge denied · 4th win · 106 kills)
 - 2026-11-06 23:20: The Rotting Choir Take the Bombed City (3 wins in a row · 37 kills)
 - 2026-11-06 23:06: The Copper Crown Company Take the Reactor (streak ended · 4th win · 21 kills)
-- 2026-11-06 22:49: The Mountain Wind School Take the Canyon Pass (4th win · 82 kills)
