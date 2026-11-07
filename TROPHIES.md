@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 395 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 396 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -122,8 +122,8 @@ Records from 395 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - possess: cannon: 4
 - possess: treant: 4
 - portal: golem: 7
-- portal: wolfrider: 7
 - portal: cyclops: 8
+- portal: wolfrider: 8
 - fusion: 9
 - portal: troll: 12
 - portal: demon: 13
@@ -140,7 +140,7 @@ Records from 395 battles with trophies (videos from 1 November 2026 on). Rebuilt
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 16 | 12 | 4 | 608 | 1 lost | 7 |
 | Red Hawk Company | 15 | 10 | 5 | 495 | 2 lost | 5 |
-| Frostwhisper Tribe | 16 | 8 | 8 | 538 | 3 lost | 4 |
+| Frostwhisper Tribe | 17 | 8 | 9 | 552 | 4 lost | 4 |
 | Starweave Circle | 18 | 7 | 11 | 712 | 5 lost | 5 |
 | Thornheart Circle | 9 | 7 | 2 | 596 | 3 won | 3 |
 | Oakshield Clan | 11 | 7 | 4 | 332 | 3 won | 3 |
@@ -172,6 +172,7 @@ Records from 395 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 03:29: The Granite Battalion Take the Quarry (4th win · 40 kills)
 - 2026-11-07 03:14: The House of the Silver Tiger Take the Desert Well (3rd win · 13 kills)
 - 2026-11-07 02:59: The Oakshield Clan Take the Overgrown Throne (3 wins in a row · 49 kills)
 - 2026-11-07 02:44: The Golden Lion Order Take the Open Plains (6th win · 34 kills)
@@ -181,4 +182,3 @@ Records from 395 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 01:44: The Nebula Cohort Take the Open Plains (first ever win · 29 kills)
 - 2026-11-07 01:32: The Raven Hill Clan Take the Frozen End (revenge denied · 4 wins in a row · 55 kills)
 - 2026-11-07 01:18: The Crooked Spire Take the Clockwork Arena (3rd win · 58 kills)
-- 2026-11-07 01:02: The Stormhorn Tribe Take the Quarry (revenge! · 3 wins in a row · 53 kills)
