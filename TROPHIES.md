@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 402 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 403 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -129,7 +129,7 @@ Records from 402 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: demon: 13
 - sudden: ring: 13
 - sudden: boss: 17
-- sudden: lava: 19
+- sudden: lava: 20
 - sudden: meteors: 22
 
 ## The tribes' chronicle
@@ -153,11 +153,11 @@ Records from 402 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Copper Crown Company | 11 | 6 | 5 | 369 | 1 lost | 3 |
 | Emberroot Circle | 11 | 6 | 4 | 317 | 2 lost | 3 |
 | Golden Lion Order | 10 | 6 | 4 | 316 | 2 won | 3 |
+| Wildbrook Clan | 16 | 5 | 11 | 624 | 1 won | 1 |
 | Duskwing Tribe | 16 | 5 | 10 | 571 | 1 won | 2 |
 | Frostmere Clan | 13 | 5 | 8 | 462 | 1 won | 2 |
 | Hollowbark Kin | 14 | 5 | 9 | 414 | 1 won | 2 |
 | Nova Legion | 7 | 5 | 2 | 408 | 1 won | 2 |
-| Glimmerdeep Kin | 9 | 5 | 4 | 393 | 5 won | 5 |
 
 ### Great rivalries
 
@@ -172,6 +172,7 @@ Records from 402 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 05:13: The Nebula Cohort Take the Open Plains (3 wins in a row · 37 kills)
 - 2026-11-07 04:58: The Storm Tower Order Take the Sky-temple Relic (revenge denied · 3 wins in a row · 62 kills)
 - 2026-11-07 04:41: The Saltfang Crew Take the Open Plains (first ever win · 53 kills)
 - 2026-11-07 04:26: The Thornwood Company Take the Haunted Crypt (revenge! · 4 wins in a row · 75 kills)
@@ -181,4 +182,3 @@ Records from 402 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 03:29: The Granite Battalion Take the Quarry (4th win · 40 kills)
 - 2026-11-07 03:14: The House of the Silver Tiger Take the Desert Well (3rd win · 13 kills)
 - 2026-11-07 02:59: The Oakshield Clan Take the Overgrown Throne (3 wins in a row · 49 kills)
-- 2026-11-07 02:44: The Golden Lion Order Take the Open Plains (6th win · 34 kills)
