@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 444 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 445 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 444 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **TALVO THE WALL** (WIZARD), 34 kills · 2026-11-07 15:29
 - **VEXA STORMBORN** (WIZARD), 11 kills · 2026-11-07 15:13
 - **ZEDRIK STEELHEART** (BERSERKER), 14 kills · 2026-11-07 13:47
 - **GHOST-6** (MACHINE GUNNER), 13 kills · 2026-11-07 12:18
@@ -47,7 +48,6 @@ Records from 444 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **GRIM BONECRUSHER** (SAMURAI), 14 kills · 2026-11-07 03:43
 - **SIRA THE BOLD** (SIEGE GUNNER), 20 kills · 2026-11-07 02:18
 - **RUNA GRAVEBANE** (KNIGHT), 12 kills · 2026-11-07 01:32
-- **GRUNDA FIREBRAND** (SIEGE GUNNER), 10 kills · 2026-11-06 18:04
 
 ## Titles earned (rarest first)
 
@@ -76,8 +76,8 @@ Records from 444 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - TANK SLAYER: 15
 - MAMMOTH SLAYER: 16
 - GOLEM SLAYER: 17
-- GIANT SLAYER: 23
 - DRAGON SLAYER: 24
+- GIANT SLAYER: 25
 - TITAN SLAYER: 32
 
 ## Mutations (rarest first)
@@ -86,15 +86,14 @@ Records from 444 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - wings: 32
 - spellward: 43
 - swift: 68
-- venom: 69
-- spikes: 77
+- venom: 70
+- spikes: 78
 - regen: 88
 
 ## Big moments
 
 - extinct: AUSTRALIA: 1
 - extinct: PINK: 1
-- copied: giant: 1
 - extinct: LIME: 1
 - extinct: SWEDEN: 1
 - extinct: YELLOW: 1
@@ -114,6 +113,7 @@ Records from 444 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: SILVER: 2
 - possess: rhino: 2
 - possess: mammoth: 2
+- copied: giant: 2
 - possess: phoenix: 2
 - copied: trooper: 2
 - possess: stormemperor: 2
@@ -139,8 +139,8 @@ Records from 444 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
+| Mossback Tribe | 19 | 14 | 5 | 835 | 1 won | 7 |
 | Red Hawk Company | 18 | 13 | 5 | 721 | 3 won | 5 |
-| Mossback Tribe | 18 | 13 | 5 | 720 | 1 lost | 7 |
 | Silverbough Circle | 24 | 9 | 15 | 1070 | 2 lost | 3 |
 | Frostwhisper Tribe | 18 | 9 | 9 | 739 | 1 won | 4 |
 | Thornheart Circle | 11 | 9 | 2 | 678 | 5 won | 5 |
@@ -173,6 +173,7 @@ Records from 444 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 15:29: The Mossback Tribe Take the Open Plains (14th win · 115 kills)
 - 2026-11-07 15:13: The Hollowbark Kin Take the Frozen End (revenge! · 8th win · 59 kills)
 - 2026-11-07 14:59: The Pale Procession Take the Old Forest (revenge denied · 5th win · 13 kills)
 - 2026-11-07 14:43: The Zenith Cohort Take the Clockwork Arena (revenge denied · 3rd win · 58 kills)
@@ -182,4 +183,3 @@ Records from 444 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 13:47: The Oakshield Clan Take the Swamp Shrine (revenge denied · 5 wins in a row · 64 kills)
 - 2026-11-07 13:32: The Emberroot Circle Take the Open Plains (7th win · 44 kills)
 - 2026-11-07 13:17: The Copper Crown Company Take the Desert Well (revenge denied · 7th win · 45 kills)
-- 2026-11-07 13:02: The Still Water School Take the Reactor (streak ended · first ever win · 32 kills)
