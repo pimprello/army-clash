@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 446 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 447 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -86,7 +86,7 @@ Records from 446 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - wings: 32
 - spellward: 43
 - swift: 68
-- venom: 71
+- venom: 72
 - spikes: 78
 - regen: 88
 
@@ -140,7 +140,7 @@ Records from 446 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 19 | 14 | 5 | 835 | 1 won | 7 |
-| Red Hawk Company | 18 | 13 | 5 | 721 | 3 won | 5 |
+| Red Hawk Company | 19 | 14 | 5 | 731 | 4 won | 5 |
 | Silverbough Circle | 24 | 9 | 15 | 1070 | 2 lost | 3 |
 | Frostwhisper Tribe | 18 | 9 | 9 | 739 | 1 won | 4 |
 | Thornheart Circle | 11 | 9 | 2 | 678 | 5 won | 5 |
@@ -173,6 +173,7 @@ Records from 446 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 15:57: The Red Hawk Company Take the Godboard (4 wins in a row · 10 kills)
 - 2026-11-07 15:47: The Order of the Silver Stag Take the Titan's Bones (revenge! · 7th win · 54 kills)
 - 2026-11-07 15:29: The Mossback Tribe Take the Open Plains (14th win · 115 kills)
 - 2026-11-07 15:13: The Hollowbark Kin Take the Frozen End (revenge! · 8th win · 59 kills)
@@ -182,4 +183,3 @@ Records from 446 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 14:16: The Stonebridge Company Take the Treasure Cove (revenge! · 4th win · 75 kills)
 - 2026-11-07 14:02: The Rotting Choir Take the Ruined Fort (revenge denied · 5 wins in a row · 232 kills)
 - 2026-11-07 13:47: The Oakshield Clan Take the Swamp Shrine (revenge denied · 5 wins in a row · 64 kills)
-- 2026-11-07 13:32: The Emberroot Circle Take the Open Plains (7th win · 44 kills)
