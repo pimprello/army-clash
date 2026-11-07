@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 420 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 421 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 420 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **NYRA IRONHIDE** (GENERAL), 23 kills · 2026-11-07 09:37
 - **RUNA THE BOLD** (CROSSBOWMAN), 10 kills · 2026-11-07 09:23
 - **TOVA GRAVEBANE** (SIEGE GUNNER), 10 kills · 2026-11-07 08:06
 - **ZEDRIK THE MAD** (WIZARD), 12 kills · 2026-11-07 07:38
@@ -47,7 +48,6 @@ Records from 420 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **GRUNDA GRAVEBANE** (WAR RHINO), 10 kills · 2026-11-06 14:27
 - **ASHKA STEELHEART** (SIEGE GUNNER), 25 kills · 2026-11-06 11:48
 - **ASHKA STEELHEART** (WARLOCK), 10 kills · 2026-11-06 11:03
-- **ECHO-3** (LASER TROOPER), 10 kills · 2026-11-06 10:03
 
 ## Titles earned (rarest first)
 
@@ -67,8 +67,8 @@ Records from 420 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - IMMORTAL FRAUD SLAYER: 7
 - STORM EMPEROR SLAYER: 7
 - HYDRA SLAYER: 8
-- COLOSSUS SLAYER: 8
 - ELEPHANT SLAYER: 9
+- COLOSSUS SLAYER: 9
 - CYCLOPS SLAYER: 10
 - MECH SLAYER: 10
 - CANNON SLAYER: 11
@@ -87,7 +87,7 @@ Records from 420 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 40
 - swift: 63
 - venom: 66
-- spikes: 73
+- spikes: 74
 - regen: 86
 
 ## Big moments
@@ -123,9 +123,9 @@ Records from 420 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - possess: cannon: 4
 - possess: treant: 4
 - portal: cyclops: 8
-- fusion: 9
 - portal: golem: 9
 - portal: wolfrider: 9
+- fusion: 10
 - portal: demon: 13
 - portal: troll: 13
 - sudden: ring: 15
@@ -140,7 +140,7 @@ Records from 420 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 18 | 13 | 5 | 720 | 1 lost | 7 |
-| Red Hawk Company | 16 | 11 | 5 | 542 | 1 won | 5 |
+| Red Hawk Company | 17 | 12 | 5 | 654 | 2 won | 5 |
 | Frostwhisper Tribe | 18 | 9 | 9 | 739 | 1 won | 4 |
 | Thornheart Circle | 11 | 9 | 2 | 678 | 5 won | 5 |
 | Starweave Circle | 20 | 8 | 12 | 758 | 1 lost | 5 |
@@ -151,11 +151,11 @@ Records from 420 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Frostmere Clan | 15 | 7 | 8 | 557 | 3 won | 3 |
 | Raven Hill Clan | 11 | 7 | 4 | 444 | 1 lost | 5 |
 | Highmoor Clan | 11 | 7 | 4 | 375 | 6 won | 6 |
-| Mire Witch Coven | 8 | 7 | 1 | 289 | 1 lost | 7 |
+| Mire Witch Coven | 9 | 7 | 2 | 322 | 2 lost | 7 |
 | Stormhorn Tribe | 10 | 6 | 4 | 564 | 3 won | 3 |
 | Order of the Silver Stag | 13 | 6 | 7 | 557 | 1 lost | 3 |
+| Emberroot Circle | 13 | 6 | 6 | 428 | 4 lost | 3 |
 | Copper Crown Company | 11 | 6 | 5 | 369 | 1 lost | 3 |
-| Emberroot Circle | 12 | 6 | 5 | 360 | 3 lost | 3 |
 | Golden Lion Order | 12 | 6 | 6 | 346 | 2 lost | 3 |
 | Iron Boar Clan | 9 | 6 | 3 | 225 | 1 won | 3 |
 | Bone Garden Coven | 10 | 6 | 4 | 134 | 1 won | 3 |
@@ -173,6 +173,7 @@ Records from 420 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 09:37: The Red Hawk Company Take the Open Plains (12th win · 112 kills)
 - 2026-11-07 09:23: The Frostmere Clan Take the Godboard (revenge! · 3 wins in a row · 65 kills)
 - 2026-11-07 09:07: The Thornwood Company Take the Overgrown Throne (revenge denied · 7 wins in a row · 36 kills)
 - 2026-11-07 08:53: The Thornwood Company Take the Frozen End (revenge denied · 6 wins in a row · 41 kills)
@@ -182,4 +183,3 @@ Records from 420 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 07:56: The Highmoor Clan Take the City (5 wins in a row · 49 kills)
 - 2026-11-07 07:38: The Thornheart Circle Take the Open Plains (4 wins in a row · 70 kills)
 - 2026-11-07 07:24: The Hammer Platoon Take the Reactor (streak ended · 4th win · 74 kills)
-- 2026-11-07 07:10: The Zenith Cohort Take the Bombed City (revenge denied · 2nd win · 11 kills)
