@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 422 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 423 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 422 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **KAELEN THE WALL** (SIEGE GUNNER), 10 kills · 2026-11-07 10:05
 - **NYRA IRONHIDE** (GENERAL), 23 kills · 2026-11-07 09:37
 - **RUNA THE BOLD** (CROSSBOWMAN), 10 kills · 2026-11-07 09:23
 - **TOVA GRAVEBANE** (SIEGE GUNNER), 10 kills · 2026-11-07 08:06
@@ -47,26 +48,25 @@ Records from 422 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **ASHKA THE BOLD** (WARLOCK), 28 kills · 2026-11-06 15:13
 - **GRUNDA GRAVEBANE** (WAR RHINO), 10 kills · 2026-11-06 14:27
 - **ASHKA STEELHEART** (SIEGE GUNNER), 25 kills · 2026-11-06 11:48
-- **ASHKA STEELHEART** (WARLOCK), 10 kills · 2026-11-06 11:03
 
 ## Titles earned (rarest first)
 
 - CATAPULT SLAYER: 2
 - GRAVITY TYRANT SLAYER: 3
-- KNIGHT SLAYER: 4
 - CATHEDRAL SLAYER: 5
 - HELICOPTER SLAYER: 5
+- KNIGHT SLAYER: 5
 - WORLDROOT SLAYER: 5
 - EXECUTIONER SLAYER: 5
 - MIRROR KING SLAYER: 6
 - PHOENIX SLAYER: 6
 - THOUSAND-MAN SLAYER: 6
 - STAR EATER SLAYER: 6
-- FORTRESS SLAYER: 7
 - UNMAKER SLAYER: 7
 - IMMORTAL FRAUD SLAYER: 7
 - STORM EMPEROR SLAYER: 7
 - HYDRA SLAYER: 8
+- FORTRESS SLAYER: 8
 - ELEPHANT SLAYER: 9
 - COLOSSUS SLAYER: 9
 - CYCLOPS SLAYER: 10
@@ -84,7 +84,7 @@ Records from 422 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 - vampiric: 9
 - wings: 31
-- spellward: 40
+- spellward: 41
 - swift: 63
 - venom: 66
 - spikes: 74
@@ -143,12 +143,12 @@ Records from 422 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Red Hawk Company | 17 | 12 | 5 | 654 | 2 won | 5 |
 | Frostwhisper Tribe | 18 | 9 | 9 | 739 | 1 won | 4 |
 | Thornheart Circle | 11 | 9 | 2 | 678 | 5 won | 5 |
+| Silverbough Circle | 21 | 8 | 13 | 931 | 2 won | 2 |
 | Starweave Circle | 20 | 8 | 12 | 758 | 1 lost | 5 |
 | Oakshield Clan | 12 | 8 | 4 | 373 | 4 won | 4 |
 | Thornwood Company | 10 | 8 | 2 | 345 | 7 won | 7 |
-| Silverbough Circle | 20 | 7 | 13 | 846 | 1 won | 2 |
 | Storm Tower Order | 16 | 7 | 9 | 612 | 3 won | 3 |
-| Frostmere Clan | 15 | 7 | 8 | 557 | 3 won | 3 |
+| Frostmere Clan | 16 | 7 | 9 | 601 | 1 lost | 3 |
 | Raven Hill Clan | 11 | 7 | 4 | 444 | 1 lost | 5 |
 | Highmoor Clan | 11 | 7 | 4 | 375 | 6 won | 6 |
 | Mire Witch Coven | 9 | 7 | 2 | 322 | 2 lost | 7 |
@@ -173,6 +173,7 @@ Records from 422 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 10:05: The Silverbough Circle Take the Mirror Gate (streak ended · 8th win · 85 kills)
 - 2026-11-07 09:48: The Falling Leaf School Take the Old Forest (streak ended · 2nd win · 78 kills)
 - 2026-11-07 09:37: The Red Hawk Company Take the Open Plains (12th win · 112 kills)
 - 2026-11-07 09:23: The Frostmere Clan Take the Godboard (revenge! · 3 wins in a row · 65 kills)
@@ -182,4 +183,3 @@ Records from 422 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 08:23: The Wolverine Company Take the Castle (streak ended · 4th win · 107 kills)
 - 2026-11-07 08:06: The Red Hawk Company Take the World Furnace (11th win · 47 kills)
 - 2026-11-07 07:56: The Highmoor Clan Take the City (5 wins in a row · 49 kills)
-- 2026-11-07 07:38: The Thornheart Circle Take the Open Plains (4 wins in a row · 70 kills)
