@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 452 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 453 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -127,7 +127,7 @@ Records from 452 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: wolfrider: 9
 - fusion: 10
 - portal: demon: 15
-- portal: troll: 15
+- portal: troll: 16
 - sudden: boss: 17
 - sudden: ring: 17
 - sudden: lava: 23
@@ -173,6 +173,7 @@ Records from 452 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 17:26: The Sunspire Kin Take the Open Plains (6th win · 47 kills)
 - 2026-11-07 17:12: The Kestrel Squadron Take the Neon District (streak ended · 4th win · 39 kills)
 - 2026-11-07 16:57: The Ghoul Hollow Coven Take the Titan's Bones (streak ended · 2nd win · 37 kills)
 - 2026-11-07 16:44: The Viper Company Take the Quarry (3rd win · 53 kills)
@@ -182,4 +183,3 @@ Records from 452 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 15:47: The Order of the Silver Stag Take the Titan's Bones (revenge! · 7th win · 54 kills)
 - 2026-11-07 15:29: The Mossback Tribe Take the Open Plains (14th win · 115 kills)
 - 2026-11-07 15:13: The Hollowbark Kin Take the Frozen End (revenge! · 8th win · 59 kills)
-- 2026-11-07 14:59: The Pale Procession Take the Old Forest (revenge denied · 5th win · 13 kills)
