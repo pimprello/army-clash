@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 00:45 | They Were LOSING Until This 😳 | Blue wins | https://youtube.com/shorts/VolKXrYvuDc |
 | 2026-11-07 00:32 | 🇳🇴 Norway Troopers vs Sweden Robots | Sweden wins | https://youtube.com/shorts/tyjhCVB40Ps |
 | 2026-11-07 00:16 | They Lost Their CHIEF and Still Won 😳 | Indigo wins | https://youtube.com/shorts/dT2dGqDjB2I |
 | 2026-11-07 00:07 | LIGHTNING Struck the Battlefield ⚡ | Purple wins | https://youtube.com/shorts/D9RBNM6ng2c |

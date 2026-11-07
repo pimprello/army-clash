@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 384 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 385 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -68,8 +68,8 @@ Records from 384 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - IMMORTAL FRAUD SLAYER: 7
 - STORM EMPEROR SLAYER: 7
 - COLOSSUS SLAYER: 8
-- CYCLOPS SLAYER: 8
 - ELEPHANT SLAYER: 9
+- CYCLOPS SLAYER: 9
 - CANNON SLAYER: 10
 - MECH SLAYER: 10
 - PLAYER SLAYER: 12
@@ -172,6 +172,7 @@ Records from 384 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 00:45: The Bulldog Company Take the Open Plains (first ever win · 55 kills)
 - 2026-11-07 00:32: The Vortex Legion Take the Frozen End (revenge denied · 3 wins in a row · 66 kills)
 - 2026-11-07 00:16: The Order of the Silver Stag Take the Frozen End (revenge! · 6th win · 31 kills)
 - 2026-11-07 00:07: The Copper Crown Company Take the Castle (revenge denied · 5th win · 66 kills)
@@ -181,4 +182,3 @@ Records from 384 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 23:06: The Copper Crown Company Take the Reactor (streak ended · 4th win · 21 kills)
 - 2026-11-06 22:49: The Mountain Wind School Take the Canyon Pass (4th win · 82 kills)
 - 2026-11-06 21:55: The Duskwing Tribe Take the Clockwork Arena (revenge denied · 5th win · 55 kills)
-- 2026-11-06 20:58: The Copperhead Battalion Take the Trench Line (streak ended · 3rd win · 16 kills)
