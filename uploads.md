@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 17:42 | Royal Zombies vs Toxic Zombies 🪞 | Blue wins | https://youtube.com/shorts/JDerFGD1kQw |
 | 2026-11-07 17:26 | A PORTAL Opened Mid-Battle 🌀 | Sky wins | https://youtube.com/shorts/2wviZV4SZTc |
 | 2026-11-07 17:12 | ⚔️ CHAMPION DUEL: Dragon Army vs Tank Army | Teal wins | https://youtube.com/shorts/how5417oWRg |
 | 2026-11-07 16:57 | 👑 Protect the KING: Dragon Guard vs Wild Storms | Yellow wins | https://youtube.com/shorts/2uS34IXSo9U |

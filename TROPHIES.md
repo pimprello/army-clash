@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 453 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 454 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -146,11 +146,11 @@ Records from 453 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Frostwhisper Tribe | 18 | 9 | 9 | 739 | 1 won | 4 |
 | Thornheart Circle | 11 | 9 | 2 | 678 | 5 won | 5 |
 | Oakshield Clan | 13 | 9 | 4 | 437 | 5 won | 5 |
+| Mire Witch Coven | 11 | 9 | 2 | 395 | 2 won | 7 |
 | Starweave Circle | 22 | 8 | 14 | 830 | 3 lost | 5 |
 | Frostmere Clan | 19 | 8 | 11 | 725 | 2 lost | 3 |
 | Hollowbark Kin | 18 | 8 | 10 | 586 | 1 won | 3 |
 | Raven Hill Clan | 15 | 8 | 7 | 535 | 1 won | 5 |
-| Mire Witch Coven | 10 | 8 | 2 | 334 | 1 won | 7 |
 | Order of the Silver Stag | 15 | 7 | 8 | 697 | 1 lost | 3 |
 | Storm Tower Order | 17 | 7 | 10 | 662 | 1 lost | 3 |
 | Stormhorn Tribe | 11 | 7 | 4 | 578 | 4 won | 4 |
@@ -173,6 +173,7 @@ Records from 453 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 17:42: The Ghoul Hollow Coven Take the Ruined Fort (3 wins in a row · 105 kills)
 - 2026-11-07 17:26: The Sunspire Kin Take the Open Plains (6th win · 47 kills)
 - 2026-11-07 17:12: The Kestrel Squadron Take the Neon District (streak ended · 4th win · 39 kills)
 - 2026-11-07 16:57: The Ghoul Hollow Coven Take the Titan's Bones (streak ended · 2nd win · 37 kills)
@@ -182,4 +183,3 @@ Records from 453 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 15:57: The Red Hawk Company Take the Godboard (4 wins in a row · 10 kills)
 - 2026-11-07 15:47: The Order of the Silver Stag Take the Titan's Bones (revenge! · 7th win · 54 kills)
 - 2026-11-07 15:29: The Mossback Tribe Take the Open Plains (14th win · 115 kills)
-- 2026-11-07 15:13: The Hollowbark Kin Take the Frozen End (revenge! · 8th win · 59 kills)
