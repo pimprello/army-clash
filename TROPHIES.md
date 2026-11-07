@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 383 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 384 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -87,7 +87,7 @@ Records from 383 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 38
 - swift: 55
 - venom: 62
-- spikes: 65
+- spikes: 66
 - regen: 77
 
 ## Big moments
@@ -153,11 +153,11 @@ Records from 383 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Glimmerdeep Kin | 9 | 5 | 4 | 393 | 5 won | 5 |
 | Copper Crown Company | 9 | 5 | 4 | 320 | 2 won | 3 |
 | Golden Lion Order | 9 | 5 | 4 | 282 | 1 won | 3 |
+| Vortex Legion | 6 | 5 | 1 | 265 | 3 won | 3 |
 | Oakshield Clan | 9 | 5 | 4 | 256 | 1 won | 3 |
 | Iron Boar Clan | 6 | 5 | 1 | 197 | 3 won | 3 |
 | The Black Candle | 6 | 5 | 1 | 177 | 4 won | 4 |
 | Bone Garden Coven | 8 | 5 | 3 | 120 | 1 won | 3 |
-| Wildbrook Clan | 14 | 4 | 10 | 554 | 1 won | 1 |
 
 ### Great rivalries
 
@@ -172,6 +172,7 @@ Records from 383 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 00:32: The Vortex Legion Take the Frozen End (revenge denied · 3 wins in a row · 66 kills)
 - 2026-11-07 00:16: The Order of the Silver Stag Take the Frozen End (revenge! · 6th win · 31 kills)
 - 2026-11-07 00:07: The Copper Crown Company Take the Castle (revenge denied · 5th win · 66 kills)
 - 2026-11-06 23:47: The Nightshade Coven Take the Open Plains (first ever win · 50 kills)
@@ -181,4 +182,3 @@ Records from 383 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-06 22:49: The Mountain Wind School Take the Canyon Pass (4th win · 82 kills)
 - 2026-11-06 21:55: The Duskwing Tribe Take the Clockwork Arena (revenge denied · 5th win · 55 kills)
 - 2026-11-06 20:58: The Copperhead Battalion Take the Trench Line (streak ended · 3rd win · 16 kills)
-- 2026-11-06 20:45: The Wildbrook Clan Take the Desert Well (revenge denied · 4th win · 75 kills)
