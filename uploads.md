@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-07 06:56 | They Killed the KING 👑 | Australia wins | https://youtube.com/shorts/MOX7_WQ-THM |
 | 2026-11-07 06:39 | The Weapons Came ALIVE 🗡️ | Coral wins | https://youtube.com/shorts/oySG_pLeC-Q |
 | 2026-11-07 06:25 | A PORTAL Opened Mid-Battle 🌀 | Green wins | https://youtube.com/shorts/FIN3TqBVfkQ |
 | 2026-11-07 06:13 | ⚔️ CHAMPION DUEL: Wild Mirrors vs Ultra Legion | Green wins | https://youtube.com/shorts/6pKNAhPK9Mo |

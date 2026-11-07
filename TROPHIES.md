@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 409 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 410 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -76,7 +76,7 @@ Records from 409 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - TANK SLAYER: 14
 - GOLEM SLAYER: 15
 - MAMMOTH SLAYER: 16
-- GIANT SLAYER: 21
+- GIANT SLAYER: 22
 - DRAGON SLAYER: 23
 - TITAN SLAYER: 31
 
@@ -172,6 +172,7 @@ Records from 409 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-07 06:56: The Copperhead Battalion Take the Neon District (streak ended · 4th win · 55 kills)
 - 2026-11-07 06:39: The Black Bear Clan Take the Open Plains (5th win · 6 kills)
 - 2026-11-07 06:25: The Highmoor Clan Take the Mountain Pass (revenge! · 4 wins in a row · 45 kills)
 - 2026-11-07 06:13: The Thornwood Company Take the Trench Line (5 wins in a row · 82 kills)
@@ -181,4 +182,3 @@ Records from 409 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 05:13: The Nebula Cohort Take the Open Plains (3 wins in a row · 37 kills)
 - 2026-11-07 04:58: The Storm Tower Order Take the Sky-temple Relic (revenge denied · 3 wins in a row · 62 kills)
 - 2026-11-07 04:41: The Saltfang Crew Take the Open Plains (first ever win · 53 kills)
-- 2026-11-07 04:26: The Thornwood Company Take the Haunted Crypt (revenge! · 4 wins in a row · 75 kills)
