@@ -39,11 +39,11 @@ In this repository open **Settings → Secrets and variables → Actions → New
 
 Open the **Actions** tab → **Post Army Clash** → **Run workflow**. Pick `private` the first time if you want to check the video before anyone sees it. After about five minutes it appears on your channel.
 
-From then on it posts automatically twice a day, at 10am and 10pm London time (`schedule` in `rules.json`).
+From then on it posts automatically four times a day, at 10am, 2pm, 6pm and 10pm London time (`schedule` in `rules.json`).
 
 ## Changing things
 
-- **When it posts:** `schedule.hours` in `rules.json` (10 and 22, London time). The workflow wakes every 10 minutes around each slot and `slot.js` lets only the first run in a slot post. Running it by hand always posts.
+- **When it posts:** `schedule.hours` in `rules.json` (10, 14, 18 and 22, London time). The workflow wakes every 10 minutes around each slot and `slot.js` lets only the first run in a slot post. Running it by hand always posts.
 - **Titles and description:** edit the `meta` section at the end of `render.js`.
 - **Try it on your computer:** `npm install`, then `node render.js` makes `out/army-clash.mp4` (needs ffmpeg). `DRY_RUN=1 node upload.js` shows what would be uploaded without posting it.
 
@@ -51,7 +51,7 @@ From then on it posts automatically twice a day, at 10am and 10pm London time (`
 
 - Every posted video is added to `uploads.md` with its link. That small commit also keeps the schedule running, because GitHub pauses schedules in public repositories after 60 days without changes.
 - The repository can stay public: your keys live in GitHub Secrets and are never shown in the code or the logs. Public repositories also get Actions minutes for free.
-- YouTube's API allows 100 uploads a day per project; the channel posts 2. Using several Google projects to get around the limit breaks YouTube's API rules.
+- YouTube's API allows 100 uploads a day per project; the channel posts 4. Using several Google projects to get around the limit breaks YouTube's API rules.
 - Each video also gets a thumbnail (`out/thumb.jpg`, `thumbnail` in `rules.json`). YouTube only accepts custom thumbnails on Shorts from channels in the YouTube Partner Program; until then the run shows a "Thumbnail not set" warning and the video keeps YouTube's own thumbnail.
 - If a run fails, the Actions tab shows why, and the video is kept there for 3 days.
 - The font is Barlow Condensed (SIL Open Font License, included in `fonts/`).

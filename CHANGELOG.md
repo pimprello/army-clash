@@ -2,6 +2,10 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-08: four videos a day
+
+Rellz: "make it upload 4 videos a day". The channel now posts at 10am, 2pm, 6pm and 10pm London time (`rules.schedule.hours` 10, 14, 18, 22; the workflow now also wakes around 2pm and 6pm). Each upload uses 1,600 of the project's 10,000 daily YouTube API units, so four a day still leaves room for thumbnails and stats. AUTOPILOT, CLAUDE, README and RULES updated to say 4 a day.
+
 ## 2026-11-08 (autopilot)
 
 - **Health:** uploads are fine. Last night's 10pm post went up at 22:18 UTC (`Pick ONE: Frost, Tempest, Spirits 👇`); the later runs in that slot correctly skipped, and nothing is due until the 10am slot. Making that video took 5 minutes (a three-way battle with its test battles first), under the 6-minute limit. No line-ups are waiting to be balanced.

@@ -1984,6 +1984,8 @@
   "schedule": {
     "hours": [
       10,
+      14,
+      18,
       22
     ],
     "timeZone": "Europe/London"

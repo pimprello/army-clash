@@ -1,6 +1,6 @@
 # Notes for Claude
 
-This repo auto-posts Army Clash Shorts to YouTube for Rellz (the battle is paced to end close to 60 s and the video ends 3 s after it, `rules.video`). `.github/workflows/post-army-clash.yml` renders with `render.js` + `engine.js` and uploads with `upload.js`. It posts two Shorts a day, at 10am and 10pm London time (`rules.schedule`; Rellz, 2026-11-07): the workflow wakes every 10 minutes around each slot and `slot.js` lets only the first run in a slot post. A manual run (Run workflow) always posts. There is no self-queuing any more. If an upload fails, the reason is shown as a GitHub annotation (readable via the check-runs annotations API).
+This repo auto-posts Army Clash Shorts to YouTube for Rellz (the battle is paced to end close to 60 s and the video ends 3 s after it, `rules.video`). `.github/workflows/post-army-clash.yml` renders with `render.js` + `engine.js` and uploads with `upload.js`. It posts four Shorts a day, at 10am, 2pm, 6pm and 10pm London time (`rules.schedule`; Rellz asked for 4 a day on 2026-11-08): the workflow wakes every 10 minutes around each slot and `slot.js` lets only the first run in a slot post. A manual run (Run workflow) always posts. There is no self-queuing any more. If an upload fails, the reason is shown as a GitHub annotation (readable via the check-runs annotations API).
 
 When Rellz asks to change future videos ("add a unit", "use these colours", "make X rarer"):
 1. Prefer editing `rules.json`. Add a new rule there if the request is a dial he'll likely want to turn again, then document it in `RULES.md`.
@@ -13,4 +13,4 @@ Line-ups, formations and maps rotate deterministically from the number of rows i
 
 A daily scheduled autopilot run follows `AUTOPILOT.md` (health check, learn from `stats/summary.md`, add one new thing, log it in `CHANGELOG.md`). Keep that file's guardrails in sync with Rellz's instructions, and log manual changes in `CHANGELOG.md` too.
 
-Limits to remember: Rellz wants 2 uploads a day (never raise it without him asking); YouTube allows 100 API uploads a day per project, and the repo must stay active (each upload commits to `uploads.md`).
+Limits to remember: Rellz wants 4 uploads a day (never raise it without him asking; each upload costs 1,600 of the project's 10,000 daily API units); YouTube allows 100 API uploads a day per project, and the repo must stay active (each upload commits to `uploads.md`).

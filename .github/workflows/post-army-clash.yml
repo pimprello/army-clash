@@ -4,7 +4,7 @@ on:
   schedule:
     # Two Shorts a day, at 10am and 10pm London time (rules.schedule). GitHub's timer runs in UTC and can be late, so it wakes
     # every 10 minutes in the hours around each slot (covering summer time too); slot.js lets only the first run in each slot post.
-    - cron: '3,13,23,33,43 9,10,21,22 * * *'
+    - cron: '3,13,23,33,43 9,10,13,14,17,18,21,22 * * *'
   workflow_dispatch:
     inputs:
       privacy:
