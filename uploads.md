@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-08 10:26 | ⚔️ WARRIORS vs Warriors | Lime wins | https://youtube.com/shorts/yG7l15gh6Mg |
 | 2026-11-07 22:18 | Pick ONE: Frost, Tempest, Spirits 👇 | Green wins | https://youtube.com/shorts/DSXdtPtssHo |
 | 2026-11-07 21:06 | They Were OUTNUMBERED... 😳 | Navy wins | https://youtube.com/shorts/IUKymzQ_yNM |
 | 2026-11-07 20:54 | 🔥 FROST HOLLOWS vs Toxic Ogres | Gold wins | https://youtube.com/shorts/yUYgHl0nBF0 |

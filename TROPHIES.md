@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 469 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 470 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -148,23 +148,23 @@ Records from 469 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Thornheart Circle | 13 | 10 | 3 | 764 | 1 lost | 6 |
 | Thornwood Company | 13 | 10 | 3 | 396 | 1 lost | 9 |
 | Starweave Circle | 23 | 9 | 14 | 881 | 1 won | 5 |
+| Frostmere Clan | 21 | 9 | 12 | 743 | 1 won | 3 |
 | Mire Witch Coven | 11 | 9 | 2 | 395 | 2 won | 7 |
-| Frostmere Clan | 20 | 8 | 12 | 731 | 3 lost | 3 |
 | Hollowbark Kin | 18 | 8 | 10 | 586 | 1 won | 3 |
+| Copper Crown Company | 15 | 8 | 7 | 566 | 1 won | 3 |
 | Raven Hill Clan | 15 | 8 | 7 | 535 | 1 won | 5 |
-| Highmoor Clan | 12 | 8 | 4 | 411 | 7 won | 7 |
+| Highmoor Clan | 13 | 8 | 5 | 425 | 1 lost | 7 |
 | Wildbrook Clan | 21 | 7 | 14 | 803 | 1 won | 1 |
 | Order of the Silver Stag | 17 | 7 | 10 | 717 | 3 lost | 3 |
 | Storm Tower Order | 18 | 7 | 11 | 679 | 2 lost | 3 |
 | Stormhorn Tribe | 12 | 7 | 5 | 596 | 1 lost | 4 |
-| Copper Crown Company | 14 | 7 | 7 | 488 | 2 lost | 3 |
 | Emberroot Circle | 15 | 7 | 7 | 481 | 1 won | 3 |
 | Golden Lion Order | 13 | 7 | 6 | 427 | 1 won | 3 |
 
 ### Great rivalries
 
+- **Frostmere Clan vs Greyfang Clan**: met 6 times, last won by Frostmere Clan
 - **Greyfang Clan vs Order of the Silver Stag**: met 5 times, last won by Greyfang Clan
-- **Frostmere Clan vs Greyfang Clan**: met 5 times, last won by Greyfang Clan
 - **Mossback Tribe vs Stormhorn Tribe**: met 4 times, last won by Stormhorn Tribe
 - **Black Bear Clan vs Thornwood Company**: met 4 times, last won by Thornwood Company
 - **Greyfang Clan vs Raven Hill Clan**: met 4 times, last won by Raven Hill Clan
@@ -174,6 +174,7 @@ Records from 469 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-08 10:26: The Copper Crown Company Take the Overgrown Throne (8th win · 78 kills)
 - 2026-11-07 22:18: The Glimmerdeep Kin Take the Open Plains (6th win · 29 kills)
 - 2026-11-07 21:06: The Mustang Battalion Take the Treasure Cove (5th win · 57 kills)
 - 2026-11-07 20:54: The Crew of the Iron Anchor Take the Haunted Crypt (3 wins in a row · 28 kills)
@@ -183,4 +184,3 @@ Records from 469 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 19:55: The Solar Wing Take the Swamp Shrine (revenge denied · 3 wins in a row · 79 kills)
 - 2026-11-07 19:37: The Silverbough Circle Take the Castle (revenge denied · 10th win · 135 kills)
 - 2026-11-07 19:22: The Black Bear Clan Take the Open Plains (6th win · 71 kills)
-- 2026-11-07 19:11: The Harrier Squadron Take the Reactor (3 wins in a row · 62 kills)
