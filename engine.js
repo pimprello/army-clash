@@ -2899,7 +2899,7 @@ const RVB = (() => {
       if (!this.slashes) for (const pts of this.cracks || []) this.drawCrack(ctx, pts, 1);
       this.drawBoosts(ctx);
       for (const ev of this.events) {
-        if (ev.type === 'stampede' || ev.type === 'kraken') this.drawEvent2(ctx, ev);
+        if ((ev.type === 'stampede' || ev.type === 'kraken') && !(this.shine && api.makeCanvas)) this.drawEvent2(ctx, ev); // (with the shine, on the troops' layer)
         if (ev.type === 'earthquake' && ev.started && !ev.done && !this.slashes) this.drawCrack(ctx, ev.pts, clamp((ev.t - 0.6) / 0.4, 0, 1));
         if (ev.type === 'tornado' && ev.started && !ev.done) {
           // a twister seen from above: spinning grey rings around a dark eye, with its shadow
@@ -13096,6 +13096,13 @@ const RVB = (() => {
             this.parts.push({ x: p[0] + F.range(-20, 20), y: p[1], vx: F.range(-25, 25), vy: F.range(-90, -40), life: F.range(1.0, 1.6), age: 0, size: F.range(16, 30), color: F.chance(0.5) ? '#8B7355' : '#A08A6C', grav: 0, smoke: true });
             if (F.chance(0.5)) this.parts.push({ x: p[0], y: p[1], vx: F.range(-160, 160), vy: F.range(-380, -200), life: 0.8, age: 0, size: F.range(4, 8), color: '#6B5A49', grav: 900, drag: 0.6, shard: true, rot: 0, spin: F.range(-10, 10) });
           }
+        } else if (ev.type === 'kraken' && ev.arms) {
+          // the kraken: water surging out of its holes, foam, spray, and everyone near a tentacle soaked
+          for (const a of ev.arms) {
+            if (F.chance(dt * 9 * D)) this.shSpray(a.x, a.y, -Math.PI / 2, 1.5, 3, 260, 0.6, 4, F.chance(0.5) ? '#7DD3FC' : '#E0F2FE', 700, { drop: true });
+            if (F.chance(dt * 1.6)) this.shRings.push({ x: a.x, y: a.y, r0: 18, r1: 70, t0: this.t, life: 0.6, col: '#E0F2FE', w: 4 });
+            if (a.tx !== undefined) for (const o of this.near(a.tx, a.ty, 70)) { const ms = this.shState(o); ms.wet = 1; ms.wT = T; }
+          }
         } else if (ev.type === 'blizzard') {
           if (F.chance(dt * 50 * D)) this.parts.push({ x: AR.x + F.range(0, AR.w), y: AR.y + F.range(0, AR.h), vx: 420, vy: 240, life: 0.35, age: 0, size: 2, color: '#FFFFFF', grav: 0, drag: 0, streak: 0.03 });
         }
@@ -13118,6 +13125,8 @@ const RVB = (() => {
       }
       const G = this.g4;
       if (G && G.holes) for (const b of G.holes) {
+        // a black hole opening: space pulled inwards (a radial blur towards it) and a jolt
+        if (!b.shSeen) { b.shSeen = true; this.shRB.push({ x: b.x, y: b.y, t0: this.t, life: 0.55, s: -0.09 }); if (this.shRB.length > 2) this.shRB.shift(); this.shPulse(0.4, 0.35); this.shKick(Math.PI / 2, 7); }
         // a black hole: debris lifting off the ground all round it and light being pulled in
         if (F.chance(dt * 22 * D)) { const a = F.range(0, TAU), d = b.r * F.range(0.5, 1); this.parts.push({ x: b.x + Math.cos(a) * d, y: b.y + Math.sin(a) * d, vx: -Math.cos(a) * d * 1.6 - Math.sin(a) * 120, vy: -Math.sin(a) * d * 1.6 + Math.cos(a) * 120 - 40, life: 0.55, age: 0, size: F.range(3, 6), color: F.chance(0.5) ? '#6B5A49' : '#4C1D95', grav: -60, drag: 0, shard: true, rot: a, spin: 8 }); }
       }
@@ -13323,6 +13332,13 @@ const RVB = (() => {
     // after every troop is drawn: gloss and marks onto the layer, the rim light, then the layer and what's over it onto the screen
     shineEnd(m, lc) {
       const S = this.shine, [rx, ry, rw, rh] = this._shBox, L = this._shL, R = this._shR, rc = R.getContext('2d');
+      // the stampede's animals and the kraken's tentacles shine too
+      for (const ev of this.events || []) if ((ev.type === 'stampede' || ev.type === 'kraken') && ev.started && !ev.done) {
+        lc.save(); this.drawEvent2(lc, ev); lc.restore();
+        const rot = Math.atan2(this._shLy, this._shLx) + Math.PI / 2;
+        if (ev.type === 'stampede') for (const a of ev.herd) { const r = a.kind === 'mammoth' ? 34 : 24; this.shAdd(this._shB, 'specW3', 'e', a.x + this._shLx * r * 0.36, a.y + this._shLy * r * 0.36, r * 0.44, r * 0.24, rot); this.shAdd(this._shB, 'hotW4', 'c', a.x + this._shLx * r * 0.5, a.y + this._shLy * r * 0.5, r * 0.1); }
+        else for (const a of ev.arms) if (a.tx !== undefined) this.shAdd(this._shB, 'hotW4', 'c', a.tx + this._shLx * 5, a.ty + this._shLy * 5, 3.5);
+      }
       // fallen troops fading out (rules.ui.anim) shine too
       if (this.anim) for (const d of this.deathFx || []) {
         const k = (this.t - d.t0) / 0.32, u = d.u, tm = TEAMS[u.team];
