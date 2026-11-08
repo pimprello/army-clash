@@ -2,9 +2,9 @@ name: Post Army Clash
 
 on:
   schedule:
-    # Two Shorts a day, at 10am and 10pm London time (rules.schedule). GitHub's timer runs in UTC and can be late, so it wakes
-    # every 10 minutes in the hours around each slot (covering summer time too); slot.js lets only the first run in each slot post.
-    - cron: '3,13,23,33,43 9,10,13,14,17,18,21,22 * * *'
+    # A Short every 2 hours, on the even hours London time (rules.schedule). GitHub's timer runs in UTC and is often late, so it
+    # wakes every 15 minutes all day (covering summer time too); slot.js lets only the first run after each slot starts post.
+    - cron: '3,18,33,48 * * * *'
   workflow_dispatch:
     inputs:
       privacy:

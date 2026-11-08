@@ -2,6 +2,13 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-08 (midnight): a Short every 2 hours
+
+Rellz: "can you make it upload one now and make it upload every 2 hours a day so 00:00 02:00 04:00".
+- One posted straight away (a manual run), the first video with the shine.
+- `rules.schedule.hours` is now every even hour, London time: 12 a day. GitHub's timer is often 30 to 60 minutes late, so the workflow now wakes every 15 minutes all day and `slot.js` lets the first run after a slot starts post, up to 110 minutes late (`windowMinutes`), instead of only inside the slot's own hour. That way a late timer no longer skips a slot.
+- The description's line now says "New battles every 2 hours". YouTube allows 100 API uploads a day per project; the channel posted about 95 a day in late October without hitting a limit, so 12 is well inside it.
+
 ## 2026-11-08 (evening): every troop shines, damage you can see, cinematic hits
 
 Rellz: "Make literally every character have that shiny texture ... even the dragon ... the titans", with damage that depends on the element, far more particles, and hit-stops, camera kicks, colour fringing and radial blur. On from the next video. Already-posted videos don't change.

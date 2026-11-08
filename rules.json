@@ -2069,12 +2069,21 @@
   },
   "schedule": {
     "hours": [
+      0,
+      2,
+      4,
+      6,
+      8,
       10,
+      12,
       14,
+      16,
       18,
+      20,
       22
     ],
-    "timeZone": "Europe/London"
+    "timeZone": "Europe/London",
+    "windowMinutes": 110
   },
   "ui": {
     "layout": 2,

@@ -414,7 +414,7 @@ async function main() {
       `A ${Math.round(DUR)}-second ${three ? 'three-way (1v1v1) ' : ''}${GENRE[era] || ''}battle simulation on the ${MAP_NAME[map] || map} map${showNames ? `, ${ns.join(' vs ')}` : ''}. The outcome comes from the game's rules and chance, not real footage.${game.mode && MODE_LINE[game.mode] ? ' ' + MODE_LINE[game.mode] : ''}${classLine}`,
       ...(tribeLine ? ['', tribeLine] : []),
       '',
-      `New battles four times a day: subscribe so you don't miss the next one.${watchFor}`,
+      `New battles every 2 hours: subscribe so you don't miss the next one.${watchFor}`,
       '',
       `#shorts #${ns.map(n => n.toLowerCase().replace(/ /g, '')).join('vs')} #battlesimulation #armyclash${three ? ' #1v1v1' : ''}`,
     ].slice(0, clickbait ? (tribeLine ? 7 : 5) : (tribeLine ? 9 : 7)).join('\n'),
