@@ -1,6 +1,6 @@
 # Army Clash auto-uploader
 
-Every run makes a brand-new **Red vs Blue Army Clash** Short (the battle ends close to 60 seconds and the video 3 seconds after) (1080 × 1920, 60 fps, with sound) and posts it to your YouTube channel. GitHub runs it for you about every 14½ minutes (98 a day, evenly spaced), so you don't have to press anything.
+Every run makes a brand-new **Red vs Blue Army Clash** Short (the battle ends close to 60 seconds and the video 3 seconds after) (1080 × 1920, 60 fps, with sound) and posts it to your YouTube channel. GitHub runs it for you four times a day (10am, 2pm, 6pm and 10pm London time), so you don't have to press anything.
 
 ## One-time setup (about 15 minutes, easiest on a computer)
 
@@ -52,6 +52,6 @@ From then on it posts automatically four times a day, at 10am, 2pm, 6pm and 10pm
 - Every posted video is added to `uploads.md` with its link. That small commit also keeps the schedule running, because GitHub pauses schedules in public repositories after 60 days without changes.
 - The repository can stay public: your keys live in GitHub Secrets and are never shown in the code or the logs. Public repositories also get Actions minutes for free.
 - YouTube's API allows 100 uploads a day per project; the channel posts 4. Using several Google projects to get around the limit breaks YouTube's API rules.
-- Each video also gets a thumbnail (`out/thumb.jpg`, `thumbnail` in `rules.json`). YouTube only accepts custom thumbnails on Shorts from channels in the YouTube Partner Program; until then the run shows a "Thumbnail not set" warning and the video keeps YouTube's own thumbnail.
+- Each video also gets a thumbnail (`out/thumb.jpg`, `thumbnail` in `rules.json`), set right after the upload and again once YouTube has finished processing the video (a thumbnail set while YouTube is still processing a Short can be lost). If YouTube refuses it (custom thumbnails need a verified channel; on Shorts they're rolling out to Partner Program channels first), the run shows a "Thumbnail not set" warning and the video keeps YouTube's own thumbnail. Custom Shorts thumbnails show on the channel's Shorts tab, the home page and search, not in the swipe feed.
 - If a run fails, the Actions tab shows why, and the video is kept there for 3 days.
 - The font is Barlow Condensed (SIL Open Font License, included in `fonts/`).

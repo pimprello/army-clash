@@ -355,7 +355,8 @@ const RVB = (() => {
         const a = R.range(0, TAU), v = spd * R.range(0.3, 1);
         this.parts.push({ x, y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, life: life * R.range(0.6, 1.1), age: 0, size: size * R.range(0.6, 1.2), color, grav });
       }
-      if (this.parts.length > 700) this.parts.splice(0, this.parts.length - 700);
+      const cap = this.shine ? 2600 : 700;
+      if (this.parts.length > cap) this.parts.splice(0, this.parts.length - cap);
     }
     float(x, y, text, color, size = 56, life = 0.9) {
       // the finale: no new floating labels over the final blow
@@ -381,7 +382,7 @@ const RVB = (() => {
       this.t += dt;
       this.frameNo++;
       if (this.heldB && this.t >= 4.4) { const h = this.heldB; this.heldB = null; for (const b of h) this.banner(b.text, b.color, b.life); }
-      for (const p of this.parts) { p.age += dt; p.x += p.vx * dt; p.y += p.vy * dt; p.vy += p.grav * dt; p.vx *= 1 - 2.2 * dt; p.vy *= 1 - 2.2 * dt; }
+      for (const p of this.parts) { p.age += dt; p.x += p.vx * dt; p.y += p.vy * dt; p.vy += p.grav * dt; const dr = p.drag ?? 2.2; p.vx *= 1 - dr * dt; p.vy *= 1 - dr * dt; }
       this.parts = this.parts.filter(p => p.age < p.life);
       for (const f of this.floats) f.age += dt;
       this.floats = this.floats.filter(f => f.age < f.life);
@@ -391,6 +392,8 @@ const RVB = (() => {
       if (this.shakeAmt < 0.3) this.shakeAmt = 0;
       this.shakeX = (this.FX.next() * 2 - 1) * this.shakeAmt;
       this.shakeY = (this.FX.next() * 2 - 1) * this.shakeAmt;
+      // (rules.ui.shine) directional camera kicks: a quick jolt the way a heavy blow travelled, springing back
+      if (this.shKicks && this.shKicks.length) for (const k of this.shKicks) { const e = Math.exp(-k.t * 15) * Math.cos(k.t * 32); this.shakeX += k.x * e; this.shakeY += k.y * e; }
       if (this.phase === 'fight') {
         if (this.freeze > 0) {
           this.freeze -= dt;
@@ -523,7 +526,7 @@ const RVB = (() => {
     }
     drawFX(ctx) {
       // plain square particles are drawn in batches (one fill per colour and fade step), which is much faster with hundreds on screen
-      const batch = new Map();
+      const batch = new Map(), batch2 = new Map();
       for (const p of this.parts) {
         const k = 1 - p.age / p.life;
         if (p.confetti) {
@@ -535,6 +538,19 @@ const RVB = (() => {
           ctx.fillStyle = p.color;
           ctx.globalAlpha = clamp(k * 0.8, 0, 0.6);
           ctx.beginPath(); ctx.arc(p.x, p.y, p.size * (1.4 - 0.6 * k), 0, TAU); ctx.fill();
+        } else if (p.streak || p.drop || p.bubble) {
+          // (rules.ui.shine) sparks, shrapnel, sand and wind: short lines along the way they fly; drops; bubbles (batched like the squares)
+          const a = Math.round(clamp(k * 1.5, 0, 1) * 5); if (!a) continue;
+          const key = (p.streak ? 'L' : p.drop ? 'D' : 'B') + '|' + p.color + '|' + a + '|' + (p.streak ? Math.round(p.size * 2) / 2 : 0);
+          let b = batch2.get(key); if (!b) { b = []; batch2.set(key, b); }
+          if (p.streak) b.push(p.x - p.vx * p.streak, p.y - p.vy * p.streak, p.x, p.y);
+          else b.push(p.x, p.y, p.size * (p.bubble ? 0.7 + 0.5 * (1 - k) : 0.5 + 0.5 * k));
+        } else if (p.shard) {
+          // chunks of ice, stone, ash or debris, tumbling (and growing, for ones thrown at the camera)
+          const s = p.size * (p.grow ? 1 + p.age * p.grow : 1), ang = (p.rot || 0) + p.age * (p.spin || 0), c = Math.cos(ang), sn = Math.sin(ang);
+          ctx.globalAlpha = clamp(k * 2, 0, 1); ctx.fillStyle = p.color;
+          ctx.beginPath(); ctx.moveTo(p.x + c * s, p.y + sn * s); ctx.lineTo(p.x - c * s * 0.6 - sn * s * 0.7, p.y - sn * s * 0.6 + c * s * 0.7); ctx.lineTo(p.x - c * s * 0.4 + sn * s * 0.8, p.y - sn * s * 0.4 - c * s * 0.8); ctx.closePath();
+          ctx.fill(); ctx.lineWidth = 1.3; ctx.strokeStyle = 'rgba(10,10,16,0.75)'; ctx.stroke();
         } else {
           const a = Math.round(clamp(k * 1.4, 0, 1) * 10); if (!a) continue;
           const key = p.color + '|' + a, s = p.size * (0.4 + 0.6 * k);
@@ -546,6 +562,12 @@ const RVB = (() => {
         const i = key.lastIndexOf('|');
         ctx.globalAlpha = +key.slice(i + 1) / 10; ctx.fillStyle = key.slice(0, i);
         ctx.beginPath(); for (let j = 0; j < b.length; j += 3) ctx.rect(b[j], b[j + 1], b[j + 2], b[j + 2]); ctx.fill();
+      }
+      for (const [key, b] of batch2) {
+        const [kind, col, a, w] = key.split('|');
+        ctx.globalAlpha = +a / 5; ctx.beginPath();
+        if (kind === 'L') { for (let j = 0; j < b.length; j += 4) { ctx.moveTo(b[j], b[j + 1]); ctx.lineTo(b[j + 2], b[j + 3]); } ctx.lineCap = 'round'; ctx.lineWidth = +w; ctx.strokeStyle = col; ctx.stroke(); }
+        else { for (let j = 0; j < b.length; j += 3) { ctx.moveTo(b[j] + b[j + 2], b[j + 1]); ctx.arc(b[j], b[j + 1], Math.max(0.6, b[j + 2]), 0, TAU); } if (kind === 'D') { ctx.fillStyle = col; ctx.fill(); } else { ctx.lineWidth = 1.5; ctx.strokeStyle = col; ctx.stroke(); } }
       }
       ctx.globalAlpha = 1;
       ctx.textAlign = 'center';
@@ -2130,6 +2152,7 @@ const RVB = (() => {
       if (this.trb && this.trb.evolve && this.trb.evolve.on !== false && this.tribes && this.tribes.length) this.initEvolve();
       if (this.opts.nav && this.opts.nav.on) this.initNav();
       if (this.opts.anim) this.anim = true;
+      if (this.opts.shine && this.opts.shine.on && api.makeCanvas) this.initShine();
       // market 2.0 (rules.tribes.market2): the merchant also sells spells, barrages and summons, and comes twice
       if (this.trb && this.trb.market2 && this.tribes && this.tribes.length) { this.market2 = true; if (!this.merchAt2 && this.trb.merchant !== false) this.merchAt2 = (this.fixed || this.target) * 0.67; }
       if (this.opts.minds && this.opts.minds.on) this.initMinds();
@@ -3052,12 +3075,14 @@ const RVB = (() => {
     }
     // A grenade or shell lands: damage every enemy in the blast, more near the middle.
     explode(a) {
+      if (this.shine) { this._shXk = a.kind; this._shBx = a.x; this._shBy = a.y; }
       const big = a.kind === 'shell' || a.kind === 'cannonball' || a.kind === 'bomb' || a.kind === 'meteor' || a.kind === 'lightning' || a.kind === 'boulder' || a.kind === 'slam';
       for (const o of this.units) {
         if (o.dead || o.team === a.team || o.phased) continue;
         const d = Math.hypot(o.x - a.x, o.y - a.y), reach = a.splash + o.r;
         if (d < reach) { if (this.ext) this._kind = 'blast'; this.damage(o, a.dmg * (1 - 0.5 * d / reach) * Math.max(UNIT[o.type].armor, 0.5) * this.dmgMul, a.from); if (this.ext && a.fx) this.hitFx(o, a.fx, a.from); }
       }
+      if (this.shine) { this._shXk = null; this._shBx = undefined; this.shineBoom(a); }
       if (this.ext) this.explodeFx(a);
       if (this.camEv) this.camEv.push({ type: 'blast', x: a.x, y: a.y, kind: a.kind });
       this.booms.push({ x: a.x, y: a.y, r: a.splash, t: 0, magic: a.kind === 'fireball', zap: a.kind === 'lightning' });
@@ -3098,6 +3123,7 @@ const RVB = (() => {
       if (this.slashes && from && from.team !== u.team && !this._dot && kind0 !== 'blast') this.addSlash(u, from);
       if (this.minds && from && from.team !== u.team && !u.dead && u.hp > 0 && !this._dot) this.mindHit(u, from, dmg);
       if (this.anim && from && from.team !== u.team && !this._dot && dmg >= u.max * 0.22) this.animHit(u, from, dmg >= u.max * 0.45);
+      if (this.shine && !this._dot) this.matHit(u, from, dmg, kind0);
       if (this.ext) { if (from && from.team !== u.team && !u.dead) this.onHit(u, from, dmg); if (UNIT[u.type].boss || u.boss) this.bossCheck(u); }
       if (u.hp <= 0 && !u.dead) {
         if (this.ext && this.cheatDeath(u, from)) return;
@@ -3116,6 +3142,7 @@ const RVB = (() => {
         if (this.camEv) this.camEv.push({ type: 'death', x: u.x, y: u.y, unit: u, big: UNIT[u.type].rank === 0, by: from });
         if (this.minds) this.mindDeath(u, from);
         if (this.anim) this.animDeath(u);
+        if (this.shine) this.shineDeath(u);
         if (this.cls) this.clsDeath(u, from);
         this.lastDeath = { t: this.fightT, x: u.x, y: u.y, uid: u.uid, type: u.type, team: u.team, by: from ? from.uid : 0, byType: from ? from.type : null, byTeam: from ? from.team : -1 };
         const huge = UNIT[u.type].rank === 0;
@@ -3635,6 +3662,7 @@ const RVB = (() => {
     cosmetic(dt) {
       for (const u of this.units) { u.flash = Math.max(0, u.flash - dt * 6); u.lunge = Math.max(0, u.lunge - dt * 6); if (u.swing) u.swing = Math.max(0, u.swing - dt * 2.6); if (u.healFx) u.healFx = Math.max(0, u.healFx - dt * 2.5); if (u.healFlash) u.healFlash = Math.max(0, u.healFlash - dt * 3); if (u.muzzle) u.muzzle = Math.max(0, u.muzzle - dt * 12); if (u.dodgeFx) u.dodgeFx = Math.max(0, u.dodgeFx - dt * 4); if (u.drainFx) u.drainFx = Math.max(0, u.drainFx - dt * 3); }
       if (this.ext) this.extCosmetic(dt);
+      if (this.shine) this.shineTick(dt);
       if (this.booms && this.booms.length) this.booms = this.booms.filter(b => (b.t += dt) < 0.45);
       if (this.drop && this.FX.chance(dt * 9)) { const F = this.FX; this.parts.push({ x: this.drop.x + F.range(-5, 5), y: this.drop.y - 10, vx: F.range(-10, 10), vy: F.range(-60, -40), life: F.range(0.9, 1.4), age: 0, size: F.range(7, 11), color: '#F2C14E', grav: 0, smoke: true }); }
       for (const a of this.arrows) if (a.kind === 'rocket' && this.FX.chance(dt * 30)) this.parts.push({ x: a.x, y: a.y, vx: 0, vy: 0, life: 0.5, age: 0, size: 5, color: '#9AA0AA', grav: 0, smoke: true });
@@ -3839,7 +3867,8 @@ const RVB = (() => {
       // when zoomed in, skip troops that are out of view
       const cv = zoom ? { x0: this.cam.x - AR.w / 2 / this.cam.z - 60, x1: this.cam.x + AR.w / 2 / this.cam.z + 60, y0: this.cam.y - AR.h / 2 / this.cam.z - 60, y1: this.cam.y + AR.h / 2 / this.cam.z + 60 } : null;
       if (this.hill) this.drawHill(ctx);
-      if (this.tribes) this.drawCamps(ctx);
+      // (with the shine, the camps, carts and the merchant's mule go on the troops' layer instead, so they shine too)
+      if (this.tribes && !(this.shine && api.makeCanvas)) this.drawCamps(ctx);
       if (this.skins) this.drawSkins(ctx, drawOrder, false);
       // art finish (rules.ui.art 2): a soft contact shadow under every troop on the ground, all in one pass so no shadow covers a neighbour
       const ART = this.opts.art >= 2;
@@ -3856,6 +3885,9 @@ const RVB = (() => {
         }
         ctx.fillStyle = 'rgba(0,0,0,0.22)'; ctx.fill();
       }
+      // (rules.ui.shine) the troops go on a layer of their own, so the gloss, the damage and the rim light follow every shape
+      const SH = !!(this.shine && api.makeCanvas), mainCtx = ctx;
+      if (SH) { ctx = this.shineBegin(mainCtx); if (this.tribes) this.drawCamps(ctx); }
       for (const u of drawOrder) {
         if (u.dead || (cv && (u.x < cv.x0 - u.r || u.x > cv.x1 + u.r || u.y < cv.y0 - u.r || u.y > cv.y1 + u.r))) continue;
         if (this.wNow && this.worldHide(u)) continue;
@@ -3886,12 +3918,15 @@ const RVB = (() => {
           ctx.beginPath(); ctx.arc(u.x + lx, u.y + ly, u.r, 0, TAU); ctx.fillStyle = `rgba(255,255,255,${u.dodgeFx * 0.35})`; ctx.fill();
           lx += -Math.sin(u.face) * dk; ly += Math.cos(u.face) * dk;
         }
+        // (shine) struck by lightning: the troop spasms for a moment
+        if (SH && u.ms && u.ms.zs > this.fightT) { lx += (hash01(u.uid || 1, Math.floor(this.t * 40)) - 0.5) * 3.4; ly += (hash01((u.uid || 1) + 9, Math.floor(this.t * 40)) - 0.5) * 3.4; }
         const x = u.x + lx, y = u.y + ly + hop - (u.lift || 0) - (ART && u.qT ? this.quakeHop(u) : 0);
-        if (u.lift) ell(ctx, u.x + 6, u.y + 8, u.r, u.r * 0.6, 0, 'rgba(0,0,0,0.25)', 0);
+        if (u.lift) ell(SH ? mainCtx : ctx, u.x + 6, u.y + 8, u.r, u.r * 0.6, 0, 'rgba(0,0,0,0.25)', 0);
         const sq = this.anim && this.animOn(ctx, u, x, y);
         this.drawBody(ctx, u, x, y, tm, swordy);
         if (ART && !(u.sheepT > this.fightT)) { this.drawWear(ctx, u, x, y); this.artFinish(ctx, u, x, y); }
         if (sq) ctx.restore();
+        if (SH) this.shineUnit(ctx, u, x, y);
         if (u.flag) {
           // a flag on a pole, rippling a little
           const px = x + u.r * 0.6, top = y - u.r - 26;
@@ -3903,14 +3938,15 @@ const RVB = (() => {
         if (u.healFlash > 0) { ctx.beginPath(); ctx.arc(x, y, u.r + 2, 0, TAU); ctx.lineWidth = 3; ctx.strokeStyle = `rgba(124,255,176,${u.healFlash * 0.9})`; ctx.stroke(); }
         if (u.flash > 0) { ctx.beginPath(); ctx.arc(x, y, u.r, 0, TAU); ctx.fillStyle = `rgba(255,255,255,${u.flash * 0.8})`; ctx.fill(); }
         if (HPBAR[u.type] && u.hp < u.max) {
-          const w = u.r * 2;
-          ctx.fillStyle = COL.ink; ctx.fillRect(x - w / 2 - 2, y - u.r - 13, w + 4, 8);
-          ctx.fillStyle = tm.l; ctx.fillRect(x - w / 2, y - u.r - 11, w * clamp(u.hp / u.max, 0, 1), 4);
+          // (shine: health bars go over the troops' layer, so they get no gloss)
+          const bar = (c, a) => { const w = u.r * 2, k = c.globalAlpha; c.globalAlpha = a; c.fillStyle = COL.ink; c.fillRect(x - w / 2 - 2, y - u.r - 13, w + 4, 8); c.fillStyle = tm.l; c.fillRect(x - w / 2, y - u.r - 11, w * clamp(u.hp / u.max, 0, 1), 4); c.globalAlpha = k; };
+          if (SH) { const a = ctx.globalAlpha; this._shHP.push(() => bar(mainCtx, a)); } else { const a = ctx.globalAlpha; bar(ctx, a); }
         }
         if (this.ext) this.drawStatus(ctx, u, x, y, tm);
         ctx.globalAlpha = 1;
       }
       if (ART) this.flushArt(ctx);
+      if (SH) { this.shineEnd(mainCtx, ctx); ctx = mainCtx; }
       if (this.cast3on) this.drawCast3Fx(ctx);
       if (this.c4on) this.drawCast4Fx(ctx);
       if (this.market2) this.drawMarketFx(ctx, true);
@@ -3950,6 +3986,7 @@ const RVB = (() => {
       }
       this.drawArenaFrame(ctx);
       this.drawFX(ctx);
+      if (this.shine) this.shinePost(ctx);
       this.drawBanners(ctx);
       if (U2) {
         if (this.tribes) this.drawStory2(ctx);
@@ -4546,7 +4583,9 @@ const RVB = (() => {
       // big moments from the new troops and systems (fusions, possessions, boss phases, portals...), and a split-second hit-stop on a crushing crit
       for (const e of ev) {
         if (e.type === 'spot' && ((e.prio || 58) >= 80 || this.t > (this.spotNext || 0))) want(e.prio || 58, () => { this.spotNext = this.t + 8; this.start('spot', { prio: e.prio || 58, dur: e.dur || 2.2, x: e.x, y: e.y, follow: e.follow, z: e.z || 1.8, ts: e.slow && this.canSlow(0.6) ? 0.35 : 1, slowFor: e.slow ? 0.9 : 0, bars: e.slow ? 1 : 0, vig: e.slow ? 0.35 : 0.15, spd: 5, zspd: 4.5, sfx: e.slow ? 'whoosh' : undefined }); });
-        if (e.type === 'hitstop' && this.t > (this.stopNext || 0) && this.canSlow(0.25)) { this.stopNext = this.t + 5; this.stopT = this.t + 0.09; }
+        if (e.type === 'hitstop' && !e.short && this.t > (this.stopNext || 0) && this.canSlow(0.25)) { this.stopNext = this.t + 5; this.stopT = this.t + 0.09; }
+        // (rules.ui.shine) a heavy blow: three frames frozen, then straight back to speed
+        if (e.type === 'hitstop' && e.short && this.t > (this.stopNext2 || 0) && !(this.t < (this.stopT ?? -9) + 0.15) && this.canSlow(0.12)) { this.stopNext2 = this.t + 1.2; this.stopT = this.t + 0.05; this.stopHard = true; }
       }
       // FINAL PUSH and LAST STAND: a slow push-in on the heaviest fighting
       for (const e of ev) if (e.type === 'push' && e.stage !== 2) want(35, () => { const h = this.hotspot(); this.start('push', { prio: 35, dur: 2.6, x: h.x, y: h.y, z: e.stage === 3 ? 1.5 : 1.35, spd: 1.4, zspd: 1.1 }); });
@@ -4616,6 +4655,7 @@ const RVB = (() => {
       if (this.stopT !== undefined && this.t < this.stopT + 0.15 && g.phase === 'fight') { if (this.t < this.stopT) tts = 0.04; tsRate = 40; }
       if (g.phase !== 'fight' && !(sh && sh.kind === 'finale')) tts = 1;
       this.ts += (tts - this.ts) * (1 - Math.exp(-tsRate * dt));
+      if (this.stopHard) { if (this.t < this.stopT && g.phase === 'fight') this.ts = 0.03; else this.stopHard = false; }
       if (Math.abs(this.ts - 1) < 0.002 && tts === 1) this.ts = 1;
       // advance the battle
       this.t += dt; g.realT = this.t;
@@ -6009,6 +6049,13 @@ const RVB = (() => {
     },
     // push a troop away from a point (it slides, then slows down)
     knock(o, fx, fy, amt) {
+      if (this.shine && amt >= 40 && this.t - (this.shSon ?? -9) > 0.3) {
+        // (rules.ui.shine, looks only) a heavy shove: visible sound-wave rings, motion lines and a bass-drop jolt of the camera
+        this.shSon = this.t;
+        this.shRings.push({ x: fx, y: fy, r0: 20, r1: 150, t0: this.t, life: 0.4, col: '#FFFFFF', w: 5 }, { x: fx, y: fy, r0: 10, r1: 110, t0: this.t + 0.06, life: 0.38, col: '#FDBA74', w: 4 });
+        this.shSpray(fx, fy, 0, Math.PI, 8, 520, 0.22, 2, '#FFFFFF', 0, { streak: 0.05, drag: 0 });
+        this.shKick(Math.PI / 2, 6);
+      }
       const O = UNIT[o.type];
       if (o.dead || O.immovable || O.unstoppable) return;
       if (O.rank === 0) amt *= 0.3;
@@ -8605,6 +8652,10 @@ const RVB = (() => {
     },
     skinName(i) { return this.skins && this.skins[i] ? SKINS[this.skins[i]].name + ' ' : ''; },
     drawPortrait(ctx, type, team) {
+      if (this.shine && api.makeCanvas) return this.shPortrait(ctx, type, team);
+      this.drawPortraitRaw(ctx, type, team);
+    },
+    drawPortraitRaw(ctx, type, team) {
       const U = UNIT[type], pool = GEAR_POOL[type];
       const fake = { fake: true, type, team, r: U.r, x: 0, y: 0, face: -Math.PI / 2 + 0.5, mface: -Math.PI / 2 + 0.5, vx: 0, vy: 0, gait: 1.3, lunge: 0, swing: 0, hp: 1, max: 1, cd: 1,
         heads: U.heads || 0, bodies: [], souls: 0, decoyEnd: 99, look: 'illusion', lives: 1, muzzle: 0, flying: !!U.flying, gear: pool ? (type === 'soldier' ? 'shield' : pool[0]) : undefined };
@@ -9830,7 +9881,7 @@ const RVB = (() => {
     artFinish(ctx, u, x, y) {
       const U = UNIT[u.type], r = u.r;
       if (GLOSS_SKIP.has(u.type) || U.mount || U.flying || (r > 22 && u.type !== 'giant')) return;
-      (this._rim || (this._rim = [])).push(x, y, r);
+      if (!this.shine) (this._rim || (this._rim = [])).push(x, y, r);
       if (FACELESS.has(u.type)) {
         ctx.save();
         const f = u.face, fx = Math.cos(f), fy = Math.sin(f), px = -fy, py = fx, ex = x + fx * r * 0.42, ey = y + fy * r * 0.42, sp = r * 0.34, er = Math.max(1.8, r * 0.17);
@@ -12624,9 +12675,15 @@ const RVB = (() => {
       let sa = 1 + (0.1 * L - 0.1 * F) * big, sp = 1 + (-0.06 * L + 0.07 * F) * big;
       if (run > 0.15) { const b = 0.035 * Math.abs(Math.sin(t * (7 + 5 * run) + (u.gait || 0))) * run * big; sa += b; sp += b * 0.6; }
       else { const b = 0.022 * Math.sin(t * 2.6 + (u.gait || 0)) * big; sa += b; sp += b; }
-      if (Math.abs(sa - 1) < 0.004 && Math.abs(sp - 1) < 0.004) return false;
+      // (rules.ui.shine) being healed: it stands a little taller; in a sandstorm: it leans into the wind
+      let lean = 0;
+      if (this.shine) {
+        if (u.healFlash > 0.3) { const k = 1 + 0.07 * Math.min(1, u.healFlash); sa *= k; sp *= k; }
+        if (this.weather === 'sandstorm' && !U.flying) lean = 0.13 * big;
+      }
+      if (Math.abs(sa - 1) < 0.004 && Math.abs(sp - 1) < 0.004 && !lean) return false;
       const f = u.face || 0;
-      ctx.save(); ctx.translate(x, y); ctx.rotate(f); ctx.scale(sa, sp); ctx.rotate(-f); ctx.translate(-x, -y);
+      ctx.save(); ctx.translate(x, y); if (lean) ctx.transform(1, 0, lean, 1, 0, 0); ctx.rotate(f); ctx.scale(sa, sp); ctx.rotate(-f); ctx.translate(-x, -y);
       return true;
     },
     // a troop has fallen / been hit hard (called from damage: looks only)
@@ -12635,14 +12692,14 @@ const RVB = (() => {
     drawAnimFx(ctx, list) {
       const t = this.t;
       ctx.save(); ctx.lineCap = 'round';
-      // fallen troops: shrink, lift a little and fade, with a white ring
+      // fallen troops: shrink, lift a little and fade, with a white ring (with the shine, the body itself is drawn on the troops' layer)
       for (const d of this.deathFx || []) {
         const k = (t - d.t0) / 0.32, u = d.u;
         if (k < 0 || k >= 1) continue;
         const tm = TEAMS[u.team], y = u.y - 6 * k, s = 1 - 0.35 * k;
-        ctx.save(); ctx.globalAlpha = (1 - k) * 0.85; ctx.translate(u.x, y); ctx.scale(s, s); ctx.translate(-u.x, -y);
+        if (!this.shine) { ctx.save(); ctx.globalAlpha = (1 - k) * 0.85; ctx.translate(u.x, y); ctx.scale(s, s); ctx.translate(-u.x, -y);
         try { if (tm) this.drawBody(ctx, u, u.x, y, tm, UNIT[u.type].sword); } catch (e) { /* (some troops can't be drawn once gone) */ }
-        ctx.restore();
+        ctx.restore(); }
         ctx.globalAlpha = (1 - k) * 0.6; ctx.beginPath(); ctx.arc(u.x, u.y, u.r * (1 + 0.8 * k), 0, TAU); ctx.lineWidth = 3 * (1 - k) + 0.5; ctx.strokeStyle = '#FFFFFF'; ctx.stroke();
       }
       if (this.deathFx && this.deathFx.length && t - this.deathFx[0].t0 > 0.4) this.deathFx = this.deathFx.filter(d => t - d.t0 < 0.4);
@@ -12802,7 +12859,687 @@ const RVB = (() => {
       ctx.restore();
     },
   };
-  Object.assign(Army.prototype, ARMY_EXT, ARMY_DRAW, ARMY_MAPS, ARMY_EXT2, ARMY_DRAW2, ARMY_COMBAT, ARMY_TRIBES, ARMY_TRIBES_DRAW, ARMY_PACE, ARMY_UI2, ARMY_WORLD, ARMY_FX2, ARMY_SMART, ARMY_CAST3, ARMY_CAST3_DRAW, ARMY_EVOLVE, ARMY_THUMB, ARMY_NAV, ARMY_MINDS, ARMY_CLASS, ARMY_CAST4, ARMY_MARKET2, ARMY_ANIM);
+  // ----- shine (rules.ui.shine): every troop is glossy, shows the damage it takes, and big hits shake the whole picture -----
+  // Rellz (2026-11-08): "literally every character" (the triangles, the slimes, the titans, the dragons) gets the same glossy,
+  // highly reflective finish, with a rim of light that catches their edges as they move; damage stays on them and depends on what
+  // hit them (fire chars, acid corrodes, ice frosts, lightning scorches, void and poison flake away, blades dent and crack); far more
+  // particles; and hit-stops, camera kicks, colour fringing and radial blur on the big moments.
+  // How: the troops are drawn on a layer of their own; the gloss, the damage marks and the rim light are then painted onto that layer
+  // only where a troop is (so they follow every shape exactly), and the layer goes onto the battlefield.
+  // Looks only: nothing here changes a battle. Particles use the cosmetic dice (FX); everything else comes from hash01 and the troop's
+  // number. The battle never reads what is kept on a troop here (u.ms). A hit-stop only changes the video's pace (the Director).
+  const SH_EL = {};
+  for (const [el, list] of Object.entries({
+    fire: 'dragon firearcher phoenix imp demon hellhound pyro sunking meteorshepherd',
+    ice: 'frostwitch yeti lich crystalqueen',
+    zap: 'stormcaller tesla stormemperor pulsar',
+    laser: 'trooper robot mech drone medicdrone jetpack',
+    acid: 'alchemist poisoner hydra beekeeper zombie gravewitch',
+    void: 'singularity gravitymonk gravitytyrant stareater unmaker phasereaper warlock timeexec hollow shadowninja zerog glitch universe necromancer deathknight vampire mooncaller orbitknight blinkblade',
+    water: 'siren',
+    holy: 'paladin valkyrie oracle',
+    blast: 'grenadier cannon tank bomber siegegunner helicopter',
+  })) for (const k of list.split(' ')) SH_EL[k] = el;
+  // what an explosion is made of (meteors and fireballs burn, lightning scorches, slams and boulders shatter the ground)
+  const SH_XK = { fireball: 'fire', meteor: 'fire', lightning: 'zap', singularity: 'void', bomb: 'blast', shell: 'blast', cannonball: 'blast', rocket: 'blast', slam: 'slam', boulder: 'slam', spikes: 'slam' };
+  const SH_TRIBE = { flame: 'fire', frost: 'ice', storm: 'zap', venom: 'acid', holy: 'holy' };
+  const SH_UNDEAD = new Set(['skeleton', 'bonecolossus', 'bonelet', 'lich', 'deathknight', 'hollow', 'wisp', 'gargoyle', 'golem', 'livingblade']);
+  // the light: from the top left, slowly swinging a little so the rims slide round the troops
+  const SH_LIGHT = -2.36;
+  // a few levels of strength per mark, so marks of the same kind are drawn together (one fill each)
+  const shQ = v => Math.max(1, Math.min(4, Math.round(v * 4)));
+  const ARMY_SHINE = {
+    initShine() {
+      const S = this.opts.shine;
+      this.shine = { gloss: S.gloss ?? 1, rim: S.rim ?? 1, damage: S.damage !== false && S.damage !== 0, screen: S.screen ?? 1, dens: S.density ?? 1.6 };
+      this.shRings = []; this.shBolts = []; this.shFaults = []; this.shRB = []; this.shKicks = [];
+      this.shCA = 0; this.shV = 0; this.shWhite = 0; this.shDark = 0;
+    },
+    // what a hit is made of: an explosion's kind, the attacker's tribe element (tier 4 and 5 weapons), or the attacker itself
+    shEl(from) {
+      if (this._shXk) return SH_XK[this._shXk] || 'blast';
+      if (!from) return 'phys';
+      if (from.tribe && from.tribe.wt >= 4 && SH_TRIBE[from.tribe.elem]) return SH_TRIBE[from.tribe.elem];
+      return SH_EL[from.type] || 'phys';
+    },
+    shState(u) { return u.ms || (u.ms = { t: this.fightT, char: 0, heat: 0, acid: 0, frost: 0, zap: 0, vd: 0, wet: 0, dist: 0, lx: u.x, ly: u.y }); },
+    shFluid(u) { return MACHINE[u.type] ? '#1F2228' : SH_UNDEAD.has(u.type) ? '#B9C98A' : u.type === 'treant' || u.type === 'worldroot' ? '#7A9A3A' : '#B3263A'; },
+    // particles that fly in one direction (sprays, sparks, shrapnel); the cap is higher with shine on
+    shSpray(x, y, ang, spread, n, spd, life, size, color, grav, o) {
+      const F = this.FX;
+      n = Math.round(n * this.shine.dens);
+      for (let i = 0; i < n; i++) {
+        const a = ang + F.range(-spread, spread), v = spd * F.range(0.35, 1);
+        const p = { x, y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, life: life * F.range(0.6, 1.15), age: 0, size: size * F.range(0.6, 1.25), color, grav };
+        if (o) { Object.assign(p, o); if (o.shard) { p.rot = F.range(0, TAU); p.spin = F.range(-12, 12); } }
+        this.parts.push(p);
+      }
+      if (this.parts.length > 2600) this.parts.splice(0, this.parts.length - 2600);
+    },
+    shKick(ang, amt) {
+      if (!this.shine.screen) return;
+      this.shKicks.push({ x: Math.cos(ang) * amt, y: Math.sin(ang) * amt, t: 0 });
+      if (this.shKicks.length > 4) this.shKicks.shift();
+    },
+    // (the colour split costs time to draw, so a new one starts at most every 0.6 s)
+    shPulse(ca, vig) { if (ca > this.shCA && this.t - (this.shCAt ?? -9) > 0.6) { this.shCA = ca; this.shCAt = this.t; } this.shV = Math.max(this.shV, vig ?? ca * 0.6); },
+    shStop() {
+      const T = this.fightT;
+      if (!this.shine.screen || T < (this.shHS || 0) || !this.camEv) return;
+      this.shHS = T + 1.3; this.camEv.push({ type: 'hitstop', short: true });
+    },
+    // every hit (from damage()): the mark it leaves, the particles it throws, and for heavy ones the camera
+    matHit(u, from, dmg, kind0) {
+      const T = this.fightT, U = UNIT[u.type], ms = this.shState(u), el = this.shEl(from), F = this.FX;
+      const ang = from ? Math.atan2(u.y - from.y, u.x - from.x) || 0 : this._shBx !== undefined ? Math.atan2(u.y - this._shBy, u.x - this._shBx) || 0 : F.range(0, TAU);
+      const r = u.r, hx = u.x - Math.cos(ang) * r * 0.55, hy = u.y - Math.sin(ang) * r * 0.55, heavy = dmg >= u.max * 0.4 || (U.rank === 0 && dmg >= u.max * 0.12);
+      ms.last = el; ms.hitT = T; ms.hitA = ang;
+      const add = (k, v) => { ms[k] = Math.min(1, (ms[k] || 0) + v); };
+      if (el === 'fire') { add('char', heavy ? 0.45 : 0.2); ms.heat = 1; ms.fT = T; }
+      else if (el === 'blast') { add('char', 0.14); ms.heat = Math.max(ms.heat, 0.55); ms.dT = T; ms.dA = ang; }
+      else if (el === 'ice') { add('frost', heavy ? 0.6 : 0.35); ms.iT = T; }
+      else if (el === 'zap') { add('zap', 0.5); ms.zT = T; ms.zs = T + 0.32; }
+      else if (el === 'laser') { ms.xT = T; ms.heat = Math.max(ms.heat, 0.7); add('char', 0.06); }
+      else if (el === 'acid') { add('acid', heavy ? 0.5 : 0.3); ms.aT = T; }
+      else if (el === 'void') { add('vd', heavy ? 0.45 : 0.25); ms.vT = T; }
+      else if (el === 'water') { ms.wet = 1; ms.wT = T; }
+      else if (el === 'holy') { ms.hT = T; }
+      else { ms.dT = T; ms.dA = ang; }
+      // particles: at most every 0.05 s per troop (a troop in a melee is hit many times a second)
+      if (T - (ms.pT ?? -9) >= 0.05) {
+        ms.pT = T;
+        const big = heavy ? 1.8 : 1;
+        if (el === 'fire' || el === 'blast') {
+          this.shSpray(hx, hy, ang + Math.PI, 1.3, 4 * big, 260, 0.45, 3, '#FFB020', -80, { streak: 0.035 });
+          if (F.chance(0.45)) this.shSpray(hx, hy, -Math.PI / 2, 0.7, big, 70, 1.0, 10, '#2B2522', -50, { smoke: true });
+        } else if (el === 'ice') {
+          this.shSpray(hx, hy, ang + Math.PI, 1.4, 3 * big, 240, 0.55, 5, '#DDF6FF', 520, { shard: true });
+          this.shSpray(hx, hy, -Math.PI / 2, 1.2, 1 * big, 40, 0.9, 11, '#E8F7FF', -20, { smoke: true });
+        } else if (el === 'zap') {
+          this.shSpray(hx, hy, 0, Math.PI, 5 * big, 420, 0.3, 2.5, '#FFF3A0', 300, { streak: 0.03 });
+          this.shSpray(hx, hy, 0, Math.PI, 2 * big, 300, 0.25, 2, '#FFFFFF', 0, { streak: 0.025 });
+        } else if (el === 'laser') {
+          this.shSpray(hx, hy, ang + Math.PI, 1.2, 4 * big, 380, 0.3, 2.5, '#A5F3FC', 200, { streak: 0.03 });
+          this.shSpray(hx, hy, -Math.PI / 2, 0.6, 1, 50, 0.6, 7, '#E0F2FE', -30, { smoke: true });
+        } else if (el === 'acid') {
+          this.shSpray(hx, hy, ang + Math.PI, 1.5, 5 * big, 230, 0.6, 4, '#A3E635', 640, { drop: true });
+          this.shSpray(hx, hy, -Math.PI / 2, 0.9, 1.5 * big, 45, 1.0, 10, '#D9F99D', -30, { smoke: true });
+          if (this.stains && T >= (ms.acD ?? -9)) { ms.acD = T + 0.9; this.shAcidStain(u.x, u.y + r * 0.5, r * (heavy ? 1.2 : 0.8)); }
+        } else if (el === 'void') {
+          this.shSpray(u.x, u.y, -Math.PI / 2, 1.6, 4 * big, 90, 0.9, 5, '#2E1065', -60, { shard: true });
+          this.shSpray(u.x, u.y, 0, Math.PI, 2 * big, 120, 0.6, 4, '#C4B5FD', -40);
+        } else if (el === 'water') {
+          this.shSpray(hx, hy, ang + Math.PI, 1.4, 6 * big, 260, 0.55, 4, '#7DD3FC', 640, { drop: true });
+        } else if (el === 'holy') {
+          this.shSpray(u.x, u.y, -Math.PI / 2, 1.2, 3, 70, 0.9, 3.5, '#FDE68A', -40);
+        } else {
+          // a blade, a club, a bullet: a bright spark where it lands and a spray thrown the way the blow travelled, falling as it goes
+          const fl = this.shFluid(u);
+          this.shSpray(u.x + Math.cos(ang) * r * 0.3, u.y + Math.sin(ang) * r * 0.3, ang, 0.55, 3 * big, 300, 0.55, 3.5, fl, 700, { drop: true });
+          this.shSpray(hx, hy, ang + Math.PI, 1.1, 2 * big, 380, 0.18, 2, '#FFFFFF', 0, { streak: 0.03 });
+        }
+      }
+      // the camera feels the heavy ones: a jolt the way the blow travelled, a pulse of colour fringing, and a few frames of hit-stop
+      if (heavy && kind0 !== 'blast') {
+        this.shKick(ang, U.rank === 0 ? 8 : 4.5);
+        if (U.rank === 0 || U.cost >= 3 || dmg >= u.max * 0.7) { this.shPulse(0.45); this.shStop(); }
+      }
+    },
+    // a green corroded patch on the ground where acid fell (in the stains layer, under the troops)
+    shAcidStain(x, y, r) {
+      const g = this.stains.getContext('2d'), cx = x - AR.x, cy = y - AR.y;
+      g.beginPath(); g.ellipse(cx, cy, r * 1.1, r * 0.7, 0, 0, TAU); g.fillStyle = 'rgba(84,110,20,0.28)'; g.fill();
+      g.beginPath();
+      for (let k = 0; k < 5; k++) { const a = hash01(cx + k, cy) * TAU, d = r * 0.8 * hash01(k, cx), rr = 1.5 + 3 * hash01(cy, k); g.moveTo(cx + Math.cos(a) * d + rr, cy + Math.sin(a) * d * 0.65); g.arc(cx + Math.cos(a) * d, cy + Math.sin(a) * d * 0.65, rr, 0, TAU); }
+      g.fillStyle = 'rgba(30,40,8,0.45)'; g.fill();
+    },
+    // explosions (from explode()): rings, fireballs with black smoke, shrapnel, lightning, shattered ground, and the screen effects
+    shineBoom(a) {
+      const k = a.kind, el = SH_XK[k] || 'blast', R = a.splash || 40, x = a.x, y = a.y, T = this.t, F = this.FX;
+      const big = R >= 55 || k === 'meteor' || k === 'lightning' || k === 'slam';
+      this.shRings.push({ x, y, r0: R * 0.25, r1: R * (big ? 1.7 : 1.3), t0: T, life: big ? 0.5 : 0.35, col: el === 'zap' ? '#BFE6FF' : el === 'void' ? '#C4B5FD' : el === 'slam' ? '#F5E6C8' : '#FFE2A8', w: big ? 7 : 4 });
+      if (el === 'blast' || el === 'fire') {
+        // a dense fireball with a black smoke core, flying shrapnel, and embers
+        this.shSpray(x, y, 0, Math.PI, big ? 7 : 4, R * 2.2, 0.55, R * 0.32, '#FF8A1F', -40, { smoke: true });
+        this.shSpray(x, y, 0, Math.PI, big ? 4 : 2, R * 1.3, 0.45, R * 0.26, '#FFD45A', -40, { smoke: true });
+        this.shSpray(x, y, -Math.PI / 2, 1.0, big ? 5 : 3, R * 1.1, 1.5, R * 0.3, '#221E1C', -70, { smoke: true });
+        this.shSpray(x, y, 0, Math.PI, big ? 12 : 6, R * 9, 0.4, 3, '#3A3F48', 260, { streak: 0.03 });
+        this.shSpray(x, y, -Math.PI / 2, 1.4, big ? 8 : 4, R * 4, 0.9, 2.5, '#FFC04D', -120, { streak: 0.02 });
+        if (k === 'meteor') {
+          // the meteor: a crater, two shockwaves and a mushroom of dust rising over it
+          this.shRings.push({ x, y, r0: R * 0.5, r1: R * 2.6, t0: T + 0.08, life: 0.7, col: '#FFFFFF', w: 5 });
+          for (let i = 0; i < 6; i++) this.parts.push({ x: x + F.range(-10, 10), y: y - i * 9, vx: F.range(-14, 14), vy: -50 - i * 22, life: 1.6 + i * 0.1, age: 0, size: R * (0.28 + i * 0.03), color: i < 2 ? '#3B312A' : '#6B5A49', grav: 0, smoke: true });
+          for (let i = 0; i < 8; i++) { const aa = -Math.PI / 2 + (i - 3.5) * 0.32; this.parts.push({ x, y: y - 60, vx: Math.cos(aa) * 120, vy: Math.sin(aa) * 50 - 60, life: 1.7, age: 0, size: R * 0.3, color: '#7A6650', grav: 0, smoke: true }); }
+        }
+      } else if (el === 'zap') {
+        // lightning from the sky: branching white-hot arcs, scorched ground, a shower of sparks, and one white frame
+        this.shBolts.push({ x, y, t0: T, life: 0.32, s: (x * 7 + y * 13) | 0, w: big ? 1 : 0.7 });
+        this.shSpray(x, y, -Math.PI / 2, 1.6, 14, 520, 0.45, 2.5, '#FFF7C2', 520, { streak: 0.03 });
+        this.shSpray(x, y, 0, Math.PI, 6, 300, 0.3, 2, '#BFE6FF', 0, { streak: 0.03 });
+        if (this.shine.screen) this.shWhite = Math.max(this.shWhite, 1);
+      } else if (el === 'slam') {
+        // gravity slam and ground shatter: fault lines running out, a flattened ring, shards flying up at the camera, dust that floats
+        this.shFaults.push({ x, y, R: R * 1.5, t0: T, life: 1.6, n: big ? 9 : 6, s: (x * 3 + y * 5) | 0 });
+        this.shSpray(x, y, 0, Math.PI, big ? 10 : 6, R * 6, 0.65, 7, '#9C8A70', 380, { shard: true, grow: 2.2 });
+        this.shSpray(x, y, 0, Math.PI, big ? 8 : 4, R * 1.4, 1.6, R * 0.22, '#BFAE92', -12, { smoke: true });
+        this.shSpray(x, y, 0, Math.PI, 8, R * 2, 2.2, 2.5, '#E8DCC4', -18);
+      } else if (el === 'void') {
+        this.shRings.push({ x, y, r0: R * 1.6, r1: R * 0.1, t0: T, life: 0.4, col: '#7C3AED', w: 6 });
+        this.shSpray(x, y, 0, Math.PI, 10, R * 2.5, 0.8, 5, '#2E1065', -30, { shard: true });
+      }
+      if (big || R >= 40) {
+        if (big) { this.shRB.push({ x, y, t0: T, life: 0.24, s: 0.07 }); if (this.shRB.length > 2) this.shRB.shift(); }
+        this.shPulse(big ? 0.55 : 0.25, big ? 0.4 : 0.18);
+        this.shKick(F.range(0, TAU), big ? 11 : 5);
+        if (big) this.shStop();
+      }
+    },
+    // a troop falls: how it goes depends on what it's made of now
+    shineDeath(u) {
+      const ms = u.ms, r = u.r, x = u.x, y = u.y, T = this.fightT, U = UNIT[u.type];
+      const frozen = (u.frozeT || 0) > T || (ms && ms.frost > 0.5), burning = (u.burnT || 0) > T || (ms && ms.heat > 0.5);
+      if (frozen) {
+        // shattered into chunks of ice
+        this.shSpray(x, y, 0, Math.PI, 9, 320, 0.8, r * 0.38, '#CFF4FF', 700, { shard: true });
+        this.shSpray(x, y, 0, Math.PI, 5, 200, 0.7, r * 0.25, '#7DD3FC', 700, { shard: true });
+        this.shSpray(x, y, -Math.PI / 2, 1.4, 3, 40, 1.0, r * 0.8, '#EAF8FF', -20, { smoke: true });
+      } else if (ms && ms.vd > 0.45) {
+        this.shSpray(x, y, -Math.PI / 2, 1.8, 12, 120, 1.1, r * 0.25, '#2E1065', -70, { shard: true });
+        this.shSpray(x, y, -Math.PI / 2, 1.8, 6, 90, 0.9, 4, '#A78BFA', -60);
+      } else if (ms && ms.acid > 0.45) {
+        if (this.stains) this.shAcidStain(x, y + r * 0.3, r * 1.4);
+        this.shSpray(x, y, -Math.PI / 2, 1.2, 6, 60, 1.0, 4, '#BEF264', -50, { bubble: true });
+      } else if (burning) {
+        this.shSpray(x, y, -Math.PI / 2, 1.3, 8, 110, 1.3, r * 0.22, '#2A2624', -80, { shard: true });
+        this.shSpray(x, y, -Math.PI / 2, 1.2, 8, 160, 1.0, 2.5, '#FFB020', -140, { streak: 0.02 });
+      } else if (!U.uncounted) {
+        this.shSpray(x, y, ms && ms.hitA !== undefined ? ms.hitA : -Math.PI / 2, 1.2, 7, 260, 0.7, 4, this.shFluid(u), 700, { drop: true });
+      }
+      if (U.rank === 0) { this.shRings.push({ x, y, r0: r, r1: r * 3.2, t0: this.t, life: 0.55, col: '#FFFFFF', w: 6 }); this.shPulse(0.6, 0.4); this.shKick(Math.PI / 2, 10); }
+    },
+    // once a frame (looks only): smoke, embers, drips, bubbles and sparks from troops in a state, and the weather and hazards
+    shineTick(dt) {
+      if (!(dt > 0)) return;
+      const T = this.fightT, F = this.FX, D = this.shine.dens;
+      for (const k of this.shKicks) k.t += dt;
+      this.shKicks = this.shKicks.filter(k => k.t < 0.35);
+      this.shCA = Math.max(0, this.shCA - dt * 5); this.shV = Math.max(0, this.shV - dt * 3); this.shWhite = Math.max(0, this.shWhite - dt * 30);
+      if (this.phase !== 'fight') return;
+      // (continuous smoke, drips and bubbles thin out when the screen is already busy, so the troops stay readable)
+      const busy = clamp(1.6 - this.parts.length / 1500, 0.15, 1);
+      for (const u of this.units) {
+        if (u.dead || u.fade === 0) continue;
+        const ms = u.ms, r = u.r, D = this.shine.dens * busy;
+        if ((u.burnT || 0) > T || (ms && ms.heat > 0.45)) {
+          // burning: black smoke rising and embers floating up
+          if (F.chance(dt * 2.6 * D)) this.parts.push({ x: u.x + F.range(-r, r) * 0.5, y: u.y - r * 0.6, vx: F.range(-10, 10), vy: F.range(-80, -55), life: F.range(0.9, 1.4), age: 0, size: r * F.range(0.45, 0.7), color: F.chance(0.6) ? '#2A2624' : '#4A4440', grav: -10, smoke: true });
+          if (F.chance(dt * 4 * D)) this.parts.push({ x: u.x + F.range(-r, r) * 0.7, y: u.y - r * 0.4, vx: F.range(-30, 30), vy: F.range(-150, -90), life: F.range(0.6, 1.0), age: 0, size: 2.5, color: F.chance(0.5) ? '#FFD45A' : '#FF7A1A', grav: -40, streak: 0.02 });
+        }
+        if (!ms) continue;
+        if (ms.acid > 0.2 && T - (ms.aT ?? -9) < 3.5 && F.chance(dt * 5 * D)) this.parts.push({ x: u.x + F.range(-r, r) * 0.6, y: u.y + r * 0.5, vx: 0, vy: F.range(40, 90), life: 0.45, age: 0, size: 3, color: '#A3E635', grav: 300, drop: true });
+        if ((u.poisT || 0) > T && F.chance(dt * 4 * D)) this.parts.push({ x: u.x + F.range(-r, r) * 0.6, y: u.y + F.range(-r, r) * 0.5, vx: F.range(-8, 8), vy: F.range(-50, -30), life: 0.9, age: 0, size: F.range(3, 5), color: '#84CC16', grav: -20, bubble: true });
+        if (ms.vd > 0.3 && F.chance(dt * 4 * D)) { const a = F.range(0, TAU); this.parts.push({ x: u.x + Math.cos(a) * r * 0.8, y: u.y + Math.sin(a) * r * 0.8, vx: Math.cos(a) * 30, vy: Math.sin(a) * 30 - 30, life: 0.9, age: 0, size: F.range(2.5, 4.5), color: F.chance(0.5) ? '#2E1065' : '#7C3AED', grav: -30, shard: true, rot: a, spin: 6 }); }
+        if (ms.frost > 0.35 && F.chance(dt * 2.5 * D)) this.parts.push({ x: u.x + F.range(-r, r), y: u.y + r * 0.6, vx: F.range(-12, 12), vy: F.range(-10, 4), life: 1.1, age: 0, size: r * 0.7, color: '#EAF8FF', grav: 0, smoke: true });
+        if (ms.wet > 0.3 && F.chance(dt * 6 * D)) this.parts.push({ x: u.x + F.range(-r, r) * 0.8, y: u.y + r * 0.5, vx: F.range(-10, 10), vy: F.range(60, 120), life: 0.35, age: 0, size: 2.6, color: '#7DD3FC', grav: 400, drop: true });
+        if (u.healFlash > 0.4 && F.chance(dt * 14 * D)) this.parts.push({ x: u.x + F.range(-r, r), y: u.y + F.range(-r, r) * 0.4, vx: F.range(-6, 6), vy: F.range(-70, -40), life: 0.9, age: 0, size: F.range(2.5, 4), color: F.chance(0.5) ? '#FDE68A' : '#86EFAC', grav: -10 });
+      }
+      for (const ev of this.events || []) {
+        if (!ev.started || ev.done) continue;
+        if (ev.type === 'tornado') {
+          // debris thrown round the twister and wind streaks dragged along with it
+          for (let i = 0; i < 2; i++) if (F.chance(dt * 30 * D)) { const a = F.range(0, TAU), d = F.range(40, 110); this.parts.push({ x: ev.x + Math.cos(a) * d, y: ev.y + Math.sin(a) * d, vx: -Math.sin(a) * 420 + ev.dir * 150, vy: Math.cos(a) * 420, life: 0.4, age: 0, size: F.range(3, 6), color: F.chance(0.5) ? '#8A7A5A' : '#5B6472', grav: 0, drag: 0.5, shard: true, rot: a, spin: 14 }); }
+          if (F.chance(dt * 40 * D)) { const a = F.range(0, TAU), d = F.range(60, 160); this.parts.push({ x: ev.x + Math.cos(a) * d, y: ev.y + Math.sin(a) * d, vx: -Math.sin(a) * 520, vy: Math.cos(a) * 520, life: 0.22, age: 0, size: 2, color: '#E5E7EB', grav: 0, drag: 0, streak: 0.05 }); }
+        } else if (ev.type === 'earthquake' && ev.pts) {
+          // dust plumes along the crack and tumbling rocks
+          if (ev.t > 0.7 && ev.t < 2.6) for (let i = 0; i < 2; i++) if (F.chance(dt * 26 * D)) {
+            const p = ev.pts[F.int(0, ev.pts.length - 1)];
+            this.parts.push({ x: p[0] + F.range(-20, 20), y: p[1], vx: F.range(-25, 25), vy: F.range(-90, -40), life: F.range(1.0, 1.6), age: 0, size: F.range(16, 30), color: F.chance(0.5) ? '#8B7355' : '#A08A6C', grav: 0, smoke: true });
+            if (F.chance(0.5)) this.parts.push({ x: p[0], y: p[1], vx: F.range(-160, 160), vy: F.range(-380, -200), life: 0.8, age: 0, size: F.range(4, 8), color: '#6B5A49', grav: 900, drag: 0.6, shard: true, rot: 0, spin: F.range(-10, 10) });
+          }
+        } else if (ev.type === 'blizzard') {
+          if (F.chance(dt * 50 * D)) this.parts.push({ x: AR.x + F.range(0, AR.w), y: AR.y + F.range(0, AR.h), vx: 420, vy: 240, life: 0.35, age: 0, size: 2, color: '#FFFFFF', grav: 0, drag: 0, streak: 0.03 });
+        }
+      }
+      if (this.weather === 'sandstorm') {
+        // sand: dense streaks flying across the field
+        for (let i = 0; i < 3; i++) if (F.chance(dt * 30 * D)) this.parts.push({ x: AR.x - 20, y: AR.y + F.range(0, AR.h), vx: F.range(600, 900), vy: F.range(-40, 80), life: 1.4, age: 0, size: F.range(1.5, 3), color: F.chance(0.5) ? '#D9B77A' : '#B8925A', grav: 0, drag: 0, streak: 0.02 });
+      }
+      // poison clouds: bubbles rising, and health drawn out of the troops inside into the cloud
+      for (const c of (this.clouds || []).concat(this.mkClouds || [])) {
+        if (c.done || T > c.end) continue;
+        if (F.chance(dt * 10 * D)) { const a = F.range(0, TAU), d = c.r * Math.sqrt(F.next()); this.parts.push({ x: c.x + Math.cos(a) * d, y: c.y + Math.sin(a) * d, vx: F.range(-8, 8), vy: F.range(-40, -20), life: 1.1, age: 0, size: F.range(3, 6), color: '#A3E635', grav: -10, bubble: true }); }
+        if (F.chance(dt * 6 * D)) for (const o of this.near(c.x, c.y, c.r)) if (!o.dead && (o.poisT || 0) > T) { this.parts.push({ x: o.x, y: o.y, vx: (c.x - o.x) * 1.4, vy: (c.y - o.y) * 1.4, life: 0.7, age: 0, size: 3, color: '#D9F99D', grav: 0, drag: 0, streak: 0.04 }); break; }
+      }
+      // lava: bubbles and geysers of liquid fire along its edge
+      if (this.lava && this.lava.w > 1) for (const [x0, sg] of [[AR.x, 1], [AR.x + AR.w, -1]]) if (F.chance(dt * 6 * D)) {
+        const y = AR.y + F.range(0, AR.h), x = x0 + sg * this.lava.w * F.range(0.2, 0.95);
+        for (let i = 0; i < 5; i++) this.parts.push({ x, y, vx: F.range(-60, 60) + sg * 40, vy: F.range(-420, -220), life: 0.9, age: 0, size: F.range(3, 6), color: F.chance(0.5) ? '#FDBA74' : '#F97316', grav: 900, drag: 0.4, drop: true });
+        this.parts.push({ x, y: y - 10, vx: 0, vy: -50, life: 1.2, age: 0, size: 14, color: '#3B2A22', grav: -10, smoke: true });
+      }
+      const G = this.g4;
+      if (G && G.holes) for (const b of G.holes) {
+        // a black hole: debris lifting off the ground all round it and light being pulled in
+        if (F.chance(dt * 22 * D)) { const a = F.range(0, TAU), d = b.r * F.range(0.5, 1); this.parts.push({ x: b.x + Math.cos(a) * d, y: b.y + Math.sin(a) * d, vx: -Math.cos(a) * d * 1.6 - Math.sin(a) * 120, vy: -Math.sin(a) * d * 1.6 + Math.cos(a) * 120 - 40, life: 0.55, age: 0, size: F.range(3, 6), color: F.chance(0.5) ? '#6B5A49' : '#4C1D95', grav: -60, drag: 0, shard: true, rot: a, spin: 8 }); }
+      }
+    },
+    // ---- drawing ----
+    // the troops' layer: same size and camera as the screen, cleared over the battlefield
+    shineBegin(m) {
+      if (!this._shL) { this._shL = api.makeCanvas(VW, VH); this._shR = api.makeCanvas(VW, VH); }
+      const lc = this._shL.getContext('2d');
+      const rx = Math.max(0, Math.floor(AR.x + this.shakeX - 3)), ry = Math.max(0, Math.floor(AR.y + (this.layDY || 0) + this.shakeY - 3));
+      this._shBox = [rx, ry, Math.min(VW - rx, AR.w + 6), Math.min(VH - ry, AR.h + 6)];
+      lc.setTransform(1, 0, 0, 1, 0, 0); lc.globalCompositeOperation = 'source-over'; lc.globalAlpha = 1;
+      lc.clearRect(...this._shBox);
+      lc.setTransform(m.getTransform());
+      lc.lineCap = m.lineCap; lc.lineJoin = m.lineJoin; lc.lineWidth = m.lineWidth; lc.font = m.font; lc.textAlign = m.textAlign; lc.textBaseline = m.textBaseline;
+      lc.fillStyle = m.fillStyle; lc.strokeStyle = m.strokeStyle;
+      this._shB = new Map(); this._shO = new Map(); this._shT = []; this._shHP = [];
+      const a = SH_LIGHT + 0.3 * Math.sin(this.t * 0.37);
+      this._shLx = Math.cos(a); this._shLy = Math.sin(a);
+      return lc;
+    },
+    // marks are collected by kind and drawn together at the end (b: on the troops only; o: over everything)
+    shAdd(map, key, kind, ...v) { let b = map.get(key); if (!b) map.set(key, b = { c: [], e: [], l: [], q: [] }); b[kind].push(...v); return b; },
+    // one troop, just after it was drawn: its gloss, its damage and what comes off it
+    shineUnit(lc, u, x, y) {
+      const S = this.shine, T = this.fightT, t = this.t, U = UNIT[u.type], ms = this.shState(u);
+      // the states fade with battle time (looks only); burning, poison and frost refresh them
+      const dT = clamp(T - ms.t, 0, 0.5); ms.t = T;
+      ms.dist += Math.hypot(u.x - ms.lx, u.y - ms.ly); ms.lx = u.x; ms.ly = u.y;
+      const burning = (u.burnT || 0) > T, frozen = (u.frozeT || 0) > T, chilled = frozen || ((u.slowT || 0) > T && (ms.last === 'ice' || this.chill > T)) || this.chill > T, poisoned = (u.poisT || 0) > T;
+      if (burning) { ms.heat = 1; ms.char = Math.min(1, ms.char + dT * 0.35); } else ms.heat = Math.max(0, ms.heat - dT * 1.1);
+      ms.char = Math.max(0, ms.char - dT * 0.012);
+      if (frozen) ms.frost = 1; else if (chilled) ms.frost = Math.max(ms.frost, 0.6); else ms.frost = Math.max(0, ms.frost - dT * 0.35);
+      if (poisoned) ms.vd = Math.min(0.7, ms.vd + dT * 0.2); else ms.vd = Math.max(0, ms.vd - dT * 0.05);
+      ms.acid = Math.max(0, ms.acid - dT * 0.025); ms.zap = Math.max(0, ms.zap - dT * 0.045); ms.wet = Math.max(0, ms.wet - dT * 0.18);
+      if (this.weather === 'rain') ms.wet = Math.max(ms.wet, 0.5);
+      const mount = U.mount ? 1.22 : 1, r = u.r * mount, Lx = this._shLx, Ly = this._shLy, B = this._shB, O = this._shO, id = u.uid || 1;
+      const h = k => hash01(id * 3.1 + k, k * 7.7 + 1.3);
+      // 1. the gloss: a soft highlight towards the light and a hot spot (ice and water make it brighter, acid dulls it,
+      //    and a burning troop reflects the flames)
+      const dull = 1 - Math.min(0.9, ms.acid * 1.2), shiny = 1 + ms.frost * 0.7 + ms.wet * 0.6;
+      const gs = S.gloss * dull * (u.cloak ? 0.3 : 1);
+      if (gs > 0.05) {
+        const tint = ms.heat > 0.3 ? 'F' : ms.frost > 0.3 || ms.wet > 0.3 ? 'I' : 'W';
+        const hx = x + Lx * r * 0.36, hy = y + Ly * r * 0.36, rot = Math.atan2(Ly, Lx) + Math.PI / 2;
+        this.shAdd(B, 'spec' + tint + shQ(gs * 0.75), 'e', hx, hy, r * 0.44 * Math.min(1.25, shiny), r * 0.24, rot);
+        this.shAdd(B, 'hot' + tint + shQ(gs), 'c', x + Lx * r * 0.5, y + Ly * r * 0.5, Math.max(1.4, r * (0.1 + 0.05 * (shiny - 1))));
+        // moving: a band of light sweeps across the body as it goes, and now and then a sparkle where the light catches
+        const ph = (ms.dist / (r * 6 + 30) + h(1)) % 1;
+        if (Math.hypot(u.vx, u.vy) > 12) {
+          const s = Math.sin(Math.PI * ph), off = (ph * 2 - 1) * r * 0.8;
+          if (s > 0.15) this.shAdd(B, 'glint' + shQ(s * gs * 0.8), 'e', x - Lx * off, y - Ly * off, r * 0.85, r * 0.1, rot);
+        }
+        const tw = (t * 0.19 + h(2)) % 1;
+        if (tw < 0.035 && dull > 0.6 && (U.rank <= 1 || ms.frost > 0.3 || ms.wet > 0.3)) { const k = Math.sin(Math.PI * tw / 0.035); this.shAdd(O, 'star', 'q', x + Lx * r * 0.62, y + Ly * r * 0.62, r * 0.42 * k * Math.min(1.4, shiny), 0, 0); }
+      }
+      // tints for the rim light: hot troops reflect fire, frozen ones ice, corroded ones lose their shine
+      const lavaNear = this.lava && this.lava.w > 1 ? clamp(1 - (Math.min(u.x - AR.x, AR.x + AR.w - u.x) - this.lava.w) / 140, 0, 1) : 0;
+      if (ms.heat > 0.25 || lavaNear > 0.1) this._shT.push(x, y, r * 1.3, '#FF8A3D', Math.max(ms.heat * 0.9, lavaNear));
+      else if (ms.frost > 0.25) this._shT.push(x, y, r * 1.3, '#BDF4FF', ms.frost);
+      else if (ms.vd > 0.3) this._shT.push(x, y, r * 1.3, '#C4B5FD', ms.vd);
+      if (ms.acid > 0.15) this._shT.push(x, y, r * 1.3, 'dull', Math.min(0.9, ms.acid * 1.3));
+      if (!S.damage) return;
+      // 2. physical damage: dents, bruises, glowing cracks, and fluid running down from a fresh wound
+      const hurt = 1 - clamp(u.hp / u.max, 0, 1);
+      if (hurt > 0.2 && !U.uncounted) {
+        const n = hurt > 0.7 ? 3 : hurt > 0.45 ? 2 : 1;
+        for (let k = 0; k < n; k++) {
+          const a = h(10 + k) * TAU, d = r * (0.25 + 0.3 * h(20 + k)), cx = x + Math.cos(a) * d, cy = y + Math.sin(a) * d, dr = r * (0.16 + 0.08 * h(30 + k));
+          // a dent: a dark curve with a lit edge on the far side
+          this.shAdd(B, 'dent', 'l', 3, cx + Lx * dr, cy + Ly * dr, cx - Ly * dr * 0.9, cy + Lx * dr * 0.9, cx - Lx * dr, cy - Ly * dr);
+          this.shAdd(B, 'dentL', 'l', 3, cx - Lx * dr * 0.4, cy - Ly * dr * 0.4, cx + Ly * dr * 0.7 - Lx * dr, cy - Lx * dr * 0.7 - Ly * dr, cx - Lx * dr * 1.3, cy - Ly * dr * 1.3);
+        }
+        if (hurt > 0.35) { const a = h(40) * TAU; this.shAdd(B, 'bruise' + shQ(hurt), 'c', x + Math.cos(a) * r * 0.3, y + Math.sin(a) * r * 0.3, r * 0.34); }
+        if (hurt > 0.5) {
+          const a = h(41) * TAU, pts = [];
+          let px = x + Math.cos(a) * r * 0.95, py = y + Math.sin(a) * r * 0.95;
+          pts.push(px, py);
+          for (let k = 1; k <= 3; k++) { const aa = a + Math.PI + (h(50 + k) - 0.5) * 1.6, l = r * (0.22 + 0.12 * h(60 + k)) * (hurt + 0.3); px += Math.cos(aa) * l; py += Math.sin(aa) * l; pts.push(px, py); }
+          this.shAdd(B, 'crack', 'l', 4, ...pts);
+          this.shAdd(B, 'crackG' + shQ((hurt - 0.4) * 1.8 * (0.75 + 0.25 * Math.sin(t * 6 + id))), 'l', 4, ...pts);
+        }
+        const fresh = T - (ms.dT ?? -9);
+        if (fresh < 2.6 && hurt > 0.25 && !MACHINE[u.type] || fresh < 1.5 && MACHINE[u.type]) {
+          const a = (ms.dA ?? 0) + Math.PI, sx = x + Math.cos(a) * r * 0.5, sy = y + Math.sin(a) * r * 0.5 - r * 0.15, len = r * 0.9 * clamp(fresh / 1.6, 0.15, 1);
+          const col = this.shFluid(u), key = 'drip' + col;
+          this.shAdd(B, key, 'l', 3, sx, sy, sx + 1, sy + len * 0.6, sx, sy + len);
+          // and drops falling off the bottom, landing at its feet
+          const ph = (fresh * 1.6 + h(70)) % 1;
+          if (fresh > 0.4) this.shAdd(O, 'drop' + col, 'c', sx, sy + len + ph * r * 0.9, 1.8 + r * 0.05);
+        }
+      }
+      // 3. fire: charred black patches, red-hot glow and glowing cracks underneath, flames while it burns
+      if (ms.char > 0.04) {
+        for (let k = 0; k < 3; k++) {
+          const a = h(80 + k) * TAU, d = r * 0.45 * h(90 + k);
+          this.shAdd(B, 'char' + shQ(ms.char), 'e', x + Math.cos(a) * d, y + Math.sin(a) * d, r * (0.32 + 0.16 * h(95 + k)), r * (0.22 + 0.1 * h(97 + k)), a);
+        }
+      }
+      if (ms.heat > 0.1) {
+        this.shAdd(B, 'redhot' + shQ(ms.heat * 0.8), 'c', x, y, r * 1.1);
+        const a = h(100) * TAU, pts = [];
+        let px = x + Math.cos(a) * r * 0.5, py = y + Math.sin(a) * r * 0.5; pts.push(px, py);
+        for (let k = 1; k <= 3; k++) { const aa = a + 2.4 + (h(110 + k) - 0.5) * 1.8; px += Math.cos(aa) * r * 0.3; py += Math.sin(aa) * r * 0.3; pts.push(px, py); }
+        this.shAdd(B, 'ember' + shQ(ms.heat), 'l', 4, ...pts);
+      }
+      if ((u.burnT || 0) > T) {
+        // layered flames: red outside, orange, a yellow core, flickering
+        for (let k = 0; k < 4; k++) {
+          const a = -Math.PI / 2 + (k - 1.5) * 0.62, fx = x + Math.cos(a) * r * 0.62, fy = y + Math.sin(a) * r * 0.42 + r * 0.05, fl = 0.7 + 0.3 * Math.sin(t * 17 + k * 2.1 + id) * Math.sin(t * 7.3 + k), hh = r * (1.0 + 0.55 * h(120 + k)) * fl * (k === 1 || k === 2 ? 1.25 : 0.85), w = r * 0.3;
+          this.shAdd(O, 'flameR', 'q', fx, fy, w, hh, 0);
+          this.shAdd(O, 'flameO', 'q', fx, fy, w * 0.7, hh * 0.72, 0);
+          this.shAdd(O, 'flameY', 'q', fx, fy, w * 0.38, hh * 0.42, 0);
+        }
+      }
+      // 4. acid: dull and corroded, pitted, sizzling, melting drips
+      if (ms.acid > 0.05) {
+        this.shAdd(B, 'acid' + shQ(ms.acid), 'c', x, y, r * 1.15);
+        const n = 2 + Math.round(ms.acid * 4);
+        for (let k = 0; k < n; k++) { const a = h(130 + k) * TAU, d = r * 0.7 * Math.sqrt(h(140 + k)), pr = r * (0.06 + 0.06 * h(150 + k)); this.shAdd(B, 'pit', 'c', x + Math.cos(a) * d, y + Math.sin(a) * d, pr); this.shAdd(B, 'pitL', 'c', x + Math.cos(a) * d - Lx * pr * 0.4, y + Math.sin(a) * d - Ly * pr * 0.4, pr * 0.55); }
+        if (T - (ms.aT ?? -9) < 3) {
+          for (let k = 0; k < 2; k++) { const ph = (t * 1.3 + h(160 + k)) % 1, a = h(170 + k) * TAU, d = r * 0.6 * h(175 + k); if (ph < 0.5) this.shAdd(O, 'sizzle', 'c', x + Math.cos(a) * d, y + Math.sin(a) * d, 1.2 + ph * r * 0.14); }
+          const sx = x + (h(180) - 0.5) * r, len = r * (0.5 + 0.5 * ((t * 0.7 + h(181)) % 1));
+          this.shAdd(B, 'acidDrip', 'l', 2, sx, y + r * 0.1, sx, y + r * 0.1 + len);
+        }
+      }
+      // 5. ice: a frosty coat, hyper-reflective, crystals growing on it, and spikes from the ground while frozen solid
+      if (ms.frost > 0.05) {
+        this.shAdd(B, 'frost' + shQ(ms.frost), 'c', x, y, r * 1.15);
+        const n = 1 + Math.round(ms.frost * 3);
+        for (let k = 0; k < n; k++) { const a = h(190 + k) * TAU, d = r * 0.85, s = r * (0.16 + 0.12 * h(195 + k)) * ms.frost; this.shAdd(O, 'crystal', 'q', x + Math.cos(a) * d, y + Math.sin(a) * d, s, s * 2.2, a); }
+        this.shAdd(B, 'frostL', 'l', 2, x - r * 0.5, y - r * 0.1, x - r * 0.1, y - r * 0.5);
+        if (frozen) for (let k = 0; k < 4; k++) { const a = k * 1.57 + h(200) * 1.5, d = r * 1.15, s = r * (0.3 + 0.2 * h(205 + k)); this.shAdd(O, 'spike', 'q', x + Math.cos(a) * d, y + Math.sin(a) * d, s * 0.6, s * 1.6, a); }
+      }
+      // 6. lightning: scorched branching lines, and sparks of left-over electricity
+      if (ms.zap > 0.05) {
+        const a = h(210) * TAU, pts = [];
+        let px = x + Math.cos(a) * r * 0.9, py = y + Math.sin(a) * r * 0.9; pts.push(px, py);
+        for (let k = 1; k <= 4; k++) { const aa = a + Math.PI + (h(220 + k) - 0.5) * 1.4; px += Math.cos(aa) * r * 0.36; py += Math.sin(aa) * r * 0.36; pts.push(px, py); }
+        this.shAdd(B, 'scorch' + shQ(ms.zap), 'l', 5, ...pts);
+        const bx = pts[4], by = pts[5], ba = a + Math.PI + 1.1;
+        this.shAdd(B, 'scorch' + shQ(ms.zap), 'l', 3, bx, by, bx + Math.cos(ba) * r * 0.3, by + Math.sin(ba) * r * 0.3, bx + Math.cos(ba + 0.5) * r * 0.55, by + Math.sin(ba + 0.5) * r * 0.55);
+        if (hash01(id, Math.floor(t * 14)) < 0.25 * ms.zap + (T - (ms.zT ?? -9) < 0.8 ? 0.4 : 0)) {
+          const sa = hash01(id + 1, Math.floor(t * 14)) * TAU, sx = x + Math.cos(sa) * r, sy = y + Math.sin(sa) * r;
+          this.shAdd(O, 'spark', 'l', 4, sx, sy, sx + Math.cos(sa + 1) * 5, sy + Math.sin(sa + 1) * 5, sx + Math.cos(sa) * 8, sy + Math.sin(sa) * 8, sx + Math.cos(sa - 0.6) * 13, sy + Math.sin(sa - 0.6) * 13);
+        }
+      }
+      // 7. void and poison: flaking, glitching, bubbling
+      if (ms.vd > 0.05) {
+        const n = 2 + Math.round(ms.vd * 4);
+        for (let k = 0; k < n; k++) { const a = h(230 + k) * TAU, d = r * (0.5 + 0.45 * h(235 + k)), s = r * (0.1 + 0.08 * h(238 + k)); this.shAdd(B, poisoned ? 'flakeP' : 'flake', 'c', x + Math.cos(a) * d, y + Math.sin(a) * d, s); }
+        if (!poisoned && hash01(id, Math.floor(t * 9)) < ms.vd * 0.35) { const gy = y + (hash01(id + 2, Math.floor(t * 9)) - 0.5) * r * 1.4; this.shAdd(B, 'glitchC', 'q', x - r * 1.2, gy, r * 2.4, r * 0.16, 0); this.shAdd(B, 'glitchM', 'q', x - r * 1.1 + 3, gy + r * 0.16, r * 2.2, r * 0.1, 0); }
+        if (poisoned) for (let k = 0; k < 3; k++) { const ph = (t * 0.9 + h(240 + k)) % 1, a = h(245 + k) * TAU, d = r * 0.55 * h(248 + k); this.shAdd(O, 'bubble', 'c', x + Math.cos(a) * d, y + Math.sin(a) * d - ph * r * 0.3, 1.5 + ph * r * 0.2); }
+      }
+      // 8. water: soaked and gleaming
+      if (ms.wet > 0.05) this.shAdd(B, 'wet' + shQ(ms.wet), 'c', x, y, r * 1.1);
+      // 9. a laser hit: the troop flashes see-through for a moment, showing a glowing skeleton
+      const xr = T - (ms.xT ?? -9);
+      if (xr < 0.14) {
+        this.shAdd(B, 'xray', 'c', x, y, r * 1.2);
+        const f = u.face || 0, fx = Math.cos(f), fy = Math.sin(f);
+        this.shAdd(B, 'bone', 'l', 2, x - fx * r * 0.6, y - fy * r * 0.6, x + fx * r * 0.5, y + fy * r * 0.5);
+        for (let k = -1; k <= 1; k++) this.shAdd(B, 'bone', 'l', 2, x + fx * k * r * 0.25 - fy * r * 0.45, y + fy * k * r * 0.25 + fx * r * 0.45, x + fx * k * r * 0.25 + fy * r * 0.45, y + fy * k * r * 0.25 - fx * r * 0.45);
+        this.shAdd(O, 'bloom', 'c', x, y, r * 1.18);
+      }
+      if (T - (ms.hT ?? -9) < 0.5 || u.healFlash > 0.3) this.shAdd(O, 'heal', 'c', x, y, r * 1.25);
+    },
+    // a troop on a card or strip gets the same finish (drawn once per troop, team and size, then reused)
+    shPortrait(ctx, type, team) {
+      const U = UNIT[type], m = ctx.getTransform(), sc = Math.max(0.25, Math.hypot(m.a, m.b) || 1), R = U.r * 3.6 + 16, px = Math.ceil(R * 2 * sc);
+      const C = this._shPC || (this._shPC = new Map()), key = type + '|' + team + '|' + px;
+      let c = C.get(key);
+      if (!c) {
+        c = api.makeCanvas(px, px); const g = c.getContext('2d');
+        g.setTransform(sc, 0, 0, sc, px / 2, px / 2);
+        this.drawPortraitRaw(g, type, team);
+        const Lx = Math.cos(SH_LIGHT), Ly = Math.sin(SH_LIGHT), r = U.r * (U.mount ? 1.22 : 1);
+        g.save(); g.globalCompositeOperation = 'source-atop';
+        g.beginPath(); g.ellipse(Lx * r * 0.36, Ly * r * 0.36, r * 0.44, r * 0.24, SH_LIGHT + Math.PI / 2, 0, TAU); g.fillStyle = 'rgba(255,255,255,0.32)'; g.fill();
+        g.beginPath(); g.arc(Lx * r * 0.5, Ly * r * 0.5, Math.max(1.4, r * 0.1), 0, TAU); g.fillStyle = 'rgba(255,255,255,0.9)'; g.fill();
+        g.restore();
+        const t = api.makeCanvas(px, px), tg = t.getContext('2d'), bw = Math.min(3.2 * sc, 7), o1x = Math.round(Lx * 4 * sc), o1y = Math.round(Ly * 4 * sc), o2x = Math.round(Lx * (4 * sc + bw)), o2y = Math.round(Ly * (4 * sc + bw));
+        tg.drawImage(c, 0, 0);
+        tg.globalCompositeOperation = 'destination-in'; tg.drawImage(c, -o1x, -o1y);
+        tg.globalCompositeOperation = 'destination-out'; tg.drawImage(c, -o2x, -o2y);
+        tg.globalCompositeOperation = 'source-in'; tg.fillStyle = 'rgba(255,255,255,0.62)'; tg.fillRect(0, 0, px, px);
+        g.setTransform(1, 0, 0, 1, 0, 0); g.drawImage(t, 0, 0);
+        C.set(key, c);
+      }
+      ctx.drawImage(c, -R, -R, R * 2, R * 2);
+    },
+    // draw one batch of marks
+    shFlush(ctx, b, style) {
+      ctx.beginPath();
+      const c = b.c, e = b.e, l = b.l, q = b.q;
+      for (let i = 0; i < c.length; i += 3) { ctx.moveTo(c[i] + c[i + 2], c[i + 1]); ctx.arc(c[i], c[i + 1], Math.max(0.5, c[i + 2]), 0, TAU); }
+      for (let i = 0; i < e.length; i += 5) { ctx.moveTo(e[i] + Math.cos(e[i + 4]) * e[i + 2], e[i + 1] + Math.sin(e[i + 4]) * e[i + 2]); ctx.ellipse(e[i], e[i + 1], Math.max(0.5, e[i + 2]), Math.max(0.5, e[i + 3]), e[i + 4], 0, TAU); }
+      for (let i = 0; i < l.length;) { const n = l[i++]; ctx.moveTo(l[i], l[i + 1]); for (let k = 1; k < n; k++) ctx.lineTo(l[i + k * 2], l[i + k * 2 + 1]); i += n * 2; }
+      if (style.q) for (let i = 0; i < q.length; i += 5) style.q(ctx, q[i], q[i + 1], q[i + 2], q[i + 3], q[i + 4]);
+      if (style.fill) { ctx.fillStyle = style.fill; ctx.fill(); }
+      if (style.stroke) { ctx.lineWidth = style.lw; ctx.strokeStyle = style.stroke; ctx.stroke(); }
+    },
+    // after every troop is drawn: gloss and marks onto the layer, the rim light, then the layer and what's over it onto the screen
+    shineEnd(m, lc) {
+      const S = this.shine, [rx, ry, rw, rh] = this._shBox, L = this._shL, R = this._shR, rc = R.getContext('2d');
+      // fallen troops fading out (rules.ui.anim) shine too
+      if (this.anim) for (const d of this.deathFx || []) {
+        const k = (this.t - d.t0) / 0.32, u = d.u, tm = TEAMS[u.team];
+        if (k < 0 || k >= 1 || !tm) continue;
+        const y = u.y - 6 * k, s = 1 - 0.35 * k;
+        lc.save(); lc.globalAlpha = (1 - k) * 0.85; lc.translate(u.x, y); lc.scale(s, s); lc.translate(-u.x, -y);
+        try { this.drawBody(lc, u, u.x, y, tm, UNIT[u.type].sword); } catch (e) { /* (some troops can't be drawn once gone) */ }
+        lc.restore();
+        this.shAdd(this._shB, 'specW3', 'e', u.x + this._shLx * u.r * 0.36, y + this._shLy * u.r * 0.36, u.r * 0.44 * s, u.r * 0.24 * s, Math.atan2(this._shLy, this._shLx) + Math.PI / 2);
+      }
+      const ON = shStyle(this);
+      lc.save(); lc.globalCompositeOperation = 'source-atop'; lc.lineCap = 'round'; lc.lineJoin = 'round';
+      for (const [key, b] of this._shB) { const st = ON[key]; if (st) this.shFlush(lc, b, st); }
+      lc.restore();
+      // the rim light: a thin band just inside each outline on the side facing the light (true to every shape, from triangles to dragons)
+      // (whole-pixel offsets: a fractional one would make the copies blur, and cost four times as much)
+      const z = this.cam && this.cam.z || 1, ux = this._shLx, uy = this._shLy, rimA = clamp(0.62 * S.rim, 0, 1);
+      const o1x = Math.round(ux * 4 * z), o1y = Math.round(uy * 4 * z), o2x = Math.round(ux * 7.2 * z), o2y = Math.round(uy * 7.2 * z);
+      if (rimA > 0.02) {
+        rc.setTransform(1, 0, 0, 1, 0, 0); rc.globalAlpha = 1; rc.globalCompositeOperation = 'source-over';
+        rc.clearRect(rx, ry, rw, rh);
+        rc.drawImage(L, rx, ry, rw, rh, rx, ry, rw, rh);
+        rc.globalCompositeOperation = 'destination-in'; rc.drawImage(L, rx, ry, rw, rh, rx - o1x, ry - o1y, rw, rh);
+        rc.globalCompositeOperation = 'destination-out'; rc.drawImage(L, rx, ry, rw, rh, rx - o2x, ry - o2y, rw, rh);
+        rc.globalCompositeOperation = 'source-in'; rc.fillStyle = rgba(this.weather === 'bloodmoon' || (this.wNow && this.wNow.kind === 'bloodmoon') ? '#FFC2C2' : this.weather === 'eclipse' ? '#D8D2FF' : '#FFFFFF', rimA); rc.fillRect(rx, ry, rw, rh);
+        // reflections of fire and ice, and no shine on corroded troops
+        if (this._shT.length) {
+          rc.setTransform(lc.getTransform());
+          const T2 = this._shT;
+          for (let i = 0; i < T2.length; i += 5) {
+            rc.globalCompositeOperation = T2[i + 3] === 'dull' ? 'destination-out' : 'source-atop';
+            rc.globalAlpha = clamp(T2[i + 4], 0, 1); rc.fillStyle = T2[i + 3] === 'dull' ? '#000' : rgba(T2[i + 3], rimA);
+            rc.beginPath(); rc.arc(T2[i], T2[i + 1], T2[i + 2], 0, TAU); rc.fill();
+          }
+          rc.setTransform(1, 0, 0, 1, 0, 0); rc.globalAlpha = 1;
+        }
+        rc.globalCompositeOperation = 'source-over';
+      }
+      m.save(); m.setTransform(1, 0, 0, 1, 0, 0); m.globalAlpha = 1;
+      m.drawImage(L, rx, ry, rw, rh, rx, ry, rw, rh);
+      if (rimA > 0.02) m.drawImage(R, rx, ry, rw, rh, rx, ry, rw, rh);
+      m.restore();
+      // over the troops: flames, crystals, drops, sparks, bubbles, sparkles
+      m.save(); m.lineCap = 'round'; m.lineJoin = 'round';
+      for (const [key, b] of this._shO) { const st = ON[key]; if (st) this.shFlush(m, b, st); }
+      m.restore();
+      for (const hp of this._shHP) hp();
+      this.drawShineFx(m);
+    },
+    // in the world, over the troops: shockwave rings, lightning bolts, fault lines, laser rings, black-hole disks, heat shimmer
+    drawShineFx(ctx) {
+      const t = this.t;
+      ctx.save(); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+      this.shRings = this.shRings.filter(g => t - g.t0 < g.life);
+      for (const g of this.shRings) {
+        const p = (t - g.t0) / g.life; if (p < 0) continue;
+        const e = 1 - Math.pow(1 - p, 2.2), r = g.r0 + (g.r1 - g.r0) * e;
+        ctx.beginPath(); ctx.arc(g.x, g.y, Math.max(1, r), 0, TAU);
+        ctx.lineWidth = g.w * (1 - p) + 1; ctx.strokeStyle = rgba(g.col, 0.85 * (1 - p)); ctx.stroke();
+        ctx.lineWidth = g.w * 2.6 * (1 - p) + 1; ctx.strokeStyle = rgba(g.col, 0.18 * (1 - p)); ctx.stroke();
+      }
+      this.shBolts = this.shBolts.filter(b => t - b.t0 < b.life);
+      for (const b of this.shBolts) {
+        // a jagged bolt from the top of the field with branches, glowing blue round a white-hot core
+        const p = (t - b.t0) / b.life, a = 1 - p, top = AR.y, pts = [];
+        let lx = b.x + (hash01(b.s, 1) - 0.5) * 120, ly = top; pts.push(lx, ly);
+        for (let i = 1; i <= 9; i++) { ly = top + (b.y - top) * i / 9; lx = i === 9 ? b.x : b.x + (hash01(b.s, i + 2) - 0.5) * 70 * (1 - i / 9) + (hash01(b.s + Math.floor(t * 30), i) - 0.5) * 14; pts.push(lx, ly); }
+        const path = (P) => { ctx.beginPath(); ctx.moveTo(P[0], P[1]); for (let i = 2; i < P.length; i += 2) ctx.lineTo(P[i], P[i + 1]); };
+        const branches = [];
+        for (let k = 2; k < 8; k += 2) { const bx = pts[k * 2], by = pts[k * 2 + 1], sd = hash01(b.s, k + 20) > 0.5 ? 1 : -1, P = [bx, by]; let cx = bx, cy = by; for (let j = 1; j <= 3; j++) { cx += sd * (16 + 12 * hash01(b.s + j, k)); cy += 18 + 10 * hash01(k, b.s + j); P.push(cx, cy); } branches.push(P); }
+        for (const [w, col] of [[22 * b.w, `rgba(120,190,255,${0.25 * a})`], [10 * b.w, `rgba(170,220,255,${0.7 * a})`], [4 * b.w, `rgba(255,255,255,${a})`]]) {
+          ctx.lineWidth = w; ctx.strokeStyle = col; path(pts); ctx.stroke();
+          ctx.lineWidth = w * 0.5; for (const P of branches) { path(P); ctx.stroke(); }
+        }
+        ctx.beginPath(); ctx.arc(b.x, b.y, 30 * (1 + p), 0, TAU); ctx.fillStyle = `rgba(220,240,255,${0.45 * a})`; ctx.fill();
+      }
+      this.shFaults = this.shFaults.filter(f => t - f.t0 < f.life);
+      for (const f of this.shFaults) {
+        // fault lines running out from the impact, a flattened ring, then fading
+        const p = (t - f.t0) / f.life, grow = clamp(p / 0.25, 0, 1), a = clamp((1 - p) / 0.5, 0, 1);
+        ctx.beginPath(); ctx.ellipse(f.x, f.y, f.R * 0.55 * grow, f.R * 0.42 * grow, 0, 0, TAU); ctx.fillStyle = `rgba(20,14,10,${0.3 * a})`; ctx.fill();
+        ctx.beginPath();
+        for (let k = 0; k < f.n; k++) {
+          const a0 = k / f.n * TAU + hash01(f.s, k) * 0.5; let x = f.x + Math.cos(a0) * f.R * 0.25, y = f.y + Math.sin(a0) * f.R * 0.25; ctx.moveTo(x, y);
+          for (let j = 1; j <= 3; j++) { const aa = a0 + (hash01(f.s + j, k) - 0.5) * 0.7, l = f.R * 0.28 * grow; x += Math.cos(aa) * l; y += Math.sin(aa) * l; ctx.lineTo(x, y); }
+        }
+        ctx.lineWidth = 4.5; ctx.strokeStyle = `rgba(10,7,5,${0.85 * a})`; ctx.stroke();
+        ctx.lineWidth = 1.5; ctx.strokeStyle = `rgba(255,190,110,${0.7 * a * (1 - p)})`; ctx.stroke();
+      }
+      // laser beams: rings of plasma running down the beam and a bright glow where it lands
+      for (const b of this.beams || []) {
+        const age = this.fightT - b.t0; if (age < 0 || age > b.life) continue;
+        const dx = b.x1 - b.x0, dy = b.y1 - b.y0, L = Math.hypot(dx, dy) || 1, ux = dx / L, uy = dy / L, k = 1 - age / b.life;
+        ctx.lineWidth = (b.w || 4) * 3.2; ctx.strokeStyle = rgba(b.col || '#FFFFFF', 0.16 * k); ctx.beginPath(); ctx.moveTo(b.x0, b.y0); ctx.lineTo(b.x1, b.y1); ctx.stroke();
+        for (let j = 0; j < 3; j++) {
+          const s = ((t * 2.4 + j / 3) % 1) * L, cx = b.x0 + ux * s, cy = b.y0 + uy * s;
+          ctx.beginPath(); ctx.ellipse(cx, cy, (b.w || 4) * 1.1, (b.w || 4) * 2.2, Math.atan2(uy, ux), 0, TAU); ctx.lineWidth = 2; ctx.strokeStyle = rgba('#FFFFFF', 0.75 * k); ctx.stroke();
+        }
+        ctx.beginPath(); ctx.arc(b.x1, b.y1, (b.w || 4) * 3, 0, TAU); ctx.fillStyle = rgba(b.col || '#FFFFFF', 0.35 * k); ctx.fill();
+      }
+      // black holes: a purple accretion disk spinning round a pitch-black core, and light being pulled in
+      const G = this.g4;
+      if (G && G.holes) for (const b of G.holes) {
+        const T = this.fightT, life = clamp((T - b.t0) / 0.4, 0, 1) * clamp(((b.end ?? T + 1) - T) / 0.3, 0, 1); if (life <= 0) continue;
+        const cr = (b.core || 40) * 1.15;
+        for (let k = 0; k < 3; k++) { const a0 = t * (3 + k) + k * 2; ctx.beginPath(); ctx.ellipse(b.x, b.y, cr * (1.5 + k * 0.35), cr * (0.55 + k * 0.12), 0.35, a0, a0 + 3.6); ctx.lineWidth = 6 - k * 1.5; ctx.strokeStyle = `rgba(${k ? '196,181,253' : '124,58,237'},${0.7 * life})`; ctx.stroke(); }
+        ctx.beginPath(); ctx.arc(b.x, b.y, cr * 0.62, 0, TAU); ctx.fillStyle = `rgba(2,0,6,${0.92 * life})`; ctx.fill();
+        ctx.beginPath();
+        for (let k = 0; k < 10; k++) { const a = hash01(k, 3) * TAU + t * 0.6, p = (t * 1.6 + hash01(k, 9)) % 1, d0 = b.r * (1 - p) + cr * p, d1 = d0 - b.r * 0.18; ctx.moveTo(b.x + Math.cos(a) * d0, b.y + Math.sin(a) * d0); ctx.lineTo(b.x + Math.cos(a + 0.15) * Math.max(cr, d1), b.y + Math.sin(a + 0.15) * Math.max(cr, d1)); }
+        ctx.lineWidth = 2; ctx.strokeStyle = `rgba(233,213,255,${0.55 * life})`; ctx.stroke();
+      }
+      // poison clouds: thick bubbling green, drawn over the troops
+      for (const c of (this.clouds || []).concat(this.mkClouds || [])) {
+        const T = this.fightT; if (c.done || T > c.end || T < (c.t0 ?? 0)) continue;
+        const a = clamp((T - (c.t0 ?? T - 1)) / 0.4, 0, 1) * clamp((c.end - T) / 0.6, 0, 1);
+        ctx.beginPath();
+        for (let k = 0; k < 7; k++) { const an = k / 7 * TAU + t * 0.4, d = c.r * (0.45 + 0.15 * Math.sin(t * 1.3 + k)), rr = c.r * (0.38 + 0.08 * Math.sin(t * 2.1 + k * 1.7)); ctx.moveTo(c.x + Math.cos(an) * d + rr, c.y + Math.sin(an) * d); ctx.arc(c.x + Math.cos(an) * d, c.y + Math.sin(an) * d, rr, 0, TAU); }
+        ctx.fillStyle = `rgba(101,163,13,${0.16 * a})`; ctx.fill();
+      }
+      // heat shimmer over burning ground
+      if (this.fireG && this.fireG.size) {
+        ctx.beginPath(); let n = 0;
+        for (const c of this.fireG.values()) {
+          if (n++ > 40) break;
+          const cx = AR.x + c.cx * FIRE_CELL + FIRE_CELL / 2, cy = AR.y + c.cy * FIRE_CELL + FIRE_CELL / 2;
+          for (let k = 0; k < 2; k++) { const x = cx + (k - 0.5) * 14, y = cy - 22; ctx.moveTo(x, y); for (let j = 1; j <= 4; j++) ctx.lineTo(x + Math.sin(t * 9 + j * 1.7 + k + cx) * 3, y - j * 9); }
+        }
+        ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(255,240,220,0.18)'; ctx.stroke();
+      }
+      ctx.restore();
+    },
+    // on the screen, over the battlefield: radial blur, colour fringing, a white flash, vignette pulses and colour grades
+    shinePost(ctx) {
+      if (!this.shine.screen || !api.makeCanvas) return;
+      const t = this.t, dy = this.layDY || 0, bx = AR.x + this.shakeX, by = AR.y + dy + this.shakeY;
+      const cam = this.camOn() ? this.cam : null, toS = (x, y) => cam ? [AR.x + AR.w / 2 + (x - cam.x) * cam.z + this.shakeX, AR.y + AR.h / 2 + (y - cam.y) * cam.z + this.shakeY + dy] : [x + this.shakeX, y + this.shakeY + dy];
+      const P = this._shP || (this._shP = api.makeCanvas(VW, VH)), pc = P.getContext('2d'), box = [Math.max(0, Math.floor(bx)), Math.max(0, Math.floor(by)), AR.w, AR.h];
+      // (all of this is in screen pixels: the battlefield's own offsets are added here, not taken from the drawing state)
+      ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over';
+      roundRect(ctx, AR.x + this.shakeX, AR.y + dy + this.shakeY, AR.w, AR.h, 18); ctx.clip();
+      // radial blur: copies of the picture round an explosion, each a little bigger and fainter
+      this.shRB = this.shRB.filter(b => t - b.t0 < b.life);
+      for (const b of this.shRB) {
+        const p = (t - b.t0) / b.life; if (p < 0) continue;
+        const [sx, sy] = toS(b.x, b.y), H = 260 * (cam ? cam.z : 1), x0 = Math.max(box[0], Math.floor(sx - H)), y0 = Math.max(box[1], Math.floor(sy - H)), w = Math.min(box[0] + box[2], Math.ceil(sx + H)) - x0, h = Math.min(box[1] + box[3], Math.ceil(sy + H)) - y0;
+        if (w < 8 || h < 8) continue;
+        pc.setTransform(1, 0, 0, 1, 0, 0); pc.globalCompositeOperation = 'source-over'; pc.globalAlpha = 1; pc.clearRect(x0, y0, w, h); pc.drawImage(ctx.canvas, x0, y0, w, h, x0, y0, w, h);
+        const s = b.s * (1 - p);
+        for (let k = 1; k <= 3; k++) { const sc = 1 + s * k / 3; ctx.globalAlpha = 0.2 * (1 - p) * (1 - k * 0.2); ctx.drawImage(P, x0, y0, w, h, sx - (sx - x0) * sc, sy - (sy - y0) * sc, w * sc, h * sc); }
+        ctx.globalAlpha = 1;
+      }
+      // colour fringing on a heavy blow: the red picture slides one way, the rest the other
+      const ca = this.shCA * this.shine.screen;
+      if (ca > 0.06) {
+        const off = Math.round(1 + ca * 4);
+        pc.setTransform(1, 0, 0, 1, 0, 0); pc.globalAlpha = 1; pc.globalCompositeOperation = 'source-over';
+        pc.clearRect(...box); pc.drawImage(ctx.canvas, ...box, ...box);
+        pc.globalCompositeOperation = 'darken'; pc.fillStyle = '#FF0000'; pc.fillRect(...box);
+        pc.globalCompositeOperation = 'source-over';
+        ctx.globalCompositeOperation = 'darken'; ctx.fillStyle = '#00FFFF'; ctx.fillRect(...box);
+        ctx.globalCompositeOperation = 'lighter'; ctx.drawImage(P, box[0], box[1], box[2], box[3], box[0] + off, box[1] - Math.round(off / 2), box[2], box[3]);
+        ctx.globalCompositeOperation = 'source-over';
+      }
+      // grades: poison green, desert dust, the dark sky before a meteor, and one white frame for lightning
+      let tint = null;
+      if (this.weather === 'sandstorm') tint = 'rgba(176,132,70,0.16)';
+      for (const ev of this.events || []) if (ev.type === 'meteors' && ev.started && !ev.done && ev.style !== 'lightning' && ev.style !== 'cannonballs') tint = `rgba(20,10,30,${0.22 * clamp(ev.t / 0.8, 0, 1)})`;
+      if (this.mkFx && this.mkFx.some && this.mkFx.some(f => f.kind === 'poison' && this.fightT < f.end)) tint = 'rgba(90,140,20,0.12)';
+      if (tint) { ctx.fillStyle = tint; ctx.fillRect(...box); }
+      if (this.shV > 0.02 && api.makeCanvas) {
+        if (!vignetteImg) { vignetteImg = api.makeCanvas(AR.w, AR.h); const g = vignetteImg.getContext('2d'), rg = g.createRadialGradient(AR.w / 2, AR.h / 2, AR.w * 0.28, AR.w / 2, AR.h / 2, AR.w * 0.75); rg.addColorStop(0, 'rgba(0,0,0,0)'); rg.addColorStop(1, 'rgba(0,0,0,0.75)'); g.fillStyle = rg; g.fillRect(0, 0, AR.w, AR.h); }
+        ctx.globalAlpha = clamp(this.shV, 0, 0.8); ctx.drawImage(vignetteImg, bx, by); ctx.globalAlpha = 1;
+      }
+      if (this.shWhite > 0.05) { ctx.fillStyle = `rgba(235,245,255,${0.6 * this.shWhite})`; ctx.fillRect(...box); }
+      ctx.restore();
+    },
+  };
+  // how each kind of mark is painted (looks only)
+  function shStyle(g) {
+    if (shStyle.c) return shStyle.c;
+    const S = {};
+    const lv = (key, f) => { for (let q = 1; q <= 4; q++) S[key + q] = f(q / 4); };
+    for (const [k, c] of [['W', '255,255,255'], ['F', '255,214,160'], ['I', '235,252,255']]) { lv('spec' + k, a => ({ fill: `rgba(${c},${0.42 * a})` })); lv('hot' + k, a => ({ fill: `rgba(${c},${0.92 * a})` })); }
+    lv('glint', a => ({ fill: `rgba(255,255,255,${0.55 * a})` }));
+    S.dent = { stroke: 'rgba(10,12,20,0.5)', lw: 2.2 }; S.dentL = { stroke: 'rgba(255,255,255,0.45)', lw: 1.3 };
+    lv('bruise', a => ({ fill: `rgba(70,30,90,${0.22 * a})` }));
+    S.crack = { stroke: 'rgba(8,8,12,0.9)', lw: 3 };
+    lv('crackG', a => ({ stroke: `rgba(255,190,90,${0.95 * a})`, lw: 1.3 }));
+    for (const col of ['#B3263A', '#1F2228', '#B9C98A', '#7A9A3A']) { S['drip' + col] = { stroke: col, lw: 3 }; S['drop' + col] = { fill: col }; }
+    lv('char', a => ({ fill: `rgba(24,16,12,${0.7 * a})` }));
+    lv('redhot', a => ({ fill: `rgba(255,80,20,${0.32 * a})` }));
+    lv('ember', a => ({ stroke: `rgba(255,170,60,${a})`, lw: 1.8 }));
+    const flame = (ctx, x, y, w, h) => { ctx.moveTo(x - w, y); ctx.quadraticCurveTo(x - w * 0.9, y - h * 0.55, x, y - h); ctx.quadraticCurveTo(x + w * 0.9, y - h * 0.55, x + w, y); ctx.quadraticCurveTo(x, y + w * 0.6, x - w, y); };
+    S.flameR = { fill: 'rgba(220,38,38,0.9)', q: flame }; S.flameO = { fill: '#FF8A1F', q: flame }; S.flameY = { fill: '#FFE066', q: flame };
+    lv('acid', a => ({ fill: `rgba(110,128,40,${0.42 * a})` }));
+    S.pit = { fill: 'rgba(40,52,10,0.85)' }; S.pitL = { fill: 'rgba(190,242,100,0.55)' };
+    S.sizzle = { stroke: 'rgba(236,252,203,0.85)', lw: 1.2 }; S.acidDrip = { stroke: 'rgba(163,230,53,0.95)', lw: 2.6 };
+    lv('frost', a => ({ fill: `rgba(205,240,255,${0.45 * a})` }));
+    S.frostL = { stroke: 'rgba(255,255,255,0.8)', lw: 2 };
+    const shard = (ctx, x, y, w, h, a) => { const c = Math.cos(a), s = Math.sin(a); ctx.moveTo(x - s * w, y + c * w); ctx.lineTo(x + c * h, y + s * h); ctx.lineTo(x + s * w, y - c * w); ctx.lineTo(x - c * w * 0.6, y - s * w * 0.6); ctx.closePath(); };
+    S.crystal = { fill: 'rgba(224,247,255,0.92)', stroke: 'rgba(30,64,90,0.75)', lw: 1.2, q: shard };
+    S.spike = { fill: 'rgba(186,230,253,0.9)', stroke: 'rgba(12,40,70,0.85)', lw: 1.6, q: shard };
+    lv('scorch', a => ({ stroke: `rgba(14,10,8,${0.8 * a})`, lw: 2 }));
+    S.spark = { stroke: 'rgba(254,249,195,0.95)', lw: 1.8 };
+    S.flake = { fill: 'rgba(30,8,60,0.85)' }; S.flakeP = { fill: 'rgba(54,83,20,0.8)' };
+    const bar = (ctx, x, y, w, h) => ctx.rect(x, y, w, h);
+    S.glitchC = { fill: 'rgba(34,211,238,0.55)', q: bar }; S.glitchM = { fill: 'rgba(232,121,249,0.55)', q: bar };
+    S.bubble = { stroke: 'rgba(190,242,100,0.9)', lw: 1.5 };
+    lv('wet', a => ({ fill: `rgba(170,215,255,${0.22 * a})` }));
+    S.xray = { fill: 'rgba(190,250,255,0.78)' }; S.bone = { stroke: 'rgba(20,50,70,0.85)', lw: 2.4 };
+    S.bloom = { stroke: 'rgba(165,243,252,0.6)', lw: 5 };
+    S.heal = { fill: 'rgba(253,230,138,0.13)' };
+    const star = (ctx, x, y, s) => { ctx.moveTo(x, y - s); ctx.quadraticCurveTo(x, y, x + s, y); ctx.quadraticCurveTo(x, y, x, y + s); ctx.quadraticCurveTo(x, y, x - s, y); ctx.quadraticCurveTo(x, y, x, y - s); };
+    S.star = { fill: 'rgba(255,255,255,0.95)', q: star };
+    return (shStyle.c = S);
+  }
+  Object.assign(Army.prototype, ARMY_EXT, ARMY_DRAW, ARMY_MAPS, ARMY_EXT2, ARMY_DRAW2, ARMY_COMBAT, ARMY_TRIBES, ARMY_TRIBES_DRAW, ARMY_PACE, ARMY_UI2, ARMY_WORLD, ARMY_FX2, ARMY_SMART, ARMY_CAST3, ARMY_CAST3_DRAW, ARMY_EVOLVE, ARMY_THUMB, ARMY_NAV, ARMY_MINDS, ARMY_CLASS, ARMY_CAST4, ARMY_MARKET2, ARMY_ANIM, ARMY_SHINE);
 
   const GAMES = { territory: Territory, duel: Duel, army: Army };
   Object.assign(api, { rng, Match, Territory, Duel, Army, Director, Synth, GAMES, WEAPONS, DOCTRINES, MODERN_DOCTRINES, FANTASY_DOCTRINES, GENRES, UNIT_ERA, ALL_DOCTRINES, MAPS, MAP_THEME, UNIT, eraOf, fmtTime, labelOf, docLabel, MAP_MECH, SKINS, MODE_HOOK, specOf, TRIBE_POOL, TRAIT, STAKE, CLASSES, classOf, RETIRED: [...RETIRED_SET], docRetired, CAST4 });

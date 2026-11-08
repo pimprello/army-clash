@@ -1570,42 +1570,50 @@
     {
       "top": "SUNKINGDOM",
       "bottom": "HORDE",
-      "balance": 1
+      "balance": 1,
+      "combatBalance": 0.892
     },
     {
       "top": "THRONE",
       "bottom": "VIKINGS",
-      "balance": 1
+      "balance": 1,
+      "combatBalance": 1
     },
     {
       "top": "TRAPPERS",
       "bottom": "CAVALRY",
-      "balance": 1
+      "balance": 1,
+      "combatBalance": 1
     },
     {
       "top": "WARMASTERS",
       "bottom": "SAMURAI",
-      "balance": 1
+      "balance": 1,
+      "combatBalance": 0.709
     },
     {
       "top": "ZEROG",
       "bottom": "MECHS",
-      "balance": 1
+      "balance": 1,
+      "combatBalance": 0.632
     },
     {
       "top": "PULSARS",
       "bottom": "PHALANX",
-      "balance": 1
+      "balance": 1,
+      "combatBalance": 1.581
     },
     {
       "top": "BASTION",
       "bottom": "SNIPERS",
-      "balance": 1
+      "balance": 1,
+      "combatBalance": 1.257
     },
     {
       "top": "ASSASSINS",
       "bottom": "SUNKINGDOM",
-      "balance": 1
+      "balance": 1,
+      "combatBalance": 1.581
     }
   ],
   "cinematic": true,
@@ -2071,7 +2079,15 @@
   "ui": {
     "layout": 2,
     "art": 2,
-    "anim": true
+    "anim": true,
+    "shine": {
+      "on": true,
+      "gloss": 1,
+      "rim": 1,
+      "damage": true,
+      "screen": 1,
+      "density": 1.6
+    }
   },
   "world": {
     "on": true,

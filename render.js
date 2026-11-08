@@ -216,7 +216,7 @@ async function main() {
   const pacing = OUTRO ? { outroSecs: OUTRO, pace: VID.pace !== false } : {};
   const UIL = (rules.ui && rules.ui.layout) || 1; // 2 = the Shorts-safe layout (scoreboard on top, tribes strip above YouTube's title)
   const optsFor = mul => ({ target: SECS, fixedLength: SECS, weaponSfx: !!(rules.sound && rules.sound.weapons), ...pacing, swordsmen, crossbowmen, map, doctrines, budgetMul: three ? mul : [bm[0], bm[1] * mul], swordsmenByTeam, extras, extrasByTeam, era, formations, events,
-    teams: three ? 3 : 2, dream: !!(wild || custom || three), ...systems, ...cmbOpts, ...trbOpts, ...(UIL >= 2 ? { ui: UIL } : {}), ...(rules.ui && rules.ui.art >= 2 ? { art: rules.ui.art } : {}), ...(rules.ui && rules.ui.anim ? { anim: true } : {}), ...(rules.world && rules.world.on ? { world: rules.world } : {}),
+    teams: three ? 3 : 2, dream: !!(wild || custom || three), ...systems, ...cmbOpts, ...trbOpts, ...(UIL >= 2 ? { ui: UIL } : {}), ...(rules.ui && rules.ui.art >= 2 ? { art: rules.ui.art } : {}), ...(rules.ui && rules.ui.anim ? { anim: true } : {}), ...(rules.ui && rules.ui.shine && rules.ui.shine.on ? { shine: rules.ui.shine } : {}), ...(rules.world && rules.world.on ? { world: rules.world } : {}),
     // the roster, classes, minds and pathfinding (each off when its rule is off, which keeps old seeds playing out as before)
     ...(roster ? { roster } : {}), ...(rules.classes && rules.classes.on ? { classes: rules.classes } : {}), ...(rules.minds && rules.minds.on ? { minds: rules.minds } : {}),
     ...(rules.nav && rules.nav.on ? { nav: rules.nav } : {}) });
