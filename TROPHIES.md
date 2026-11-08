@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 471 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 472 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -85,7 +85,7 @@ Records from 471 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 9
 - wings: 32
 - spellward: 43
-- swift: 74
+- swift: 75
 - venom: 76
 - spikes: 82
 - regen: 95
@@ -150,16 +150,16 @@ Records from 471 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Starweave Circle | 23 | 9 | 14 | 881 | 1 won | 5 |
 | Frostmere Clan | 21 | 9 | 12 | 743 | 1 won | 3 |
 | Mire Witch Coven | 11 | 9 | 2 | 395 | 2 won | 7 |
-| Hollowbark Kin | 18 | 8 | 10 | 586 | 1 won | 3 |
+| Hollowbark Kin | 19 | 8 | 11 | 590 | 1 lost | 3 |
 | Copper Crown Company | 15 | 8 | 7 | 566 | 1 won | 3 |
 | Raven Hill Clan | 16 | 8 | 8 | 547 | 1 lost | 5 |
+| Emberroot Circle | 16 | 8 | 7 | 520 | 2 won | 3 |
 | Highmoor Clan | 13 | 8 | 5 | 425 | 1 lost | 7 |
 | Wildbrook Clan | 21 | 7 | 14 | 803 | 1 won | 1 |
 | Order of the Silver Stag | 17 | 7 | 10 | 717 | 3 lost | 3 |
 | Storm Tower Order | 18 | 7 | 11 | 679 | 2 lost | 3 |
 | Ash Wolf Clan | 16 | 7 | 9 | 636 | 2 won | 2 |
 | Stormhorn Tribe | 12 | 7 | 5 | 596 | 1 lost | 4 |
-| Emberroot Circle | 15 | 7 | 7 | 481 | 1 won | 3 |
 
 ### Great rivalries
 
@@ -174,6 +174,7 @@ Records from 471 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-08 18:22: The Ashmantle Kin Take the Quarry (revenge denied · 4th win · 44 kills)
 - 2026-11-08 14:46: The Ash Wolf Clan Take the Reactor (revenge denied · 7th win · 153 kills)
 - 2026-11-08 10:26: The Copper Crown Company Take the Overgrown Throne (8th win · 78 kills)
 - 2026-11-07 22:18: The Glimmerdeep Kin Take the Open Plains (6th win · 29 kills)
@@ -183,4 +184,3 @@ Records from 471 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 20:22: The House of the White Heron Take the Open Plains (2nd win · 47 kills)
 - 2026-11-07 20:07: The Golden Lion Order Take the Swamp Shrine (revenge denied · 7th win · 81 kills)
 - 2026-11-07 19:55: The Solar Wing Take the Swamp Shrine (revenge denied · 3 wins in a row · 79 kills)
-- 2026-11-07 19:37: The Silverbough Circle Take the Castle (revenge denied · 10th win · 135 kills)
