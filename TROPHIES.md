@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 472 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 473 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 472 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **VEXA THE UNBROKEN** (JUGGERNAUT), 12 kills · 2026-11-08 22:23
 - **BRAKK BONECRUSHER** (WIZARD), 14 kills · 2026-11-07 20:36
 - **KAELEN BONECRUSHER** (BERSERKER), 11 kills · 2026-11-07 19:55
 - **DRAVEN THE BOLD** (NINJA), 15 kills · 2026-11-07 17:58
@@ -47,10 +48,10 @@ Records from 472 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **TOVA GRAVEBANE** (SIEGE GUNNER), 10 kills · 2026-11-07 08:06
 - **ZEDRIK THE MAD** (WIZARD), 12 kills · 2026-11-07 07:38
 - **TOVA THE MAD** (SWORDSMAN), 10 kills · 2026-11-07 04:58
-- **GRIM THE LUCKY** (BERSERKER), 12 kills · 2026-11-07 04:26
 
 ## Titles earned (rarest first)
 
+- THRONE WALKER SLAYER: 1
 - CATAPULT SLAYER: 2
 - GRAVITY TYRANT SLAYER: 3
 - CATHEDRAL SLAYER: 5
@@ -83,7 +84,7 @@ Records from 472 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Mutations (rarest first)
 
 - vampiric: 9
-- wings: 32
+- wings: 33
 - spellward: 43
 - swift: 75
 - venom: 76
@@ -157,7 +158,7 @@ Records from 472 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Highmoor Clan | 13 | 8 | 5 | 425 | 1 lost | 7 |
 | Wildbrook Clan | 21 | 7 | 14 | 803 | 1 won | 1 |
 | Order of the Silver Stag | 17 | 7 | 10 | 717 | 3 lost | 3 |
-| Storm Tower Order | 18 | 7 | 11 | 679 | 2 lost | 3 |
+| Storm Tower Order | 19 | 7 | 12 | 713 | 3 lost | 3 |
 | Ash Wolf Clan | 16 | 7 | 9 | 636 | 2 won | 2 |
 | Stormhorn Tribe | 12 | 7 | 5 | 596 | 1 lost | 4 |
 
@@ -174,6 +175,7 @@ Records from 472 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-08 22:23: The House of the Red Crane Take the Open Plains (5 wins in a row · 44 kills)
 - 2026-11-08 18:22: The Ashmantle Kin Take the Quarry (revenge denied · 4th win · 44 kills)
 - 2026-11-08 14:46: The Ash Wolf Clan Take the Reactor (revenge denied · 7th win · 153 kills)
 - 2026-11-08 10:26: The Copper Crown Company Take the Overgrown Throne (8th win · 78 kills)
@@ -183,4 +185,3 @@ Records from 472 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 20:36: The Silverbough Circle Take the Castle (11th win · 47 kills)
 - 2026-11-07 20:22: The House of the White Heron Take the Open Plains (2nd win · 47 kills)
 - 2026-11-07 20:07: The Golden Lion Order Take the Swamp Shrine (revenge denied · 7th win · 81 kills)
-- 2026-11-07 19:55: The Solar Wing Take the Swamp Shrine (revenge denied · 3 wins in a row · 79 kills)
