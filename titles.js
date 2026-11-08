@@ -38,6 +38,11 @@ const NOUN = {
   MOONCALLER: { n: 'Moon Caller', big: 'MOON', e: '🌕' , who: 'the MOON Caller' }, GOBLINKING: { n: 'Goblin King', big: 'GOBLIN KING', e: '👑' , who: 'the GOBLIN KING' }, LICHES: { n: 'Liches', e: '💀' }, GARGOYLES: { n: 'Gargoyles', e: '🗿' },
   EMPTY: { n: 'Empty Army', e: '👻' }, DRONES: { n: 'Drone Swarm', e: '💥' }, AIRBORNE: { n: 'Helicopter Army', big: 'HELICOPTER', e: '🚁' }, SIRENS: { n: 'Sirens', e: '🧜‍♀️' },
   ASSASSINS: { n: 'Assassins', e: '🗡️' },
+  // the fourth batch (rules.roster)
+  SINGULARITY: { n: 'Singularity Sages', e: '🌀' }, ORBITERS: { n: 'Orbit Knights', e: '🪐' }, CRYSTALCOURT: { n: 'Crystal Court', e: '💎' }, BLINKBLADES: { n: 'Blink Blades', e: '🗡️' },
+  GRAVITYCULT: { n: 'Gravity Cult', big: 'GRAVITY TYRANT', e: '🌀', who: 'the GRAVITY TYRANT' }, SUNKINGDOM: { n: 'Sun Kingdom', e: '☀️' },
+  THRONE: { n: 'Throne Walker', big: 'THRONE WALKER', e: '👑', who: 'the THRONE WALKER' }, TRAPPERS: { n: 'Trapmasters', e: '🪤' }, WARMASTERS: { n: 'Warmasters', e: '🚩' },
+  ZEROG: { n: 'Zero-G Rangers', e: '🛸' }, PULSARS: { n: 'Pulsars', e: '💫' }, BASTION: { n: 'Bastion Corps', e: '🛡️' },
 };
 const nounOf = doc => NOUN[doc.name] || { n: doc.name.charAt(0) + doc.name.slice(1).toLowerCase(), count: false, e: '⚔️' };
 const tc = s => s.split(' ').map(w => w.charAt(0) + w.slice(1).toLowerCase()).join(' ');

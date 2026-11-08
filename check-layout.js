@@ -72,7 +72,9 @@ function run(label, opts, seed, teams, frames) {
   if (process.env.VERBOSE) console.log("run", label);
   RVB.setTeams(...teams);
   const V = rules.video || {}, len = V.outroSeconds ? (V.fightSeconds || 60) + V.outroSeconds : 60;
-  const g = new RVB.Army(seed, Object.assign({ target: len, fixedLength: len, outroSecs: V.outroSeconds || undefined, pace: V.outroSeconds ? V.pace !== false : undefined, map: 'open', events: rules.events, ...(rules.systems || {}), combat, tribes }, UI >= 2 ? { ui: UI } : {}, opts));
+  const g = new RVB.Army(seed, Object.assign({ target: len, fixedLength: len, outroSecs: V.outroSeconds || undefined, pace: V.outroSeconds ? V.pace !== false : undefined, map: 'open', events: rules.events, ...(rules.systems || {}), combat, tribes }, UI >= 2 ? { ui: UI } : {},
+    // the roster, classes, minds and pathfinding as the videos have them (class badges on the roster cards, new troops' moves)
+    ...['roster', 'classes', 'minds', 'nav'].filter(k => rules[k] && rules[k].on).map(k => ({ [k]: rules[k] })), opts));
   let k = 0;
   // UI 2.0 has more moments to check: both beats of the story, the roster strips, the panel, chapter cards and the outro
   if (UI >= 2) frames = [[1.2], [3.0], [5.2], [7.0], [12], [20], [33], [47]].concat(frames.some(f => f[0] === 'end') ? [['end']] : []);

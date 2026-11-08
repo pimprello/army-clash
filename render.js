@@ -64,8 +64,11 @@ if (three) {
   if (pick.next() < 0.5) pair.reverse();
 }
 RVB.setTeams(pair[0], pair[1], pair[2]);
+// the roster (rules.roster): with it on, line-ups built around a retired troop leave the rotation
+const roster = rules.roster && rules.roster.on ? rules.roster : null;
+const retiredSide = d => !!roster && (typeof d === 'string' ? RVB.docRetired(d) : d && typeof d === 'object' && Object.keys(d.mix || {}).concat(d.heavy || []).some(k => RVB.RETIRED.includes(k)));
 // line-ups marked "pending" are still being balanced and stay out of the rotation until then
-const matchups = (rules.matchups || []).filter(m => !m.pending);
+const matchups = (rules.matchups || []).filter(m => !m.pending && !retiredSide(m.top) && !retiredSide(m.bottom));
 // Creative slots: every Nth video (rules.creative.every) is a brand-new match-up invented from the seed, balanced on the spot.
 // MATCHUP=<n> forces line-up n from the list; WILD=1 forces a creative one.
 const creative = rules.creative || {};
@@ -75,7 +78,7 @@ const slot = forced ? Number(process.env.MATCHUP) : posted;
 const wild = process.env.WILD === '1' || (!forced && every > 1 && slot % every === every - 1);
 const listSlot = forced || every < 2 ? slot : slot - Math.floor((slot + 1) / every);
 // three-way: alternate between the hand-made three-way line-ups and invented ones
-const lineups3 = (tw.lineups || []).filter(m => !m.pending);
+const lineups3 = (tw.lineups || []).filter(m => !m.pending && !(m.three || m.sides || []).some(retiredSide));
 const invent3 = three && (process.env.WILD === '1' || Math.floor(posted / Math.max(1, tw.every || 4)) % 2 === 1 || !lineups3.length);
 // Intelligent combat (rules.combat): smaller armies, visible melee moves (parry, block, cleave, pierce, stun, dodge), fewer but harder
 // bullets from rapid-fire guns, and a roster card at the start. Off when "on" is false, which keeps old seeds playing out as before.
@@ -94,7 +97,7 @@ const fresh = (() => {
   }
   return f;
 })();
-const melee = combat && combat.creativeMelee ? Object.assign({ melee: combat.creativeMelee }, fresh ? { fresh } : {}) : fresh ? { fresh } : undefined;
+const melee = Object.assign({}, combat && combat.creativeMelee ? { melee: combat.creativeMelee } : {}, fresh ? { fresh } : {}, roster ? { roster: true } : {});
 const mu0 = three
   ? (invent3 ? C.invent3(seed, melee) : lineups3[Math.floor(posted / Math.max(1, tw.every || 4) / 2) % lineups3.length])
   : wild ? C.invent(seed, melee) : matchups.length ? matchups[listSlot % matchups.length] : null;
@@ -213,7 +216,10 @@ async function main() {
   const pacing = OUTRO ? { outroSecs: OUTRO, pace: VID.pace !== false } : {};
   const UIL = (rules.ui && rules.ui.layout) || 1; // 2 = the Shorts-safe layout (scoreboard on top, tribes strip above YouTube's title)
   const optsFor = mul => ({ target: SECS, fixedLength: SECS, weaponSfx: !!(rules.sound && rules.sound.weapons), ...pacing, swordsmen, crossbowmen, map, doctrines, budgetMul: three ? mul : [bm[0], bm[1] * mul], swordsmenByTeam, extras, extrasByTeam, era, formations, events,
-    teams: three ? 3 : 2, dream: !!(wild || custom || three), ...systems, ...cmbOpts, ...trbOpts, ...(UIL >= 2 ? { ui: UIL } : {}), ...(rules.ui && rules.ui.art >= 2 ? { art: rules.ui.art } : {}), ...(rules.world && rules.world.on ? { world: rules.world } : {}) });
+    teams: three ? 3 : 2, dream: !!(wild || custom || three), ...systems, ...cmbOpts, ...trbOpts, ...(UIL >= 2 ? { ui: UIL } : {}), ...(rules.ui && rules.ui.art >= 2 ? { art: rules.ui.art } : {}), ...(rules.world && rules.world.on ? { world: rules.world } : {}),
+    // the roster, classes, minds and pathfinding (each off when its rule is off, which keeps old seeds playing out as before)
+    ...(roster ? { roster } : {}), ...(rules.classes && rules.classes.on ? { classes: rules.classes } : {}), ...(rules.minds && rules.minds.on ? { minds: rules.minds } : {}),
+    ...(rules.nav && rules.nav.on ? { nav: rules.nav } : {}) });
   // a creative match-up is new, so balance it now with quick test battles on this map and these formations
   let wildMul = three ? bm.slice(0, 3) : 1, wildRate = null, tuned = null;
   // with intelligent combat on, every 1v1 battle is tuned on the spot with quick test battles (combat changes who is strong),
@@ -241,11 +247,11 @@ async function main() {
     wildMul = b.balance; wildRate = b.rate; tuned = b.balance;
     console.log(`Tuned ${balKey || 'creative match-up'}: bottom x${wildMul} on top of its usual size, top won ${(b.rate * 100).toFixed(0)}% of test battles (${((Date.now() - t0) / 1000).toFixed(0)} s)`);
   } else if (combat && three && !invent3) {
-    const b = await C.balance3(optsFor, { sims: tw.balanceBattles || 12, rounds: combat.balanceRounds3 || 4, seed, start: wildMul, log: console.log });
+    const b = await C.balance3(optsFor, { sims: tw.balanceBattles || 12, rounds: combat.balanceRounds3 || 4, seed, start: wildMul, log: console.log, maxMs: (combat.balanceSeconds || 90) * 1000 });
     wildMul = b.balance; wildRate = b.rates;
     console.log(`Three-way line-up ${sides.map(sideName).join(' vs ')}: sizes ${wildMul.join('/')} with combat on (${((Date.now() - t0) / 1000).toFixed(0)} s)`);
   } else if (three && invent3) {
-    const b = await C.balance3(optsFor, { sims: tw.balanceBattles || 12, rounds: tw.balanceRounds || 6, seed, log: console.log });
+    const b = await C.balance3(optsFor, { sims: tw.balanceBattles || 12, rounds: tw.balanceRounds || 6, seed, log: console.log, maxMs: (combat ? combat.balanceSeconds || 90 : 120) * 1000 });
     wildMul = b.balance; wildRate = b.rates;
     console.log(`Three-way creative match-up ${mu.three.map(x => x.name).join(' vs ')}: sizes ${wildMul.join('/')}, wins ${b.rates.map(x => (x * 100).toFixed(0) + '%').join('/')} (${((Date.now() - t0) / 1000).toFixed(0)} s)`);
   } else if (wild && !three && !combat) {
@@ -383,6 +389,12 @@ async function main() {
   })() : '';
   const tribeLine = tf ? `Tribes: ${ids.map(i => `${tf.tribes.filter(x => x.team === i).map(x => tcName(x.name).replace(/^the /, 'the ').replace(/^./, c => c.toUpperCase())).join(' and ')} (${ns[i]})`).join(' vs ')}. Story (made up for fun): ${storyText} During the battle each tribe earns gold and iron, trades with its sister tribe and forges better weapons and armour.` : '';
   const heavyIn = k => game.doc.some(d => d[k] || (d.heavy || []).includes(k));
+  // the troop classes on each side (rules.classes), in plain words
+  const classLine = rules.classes && rules.classes.on ? ' Troop classes: ' + ids.map(i => {
+    const types = Object.keys(game.doc[i].mix || {}).concat(game.doc[i].heavy || []).filter(k => RVB.UNIT[k]);
+    const cl = [...new Set(types.map(k => RVB.classOf(k)[0]))].map(c => titleCase(RVB.CLASSES[c].plural));
+    return `${ns[i]}: ${cl.join(', ')}`;
+  }).join(' · ') + '.' : '';
   const unique = (list) => [...new Set(list)];
   const meta = {
     seed,
@@ -391,7 +403,7 @@ async function main() {
     description: [
       `${ids.map(i => `${EMOJI[pair[i]] || ''} ${who(i)}${three ? '' : `${formations[i]} formation, `}${game.start[i]} units)`).join(' vs ')}. Who wins? Pick your side and tell us in the comments before the end.`,
       '',
-      `A ${Math.round(DUR)}-second ${three ? 'three-way (1v1v1) ' : ''}${GENRE[era] || ''}battle simulation on the ${MAP_NAME[map] || map} map${showNames ? `, ${ns.join(' vs ')}` : ''}. The outcome comes from the game's rules and chance, not real footage.${game.mode && MODE_LINE[game.mode] ? ' ' + MODE_LINE[game.mode] : ''}`,
+      `A ${Math.round(DUR)}-second ${three ? 'three-way (1v1v1) ' : ''}${GENRE[era] || ''}battle simulation on the ${MAP_NAME[map] || map} map${showNames ? `, ${ns.join(' vs ')}` : ''}. The outcome comes from the game's rules and chance, not real footage.${game.mode && MODE_LINE[game.mode] ? ' ' + MODE_LINE[game.mode] : ''}${classLine}`,
       ...(tribeLine ? ['', tribeLine] : []),
       '',
       'Subscribe for a new battle every day.',

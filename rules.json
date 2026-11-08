@@ -1530,6 +1530,76 @@
       "top": "LIVINGFORT",
       "bottom": "ORCS",
       "balance": 0.963
+    },
+    {
+      "top": "GRAVITYCULT",
+      "bottom": "KNIGHTS",
+      "balance": 1
+    },
+    {
+      "top": "GRAVITY",
+      "bottom": "THRONE",
+      "balance": 1
+    },
+    {
+      "top": "SINGULARITY",
+      "bottom": "SWARM",
+      "balance": 1
+    },
+    {
+      "top": "ORBITERS",
+      "bottom": "ARCHERS",
+      "balance": 1
+    },
+    {
+      "top": "CRYSTALCOURT",
+      "bottom": "ORCS",
+      "balance": 1
+    },
+    {
+      "top": "BLINKBLADES",
+      "bottom": "MAGES",
+      "balance": 1
+    },
+    {
+      "top": "SUNKINGDOM",
+      "bottom": "HORDE",
+      "balance": 1
+    },
+    {
+      "top": "THRONE",
+      "bottom": "VIKINGS",
+      "balance": 1
+    },
+    {
+      "top": "TRAPPERS",
+      "bottom": "CAVALRY",
+      "balance": 1
+    },
+    {
+      "top": "WARMASTERS",
+      "bottom": "SAMURAI",
+      "balance": 1
+    },
+    {
+      "top": "ZEROG",
+      "bottom": "MECHS",
+      "balance": 1
+    },
+    {
+      "top": "PULSARS",
+      "bottom": "PHALANX",
+      "balance": 1
+    },
+    {
+      "top": "BASTION",
+      "bottom": "SNIPERS",
+      "balance": 1
+    },
+    {
+      "top": "ASSASSINS",
+      "bottom": "SUNKINGDOM",
+      "balance": 1
     }
   ],
   "cinematic": true,
@@ -1978,7 +2048,8 @@
     "evolve": {
       "on": true,
       "weaponMax": 5,
-      "armourMax": 4
+      "armourMax": 4,
+      "market": true
     }
   },
   "schedule": {
@@ -2018,5 +2089,22 @@
   },
   "thumbnail": {
     "on": true
+  },
+  "roster": {
+    "on": true
+  },
+  "classes": {
+    "on": true,
+    "counter": 1
+  },
+  "minds": {
+    "on": true,
+    "vengeance": 1
+  },
+  "nav": {
+    "on": true,
+    "avoid": true,
+    "rings": true,
+    "unstick": true
   }
 }

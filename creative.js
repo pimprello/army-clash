@@ -62,6 +62,14 @@ Object.assign(TROOP_NAME, { builder: 'builders', bomber: 'barrel bombers', grave
   medicdrone: 'medic drones', yeti: 'yetis', shadowninja: 'shadow ninjas', gunslinger: 'gunslingers', axethrower: 'axe throwers', gorgon: 'gorgons', phalanx: 'phalanx',
   tesla: 'tesla gunners', balloon: 'Balloon Bomber', bonelet: 'skeletons', watchtower: 'watchtowers', totem: 'totems' });
 Object.assign(HEAVY_WORD, { balloon: 'SKY' });
+// the fourth batch (rules.roster): new troops for invented match-ups; the retired ones are left out. Kings and queens only
+// come as a small extra (the third troop), never as a whole army of them.
+const NOUN4 = { singularity: 'SAGES', orbitknight: 'ORBITERS', pulsar: 'PULSARS', zerog: 'ZERO-G', trapmaster: 'TRAPPERS', blinkblade: 'BLINKERS', bastion: 'BASTIONS' };
+const SUPPORT4 = ['crystalqueen', 'sunking', 'warmaster'];
+Object.assign(TROOP_NAME, { singularity: 'singularity sages', orbitknight: 'orbit knights', pulsar: 'pulsars', zerog: 'zero-g rangers', crystalqueen: 'crystal queens', sunking: 'sun kings',
+  thronewalker: 'Throne Walker', trapmaster: 'trapmasters', blinkblade: 'blink blades', bastion: 'bastion engineers', warmaster: 'warmasters', domegen: 'dome generators' });
+Object.assign(HEAVY_WORD, { thronewalker: 'THRONE' });
+let ROSTER_ON = false;
 // freshness: with a count of how often each troop showed up lately, pick from the least seen (ties broken by the dice)
 const freshPick = (R, list, fresh, keep) => {
   if (!fresh || !list.length) return R.pick(list);
@@ -72,7 +80,8 @@ const freshPick = (R, list, fresh, keep) => {
 // One made-up team. `avoid` = troops the other team already leads with, so the two sides look different.
 // melee: chance that the main troop fights hand to hand (rules.combat.creativeMelee), so the fight is about moves, not bullets.
 function inventSide(R, avoid, melee, fresh) {
-  const nouns = fresh ? Object.assign({}, NOUN, NOUN3) : NOUN;
+  let nouns = fresh ? Object.assign({}, NOUN, NOUN3) : NOUN;
+  if (ROSTER_ON) { nouns = Object.assign({}, NOUN, NOUN3, NOUN4); for (const k of RVB.RETIRED) delete nouns[k]; }
   const pool = Object.keys(nouns).filter(k => !avoid.includes(k));
   const genre = k => RVB.UNIT_ERA[k];
   const close = pool.filter(k => !RVB.UNIT[k].range);
@@ -82,13 +91,13 @@ function inventSide(R, avoid, melee, fresh) {
   const others = pool.filter(k => k !== main && (!crossGenre || genre(k) !== genre(main)));
   const second = fresh ? freshPick(R, others.length ? others : pool.filter(k => k !== main), fresh, 10) : R.pick(others.length ? others : pool.filter(k => k !== main));
   const troops = [main, second];
-  if (R.chance(fresh ? 0.65 : 0.4)) { const rest = Object.keys(nouns).concat(SUPPORT).filter(k => !troops.includes(k)); troops.push(fresh ? freshPick(R, rest, fresh, 12) : R.pick(rest)); }
+  if (R.chance(fresh ? 0.65 : 0.4)) { const rest = Object.keys(nouns).concat(SUPPORT, ROSTER_ON ? SUPPORT4 : []).filter(k => !troops.includes(k)); troops.push(fresh ? freshPick(R, rest, fresh, 12) : R.pick(rest)); }
   const w = troops.map((k, i) => (i === 0 ? R.range(0.5, 0.65) : i === 1 ? R.range(0.25, 0.4) : R.range(0.08, 0.15)));
   const sum = w.reduce((a, b) => a + b, 0), mix = {};
   troops.forEach((k, i) => { mix[k] = Math.round(w[i] / sum * 100) / 100; });
   const heavy = [];
   const h = R.next();
-  const HV = fresh ? HEAVIES.concat(['balloon']) : HEAVIES;
+  const HV = ROSTER_ON ? HEAVIES.concat(['balloon', 'thronewalker']).filter(k => !RVB.RETIRED.includes(k)) : fresh ? HEAVIES.concat(['balloon']) : HEAVIES;
   if (h < 0.12) { const a = fresh ? freshPick(R, HV, fresh, 6) : R.pick(HV); heavy.push(a, R.pick(HV.filter(k => k !== a))); }
   else if (h < 0.5) heavy.push(fresh ? freshPick(R, HV, fresh, 6) : R.pick(HV));
   // a name that fits the scoreboard
@@ -100,13 +109,14 @@ function inventSide(R, avoid, melee, fresh) {
     if (name.length <= MAX_NAME && word !== noun) break;
   }
   if (name.length > MAX_NAME) name = nouns[main];
-  const base = troops.filter(k => !SUPPORT.includes(k)).reduce((a, b) => (RVB.UNIT[a].cost <= RVB.UNIT[b].cost ? a : b));
+  const base = troops.filter(k => !SUPPORT.includes(k) && !SUPPORT4.includes(k)).reduce((a, b) => (RVB.UNIT[a].cost <= RVB.UNIT[b].cost ? a : b));
   return { name, mix, heavy, base };
 }
 
 // A new creative match-up from a seed (the same seed always gives the same match-up).
-function invent(seed, { melee, fresh } = {}) {
+function invent(seed, { melee, fresh, roster } = {}) {
   const R = RVB.rng((seed ^ 0xC2EA7E) >>> 0);
+  ROSTER_ON = !!roster;
   const top = inventSide(R, [], melee, fresh);
   // (with freshness, the top army's troops count as just seen, so the bottom army brings different ones)
   const f2 = fresh ? Object.assign({}, fresh, ...Object.keys(top.mix).map(k => ({ [k]: (fresh[k] || 0) + 5 }))) : undefined;
@@ -213,7 +223,8 @@ async function tune(optsFor, { sims = 16, steps = 5, seed = 1, start = 1, spread
 }
 
 // A three-way creative match-up: three made-up teams that each lead with a different troop.
-function invent3(seed, { melee, fresh } = {}) {
+function invent3(seed, { melee, fresh, roster } = {}) {
+  ROSTER_ON = !!roster;
   const R = RVB.rng((seed ^ 0x3A3A3A) >>> 0);
   const sides = [];
   let f = fresh ? Object.assign({}, fresh) : undefined;
@@ -228,14 +239,16 @@ function invent3(seed, { melee, fresh } = {}) {
 
 // Balance three armies: repeatedly grow the ones that win too rarely and shrink the ones that win too often,
 // using the same test battles each round. optsFor(muls) builds the options for army sizes muls = [a, b, c].
-async function balance3(optsFor, { sims = 12, rounds = 5, seed = 1, threads, log, start } = {}) {
-  const runner = makeRunner(threads);
+async function balance3(optsFor, { sims = 12, rounds = 5, seed = 1, threads, log, start, maxMs = Infinity } = {}) {
+  const runner = makeRunner(threads), t0 = Date.now();
   try {
     const seeds = Array.from({ length: sims }, (_, i) => (((seed >>> 0) * 2246822519 + i * 3266489917 + 7) >>> 0) || 1);
     // steer by the smooth score (how long each army lasts and how many it keeps), and keep the sizes whose wins and scores are both closest to even
     let muls = (start || [1, 1, 1]).slice(), best = { muls: muls.slice(), err: Infinity, rates: [1 / 3, 1 / 3, 1 / 3] };
     const gain = [0.75, 0.75, 0.75], sgn = [0, 0, 0];
     for (let r = 0; r < rounds; r++) {
+      // (a video never waits too long: after maxMs, keep the best sizes found so far)
+      if (r && best.err < Infinity && Date.now() - t0 > maxMs) { if (log) log(`  (stopped after ${((Date.now() - t0) / 1000).toFixed(0)} s)`); break; }
       const rates = await runner.rates3(optsFor(muls), seeds), soft = rates.soft;
       const err = Math.max(...rates.map(x => Math.abs(x - 1 / 3))) * 0.5 + Math.max(...soft.map(x => Math.abs(x - 1 / 3))) * 1.5;
       if (err < best.err) best = { muls: muls.slice(), err, rates: rates.slice() };
