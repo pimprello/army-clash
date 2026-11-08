@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-08 14:46 | DREAM TEAM Battle: Werewolves vs Steel Witches | Sky wins | https://youtube.com/shorts/XFMC89up1Sw |
 | 2026-11-08 10:26 | ⚔️ WARRIORS vs Warriors | Lime wins | https://youtube.com/shorts/yG7l15gh6Mg |
 | 2026-11-07 22:18 | Pick ONE: Frost, Tempest, Spirits 👇 | Green wins | https://youtube.com/shorts/DSXdtPtssHo |
 | 2026-11-07 21:06 | They Were OUTNUMBERED... 😳 | Navy wins | https://youtube.com/shorts/IUKymzQ_yNM |
