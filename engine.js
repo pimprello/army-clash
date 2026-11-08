@@ -2129,6 +2129,9 @@ const RVB = (() => {
       if (this.trb) this.initTribes();
       if (this.trb && this.trb.evolve && this.trb.evolve.on !== false && this.tribes && this.tribes.length) this.initEvolve();
       if (this.opts.nav && this.opts.nav.on) this.initNav();
+      if (this.opts.anim) this.anim = true;
+      // market 2.0 (rules.tribes.market2): the merchant also sells spells, barrages and summons, and comes twice
+      if (this.trb && this.trb.market2 && this.tribes && this.tribes.length) { this.market2 = true; if (!this.merchAt2 && this.trb.merchant !== false) this.merchAt2 = (this.fixed || this.target) * 0.67; }
       if (this.opts.minds && this.opts.minds.on) this.initMinds();
       if (this.opts.classes && this.opts.classes.on) this.initClasses();
       if (this.ext) this.initExt();
@@ -3094,6 +3097,7 @@ const RVB = (() => {
       u.hp -= dmg; u.flash = 1;
       if (this.slashes && from && from.team !== u.team && !this._dot && kind0 !== 'blast') this.addSlash(u, from);
       if (this.minds && from && from.team !== u.team && !u.dead && u.hp > 0 && !this._dot) this.mindHit(u, from, dmg);
+      if (this.anim && from && from.team !== u.team && !this._dot && dmg >= u.max * 0.22) this.animHit(u, from, dmg >= u.max * 0.45);
       if (this.ext) { if (from && from.team !== u.team && !u.dead) this.onHit(u, from, dmg); if (UNIT[u.type].boss || u.boss) this.bossCheck(u); }
       if (u.hp <= 0 && !u.dead) {
         if (this.ext && this.cheatDeath(u, from)) return;
@@ -3111,6 +3115,7 @@ const RVB = (() => {
         if (this.facts && UNIT[u.type].rank === 0) this.facts.falls.push(u.type);
         if (this.camEv) this.camEv.push({ type: 'death', x: u.x, y: u.y, unit: u, big: UNIT[u.type].rank === 0, by: from });
         if (this.minds) this.mindDeath(u, from);
+        if (this.anim) this.animDeath(u);
         if (this.cls) this.clsDeath(u, from);
         this.lastDeath = { t: this.fightT, x: u.x, y: u.y, uid: u.uid, type: u.type, team: u.team, by: from ? from.uid : 0, byType: from ? from.type : null, byTeam: from ? from.team : -1 };
         const huge = UNIT[u.type].rank === 0;
@@ -3841,6 +3846,7 @@ const RVB = (() => {
       if (ART) this.drawGround2(ctx);
       if (this.cls) this.drawClassFx(ctx, drawOrder, false);
       if (this.c4on) this.drawCast4Ground(ctx);
+      if (this.market2) this.drawMarketFx(ctx, false);
       if (ART) {
         ctx.beginPath();
         for (const u of drawOrder) {
@@ -3871,6 +3877,8 @@ const RVB = (() => {
           lx = Math.cos(u.face) * fwd - Math.sin(u.face) * side;
           ly = Math.sin(u.face) * fwd + Math.cos(u.face) * side;
         }
+        // (rules.ui.anim: every walking troop sways a little, not just the sword fighters)
+        if (this.anim && !swordy && !(u.lunge > 0.05) && !u.flying && Math.hypot(u.vx, u.vy) > 18) { const sway = Math.sin(this.fightT * 11 + u.gait) * 1.8; lx += -Math.sin(u.face) * sway; ly += Math.cos(u.face) * sway; }
         const hop = u.team === cheer ? -Math.abs(Math.sin(this.outroT * 9 + u.x * 0.05)) * 6 : 0;
         // a ninja that dodged a shot: a quick side-step, with a fading ghost where it was
         if (u.dodgeFx > 0) {
@@ -3880,8 +3888,10 @@ const RVB = (() => {
         }
         const x = u.x + lx, y = u.y + ly + hop - (u.lift || 0) - (ART && u.qT ? this.quakeHop(u) : 0);
         if (u.lift) ell(ctx, u.x + 6, u.y + 8, u.r, u.r * 0.6, 0, 'rgba(0,0,0,0.25)', 0);
+        const sq = this.anim && this.animOn(ctx, u, x, y);
         this.drawBody(ctx, u, x, y, tm, swordy);
         if (ART && !(u.sheepT > this.fightT)) { this.drawWear(ctx, u, x, y); this.artFinish(ctx, u, x, y); }
+        if (sq) ctx.restore();
         if (u.flag) {
           // a flag on a pole, rippling a little
           const px = x + u.r * 0.6, top = y - u.r - 26;
@@ -3903,6 +3913,8 @@ const RVB = (() => {
       if (ART) this.flushArt(ctx);
       if (this.cast3on) this.drawCast3Fx(ctx);
       if (this.c4on) this.drawCast4Fx(ctx);
+      if (this.market2) this.drawMarketFx(ctx, true);
+      if (this.anim) this.drawAnimFx(ctx, drawOrder);
       if (this.slashes) this.drawSlashes(ctx);
       if (this.skins || this.heroTeam >= 0) this.drawSkins(ctx, drawOrder, true);
       if (this.cmb) this.drawCombatFx(ctx);
@@ -3944,6 +3956,7 @@ const RVB = (() => {
         this.drawRosterStrips(ctx);
         this.drawChapters(ctx);
         if (this.evo) this.drawEvolveCards(ctx);
+        if (this.market2) this.drawShopCard(ctx);
         this.drawIntro(ctx, 'CHARGE!');
         this.drawOutro(ctx);
         this.drawTally(ctx);
@@ -3956,6 +3969,7 @@ const RVB = (() => {
       this.drawFooter(ctx, 'BATTLE TIME', fmtTime(this.fightT), false);
       if (this.tribes) this.drawCouncil(ctx);
       if (this.evo) this.drawEvolveCards(ctx);
+      if (this.market2) this.drawShopCard(ctx);
       this.drawIntro(ctx, 'CHARGE!');
       this.drawOutro(ctx);
       this.drawTally(ctx);
@@ -6767,6 +6781,7 @@ const RVB = (() => {
       if (this.fireG) this.fireTick();
       if (this.swarms) this.cast3Tick(h);
       if (this.c4on) this.cast4Tick(h);
+      if (this.market2) this.market2Tick();
     },
     refreshAuras() {
       const T = this.fightT;
@@ -9011,6 +9026,7 @@ const RVB = (() => {
         const tot = this.totals(), behind = tot[team] < Math.max(...this.teamIds().filter(t => t !== team).map(t => tot[t]));
         const off = behind ? 0.7 : 1;
         const tbs = this.tribes.filter(tb => tb.team === team && tb.n > 0).sort((a, b) => b.gold - a.gold);
+        if (this.market2) { this.buy2(team, tbs, behind, off, m); continue; }
         // market evolutions: the army pools its gold so one tribe can evolve (the one furthest along goes on to its master form)
         if (this.evoMarket) {
           const can = tbs.filter(tb => tb.wt < this.wMax).sort((a, b) => b.wt - a.wt || b.gold - a.gold);
@@ -11503,8 +11519,8 @@ const RVB = (() => {
           ctx.beginPath(); ctx.moveTo(u.x, u.y); ctx.lineTo(s.x, s.y); ctx.lineWidth = 2.5; ctx.strokeStyle = '#FF5A5A'; ctx.stroke();
           ctx.setLineDash([]);
         }
-        if (u.swornWhy === 'venge') {
-          // two angry slashes over the avenger
+        if (u.swornWhy === 'venge' && u.vengeShow) {
+          // two angry slashes over the avenger (the one whose vengeance is shown)
           const al = clamp(a / 0.2, 0, 1) * clamp((u.swornT - T) / 0.6, 0, 1), y = u.y - u.r - 9 - (u.lift || 0);
           ctx.globalAlpha = al; ctx.beginPath(); ctx.moveTo(u.x - 6, y - 4); ctx.lineTo(u.x - 1, y + 1); ctx.moveTo(u.x + 6, y - 4); ctx.lineTo(u.x + 1, y + 1);
           ctx.lineWidth = 4; ctx.strokeStyle = COL.ink; ctx.stroke(); ctx.lineWidth = 2.2; ctx.strokeStyle = '#FF5A5A'; ctx.stroke();
@@ -12402,6 +12418,262 @@ const RVB = (() => {
       ctx.restore(); ctx.globalAlpha = 1;
     },
   };
+  // ----- market 2.0 (rules.tribes.market2): the merchant's wares -----
+  // Besides the evolution cores, the merchant sells three kinds of big moments, each named for the army's world:
+  //  a battle spell in the tribe's element (FLAME: a firestorm; FROST: a frost nova that freezes; STORM: chain lightning on six
+  //  enemies; VENOM: a plague cloud; HOLY: holy light that heals friends and burns foes), a barrage (catapult boulders, a
+  //  missile strike or an orbital strike along the enemy line), and a summons (a skeleton army, a drone swarm, a robot squad,
+  //  a shadow clan...). An army that's behind buys reinforcements first; one that can evolve evolves first. When the merchant
+  //  arrives, his wares and prices show on a card. Everything here rolls the tribes' dice or none, and runs on the battle clock.
+  const SPELL = { flame: 'FIRESTORM', frost: 'FROST NOVA', storm: 'CHAIN LIGHTNING', venom: 'PLAGUE CLOUD', holy: 'HOLY LIGHT' };
+  const BARRAGE = { modern: ['MISSILE STRIKE', 'shell'], scifi: ['ORBITAL STRIKE', 'lightning'] };
+  const SUMMON = { modern: ['DRONE SWARM', 'drone', 4], scifi: ['ROBOT SQUAD', 'robot', 4], samurai: ['SHADOW CLAN', 'ninja', 5], pirate: ['GHOST CREW', 'skeleton', 7] };
+  const WARE_PRICE = { evolve: 24, spell: 18, barrage: 20, summon: 20 };
+  const ARMY_MARKET2 = {
+    wareName(tb, k) {
+      if (k === 'evolve') return this.itemName(tb, 'evolve');
+      if (k === 'spell') return SPELL[tb.elem || 'flame'];
+      if (k === 'barrage') return (BARRAGE[tb.set] || ['CATAPULT BARRAGE'])[0];
+      return (SUMMON[tb.set] || SUMMON[tb.era] || ['SKELETON ARMY'])[0];
+    },
+    // one army's shopping at the merchant: the first ware that suits it, then a second if gold is left
+    buy2(team, tbs, behind, off, m) {
+      const T = this.fightT, tot = this.totals();
+      const mine = tot[team], most = Math.max(...this.teamIds().filter(t => t !== team).map(t => tot[t]));
+      const losing = mine < most * 0.8, packed = (this.densest(team, 90) || { n: 0 }).n >= 7;
+      const evo = this.evo && tbs.filter(tb => tb.wt < this.wMax).sort((a, b) => b.wt - a.wt || b.gold - a.gold)[0];
+      // (losing badly: reinforcements first; enemies packed together: a barrage; otherwise an evolution, then a spell)
+      const strike = packed ? 'barrage' : 'spell', other = packed ? 'spell' : 'barrage';
+      const order = losing ? ['summon', 'evolve', strike, other] : evo ? ['evolve', strike, other, 'summon'] : [strike, other, 'summon'];
+      const pool = () => tbs.reduce((a, tb) => a + tb.gold, 0);
+      const pay = (first, price) => { let left = price; for (const x of [first, ...tbs.filter(y => y !== first)]) { const g = Math.min(x.gold, left); x.gold -= g; left -= g; } };
+      const bought = [];
+      for (const k of order) {
+        if (k === 'evolve' && !evo) continue;
+        const price = Math.round(WARE_PRICE[k] * off);
+        if (pool() < price) continue;
+        const tb = k === 'evolve' ? evo : tbs[0];
+        pay(tb, price); bought.push(k);
+        if (k === 'evolve') this.buyItem(tb, 'evolve', behind);
+        else this.useWare(tb, k, behind, bought.length - 1);
+        m.sold[team] = { tb, item: k };
+        // a second purchase only if there's gold to spare after the first
+        if (bought.length >= 2 || pool() < Math.round(WARE_PRICE.spell * off) + 6) break;
+      }
+      return bought.length > 0;
+    },
+    // a ware goes off (a moment after it's bought, the second one a little later still)
+    useWare(tb, k, behind, n) {
+      const T = this.fightT, name = this.wareName(tb, k), at = T + 0.9 + n * 1.6;
+      (this.mkQ || (this.mkQ = [])).push({ tb, k, at, name });
+      this.banner(`${sName(tb.name)} BUY ${name}!`, TEAMS[tb.team].c, 1.6);
+      this.say(`${sName(tb.name)} BUY ${name} FROM THE MERCHANT${behind ? ' (30% OFF)' : ''}`, tb.team);
+      this.snd('coin', { team: tb.team });
+      (this.xf.wares || (this.xf.wares = [])).push({ team: tb.team, item: k, name });
+    },
+    // where an army's spells and strikes land: the thickest knot of enemies (sampled, no dice)
+    densest(team, r) {
+      const foes = this.units.filter(o => !o.dead && o.team !== team && o.team <= 2 && !UNIT[o.type].uncounted && !o.phased);
+      let best = null, bn = 0;
+      for (let k = 0; k < foes.length; k += Math.max(1, foes.length / 30 | 0)) { const c = foes[k]; let n = 0; for (const o of foes) if ((o.x - c.x) ** 2 + (o.y - c.y) ** 2 < r * r) n++; if (n > bn) { bn = n; best = c; } }
+      return best ? { x: best.x, y: best.y, n: bn, foes } : null;
+    },
+    market2Tick() {
+      const T = this.fightT;
+      if (this.mkQ && this.mkQ.length) for (const q of this.mkQ) if (!q.done && T >= q.at) { q.done = true; this.fireWare(q); }
+      if (this.mkQ && this.mkQ.length > 6) this.mkQ = this.mkQ.filter(q => !q.done);
+      // plague clouds
+      for (const c of this.mkClouds || []) {
+        if (c.done) continue;
+        if (T > c.end) { c.done = true; continue; }
+        if (T >= c.next) { c.next = T + 0.5; for (const o of this.near(c.x, c.y, c.r)) if (o.team !== c.team && !o.dead) this.poison(o, 1, 1.5, c.from); }
+      }
+    },
+    fireWare(q) {
+      const T = this.fightT, tb = q.tb, team = tb.team, pan = 0;
+      const chief = tb.chief && !tb.chief.dead ? tb.chief : null, from = chief || this.units.find(u => u.tribe === tb && !u.dead) || null;
+      const fx = this.mkFx || (this.mkFx = []);
+      const spot = (x, y, z) => { if (this.camEv) this.camEv.push({ type: 'spot', x, y, prio: 63, dur: 1.6, z: z || 1.5 }); };
+      if (q.k === 'spell') {
+        const e = tb.elem || 'flame', d = this.densest(team, 80);
+        if (e === 'holy') {
+          const c = chief || { x: tb.cx, y: tb.cy };
+          for (const o of this.near(c.x, c.y, 200)) { if (o.dead) continue; if (o.team === team) this.heal(o, o.max * 0.35); else if (Math.hypot(o.x - c.x, o.y - c.y) < 130) this.damage(o, 2, from); }
+          fx.push({ kind: 'holy', x: c.x, y: c.y, t0: this.t }); spot(c.x, c.y); this.snd('heal', { gain: 1 });
+        } else if (d) {
+          if (e === 'flame') { for (let i = 0; i < 3; i++) this.calls.push({ x: d.x + Math.cos(i * 2.1) * 38, y: d.y + Math.sin(i * 2.1) * 38, at: T + 0.5 + i * 0.25, t0: T, r: 62, dmg: 3.5, team, from, kind: 'fireball' }); }
+          else if (e === 'frost') {
+            for (const o of this.near(d.x, d.y, 140)) if (o.team !== team && !o.dead) { this.damage(o, 2, from); if (UNIT[o.type].rank !== 0) o.frozeT = Math.max(o.frozeT || 0, T + 1.5); this.slowDown(o, 0.5, 3.5); }
+            fx.push({ kind: 'nova', x: d.x, y: d.y, t0: this.t }); this.snd('freeze', { gain: 1 });
+          } else if (e === 'storm') {
+            const tg = d.foes.slice().sort((a, b) => (UNIT[b.type].cost || 1) - (UNIT[a.type].cost || 1) || a.uid - b.uid).slice(0, 6);
+            tg.forEach((o, i) => this.calls.push({ x: o.x, y: o.y, at: T + 0.3 + i * 0.12, t0: T, r: 30, dmg: 3, team, from, kind: 'lightning' }));
+            this.snd('thunder', { gain: 1 });
+          } else {
+            (this.mkClouds || (this.mkClouds = [])).push({ x: d.x, y: d.y, r: 120, team, from, end: T + 4, next: T, t0: this.t });
+            this.snd('splash', { gain: 0.8 });
+          }
+          spot(d.x, d.y);
+        }
+        this.callout(from || { x: tb.cx, y: tb.cy, r: 12 }, `${SPELL[e]}!`, (ELEM[e] || ELEM.flame).col);
+      } else if (q.k === 'barrage') {
+        const kind = (BARRAGE[tb.set] || [0, 'boulder'])[1];
+        const foes = this.units.filter(o => !o.dead && o.team !== team && o.team <= 2 && !UNIT[o.type].uncounted && !o.flying).sort((a, b) => a.x - b.x || a.uid - b.uid);
+        if (foes.length) {
+          const n = Math.min(6, foes.length);
+          for (let i = 0; i < n; i++) { const o = foes[Math.floor((i + 0.5) * foes.length / n)]; this.calls.push({ x: o.x, y: o.y, at: T + 0.7 + i * 0.22, t0: T, r: 54, dmg: 4, team, from, kind }); }
+          const mid = foes[foes.length >> 1]; spot(mid.x, mid.y, 1.25);
+        }
+        this.snd(kind === 'shell' ? 'rocket' : kind === 'lightning' ? 'zap' : 'thunk', { gain: 1 });
+      } else if (q.k === 'summon') {
+        const [, type, n] = SUMMON[tb.set] || SUMMON[tb.era] || ['', 'skeleton', 7];
+        const c = chief || { x: tb.cx, y: tb.cy };
+        // they rise between the tribe and the enemy
+        const d = this.densest(team, 100), ax = d ? Math.atan2(d.y - c.y, d.x - c.x) : (team === 0 ? Math.PI / 2 : -Math.PI / 2);
+        const sx = clamp(c.x + Math.cos(ax) * 60, AR.x + 40, AR.x + AR.w - 40), sy = clamp(c.y + Math.sin(ax) * 60, AR.y + 40, AR.y + AR.h - 40);
+        for (let i = 0; i < n; i++) {
+          const a = i * TAU / n, p = { x: sx + Math.cos(a) * 30, y: sy + Math.sin(a) * 30, r: UNIT[type].r };
+          if (this.obstacles.length && !UNIT[type].flying) this.pushOut(p);
+          const o = this.addUnit(team, type, clamp(p.x, AR.x + 12, AR.x + AR.w - 12), clamp(p.y, AR.y + 12, AR.y + AR.h - 12));
+          o.tribe = tb; o.face = ax; o.summoned = true;
+        }
+        this.gained = this.gained || [0, 0, 0]; this.gained[team] += n;
+        fx.push({ kind: 'summon', x: sx, y: sy, t0: this.t, col: TEAMS[team].c }); spot(sx, sy, 1.6);
+        this.snd('portal', { gain: 1 });
+      }
+    },
+    // under the troops: summoning circles and plague clouds; over them: the frost nova and holy light
+    drawMarketFx(ctx, top) {
+      const t = this.t;
+      ctx.save();
+      for (const f of this.mkFx || []) {
+        const a = t - f.t0;
+        if (a < 0 || a > 1.6) continue;
+        if (!top && f.kind === 'summon') {
+          const k = clamp(a / 0.3, 0, 1), out = clamp((1.6 - a) / 0.5, 0, 1);
+          ctx.globalAlpha = 0.85 * out; ctx.save(); ctx.translate(f.x, f.y); ctx.rotate(a * 2);
+          ctx.beginPath(); ctx.arc(0, 0, 58 * k, 0, TAU); ctx.lineWidth = 4; ctx.strokeStyle = f.col; ctx.stroke();
+          ctx.beginPath(); for (let i = 0; i <= 5; i++) { const an = i * 4 * Math.PI / 5 - Math.PI / 2; ctx.lineTo(Math.cos(an) * 50 * k, Math.sin(an) * 50 * k); } ctx.lineWidth = 2.5; ctx.strokeStyle = '#E9D5FF'; ctx.stroke();
+          ctx.restore();
+        } else if (top && f.kind === 'nova' && a < 0.9) {
+          const k = easeOutCubic(a / 0.9); ctx.globalAlpha = 1 - k;
+          ctx.beginPath(); ctx.arc(f.x, f.y, 150 * k, 0, TAU); ctx.lineWidth = 10 * (1 - k) + 2; ctx.strokeStyle = '#BAE6FD'; ctx.stroke();
+          for (let i = 0; i < 12; i++) { const an = i * TAU / 12, rr = 150 * k; ctx.beginPath(); ctx.moveTo(f.x + Math.cos(an) * rr * 0.7, f.y + Math.sin(an) * rr * 0.7); ctx.lineTo(f.x + Math.cos(an) * rr, f.y + Math.sin(an) * rr); ctx.lineWidth = 3; ctx.strokeStyle = '#FFFFFF'; ctx.stroke(); }
+        } else if (top && f.kind === 'holy' && a < 1.3) {
+          const k = a / 1.3; ctx.globalAlpha = (1 - k) * 0.9;
+          ctx.beginPath(); ctx.arc(f.x, f.y, 40 + 160 * easeOutCubic(k), 0, TAU); ctx.lineWidth = 6; ctx.strokeStyle = '#FDE68A'; ctx.stroke();
+          for (let i = 0; i < 16; i++) { const an = i * TAU / 16 + k; ctx.beginPath(); ctx.moveTo(f.x + Math.cos(an) * 20, f.y + Math.sin(an) * 20); ctx.lineTo(f.x + Math.cos(an) * (60 + 140 * k), f.y + Math.sin(an) * (60 + 140 * k)); ctx.lineWidth = 2.5; ctx.strokeStyle = '#FFF7D6'; ctx.stroke(); }
+        }
+      }
+      if (!top) for (const c of this.mkClouds || []) {
+        if (c.done) continue;
+        const a = t - c.t0, out = clamp((c.end - this.fightT) / 0.6, 0, 1), k = clamp(a / 0.5, 0, 1);
+        ctx.globalAlpha = 0.32 * k * out;
+        for (let i = 0; i < 7; i++) { const an = i * TAU / 7 + a * 0.4, rr = c.r * 0.45; disc(ctx, c.x + Math.cos(an) * rr, c.y + Math.sin(an) * rr * 0.8, c.r * 0.5, i % 2 ? '#84CC16' : '#4D7C0F', 0); }
+      }
+      if (this.mkFx && this.mkFx.length > 12) this.mkFx = this.mkFx.filter(f => t - f.t0 < 2);
+      ctx.restore(); ctx.globalAlpha = 1;
+    },
+    // the shop card when the merchant arrives: his four wares and their prices
+    drawShopCard(ctx) {
+      const m = this.merch;
+      if (!m || !this.market2 || this.phase !== 'fight') return;
+      const age = this.fightT - m.t0 - 0.3, dur = 1.6;
+      if (age < 0 || age > dur) return;
+      const inK = easeOutBack(clamp(age / 0.28, 0, 1)), a = Math.min(1, age / 0.12, (dur - age) / 0.25);
+      const W = 800, H = 150, cx = VW / 2, cy = AR.y + 205;
+      const wares = [['evolve', 'EVOLUTION CORE', '#C084FC'], ['spell', 'BATTLE SPELL', '#FB923C'], ['barrage', 'BARRAGE', '#F87171'], ['summon', 'SUMMONS', '#2DD4BF']];
+      ctx.save(); ctx.globalAlpha = a; ctx.translate(cx, cy); ctx.scale(0.7 + 0.3 * inK, 0.7 + 0.3 * inK);
+      roundRect(ctx, -W / 2, -H / 2, W, H, 18); ctx.fillStyle = 'rgba(10,14,24,0.94)'; ctx.fill(); ctx.lineWidth = 4; ctx.strokeStyle = COL.gold; ctx.stroke();
+      wares.forEach(([k, , col], i) => {
+        const x = -W / 2 + 100 + i * 200, y = 2;
+        ctx.beginPath(); ctx.arc(x - 58, y, 22, 0, TAU); ctx.fillStyle = '#0B0F1A'; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = col; ctx.stroke();
+        ctx.save(); ctx.translate(x - 58, y); ctx.fillStyle = col; ctx.strokeStyle = col; ctx.lineWidth = 3; ctx.lineCap = 'round';
+        if (k === 'evolve') { ctx.beginPath(); ctx.moveTo(0, -11); ctx.lineTo(8, 0); ctx.lineTo(0, 11); ctx.lineTo(-8, 0); ctx.closePath(); ctx.fill(); }
+        else if (k === 'spell') { roundRect(ctx, -8, -10, 16, 20, 3); ctx.stroke(); ctx.beginPath(); ctx.moveTo(-4, -3); ctx.lineTo(4, -3); ctx.moveTo(-4, 3); ctx.lineTo(4, 3); ctx.stroke(); }
+        else if (k === 'barrage') { for (const dx of [-7, 0, 7]) { ctx.beginPath(); ctx.arc(dx, 4 - Math.abs(dx) * 0.6, 3.5, 0, TAU); ctx.fill(); } ctx.beginPath(); ctx.moveTo(-9, -9); ctx.lineTo(-4, -2); ctx.moveTo(9, -9); ctx.lineTo(4, -2); ctx.stroke(); }
+        else { for (const [dx, dy] of [[-6, 4], [6, 4], [0, -5]]) { ctx.beginPath(); ctx.arc(dx, dy, 4.5, 0, TAU); ctx.fill(); } }
+        ctx.restore();
+      });
+      ctx.restore();
+      // the texts (in battlefield space so the layout check sees them, once the card has popped in)
+      const k = 0.7 + 0.3 * inK, X = x => cx + x * k, Y = y => cy + y * k, lay = this.lay;
+      if (age < 0.28) this.lay = null;
+      ctx.save(); ctx.globalAlpha = a;
+      this.fitText(ctx, 'THE MERCHANT\'S WARES', X(-W / 2 + 26), Y(-50), 400 * k, 22 * k, 800, true, COL.gold, 'left', 16 * k);
+      wares.forEach(([key, name], i) => {
+        const x = -W / 2 + 100 + i * 200;
+        this.fitText(ctx, name, X(x - 30), Y(-6), 128 * k, 20 * k, 800, true, COL.white, 'left', 13 * k);
+        this.fitText(ctx, `${WARE_PRICE[key]} GOLD`, X(x - 30), Y(22), 128 * k, 18 * k, 700, false, COL.gold, 'left', 13 * k);
+      });
+      ctx.restore();
+      this.lay = lay;
+    },
+  };
+  // ----- animation polish (rules.ui.anim): a little life in every troop (looks only, no dice) -----
+  // Rellz: "every character should have polished, fluid animations". On top of each troop's own drawing: a stretch when it
+  // strikes and a squash when it's hit, a bounce in its step and a slow breath when it stands, a sway as it walks, a quick
+  // shrink-and-fade with a flash when it falls, a star and a ring on heavy hits, and speed lines on anything moving very fast.
+  const ARMY_ANIM = {
+    // squash and stretch round the troop's centre; returns true when a transform was applied (the caller restores it)
+    animOn(ctx, u, x, y) {
+      const U = UNIT[u.type];
+      if (U.immovable || U.speed === 0 || u.sheepT > this.fightT || u.frozeT > this.fightT || u.stoneT > this.fightT) return false;
+      const big = U.rank === 0 ? 0.5 : 1, run = clamp(Math.hypot(u.vx, u.vy) / Math.max(30, U.speed || 60), 0, 1.2);
+      const L = u.lunge || 0, F = u.flash || 0, t = this.t;
+      let sa = 1 + (0.1 * L - 0.1 * F) * big, sp = 1 + (-0.06 * L + 0.07 * F) * big;
+      if (run > 0.15) { const b = 0.035 * Math.abs(Math.sin(t * (7 + 5 * run) + (u.gait || 0))) * run * big; sa += b; sp += b * 0.6; }
+      else { const b = 0.022 * Math.sin(t * 2.6 + (u.gait || 0)) * big; sa += b; sp += b; }
+      if (Math.abs(sa - 1) < 0.004 && Math.abs(sp - 1) < 0.004) return false;
+      const f = u.face || 0;
+      ctx.save(); ctx.translate(x, y); ctx.rotate(f); ctx.scale(sa, sp); ctx.rotate(-f); ctx.translate(-x, -y);
+      return true;
+    },
+    // a troop has fallen / been hit hard (called from damage: looks only)
+    animDeath(u) { const L = this.deathFx || (this.deathFx = []); L.push({ u, t0: this.t }); if (L.length > 40) L.shift(); },
+    animHit(u, from, big) { const L = this.impFx || (this.impFx = []); L.push({ x: u.x, y: u.y, r: u.r, a: Math.atan2(u.y - from.y, u.x - from.x), t0: this.t, big }); if (L.length > 30) L.shift(); },
+    drawAnimFx(ctx, list) {
+      const t = this.t;
+      ctx.save(); ctx.lineCap = 'round';
+      // fallen troops: shrink, lift a little and fade, with a white ring
+      for (const d of this.deathFx || []) {
+        const k = (t - d.t0) / 0.32, u = d.u;
+        if (k < 0 || k >= 1) continue;
+        const tm = TEAMS[u.team], y = u.y - 6 * k, s = 1 - 0.35 * k;
+        ctx.save(); ctx.globalAlpha = (1 - k) * 0.85; ctx.translate(u.x, y); ctx.scale(s, s); ctx.translate(-u.x, -y);
+        try { if (tm) this.drawBody(ctx, u, u.x, y, tm, UNIT[u.type].sword); } catch (e) { /* (some troops can't be drawn once gone) */ }
+        ctx.restore();
+        ctx.globalAlpha = (1 - k) * 0.6; ctx.beginPath(); ctx.arc(u.x, u.y, u.r * (1 + 0.8 * k), 0, TAU); ctx.lineWidth = 3 * (1 - k) + 0.5; ctx.strokeStyle = '#FFFFFF'; ctx.stroke();
+      }
+      if (this.deathFx && this.deathFx.length && t - this.deathFx[0].t0 > 0.4) this.deathFx = this.deathFx.filter(d => t - d.t0 < 0.4);
+      // heavy hits: a four-point star at the point of impact and a ring
+      for (const f of this.impFx || []) {
+        const a = t - f.t0;
+        if (a < 0 || a > 0.32) continue;
+        const k = a / 0.32, px = f.x - Math.cos(f.a) * f.r * 0.6, py = f.y - Math.sin(f.a) * f.r * 0.6, R = (f.big ? 22 : 15) * (0.6 + 0.6 * easeOutCubic(Math.min(1, k * 3)));
+        if (k < 0.5) {
+          ctx.globalAlpha = 1 - k * 2; ctx.beginPath();
+          for (let i = 0; i < 8; i++) { const an = f.a + i * Math.PI / 4, rr = i % 2 ? R * 0.28 : R; ctx.lineTo(px + Math.cos(an) * rr, py + Math.sin(an) * rr); }
+          ctx.closePath(); ctx.fillStyle = f.big ? '#FFE27A' : '#FFFFFF'; ctx.fill();
+        }
+        ctx.globalAlpha = (1 - k) * 0.7; ctx.beginPath(); ctx.arc(f.x, f.y, f.r + 6 + (f.big ? 34 : 20) * easeOutCubic(k), 0, TAU); ctx.lineWidth = 2.5 * (1 - k) + 0.5; ctx.strokeStyle = '#FFFFFF'; ctx.stroke();
+      }
+      if (this.impFx && this.impFx.length && t - this.impFx[0].t0 > 0.4) this.impFx = this.impFx.filter(f => t - f.t0 < 0.4);
+      // speed lines behind anything moving very fast (charges, dives, blinks, knockbacks)
+      for (const u of list) {
+        if (u.dead) continue;
+        const U = UNIT[u.type], vx = u.vx + (u.kx || 0) * 0.15, vy = u.vy + (u.ky || 0) * 0.15, sp = Math.hypot(vx, vy);
+        if (sp < Math.max(150, (U.speed || 60) * 1.6)) continue;
+        const ux = vx / sp, uy = vy / sp, k = clamp((sp - 150) / 250, 0.2, 1);
+        ctx.globalAlpha = 0.5 * k;
+        for (const off of [-0.6, 0, 0.6]) {
+          const bx = u.x - ux * (u.r + 4) - uy * off * u.r, by = u.y - uy * (u.r + 4) + ux * off * u.r, len = (18 + 22 * k) * (off ? 0.7 : 1);
+          ctx.beginPath(); ctx.moveTo(bx, by); ctx.lineTo(bx - ux * len, by - uy * len); ctx.lineWidth = off ? 1.5 : 2.2; ctx.strokeStyle = '#FFFFFF'; ctx.stroke();
+        }
+      }
+      ctx.restore(); ctx.globalAlpha = 1;
+    },
+  };
   // ----- the thumbnail (rules.thumbnail): one branded picture per video, the same layout every time -----
   // Behind: a blurred, darkened moment of this battle. In front: the ARMY CLASH logo, each army's signature troop big in its
   // colour (two of its other troops behind it), VS, the army names and sizes, and WHO WINS? It never shows who won.
@@ -12530,7 +12802,7 @@ const RVB = (() => {
       ctx.restore();
     },
   };
-  Object.assign(Army.prototype, ARMY_EXT, ARMY_DRAW, ARMY_MAPS, ARMY_EXT2, ARMY_DRAW2, ARMY_COMBAT, ARMY_TRIBES, ARMY_TRIBES_DRAW, ARMY_PACE, ARMY_UI2, ARMY_WORLD, ARMY_FX2, ARMY_SMART, ARMY_CAST3, ARMY_CAST3_DRAW, ARMY_EVOLVE, ARMY_THUMB, ARMY_NAV, ARMY_MINDS, ARMY_CLASS, ARMY_CAST4);
+  Object.assign(Army.prototype, ARMY_EXT, ARMY_DRAW, ARMY_MAPS, ARMY_EXT2, ARMY_DRAW2, ARMY_COMBAT, ARMY_TRIBES, ARMY_TRIBES_DRAW, ARMY_PACE, ARMY_UI2, ARMY_WORLD, ARMY_FX2, ARMY_SMART, ARMY_CAST3, ARMY_CAST3_DRAW, ARMY_EVOLVE, ARMY_THUMB, ARMY_NAV, ARMY_MINDS, ARMY_CLASS, ARMY_CAST4, ARMY_MARKET2, ARMY_ANIM);
 
   const GAMES = { territory: Territory, duel: Duel, army: Army };
   Object.assign(api, { rng, Match, Territory, Duel, Army, Director, Synth, GAMES, WEAPONS, DOCTRINES, MODERN_DOCTRINES, FANTASY_DOCTRINES, GENRES, UNIT_ERA, ALL_DOCTRINES, MAPS, MAP_THEME, UNIT, eraOf, fmtTime, labelOf, docLabel, MAP_MECH, SKINS, MODE_HOOK, specOf, TRIBE_POOL, TRAIT, STAKE, CLASSES, classOf, RETIRED: [...RETIRED_SET], docRetired, CAST4 });

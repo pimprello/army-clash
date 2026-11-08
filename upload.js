@@ -11,7 +11,8 @@ const meta = JSON.parse(fs.readFileSync(path.join(OUT, 'meta.json'), 'utf8'));
 const privacy = ['public', 'unlisted', 'private'].includes(process.env.PRIVACY) ? process.env.PRIVACY : 'public';
 
 const body = {
-  snippet: { title: meta.title.slice(0, 100), description: meta.description, tags: meta.tags, categoryId: '20' },
+  // (YouTube refuses tags over 500 characters in all; keep as many as fit, in order)
+  snippet: { title: meta.title.slice(0, 100), description: meta.description.slice(0, 4900), tags: (meta.tags || []).reduce((a, t) => (a.join(',').length + t.length + 3 <= 480 ? a.concat(t) : a), []), categoryId: '20' },
   status: { privacyStatus: privacy, selfDeclaredMadeForKids: false },
 };
 

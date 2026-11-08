@@ -216,7 +216,7 @@ async function main() {
   const pacing = OUTRO ? { outroSecs: OUTRO, pace: VID.pace !== false } : {};
   const UIL = (rules.ui && rules.ui.layout) || 1; // 2 = the Shorts-safe layout (scoreboard on top, tribes strip above YouTube's title)
   const optsFor = mul => ({ target: SECS, fixedLength: SECS, weaponSfx: !!(rules.sound && rules.sound.weapons), ...pacing, swordsmen, crossbowmen, map, doctrines, budgetMul: three ? mul : [bm[0], bm[1] * mul], swordsmenByTeam, extras, extrasByTeam, era, formations, events,
-    teams: three ? 3 : 2, dream: !!(wild || custom || three), ...systems, ...cmbOpts, ...trbOpts, ...(UIL >= 2 ? { ui: UIL } : {}), ...(rules.ui && rules.ui.art >= 2 ? { art: rules.ui.art } : {}), ...(rules.world && rules.world.on ? { world: rules.world } : {}),
+    teams: three ? 3 : 2, dream: !!(wild || custom || three), ...systems, ...cmbOpts, ...trbOpts, ...(UIL >= 2 ? { ui: UIL } : {}), ...(rules.ui && rules.ui.art >= 2 ? { art: rules.ui.art } : {}), ...(rules.ui && rules.ui.anim ? { anim: true } : {}), ...(rules.world && rules.world.on ? { world: rules.world } : {}),
     // the roster, classes, minds and pathfinding (each off when its rule is off, which keeps old seeds playing out as before)
     ...(roster ? { roster } : {}), ...(rules.classes && rules.classes.on ? { classes: rules.classes } : {}), ...(rules.minds && rules.minds.on ? { minds: rules.minds } : {}),
     ...(rules.nav && rules.nav.on ? { nav: rules.nav } : {}) });
@@ -242,10 +242,14 @@ async function main() {
       }
       if (near !== null) start = near;
     } catch (e) { /* no history yet */ }
-    const b = await C.tune(optsFor, { sims: combat.balanceBattles || 16, steps: combat.balanceSteps ?? 5, seed, start, spread: combat.balanceSpread || (mode === 'heroes' ? 2.6 : 2),
-      maxMs: (combat.balanceSeconds || 90) * 1000, log: console.log });
+    // (TUNE_ONLY=1: pre-tune a line-up with more test battles and no time limit, print the result and stop; used to give new
+    // line-ups a good starting size in rules.json before their first video)
+    const pre = process.env.TUNE_ONLY === '1';
+    const b = await C.tune(optsFor, { sims: pre ? Number(process.env.PRE_SIMS || 16) : combat.balanceBattles || 16, steps: pre ? Number(process.env.PRE_STEPS || 6) : combat.balanceSteps ?? 5, seed, start, spread: combat.balanceSpread || (mode === 'heroes' ? 2.6 : 2),
+      maxMs: pre ? Infinity : (combat.balanceSeconds || 90) * 1000, log: console.log });
     wildMul = b.balance; wildRate = b.rate; tuned = b.balance;
     console.log(`Tuned ${balKey || 'creative match-up'}: bottom x${wildMul} on top of its usual size, top won ${(b.rate * 100).toFixed(0)}% of test battles (${((Date.now() - t0) / 1000).toFixed(0)} s)`);
+    if (pre) { console.log('TUNE_RESULT ' + JSON.stringify({ top: sideName(mu.top), bottom: sideName(mu.bottom), mode: mode || 'classic', start: balOf(mu) ?? 1, tuned: b.balance, rate: b.rate })); process.exit(0); }
   } else if (combat && three && !invent3) {
     const b = await C.balance3(optsFor, { sims: tw.balanceBattles || 12, rounds: combat.balanceRounds3 || 4, seed, start: wildMul, log: console.log, maxMs: (combat.balanceSeconds || 90) * 1000 });
     wildMul = b.balance; wildRate = b.rates;
@@ -389,6 +393,10 @@ async function main() {
   })() : '';
   const tribeLine = tf ? `Tribes: ${ids.map(i => `${tf.tribes.filter(x => x.team === i).map(x => tcName(x.name).replace(/^the /, 'the ').replace(/^./, c => c.toUpperCase())).join(' and ')} (${ns[i]})`).join(' vs ')}. Story (made up for fun): ${storyText} During the battle each tribe earns gold and iron, trades with its sister tribe and forges better weapons and armour.` : '';
   const heavyIn = k => game.doc.some(d => d[k] || (d.heavy || []).includes(k));
+  // the standout troops of this battle and what they do (the costliest few), for viewers and search: "Watch for: ..."
+  const standout = [...new Set(unitsAtStart)].filter(k => RVB.UNIT[k] && !RVB.UNIT[k].uncounted && RVB.specOf(k) && !['FIGHTS', 'SHOOTS'].includes(RVB.specOf(k)))
+    .sort((a, b) => (RVB.UNIT[b].cost || 0) - (RVB.UNIT[a].cost || 0) || (a < b ? -1 : 1)).slice(0, 3);
+  const watchFor = standout.length ? ` Watch for: ${standout.map(k => `the ${titleCase(RVB.labelOf(k).replace(/^THE /, ''))} (${RVB.specOf(k).toLowerCase()})`).join(', ')}.` : '';
   // the troop classes on each side (rules.classes), in plain words
   const classLine = rules.classes && rules.classes.on ? ' Troop classes: ' + ids.map(i => {
     const types = Object.keys(game.doc[i].mix || {}).concat(game.doc[i].heavy || []).filter(k => RVB.UNIT[k]);
@@ -406,9 +414,9 @@ async function main() {
       `A ${Math.round(DUR)}-second ${three ? 'three-way (1v1v1) ' : ''}${GENRE[era] || ''}battle simulation on the ${MAP_NAME[map] || map} map${showNames ? `, ${ns.join(' vs ')}` : ''}. The outcome comes from the game's rules and chance, not real footage.${game.mode && MODE_LINE[game.mode] ? ' ' + MODE_LINE[game.mode] : ''}${classLine}`,
       ...(tribeLine ? ['', tribeLine] : []),
       '',
-      'Subscribe for a new battle every day.',
+      `New battles four times a day: subscribe so you don't miss the next one.${watchFor}`,
       '',
-      `#shorts #${ns.map(n => n.toLowerCase().replace(/ /g, '')).join('vs')} #battlesimulation${three ? ' #1v1v1' : ''}`,
+      `#shorts #${ns.map(n => n.toLowerCase().replace(/ /g, '')).join('vs')} #battlesimulation #armyclash${three ? ' #1v1v1' : ''}`,
     ].slice(0, clickbait ? (tribeLine ? 7 : 5) : (tribeLine ? 9 : 7)).join('\n'),
     tags: clickbait ? [] : unique([ns.map(n => n.toLowerCase()).join(' vs '), 'army battle', 'battle simulation', 'army simulation', 'who wins', 'army clash', ids.map(i => (showNames ? armyName(i) : `${ns[i]} ${armyName(i)}`).toLowerCase()).join(' vs '), 'shorts']
       .concat(three ? ['1v1v1', 'three way battle'] : [])
@@ -416,7 +424,10 @@ async function main() {
       .concat({ king: ['protect the king'], duel: ['champion duel', '1v1 duel'], heroes: ['last stand', 'heroes vs army'], mirror: ['mirror match'], hill: ['king of the hill'] }[game.mode] || [])
       .concat({ modern: ['modern warfare'], fantasy: ['fantasy battle', 'dragon'], mixed: ['old vs new', 'swords vs guns'], scifi: ['sci fi battle', 'robots', 'lasers'], pirate: ['pirate battle', 'pirates'],
         horror: ['zombie battle', 'zombies'], samurai: ['samurai battle', 'ninja'], wild: wild || custom || three ? ['dream team', 'crazy matchup'] : ['crossover battle', 'crazy matchup'] }[era] || [])
-      .concat(heavyIn('tank') ? ['tank battle'] : []).concat(heavyIn('dragon') ? ['dragon'] : []).concat(heavyIn('mech') ? ['mech'] : [])),
+      .concat(heavyIn('tank') ? ['tank battle'] : []).concat(heavyIn('dragon') ? ['dragon'] : []).concat(heavyIn('mech') ? ['mech'] : [])
+      .concat(standout.map(k => RVB.labelOf(k).replace(/^THE /, '').toLowerCase()))
+      .concat(rules.classes && rules.classes.on ? [...new Set(unitsAtStart.filter(k => RVB.UNIT[k] && !RVB.UNIT[k].uncounted).map(k => RVB.CLASSES[RVB.classOf(k)[0]].plural.toLowerCase()))].slice(0, 4) : [])
+      .concat(['strategy game', 'epic battle'])).slice(0, 30),
     teams: pair,
     troops,
     units: unitsAtStart,

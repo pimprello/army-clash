@@ -2,6 +2,18 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-08 (afternoon): the rest of the brief: market 2.0, animation, impact effects, descriptions, pre-tuned line-ups
+
+Rellz: "finish the other updates". What was still open from the big brief is now in. On from the next video. Already-posted videos don't change.
+
+- **Market 2.0** (`rules.tribes.market2`): when the merchant arrives, a card shows his wares and prices. Besides evolution cores he now sells battle spells in the tribe's element (Firestorm, Frost Nova, Chain Lightning, Plague Cloud, Holy Light), barrages (catapult boulders, a missile strike or an orbital strike along the enemy line) and summons (a skeleton army, drone swarm, robot squad, shadow clan or ghost crew). Armies that are losing badly buy reinforcements, ones facing a packed enemy buy a barrage, otherwise an evolution and then a spell; a second buy when there's gold to spare. Each purchase gets a banner and the camera. In 8 test battles: about 2.3 evolutions, 1.3 summons, 0.8 spells and a few barrages per battle.
+- **Animation for every troop** (`rules.ui.anim`): a stretch on every strike, a squash on every hit, a bounce in the step, breathing when standing, a sway when walking, a shrink-and-fade with a white ring when a troop falls. Looks only.
+- **Impact effects:** a star and a ring on heavy hits, speed lines behind anything moving very fast (charges, dives, blinks, troops thrown back).
+- **Descriptions and tags:** a "Watch for:" line naming the battle's three standout troops and what they do, "new battles four times a day", `#armyclash`, and tags for the classes and standout troops (kept under YouTube's 500-character limit).
+- **Pre-tuned line-ups:** the first 6 of the 14 new line-ups got their starting sizes from test battles (`combatBalance` in `rules.json`), so their first videos start close to even (the others are still tuned on the spot, as every line-up is); `TUNE_ONLY=1 MATCHUP=<n> MODE=none node render.js` does this for any line-up.
+- Vengeance marks now show only on the avenger whose vengeance is being shown, so the field stays readable.
+- Tested: old seeds unchanged with the new options off; drawing every frame never changes a battle; the slow-motion finale lands on the same blow (6 battles); stills of the shop card, a market evolution and the animation layer; the layout check (175 battles).
+
 ## 2026-11-08: classes, a new roster, gravity, vengeance and pathfinding
 
 Rellz asked for an overhaul with "quality over quantity, visual polish, strategic depth, and smarter movement", plus two kinds of upgrade, smooth little labels and "personal vengeance instead of all going to the nearest person". On from the next video. Already-posted videos don't change.

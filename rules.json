@@ -1534,32 +1534,38 @@
     {
       "top": "GRAVITYCULT",
       "bottom": "KNIGHTS",
-      "balance": 1
+      "balance": 1,
+      "combatBalance": 2.229
     },
     {
       "top": "GRAVITY",
       "bottom": "THRONE",
-      "balance": 1
+      "balance": 1,
+      "combatBalance": 1.581
     },
     {
       "top": "SINGULARITY",
       "bottom": "SWARM",
-      "balance": 1
+      "balance": 1,
+      "combatBalance": 2.229
     },
     {
       "top": "ORBITERS",
       "bottom": "ARCHERS",
-      "balance": 1
+      "balance": 1,
+      "combatBalance": 0.892
     },
     {
       "top": "CRYSTALCOURT",
       "bottom": "ORCS",
-      "balance": 1
+      "balance": 1,
+      "combatBalance": 1
     },
     {
       "top": "BLINKBLADES",
       "bottom": "MAGES",
-      "balance": 1
+      "balance": 1,
+      "combatBalance": 1
     },
     {
       "top": "SUNKINGDOM",
@@ -2050,7 +2056,8 @@
       "weaponMax": 5,
       "armourMax": 4,
       "market": true
-    }
+    },
+    "market2": true
   },
   "schedule": {
     "hours": [
@@ -2063,7 +2070,8 @@
   },
   "ui": {
     "layout": 2,
-    "art": 2
+    "art": 2,
+    "anim": true
   },
   "world": {
     "on": true,
