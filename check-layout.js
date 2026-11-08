@@ -3,6 +3,8 @@
 // if any text had to be squashed to fit, is smaller than allowed, or leaves its area.
 // Usage: node check-layout.js            (all line-ups; about a minute)
 //        node check-layout.js 20         (the first 20 line-ups only)
+//        node check-layout.js all 2/4    (part 2 of 4: every 4th line-up; three-way and invented ones go in part 1),
+//                                         for machines where the whole check takes longer than one command may run
 // Exit code 1 if anything is wrong, with a list of what and where.
 'use strict';
 const { createCanvas, registerFont } = require('canvas');
@@ -15,6 +17,8 @@ const rules = require('./rules.json'), sh = rules.troopShares || {};
 const C = require('./creative.js');
 
 const limit = Number(process.argv[2]) || Infinity;
+const [part, parts] = (process.argv[3] || '1/1').split('/').map(Number);
+const mine = i => (i % parts) === part - 1;
 const combat = Object.assign({}, rules.combat || {}, { moves: true, roster: true });
 const tribes = Object.assign({}, rules.tribes || {}, { on: true });
 // areas: the roster card covers the score area; the panel sits under the battle timer
@@ -86,6 +90,7 @@ const longTeams = [['LAVENDER', 'CRIMSON'], ['MAGENTA', 'OLIVE'], ['NETHERLANDS'
 const matchups = (rules.matchups || []).filter(m => !m.pending).slice(0, limit);
 let n = 0;
 matchups.forEach((m, i) => {
+  if (!mine(i)) return;
   const eras = [RVB.eraOf(m.top), RVB.eraOf(m.bottom)];
   const opts = { doctrines: [m.top, m.bottom], era: eras[0] === eras[1] ? eras[0] : 'mixed', budgetMul: [1, m.combatBalance ?? m.balance ?? 1], ...sideOpts(m),
     skins: i % 3 === 0 ? ['shadow', 'gold'] : undefined, mode: i % 5 === 0 ? 'king' : undefined };
@@ -96,11 +101,11 @@ matchups.forEach((m, i) => {
   n++;
 });
 // three-way battles and invented match-ups
-for (const [j, tl] of (rules.threeWay && rules.threeWay.lineups || []).slice(0, Math.min(6, limit)).entries()) {
+for (const [j, tl] of (rules.threeWay && rules.threeWay.lineups || []).slice(0, part === 1 ? Math.min(6, limit) : 0).entries()) {
   run(`three-way ${tl.three.map(x => (typeof x === 'string' ? x : x.name)).join('/')}`, { doctrines: tl.three, teams: 3, era: 'wild', budgetMul: tl.balance || [1, 1, 1], dream: true }, 300 + j, ['RED', 'BLUE', 'GREEN'], [[1.5, 'roster'], [4, 'council'], [15, 'council']]);
   n++;
 }
-for (let s = 1; s <= Math.min(8, limit); s++) {
+for (let s = 1; s <= (part === 1 ? Math.min(8, limit) : 0); s++) {
   const mu = C.invent(s * 7919, { melee: combat.creativeMelee });
   run(`creative ${mu.top.name} vs ${mu.bottom.name}`, { doctrines: [mu.top, mu.bottom], era: 'wild', dream: true }, 500 + s, longTeams[s % longTeams.length], [[1.5, 'roster'], [4, 'council'], [15, 'council']]);
   n++;

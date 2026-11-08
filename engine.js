@@ -1764,6 +1764,8 @@ const RVB = (() => {
     columns: { segs: () => [[-345, -125], [-110, 110], [125, 345]] },
     flanks: { segs: () => [[-360, -110], [110, 360]] },
     crescent: { segs: () => [[-330, 330]], bend: dx => 70 * (dx / 330) ** 2 },
+    // echelon (oblique order): one long line stepped diagonally, its right wing (as seen on screen) leading the charge and its left wing held back
+    echelon: { segs: () => [[-330, 330]], bend: dx => 35 + 35 * (dx / 330) },
   };
 
   // Battlefield maps. Coordinates are relative to the arena centre (the arena is 960 x 960).
@@ -10880,13 +10882,13 @@ const RVB = (() => {
       if (age < 0.28) this.lay = null;
       ctx.save(); ctx.globalAlpha = a;
       const head = c.which === 'w' ? (c.tier >= 4 ? `${sName(tb.name)} EVOLVE` : `${sName(tb.name)} UPGRADE`) : `${sName(tb.name)} ARMOUR UP`;
-      this.fitText(ctx, head, X(-W / 2 + 120), Y(-42), 560 * k, 24 * k, 800, true, COL.gold, 'left', 16 * k);
-      this.fitText(ctx, `FROM ${c.from}`, X(-W / 2 + 120), Y(-6), 600 * k, 26 * k, 700, false, '#9AA4B2', 'left', 16 * k);
-      this.fitText(ctx, c.to, X(-W / 2 + 120), Y(32), 610 * k, 44 * k, 800, true, ecol === '#FFFFFF' ? COL.white : ecol, 'left', 22 * k);
-      this.fitText(ctx, c.perk, X(-W / 2 + 120), Y(62), 610 * k, 18 * k, 700, false, COL.white, 'left', 13 * k);
+      this.fitText(ctx, head, X(-W / 2 + 120), Y(-48), 560 * k, 24 * k, 800, true, COL.gold, 'left', 16 * k);
+      this.fitText(ctx, `FROM ${c.from}`, X(-W / 2 + 120), Y(-12), 600 * k, 26 * k, 700, false, '#9AA4B2', 'left', 16 * k);
+      this.fitText(ctx, c.to, X(-W / 2 + 120), Y(26), 610 * k, 44 * k, 800, true, ecol === '#FFFFFF' ? COL.white : ecol, 'left', 22 * k);
+      this.fitText(ctx, c.perk, X(-W / 2 + 120), Y(56), 610 * k, 18 * k, 700, false, COL.white, 'left', 13 * k);
       // tier pips
       const max = c.which === 'w' ? (this.wMax || 5) : (this.aMax || 4);
-      for (let i = 1; i <= max; i++) { ctx.beginPath(); ctx.arc(X(W / 2 - 30 - (max - i) * 22), Y(-44), 7 * k, 0, TAU); ctx.fillStyle = i <= c.tier ? (i === c.tier ? ecol : '#CBD5E1') : 'rgba(255,255,255,0.15)'; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = COL.ink; ctx.stroke(); }
+      for (let i = 1; i <= max; i++) { ctx.beginPath(); ctx.arc(X(W / 2 - 30 - (max - i) * 22), Y(-48), 7 * k, 0, TAU); ctx.fillStyle = i <= c.tier ? (i === c.tier ? ecol : '#CBD5E1') : 'rgba(255,255,255,0.15)'; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = COL.ink; ctx.stroke(); }
       ctx.restore();
       this.lay = lay;
     },

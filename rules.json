@@ -372,7 +372,8 @@
     "columns",
     "crescent",
     "flanks",
-    "block"
+    "block",
+    "echelon"
   ],
   "formationBudget": {
     "line": 1,
@@ -380,7 +381,8 @@
     "columns": 0.99,
     "crescent": 1.005,
     "flanks": 1,
-    "block": 1.005
+    "block": 1.005,
+    "echelon": 1.01
   },
   "maps": [
     {

@@ -2,6 +2,16 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-08 (autopilot)
+
+- **Health:** uploads are fine. Last night's 10pm post went up at 22:18 UTC (`Pick ONE: Frost, Tempest, Spirits 👇`); the later runs in that slot correctly skipped, and nothing is due until the 10am slot. Making that video took 5 minutes (a three-way battle with its test battles first), under the 6-minute limit. No line-ups are waiting to be balanced.
+- **Not learned from views yet:** still no `stats/summary.md`. The stats step is still refused because no `YT_API_KEY` secret reaches the run.
+- **New formation: Echelon** (today's new thing). The old "oblique order": one long line stepped diagonally, so the army's right wing (as you see it on screen) hits first and its left wing is held back. It's now the seventh formation in the rotation, and descriptions say "echelon formation". Win rates for the top army, 32 battles each with every system on, open ground (line vs line → echelon on top → echelon on bottom): Swarm vs Knights 78% → 75% → 72%; Armored vs Snipers 47% → 31% → 53% (a second set of 32: 69% → 56%); Bombers vs Knights 94% → 91% → 91%; Giant vs Archers 3% → 19% → 19%. On average an echelon army did about 2 points worse than a line, and never more than 15 points, so its army is 1% bigger (`formationBudget.echelon: 1.01`), and every video is still tuned on the spot as before.
+- **Fix: the upgrade card.** The bonus line ("+20% DAMAGE") sat right on the card's bottom border. The card's text now sits a few pixels higher, so the line has room.
+- **Tested:** old battles play out exactly as before (same winner and end time with and without today's code); 10 full battles with the director using echelon on both sides, on forest, clockwork, temple and overgrown maps: no errors or broken positions, every one ended with a winner and the outro (battles ending 49 to 60 s); stills at 1 s and 10 s of a medieval and a modern battle (the stepped line shows clearly, nothing clipped); a short real render (the description names the echelon formation); the full layout check passes.
+- **Playbook:** the layout check can now run in parts (`node check-layout.js all 1/4` and so on), because the whole check takes longer than one command may run here; `AUTOPILOT.md` says so and notes how long test battles really take in this sandbox.
+- **Rellz:** add a `YT_API_KEY` secret (a YouTube Data API key from the same Google project) so the autopilot can start learning from views. Also, the scheduled autopilot task's own prompt still says the channel posts "every 15 minutes"; I followed the repo (2 a day, at 10am and 10pm), but you may want to update that wording in the task. Already-posted videos don't change; echelon shows up from the next videos whose turn lands on it. No preview videos were made.
+
 ## 2026-11-07 (night): upgrades you can see, and a thumbnail for every video
 
 Rellz asked for "market upgrades more visible ... evolved skins and weapons each time they upgrade and make them upgrade more often, the whole upgrade is its own visual aspect", and a consistent thumbnail on each video. On from the next video. Already-posted videos don't change.
