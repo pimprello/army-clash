@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 483 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 484 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -148,16 +148,16 @@ Records from 483 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Silverbough Circle | 26 | 11 | 15 | 1252 | 2 won | 3 |
 | Oakshield Clan | 16 | 11 | 5 | 673 | 1 won | 6 |
 | Thornheart Circle | 13 | 10 | 3 | 764 | 1 lost | 6 |
+| Frostmere Clan | 22 | 10 | 12 | 755 | 2 won | 3 |
 | Thornwood Company | 13 | 10 | 3 | 396 | 1 lost | 9 |
 | Starweave Circle | 23 | 9 | 14 | 881 | 1 won | 5 |
-| Frostmere Clan | 21 | 9 | 12 | 743 | 1 won | 3 |
+| Raven Hill Clan | 17 | 9 | 8 | 549 | 1 won | 5 |
 | Emberroot Circle | 17 | 9 | 7 | 541 | 3 won | 3 |
 | Mire Witch Coven | 11 | 9 | 2 | 395 | 2 won | 7 |
 | Wildbrook Clan | 22 | 8 | 14 | 820 | 2 won | 2 |
 | Ash Wolf Clan | 18 | 8 | 10 | 738 | 1 lost | 3 |
 | Copper Crown Company | 16 | 8 | 8 | 603 | 1 lost | 3 |
 | Hollowbark Kin | 19 | 8 | 11 | 590 | 1 lost | 3 |
-| Raven Hill Clan | 16 | 8 | 8 | 547 | 1 lost | 5 |
 | Golden Lion Order | 14 | 8 | 6 | 448 | 2 won | 3 |
 | Highmoor Clan | 13 | 8 | 5 | 425 | 1 lost | 7 |
 | Order of the Silver Stag | 17 | 7 | 10 | 717 | 3 lost | 3 |
@@ -176,6 +176,7 @@ Records from 483 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-09 21:02: The Frostmere Clan Take the World Furnace (revenge! · 10th win · 12 kills)
 - 2026-11-09 19:06: The House of the Moon Fox Take the Godboard (first ever win · 28 kills)
 - 2026-11-09 17:00: The Black Bear Clan Take the Desert Well (7th win · 30 kills)
 - 2026-11-09 14:56: The Viper Company Take the Open Plains (3 wins in a row · 39 kills)
@@ -185,4 +186,3 @@ Records from 483 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-09 06:51: The Frostwhisper Tribe Take the Open Plains (3 wins in a row · 73 kills)
 - 2026-11-09 04:24: The Stormsail Crew Take the World Furnace (2nd win · 21 kills)
 - 2026-11-09 02:22: The Viper Company Take the Ruined Fort (streak ended · 4th win · 14 kills)
-- 2026-11-09 00:08: The Ash Wolf Clan Take the Frozen End (3 wins in a row · 83 kills)
