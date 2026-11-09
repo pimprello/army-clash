@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-09 06:51 | They Forged BLACK Venom Blades and WON 🔥 | Uk wins | https://youtube.com/shorts/CtmvugUjip0 |
 | 2026-11-09 04:24 | 29 HEROES vs 56 Orcs 🛡️ | Brown wins | https://youtube.com/shorts/mjbZSrpnum4 |
 | 2026-11-09 02:22 | Can Frost Bombers Survive BONE BLINKERS? 😳 | Pink wins | https://youtube.com/shorts/Mx9oofCdffo |
 | 2026-11-09 00:08 | ⚔️ WARRIORS vs Warriors | Purple wins | https://youtube.com/shorts/xMznPZOmntI |

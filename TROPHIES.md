@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 476 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 477 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 476 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **ASHKA STORMBORN** (WIZARD), 10 kills · 2026-11-09 06:51
 - **KAELEN THE MAD** (KNIGHT), 10 kills · 2026-11-09 00:08
 - **VEXA THE UNBROKEN** (JUGGERNAUT), 12 kills · 2026-11-08 22:23
 - **BRAKK BONECRUSHER** (WIZARD), 14 kills · 2026-11-07 20:36
@@ -47,7 +48,6 @@ Records from 476 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **NYRA IRONHIDE** (GENERAL), 23 kills · 2026-11-07 09:37
 - **RUNA THE BOLD** (CROSSBOWMAN), 10 kills · 2026-11-07 09:23
 - **TOVA GRAVEBANE** (SIEGE GUNNER), 10 kills · 2026-11-07 08:06
-- **ZEDRIK THE MAD** (WIZARD), 12 kills · 2026-11-07 07:38
 
 ## Titles earned (rarest first)
 
@@ -85,10 +85,10 @@ Records from 476 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 - vampiric: 9
 - wings: 33
-- spellward: 43
+- spellward: 44
 - venom: 76
 - swift: 76
-- spikes: 82
+- spikes: 83
 - regen: 95
 
 ## Big moments
@@ -144,8 +144,8 @@ Records from 476 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Mossback Tribe | 21 | 15 | 6 | 914 | 1 lost | 7 |
 | Red Hawk Company | 21 | 14 | 7 | 777 | 2 lost | 5 |
 | Silverbough Circle | 26 | 11 | 15 | 1252 | 2 won | 3 |
+| Frostwhisper Tribe | 20 | 11 | 9 | 840 | 3 won | 4 |
 | Oakshield Clan | 16 | 11 | 5 | 673 | 1 won | 6 |
-| Frostwhisper Tribe | 19 | 10 | 9 | 767 | 2 won | 4 |
 | Thornheart Circle | 13 | 10 | 3 | 764 | 1 lost | 6 |
 | Thornwood Company | 13 | 10 | 3 | 396 | 1 lost | 9 |
 | Starweave Circle | 23 | 9 | 14 | 881 | 1 won | 5 |
@@ -175,6 +175,7 @@ Records from 476 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-09 06:51: The Frostwhisper Tribe Take the Open Plains (3 wins in a row · 73 kills)
 - 2026-11-09 04:24: The Stormsail Crew Take the World Furnace (2nd win · 21 kills)
 - 2026-11-09 02:22: The Viper Company Take the Ruined Fort (streak ended · 4th win · 14 kills)
 - 2026-11-09 00:08: The Ash Wolf Clan Take the Frozen End (3 wins in a row · 83 kills)
@@ -184,4 +185,3 @@ Records from 476 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-08 10:26: The Copper Crown Company Take the Overgrown Throne (8th win · 78 kills)
 - 2026-11-07 22:18: The Glimmerdeep Kin Take the Open Plains (6th win · 29 kills)
 - 2026-11-07 21:06: The Mustang Battalion Take the Treasure Cove (5th win · 57 kills)
-- 2026-11-07 20:54: The Crew of the Iron Anchor Take the Haunted Crypt (3 wins in a row · 28 kills)
