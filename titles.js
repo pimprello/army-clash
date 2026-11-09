@@ -108,8 +108,9 @@ function makeTitle(f) {
   if (f.mvp && f.mvp.kills >= 20) facts.push('One Troop CARRIED the Whole Army 😳');
   if (f.drops.some(d => d.kind === 'heavy' && d.team === w)) facts.push('The Airdrop Had a SURPRISE Inside 📦');
   if (f.strike === w) facts.push('One AIRSTRIKE Changed Everything ✈️');
-  const HAZ = { tornado: 'A TORNADO Hit Mid-Battle 🌪️', earthquake: 'Then the Ground SPLIT Open 😱', blizzard: 'A BLIZZARD Froze the Battle ❄️', meteors: 'METEORS Hit Mid-Battle ☄️', lightning: 'LIGHTNING Struck the Battlefield ⚡', cannonballs: 'Cannonballs RAINED Down 💣', stampede: 'A STAMPEDE Hit Mid-Battle 🦣', kraken: 'The KRAKEN Woke Up 🐙' };
+  const HAZ = { tornado: 'A TORNADO Hit Mid-Battle 🌪️', earthquake: 'Then the Ground SPLIT Open 😱', blizzard: 'A BLIZZARD Froze the Battle ❄️', meteors: 'METEORS Hit Mid-Battle ☄️', lightning: 'LIGHTNING Struck the Battlefield ⚡', cannonballs: 'Cannonballs RAINED Down 💣', stampede: 'A STAMPEDE Hit Mid-Battle 🦣', kraken: 'The KRAKEN Woke Up 🐙', sandworm: 'A SANDWORM Burst Out 🪱' };
   if (HAZ[f.hazard]) facts.push(HAZ[f.hazard]);
+  if (f.hazard === 'sandworm' && x.sandworm >= 4) facts.push(`The SANDWORM Took ${x.sandworm} of Them 🪱`);
   // living tribes: only what really happened (the lead tribe is the winning army's tribe with the most kills)
   const tr = f.tribes && f.tribes.lead ? f.tribes : null;
   if (tr) {
@@ -147,7 +148,13 @@ function makeTitle(f) {
       const bigSide = A.big ? 0 : 1, other = 1 - bigSide, bn = nounOf(f.docs[other]);
       options.push(`${bn.count ? f.start[other] + ' ' : ''}${names[other]} vs ${aArmy(bigSide ? B : A)} ${emo[bigSide]}`);
     }
-    options.push(`${emo[0] || '🔥'} ${cap(names[0])} vs ${names[1]}`, `${names[0]} vs ${cap(names[1])} ${emo[1] || '🔥'}`);
+    if (names[0] !== names[1]) options.push(`${emo[0] || '🔥'} ${cap(names[0])} vs ${names[1]}`, `${names[0]} vs ${cap(names[1])} ${emo[1] || '🔥'}`);
+    else {
+      // the same army on both sides ("WARRIORS vs Warriors" said nothing): tell them apart by their team colours
+      const col = f.teams.map(tc);
+      options.push(`${emo[0] || '🔥'} ${col[0]} ${cap(names[0])} vs ${col[1]} ${names[1]}`, `${col[0]} ${names[0]} vs ${col[1]} ${cap(names[1])} ${emo[1] || '🔥'}`);
+      if (!f.wild && A.count) options.push(`${f.start[0]} ${col[0]} ${names[0]} vs ${f.start[1]} ${col[1]} ${names[1]} ${emo[0] || '🔥'}`);
+    }
     if (f.wild) options.push(`${names[0]} vs ${names[1]} 🤯`, `DREAM TEAM Battle: ${names[0]} vs ${names[1]}`);
     if (names[0] !== names[1]) options.push(`Can ${names[1]} Survive ${cap(names[0])}? ${emo[0] || '😳'}`);
   }

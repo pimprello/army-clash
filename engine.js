@@ -5,6 +5,8 @@ const RVB = (() => {
   'use strict';
   const VW = 1080, VH = 1920;
   const AR = { x: 60, y: 500, w: 960, h: 960 };
+  // the sandworm hazard: how far apart its two holes are, how far its bursts reach, and its body's length along its arc
+  const SW_LEN = 230, SW_R = 72, SW_BODY = 0.6;
   const COL = {
     bg0: '#0D1324', bg1: '#05070D', floor: '#0E1422', grid: 'rgba(150,170,215,0.07)', frame: '#2A3552',
     red: '#FF3149', redD: '#9E1029', redL: '#FFB0BA',
@@ -2604,7 +2606,8 @@ const RVB = (() => {
       }
       // then one big moment: an airstrike (battles with planes) or a hazard that hits both sides
       if (E.chance(0.9)) {
-        const hz = ['meteors', 'lightning', 'tornado', 'blizzard', 'earthquake', 'stampede', 'kraken'].filter(k => allow.includes(k) && (k !== 'kraken' || era === 'pirate') && (k !== 'stampede' || !['modern', 'scifi'].includes(era)));
+        const hz = ['meteors', 'lightning', 'tornado', 'blizzard', 'earthquake', 'stampede', 'kraken', 'sandworm'].filter(k => allow.includes(k) && (k !== 'kraken' || era === 'pirate') && (k !== 'stampede' || !['modern', 'scifi'].includes(era))
+          && (k !== 'sandworm' || (era !== 'pirate' && !['frozen', 'snow', 'temple', 'moon'].includes(this.opts.map))));
         if (skies && allow.includes('airstrike') && (E.chance(0.55) || !hz.length)) this.events.push({ type: 'airstrike', from: E.range(0.4, 0.5) * F, last: 0.66 * F, orbital: era === 'scifi', t: 0 });
         else if (hz.length) {
           const k = E.pick(hz), at = E.range(0.36, 0.48) * F;
@@ -2910,7 +2913,7 @@ const RVB = (() => {
       if (!this.slashes) for (const pts of this.cracks || []) this.drawCrack(ctx, pts, 1);
       this.drawBoosts(ctx);
       for (const ev of this.events) {
-        if ((ev.type === 'stampede' || ev.type === 'kraken') && !(this.shine && api.makeCanvas)) this.drawEvent2(ctx, ev); // (with the shine, on the troops' layer)
+        if ((ev.type === 'stampede' || ev.type === 'kraken' || ev.type === 'sandworm') && !(this.shine && api.makeCanvas)) this.drawEvent2(ctx, ev); // (with the shine, on the troops' layer)
         if (ev.type === 'earthquake' && ev.started && !ev.done && !this.slashes) this.drawCrack(ctx, ev.pts, clamp((ev.t - 0.6) / 0.4, 0, 1));
         if (ev.type === 'tornado' && ev.started && !ev.done) {
           // a twister seen from above: spinning grey rings around a dark eye, with its shadow
@@ -7681,7 +7684,121 @@ const RVB = (() => {
       }
       if (ev.t > 4.3) ev.done = true;
     },
+    // The sandworm (rules.events "sandworm"; not in pirate battles or on ice, sky or moon maps): the ground bulges and cracks
+    // for 1.2 s inside a red warning ring, then a giant worm bursts out mouth first, arcs over the field and dives back in
+    // 230 px away, crushing and flinging whoever stands at either hole. One worm per army, mirrored about the front line (in a
+    // three-way battle one per army, turned the same way round the centre), so both sides get hit alike.
+    ev_sandworm(ev, h) {
+      const LEN = SW_LEN;
+      if (!ev.started) {
+        if (this.fightT < ev.at) return;
+        const E = this.ER, mid = AR.y + AR.h / 2, cx = AR.x + AR.w / 2;
+        ev.worms = [];
+        if (this.N === 3) {
+          const d = E.range(110, 240);
+          for (const t of this.teamIds()) {
+            const a = this.homeAngle(t), ux = Math.cos(a), uy = Math.sin(a), vx = -uy, vy = ux;
+            const ax = cx + ux * d - vx * LEN / 2, ay = mid + uy * d - vy * LEN / 2;
+            ev.worms.push({ ax, ay, bx: ax + vx * LEN, by: ay + vy * LEN, hitA: false, hitB: false });
+          }
+        } else {
+          // mirrored about the front line (halfway between the two armies), where the fighting is, so each army gets one worm
+          // the same distance behind the front
+          const cen = [0, 1].map(t => { let n = 0, x = 0, y = 0; for (const u of this.units) if (u.team === t && !u.dead && !u.flying) { n++; x += u.x; y += u.y; } return n ? { x: x / n, y: y / n } : null; });
+          const fy = cen[0] && cen[1] ? clamp((cen[0].y + cen[1].y) / 2, mid - 200, mid + 200) : mid;
+          const fx = cen[0] && cen[1] ? (cen[0].x + cen[1].x) / 2 : AR.x + AR.w / 2;
+          const dir = E.chance(0.5) ? 1 : -1, dy = E.range(60, 150);
+          const x = clamp(fx - dir * LEN / 2 + E.range(-80, 80), AR.x + 110 + (dir < 0 ? LEN : 0), AR.x + AR.w - 110 - (dir > 0 ? LEN : 0));
+          for (const sg of [-1, 1]) ev.worms.push({ ax: x, ay: fy + sg * dy, bx: x + dir * LEN, by: fy + sg * dy, hitA: false, hitB: false });
+        }
+        Object.assign(ev, { started: true, kills: 0 });
+        this.banner('SANDWORM!', '#E8B590', 2); this.snd('rumble'); this.snd('alarm');
+        if (this.facts) this.facts.hazard = 'sandworm';
+        if (this.xf) this.xf.sandworm = 0;
+        if (this.camEv) this.camEv.push({ type: 'hazard', ev });
+      }
+      ev.t += h;
+      if (ev.t < 1.2) this.shake(3);
+      // what a worm does as it bursts out (hole A) or crashes back in (hole B): everyone on the ground there is hurt and thrown
+      const hit = (px, py) => {
+        for (const o of this.near(px, py, SW_R + 24)) {
+          if (o.flying || o.dead || o.team >= 3) continue;
+          const d = Math.hypot(o.x - px, o.y - py), rk = UNIT[o.type].rank === 0 ? 0.4 : 1;
+          if (d > SW_R + o.r) continue;
+          this._kind = 'blast'; this.damage(o, (d < 40 + o.r * 0.5 ? 8 : 4) * this.hpScale * rk, null);
+          if (o.dead || o.hp <= 0) ev.kills++;
+          else this.knock(o, px, py, 55);
+        }
+        this.burst(px, py, '#C9A36A', 22, 380, 0.7, 8, 300); this.burst(px, py, '#6B5A49', 10, 240, 0.6, 6, 400);
+        this.shake(14); this.snd('boom', { gain: 0.6 }); this.snd('roar');
+        if (this.shine) this.shRings.push({ x: px, y: py, r0: 20, r1: SW_R + 50, t0: this.t, life: 0.45, col: '#E8B590', w: 6 });
+      };
+      for (const w of ev.worms) {
+        if (!w.hitA && ev.t >= 1.2) { w.hitA = true; hit(w.ax, w.ay); }
+        if (!w.hitB && ev.t >= 2.6) { w.hitB = true; hit(w.bx, w.by); }
+      }
+      if (this.xf) this.xf.sandworm = ev.kills;
+      if (this.FX.chance(h * 14) && ev.t < 1.2) for (const w of ev.worms) this.burst(w.ax + this.FX.range(-30, 30), w.ay + this.FX.range(-30, 30), '#A08A6C', 2, 90, 0.5, 5, 200);
+      if (ev.t > 4.4) ev.done = true;
+    },
+    // how the sandworm looks (flat cartoon, black outlines): the bulging, cracking ground, the holes, the worm's shadow and its
+    // segmented body arcing from one hole to the other, its round mouth ringed with teeth
+    drawSandworm(ctx, ev) {
+      const t = ev.t, INK = COL.ink, BODY = '#C98B6B', BAND = '#E8B590', DIRT = '#A08A6C';
+      const ring = (x, y, k) => { ctx.save(); ctx.setLineDash([14, 10]); ctx.lineDashOffset = -this.t * 40; ctx.beginPath(); ctx.arc(x, y, SW_R, 0, TAU); ctx.lineWidth = 4; ctx.strokeStyle = `rgba(229,72,77,${0.75 * k})`; ctx.stroke(); ctx.restore(); };
+      const hole = (x, y, k) => {
+        if (k <= 0.02) return;
+        ctx.beginPath(); for (let i = 0; i < 9; i++) { const a = i / 9 * TAU + 0.3; ctx.moveTo(x + Math.cos(a) * 34 * k + 7 * k, y + Math.sin(a) * 30 * k); ctx.arc(x + Math.cos(a) * 34 * k, y + Math.sin(a) * 30 * k, 7 * k, 0, TAU); }
+        ctx.fillStyle = DIRT; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = INK; ctx.stroke();
+        ell(ctx, x, y, 30 * k, 25 * k, 0, '#2E2014', 3);
+      };
+      for (const w of ev.worms) {
+        // the warning: a red ring where it will burst out, and the ground bulging and cracking
+        if (t < 1.2) {
+          const k = clamp(t / 1.2, 0, 1), wob = Math.sin(this.t * 30) * 2 * k;
+          ring(w.ax, w.ay, Math.min(1, t / 0.3));
+          ctx.lineCap = 'round'; ctx.beginPath();
+          for (let i = 0; i < 7; i++) { const a = i / 7 * TAU + 0.5, L = 22 + 46 * k; ctx.moveTo(w.ax + Math.cos(a) * 12, w.ay + Math.sin(a) * 12); ctx.lineTo(w.ax + Math.cos(a + 0.18) * L * 0.55, w.ay + Math.sin(a + 0.18) * L * 0.55); ctx.lineTo(w.ax + Math.cos(a) * L, w.ay + Math.sin(a) * L); }
+          ctx.lineWidth = 3; ctx.strokeStyle = INK; ctx.stroke();
+          disc(ctx, w.ax, w.ay + wob, 12 + 18 * k, DIRT, 3);
+        }
+        if (t >= 1.8 && t < 2.6) ring(w.bx, w.by, Math.min(1, (t - 1.8) / 0.3));
+        const fade = clamp((4.4 - t) / 0.6, 0, 1);
+        if (t >= 1.2) hole(w.ax, w.ay, Math.min(1, (t - 1.2) / 0.15) * fade);
+        if (t >= 2.6) hole(w.bx, w.by, Math.min(1, (t - 2.6) / 0.15) * fade);
+        // the body: segments along the arc from A (s = 0) to B (s = 1), the head leading
+        const sh = (t - 1.2) / 1.4;
+        if (sh <= 0 || sh - SW_BODY >= 1) continue;
+        const N = 14, segs = [];
+        for (let i = N - 1; i >= 0; i--) {
+          const s = sh - i * SW_BODY / (N - 1);
+          if (s < 0 || s > 1) continue;
+          const hg = Math.sin(Math.PI * s) * 170, gx = w.ax + (w.bx - w.ax) * s, gy = w.ay + (w.by - w.ay) * s;
+          segs.push({ i, s, gx, gy, x: gx, y: gy - hg * 0.55, r: (12 + 14 * Math.min(1, (N - 1 - i) / 6 + 0.25)) * (1 + hg / 350) });
+        }
+        ctx.fillStyle = 'rgba(0,0,0,0.22)';
+        for (const g of segs) { ctx.beginPath(); ctx.ellipse(g.gx + 10, g.gy + 14, g.r * 0.9, g.r * 0.7, 0, 0, TAU); ctx.fill(); }
+        const ang = Math.atan2(w.by - w.ay, w.bx - w.ax);
+        for (const g of segs) {
+          if (g.i === 0) continue;
+          disc(ctx, g.x, g.y, g.r, BODY, 3.5);
+          ctx.beginPath(); ctx.ellipse(g.x, g.y, g.r * 0.35, g.r * 0.92, ang, 0, TAU); ctx.lineWidth = 2.5; ctx.strokeStyle = BAND; ctx.stroke();
+        }
+        const hd = segs.find(g => g.i === 0);
+        if (hd) {
+          // the head: a round mouth open towards the sky, ringed with teeth
+          const r = hd.r * 1.2;
+          disc(ctx, hd.x, hd.y, r, BODY, 4);
+          disc(ctx, hd.x, hd.y, r * 0.72, '#6B1424', 2.5);
+          ctx.beginPath();
+          for (let k = 0; k < 10; k++) { const a = k / 10 * TAU + this.t * 0.8, c = Math.cos(a), s = Math.sin(a), q = 0.22; ctx.moveTo(hd.x + c * r * 0.72, hd.y + s * r * 0.72); ctx.lineTo(hd.x + Math.cos(a + q) * r * 0.72, hd.y + Math.sin(a + q) * r * 0.72); ctx.lineTo(hd.x + Math.cos(a + q / 2) * r * 0.4, hd.y + Math.sin(a + q / 2) * r * 0.4); ctx.closePath(); }
+          ctx.fillStyle = '#F4F1E6'; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = INK; ctx.stroke();
+          disc(ctx, hd.x, hd.y, r * 0.3, '#2A0A10', 0);
+        }
+      }
+    },
     drawEvent2(ctx, ev) {
+      if (ev.type === 'sandworm' && ev.started && !ev.done) return this.drawSandworm(ctx, ev);
       if (ev.type === 'stampede' && ev.started && !ev.done) {
         for (const a of ev.herd) {
           if (a.x < AR.x - 120 || a.x > AR.x + AR.w + 120) continue;
@@ -13190,7 +13307,7 @@ const RVB = (() => {
       // is only worked out there, which matters at 4K)
       this._shM = lc.getTransform(); this._shBH = Math.round(160 * RS); this._shOcc = []; this._shFull = !!(this._shM.b || this._shM.c);
       if (this.tribes) { for (const tb of this.tribes) if (tb.camp) this.shMark(tb.camp.x, tb.camp.y - 20, 80); for (const c of this.carts || []) if (c.from && c.to) { this.shMark(c.from.camp.x, c.from.camp.y, 60); this.shMark(c.to.camp.x, c.to.camp.y, 60); this.shMark((c.from.camp.x + c.to.camp.x) / 2, (c.from.camp.y + c.to.camp.y) / 2, Math.hypot(c.to.camp.x - c.from.camp.x, c.to.camp.y - c.from.camp.y) / 2 + 30); } if (this.merch) this.shMark(this.merch.x, this.merch.y, 230); }
-      for (const ev of this.events || []) if ((ev.type === 'stampede' || ev.type === 'kraken') && ev.started && !ev.done) this._shFull = true;
+      for (const ev of this.events || []) if ((ev.type === 'stampede' || ev.type === 'kraken' || ev.type === 'sandworm') && ev.started && !ev.done) this._shFull = true;
       const a = SH_LIGHT + 0.3 * Math.sin(this.t * 0.37);
       this._shLx = Math.cos(a); this._shLy = Math.sin(a);
       return lc;
@@ -13390,8 +13507,9 @@ const RVB = (() => {
     shineEnd(m, lc) {
       const S = this.shine, [rx, ry, rw, rh] = this._shBox, L = this._shL, R = this._shR, rc = R.getContext('2d');
       // the stampede's animals and the kraken's tentacles shine too
-      for (const ev of this.events || []) if ((ev.type === 'stampede' || ev.type === 'kraken') && ev.started && !ev.done) {
+      for (const ev of this.events || []) if ((ev.type === 'stampede' || ev.type === 'kraken' || ev.type === 'sandworm') && ev.started && !ev.done) {
         lc.save(); this.drawEvent2(lc, ev); lc.restore();
+        if (ev.type === 'sandworm') continue;
         const rot = Math.atan2(this._shLy, this._shLx) + Math.PI / 2;
         if (ev.type === 'stampede') for (const a of ev.herd) { const r = a.kind === 'mammoth' ? 34 : 24; this.shAdd(this._shB, 'specW3', 'e', a.x + this._shLx * r * 0.36, a.y + this._shLy * r * 0.36, r * 0.44, r * 0.24, rot); this.shAdd(this._shB, 'hotW4', 'c', a.x + this._shLx * r * 0.5, a.y + this._shLy * r * 0.5, r * 0.1); }
         else for (const a of ev.arms) if (a.tx !== undefined) this.shAdd(this._shB, 'hotW4', 'c', a.tx + this._shLx * 5, a.ty + this._shLy * 5, 3.5);

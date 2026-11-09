@@ -1639,7 +1639,8 @@
     "blizzard",
     "earthquake",
     "stampede",
-    "kraken"
+    "kraken",
+    "sandworm"
   ],
   "threeWay": {
     "every": 4,
