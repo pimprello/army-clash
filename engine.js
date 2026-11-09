@@ -83,7 +83,8 @@ const RVB = (() => {
   const FONT = '"Barlow Condensed", "Arial Narrow", "Roboto Condensed", "Helvetica Neue", Arial, sans-serif';
   const TAU = Math.PI * 2;
 
-  const api = { VW, VH, AR, COL, TEAMS, PALETTES, FONT, colourGap, makeCanvas: null };
+  // RS: render scale (rules.video.scale): 2 = drawn natively at 2160x3840 (4K). Everything is laid out in 1080x1920 units either way.
+  const api = { VW, VH, AR, COL, TEAMS, PALETTES, FONT, colourGap, makeCanvas: null, RS: 1 };
 
   // ---------- helpers ----------
   const clamp = (v, a, b) => (v < a ? a : v > b ? b : v);
@@ -172,7 +173,7 @@ const RVB = (() => {
     let sp = textSprites.get(key);
     if (sp) return sp;
     if (textSprites.size > 400) textSprites.clear();
-    const S = 2, m = api.makeCanvas(4, 4).getContext('2d');
+    const S = Math.max(2, api.RS || 1), m = api.makeCanvas(4, 4).getContext('2d');
     m.font = font(size, 800);
     const w = Math.ceil(m.measureText(text).width) + 24, h = Math.ceil(size * 1.5) + 18;
     const cv = api.makeCanvas(w * S, h * S), g = cv.getContext('2d');
@@ -284,7 +285,7 @@ const RVB = (() => {
     const ck = `${key}:${Math.round(w)}x${Math.round(h)}:${line}`;
     let img = flagCache[ck];
     if (!img && api.makeCanvas) {
-      const S = 3, pad = Math.ceil(line);
+      const S = Math.max(3, 2 * (api.RS || 1)), pad = Math.ceil(line);
       img = flagCache[ck] = api.makeCanvas(Math.ceil((w + pad * 2) * S), Math.ceil((h + pad * 2) * S));
       const c = img.getContext('2d'); c.scale(S, S);
       const rr = Math.min(w, h) * 0.12;
@@ -300,8 +301,8 @@ const RVB = (() => {
   function background(map) {
     const key = 'classic';
     if (bgCache[key] || !api.makeCanvas) return bgCache[key] || null;
-    const c = api.makeCanvas(VW, VH);
-    const g = c.getContext('2d');
+    const RS = api.RS || 1, c = api.makeCanvas(Math.round(VW * RS), Math.round(VH * RS));
+    const g = c.getContext('2d'); g.scale(RS, RS);
     const lin = g.createLinearGradient(0, 0, 0, VH);
       lin.addColorStop(0, COL.bg0);
       lin.addColorStop(1, COL.bg1);
@@ -390,8 +391,15 @@ const RVB = (() => {
       this.banners = this.banners.filter(b => b.age < b.life);
       this.shakeAmt *= Math.pow(0.0009, dt);
       if (this.shakeAmt < 0.3) this.shakeAmt = 0;
-      this.shakeX = (this.FX.next() * 2 - 1) * this.shakeAmt;
-      this.shakeY = (this.FX.next() * 2 - 1) * this.shakeAmt;
+      if (this.opts.smooth) {
+        // (rules.video.smooth) the shake wobbles smoothly instead of jumping to a new random spot every frame
+        const t = this.t;
+        this.shakeX = (Math.sin(t * 57) * 0.55 + Math.sin(t * 89 + 1.3) * 0.45) * this.shakeAmt;
+        this.shakeY = (Math.sin(t * 63 + 2.1) * 0.55 + Math.sin(t * 97 + 0.4) * 0.45) * this.shakeAmt;
+      } else {
+        this.shakeX = (this.FX.next() * 2 - 1) * this.shakeAmt;
+        this.shakeY = (this.FX.next() * 2 - 1) * this.shakeAmt;
+      }
       // (rules.ui.shine) directional camera kicks: a quick jolt the way a heavy blow travelled, springing back
       if (this.shKicks && this.shKicks.length) for (const k of this.shKicks) { const e = Math.exp(-k.t * 15) * Math.cos(k.t * 32); this.shakeX += k.x * e; this.shakeY += k.y * e; }
       if (this.phase === 'fight') {
@@ -2137,7 +2145,10 @@ const RVB = (() => {
       this.dispRatio = 0.5;
       this.splats = [];
       this.ground = api.makeCanvas ? api.makeCanvas(AR.w, AR.h) : null;
-      this.stains = api.makeCanvas ? api.makeCanvas(AR.w, AR.h) : null;
+      // (the stains layer is made at the render scale, so it isn't stretched at 4K; it is still painted in 1080x1920 units)
+      this.stainS = api.RS || 1;
+      this.stains = api.makeCanvas ? api.makeCanvas(Math.round(AR.w * this.stainS), Math.round(AR.h * this.stainS)) : null;
+      if (this.stains && this.stainS !== 1) this.stains.getContext('2d').scale(this.stainS, this.stainS);
       this.stainFade = 0;
       if (this.ground) this.paintGround(this.ground, 1);
       // fantasy land: twinkling sparkles scattered over the ground (fixed spots, the same in every video on this map)
@@ -3476,6 +3487,8 @@ const RVB = (() => {
     // director mode: remember where everything was before a tick, so slow-motion frames can draw in between ticks
     prestep() {
       for (const u of this.units) { u.px = u.x; u.py = u.y; }
+      // (rules.video.smooth) and which way each troop faces, and the battle clock, so turning and timed animations glide too
+      if (this.opts.smooth) { for (const u of this.units) { u.pf = u.face; u.pmf = u.mface; } this.pFightT = this.fightT; }
       for (const a of this.arrows) { a.px = a.x; a.py = a.y; }
     }
     outroStep(dt) {
@@ -3585,6 +3598,8 @@ const RVB = (() => {
     }
     // particles live in the arena, so they follow the camera (confetti falls over the whole screen and doesn't)
     drawFX(ctx) {
+      // (rules.ui.shine) the screen effects (colour split, radial blur, flashes) go on before the labels, so labels stay sharp
+      if (this.shine && !this.camOn()) { const fl = this.floats; this.floats = []; super.drawFX(ctx); this.floats = fl; this.shinePost(ctx); if (fl.length) { this.drawFloats(ctx, null); ctx.textBaseline = 'alphabetic'; } return; }
       if (!this.camOn()) return super.drawFX(ctx);
       const all = this.parts, fl = this.floats;
       ctx.save(); roundRect(ctx, AR.x + this.shakeX, AR.y + this.shakeY, AR.w, AR.h, 18); ctx.clip();
@@ -3593,6 +3608,7 @@ const RVB = (() => {
       ctx.restore();
       this.parts = all.filter(p => p.confetti); super.drawFX(ctx);
       this.parts = all; this.floats = fl;
+      if (this.shine) this.shinePost(ctx);
       // the labels at screen size, over the zoomed battle (clipped to the battlefield)
       if (fl.length) { ctx.save(); roundRect(ctx, AR.x, AR.y, AR.w, AR.h, 18); ctx.clip(); this.drawFloats(ctx, this.cam); ctx.restore(); ctx.textBaseline = 'alphabetic'; }
     }
@@ -3745,12 +3761,20 @@ const RVB = (() => {
         ls: `${this.skins ? this.skinName(0) : ''}${docLabel(this.doc[0])} · ${this.start[0]} UNITS`, rs: `${this.start[1]} UNITS · ${this.skins ? this.skinName(1) : ''}${docLabel(this.doc[1])}`,
         ratio: this.dispRatio,
       });
-      const zoom = this.camOn(), hi = zoom && this.cam.z > 1.12 && !!api.makeCanvas;
+      // (at 4K the sharper 2x copies of the ground and map are used all the time)
+      const zoom = this.camOn(), hi = (zoom && this.cam.z > 1.12 || (api.RS || 1) > 1) && !!api.makeCanvas;
       // director mode: draw in between simulation ticks, so slow motion stays smooth
       const al = this.fixedTicks && this.phase === 'fight' ? clamp(this.tickAcc, 0, 1) : 1, between = al < 0.999;
       if (between) {
         for (const u of this.units) if (u.px !== undefined) { u._x = u.x; u._y = u.y; u.x = u.px + (u.x - u.px) * al; u.y = u.py + (u.y - u.py) * al; }
         for (const a of this.arrows) if (a.px !== undefined) { a._x = a.x; a._y = a.y; a.x = a.px + (a.x - a.px) * al; a.y = a.py + (a.y - a.py) * al; }
+        // (rules.video.smooth) in slow motion a tick can span several frames: turning and anything timed by the battle clock are
+        // drawn in between ticks as well, so nothing steps or judders (all put back straight after drawing)
+        if (this.opts.smooth) {
+          const lerpA = (a, b) => a + Math.atan2(Math.sin(b - a), Math.cos(b - a)) * al;
+          for (const u of this.units) if (u.pf !== undefined && u._x !== undefined) { u._f = u.face; u._mf = u.mface; if (typeof u.face === 'number') u.face = lerpA(u.pf, u.face); if (typeof u.mface === 'number' && typeof u.pmf === 'number') u.mface = lerpA(u.pmf, u.mface); }
+          if (this.pFightT !== undefined) { this._fT = this.fightT; this.fightT = this.pFightT + (this.fightT - this.pFightT) * al; }
+        }
       }
       // UI 2.0: the whole battlefield (and everything drawn on it) is drawn 90 px higher
       if (U2) { ctx.save(); ctx.translate(0, UI_DY); this.layDY = UI_DY; this.layReset(); }
@@ -3761,14 +3785,18 @@ const RVB = (() => {
       if (this.wq) this.worldPre(ctx);
       // ground, stains and map: when zoomed, copy just the part in view straight to the screen (much faster than drawing the whole layer through the camera)
       const blit = (img, S) => {
-        if (!zoom) { ctx.drawImage(img, AR.x, AR.y, AR.w, AR.h); return; }
+        if (!zoom) {
+          // (snapped to whole screen pixels: a copy that lands between pixels is both slower and softer)
+          const m = ctx.getTransform(), ox = m.b || m.c ? 0 : (Math.round(m.e + AR.x * m.a) - (m.e + AR.x * m.a)) / m.a, oy = m.b || m.c ? 0 : (Math.round(m.f + AR.y * m.d) - (m.f + AR.y * m.d)) / m.d;
+          ctx.drawImage(img, AR.x + (api.RS > 1 ? ox : 0), AR.y + (api.RS > 1 ? oy : 0), AR.w, AR.h); return;
+        }
         const c = this.cam, vw = AR.w / c.z, vh = AR.h / c.z, sx = (c.x - vw / 2 - AR.x) * S, sy = (c.y - vh / 2 - AR.y) * S;
         ctx.drawImage(img, sx, sy, vw * S, vh * S, AR.x, AR.y, AR.w, AR.h);
       };
       if (zoom && 'patternQuality' in ctx) ctx.patternQuality = 'bilinear';
       if (this.ground) blit(hi ? this.hiLayer('ground') : this.ground, hi ? 2 : 1);
       else { ctx.fillStyle = (MAP_THEME[this.opts.map] || MAP_THEME.default).floor; ctx.fillRect(AR.x, AR.y, AR.w, AR.h); }
-      if (this.stains) blit(this.stains, 1);
+      if (this.stains) blit(this.stains, this.stainS || 1);
       if ((this.obstacles.length || this.decor.length) && api.makeCanvas) {
         if (!this.mapLayer) { this.mapLayer = api.makeCanvas(AR.w, AR.h); this.paintMap(this.mapLayer, 1); }
         blit(hi ? this.hiLayer('map') : this.mapLayer, hi ? 2 : 1);
@@ -3981,12 +4009,13 @@ const RVB = (() => {
       ctx.restore();
       ctx.restore();
       if (between) {
+        if (this._fT !== undefined) { this.fightT = this._fT; this._fT = undefined; }
+        for (const u of this.units) if (u._f !== undefined) { u.face = u._f; u.mface = u._mf; u._f = undefined; }
         for (const u of this.units) if (u._x !== undefined) { u.x = u._x; u.y = u._y; u._x = undefined; }
         for (const a of this.arrows) if (a._x !== undefined) { a.x = a._x; a.y = a._y; a._x = undefined; }
       }
       this.drawArenaFrame(ctx);
       this.drawFX(ctx);
-      if (this.shine) this.shinePost(ctx);
       this.drawBanners(ctx);
       if (U2) {
         if (this.tribes) this.drawStory2(ctx);
@@ -4585,7 +4614,8 @@ const RVB = (() => {
         if (e.type === 'spot' && ((e.prio || 58) >= 80 || this.t > (this.spotNext || 0))) want(e.prio || 58, () => { this.spotNext = this.t + 8; this.start('spot', { prio: e.prio || 58, dur: e.dur || 2.2, x: e.x, y: e.y, follow: e.follow, z: e.z || 1.8, ts: e.slow && this.canSlow(0.6) ? 0.35 : 1, slowFor: e.slow ? 0.9 : 0, bars: e.slow ? 1 : 0, vig: e.slow ? 0.35 : 0.15, spd: 5, zspd: 4.5, sfx: e.slow ? 'whoosh' : undefined }); });
         if (e.type === 'hitstop' && !e.short && this.t > (this.stopNext || 0) && this.canSlow(0.25)) { this.stopNext = this.t + 5; this.stopT = this.t + 0.09; }
         // (rules.ui.shine) a heavy blow: three frames frozen, then straight back to speed
-        if (e.type === 'hitstop' && e.short && this.t > (this.stopNext2 || 0) && !(this.t < (this.stopT ?? -9) + 0.15) && this.canSlow(0.12)) { this.stopNext2 = this.t + 1.2; this.stopT = this.t + 0.05; this.stopHard = true; }
+        // (rules.ui.shine) a heavy blow: a quick dip into slow motion and straight back (eased: a hard freeze reads as a dropped frame)
+        if (e.type === 'hitstop' && e.short && this.t > (this.stopNext2 || 0) && !(this.t < (this.stopT ?? -9) + 0.15) && this.canSlow(0.12)) { this.stopNext2 = this.t + 1.2; this.dipT = this.t + 0.1; }
       }
       // FINAL PUSH and LAST STAND: a slow push-in on the heaviest fighting
       for (const e of ev) if (e.type === 'push' && e.stage !== 2) want(35, () => { const h = this.hotspot(); this.start('push', { prio: 35, dur: 2.6, x: h.x, y: h.y, z: e.stage === 3 ? 1.5 : 1.35, spd: 1.4, zspd: 1.1 }); });
@@ -4632,7 +4662,9 @@ const RVB = (() => {
             // the hold: nearly frozen on the final blow, then slowly playing out while the camera eases back a little
             const a = this.t - this.finEnd;
             tx = this.finX; ty = this.finY; tz = g.endHow === 'kill' ? 2.7 - 0.45 * clamp(a / FIN_HOLD, 0, 1) : 1.5; spd = 5; zspd = 2.2; vig = 0.6;
-            tts = a < FIN_FREEZE ? 0.03 : 0.22; tsRate = a < FIN_FREEZE ? 40 : 6;
+            // (rules.video.smooth: a shorter, softer freeze, so the moment never looks like the video has hung)
+            const sm = g.opts.smooth, fz = sm ? 0.14 : FIN_FREEZE;
+            tts = a < fz ? (sm ? 0.08 : 0.03) : (sm ? 0.3 : 0.22); tsRate = a < fz ? (sm ? 24 : 40) : 6;
           }
         } else {
           const f = sh.follow && !sh.follow.dead ? sh.follow : null;
@@ -4652,10 +4684,10 @@ const RVB = (() => {
         // catch up during normal-speed close-ups too, so the battle still reaches its ending before the video does
         tts = 1 + Math.min(0.45, this.debt * 0.5);
       }
-      if (this.stopT !== undefined && this.t < this.stopT + 0.15 && g.phase === 'fight') { if (this.t < this.stopT) tts = 0.04; tsRate = 40; }
+      if (this.stopT !== undefined && this.t < this.stopT + 0.15 && g.phase === 'fight') { if (this.t < this.stopT) tts = g.opts.smooth ? 0.15 : 0.04; tsRate = g.opts.smooth ? 22 : 40; }
+      if (this.dipT !== undefined && this.t < this.dipT + 0.2 && g.phase === 'fight' && !(this.stopT !== undefined && this.t < this.stopT + 0.15)) { if (this.t < this.dipT) tts = Math.min(tts, 0.3); tsRate = Math.max(tsRate, 18); }
       if (g.phase !== 'fight' && !(sh && sh.kind === 'finale')) tts = 1;
       this.ts += (tts - this.ts) * (1 - Math.exp(-tsRate * dt));
-      if (this.stopHard) { if (this.t < this.stopT && g.phase === 'fight') this.ts = 0.03; else this.stopHard = false; }
       if (Math.abs(this.ts - 1) < 0.002 && tts === 1) this.ts = 1;
       // advance the battle
       this.t += dt; g.realT = this.t;
@@ -9189,8 +9221,11 @@ const RVB = (() => {
       const T = this.fightT;
       if (T < (tb.labelAt || 0)) return;
       tb.labelAt = T + 4;
-      this.tacLabels.push({ tb, text, t0: this.t });
-      if (this.tacLabels.length > 2) this.tacLabels.shift();
+      // a tag stays where it was called and fades out there (Rellz: it used to jump with the tribe's centre, which is only worked
+      // out every 1.5 s, so it seemed to vanish and pop up somewhere else); one still showing is never cut short for a new one
+      this.tacLabels = this.tacLabels.filter(L => this.t - L.t0 < 1.8);
+      if (this.tacLabels.length >= 2) return;
+      this.tacLabels.push({ tb, text, t0: this.t, x: tb.cx, y: tb.cy });
     },
     tribeTarget(u, U) {
       const tb = u.tribe;
@@ -9474,10 +9509,15 @@ const RVB = (() => {
         if (k < 0 || k > 1) continue;
         const tb = L.tb, al = Math.min(1, k * 6, (1 - k) * 4), text = `${L.text}!`;
         ctx.font = font(21, 800);
-        const w = ctx.measureText(text).width + 50, x = clamp(tb.cx, AR.x + w / 2 + 6, AR.x + AR.w - w / 2 - 6);
-        let y = clamp(tb.cy - 46 - k * 10, AR.y + 24, AR.y + AR.h - 24);
-        for (let tries = 0; tries < 4 && placed.some(p => Math.abs(p.x - x) < (p.w + w) / 2 + 6 && Math.abs(p.y - y) < 40); tries++) y = clamp(y - 42, AR.y + 24, AR.y + AR.h - 24) === y ? y + 42 : clamp(y - 42, AR.y + 24, AR.y + AR.h - 24);
-        placed.push({ x, y, w });
+        const w = ctx.measureText(text).width + 50, x = clamp(L.x ?? tb.cx, AR.x + w / 2 + 6, AR.x + AR.w - w / 2 - 6);
+        // (where it goes is settled once, the first time it's drawn, so it never hops to make room)
+        if (L.py === undefined) {
+          let y = clamp((L.y ?? tb.cy) - 46, AR.y + 34, AR.y + AR.h - 24);
+          for (let tries = 0; tries < 4 && placed.some(p => Math.abs(p.x - x) < (p.w + w) / 2 + 6 && Math.abs(p.y - y) < 40); tries++) y = clamp(y - 42, AR.y + 34, AR.y + AR.h - 24) === y ? y + 42 : clamp(y - 42, AR.y + 34, AR.y + AR.h - 24);
+          L.py = y;
+        }
+        const y = L.py - 10 * easeOutCubic(k);
+        placed.push({ x, y: L.py, w });
         ctx.globalAlpha = al;
         roundRect(ctx, x - w / 2, y - 17, w, 34, 17); ctx.fillStyle = 'rgba(8,11,20,0.88)'; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = TEAMS[tb.team].c; ctx.stroke();
         disc(ctx, x - w / 2 + 17, y, 13, TEAMS[tb.team].c, 2); drawEmblem(ctx, tb.emblem, x - w / 2 + 17, y, 9.5);
@@ -10147,14 +10187,14 @@ const RVB = (() => {
         ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0);
         // a colour split
         ctx.globalCompositeOperation = 'lighter'; ctx.globalAlpha = 0.22 * k;
-        const sh = 6 + 8 * hash01(n, 3);
-        ctx.drawImage(off, X0 + sh, Y0); ctx.drawImage(off, X0 - sh, Y0 + 2);
+        const sh = (6 + 8 * hash01(n, 3)) * (api.RS || 1);
+        ctx.drawImage(off, X0 + sh, Y0); ctx.drawImage(off, X0 - sh, Y0 + 2 * (api.RS || 1));
         ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1;
         // torn rows (on about half the frames)
         if (hash01(n >> 1, 9) < 0.55 * k + 0.1) {
           const rows = 2 + ((hash01(n, 11) * 4) | 0);
           for (let i = 0; i < rows; i++) {
-            const y = (hash01(n, 20 + i) * (Hd - 60)) | 0, h = 8 + ((hash01(n, 40 + i) * 50) | 0), dx = ((hash01(n, 60 + i) - 0.5) * 120 * k) | 0;
+            const RS = api.RS || 1, y = (hash01(n, 20 + i) * (Hd - 60 * RS)) | 0, h = ((8 + hash01(n, 40 + i) * 50) * RS) | 0, dx = ((hash01(n, 60 + i) - 0.5) * 120 * k * RS) | 0;
             ctx.drawImage(off, 0, y, Wd, h, X0 + dx, Y0 + y, Wd, h);
             if (hash01(n, 80 + i) > 0.6) { ctx.fillStyle = hash01(n, 90 + i) > 0.5 ? 'rgba(124,243,255,0.25)' : 'rgba(255,60,120,0.25)'; ctx.fillRect(X0, Y0 + y, Wd, h); }
           }
@@ -10902,7 +10942,7 @@ const RVB = (() => {
       const k = clamp(Math.min((this.d3T - this.fightT) / 0.4, 1), 0, 1);
       ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalCompositeOperation = 'multiply';
       ctx.globalAlpha = 0.5 * k; ctx.fillStyle = '#FF9AA8'; ctx.fillRect(X0, Y0, Wd, Hd);
-      ctx.globalCompositeOperation = 'lighter'; ctx.globalAlpha = 0.3 * k; ctx.drawImage(off, X0 - 9, Y0); ctx.globalAlpha = 0.3 * k; ctx.drawImage(off, X0 + 9, Y0 + 1);
+      ctx.globalCompositeOperation = 'lighter'; ctx.globalAlpha = 0.3 * k; ctx.drawImage(off, X0 - 9 * (api.RS || 1), Y0); ctx.globalAlpha = 0.3 * k; ctx.drawImage(off, X0 + 9 * (api.RS || 1), Y0 + (api.RS || 1));
       ctx.restore();
       ctx.save(); ctx.font = font(30, 800); ctx.textAlign = 'center'; spaced(ctx, 5); strokeText(ctx, '3D MODE', AR.x + AR.w / 2, AR.y + 40, '#7CF3FF', COL.ink, 7); spaced(ctx, 0); ctx.restore();
     },
@@ -13134,19 +13174,35 @@ const RVB = (() => {
     // ---- drawing ----
     // the troops' layer: same size and camera as the screen, cleared over the battlefield
     shineBegin(m) {
-      if (!this._shL) { this._shL = api.makeCanvas(VW, VH); this._shR = api.makeCanvas(VW, VH); }
+      const RS = api.RS || 1, PW = Math.round(VW * RS), PH = Math.round(VH * RS);
+      if (!this._shL || this._shL.width !== PW) { this._shL = api.makeCanvas(PW, PH); this._shR = api.makeCanvas(PW, PH); }
       const lc = this._shL.getContext('2d');
-      const rx = Math.max(0, Math.floor(AR.x + this.shakeX - 3)), ry = Math.max(0, Math.floor(AR.y + (this.layDY || 0) + this.shakeY - 3));
-      this._shBox = [rx, ry, Math.min(VW - rx, AR.w + 6), Math.min(VH - ry, AR.h + 6)];
+      // (the battlefield's rectangle in screen pixels, at the render scale)
+      const rx = Math.max(0, Math.floor((AR.x + this.shakeX - 3) * RS)), ry = Math.max(0, Math.floor((AR.y + (this.layDY || 0) + this.shakeY - 3) * RS));
+      this._shBox = [rx, ry, Math.min(PW - rx, Math.ceil((AR.w + 6) * RS)), Math.min(PH - ry, Math.ceil((AR.h + 6) * RS))];
       lc.setTransform(1, 0, 0, 1, 0, 0); lc.globalCompositeOperation = 'source-over'; lc.globalAlpha = 1;
       lc.clearRect(...this._shBox);
       lc.setTransform(m.getTransform());
       lc.lineCap = m.lineCap; lc.lineJoin = m.lineJoin; lc.lineWidth = m.lineWidth; lc.font = m.font; lc.textAlign = m.textAlign; lc.textBaseline = m.textBaseline;
       lc.fillStyle = m.fillStyle; lc.strokeStyle = m.strokeStyle;
       this._shB = new Map(); this._shO = new Map(); this._shT = []; this._shHP = [];
+      // where on screen there is something to light: horizontal bands with the span that holds troops or objects (the rim light
+      // is only worked out there, which matters at 4K)
+      this._shM = lc.getTransform(); this._shBH = Math.round(160 * RS); this._shOcc = []; this._shFull = !!(this._shM.b || this._shM.c);
+      if (this.tribes) { for (const tb of this.tribes) if (tb.camp) this.shMark(tb.camp.x, tb.camp.y - 20, 80); for (const c of this.carts || []) if (c.from && c.to) { this.shMark(c.from.camp.x, c.from.camp.y, 60); this.shMark(c.to.camp.x, c.to.camp.y, 60); this.shMark((c.from.camp.x + c.to.camp.x) / 2, (c.from.camp.y + c.to.camp.y) / 2, Math.hypot(c.to.camp.x - c.from.camp.x, c.to.camp.y - c.from.camp.y) / 2 + 30); } if (this.merch) this.shMark(this.merch.x, this.merch.y, 230); }
+      for (const ev of this.events || []) if ((ev.type === 'stampede' || ev.type === 'kraken') && ev.started && !ev.done) this._shFull = true;
       const a = SH_LIGHT + 0.3 * Math.sin(this.t * 0.37);
       this._shLx = Math.cos(a); this._shLy = Math.sin(a);
       return lc;
+    },
+    // something drawn on the troops' layer at world (x, y), reaching ext around it: its screen bands get the rim light
+    shMark(x, y, ext) {
+      if (this._shFull) return;
+      const M = this._shM, X = M.a * x + M.e, Y = M.d * y + M.f, E = ext * M.a, BH = this._shBH, y0 = this._shBox[1];
+      for (let b = Math.max(0, Math.floor((Y - E - y0) / BH)), b1 = Math.floor((Y + E - y0) / BH); b <= b1; b++) {
+        const o = this._shOcc[b] || (this._shOcc[b] = [X - E, X + E]);
+        if (X - E < o[0]) o[0] = X - E; if (X + E > o[1]) o[1] = X + E;
+      }
     },
     // marks are collected by kind and drawn together at the end (b: on the troops only; o: over everything)
     shAdd(map, key, kind, ...v) { let b = map.get(key); if (!b) map.set(key, b = { c: [], e: [], l: [], q: [] }); b[kind].push(...v); return b; },
@@ -13164,6 +13220,7 @@ const RVB = (() => {
       ms.acid = Math.max(0, ms.acid - dT * 0.025); ms.zap = Math.max(0, ms.zap - dT * 0.045); ms.wet = Math.max(0, ms.wet - dT * 0.18);
       if (this.weather === 'rain') ms.wet = Math.max(ms.wet, 0.5);
       const mount = U.mount ? 1.22 : 1, r = u.r * mount, Lx = this._shLx, Ly = this._shLy, B = this._shB, O = this._shO, id = u.uid || 1;
+      this.shMark(x, y, r * 2.6 + 26);
       const h = k => hash01(id * 3.1 + k, k * 7.7 + 1.3);
       // 1. the gloss: a soft highlight towards the light and a hot spot (ice and water make it brighter, acid dulls it,
       //    and a burning troop reflects the flames)
@@ -13346,7 +13403,7 @@ const RVB = (() => {
         const y = u.y - 6 * k, s = 1 - 0.35 * k;
         lc.save(); lc.globalAlpha = (1 - k) * 0.85; lc.translate(u.x, y); lc.scale(s, s); lc.translate(-u.x, -y);
         try { this.drawBody(lc, u, u.x, y, tm, UNIT[u.type].sword); } catch (e) { /* (some troops can't be drawn once gone) */ }
-        lc.restore();
+        lc.restore(); this.shMark(u.x, y, u.r * 2.6 + 26);
         this.shAdd(this._shB, 'specW3', 'e', u.x + this._shLx * u.r * 0.36, y + this._shLy * u.r * 0.36, u.r * 0.44 * s, u.r * 0.24 * s, Math.atan2(this._shLy, this._shLx) + Math.PI / 2);
       }
       const ON = shStyle(this);
@@ -13355,15 +13412,27 @@ const RVB = (() => {
       lc.restore();
       // the rim light: a thin band just inside each outline on the side facing the light (true to every shape, from triangles to dragons)
       // (whole-pixel offsets: a fractional one would make the copies blur, and cost four times as much)
-      const z = this.cam && this.cam.z || 1, ux = this._shLx, uy = this._shLy, rimA = clamp(0.62 * S.rim, 0, 1);
+      const z = (this.cam && this.cam.z || 1) * (api.RS || 1), ux = this._shLx, uy = this._shLy, rimA = clamp(0.62 * S.rim, 0, 1);
       const o1x = Math.round(ux * 4 * z), o1y = Math.round(uy * 4 * z), o2x = Math.round(ux * 7.2 * z), o2y = Math.round(uy * 7.2 * z);
-      if (rimA > 0.02) {
-        rc.setTransform(1, 0, 0, 1, 0, 0); rc.globalAlpha = 1; rc.globalCompositeOperation = 'source-over';
-        rc.clearRect(rx, ry, rw, rh);
-        rc.drawImage(L, rx, ry, rw, rh, rx, ry, rw, rh);
-        rc.globalCompositeOperation = 'destination-in'; rc.drawImage(L, rx, ry, rw, rh, rx - o1x, ry - o1y, rw, rh);
-        rc.globalCompositeOperation = 'destination-out'; rc.drawImage(L, rx, ry, rw, rh, rx - o2x, ry - o2y, rw, rh);
-        rc.globalCompositeOperation = 'source-in'; rc.fillStyle = rgba(this.weather === 'bloodmoon' || (this.wNow && this.wNow.kind === 'bloodmoon') ? '#FFC2C2' : this.weather === 'eclipse' ? '#D8D2FF' : '#FFFFFF', rimA); rc.fillRect(rx, ry, rw, rh);
+      // the bands to work on (the whole battlefield when the camera is rolled, or for the stampede and the kraken)
+      const pad = Math.max(Math.abs(o2x), Math.abs(o2y)) + 2, rects = [];
+      if (this._shFull) rects.push([rx, ry, rw, rh]);
+      else this._shOcc.forEach((o, b) => { if (!o) return; const x0 = Math.max(rx, Math.floor(o[0]) - pad), x1 = Math.min(rx + rw, Math.ceil(o[1]) + pad), y0 = Math.max(ry, ry + b * this._shBH), y1 = Math.min(ry + rh, ry + (b + 1) * this._shBH); if (x1 > x0 && y1 > y0) rects.push([x0, y0, x1 - x0, y1 - y0]); });
+      if (rimA > 0.02 && rects.length) {
+        const rimCol = rgba(this.weather === 'bloodmoon' || (this.wNow && this.wNow.kind === 'bloodmoon') ? '#FFC2C2' : this.weather === 'eclipse' ? '#D8D2FF' : '#FFFFFF', rimA);
+        rc.setTransform(1, 0, 0, 1, 0, 0); rc.globalAlpha = 1;
+        for (const [bx, by, bw, bh] of rects) {
+          rc.save(); rc.beginPath(); rc.rect(bx, by, bw, bh); rc.clip();
+          rc.globalCompositeOperation = 'source-over'; rc.clearRect(bx, by, bw, bh);
+          rc.drawImage(L, bx, by, bw, bh, bx, by, bw, bh);
+          // (the shifted copies are read from a little beyond the band, so they still cover all of it once shifted; the clip keeps
+          // every write inside the band, so bands never overlap)
+          const sx = Math.max(0, bx - pad), sy = Math.max(0, by - pad), sw = Math.min(L.width - sx, bw + 2 * pad), sh = Math.min(L.height - sy, bh + 2 * pad);
+          rc.globalCompositeOperation = 'destination-in'; rc.drawImage(L, sx, sy, sw, sh, sx - o1x, sy - o1y, sw, sh);
+          rc.globalCompositeOperation = 'destination-out'; rc.drawImage(L, sx, sy, sw, sh, sx - o2x, sy - o2y, sw, sh);
+          rc.globalCompositeOperation = 'source-in'; rc.fillStyle = rimCol; rc.fillRect(bx, by, bw, bh);
+          rc.restore();
+        }
         // reflections of fire and ice, and no shine on corroded troops
         if (this._shT.length) {
           rc.setTransform(lc.getTransform());
@@ -13379,7 +13448,7 @@ const RVB = (() => {
       }
       m.save(); m.setTransform(1, 0, 0, 1, 0, 0); m.globalAlpha = 1;
       m.drawImage(L, rx, ry, rw, rh, rx, ry, rw, rh);
-      if (rimA > 0.02) m.drawImage(R, rx, ry, rw, rh, rx, ry, rw, rh);
+      if (rimA > 0.02) for (const [bx, by, bw, bh] of rects) m.drawImage(R, bx, by, bw, bh, bx, by, bw, bh);
       m.restore();
       // over the troops: flames, crystals, drops, sparks, bubbles, sparkles
       m.save(); m.lineCap = 'round'; m.lineJoin = 'round';
@@ -13473,17 +13542,19 @@ const RVB = (() => {
     // on the screen, over the battlefield: radial blur, colour fringing, a white flash, vignette pulses and colour grades
     shinePost(ctx) {
       if (!this.shine.screen || !api.makeCanvas) return;
-      const t = this.t, dy = this.layDY || 0, bx = AR.x + this.shakeX, by = AR.y + dy + this.shakeY;
-      const cam = this.camOn() ? this.cam : null, toS = (x, y) => cam ? [AR.x + AR.w / 2 + (x - cam.x) * cam.z + this.shakeX, AR.y + AR.h / 2 + (y - cam.y) * cam.z + this.shakeY + dy] : [x + this.shakeX, y + this.shakeY + dy];
-      const P = this._shP || (this._shP = api.makeCanvas(VW, VH)), pc = P.getContext('2d'), box = [Math.max(0, Math.floor(bx)), Math.max(0, Math.floor(by)), AR.w, AR.h];
+      const t = this.t, dy = this.layDY || 0, RS = api.RS || 1, bx = AR.x + this.shakeX, by = AR.y + dy + this.shakeY;
+      const cam = this.camOn() ? this.cam : null, toS = (x, y) => (cam ? [AR.x + AR.w / 2 + (x - cam.x) * cam.z + this.shakeX, AR.y + AR.h / 2 + (y - cam.y) * cam.z + this.shakeY + dy] : [x + this.shakeX, y + this.shakeY + dy]).map(v => v * RS);
+      const PW = Math.round(VW * RS), PH = Math.round(VH * RS);
+      if (!this._shP || this._shP.width !== PW) this._shP = api.makeCanvas(PW, PH);
+      const P = this._shP, pc = P.getContext('2d'), box = [Math.max(0, Math.floor(bx * RS)), Math.max(0, Math.floor(by * RS)), Math.round(AR.w * RS), Math.round(AR.h * RS)];
       // (all of this is in screen pixels: the battlefield's own offsets are added here, not taken from the drawing state)
-      ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over';
-      roundRect(ctx, AR.x + this.shakeX, AR.y + dy + this.shakeY, AR.w, AR.h, 18); ctx.clip();
+      ctx.save(); ctx.setTransform(RS, 0, 0, RS, 0, 0); ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over';
+      roundRect(ctx, AR.x + this.shakeX, AR.y + dy + this.shakeY, AR.w, AR.h, 18); ctx.clip(); ctx.setTransform(1, 0, 0, 1, 0, 0);
       // radial blur: copies of the picture round an explosion, each a little bigger and fainter
       this.shRB = this.shRB.filter(b => t - b.t0 < b.life);
       for (const b of this.shRB) {
         const p = (t - b.t0) / b.life; if (p < 0) continue;
-        const [sx, sy] = toS(b.x, b.y), H = 260 * (cam ? cam.z : 1), x0 = Math.max(box[0], Math.floor(sx - H)), y0 = Math.max(box[1], Math.floor(sy - H)), w = Math.min(box[0] + box[2], Math.ceil(sx + H)) - x0, h = Math.min(box[1] + box[3], Math.ceil(sy + H)) - y0;
+        const [sx, sy] = toS(b.x, b.y), H = 260 * (cam ? cam.z : 1) * RS, x0 = Math.max(box[0], Math.floor(sx - H)), y0 = Math.max(box[1], Math.floor(sy - H)), w = Math.min(box[0] + box[2], Math.ceil(sx + H)) - x0, h = Math.min(box[1] + box[3], Math.ceil(sy + H)) - y0;
         if (w < 8 || h < 8) continue;
         pc.setTransform(1, 0, 0, 1, 0, 0); pc.globalCompositeOperation = 'source-over'; pc.globalAlpha = 1; pc.clearRect(x0, y0, w, h); pc.drawImage(ctx.canvas, x0, y0, w, h, x0, y0, w, h);
         const s = b.s * (1 - p);
@@ -13493,7 +13564,7 @@ const RVB = (() => {
       // colour fringing on a heavy blow: the red picture slides one way, the rest the other
       const ca = this.shCA * this.shine.screen;
       if (ca > 0.06) {
-        const off = Math.round(1 + ca * 4);
+        const off = Math.round((1 + ca * 4) * RS);
         pc.setTransform(1, 0, 0, 1, 0, 0); pc.globalAlpha = 1; pc.globalCompositeOperation = 'source-over';
         pc.clearRect(...box); pc.drawImage(ctx.canvas, ...box, ...box);
         pc.globalCompositeOperation = 'darken'; pc.fillStyle = '#FF0000'; pc.fillRect(...box);
@@ -13510,7 +13581,7 @@ const RVB = (() => {
       if (tint) { ctx.fillStyle = tint; ctx.fillRect(...box); }
       if (this.shV > 0.02 && api.makeCanvas) {
         if (!vignetteImg) { vignetteImg = api.makeCanvas(AR.w, AR.h); const g = vignetteImg.getContext('2d'), rg = g.createRadialGradient(AR.w / 2, AR.h / 2, AR.w * 0.28, AR.w / 2, AR.h / 2, AR.w * 0.75); rg.addColorStop(0, 'rgba(0,0,0,0)'); rg.addColorStop(1, 'rgba(0,0,0,0.75)'); g.fillStyle = rg; g.fillRect(0, 0, AR.w, AR.h); }
-        ctx.globalAlpha = clamp(this.shV, 0, 0.8); ctx.drawImage(vignetteImg, bx, by); ctx.globalAlpha = 1;
+        ctx.globalAlpha = clamp(this.shV, 0, 0.8); ctx.drawImage(vignetteImg, box[0], box[1], box[2], box[3]); ctx.globalAlpha = 1;
       }
       if (this.shWhite > 0.05) { ctx.fillStyle = `rgba(235,245,255,${0.6 * this.shWhite})`; ctx.fillRect(...box); }
       ctx.restore();

@@ -2,6 +2,16 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-09 (night): 4K, no lag, labels that stay put
+
+Rellz: "remove all lag, fix all visual errors, make it 4k and 144hz", and "when it does the little text that says stuff like regrouping ... it disappears then reappears ... it should either stay in the same place then fade out or glide with the character". On from the next video. Already-posted videos don't change.
+
+- **4K** (`rules.video.scale` 2): videos are drawn natively at 2160×3840, not stretched up from 1080p: troops, effects, text, the ground, the stains, the background and the shine layers are all drawn at twice the size, so lines and text stay crisp. Even viewers at 1080p benefit, because YouTube encodes 4K uploads at higher quality. Encoded as H.264 High at a constant 60 fps (about 13 Mbps). A video now takes about 20 to 30 minutes to make on GitHub instead of 8, so the job's time limit went from 40 to 100 minutes (slots are 2 hours apart). The thumbnail stays 1080×1920.
+- **Not 144 fps:** YouTube plays at most 60 fps and converts anything higher down on upload, so a 144 fps file would look the same and take 2.4 times as long to make. Videos stay at 60 fps, made as smooth as possible:
+- **No more lag** (`rules.video.smooth`): the battle moves in fixed 1/120 s steps, so in slow motion one step can last several frames. Troops' positions were already drawn in between steps, but their turning and everything timed by the battle clock (attacks, glows, effects) stepped, which made slow motion judder (about 220 frames a video). Now those are drawn in between steps too. The camera shake wobbles smoothly instead of jumping to a new random spot every frame. Heavy blows ease into a quick slow-motion dip instead of freezing for three frames, the big-unit hit-stop is softer, and the final blow's freeze is shorter and softer, so nothing looks like the video has hung. Battles play out exactly the same (tested).
+- **Labels that stay put:** the tribe tags (REGROUP!, SHIELD WALL!, CHARGE!...) followed the tribe's centre, which is only worked out every 1.5 s, so a tag jumped to a new spot mid-way (it looked like it vanished and reappeared), and a new tag could cut an old one off. Now a tag stays where it was called, drifts up a little and fades out there; its spot is settled once, so it never hops to make room; and a tag still showing is never cut short. The small labels over troops (DODGE, PARRY...) already stayed in place.
+- **Visual fixes:** the colour split, radial blur and flashes no longer smear the floating labels (they're applied before the labels are drawn); the glitch and 3D-film effects' offsets scale with 4K; the rim light is only worked out where troops are, and its bands never overlap.
+
 ## 2026-11-08 (midnight): a Short every 2 hours
 
 Rellz: "can you make it upload one now and make it upload every 2 hours a day so 00:00 02:00 04:00".

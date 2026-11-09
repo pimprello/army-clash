@@ -24,7 +24,8 @@ concurrency:
 jobs:
   post:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    # (a 4K video takes about 20 to 30 minutes to make and up to 13 more to upload and set the thumbnail; slots are 2 hours apart)
+    timeout-minutes: 100
     steps:
       - name: Note the start time
         run: echo "START=$(date +%s)" >> "$GITHUB_ENV"
@@ -50,7 +51,7 @@ jobs:
       - run: npm ci
         if: steps.slot.outputs.go == 'yes'
 
-      - name: Make the video (1080x1920, 60 fps, sound)
+      - name: Make the video (4K 2160x3840, 60 fps, sound)
         if: steps.slot.outputs.go == 'yes'
         run: node render.js
 

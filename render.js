@@ -1,4 +1,4 @@
-// Renders one Army Clash Short (team colours from rules.json): 1080x1920, 60 fps, H.264 + AAC sound.
+// Renders one Army Clash Short (team colours from rules.json): 1080x1920 (or 2160x3840 with rules.video.scale 2), 60 fps, H.264 + AAC sound.
 // The battle is paced to end close to rules.video.fightSeconds, and the video ends rules.video.outroSeconds after it does.
 // Output: out/army-clash.mp4 and out/meta.json (title, description and tags for the upload).
 'use strict';
@@ -18,7 +18,10 @@ const { makeTitle, nounOf } = require('./titles.js');
 const chronicle = require('./chronicle.js');
 RVB.makeCanvas = (w, h) => createCanvas(w, h);
 
-const FPS = 60, W = 1080, H = 1920, SR = 48000;
+// rules.video.scale 2 = 4K: everything is laid out in 1080x1920 units and drawn at twice the size (not stretched up).
+// 60 fps is YouTube's highest frame rate (anything faster is converted down on upload).
+const FPS = 60, W = 1080, H = 1920, SR = 48000, RS = Math.max(1, Math.min(2, Number(process.env.SCALE || (JSON.parse(fs.readFileSync(path.join(__dirname, 'rules.json'), 'utf8')).video || {}).scale || 1)));
+RVB.RS = RS;
 // Video length (rules.video): with outroSeconds set, the battle is paced to finish close to fightSeconds and the video ends
 // outroSeconds after the battle does (the safety net calls time 2 s before SECS, so a video is never longer than SECS + 1;
 // with the finale, rules.video.finale, the slow-motion final blow adds about 6 s more and there is no safety net).
@@ -213,7 +216,7 @@ async function main() {
   const tribesOn = rules.tribes && rules.tribes.on;
   const trbOpts = tribesOn ? { tribes: Object.assign({}, rules.tribes, { history: chronicle.history(pastVideos) }) } : {};
   const cmbOpts = combat ? { combat: { armySize: combat.armySize ?? 0.8, hp: combat.hp ?? 1, moves: combat.moves !== false, fewerBullets: combat.fewerBullets !== false, roster: combat.roster !== false, smart: !!combat.smart }, mode: mode || undefined, skins, heroes: mode === 'heroes' ? heroTeam : undefined } : {};
-  const pacing = OUTRO ? { outroSecs: OUTRO, pace: VID.pace !== false } : {};
+  const pacing = Object.assign(OUTRO ? { outroSecs: OUTRO, pace: VID.pace !== false } : {}, VID.smooth ? { smooth: true } : {});
   const UIL = (rules.ui && rules.ui.layout) || 1; // 2 = the Shorts-safe layout (scoreboard on top, tribes strip above YouTube's title)
   const optsFor = mul => ({ target: SECS, fixedLength: SECS, weaponSfx: !!(rules.sound && rules.sound.weapons), ...pacing, swordsmen, crossbowmen, map, doctrines, budgetMul: three ? mul : [bm[0], bm[1] * mul], swordsmenByTeam, extras, extrasByTeam, era, formations, events,
     teams: three ? 3 : 2, dream: !!(wild || custom || three), ...systems, ...cmbOpts, ...trbOpts, ...(UIL >= 2 ? { ui: UIL } : {}), ...(rules.ui && rules.ui.art >= 2 ? { art: rules.ui.art } : {}), ...(rules.ui && rules.ui.anim ? { anim: true } : {}), ...(rules.ui && rules.ui.shine && rules.ui.shine.on ? { shine: rules.ui.shine } : {}), ...(rules.world && rules.world.on ? { world: rules.world } : {}),
@@ -283,15 +286,16 @@ async function main() {
   const synth = new RVB.Synth(SR, MAXFRAMES / FPS + 4);
   synth.reset(seed);
   synth.variety = (rules.sound && rules.sound.variety) || 0;   // rules.json: how much each sound's pitch and volume vary (0 = off)
-  const canvas = createCanvas(W, H);
+  const canvas = createCanvas(W * RS, H * RS);
   const ctx = canvas.getContext('2d');
 
   const silent = path.join(OUT, 'video-only.mp4');
   const enc = ffmpeg([
-    '-f', 'rawvideo', '-pix_fmt', 'bgra', '-s', `${W}x${H}`, '-r', String(FPS), '-i', '-',
+    '-f', 'rawvideo', '-pix_fmt', 'bgra', '-s', `${W * RS}x${H * RS}`, '-r', String(FPS), '-i', '-',
     '-vf', 'scale=out_color_matrix=bt709:out_range=tv,format=yuv420p',
-    '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18', '-maxrate', '12M', '-bufsize', '24M',
-    '-profile:v', 'high', '-level', '4.2', '-g', String(FPS * 2),
+    // (constant 60 fps, every frame kept; a keyframe every 2 s; the bitrate cap scales with the picture)
+    '-c:v', 'libx264', '-preset', 'veryfast', '-crf', RS > 1 ? '19' : '18', '-maxrate', RS > 1 ? '34M' : '12M', '-bufsize', RS > 1 ? '68M' : '24M',
+    '-profile:v', 'high', '-level', RS > 1 ? '5.2' : '4.2', '-g', String(FPS * 2), '-fps_mode', 'cfr',
     '-colorspace', 'bt709', '-color_primaries', 'bt709', '-color_trc', 'bt709', '-color_range', 'tv',
     '-r', String(FPS), silent,
   ]);
@@ -307,12 +311,13 @@ async function main() {
   let thumbBg = null, thumbScore = -1;
   let nFrames = 0;
   for (let i = 0; i < MAXFRAMES; i++) {
+    ctx.setTransform(RS, 0, 0, RS, 0, 0);
     game.draw(ctx);
     // between 30% and 60% of the fight, twice a second: lots of troops on both sides, and neither side clearly ahead
     if (TH.on && game.phase === 'fight' && i % 30 === 0 && game.fightT > thumbEnd * 0.3 && game.fightT < thumbEnd * 0.6) {
       const al = [...Array(game.N).keys()].map(t => game.alive[t]), lo = Math.min(...al), hi = Math.max(...al, 1);
       const sc = (lo / hi) * al.reduce((a, b) => a + b, 0);
-      if (sc > thumbScore) { thumbScore = sc; thumbBg = thumbBg || createCanvas(W, H); thumbBg.getContext('2d').drawImage(canvas, 0, 0); }
+      if (sc > thumbScore) { thumbScore = sc; thumbBg = thumbBg || createCanvas(W, H); thumbBg.getContext('2d').drawImage(canvas, 0, 0, W, H); }
     }
     const frame = canvas.toBuffer('raw');
     if (!enc.p.stdin.write(frame)) await once(enc.p.stdin, 'drain');
@@ -471,7 +476,8 @@ async function main() {
     const tc = createCanvas(W, H), tctx = tc.getContext('2d');
     const sides = ids.map(i => ({ team: i, list: thumbLists[i] || [], label: RVB.docLabel(game.doc[i]), name: ns[i].toUpperCase(), count: game.start[i] }));
     const tag = three ? '1 v 1 v 1' : game.mode && RVB.MODE_HOOK[game.mode] ? RVB.MODE_HOOK[game.mode].replace(/!$/, '') : '';
-    game.drawThumb(tctx, thumbBg || canvas, sides, { tag });
+    if (!thumbBg) { thumbBg = createCanvas(W, H); thumbBg.getContext('2d').drawImage(canvas, 0, 0, W, H); }
+    game.drawThumb(tctx, thumbBg, sides, { tag });
     fs.writeFileSync(path.join(OUT, 'thumb.jpg'), tc.toBuffer('image/jpeg', { quality: 0.9 }));
   }
   const mb = (fs.statSync(final).size / 1048576).toFixed(1);

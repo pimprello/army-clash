@@ -2118,7 +2118,9 @@
     "fightSeconds": 60,
     "outroSeconds": 3,
     "pace": true,
-    "finale": true
+    "finale": true,
+    "smooth": true,
+    "scale": 2
   },
   "thumbnail": {
     "on": true
