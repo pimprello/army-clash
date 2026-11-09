@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 482 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 483 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -52,6 +52,7 @@ Records from 482 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Titles earned (rarest first)
 
 - THRONE WALKER SLAYER: 1
+- ACID LEVIATHAN SLAYER: 1
 - CATAPULT SLAYER: 2
 - GRAVITY TYRANT SLAYER: 3
 - CATHEDRAL SLAYER: 5
@@ -175,6 +176,7 @@ Records from 482 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-09 19:06: The House of the Moon Fox Take the Godboard (first ever win · 28 kills)
 - 2026-11-09 17:00: The Black Bear Clan Take the Desert Well (7th win · 30 kills)
 - 2026-11-09 14:56: The Viper Company Take the Open Plains (3 wins in a row · 39 kills)
 - 2026-11-09 12:40: The Glimmerdeep Kin Take the Overgrown Throne (7th win · 24 kills)
@@ -184,4 +186,3 @@ Records from 482 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-09 04:24: The Stormsail Crew Take the World Furnace (2nd win · 21 kills)
 - 2026-11-09 02:22: The Viper Company Take the Ruined Fort (streak ended · 4th win · 14 kills)
 - 2026-11-09 00:08: The Ash Wolf Clan Take the Frozen End (3 wins in a row · 83 kills)
-- 2026-11-08 22:23: The House of the Red Crane Take the Open Plains (5 wins in a row · 44 kills)
