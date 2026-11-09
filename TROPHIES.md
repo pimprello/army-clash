@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 474 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 475 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -68,8 +68,8 @@ Records from 474 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - IMMORTAL FRAUD SLAYER: 8
 - HYDRA SLAYER: 9
 - FORTRESS SLAYER: 9
-- COLOSSUS SLAYER: 9
 - ELEPHANT SLAYER: 10
+- COLOSSUS SLAYER: 10
 - MECH SLAYER: 10
 - CYCLOPS SLAYER: 11
 - CANNON SLAYER: 13
@@ -152,7 +152,7 @@ Records from 474 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Frostmere Clan | 21 | 9 | 12 | 743 | 1 won | 3 |
 | Mire Witch Coven | 11 | 9 | 2 | 395 | 2 won | 7 |
 | Wildbrook Clan | 22 | 8 | 14 | 820 | 2 won | 2 |
-| Ash Wolf Clan | 17 | 8 | 9 | 719 | 3 won | 3 |
+| Ash Wolf Clan | 18 | 8 | 10 | 738 | 1 lost | 3 |
 | Copper Crown Company | 16 | 8 | 8 | 603 | 1 lost | 3 |
 | Hollowbark Kin | 19 | 8 | 11 | 590 | 1 lost | 3 |
 | Raven Hill Clan | 16 | 8 | 8 | 547 | 1 lost | 5 |
@@ -175,6 +175,7 @@ Records from 474 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-09 02:22: The Viper Company Take the Ruined Fort (streak ended · 4th win · 14 kills)
 - 2026-11-09 00:08: The Ash Wolf Clan Take the Frozen End (3 wins in a row · 83 kills)
 - 2026-11-08 22:23: The House of the Red Crane Take the Open Plains (5 wins in a row · 44 kills)
 - 2026-11-08 18:22: The Ashmantle Kin Take the Quarry (revenge denied · 4th win · 44 kills)
@@ -184,4 +185,3 @@ Records from 474 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 21:06: The Mustang Battalion Take the Treasure Cove (5th win · 57 kills)
 - 2026-11-07 20:54: The Crew of the Iron Anchor Take the Haunted Crypt (3 wins in a row · 28 kills)
 - 2026-11-07 20:36: The Silverbough Circle Take the Castle (11th win · 47 kills)
-- 2026-11-07 20:22: The House of the White Heron Take the Open Plains (2nd win · 47 kills)
