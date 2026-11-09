@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 481 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 482 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -84,12 +84,12 @@ Records from 481 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Mutations (rarest first)
 
 - vampiric: 9
-- wings: 34
+- wings: 35
 - spellward: 44
 - venom: 76
 - swift: 76
-- spikes: 84
-- regen: 95
+- spikes: 85
+- regen: 96
 
 ## Big moments
 
@@ -157,10 +157,10 @@ Records from 481 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Copper Crown Company | 16 | 8 | 8 | 603 | 1 lost | 3 |
 | Hollowbark Kin | 19 | 8 | 11 | 590 | 1 lost | 3 |
 | Raven Hill Clan | 16 | 8 | 8 | 547 | 1 lost | 5 |
+| Golden Lion Order | 14 | 8 | 6 | 448 | 2 won | 3 |
 | Highmoor Clan | 13 | 8 | 5 | 425 | 1 lost | 7 |
 | Order of the Silver Stag | 17 | 7 | 10 | 717 | 3 lost | 3 |
 | Storm Tower Order | 19 | 7 | 12 | 713 | 3 lost | 3 |
-| Stormhorn Tribe | 12 | 7 | 5 | 596 | 1 lost | 4 |
 
 ### Great rivalries
 
@@ -175,6 +175,7 @@ Records from 481 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-09 17:00: The Black Bear Clan Take the Desert Well (7th win · 30 kills)
 - 2026-11-09 14:56: The Viper Company Take the Open Plains (3 wins in a row · 39 kills)
 - 2026-11-09 12:40: The Glimmerdeep Kin Take the Overgrown Throne (7th win · 24 kills)
 - 2026-11-09 10:42: The Frostwhisper Tribe Take the Old Forest (4 wins in a row · 26 kills)
@@ -184,4 +185,3 @@ Records from 481 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-09 02:22: The Viper Company Take the Ruined Fort (streak ended · 4th win · 14 kills)
 - 2026-11-09 00:08: The Ash Wolf Clan Take the Frozen End (3 wins in a row · 83 kills)
 - 2026-11-08 22:23: The House of the Red Crane Take the Open Plains (5 wins in a row · 44 kills)
-- 2026-11-08 18:22: The Ashmantle Kin Take the Quarry (revenge denied · 4th win · 44 kills)
