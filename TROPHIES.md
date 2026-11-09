@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 477 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 478 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -88,7 +88,7 @@ Records from 477 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 44
 - venom: 76
 - swift: 76
-- spikes: 83
+- spikes: 84
 - regen: 95
 
 ## Big moments
@@ -175,6 +175,7 @@ Records from 477 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-09 08:14: The Copperhead Battalion Take the City (revenge! · 6th win · 13 kills)
 - 2026-11-09 06:51: The Frostwhisper Tribe Take the Open Plains (3 wins in a row · 73 kills)
 - 2026-11-09 04:24: The Stormsail Crew Take the World Furnace (2nd win · 21 kills)
 - 2026-11-09 02:22: The Viper Company Take the Ruined Fort (streak ended · 4th win · 14 kills)
@@ -184,4 +185,3 @@ Records from 477 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-08 14:46: The Ash Wolf Clan Take the Reactor (revenge denied · 7th win · 153 kills)
 - 2026-11-08 10:26: The Copper Crown Company Take the Overgrown Throne (8th win · 78 kills)
 - 2026-11-07 22:18: The Glimmerdeep Kin Take the Open Plains (6th win · 29 kills)
-- 2026-11-07 21:06: The Mustang Battalion Take the Treasure Cove (5th win · 57 kills)
