@@ -386,7 +386,7 @@ const RVB = (() => {
       this.frameNo++;
       if (this.heldB && this.t >= 4.4) { const h = this.heldB; this.heldB = null; for (const b of h) this.banner(b.text, b.color, b.life); }
       for (const p of this.parts) { p.age += dt; p.x += p.vx * dt; p.y += p.vy * dt; p.vy += p.grav * dt; const dr = p.drag ?? 2.2; p.vx *= 1 - dr * dt; p.vy *= 1 - dr * dt; }
-      this.parts = this.parts.filter(p => p.age < p.life);
+      this.parts = this.parts.filter(p => p.age < p.life && (p.confetti || (p.x > AR.x - 60 && p.x < AR.x + AR.w + 60 && p.y > AR.y - 90 && p.y < AR.y + AR.h + 60)));
       for (const f of this.floats) f.age += dt;
       this.floats = this.floats.filter(f => f.age < f.life);
       for (const b of this.banners) b.age += dt;
@@ -2132,14 +2132,20 @@ const RVB = (() => {
       // opts.extrasByTeam = [[...top extras], [...bottom extras]] gives each side its own extra troops
       this.extrasT = this.opts.extrasByTeam ? this.opts.extrasByTeam.map(l => (l || []).filter(e => UNIT[e.type] && e.share > 0)) : null;
       this.initSys();
+      // rules.titans (two or three titans in every army, the graveyard spell) and rules.affinity (troops fed by their element)
+      if (this.opts.titans && this.opts.titans.on) { this.titansOn = true; this.graveOn = this.opts.titans.graveyard !== false; this.ext = true; this.g5 = { pools: [], fx: [], globs: [], graves: [] }; }
+      if (this.opts.affinity && this.opts.affinity.on) { const A = this.opts.affinity; this.affOn = true; this.aff = { heal: A.heal ?? 1, boost: A.boost ?? 1.3, speed: A.speed ?? 1.15, seconds: A.seconds ?? 3 }; this.ext = true; }
       for (let team = 0; team < this.N; team++) {
         // opts.budgetMul = [top, bottom] scales each army's size (used to balance fixed match-ups).
         const bm = this.opts.budgetMul ? this.opts.budgetMul[team] : 1;
         const list = this.recruit(this.doc[team], team, budget * bm * (F ? this.doc[team].budget60 : this.doc[team].budget) * R.range(0.95, 1.05) * (this.N === 3 ? 0.62 : 1) * (this.heroTeam === team ? 0.3 : 1));
+        if (this.titansOn && this.heroTeam !== team) this.addTitans(list, team);
         this.start[team] = list.length;
         const parts = waveAt.map(() => []).concat([[]]), seen = {};
         for (const k of list) { const i = seen[k] = (seen[k] || 0) + 1; parts[UNIT[k].rank === 0 ? 0 : waveOf(i)].push(k); }
         this.deploy(team, parts[0], 'front');
+        // (rules.titans.hp: with two or three titans an army, each is a little lighter, so battles still end with a final blow)
+        if (this.titansOn) for (const u of this.units) if (u.team === team && !u.t5hp && isTitan(u.type)) { u.t5hp = 1; u.max *= this.opts.titans.hp ?? 0.8; u.hp = u.max; }
         for (let w = 1; w < parts.length; w++) if (parts[w].length) { this.waves[team].push({ at: waveAt[w - 1], list: parts[w] }); this.reserve[team] += parts[w].length; }
       }
       this.lastTen = Array(this.N).fill(false);
@@ -3090,12 +3096,14 @@ const RVB = (() => {
     // A grenade or shell lands: damage every enemy in the blast, more near the middle.
     explode(a) {
       if (this.shine) { this._shXk = a.kind; this._shBx = a.x; this._shBy = a.y; }
+      if (this.affOn) this._elK = AFF_XK[a.kind] || null;
       const big = a.kind === 'shell' || a.kind === 'cannonball' || a.kind === 'bomb' || a.kind === 'meteor' || a.kind === 'lightning' || a.kind === 'boulder' || a.kind === 'slam';
       for (const o of this.units) {
         if (o.dead || o.team === a.team || o.phased) continue;
         const d = Math.hypot(o.x - a.x, o.y - a.y), reach = a.splash + o.r;
         if (d < reach) { if (this.ext) this._kind = 'blast'; this.damage(o, a.dmg * (1 - 0.5 * d / reach) * Math.max(UNIT[o.type].armor, 0.5) * this.dmgMul, a.from); if (this.ext && a.fx) this.hitFx(o, a.fx, a.from); }
       }
+      if (this.affOn) this._elK = null;
       if (this.shine) { this._shXk = null; this._shBx = undefined; this.shineBoom(a); }
       if (this.ext) this.explodeFx(a);
       if (this.camEv) this.camEv.push({ type: 'blast', x: a.x, y: a.y, kind: a.kind });
@@ -3129,6 +3137,8 @@ const RVB = (() => {
     // colour for a banner about a fallen troop: the other side's colour (in three-way battles, the killer's)
     foeCol(u, from) { return this.N === 2 && u.team < 2 ? TEAMS[1 - u.team].c : from && TEAMS[from.team] ? TEAMS[from.team].c : COL.gold; }
     damage(u, dmg, from) {
+      // (rules.affinity) a blast of a troop's own element feeds it instead; a fed troop hits harder
+      if (this.affOn) { if (this._elK && !u.dead && this.affBlast(u, dmg)) return; if (from && from.affT > this.fightT) dmg *= this.aff.boost; }
       const kind0 = this._kind;
       if (this.paceK !== undefined) dmg *= this.paceK;
       if (this.buffs) { if (from && this.buffOn(from.team, 'rage')) dmg *= 1.5; if (this.buffOn(u.team, 'shield')) dmg *= 0.5; }
@@ -3142,6 +3152,7 @@ const RVB = (() => {
       if (u.hp <= 0 && !u.dead) {
         if (this.ext && this.cheatDeath(u, from)) return;
         u.dead = true;
+        if (this.titansOn) this.titanFell(u);
         if (!UNIT[u.type].uncounted) this.alive[u.team]--;
         if (from && from.team !== u.team && !UNIT[u.type].decoy) {
           from.kills = (from.kills || 0) + 1;
@@ -3602,10 +3613,22 @@ const RVB = (() => {
     // particles live in the arena, so they follow the camera (confetti falls over the whole screen and doesn't)
     drawFX(ctx) {
       // (rules.ui.shine) the screen effects (colour split, radial blur, flashes) go on before the labels, so labels stay sharp
-      if (this.shine && !this.camOn()) { const fl = this.floats; this.floats = []; super.drawFX(ctx); this.floats = fl; this.shinePost(ctx); if (fl.length) { this.drawFloats(ctx, null); ctx.textBaseline = 'alphabetic'; } return; }
-      if (!this.camOn()) return super.drawFX(ctx);
+      // (particles stay inside the battlefield: sparks and shrapnel used to fly out over the frame and the edge of the screen,
+      // Rellz 2026-11-09 "things leaving the screen like crazy"; confetti still falls over the whole screen)
+      // (and under the film bars, not over them)
+      const cb = this.cine ? clamp(this.cine.bars, 0, 1) : 0, bh = cb > 0.01 ? 122 * (cb * cb * (3 - 2 * cb)) : 0;
+      const inArena = () => { ctx.save(); roundRect(ctx, AR.x + this.shakeX, AR.y + this.shakeY, AR.w, AR.h, 18); ctx.clip(); if (bh) { ctx.beginPath(); ctx.rect(AR.x + this.shakeX, AR.y + this.shakeY + bh, AR.w, AR.h - 2 * bh); ctx.clip(); } };
+      if (!this.camOn()) {
+        const all = this.parts, fl = this.floats;
+        inArena(); this.parts = all.filter(p => !p.confetti); this.floats = []; super.drawFX(ctx); ctx.restore();
+        this.parts = all.filter(p => p.confetti); if (this.parts.length) super.drawFX(ctx);
+        this.parts = all; this.floats = fl;
+        if (this.shine) this.shinePost(ctx);
+        if (fl.length) { this.drawFloats(ctx, null); ctx.textBaseline = 'alphabetic'; }
+        return;
+      }
       const all = this.parts, fl = this.floats;
-      ctx.save(); roundRect(ctx, AR.x + this.shakeX, AR.y + this.shakeY, AR.w, AR.h, 18); ctx.clip();
+      inArena();
       ctx.translate(this.shakeX, this.shakeY); this.applyCam(ctx);
       this.parts = all.filter(p => !p.confetti); this.floats = []; super.drawFX(ctx);
       ctx.restore();
@@ -3793,9 +3816,61 @@ const RVB = (() => {
           const m = ctx.getTransform(), ox = m.b || m.c ? 0 : (Math.round(m.e + AR.x * m.a) - (m.e + AR.x * m.a)) / m.a, oy = m.b || m.c ? 0 : (Math.round(m.f + AR.y * m.d) - (m.f + AR.y * m.d)) / m.d;
           ctx.drawImage(img, AR.x + (api.RS > 1 ? ox : 0), AR.y + (api.RS > 1 ? oy : 0), AR.w, AR.h); return;
         }
-        const c = this.cam, vw = AR.w / c.z, vh = AR.h / c.z, sx = (c.x - vw / 2 - AR.x) * S, sy = (c.y - vh / 2 - AR.y) * S;
-        ctx.drawImage(img, sx, sy, vw * S, vh * S, AR.x, AR.y, AR.w, AR.h);
+        const c = this.cam, vw = AR.w / c.z, vh = AR.h / c.z, x0 = c.x - vw / 2 - AR.x, y0 = c.y - vh / 2 - AR.y;
+        if (x0 >= 0 && y0 >= 0 && x0 + vw <= AR.w && y0 + vh <= AR.h) { ctx.drawImage(img, x0 * S, y0 * S, vw * S, vh * S, AR.x, AR.y, AR.w, AR.h); return; }
+        // (the finale's view can go past the arena's edge: copy only the part of the layer that's in view)
+        const cx0 = Math.max(0, x0), cy0 = Math.max(0, y0), cx1 = Math.min(AR.w, x0 + vw), cy1 = Math.min(AR.h, y0 + vh), kx = AR.w / vw, ky = AR.h / vh;
+        if (cx1 > cx0 && cy1 > cy0) ctx.drawImage(img, cx0 * S, cy0 * S, (cx1 - cx0) * S, (cy1 - cy0) * S, AR.x + (cx0 - x0) * kx, AR.y + (cy0 - y0) * ky, (cx1 - cx0) * kx, (cy1 - cy0) * ky);
       };
+      const camOut = zoom && (Math.abs(this.cam.x - (AR.x + AR.w / 2)) > AR.w / 2 - AR.w / 2 / this.cam.z + 0.5 || Math.abs(this.cam.y - (AR.y + AR.h / 2)) > AR.h / 2 - AR.h / 2 / this.cam.z + 0.5);
+      this._camOut = camOut;
+      // (with the view past the edge, tints that cover the battlefield, such as night, sandstorm or a flash, cover the whole
+      // view, so they don't stop at the old border either; everything is still clipped to the battlefield on screen)
+      const fr0 = camOut ? ctx.fillRect : null;
+      if (camOut) ctx.fillRect = function (x, y, w, h) { return x === AR.x && y === AR.y && w === AR.w && h === AR.h ? fr0.call(this, AR.x - AR.w, AR.y - AR.h, AR.w * 3, AR.h * 3) : fr0.call(this, x, y, w, h); };
+      if (camOut) {
+        // past the arena's edge the floor simply carries on (mirrored, so its texture and colours meet without a seam, with the
+        // grid kept every 60 px), so a close-up at the edge shows no border at all (Rellz 2026-11-09: "make the map kind of
+        // infinite so there won't be the weird borders")
+        const th = MAP_THEME[this.opts.map] || MAP_THEME.default;
+        ctx.fillStyle = th.floor; ctx.fillRect(AR.x - 2, AR.y - 2, AR.w + 4, AR.h + 4);
+        if ('patternQuality' in ctx) ctx.patternQuality = 'bilinear';
+        const img = this.ground ? (hi ? this.hiLayer('ground') : this.ground) : null;
+        if (img) {
+          const c = this.cam, vw = AR.w / c.z, vh = AR.h / c.z, vx0 = c.x - vw / 2, vy0 = c.y - vh / 2;
+          ctx.save(); this.applyCam(ctx);
+          // the floor, its stains and the map's decorations, each mirrored across the edges that are in view
+          // (only the part of each mirrored copy that's in view is copied: copying whole layers made these frames six times slower)
+          const mirror = im => {
+            const S = im.width / AR.w, W = AR.w, H = AR.h;
+            for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) {
+              if (!dx && !dy) continue;
+              const x0 = AR.x + dx * W, y0 = AR.y + dy * H;
+              const wx0 = Math.max(x0, vx0) - AR.x, wx1 = Math.min(x0 + W, vx0 + vw) - AR.x, wy0 = Math.max(y0, vy0) - AR.y, wy1 = Math.min(y0 + H, vy0 + vh) - AR.y;
+              if (wx1 <= wx0 + 0.5 || wy1 <= wy0 + 0.5) continue;
+              // the visible part in the layer's own (unmirrored) coordinates
+              const u0 = clamp(dx < 0 ? -wx1 : dx > 0 ? 2 * W - wx1 : wx0, 0, W), u1 = clamp(dx < 0 ? -wx0 : dx > 0 ? 2 * W - wx0 : wx1, 0, W);
+              const v0 = clamp(dy < 0 ? -wy1 : dy > 0 ? 2 * H - wy1 : wy0, 0, H), v1 = clamp(dy < 0 ? -wy0 : dy > 0 ? 2 * H - wy0 : wy1, 0, H);
+              if (u1 - u0 < 0.5 || v1 - v0 < 0.5) continue;
+              ctx.save(); ctx.translate(dx ? AR.x + (dx > 0 ? 2 * W : 0) : AR.x, dy ? AR.y + (dy > 0 ? 2 * H : 0) : AR.y); ctx.scale(dx ? -1 : 1, dy ? -1 : 1);
+              ctx.drawImage(im, u0 * S, v0 * S, (u1 - u0) * S, (v1 - v0) * S, u0, v0, u1 - u0, v1 - v0); ctx.restore();
+            }
+          };
+          mirror(img);
+          if (this.stains) mirror(this.stains);
+          if ((this.obstacles.length || this.decor.length) && api.makeCanvas) {
+            if (!this.mapLayer) { this.mapLayer = api.makeCanvas(AR.w, AR.h); this.paintMap(this.mapLayer, 1); }
+            mirror(hi ? this.hiLayer('map') : this.mapLayer);
+          }
+          if (th.grid) {
+            // (the arena's own grid has no line on its edges: one just outside each edge keeps the spacing even)
+            ctx.fillStyle = th.grid;
+            ctx.fillRect(AR.x - 2, vy0 - 10, 2, vh + 20); ctx.fillRect(AR.x + AR.w, vy0 - 10, 2, vh + 20);
+            ctx.fillRect(vx0 - 10, AR.y - 2, vw + 20, 2); ctx.fillRect(vx0 - 10, AR.y + AR.h, vw + 20, 2);
+          }
+          ctx.restore();
+        }
+      }
       if (zoom && 'patternQuality' in ctx) ctx.patternQuality = 'bilinear';
       if (this.ground) blit(hi ? this.hiLayer('ground') : this.ground, hi ? 2 : 1);
       else { ctx.fillStyle = (MAP_THEME[this.opts.map] || MAP_THEME.default).floor; ctx.fillRect(AR.x, AR.y, AR.w, AR.h); }
@@ -3906,6 +3981,7 @@ const RVB = (() => {
       if (ART) this.drawGround2(ctx);
       if (this.cls) this.drawClassFx(ctx, drawOrder, false);
       if (this.c4on) this.drawCast4Ground(ctx);
+      if (this.g5) this.drawCast5Ground(ctx);
       if (this.market2) this.drawMarketFx(ctx, false);
       if (ART) {
         ctx.beginPath();
@@ -3980,6 +4056,7 @@ const RVB = (() => {
       if (SH) { this.shineEnd(mainCtx, ctx); ctx = mainCtx; }
       if (this.cast3on) this.drawCast3Fx(ctx);
       if (this.c4on) this.drawCast4Fx(ctx);
+      if (this.g5) this.drawCast5Fx(ctx);
       if (this.market2) this.drawMarketFx(ctx, true);
       if (this.anim) this.drawAnimFx(ctx, drawOrder);
       if (this.slashes) this.drawSlashes(ctx);
@@ -4009,6 +4086,7 @@ const RVB = (() => {
       if (this.wq) this.worldPost(ctx);
       if (this.d3T > this.fightT && this.phase === 'fight') this.draw3D(ctx);
       if (this.cine) this.drawCine(ctx);
+      if (fr0) ctx.fillRect = fr0;
       ctx.restore();
       ctx.restore();
       if (between) {
@@ -4656,15 +4734,18 @@ const RVB = (() => {
           const F = this.fin; bars = 1; vig = sh.vig;
           if (g.phase === 'fight') {
             const left = F.t - g.fightT, v = F.how === 'kill' ? this.finUnit(F.uid) : null, kl = v ? this.finUnit(F.by) : null;
-            if (v) { tx = kl && Math.hypot(kl.x - v.x, kl.y - v.y) < 260 ? v.x * 0.62 + kl.x * 0.38 : v.x; ty = kl && Math.hypot(kl.x - v.x, kl.y - v.y) < 260 ? v.y * 0.62 + kl.y * 0.38 : v.y; }
+            // the troop about to be killed stays at the middle of the picture (the killer only pulls the framing a little), and the
+            // camera may go past the edge of the arena to keep it there (Rellz: "the person getting killed always mostly near the
+            // centre"); the closer zoom depends on its size
+            if (v) { const near = kl && Math.hypot(kl.x - v.x, kl.y - v.y) < 220; tx = near ? v.x * 0.86 + kl.x * 0.14 : v.x; ty = near ? v.y * 0.86 + kl.y * 0.14 : v.y; this.finZ = clamp(3.25 - ((v.r || 12) - 12) * 0.03, 2.3, 3.25); }
             else if (F.how === 'kill') { tx = F.x; ty = F.y; } else { const h = this.hotspot(); tx = h.x; ty = h.y; }
             const close = F.how === 'kill' && left < FIN_CLOSE;
-            tz = F.how === 'kill' ? (close ? 2.65 : 2.15) : 1.6; spd = close ? 6 : 4.5; zspd = close ? 4 : 2.6;
+            tz = F.how === 'kill' ? (close ? (this.finZ || 2.9) : 2.3) : 1.6; spd = close ? 8 : 5; zspd = close ? 4.5 : 2.8;
             tts = F.how === 'kill' ? (close ? FIN_SLOW2 : FIN_SLOW1) : FIN_SLOW1; tsRate = close ? 12 : 8;
           } else {
             // the hold: nearly frozen on the final blow, then slowly playing out while the camera eases back a little
             const a = this.t - this.finEnd;
-            tx = this.finX; ty = this.finY; tz = g.endHow === 'kill' ? 2.7 - 0.45 * clamp(a / FIN_HOLD, 0, 1) : 1.5; spd = 5; zspd = 2.2; vig = 0.6;
+            tx = this.finX; ty = this.finY; tz = g.endHow === 'kill' ? (this.finZ || 2.9) - 0.45 * clamp(a / FIN_HOLD, 0, 1) : 1.5; spd = 6; zspd = 2.2; vig = 0.6;
             // (rules.video.smooth: a shorter, softer freeze, so the moment never looks like the video has hung)
             const sm = g.opts.smooth, fz = sm ? 0.14 : FIN_FREEZE;
             tts = a < fz ? (sm ? 0.08 : 0.03) : (sm ? 0.3 : 0.22); tsRate = a < fz ? (sm ? 24 : 40) : 6;
@@ -4702,9 +4783,14 @@ const RVB = (() => {
       this.lz += (Math.log(tz) - this.lz) * (1 - Math.exp(-zspd * dt));
       cam.z = Math.exp(this.lz); if (cam.z < 1.0015) cam.z = 1;
       const hv = AR.w / 2 / cam.z, k = 1 - Math.exp(-spd * dt);
-      tx = clamp(tx, AR.x + hv, AR.x + AR.w - hv); ty = clamp(ty, AR.y + hv, AR.y + AR.h - hv);
+      // (during the finale the view may go nearly all the way past the arena's edge, where the floor carries on, so the final
+      // blow is centred even at the edge; afterwards that allowance eases back to nothing, so the camera glides back in instead of jumping)
+      const ovT = sh && sh.kind === 'finale' && g.endHow !== 'time' ? 0.95 : 0;
+      this.ovr = (this.ovr || 0) + (ovT - (this.ovr || 0)) * (1 - Math.exp(-(ovT > (this.ovr || 0) ? 6 : 2.5) * dt));
+      const hm = hv * (1 - this.ovr);
+      tx = clamp(tx, AR.x + hm, AR.x + AR.w - hm); ty = clamp(ty, AR.y + hm, AR.y + AR.h - hm);
       cam.x += (tx - cam.x) * k; cam.y += (ty - cam.y) * k;
-      cam.x = clamp(cam.x, AR.x + hv, AR.x + AR.w - hv); cam.y = clamp(cam.y, AR.y + hv, AR.y + AR.h - hv);
+      cam.x = clamp(cam.x, AR.x + hm, AR.x + AR.w - hm); cam.y = clamp(cam.y, AR.y + hm, AR.y + AR.h - hm);
       const c = g.cine;
       c.bars += (bars - c.bars) * (1 - Math.exp(-(bars > c.bars ? 7 : 4) * dt));
       c.vig += (vig - c.vig) * (1 - Math.exp(-5 * dt));
@@ -5329,6 +5415,7 @@ const RVB = (() => {
     // statuses, ranks and titles drawn over a troop
     drawStatus(ctx, u, x, y, tm) {
       const T = this.fightT, t = this.t, U = UNIT[u.type], r = u.r;
+      if (this.affOn && u.affT > T) this.drawAff(ctx, u, x, y);
       if (u.burnT > T && !U.fireproof) for (let k = 0; k < 3; k++) { const a = t * 9 + k * 2.1 + u.gait, fl = 0.6 + 0.4 * Math.sin(t * 17 + k), bx = x + Math.cos(a) * r * 0.6, by = y - r * 0.2 + Math.sin(a) * r * 0.4; disc(ctx, bx, by, 4.5 * fl + 1.5, 'rgba(255,140,40,0.85)', 0); disc(ctx, bx, by - 2, 2.2 * fl, '#FFE27A', 0); }
       if (u.poisT > T) { ctx.fillStyle = 'rgba(124,255,107,0.75)'; for (let k = 0; k < 3; k++) { const p = (t * 1.4 + k / 3 + u.gait) % 1; ctx.beginPath(); ctx.arc(x + Math.sin(k * 2.3 + u.gait) * r * 0.6, y - r * 0.2 - p * r * 1.2, 2.5 * (1 - p) + 1, 0, TAU); ctx.fill(); } }
       if (u.slowT > T && u.slowK < 0.75) { ctx.beginPath(); ctx.arc(x, y, r + 3, 0, TAU); ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(160,220,255,0.75)'; ctx.stroke(); }
@@ -5558,7 +5645,9 @@ const RVB = (() => {
           const x0 = AR.x + s.c * 120, y0 = AR.y + s.r * 120;
           if (s.kind === 'zap' && !s.hit && T >= s.at) {
             s.hit = true;
+            if (this.affOn) this._elK = 'zap';
             for (const o of this.near(x0 + 60, y0 + 60, 90)) if (o.x > x0 && o.x < x0 + 120 && o.y > y0 && o.y < y0 + 120) { this._kind = 'blast'; this.damage(o, 7 * Math.max(UNIT[o.type].armor, 0.6), null); }
+            if (this.affOn) this._elK = null;
             this.burst(x0 + 60, y0 + 60, '#BFE6FF', 10, 300, 0.4, 7); this.snd('thunder', { pan: (x0 + 60 - AR.x) / AR.w * 1.4 - 0.7 });
           }
           if (s.kind === 'boost' && T >= s.at && T < s.end) for (const o of this.near(x0 + 60, y0 + 60, 90)) if (o.x > x0 && o.x < x0 + 120 && o.y > y0 && o.y < y0 + 120) o.tileT = T + 2;
@@ -5575,7 +5664,10 @@ const RVB = (() => {
           if (!this.lavaSaid) { this.lavaSaid = true; this.bannerQ.push({ at: T + 1.6, text: 'THE LAVA FLOWS!', col: '#FF6B3D' }); }
         }
         for (const l of rv.list) if (T >= l.warn && T < l.end) for (const o of this.units) {
-          if (o.dead || o.flying || UNIT[o.type].fireproof || Math.abs(o.x - l.x) > l.w / 2 + o.r * 0.5) continue;
+          if (o.dead || o.flying || Math.abs(o.x - l.x) > l.w / 2 + o.r * 0.5) continue;
+          // (rules.affinity) fire troops wade through the lava and come out stronger
+          if (this.affOn && this.affOf(o) === 'fire') { this.affFeed(o, 6 * h * this.hpScale, 'fire', 'LAVA'); continue; }
+          if (UNIT[o.type].fireproof) continue;
           this.dot(o, 6 * h * this.hpScale, null); this.slowDown(o, 0.7, 0.3);
         }
       }
@@ -5590,7 +5682,7 @@ const RVB = (() => {
             if (n === 4) { const hx = AR.x + ((key / 64 | 0) + 0.5) * 80, hy = AR.y + (key % 64 + 0.5) * 80; this.holes.push({ x: hx, y: hy, r: 38, t0: T }); this.burst(hx, hy, '#DCEBFA', 14, 260, 0.6, 7); this.snd('stone', { pan: (hx - AR.x) / AR.w * 1.4 - 0.7 }); if (!this.iceSaid) { this.iceSaid = true; this.banner('THE ICE BREAKS!', '#BFE6FF', 1.4); } }
           }
         }
-        for (const hl of this.holes) for (const o of this.near(hl.x, hl.y, hl.r)) if (!o.flying) { this.dot(o, 5 * h * this.hpScale, null); this.slowDown(o, 0.45, 0.3); }
+        for (const hl of this.holes) for (const o of this.near(hl.x, hl.y, hl.r)) if (!o.flying) { if (this.affOn && this.affOf(o) === 'ice') { this.affFeed(o, 5 * h * this.hpScale, 'ice'); continue; } this.dot(o, 5 * h * this.hpScale, null); this.slowDown(o, 0.45, 0.3); }
       }
       if (m.bones) {
         // the Titan's Grave: the giant's ribs give cover, and every so often a pair of them gives way
@@ -6031,6 +6123,7 @@ const RVB = (() => {
       if (U.abil2) this.extUnit2(u, U);
       if (U.abil3) this.extUnit3(u, U);
       if (U.abil4 || (G4UP[u.type] && this.opts.roster && this.opts.roster.on)) this.extUnit4(u, U);
+      if (U.abil5) this.extUnit5(u, U);
       if (this.cmb || this.heroTeam >= 0) this.combatUnit(u, U);
       if (this.tribes) this.tribeUnit(u, U);
       if (this.sys && this.sys.traits && U.rank > 0 && !U.uncounted && this.SR.chance(this.sys.traits)) u.trait = this.SR.pick(['coward', 'explosive', 'vampiric', 'undying']);
@@ -6074,7 +6167,9 @@ const RVB = (() => {
       if (by && by.mut === 'venom') this.poison(o, 0.8, 3, by);
     },
     // damage over time skips armour, crits and the white flash
-    dot(o, amt, by) {
+    dot(o, amt, by, el) {
+      // (rules.affinity) lava, fire, acid, poison and ice feed a troop of that element instead of hurting it
+      if (el && this.affOn && this.affOf(o) === el) { this.affFeed(o, amt, el, this._affW); return; }
       o.hp -= amt;
       if (o.hp <= 0 && !o.dead) { this._dot = true; this.damage(o, 0.01, by || null); this._dot = false; }
     },
@@ -6198,7 +6293,9 @@ const RVB = (() => {
       if (this.cls) k *= u.clsSpd || 1;
       if (this.c4on && u.ordT > T && u.ord === 'CHARGE') k *= 1.25;
       if (u.slowT > T) k *= u.slowK;
-      if (u.poisT > T) k *= 0.85;
+      if (u.poisT > T && !(this.affOn && u.affEl === 'acid' && u.affT > T)) k *= 0.85;
+      if (this.affOn && u.affT > T) k *= this.aff.speed;
+      if (this.huntTeam !== undefined && u.team !== this.huntTeam && u.team <= 2) k *= 1.8;
       if (u.panicT > T || (this.panic[u.team] > T && !(u.crownT > T))) k *= 0.8;
       if (this.mod === 'fast') k *= 1.5;
       if (this.turboT > T) k *= 1.3;
@@ -6514,11 +6611,12 @@ const RVB = (() => {
         if (T >= f.at) this.vanish(u);
         return true;
       }
-      if (u.burnT > T) { if (!U.fireproof) this.dot(u, u.burnD * h * (this.weather === 'rain' ? 0.5 : 1) * (U.fireweak || 1), u.burnBy); if (u.dead) return true; }
-      if (u.poisT > T) { this.dot(u, u.poisD * h, u.poisBy); if (u.dead) return true; }
+      if (u.burnT > T) { if (!U.fireproof) this.dot(u, u.burnD * h * (this.weather === 'rain' ? 0.5 : 1) * (U.fireweak || 1), u.burnBy, 'fire'); if (u.dead) return true; }
+      if (u.poisT > T) { this.dot(u, u.poisD * h, u.poisBy, 'acid'); if (u.dead) return true; }
       const rg = (U.regen || 0) + (u.regen || 0);
       if (rg && !(u.burnT > T) && u.hp < u.max) { this.heal(u, rg * h * this.hpScale); if (u.dead) return true; }
       if (U.decoy) { if (T > u.decoyEnd) this.vanish(u); return true; }
+      if (this.affOn && u.frozeT > T && this.affOf(u) === 'ice') { u.frozeT = 0; u.slowT = 0; this.affFeed(u, u.max * 0.08, 'ice'); }
       if (u.frozeT > T) { u.vx = 0; u.vy = 0; return true; }
       if ((u.grabbed || u.thrown || u.ghostEnd || u.stoneT || u.asleep || u.charmT) && this.preUnit2(u, U, h)) return true;
       if (u.sheepT > T) {
@@ -6552,6 +6650,7 @@ const RVB = (() => {
       if (U.abil2 && !u.dead) this.ability2(u, U, h, t);
       if (U.abil3 && !u.dead && this.ability3(u, U, h, t)) return true;
       if ((U.abil4 || u.g4) && !u.dead && this.ability4(u, U, h, t)) return true;
+      if (U.abil5 && !u.dead && this.ability5(u, U, h, t)) return true;
       return u.dead;
     },
     ability(u, U, h, t) {
@@ -6864,6 +6963,7 @@ const RVB = (() => {
       if (this.swarms) this.cast3Tick(h);
       if (this.c4on) this.cast4Tick(h);
       if (this.market2) this.market2Tick();
+      if (this.g5 || this.titansOn) this.cast5Tick(h);
     },
     refreshAuras() {
       const T = this.fightT;
@@ -6989,7 +7089,9 @@ const RVB = (() => {
       const T = this.fightT, L = this.lava, k = clamp((T - L.t0) / L.dur, 0, 1), w = L.max * k * k * (3 - 2 * k);
       L.w = w;
       for (const o of this.units) {
-        if (o.dead || o.flying || UNIT[o.type].fireproof) continue;
+        if (o.dead || o.flying) continue;
+        if (this.affOn && this.affOf(o) === 'fire') { if (o.x < AR.x + w || o.x > AR.x + AR.w - w) this.affFeed(o, 6 * h * this.hpScale, 'fire', 'LAVA'); continue; }
+        if (UNIT[o.type].fireproof) continue;
         if (o.x < AR.x + w) { this.dot(o, 6 * h * this.hpScale, null); o.x += 70 * h; }
         else if (o.x > AR.x + AR.w - w) { this.dot(o, 6 * h * this.hpScale, null); o.x -= 70 * h; }
       }
@@ -7866,6 +7968,7 @@ const RVB = (() => {
     drawRoster2(ctx, u, x, y, tm) {
       if (CAST3_SET.has(u.type)) return this.drawCast3(ctx, u, x, y, tm);
       if (CAST4_SET.has(u.type)) return this.drawCast4(ctx, u, x, y, tm);
+      if (CAST5_SET.has(u.type)) return this.drawCast5(ctx, u, x, y, tm);
       const r = u.r, f = u.face, fx = Math.cos(f), fy = Math.sin(f), px = -fy, py = fx, INK = COL.ink, T = this.t, lg = u.lunge || 0;
       ctx.lineCap = 'round'; ctx.lineJoin = 'round';
       const cx = x - fx * r * 0.1, cy = y - fy * r * 0.1;
@@ -8972,6 +9075,10 @@ const RVB = (() => {
       // in the last few seconds, a side down to its last few troops is finished off rather than held on to (a wipe-out, not "time")
       const tot = this.totals().slice().sort((a, b) => b - a);
       if (T > end - 5 && tot[1] <= 3) want = Math.max(want, 1.5);
+      // (rules.titans) with titans' big health in play, the last few troops are finished off harder and sooner, so it still ends with a final blow
+      if (this.titansOn && T > end - 8 && tot[1] <= 4) want = Math.max(want, 2.4);
+      // (rules.titans) and the last two or three of an army are hunted down: everyone else closes in on them faster
+      if (this.titansOn) { const tt = this.totals(), wk = ids.filter(t => tt[t] > 0).sort((a, b) => tt[a] - tt[b]); this.huntTeam = T > end - 9 && wk.length === 2 && tt[wk[0]] <= 3 && tt[wk[1]] >= 4 ? wk[0] : undefined; }
       this.paceK = (this.paceK === undefined ? 1 : this.paceK) + (want - (this.paceK === undefined ? 1 : this.paceK)) * 0.5;
     },
   };
@@ -13744,7 +13851,518 @@ const RVB = (() => {
     S.star = { fill: 'rgba(255,255,255,0.95)', q: star };
     return (shStyle.c = S);
   }
-  Object.assign(Army.prototype, ARMY_EXT, ARMY_DRAW, ARMY_MAPS, ARMY_EXT2, ARMY_DRAW2, ARMY_COMBAT, ARMY_TRIBES, ARMY_TRIBES_DRAW, ARMY_PACE, ARMY_UI2, ARMY_WORLD, ARMY_FX2, ARMY_SMART, ARMY_CAST3, ARMY_CAST3_DRAW, ARMY_EVOLVE, ARMY_THUMB, ARMY_NAV, ARMY_MINDS, ARMY_CLASS, ARMY_CAST4, ARMY_MARKET2, ARMY_ANIM, ARMY_SHINE);
+  // ===== fifth batch (rules.titans, rules.affinity): more titans, the graveyard spell, new big creatures, element-loving troops =====
+  // Rellz (2026-11-09): "add more titans in each match like 3 or 2, and if a titan dies their people can buy the grave yard spell
+  // which opens a hole and brings the titan back to life, also add a few more different titans now and other types of big
+  // creatures", and "make it so that some lava troops get stronger in lava instead of losing health also do the same type of
+  // thing for other effects like if ur an acid troop ur stronger in acid".
+  // Old battles never see any of it: the new creatures only join through rules.titans, and every hook checks its rule first.
+  // The titans' picks roll their own dice (seed ^ 0x717A45); everything else here uses no dice and runs on the battle clock.
+  Object.assign(UNIT, {
+    // a giant of cooling rock with lava in its cracks: slams the ground open into pools of lava
+    magmacolossus: { r: 40, hp: 135, dmg: 5, cd: 1.3, reach: 7, splash: 52, speed: 42, cost: 24, rank: 0, armor: 0.45, fireproof: true, erupt: 6 },
+    // a hulking beast of ice: breathes a freezing blast and leaves the ground iced over
+    glaciergiant: { r: 38, hp: 130, dmg: 4.5, cd: 1.4, reach: 7, splash: 48, speed: 42, cost: 22, rank: 0, armor: 0.45, frostbreath: 7 },
+    // an armoured giant with a storm round its head: claps its hands and lightning strikes the nearest enemies
+    stormcolossus: { r: 38, hp: 120, dmg: 4.5, cd: 1.3, reach: 7, splash: 48, speed: 46, cost: 22, rank: 0, armor: 0.5, thunderclap: 6 },
+    // a great serpent: spits globs of acid that leave burning pools
+    acidwyrm: { r: 34, hp: 115, dmg: 3.4, cd: 0.9, reach: 12, speed: 52, cost: 21, rank: 0, armor: 0.5, acidspit: 5 },
+    // a colossal horned beast: charges straight through a line, throwing troops aside
+    ironhorn: { r: 34, hp: 120, dmg: 4.2, cd: 1.2, reach: 6, speed: 54, cost: 20, rank: 0, armor: 0.45, knock: 45, gore: 7 },
+  });
+  const CAST5 = ['magmacolossus', 'glaciergiant', 'stormcolossus', 'acidwyrm', 'ironhorn'];
+  const CAST5_SET = new Set(CAST5);
+  for (const k of CAST5) { const U = UNIT[k]; U.ext = true; U.abil5 = true; ROSTER[k] = 1; HPBAR[k] = 1; LIVING[k] = 1; UNIT_ERA[k] = 'fantasy'; }
+  Object.assign(UNIT_LABEL, { magmacolossus: 'MAGMA COLOSSUS', glaciergiant: 'GLACIER BEHEMOTH', stormcolossus: 'STORM COLOSSUS', acidwyrm: 'ACID LEVIATHAN', ironhorn: 'IRONHORN' });
+  Object.assign(SPEC, { magmacolossus: 'OPENS LAVA POOLS', glaciergiant: 'FREEZING BREATH', stormcolossus: 'CALLS LIGHTNING', acidwyrm: 'SPITS ACID POOLS', ironhorn: 'CHARGES THROUGH LINES' });
+  // every troop needs a class: the three giants are colossi, the serpent and the horned beast behemoths
+  CLASSES.titan.subs.colossus[1].push('magmacolossus', 'glaciergiant', 'stormcolossus');
+  CLASSES.titan.subs.behemoth[1].push('acidwyrm', 'ironhorn');
+  for (const k of ['magmacolossus', 'glaciergiant', 'stormcolossus']) CLASS_OF[k] = ['titan', 'colossus'];
+  for (const k of ['acidwyrm', 'ironhorn']) CLASS_OF[k] = ['titan', 'behemoth'];
+  Object.assign(SH_EL, { magmacolossus: 'fire', glaciergiant: 'ice', stormcolossus: 'zap', acidwyrm: 'acid' });
+  // the titans a battle can call in (rules.titans): ground titans only (dragons and phoenixes stay as their armies have them),
+  // the new five a little more often while they're new, the three colossal bosses less often
+  const TITAN_POOL = [['giant', 1], ['golem', 1], ['bonecolossus', 1], ['cyclops', 1], ['elephant', 1], ['mammoth', 1], ['hydra', 1], ['titan', 0.6], ['livingfortress', 0.6], ['stareater', 0.6],
+    ['magmacolossus', 1.6], ['glaciergiant', 1.6], ['stormcolossus', 1.6], ['acidwyrm', 1.6], ['ironhorn', 1.6]];
+  const isTitan = k => !!UNIT[k] && !UNIT[k].flying && !UNIT[k].uncounted && classOf(k)[0] === 'titan';
+  // ----- element-loving troops (rules.affinity) -----
+  // A troop of an element (its own, or its tribe's once the tribe's weapons reach tier 4) is fed by that element instead of hurt
+  // by it: lava, burning and fireballs heal fire troops; acid, poison and plague clouds heal acid troops; ice, freezing and frost
+  // heal ice troops; lightning heals storm troops. Fed, it fights harder and moves faster for a few seconds and glows.
+  const AFF_EL = {};
+  for (const [k, el] of Object.entries(SH_EL)) if (el === 'fire' || el === 'ice' || el === 'zap' || el === 'acid') AFF_EL[k] = el;
+  for (const [k, U] of Object.entries(UNIT)) if (U.fireproof && !AFF_EL[k]) AFF_EL[k] = 'fire';
+  const AFF_TRIBE = { flame: 'fire', frost: 'ice', storm: 'zap', venom: 'acid' };
+  const AFF_XK = { fireball: 'fire', meteor: 'fire', lightning: 'zap' };
+  const AFF_COL = { fire: '#FF8A1F', ice: '#9BE7FF', zap: '#C4B5FD', acid: '#A3E635' };
+  const AFF_WORD = { fire: 'FIRE', ice: 'FROST', zap: 'STORM', acid: 'ACID' };
+  const POOL_COL = { fire: ['#7F1D1D', '#F97316', '#FDE047'], acid: ['#365314', '#65A30D', '#D9F99D'], ice: ['#3B82F6', '#BFDBFE', '#F8FAFC'] };
+  const h01 = n => { let x = (n | 0) * 2654435761 >>> 0; x ^= x >>> 15; x = Math.imul(x, 2246822519) >>> 0; x ^= x >>> 13; return (x >>> 0) / 4294967296; };
+  const ARMY_CAST5 = {
+    // ----- affinity -----
+    affOf(u) {
+      const el = AFF_EL[u.type]; if (el) return el;
+      const tb = u.tribe; return tb && tb.wt >= 4 && AFF_TRIBE[tb.elem] || null;
+    },
+    // fed by its element: healed instead of hurt, and stronger for a while
+    affFeed(o, amt, el, word) {
+      if (o.dead) return;
+      const A = this.aff, T = this.fightT, k = UNIT[o.type].rank === 0 ? 0.4 : 1;
+      o.hp = Math.min(o.max, o.hp + Math.max(0, amt) * A.heal * k);
+      const fresh = !(o.affT > T);
+      o.affT = Math.max(o.affT || 0, T + A.seconds); o.affEl = el;
+      if (!fresh) return;
+      const w = word || AFF_WORD[el];
+      this.burst(o.x, o.y, AFF_COL[el], 4, 140, 0.45, 4);
+      if (T >= (this.affCo || 0)) { this.affCo = T + 1.1; this.callout(o, `${w} POWER!`, AFF_COL[el]); }
+      const said = this.affSaid || (this.affSaid = {});
+      if (!said[w] && this.tribes && this.ticker) { said[w] = 1; this.say(`${labelOf(o.type).replace(/^THE /, '')} GROWS STRONGER IN THE ${w}`, o.team); }
+    },
+    // a blast of an element (fireball, meteor, lightning) on a troop of that element: half of it heals instead
+    affBlast(u, dmg) {
+      if (this.affOf(u) !== this._elK) return false;
+      this.affFeed(u, dmg * 0.6, this._elK, this._elK === 'fire' ? 'FIRE' : null);
+      return true;
+    },
+    // ----- titans (rules.titans): two or three in every army -----
+    addTitans(list, team) {
+      const O = this.opts.titans, TT = this.TT || (this.TT = rng(((this.seed >>> 0) ^ 0x717A45) >>> 0));
+      const lo = O.min ?? 2, hi = Math.max(lo, O.max ?? 3);
+      // (the dice roll the same way whatever the army: how many, then which)
+      const want = this.N === 3 ? lo : lo + Math.floor(TT.next() * (hi - lo + 1));
+      const retired = this.opts.roster && this.opts.roster.on ? RETIRED_SET : null;
+      const pool = TITAN_POOL.filter(([k]) => UNIT[k] && !(retired && retired.has(k)));
+      const picks = [];
+      for (let i = 0; i < hi; i++) {
+        const left = pool.filter(([k]) => !picks.includes(k)), tot = left.reduce((s, [, w]) => s + w, 0);
+        let x = TT.next() * tot, k = left[0][0];
+        for (const [kk, w] of left) { x -= w; if (x <= 0) { k = kk; break; } }
+        picks.push(k);
+      }
+      // a mirror match gets the same titans on both sides
+      const use = this.opts.mode === 'mirror' && this.titanPicks ? this.titanPicks : picks;
+      if (!this.titanPicks) this.titanPicks = picks;
+      const have = list.filter(isTitan).length, add = use.slice(0, Math.max(0, want - have));
+      if (!add.length) return;
+      // the titans are paid for partly by the smallest troops at the back of the army (rules.titans.pay)
+      let pay = add.reduce((s, k) => s + UNIT[k].cost, 0) * (O.pay ?? 0.4);
+      for (let i = list.length - 1; i >= 0 && pay > 0; i--) if (UNIT[list[i]].rank >= 2 && list.length > 12) { pay -= UNIT[list[i]].cost; list.splice(i, 1); }
+      list.push(...add);
+      list.sort((a, b) => UNIT[a].rank - UNIT[b].rank);
+      (this.titansAdded || (this.titansAdded = [[], [], []]))[team] = add;
+    },
+    extUnit5(u, U) {
+      this.c5 = true;
+      if (!this.g5) this.g5 = { pools: [], fx: [], globs: [], graves: [] };
+      // (abilities start at a moment taken from the troop's number, not the dice)
+      u.ab5 = this.fightT + 2.2 + (u.uid || this.units.length) % 7 * 0.45;
+    },
+    // a pool of an element on the ground (lava, acid or ice): it hurts the side that didn't make it and feeds troops of its element
+    pool5(x, y, r, el, team, from, dur) {
+      const T = this.fightT, G = this.g5;
+      G.pools.push({ x: clamp(x, AR.x + 20, AR.x + AR.w - 20), y: clamp(y, AR.y + 20, AR.y + AR.h - 20), r, el, team, from, t0: T, end: T + dur, next: T + 0.2, n: G.pools.length + 1, lt: this.t });
+      if (G.pools.length > 24) G.pools = G.pools.filter(p => T < p.end);
+    },
+    // returns true when the creature shouldn't do its normal moves this tick
+    ability5(u, U, h, t) {
+      const T = this.fightT, G = this.g5, pan = (u.x - AR.x) / AR.w * 1.4 - 0.7, dk = u.dmgK || 1;
+      // the Ironhorn's charge in progress
+      if (u.chg5) {
+        const c = u.chg5, sp = Math.max(150, (U.speed || 54) * 3.2);
+        u.face = c.a; u.mface = c.a; u.vx = Math.cos(c.a) * sp; u.vy = Math.sin(c.a) * sp;
+        const nx = u.x + u.vx * h, ny = u.y + u.vy * h;
+        const out = nx < AR.x + u.r || nx > AR.x + AR.w - u.r || ny < AR.y + u.r || ny > AR.y + AR.h - u.r;
+        u.x = clamp(nx, AR.x + u.r, AR.x + AR.w - u.r); u.y = clamp(ny, AR.y + u.r, AR.y + AR.h - u.r);
+        for (const o of this.near(u.x, u.y, u.r + 30)) {
+          if (o.dead || o.team === u.team || o.flying || o.phased || c.hit.has(o.uid) || UNIT[o.type].uncounted) continue;
+          if (Math.hypot(o.x - u.x, o.y - u.y) > u.r + o.r + 4) continue;
+          c.hit.add(o.uid); this._kind = 'blast'; this.damage(o, 3.2 * dk, u); this._kind = undefined;
+          if (!o.dead) this.knock(o, u.x - Math.cos(c.a) * 10, u.y - Math.sin(c.a) * 10, UNIT[o.type].rank === 0 ? 20 : 60);
+          if (t) this.snd('thud', { pan, gain: 0.7 });
+        }
+        let blocked = out;
+        if (this.obstacles.length) { const px = u.x, py = u.y; this.pushOut(u); if (Math.hypot(u.x - px, u.y - py) > 0.5) blocked = true; }
+        if (T >= c.end || blocked) { u.chg5 = null; u.vx *= 0.2; u.vy *= 0.2; this.shake(4); this.burst(u.x, u.y, '#A8A29E', 8, 200, 0.5, 6, -30); }
+        return true;
+      }
+      if (!t || T < u.ab5) return false;
+      const tg = u.target && !u.target.dead ? u.target : null;
+      if (U.erupt) {
+        // slam the ground: a short blast where the target stands, then a pool of lava for five seconds
+        if (!tg || Math.hypot(tg.x - u.x, tg.y - u.y) > 210) return false;
+        u.ab5 = T + U.erupt; u.lunge = 1;
+        this.calls.push({ x: tg.x, y: tg.y, at: T + 0.35, t0: T, r: 58, dmg: 3.2 * dk, team: u.team, from: u, kind: 'slam' });
+        this.pool5(tg.x, tg.y, 68, 'fire', u.team, u, 5);
+        G.fx.push({ kind: 'erupt', x: tg.x, y: tg.y, t0: this.t });
+        this.snd('rumble', { pan }); this.shake(5);
+        if (this.camEv && !u.spot5) { u.spot5 = 1; this.camEv.push({ type: 'spot', x: tg.x, y: tg.y, prio: 55, dur: 1.4, z: 1.6 }); }
+        return false;
+      }
+      if (U.frostbreath) {
+        // a freezing breath in a cone in front: frozen, slowed, and the ground iced over
+        if (!tg || Math.hypot(tg.x - u.x, tg.y - u.y) > 190) return false;
+        u.ab5 = T + U.frostbreath; u.muzzle = 1;
+        const a = Math.atan2(tg.y - u.y, tg.x - u.x);
+        u.face = a;
+        for (const o of this.enemiesNear(u, u.x, u.y, 210)) {
+          const da = Math.atan2(o.y - u.y, o.x - u.x) - a, ad = Math.abs(Math.atan2(Math.sin(da), Math.cos(da)));
+          if (ad > 0.55 || o.flying) continue;
+          if (this.affOn && this.affOf(o) === 'ice') { this.affFeed(o, o.max * 0.1, 'ice'); continue; }
+          this.damage(o, 2 * dk, u);
+          if (!o.dead) { if (UNIT[o.type].rank !== 0) o.frozeT = Math.max(o.frozeT || 0, T + 1.1); this.slowDown(o, 0.5, 2.5); }
+        }
+        this.pool5(u.x + Math.cos(a) * 110, u.y + Math.sin(a) * 110, 74, 'ice', u.team, u, 5);
+        G.fx.push({ kind: 'breath', x: u.x, y: u.y, a, r: u.r, t0: this.t });
+        this.snd('freeze', { pan, gain: 1 });
+        return false;
+      }
+      if (U.thunderclap) {
+        // a thunderclap: lightning strikes the four nearest enemies in turn
+        const foes = this.enemiesNear(u, u.x, u.y, 290).filter(o => !o.flying).sort((a, b) => Math.hypot(a.x - u.x, a.y - u.y) - Math.hypot(b.x - u.x, b.y - u.y) || a.uid - b.uid).slice(0, 4);
+        if (!foes.length) return false;
+        u.ab5 = T + U.thunderclap; u.lunge = 1;
+        foes.forEach((o, i) => this.calls.push({ x: o.x, y: o.y, at: T + 0.3 + i * 0.12, t0: T, r: 34, dmg: 3 * dk, team: u.team, from: u, kind: 'lightning' }));
+        G.fx.push({ kind: 'clap', x: u.x, y: u.y, t0: this.t });
+        this.snd('thunder', { pan, gain: 1 });
+        return false;
+      }
+      if (U.acidspit) {
+        // a glob of acid lobbed at the thickest knot of enemies within reach: a splash, then a pool of acid
+        const d = this.densest(u.team, 70), tx = d && Math.hypot(d.x - u.x, d.y - u.y) < 330 ? d : tg && Math.hypot(tg.x - u.x, tg.y - u.y) < 330 ? tg : null;
+        if (!tx) return false;
+        u.ab5 = T + U.acidspit; u.muzzle = 1;
+        const a = Math.atan2(tx.y - u.y, tx.x - u.x), dist = Math.hypot(tx.x - u.x, tx.y - u.y);
+        u.face = a;
+        G.globs.push({ x0: u.x + Math.cos(a) * u.r, y0: u.y + Math.sin(a) * u.r, x1: tx.x, y1: tx.y, t0: T, at: T + 0.35 + dist / 900, team: u.team, from: u, lt: this.t });
+        this.snd('splash', { pan, gain: 0.7 });
+        return false;
+      }
+      if (U.gore) {
+        // a charge at an enemy 110 to 330 px away, straight through whatever is in the way
+        const foes = this.enemiesNear(u, u.x, u.y, 330).filter(o => !o.flying && Math.hypot(o.x - u.x, o.y - u.y) > 110).sort((a, b) => Math.hypot(a.x - u.x, a.y - u.y) - Math.hypot(b.x - u.x, b.y - u.y) || a.uid - b.uid);
+        if (!foes.length) { u.ab5 = T + 1; return false; }
+        u.ab5 = T + U.gore;
+        const o = foes[0], a = Math.atan2(o.y - u.y, o.x - u.x);
+        u.chg5 = { a, end: T + 1.15, hit: new Set() };
+        this.snd('roar', { pan, gain: 0.8 });
+        this.callout(u, 'CHARGE!', '#FCD34D');
+        return true;
+      }
+      return false;
+    },
+    // pools, acid globs and the graveyard, every tick
+    cast5Tick(h) {
+      const T = this.fightT, G = this.g5;
+      if (G) {
+        for (const p of G.pools) {
+          if (T >= p.end || T < p.next) continue;
+          p.next = T + 0.25;
+          for (const o of this.near(p.x, p.y, p.r)) {
+            if (o.dead || o.flying || o.phased || UNIT[o.type].uncounted || (o.x - p.x) ** 2 + (o.y - p.y) ** 2 > p.r * p.r) continue;
+            if (this.affOn && this.affOf(o) === p.el) { this.affFeed(o, o.max * 0.025, p.el, p.el === 'fire' ? 'LAVA' : null); continue; }
+            if (o.team === p.team) continue;
+            const by = p.from && !p.from.dead ? p.from : null;
+            if (p.el === 'fire') this.burn(o, 1.5, 1.5, by);
+            else if (p.el === 'acid') this.poison(o, 1.3, 2, by);
+            else { this.slowDown(o, 0.5, 0.6); this.dot(o, 0.12 * this.hpScale, by, 'ice'); }
+          }
+        }
+        if (G.pools.length && G.pools.every(p => T >= p.end + 1)) G.pools = [];
+        for (const g of G.globs) {
+          if (g.done || T < g.at) continue;
+          g.done = true;
+          for (const o of this.near(g.x1, g.y1, 56)) {
+            if (o.dead || o.team === g.team || o.flying || o.phased || UNIT[o.type].uncounted) continue;
+            if (this.affOn && this.affOf(o) === 'acid') { this.affFeed(o, o.max * 0.1, 'acid'); continue; }
+            this.damage(o, 2.2 * (g.from.dmgK || 1), g.from.dead ? null : g.from); this.poison(o, 1.2, 3, g.from.dead ? null : g.from);
+          }
+          this.pool5(g.x1, g.y1, 64, 'acid', g.team, g.from, 5);
+          this.burst(g.x1, g.y1, '#A3E635', 10, 260, 0.5, 6);
+          this.snd('splash', { pan: (g.x1 - AR.x) / AR.w * 1.4 - 0.7, gain: 0.8 });
+        }
+        if (G.globs.length > 8) G.globs = G.globs.filter(g => !g.done);
+      }
+      if (this.titansOn && this.graveOn) this.graveTick();
+    },
+    // ----- the graveyard spell (rules.titans.graveyard): a fallen titan's people pay to raise it from the grave -----
+    titanFell(u) {
+      if (u.risen || u.summoned || u.team > 2 || !isTitan(u.type)) return;
+      (this.tGraves || (this.tGraves = [])).push({ team: u.team, type: u.type, x: u.x, y: u.y, t: this.fightT, tribe: u.tribe || null, tryAt: this.fightT + 2.4, done: false });
+    },
+    graveTick() {
+      const T = this.fightT, O = this.opts.titans;
+      if (!this.tGraves || !this.tGraves.length || this.phase !== 'fight') return;
+      const late = (this.cap || 60) - (O.graveLate ?? 9);
+      for (const f of this.tGraves) {
+        if (f.done || T < f.tryAt) continue;
+        f.tryAt = T + 1;
+        const used = (this.graveN || (this.graveN = [0, 0, 0]))[f.team];
+        if (T > f.t + 16 || T > late || used >= (O.graveMax ?? 2) || this.alive[f.team] <= 0) { f.done = true; continue; }
+        const tbs = this.tribes ? this.tribes.filter(tb => tb.team === f.team) : [];
+        if (!tbs.length) { f.done = true; continue; }
+        // (an army that's behind gets it cheaper, like everything the merchant sells)
+        const tot = this.totals(), other = Math.max(...this.teamIds().filter(t => t !== f.team).map(t => tot[t])), behind = tot[f.team] < other * 0.8;
+        const price = Math.round((O.gravePrice ?? 20) * (behind ? 0.7 : 1));
+        const gold = tbs.reduce((s, tb) => s + tb.gold, 0);
+        if (gold < price) continue;
+        let left = price; const first = f.tribe && tbs.includes(f.tribe) ? f.tribe : tbs[0];
+        for (const tb of [first, ...tbs.filter(x => x !== first)]) { const g = Math.min(tb.gold, left); tb.gold -= g; left -= g; }
+        f.done = true; this.graveN[f.team]++;
+        const x = clamp(f.x, AR.x + 50, AR.x + AR.w - 50), y = clamp(f.y, AR.y + 50, AR.y + AR.h - 50);
+        this.g5.graves.push({ team: f.team, type: f.type, tribe: f.tribe, x, y, t0: T, at: T + 1.7, lt: this.t, done: false });
+        const who = sName(first.name), name = labelOf(f.type).replace(/^THE /, '');
+        this.banner(`${who} BUY THE GRAVEYARD SPELL!`, TEAMS[f.team].c, 1.6);
+        this.say(`${who} PAY ${price} GOLD TO RAISE THEIR ${name} FROM THE GRAVE`, f.team);
+        this.snd('coin', { team: f.team }); this.snd('rumble', { pan: (x - AR.x) / AR.w * 1.4 - 0.7 });
+        if (this.camEv) this.camEv.push({ type: 'spot', x, y, prio: 82, dur: 3.1, z: 1.9 });
+        ((this.xf || (this.xf = {})).graves || (this.xf.graves = [])).push({ team: f.team, type: f.type, price });
+      }
+      for (const g of this.g5.graves) {
+        if (g.done || T < g.at) continue;
+        g.done = true;
+        const o = this.addUnit(g.team, g.type, g.x, g.y);
+        if (!o) continue;
+        o.max *= this.opts.titans.hp ?? 0.8; o.hp = o.max * (this.opts.titans.graveHp ?? 0.7); o.risen = true; o.tribe = g.tribe && this.tribes && this.tribes.includes(g.tribe) ? g.tribe : o.tribe;
+        o.face = g.team === 0 ? Math.PI / 2 : -Math.PI / 2; o.flash = 1;
+        this.gained = this.gained || [0, 0, 0]; this.gained[g.team] += 1;
+        this.knockAround(g.x, g.y, 90 + o.r, g.team);
+        this.shake(8); this.snd('roar', { gain: 1 }); this.snd('boom', { gain: 0.6 });
+        this.burst(g.x, g.y, '#7C6A55', 18, 340, 0.7, 8, -60); this.burst(g.x, g.y, '#C4B5FD', 12, 260, 0.6, 5);
+        this.callout(o, 'RISEN FROM THE GRAVE!', '#C4B5FD');
+      }
+    },
+    // the risen titan bursts out of the ground: enemies right on top of the grave are thrown back
+    knockAround(x, y, r, team) {
+      for (const o of this.near(x, y, r)) if (!o.dead && o.team !== team && !o.flying) { this.knock(o, x, y, 50); this._kind = 'blast'; this.damage(o, 1.5, null); this._kind = undefined; }
+    },
+    // ----- drawing -----
+    // under the troops: pools of lava, acid and ice, and the graves
+    drawCast5Ground(ctx) {
+      const G = this.g5, T = this.fightT, t = this.t;
+      if (!G) return;
+      ctx.save();
+      for (const p of G.pools) {
+        const a = Math.min(clamp((T - p.t0) / 0.35, 0, 1), clamp((p.end - T) / 0.8, 0, 1));
+        if (a <= 0) continue;
+        const [c0, c1, c2] = POOL_COL[p.el], s = 0.75 + 0.25 * a, n = p.n * 7;
+        // an uneven blob: a few overlapping discs placed from the pool's number (no dice)
+        const blobs = [[0, 0, 1]];
+        for (let k = 0; k < 5; k++) { const an = h01(n + k) * TAU, d = 0.35 + 0.3 * h01(n + k + 50); blobs.push([Math.cos(an) * d, Math.sin(an) * d * 0.85, 0.5 + 0.25 * h01(n + k + 99)]); }
+        ctx.globalAlpha = 0.9 * a;
+        for (const [bx, by, br] of blobs) { ctx.beginPath(); ctx.arc(p.x + bx * p.r * s, p.y + by * p.r * s, (br * p.r * s) + 5, 0, TAU); ctx.fillStyle = COL.ink; ctx.fill(); }
+        for (const [bx, by, br] of blobs) { ctx.beginPath(); ctx.arc(p.x + bx * p.r * s, p.y + by * p.r * s, br * p.r * s + 1, 0, TAU); ctx.fillStyle = c0; ctx.fill(); }
+        for (const [bx, by, br] of blobs) { ctx.beginPath(); ctx.arc(p.x + bx * p.r * s, p.y + by * p.r * s, br * p.r * s * 0.78, 0, TAU); ctx.fillStyle = c1; ctx.fill(); }
+        if (p.el === 'ice') {
+          // ice: a pale sheet with white cracks
+          ctx.lineWidth = 2; ctx.strokeStyle = c2; ctx.beginPath();
+          for (let k = 0; k < 6; k++) { const an = k * TAU / 6 + h01(n + k) * 0.6, l = p.r * s * (0.5 + 0.3 * h01(n + k + 7)); ctx.moveTo(p.x, p.y); ctx.lineTo(p.x + Math.cos(an) * l * 0.5, p.y + Math.sin(an) * l * 0.5 + 4); ctx.lineTo(p.x + Math.cos(an) * l, p.y + Math.sin(an) * l); }
+          ctx.stroke();
+        } else {
+          // lava and acid: a hot middle and bubbles that swell and pop
+          ctx.beginPath(); ctx.arc(p.x, p.y, p.r * s * 0.42, 0, TAU); ctx.fillStyle = c2; ctx.globalAlpha = 0.55 * a * (0.8 + 0.2 * Math.sin(t * 5 + p.n)); ctx.fill();
+          ctx.globalAlpha = 0.9 * a;
+          for (let k = 0; k < 5; k++) {
+            const ph = (t * 0.9 + h01(n + k + 3)) % 1, an = h01(n + k + 11) * TAU, d = p.r * s * 0.6 * h01(n + k + 21);
+            ctx.beginPath(); ctx.arc(p.x + Math.cos(an) * d, p.y + Math.sin(an) * d, 2 + 5 * ph, 0, TAU); ctx.lineWidth = 2; ctx.strokeStyle = c2; ctx.stroke();
+          }
+        }
+      }
+      for (const g of G.graves) {
+        // the grave: the ground cracks, a hole opens with a headstone behind it, a glow rises, and after the titan climbs out it closes
+        const a = t - g.lt, open = clamp(a / 0.6, 0, 1), close = g.done ? clamp(1 - (a - 2.2) / 0.8, 0, 1) : 1, k = easeOutCubic(open) * close;
+        if (k <= 0) continue;
+        const R = 44 * k;
+        ctx.globalAlpha = 0.85 * close; ctx.lineWidth = 3; ctx.strokeStyle = COL.ink; ctx.beginPath();
+        for (let i = 0; i < 7; i++) { const an = i * TAU / 7 + 0.3, l = 50 + 40 * open; ctx.moveTo(g.x + Math.cos(an) * R * 0.8, g.y + Math.sin(an) * R * 0.6); ctx.lineTo(g.x + Math.cos(an + 0.15) * l * 0.7, g.y + Math.sin(an + 0.15) * l * 0.5); ctx.lineTo(g.x + Math.cos(an) * l, g.y + Math.sin(an) * l * 0.75); }
+        ctx.stroke();
+        ctx.globalAlpha = close;
+        ell(ctx, g.x, g.y + 4, R * 1.25, R * 0.8, 0, '#6B4F35', 3);
+        ell(ctx, g.x, g.y + 2, R * 0.95, R * 0.58, 0, '#0B0F14', 0);
+        const gl = 0.35 + 0.25 * Math.sin(t * 9);
+        ell(ctx, g.x, g.y + 2, R * 0.7, R * 0.4, 0, `rgba(167,139,250,${gl * k})`, 0);
+        // the headstone behind the hole
+        const hx = g.x, hy = g.y - R * 0.95 - 14 * k;
+        roundRect(ctx, hx - 15 * k, hy - 20 * k, 30 * k, 34 * k, 12 * k); ctx.fillStyle = '#9CA3AF'; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = COL.ink; ctx.stroke();
+        ctx.lineWidth = 3 * k; ctx.strokeStyle = '#4B5563'; ctx.beginPath(); ctx.moveTo(hx, hy - 12 * k); ctx.lineTo(hx, hy + 6 * k); ctx.moveTo(hx - 7 * k, hy - 5 * k); ctx.lineTo(hx + 7 * k, hy - 5 * k); ctx.stroke();
+        ctx.lineWidth = 2; ctx.strokeStyle = TEAMS[g.team].c; ctx.beginPath(); ctx.arc(hx, hy - 3 * k, 18 * k, Math.PI * 1.15, Math.PI * 1.85); ctx.stroke();
+      }
+      ctx.restore(); ctx.globalAlpha = 1;
+    },
+    // over the troops: eruptions, frost breath, thunderclaps, flying acid and the glow rising from a grave
+    drawCast5Fx(ctx) {
+      const G = this.g5, T = this.fightT, t = this.t;
+      if (!G) return;
+      ctx.save(); ctx.lineCap = 'round';
+      for (const f of G.fx) {
+        const a = t - f.t0;
+        if (a < 0 || a > 1.2) continue;
+        if (f.kind === 'erupt') {
+          // a column of fire and rock thrown up from the ground
+          const k = easeOutCubic(a / 0.5), o = clamp(1 - (a - 0.4) / 0.8, 0, 1);
+          ctx.globalAlpha = o;
+          for (let i = 0; i < 9; i++) { const an = i * TAU / 9 + 0.2, d = 18 + 70 * k; disc(ctx, f.x + Math.cos(an) * d, f.y + Math.sin(an) * d * 0.8 - 30 * Math.sin(Math.PI * clamp(a / 0.8, 0, 1)), 6 * (1 - 0.5 * k) + 2, i % 2 ? '#FDBA74' : '#57534E', 2); }
+          ctx.beginPath(); ctx.arc(f.x, f.y, 30 + 60 * k, 0, TAU); ctx.lineWidth = 8 * (1 - k) + 2; ctx.strokeStyle = '#FB923C'; ctx.stroke();
+        } else if (f.kind === 'breath') {
+          // a cone of freezing mist
+          const k = easeOutCubic(a / 0.35), o = clamp(1 - (a - 0.3) / 0.6, 0, 1), L = f.r + 180 * k;
+          ctx.globalAlpha = 0.55 * o;
+          ctx.beginPath(); ctx.moveTo(f.x + Math.cos(f.a) * f.r * 0.8, f.y + Math.sin(f.a) * f.r * 0.8); ctx.arc(f.x, f.y, L, f.a - 0.5, f.a + 0.5); ctx.closePath();
+          ctx.fillStyle = '#E0F2FE'; ctx.fill(); ctx.globalAlpha = 0.85 * o; ctx.lineWidth = 3; ctx.strokeStyle = '#7DD3FC'; ctx.stroke();
+          for (let i = 0; i < 8; i++) { const an = f.a - 0.45 + 0.9 * h01(i + 3), d = f.r + (L - f.r) * h01(i + 17); star(ctx, f.x + Math.cos(an) * d, f.y + Math.sin(an) * d, 5); ctx.fillStyle = '#FFFFFF'; ctx.fill(); }
+        } else if (f.kind === 'clap') {
+          // a shock ring and a flash of light round the colossus
+          const k = easeOutCubic(a / 0.4), o = clamp(1 - a / 0.7, 0, 1);
+          ctx.globalAlpha = o; ctx.beginPath(); ctx.arc(f.x, f.y, 40 + 140 * k, 0, TAU); ctx.lineWidth = 6 * (1 - k) + 2; ctx.strokeStyle = '#C4B5FD'; ctx.stroke();
+          ctx.globalAlpha = o * 0.35; disc(ctx, f.x, f.y, 50 + 40 * k, '#EDE9FE', 0);
+        }
+      }
+      if (G.fx.length > 16) G.fx = G.fx.filter(f => t - f.t0 < 1.3);
+      ctx.globalAlpha = 1;
+      for (const g of G.globs) {
+        if (g.done) continue;
+        // a glob of acid on a high arc, with a shadow on the ground
+        const k = clamp((T - g.t0) / Math.max(0.05, g.at - g.t0), 0, 1), x = lerp(g.x0, g.x1, k), y = lerp(g.y0, g.y1, k), hgt = Math.sin(Math.PI * k) * 70;
+        ell(ctx, x, y, 8, 5, 0, 'rgba(0,0,0,0.3)', 0);
+        disc(ctx, x, y - hgt, 9, '#84CC16', 3); disc(ctx, x - 2, y - hgt - 3, 3, '#ECFCCB', 0);
+      }
+      for (const g of G.graves) {
+        // the glow rising out of the grave, and the titan's outline before it appears
+        const a = t - g.lt;
+        if (a < 0 || a > 3) continue;
+        const o = clamp(Math.min(a / 0.4, (3 - a) / 0.8), 0, 1);
+        ctx.globalAlpha = 0.6 * o;
+        for (let i = 0; i < 7; i++) { const ph = (a * 0.8 + i / 7) % 1, x = g.x + Math.sin(i * 2.3 + a * 2) * 26, y = g.y - ph * 90; disc(ctx, x, y, 5 * (1 - ph) + 2, i % 2 ? '#C4B5FD' : '#86EFAC', 0); }
+        if (!g.done) { ctx.globalAlpha = 0.35 * o; ctx.beginPath(); ctx.arc(g.x, g.y - 10, (UNIT[g.type].r || 30) * (0.5 + 0.5 * clamp(a / 1.7, 0, 1)), 0, TAU); ctx.lineWidth = 4; ctx.setLineDash([8, 7]); ctx.strokeStyle = '#EDE9FE'; ctx.stroke(); ctx.setLineDash([]); }
+      }
+      ctx.restore(); ctx.globalAlpha = 1;
+    },
+    // a fed troop glows in its element's colour, with little motes rising off it (looks only)
+    drawAff(ctx, u, x, y) {
+      const T = this.fightT, t = this.t, r = u.r, col = AFF_COL[u.affEl] || '#FFFFFF', k = clamp((u.affT - T) / 0.6, 0, 1);
+      ctx.save(); ctx.globalAlpha = 0.85 * k;
+      ctx.beginPath(); ctx.arc(x, y, r + 4 + 1.5 * Math.sin(t * 9 + (u.gait || 0)), 0, TAU); ctx.lineWidth = 3; ctx.strokeStyle = col; ctx.stroke();
+      for (let i = 0; i < 3; i++) { const ph = (t * 1.6 + i / 3 + (u.gait || 0)) % 1; disc(ctx, x + Math.sin(i * 2.1 + (u.gait || 0)) * r * 0.7, y - r * 0.3 - ph * r * 1.4, 3 * (1 - ph) + 1.5, col, 0); }
+      // a small up-arrow over its head: stronger
+      const ay = y - r - 12 - 2 * Math.sin(t * 6);
+      ctx.beginPath(); ctx.moveTo(x - 6, ay + 4); ctx.lineTo(x, ay - 3); ctx.lineTo(x + 6, ay + 4); ctx.lineWidth = 5; ctx.strokeStyle = COL.ink; ctx.stroke(); ctx.lineWidth = 2.6; ctx.strokeStyle = col; ctx.stroke();
+      ctx.restore();
+    },
+    // the five new creatures, seen from above (flat colours, black outlines, the team's colour on their armour)
+    drawCast5(ctx, u, x, y, tm) {
+      const r = u.r, f = u.face || 0, fx = Math.cos(f), fy = Math.sin(f), px = -fy, py = fx, T = this.t, lg = u.lunge || 0, gt = u.gait || 0, INK = COL.ink;
+      const P = (a, b) => [x + fx * a + px * b, y + fy * a + py * b];
+      const eyes = (hx, hy, fwd, sp, er, c) => { for (const sd of [-1, 1]) { const ex = hx + fx * fwd + px * sd * sp, ey = hy + fy * fwd + py * sd * sp; disc(ctx, ex, ey, er + 1.2, INK, 0); disc(ctx, ex, ey, er, c, 0); } };
+      ctx.save(); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+      switch (u.type) {
+        case 'magmacolossus': {
+          const glow = 0.6 + 0.4 * Math.sin(T * 4 + gt);
+          disc(ctx, x, y, r * 1.1, `rgba(249,115,22,${0.18 * glow})`, 0);
+          for (const sd of [-1, 1]) {
+            const [sx, sy] = P(0, sd * r * 0.78), [hx2, hy2] = P(r * 0.55 + (sd > 0 ? lg * 16 : 0), sd * r * 1.0);
+            stick(ctx, sx, sy, hx2, hy2, r * 0.3, '#44403C');
+            disc(ctx, hx2, hy2, r * 0.3, '#3F3A36', 3.5);
+            disc(ctx, hx2, hy2, r * 0.13, `rgba(253,186,116,${glow})`, 0);
+          }
+          ell(ctx, x, y, r * 0.64, r * 0.95, f, '#3B3532', 5);
+          // the lava showing through the cracks in its back
+          ctx.lineWidth = 4; ctx.strokeStyle = `rgba(251,146,60,${0.7 + 0.3 * glow})`;
+          ctx.beginPath(); ctx.moveTo(...P(-r * 0.45, -r * 0.35)); ctx.lineTo(...P(-r * 0.1, -r * 0.1)); ctx.lineTo(...P(-r * 0.35, r * 0.3)); ctx.moveTo(...P(-r * 0.1, -r * 0.1)); ctx.lineTo(...P(r * 0.15, r * 0.45)); ctx.moveTo(...P(-r * 0.05, -r * 0.6)); ctx.lineTo(...P(-r * 0.2, -r * 0.3)); ctx.stroke();
+          ctx.lineWidth = 1.6; ctx.strokeStyle = '#FEF08A'; ctx.stroke();
+          for (const sd of [-1, 1]) ell(ctx, ...P(0, sd * r * 0.8), r * 0.3, r * 0.22, f, tm.c, 3);
+          const [hx, hy] = P(r * 0.42, 0);
+          disc(ctx, hx, hy, r * 0.25, '#57534E', 3.5); eyes(hx, hy, r * 0.12, r * 0.1, r * 0.055, '#FDE047');
+          break;
+        }
+        case 'glaciergiant': {
+          disc(ctx, x, y, r * 1.08, 'rgba(191,219,254,0.2)', 0);
+          for (const sd of [-1, 1]) {
+            const [sx, sy] = P(0, sd * r * 0.76), [hx2, hy2] = P(r * 0.5 + (sd < 0 ? lg * 14 : 0), sd * r * 1.0);
+            stick(ctx, sx, sy, hx2, hy2, r * 0.3, '#93C5FD');
+            disc(ctx, hx2, hy2, r * 0.31, '#E0F2FE', 3.5);
+            tri(ctx, ...P(r * 0.5, sd * r * 1.0 - sd * r * 0.12), ...P(r * 0.78, sd * r * 1.06), ...P(r * 0.5, sd * r * 1.0 + sd * r * 0.12), '#F8FAFC', 2);
+          }
+          ell(ctx, x, y, r * 0.68, r * 0.98, f, '#BFDBFE', 5);
+          // great crystals of ice growing out of its back, pointing back and out
+          for (const [a, b, L, w] of [[-0.42, 0, 0.62, 0.22], [-0.2, -0.45, 0.5, 0.18], [-0.2, 0.45, 0.5, 0.18], [0.05, -0.2, 0.32, 0.12], [0.05, 0.22, 0.32, 0.12]]) {
+            const [cx, cy] = P(r * a, r * b), an = Math.atan2(b * 0.9, -1), dx = Math.cos(f + an), dy = Math.sin(f + an), qx = -dy, qy = dx;
+            tri(ctx, cx + qx * r * w, cy + qy * r * w, cx + dx * r * L, cy + dy * r * L, cx - qx * r * w, cy - qy * r * w, '#F0F9FF', 3);
+            ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + dx * r * L * 0.8, cy + dy * r * L * 0.8); ctx.lineWidth = 2; ctx.strokeStyle = '#7DD3FC'; ctx.stroke();
+          }
+          for (const sd of [-1, 1]) ell(ctx, ...P(r * 0.1, sd * r * 0.78), r * 0.3, r * 0.22, f, tm.c, 3);
+          const [hx, hy] = P(r * 0.5, 0);
+          disc(ctx, hx, hy, r * 0.27, '#E0F2FE', 3.5);
+          for (const sd of [-1, 1]) { const [tx0, ty0] = P(r * 0.62, sd * r * 0.15), [tx1, ty1] = P(r * 0.9, sd * r * 0.25); stick(ctx, tx0, ty0, tx1, ty1, 4.5, '#F8FAFC'); }
+          eyes(hx, hy, r * 0.1, r * 0.1, r * 0.055, '#1D4ED8');
+          if ((u.muzzle || 0) > 0.2) { ctx.globalAlpha = u.muzzle; disc(ctx, ...P(r * 0.98, 0), r * 0.24, '#F0F9FF', 0); ctx.globalAlpha = 1; }
+          break;
+        }
+        case 'stormcolossus': {
+          for (const sd of [-1, 1]) {
+            const [sx, sy] = P(0, sd * r * 0.78), [hx2, hy2] = P(r * 0.52 + lg * 12, sd * r * (1.0 - lg * 0.35));
+            stick(ctx, sx, sy, hx2, hy2, r * 0.28, '#64748B');
+            disc(ctx, hx2, hy2, r * 0.28, '#475569', 3.5);
+            disc(ctx, hx2, hy2, r * 0.11, '#A5F3FC', 0);
+          }
+          // a cape in the team's colour, a slate body and a glowing core
+          ell(ctx, ...P(-r * 0.28, 0), r * 0.34, r * 0.82, f, tm.c, 3.5);
+          ell(ctx, x, y, r * 0.6, r * 0.9, f, '#64748B', 5);
+          const pulse = 0.6 + 0.4 * Math.sin(T * 7 + gt), [kx, ky] = P(r * 0.02, 0);
+          disc(ctx, kx, ky, r * 0.3, `rgba(165,243,252,${0.25 + 0.2 * pulse})`, 0);
+          disc(ctx, kx, ky, r * 0.19, '#1E1B4B', 3); disc(ctx, kx, ky, r * 0.13 * (0.8 + 0.2 * pulse), '#ECFEFF', 0);
+          for (const sd of [-1, 1]) ell(ctx, ...P(0, sd * r * 0.8), r * 0.3, r * 0.22, f, tm.c, 3);
+          const [hx, hy] = P(r * 0.42, 0);
+          disc(ctx, hx, hy, r * 0.24, '#94A3B8', 3.5); eyes(hx, hy, r * 0.1, r * 0.09, r * 0.055, '#E0F2FE');
+          // three small storm clouds circling its head, and a spark jumping between its fists now and then
+          for (let i = 0; i < 3; i++) {
+            const an = T * 1.6 + i * TAU / 3 + gt, cx = hx + Math.cos(an) * r * 0.62, cy = hy + Math.sin(an) * r * 0.62;
+            disc(ctx, cx - 4, cy + 1, r * 0.12, '#CBD5E1', 2.5); disc(ctx, cx + 4, cy - 2, r * 0.14, '#E2E8F0', 2.5); disc(ctx, cx + 1, cy + 3, r * 0.1, '#CBD5E1', 0);
+          }
+          if (Math.sin(T * 5.3 + gt * 3) > 0.45) {
+            const [ax, ay] = P(r * 0.55, -r * 0.95), [bx, by] = P(r * 0.55, r * 0.95);
+            ctx.beginPath(); ctx.moveTo(ax, ay); for (let i = 1; i < 6; i++) { const q = i / 6, j = ((i * 37 + Math.floor(T * 20)) % 7 - 3) * 3; ctx.lineTo(lerp(ax, bx, q) + fx * j, lerp(ay, by, q) + fy * j); } ctx.lineTo(bx, by);
+            ctx.lineWidth = 5; ctx.strokeStyle = 'rgba(165,243,252,0.55)'; ctx.stroke(); ctx.lineWidth = 2; ctx.strokeStyle = '#FFFFFF'; ctx.stroke();
+          }
+          break;
+        }
+        case 'acidwyrm': {
+          // a serpent: its body trails behind its head in a wave, plated in the team's colour, dripping acid
+          const segs = 6, wv = T * 4 + gt;
+          const pts = [];
+          for (let i = segs; i >= 0; i--) { const d = i * r * 0.42, w = Math.sin(wv - i * 0.9) * r * 0.32 * (i / segs + 0.3); pts.push([x - fx * (d - r * 0.3) + px * w, y - fy * (d - r * 0.3) + py * w, r * (0.62 - i * 0.05)]); }
+          for (const [sx, sy, sr] of pts.slice(0, -1)) disc(ctx, sx, sy, sr, '#4D7C0F', 4);
+          for (const [sx, sy, sr] of pts.slice(0, -1)) disc(ctx, sx, sy, sr * 0.62, tm.c, 2.5);
+          const [hx0, hy0] = pts[pts.length - 1], hx = hx0 + fx * r * 0.25, hy = hy0 + fy * r * 0.25;
+          ell(ctx, hx, hy, r * 0.62, r * 0.48, f, '#65A30D', 4);
+          // jaws (open when it spits) and eyes
+          const op = 0.2 + 0.5 * (u.muzzle || 0);
+          for (const sd of [-1, 1]) { const [jx, jy] = [hx + fx * r * 0.5 + px * sd * r * 0.2 * (1 + op), hy + fy * r * 0.5 + py * sd * r * 0.2 * (1 + op)]; tri(ctx, hx + fx * r * 0.3 + px * sd * r * 0.12, hy + fy * r * 0.3 + py * sd * r * 0.12, jx, jy, hx + fx * r * 0.3 + px * sd * r * 0.32, hy + fy * r * 0.3 + py * sd * r * 0.32, '#F7FEE7', 2); }
+          eyes(hx, hy, -r * 0.05, r * 0.24, r * 0.07, '#FDE047');
+          for (let i = 0; i < 3; i++) { const ph = (T * 1.3 + i / 3 + gt) % 1, [sx, sy] = pts[1 + i * 2] || pts[0]; disc(ctx, sx + px * 4, sy + py * 4 + ph * 10, 2.6 * (1 - ph) + 1, '#BEF264', 0); }
+          break;
+        }
+        case 'ironhorn': {
+          // a colossal horned beast: four stubby legs, a barrel body with armour plates in the team's colour, a great horn in front
+          const chg = !!u.chg5, step = Math.sin(T * (chg ? 18 : 8) + gt) * r * 0.12;
+          for (const [a, b, s] of [[0.45, -0.62, 1], [0.45, 0.62, -1], [-0.45, -0.62, -1], [-0.45, 0.62, 1]]) disc(ctx, ...P(r * a + step * s, r * b), r * 0.2, '#57534E', 3);
+          ell(ctx, x, y, r * 0.95, r * 0.66, f, '#78716C', 5);
+          for (const a of [-0.35, 0, 0.35]) ell(ctx, ...P(r * a, 0), r * 0.2, r * 0.48, f, tm.c, 3);
+          ctx.lineWidth = 2; ctx.strokeStyle = tm.l; ctx.beginPath(); ctx.moveTo(...P(-r * 0.6, 0)); ctx.lineTo(...P(r * 0.5, 0)); ctx.stroke();
+          const [tx, ty] = P(-r * 1.0, Math.sin(T * 6 + gt) * r * 0.1); stick(ctx, ...P(-r * 0.85, 0), tx, ty, 3, '#57534E');
+          const [hx, hy] = P(r * 0.85, 0);
+          disc(ctx, hx, hy, r * 0.34, '#6B6460', 4);
+          // the horns: a great one in front, two smaller at the sides
+          tri(ctx, ...P(r * 1.0, -r * 0.12), ...P(r * 1.55 + (chg ? r * 0.08 : 0), 0), ...P(r * 1.0, r * 0.12), '#F5F0E1', 3);
+          for (const sd of [-1, 1]) tri(ctx, ...P(r * 0.8, sd * r * 0.22), ...P(r * 1.05, sd * r * 0.5), ...P(r * 0.95, sd * r * 0.18), '#E7E0CC', 2.5);
+          eyes(hx, hy, r * 0.08, r * 0.17, r * 0.06, chg ? '#F87171' : '#FCD34D');
+          if (chg) { ctx.globalAlpha = 0.5; for (let i = 0; i < 4; i++) { const [lx, ly] = P(-r * (1.1 + i * 0.25), (i - 1.5) * r * 0.35); ctx.beginPath(); ctx.moveTo(lx, ly); ctx.lineTo(lx - fx * r * 0.5, ly - fy * r * 0.5); ctx.lineWidth = 3; ctx.strokeStyle = '#FFFFFF'; ctx.stroke(); } ctx.globalAlpha = 1; }
+          break;
+        }
+      }
+      ctx.restore();
+    },
+  };
+  Object.assign(Army.prototype, ARMY_EXT, ARMY_DRAW, ARMY_MAPS, ARMY_EXT2, ARMY_DRAW2, ARMY_COMBAT, ARMY_TRIBES, ARMY_TRIBES_DRAW, ARMY_PACE, ARMY_UI2, ARMY_WORLD, ARMY_FX2, ARMY_SMART, ARMY_CAST3, ARMY_CAST3_DRAW, ARMY_EVOLVE, ARMY_THUMB, ARMY_NAV, ARMY_MINDS, ARMY_CLASS, ARMY_CAST4, ARMY_MARKET2, ARMY_ANIM, ARMY_SHINE, ARMY_CAST5);
 
   const GAMES = { territory: Territory, duel: Duel, army: Army };
   Object.assign(api, { rng, Match, Territory, Duel, Army, Director, Synth, GAMES, WEAPONS, DOCTRINES, MODERN_DOCTRINES, FANTASY_DOCTRINES, GENRES, UNIT_ERA, ALL_DOCTRINES, MAPS, MAP_THEME, UNIT, eraOf, fmtTime, labelOf, docLabel, MAP_MECH, SKINS, MODE_HOOK, specOf, TRIBE_POOL, TRAIT, STAKE, CLASSES, classOf, RETIRED: [...RETIRED_SET], docRetired, CAST4 });

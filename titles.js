@@ -111,6 +111,10 @@ function makeTitle(f) {
   const HAZ = { tornado: 'A TORNADO Hit Mid-Battle 🌪️', earthquake: 'Then the Ground SPLIT Open 😱', blizzard: 'A BLIZZARD Froze the Battle ❄️', meteors: 'METEORS Hit Mid-Battle ☄️', lightning: 'LIGHTNING Struck the Battlefield ⚡', cannonballs: 'Cannonballs RAINED Down 💣', stampede: 'A STAMPEDE Hit Mid-Battle 🦣', kraken: 'The KRAKEN Woke Up 🐙', sandworm: 'A SANDWORM Burst Out 🪱' };
   if (HAZ[f.hazard]) facts.push(HAZ[f.hazard]);
   if (f.hazard === 'sandworm' && x.sandworm >= 4) facts.push(`The SANDWORM Took ${x.sandworm} of Them 🪱`);
+  // rules.titans: a titan raised by the graveyard spell (only when it really happened, and only for the winners)
+  const gw = (x.graves || []).filter(g => g.team === w);
+  if (gw.length >= 2) facts.push('TWO Titans Rose From the GRAVE 🪦');
+  else if (gw.length) facts.push(`Their ${tc2(L(gw[0].type))} Rose From the GRAVE 🪦`);
   // living tribes: only what really happened (the lead tribe is the winning army's tribe with the most kills)
   const tr = f.tribes && f.tribes.lead ? f.tribes : null;
   if (tr) {

@@ -2142,5 +2142,24 @@
     "avoid": true,
     "rings": true,
     "unstick": true
+  },
+  "titans": {
+    "on": true,
+    "min": 2,
+    "max": 3,
+    "hp": 0.75,
+    "pay": 0.4,
+    "graveyard": true,
+    "gravePrice": 22,
+    "graveHp": 0.7,
+    "graveMax": 1,
+    "graveLate": 9
+  },
+  "affinity": {
+    "on": true,
+    "heal": 1,
+    "boost": 1.3,
+    "speed": 1.15,
+    "seconds": 3
   }
 }

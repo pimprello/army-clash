@@ -222,7 +222,9 @@ async function main() {
     teams: three ? 3 : 2, dream: !!(wild || custom || three), ...systems, ...cmbOpts, ...trbOpts, ...(UIL >= 2 ? { ui: UIL } : {}), ...(rules.ui && rules.ui.art >= 2 ? { art: rules.ui.art } : {}), ...(rules.ui && rules.ui.anim ? { anim: true } : {}), ...(rules.ui && rules.ui.shine && rules.ui.shine.on ? { shine: rules.ui.shine } : {}), ...(rules.world && rules.world.on ? { world: rules.world } : {}),
     // the roster, classes, minds and pathfinding (each off when its rule is off, which keeps old seeds playing out as before)
     ...(roster ? { roster } : {}), ...(rules.classes && rules.classes.on ? { classes: rules.classes } : {}), ...(rules.minds && rules.minds.on ? { minds: rules.minds } : {}),
-    ...(rules.nav && rules.nav.on ? { nav: rules.nav } : {}) });
+    ...(rules.nav && rules.nav.on ? { nav: rules.nav } : {}),
+    // two or three titans in every army and the graveyard spell (rules.titans), troops fed by their own element (rules.affinity)
+    ...(rules.titans && rules.titans.on ? { titans: rules.titans } : {}), ...(rules.affinity && rules.affinity.on ? { affinity: rules.affinity } : {}) });
   // a creative match-up is new, so balance it now with quick test battles on this map and these formations
   let wildMul = three ? bm.slice(0, 3) : 1, wildRate = null, tuned = null;
   // with intelligent combat on, every 1v1 battle is tuned on the spot with quick test battles (combat changes who is strong),

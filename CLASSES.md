@@ -9,7 +9,7 @@ Counter numbers are damage multipliers (`rules.classes.counter` scales them: 0 t
 - **Role:** Massive, high-impact units
 - **Passive:** Colossal: tramples small troops in its way; arrows and bullets do 20% less
 - **Beaten by:** Assassins (+30%), Engineers (+35%), Swarms (+25%) and Gravitons pinning it down
-- **Subclasses:** Colossus (Giant, Ancient Titan, Golem, Bone Colossus, Cyclops); Behemoth (War Elephant, War Mammoth, Hydra, Living Fortress); Skyborne (Dragon, Phoenix); Mythic (Star Eater, The Worldroot); Walking fortress (Walking Fortress, Walking Cathedral)
+- **Subclasses:** Colossus (Giant, Ancient Titan, Golem, Bone Colossus, Cyclops, Magma Colossus, Glacier Behemoth, Storm Colossus); Behemoth (War Elephant, War Mammoth, Hydra, Living Fortress, Acid Leviathan, Ironhorn); Skyborne (Dragon, Phoenix); Mythic (Star Eater, The Worldroot); Walking fortress (Walking Fortress, Walking Cathedral)
 
 ## Kings
 
