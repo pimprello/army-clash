@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 479 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 480 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -79,7 +79,7 @@ Records from 479 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - MAMMOTH SLAYER: 17
 - GIANT SLAYER: 25
 - DRAGON SLAYER: 26
-- TITAN SLAYER: 32
+- TITAN SLAYER: 33
 
 ## Mutations (rarest first)
 
@@ -109,7 +109,6 @@ Records from 479 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: MINT: 1
 - possess: livingfortress: 1
 - portal: hydra: 2
-- extinct: ORANGE: 2
 - extinct: GREEN: 2
 - copied: knight: 2
 - extinct: SILVER: 2
@@ -121,6 +120,7 @@ Records from 479 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - possess: stormemperor: 2
 - extinct: PURPLE: 2
 - extinct: RED: 3
+- extinct: ORANGE: 3
 - extinct: BLUE: 3
 - possess: cannon: 5
 - possess: treant: 5
@@ -150,13 +150,13 @@ Records from 479 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Thornwood Company | 13 | 10 | 3 | 396 | 1 lost | 9 |
 | Starweave Circle | 23 | 9 | 14 | 881 | 1 won | 5 |
 | Frostmere Clan | 21 | 9 | 12 | 743 | 1 won | 3 |
+| Emberroot Circle | 17 | 9 | 7 | 541 | 3 won | 3 |
 | Mire Witch Coven | 11 | 9 | 2 | 395 | 2 won | 7 |
 | Wildbrook Clan | 22 | 8 | 14 | 820 | 2 won | 2 |
 | Ash Wolf Clan | 18 | 8 | 10 | 738 | 1 lost | 3 |
 | Copper Crown Company | 16 | 8 | 8 | 603 | 1 lost | 3 |
 | Hollowbark Kin | 19 | 8 | 11 | 590 | 1 lost | 3 |
 | Raven Hill Clan | 16 | 8 | 8 | 547 | 1 lost | 5 |
-| Emberroot Circle | 16 | 8 | 7 | 520 | 2 won | 3 |
 | Highmoor Clan | 13 | 8 | 5 | 425 | 1 lost | 7 |
 | Order of the Silver Stag | 17 | 7 | 10 | 717 | 3 lost | 3 |
 | Storm Tower Order | 19 | 7 | 12 | 713 | 3 lost | 3 |
@@ -175,6 +175,7 @@ Records from 479 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-09 12:40: The Glimmerdeep Kin Take the Overgrown Throne (7th win · 24 kills)
 - 2026-11-09 10:42: The Frostwhisper Tribe Take the Old Forest (4 wins in a row · 26 kills)
 - 2026-11-09 08:14: The Copperhead Battalion Take the City (revenge! · 6th win · 13 kills)
 - 2026-11-09 06:51: The Frostwhisper Tribe Take the Open Plains (3 wins in a row · 73 kills)
@@ -184,4 +185,3 @@ Records from 479 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-08 22:23: The House of the Red Crane Take the Open Plains (5 wins in a row · 44 kills)
 - 2026-11-08 18:22: The Ashmantle Kin Take the Quarry (revenge denied · 4th win · 44 kills)
 - 2026-11-08 14:46: The Ash Wolf Clan Take the Reactor (revenge denied · 7th win · 153 kills)
-- 2026-11-08 10:26: The Copper Crown Company Take the Overgrown Throne (8th win · 78 kills)
