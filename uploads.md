@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-09 22:45 | Empire vs Legion vs Warband 🤯 | Teal wins | https://youtube.com/shorts/N_GdltkCtSs |
 | 2026-11-09 21:02 | LAST STAND: 23 Robots vs Giant Army 🛡️ | Purple wins | https://youtube.com/shorts/rDtLBfVlI-U |
 | 2026-11-09 19:06 | The Weapons Came ALIVE 🗡️ | Green wins | https://youtube.com/shorts/S3GQFrQru3k |
 | 2026-11-09 17:00 | The Weapons Came ALIVE 🗡️ | Germany wins | https://youtube.com/shorts/luIB0ajX5bU |

@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 484 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 485 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -77,7 +77,7 @@ Records from 484 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PLAYER SLAYER: 14
 - TANK SLAYER: 16
 - GOLEM SLAYER: 17
-- MAMMOTH SLAYER: 17
+- MAMMOTH SLAYER: 19
 - GIANT SLAYER: 25
 - DRAGON SLAYER: 26
 - TITAN SLAYER: 33
@@ -86,11 +86,11 @@ Records from 484 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 - vampiric: 9
 - wings: 35
-- spellward: 44
-- venom: 76
+- spellward: 45
 - swift: 76
-- spikes: 85
-- regen: 96
+- venom: 77
+- spikes: 86
+- regen: 97
 
 ## Big moments
 
@@ -145,8 +145,8 @@ Records from 484 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Mossback Tribe | 21 | 15 | 6 | 914 | 1 lost | 7 |
 | Red Hawk Company | 21 | 14 | 7 | 777 | 2 lost | 5 |
 | Frostwhisper Tribe | 21 | 12 | 9 | 866 | 4 won | 4 |
-| Silverbough Circle | 26 | 11 | 15 | 1252 | 2 won | 3 |
-| Oakshield Clan | 16 | 11 | 5 | 673 | 1 won | 6 |
+| Oakshield Clan | 17 | 12 | 5 | 743 | 2 won | 6 |
+| Silverbough Circle | 27 | 11 | 16 | 1373 | 1 lost | 3 |
 | Thornheart Circle | 13 | 10 | 3 | 764 | 1 lost | 6 |
 | Frostmere Clan | 22 | 10 | 12 | 755 | 2 won | 3 |
 | Thornwood Company | 13 | 10 | 3 | 396 | 1 lost | 9 |
@@ -176,6 +176,7 @@ Records from 484 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-09 22:45: The Oakshield Clan Take the Open Plains (12th win · 70 kills)
 - 2026-11-09 21:02: The Frostmere Clan Take the World Furnace (revenge! · 10th win · 12 kills)
 - 2026-11-09 19:06: The House of the Moon Fox Take the Godboard (first ever win · 28 kills)
 - 2026-11-09 17:00: The Black Bear Clan Take the Desert Well (7th win · 30 kills)
@@ -185,4 +186,3 @@ Records from 484 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-09 08:14: The Copperhead Battalion Take the City (revenge! · 6th win · 13 kills)
 - 2026-11-09 06:51: The Frostwhisper Tribe Take the Open Plains (3 wins in a row · 73 kills)
 - 2026-11-09 04:24: The Stormsail Crew Take the World Furnace (2nd win · 21 kills)
-- 2026-11-09 02:22: The Viper Company Take the Ruined Fort (streak ended · 4th win · 14 kills)
