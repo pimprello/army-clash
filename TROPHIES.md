@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 475 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 476 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -175,6 +175,7 @@ Records from 475 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-09 04:24: The Stormsail Crew Take the World Furnace (2nd win · 21 kills)
 - 2026-11-09 02:22: The Viper Company Take the Ruined Fort (streak ended · 4th win · 14 kills)
 - 2026-11-09 00:08: The Ash Wolf Clan Take the Frozen End (3 wins in a row · 83 kills)
 - 2026-11-08 22:23: The House of the Red Crane Take the Open Plains (5 wins in a row · 44 kills)
@@ -184,4 +185,3 @@ Records from 475 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 22:18: The Glimmerdeep Kin Take the Open Plains (6th win · 29 kills)
 - 2026-11-07 21:06: The Mustang Battalion Take the Treasure Cove (5th win · 57 kills)
 - 2026-11-07 20:54: The Crew of the Iron Anchor Take the Haunted Crypt (3 wins in a row · 28 kills)
-- 2026-11-07 20:36: The Silverbough Circle Take the Castle (11th win · 47 kills)
