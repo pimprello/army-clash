@@ -85,27 +85,22 @@ async function setThumb(id, token, quiet) {
 // can be replaced by a frame from the video when processing finishes (Rellz, 2026-11-08: "they generate it but when i check my
 // uploads it doesn't actually have the thumbnail on"). So it's set again once processing is done. (If the channel doesn't have
 // custom Shorts thumbnails yet, rolling out since July 2026, YouTube accepts the call and ignores it: nothing here can change that.)
-// The upload token (youtube.upload) can't read the video back, so "done" is when YouTube has made the video's own
-// thumbnail picture (public, no sign-in needed), plus a margin; a token with more access is asked directly.
+// The upload token (youtube.upload) usually can't ask YouTube whether processing has finished, and the public thumbnail
+// picture exists straight away (a placeholder), so it can't be used to tell either (the first run with it, 2026-11-09, saw it
+// "made" after 0 s). When it can't ask, it sets the thumbnail again at about 4, 8 and 12 minutes after the upload, which covers
+// processing a 60 to 70 second 1080x1920 Short; a token with more access is asked directly.
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 async function processed(id, token, maxMs) {
   const t0 = Date.now();
-  let canAsk = true;
   while (Date.now() - t0 < maxMs) {
-    if (canAsk) {
-      try {
-        const r = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=processingDetails&id=${encodeURIComponent(id)}`, { headers: { Authorization: `Bearer ${token}` } });
-        if (!r.ok) canAsk = false;
-        else {
-          const j = await r.json(), st = j.items && j.items[0] && j.items[0].processingDetails && j.items[0].processingDetails.processingStatus;
-          if (st === 'succeeded') return 'processed';
-          if (st === 'failed' || st === 'terminated') return st;
-        }
-      } catch (e) { canAsk = false; }
-    }
-    if (!canAsk) {
-      try { const r = await fetch(`https://i.ytimg.com/vi/${encodeURIComponent(id)}/hqdefault.jpg`); if (r.ok) return 'own thumbnail made'; } catch (e) { /* try again */ }
-    }
+    try {
+      const r = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=processingDetails&id=${encodeURIComponent(id)}`, { headers: { Authorization: `Bearer ${token}` } });
+      if (!r.ok) return 'unknown';
+      const j = await r.json(), st = j.items && j.items[0] && j.items[0].processingDetails && j.items[0].processingDetails.processingStatus;
+      if (!st) return 'unknown';
+      if (st === 'succeeded') return 'processed';
+      if (st === 'failed' || st === 'terminated') return st;
+    } catch (e) { return 'unknown'; }
     await sleep(20000);
   }
   return 'still processing';
@@ -113,13 +108,16 @@ async function processed(id, token, maxMs) {
 async function thumbAfterProcessing(id, token) {
   if (!fs.existsSync(path.join(OUT, 'thumb.jpg'))) return;
   const t0 = Date.now(), how = await processed(id, token, 9 * 60000);
-  console.log(`YouTube processing: ${how} after ${Math.round((Date.now() - t0) / 1000)} s.`);
-  // set it twice more, a little apart (each costs 50 of the day's 10,000 API units)
-  await sleep(45000);
-  let r = await setThumb(id, token, true);
-  await sleep(90000);
-  if (r === 'set') r = await setThumb(id, token, true);
-  console.log(r === 'set' ? 'Thumbnail set again after processing.' : `Thumbnail after processing: ${r}.`);
+  let r = 'set', n = 0;
+  if (how === 'unknown') {
+    // each set costs 50 of the day's API units
+    for (let k = 0; k < 3 && r === 'set'; k++) { await sleep(240000); r = await setThumb(id, token, true); n++; }
+  } else {
+    console.log(`YouTube processing: ${how} after ${Math.round((Date.now() - t0) / 1000)} s.`);
+    await sleep(45000); r = await setThumb(id, token, true); n++;
+    if (r === 'set') { await sleep(90000); r = await setThumb(id, token, true); n++; }
+  }
+  console.log(r === 'set' ? `Thumbnail set again ${n} times over the ${Math.round((Date.now() - t0) / 60000)} minutes after the upload.` : `Thumbnail after the upload: ${r}.`);
 }
 
 async function main() {

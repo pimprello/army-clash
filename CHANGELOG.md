@@ -7,6 +7,7 @@ Newest first. Each entry says what changed in the videos and why.
 Rellz: "can you make it upload one now and make it upload every 2 hours a day so 00:00 02:00 04:00".
 - One posted straight away (a manual run), the first video with the shine.
 - `rules.schedule.hours` is now every even hour, London time: 12 a day. GitHub's timer is often 30 to 60 minutes late, so the workflow now wakes every 15 minutes all day and `slot.js` lets the first run after a slot starts post, up to 110 minutes late (`windowMinutes`), instead of only inside the slot's own hour. That way a late timer no longer skips a slot.
+- **Thumbnail timing fixed:** the first video with the new thumbnail code (posted at midnight) showed that the uploader can't tell when YouTube has finished processing (the public thumbnail picture exists straight away), so the second set came only 2 minutes after the upload, likely still during processing. It now sets the thumbnail again at about 4, 8 and 12 minutes after the upload (50 API units each).
 - The description's line now says "New battles every 2 hours". YouTube allows 100 API uploads a day per project; the channel posted about 95 a day in late October without hitting a limit, so 12 is well inside it.
 
 ## 2026-11-08 (evening): every troop shines, damage you can see, cinematic hits
