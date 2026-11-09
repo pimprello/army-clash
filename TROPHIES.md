@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 478 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 479 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -143,8 +143,8 @@ Records from 478 battles with trophies (videos from 1 November 2026 on). Rebuilt
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 21 | 15 | 6 | 914 | 1 lost | 7 |
 | Red Hawk Company | 21 | 14 | 7 | 777 | 2 lost | 5 |
+| Frostwhisper Tribe | 21 | 12 | 9 | 866 | 4 won | 4 |
 | Silverbough Circle | 26 | 11 | 15 | 1252 | 2 won | 3 |
-| Frostwhisper Tribe | 20 | 11 | 9 | 840 | 3 won | 4 |
 | Oakshield Clan | 16 | 11 | 5 | 673 | 1 won | 6 |
 | Thornheart Circle | 13 | 10 | 3 | 764 | 1 lost | 6 |
 | Thornwood Company | 13 | 10 | 3 | 396 | 1 lost | 9 |
@@ -175,6 +175,7 @@ Records from 478 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-09 10:42: The Frostwhisper Tribe Take the Old Forest (4 wins in a row · 26 kills)
 - 2026-11-09 08:14: The Copperhead Battalion Take the City (revenge! · 6th win · 13 kills)
 - 2026-11-09 06:51: The Frostwhisper Tribe Take the Open Plains (3 wins in a row · 73 kills)
 - 2026-11-09 04:24: The Stormsail Crew Take the World Furnace (2nd win · 21 kills)
@@ -184,4 +185,3 @@ Records from 478 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-08 18:22: The Ashmantle Kin Take the Quarry (revenge denied · 4th win · 44 kills)
 - 2026-11-08 14:46: The Ash Wolf Clan Take the Reactor (revenge denied · 7th win · 153 kills)
 - 2026-11-08 10:26: The Copper Crown Company Take the Overgrown Throne (8th win · 78 kills)
-- 2026-11-07 22:18: The Glimmerdeep Kin Take the Open Plains (6th win · 29 kills)

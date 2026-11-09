@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-09 10:42 | ⚔️ CHAMPION DUEL: Lunar Goblins vs Giant Axemen | White wins | https://youtube.com/shorts/zF5tM5TviOg |
 | 2026-11-09 08:14 | The Copperhead Battalion Got REVENGE ⚔️ | Sky wins | https://youtube.com/shorts/Qm2NO7xsDag |
 | 2026-11-09 06:51 | They Forged BLACK Venom Blades and WON 🔥 | Uk wins | https://youtube.com/shorts/CtmvugUjip0 |
 | 2026-11-09 04:24 | 29 HEROES vs 56 Orcs 🛡️ | Brown wins | https://youtube.com/shorts/mjbZSrpnum4 |
