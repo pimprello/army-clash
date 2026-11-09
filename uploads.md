@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-09 00:08 | ⚔️ WARRIORS vs Warriors | Purple wins | https://youtube.com/shorts/xMznPZOmntI |
 | 2026-11-08 22:23 | He Turned Them Into SHEEP 🐑 | Magenta wins | https://youtube.com/shorts/hfKxEIYCYIM |
 | 2026-11-08 18:22 | 👑 Protect the KING: Oracles vs Orcs | Red wins | https://youtube.com/shorts/id9lJeSzhlk |
 | 2026-11-08 14:46 | DREAM TEAM Battle: Werewolves vs Steel Witches | Sky wins | https://youtube.com/shorts/XFMC89up1Sw |

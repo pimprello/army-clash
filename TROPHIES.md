@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 473 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 474 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 473 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **KAELEN THE MAD** (KNIGHT), 10 kills · 2026-11-09 00:08
 - **VEXA THE UNBROKEN** (JUGGERNAUT), 12 kills · 2026-11-08 22:23
 - **BRAKK BONECRUSHER** (WIZARD), 14 kills · 2026-11-07 20:36
 - **KAELEN BONECRUSHER** (BERSERKER), 11 kills · 2026-11-07 19:55
@@ -47,7 +48,6 @@ Records from 473 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **RUNA THE BOLD** (CROSSBOWMAN), 10 kills · 2026-11-07 09:23
 - **TOVA GRAVEBANE** (SIEGE GUNNER), 10 kills · 2026-11-07 08:06
 - **ZEDRIK THE MAD** (WIZARD), 12 kills · 2026-11-07 07:38
-- **TOVA THE MAD** (SWORDSMAN), 10 kills · 2026-11-07 04:58
 
 ## Titles earned (rarest first)
 
@@ -86,8 +86,8 @@ Records from 473 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 9
 - wings: 33
 - spellward: 43
-- swift: 75
 - venom: 76
+- swift: 76
 - spikes: 82
 - regen: 95
 
@@ -151,15 +151,15 @@ Records from 473 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Starweave Circle | 23 | 9 | 14 | 881 | 1 won | 5 |
 | Frostmere Clan | 21 | 9 | 12 | 743 | 1 won | 3 |
 | Mire Witch Coven | 11 | 9 | 2 | 395 | 2 won | 7 |
+| Wildbrook Clan | 22 | 8 | 14 | 820 | 2 won | 2 |
+| Ash Wolf Clan | 17 | 8 | 9 | 719 | 3 won | 3 |
+| Copper Crown Company | 16 | 8 | 8 | 603 | 1 lost | 3 |
 | Hollowbark Kin | 19 | 8 | 11 | 590 | 1 lost | 3 |
-| Copper Crown Company | 15 | 8 | 7 | 566 | 1 won | 3 |
 | Raven Hill Clan | 16 | 8 | 8 | 547 | 1 lost | 5 |
 | Emberroot Circle | 16 | 8 | 7 | 520 | 2 won | 3 |
 | Highmoor Clan | 13 | 8 | 5 | 425 | 1 lost | 7 |
-| Wildbrook Clan | 21 | 7 | 14 | 803 | 1 won | 1 |
 | Order of the Silver Stag | 17 | 7 | 10 | 717 | 3 lost | 3 |
 | Storm Tower Order | 19 | 7 | 12 | 713 | 3 lost | 3 |
-| Ash Wolf Clan | 16 | 7 | 9 | 636 | 2 won | 2 |
 | Stormhorn Tribe | 12 | 7 | 5 | 596 | 1 lost | 4 |
 
 ### Great rivalries
@@ -169,12 +169,13 @@ Records from 473 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **Mossback Tribe vs Stormhorn Tribe**: met 4 times, last won by Stormhorn Tribe
 - **Black Bear Clan vs Thornwood Company**: met 4 times, last won by Thornwood Company
 - **Greyfang Clan vs Raven Hill Clan**: met 4 times, last won by Raven Hill Clan
+- **Copper Crown Company vs Wildbrook Clan**: met 4 times, last won by Wildbrook Clan
 - **Gloomcap Circle vs Starweave Circle**: met 4 times, last won by Starweave Circle
 - **Frostwhisper Tribe vs Starweave Circle**: met 4 times, last won by Frostwhisper Tribe
-- **Order of the Silver Stag vs Raven Hill Clan**: met 3 times, last won by Order of the Silver Stag
 
 ### Latest from the battlefield
 
+- 2026-11-09 00:08: The Ash Wolf Clan Take the Frozen End (3 wins in a row · 83 kills)
 - 2026-11-08 22:23: The House of the Red Crane Take the Open Plains (5 wins in a row · 44 kills)
 - 2026-11-08 18:22: The Ashmantle Kin Take the Quarry (revenge denied · 4th win · 44 kills)
 - 2026-11-08 14:46: The Ash Wolf Clan Take the Reactor (revenge denied · 7th win · 153 kills)
@@ -184,4 +185,3 @@ Records from 473 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-07 20:54: The Crew of the Iron Anchor Take the Haunted Crypt (3 wins in a row · 28 kills)
 - 2026-11-07 20:36: The Silverbough Circle Take the Castle (11th win · 47 kills)
 - 2026-11-07 20:22: The House of the White Heron Take the Open Plains (2nd win · 47 kills)
-- 2026-11-07 20:07: The Golden Lion Order Take the Swamp Shrine (revenge denied · 7th win · 81 kills)
