@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 480 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 481 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -84,7 +84,7 @@ Records from 480 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Mutations (rarest first)
 
 - vampiric: 9
-- wings: 33
+- wings: 34
 - spellward: 44
 - venom: 76
 - swift: 76
@@ -130,8 +130,8 @@ Records from 480 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - fusion: 10
 - portal: demon: 16
 - sudden: boss: 17
-- portal: troll: 17
 - sudden: ring: 17
+- portal: troll: 18
 - sudden: lava: 23
 - sudden: meteors: 24
 
@@ -175,6 +175,7 @@ Records from 480 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-09 14:56: The Viper Company Take the Open Plains (3 wins in a row · 39 kills)
 - 2026-11-09 12:40: The Glimmerdeep Kin Take the Overgrown Throne (7th win · 24 kills)
 - 2026-11-09 10:42: The Frostwhisper Tribe Take the Old Forest (4 wins in a row · 26 kills)
 - 2026-11-09 08:14: The Copperhead Battalion Take the City (revenge! · 6th win · 13 kills)
@@ -184,4 +185,3 @@ Records from 480 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-09 00:08: The Ash Wolf Clan Take the Frozen End (3 wins in a row · 83 kills)
 - 2026-11-08 22:23: The House of the Red Crane Take the Open Plains (5 wins in a row · 44 kills)
 - 2026-11-08 18:22: The Ashmantle Kin Take the Quarry (revenge denied · 4th win · 44 kills)
-- 2026-11-08 14:46: The Ash Wolf Clan Take the Reactor (revenge denied · 7th win · 153 kills)

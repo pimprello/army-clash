@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-09 14:56 | GHOST SAGES vs Golden Yetis vs Titan Pyros 🔥 | Sky wins | https://youtube.com/shorts/KnA_mM_SnC8 |
 | 2026-11-09 12:40 | Hold the HILL to Win? Dreamers vs Samurai 🚩 | Orange wins | https://youtube.com/shorts/0MG9gCoGm_Y |
 | 2026-11-09 10:42 | ⚔️ CHAMPION DUEL: Lunar Goblins vs Giant Axemen | White wins | https://youtube.com/shorts/zF5tM5TviOg |
 | 2026-11-09 08:14 | The Copperhead Battalion Got REVENGE ⚔️ | Sky wins | https://youtube.com/shorts/Qm2NO7xsDag |
