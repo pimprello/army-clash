@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 488 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 489 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -71,8 +71,8 @@ Records from 488 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PHOENIX SLAYER: 7
 - STORM EMPEROR SLAYER: 7
 - IMMORTAL FRAUD SLAYER: 8
-- HYDRA SLAYER: 9
-- FORTRESS SLAYER: 9
+- HYDRA SLAYER: 10
+- FORTRESS SLAYER: 10
 - COLOSSUS SLAYER: 10
 - MECH SLAYER: 10
 - ELEPHANT SLAYER: 12
@@ -80,8 +80,8 @@ Records from 488 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - CANNON SLAYER: 13
 - PLAYER SLAYER: 14
 - TANK SLAYER: 16
-- GOLEM SLAYER: 18
-- MAMMOTH SLAYER: 19
+- GOLEM SLAYER: 19
+- MAMMOTH SLAYER: 20
 - DRAGON SLAYER: 26
 - GIANT SLAYER: 28
 - TITAN SLAYER: 33
@@ -91,10 +91,10 @@ Records from 488 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 9
 - wings: 35
 - spellward: 45
-- swift: 77
-- venom: 78
+- swift: 78
+- venom: 79
 - spikes: 87
-- regen: 98
+- regen: 99
 
 ## Big moments
 
@@ -148,7 +148,7 @@ Records from 488 battles with trophies (videos from 1 November 2026 on). Rebuilt
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 21 | 15 | 6 | 914 | 1 lost | 7 |
 | Red Hawk Company | 22 | 15 | 7 | 864 | 1 won | 5 |
-| Frostwhisper Tribe | 21 | 12 | 9 | 866 | 4 won | 4 |
+| Frostwhisper Tribe | 22 | 12 | 10 | 943 | 1 lost | 4 |
 | Oakshield Clan | 17 | 12 | 5 | 743 | 2 won | 6 |
 | Silverbough Circle | 27 | 11 | 16 | 1373 | 1 lost | 3 |
 | Frostmere Clan | 23 | 10 | 13 | 789 | 1 lost | 3 |
@@ -180,6 +180,7 @@ Records from 488 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-10 04:21: The Ghoul Hollow Coven Take the Mountain Pass (streak ended · 4 wins in a row · 33 kills)
 - 2026-11-10 03:51: The Sunspire Kin Take the Mountain Pass (streak ended · 7th win · 248 kills)
 - 2026-11-10 03:03: The Crew of the Grey Shark Take the Titan's Bones (2nd win · 60 kills)
 - 2026-11-10 01:18: The Red Hawk Company Take the Haunted Crypt (15th win · 87 kills)
@@ -189,4 +190,3 @@ Records from 488 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-09 17:00: The Black Bear Clan Take the Desert Well (7th win · 30 kills)
 - 2026-11-09 14:56: The Viper Company Take the Open Plains (3 wins in a row · 39 kills)
 - 2026-11-09 12:40: The Glimmerdeep Kin Take the Overgrown Throne (7th win · 24 kills)
-- 2026-11-09 10:42: The Frostwhisper Tribe Take the Old Forest (4 wins in a row · 26 kills)
