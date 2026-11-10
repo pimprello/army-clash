@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-10 20:45 | METEORS Hit Mid-Battle ☄️ | Navy wins | https://youtube.com/shorts/NQukbeBhO-w |
 | 2026-11-10 19:05 | Toxic Sandmen vs Sky Goblins vs Holy Builders 🤯 | Green wins | https://youtube.com/shorts/BN0NFDudGwI |
 | 2026-11-10 16:27 | Kill the KING to Win 👑 Yetis vs Pirates | Purple wins | https://youtube.com/shorts/6SuDYpnd4Mc |
 | 2026-11-10 14:37 | 👑 Protect the KING: Castle Smiths vs Ultra 3d Crew | Amber wins | https://youtube.com/shorts/9Frb_8wP7hQ |

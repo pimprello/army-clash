@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 497 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 498 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -68,16 +68,16 @@ Records from 497 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - EXECUTIONER SLAYER: 5
 - THOUSAND-MAN SLAYER: 6
 - STAR EATER SLAYER: 6
-- STORM COLOSSUS SLAYER: 6
 - MIRROR KING SLAYER: 7
 - UNMAKER SLAYER: 7
 - PHOENIX SLAYER: 7
 - STORM EMPEROR SLAYER: 7
+- STORM COLOSSUS SLAYER: 7
 - IMMORTAL FRAUD SLAYER: 8
-- HYDRA SLAYER: 10
 - FORTRESS SLAYER: 10
 - COLOSSUS SLAYER: 10
 - MECH SLAYER: 10
+- HYDRA SLAYER: 12
 - CANNON SLAYER: 13
 - CYCLOPS SLAYER: 13
 - ELEPHANT SLAYER: 14
@@ -93,10 +93,10 @@ Records from 497 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 - vampiric: 9
 - wings: 37
-- spellward: 45
+- spellward: 46
 - swift: 81
 - venom: 82
-- spikes: 88
+- spikes: 89
 - regen: 102
 
 ## Big moments
@@ -155,8 +155,8 @@ Records from 497 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Frostwhisper Tribe | 22 | 12 | 10 | 943 | 1 lost | 4 |
 | Oakshield Clan | 18 | 12 | 6 | 780 | 1 lost | 6 |
 | Frostmere Clan | 24 | 11 | 13 | 817 | 1 won | 3 |
+| Thornheart Circle | 14 | 11 | 3 | 791 | 1 won | 6 |
 | Starweave Circle | 24 | 10 | 14 | 964 | 2 won | 5 |
-| Thornheart Circle | 13 | 10 | 3 | 764 | 1 lost | 6 |
 | Thornwood Company | 13 | 10 | 3 | 396 | 1 lost | 9 |
 | Wildbrook Clan | 25 | 9 | 16 | 909 | 1 won | 2 |
 | Hollowbark Kin | 21 | 9 | 12 | 731 | 1 won | 3 |
@@ -168,7 +168,7 @@ Records from 497 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Glimmerdeep Kin | 14 | 8 | 6 | 580 | 3 won | 5 |
 | Golden Lion Order | 14 | 8 | 6 | 448 | 2 won | 3 |
 | Highmoor Clan | 13 | 8 | 5 | 425 | 1 lost | 7 |
-| Order of the Silver Stag | 18 | 7 | 11 | 793 | 4 lost | 3 |
+| Duskwing Tribe | 23 | 7 | 15 | 866 | 2 won | 2 |
 
 ### Great rivalries
 
@@ -183,6 +183,7 @@ Records from 497 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-10 20:45: The Duskwing Tribe Take the Clockwork Arena (7th win · 154 kills)
 - 2026-11-10 19:05: The Starweave Circle Take the Open Plains (10th win · 83 kills)
 - 2026-11-10 16:27: The Hollowbark Kin Take the Reactor (revenge denied · 9th win · 109 kills)
 - 2026-11-10 14:37: The Saltfang Crew Take the Treasure Cove (revenge denied · 3 wins in a row · 42 kills)
@@ -192,4 +193,3 @@ Records from 497 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-10 07:01: The Frostmere Clan Take the Sky Islands (11th win · 28 kills)
 - 2026-11-10 05:26: The Saltfang Crew Take the Crystal Grove (2nd win · 40 kills)
 - 2026-11-10 04:21: The Ghoul Hollow Coven Take the Mountain Pass (streak ended · 4 wins in a row · 33 kills)
-- 2026-11-10 03:51: The Sunspire Kin Take the Mountain Pass (streak ended · 7th win · 248 kills)
