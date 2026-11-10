@@ -376,7 +376,7 @@ async function main() {
     teams: pair, nations: nationBattle ? NATION : null, flags: FLAG, docs: game.doc, start: game.start.slice(0, ids.length),
     left: ids.map(t => game.alive[t] + game.reserve[t]), gained: ids.map(t => (game.gained && game.gained[t]) || 0), winner: game.winner,
     low: Fx.low, falls: Fx.falls || [], drops: Fx.drops || [], strike: Fx.strike, hazard: Fx.hazard, wild: wild || custom || (three && invent3), three, clickbait, seed,
-    xf: game.xf || {}, label: RVB.labelOf, mvp: game.best && game.best[game.winner],
+    xf: game.xf || {}, world: game.worldLog || [], label: RVB.labelOf, mvp: game.best && game.best[game.winner],
     mode: game.mode || undefined, heroes: mode === 'heroes' ? heroTeam : undefined, skins: skinNames, tribes: tf,
     recent: pastVideos.slice(-12).map(v => v.title),
   });

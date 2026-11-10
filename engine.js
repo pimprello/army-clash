@@ -10377,12 +10377,24 @@ const RVB = (() => {
     worldPre(ctx) {
       if (this.phase !== 'fight') this.wNow = null;
       const e = this.wNow; this._wRot = false;
+      if (this._wTxt) { this._wTxt(); this._wTxt = null; } this._wUp = null;
       if (!e || e.kind !== 'flip') return;
       const T = this.fightT, a = Math.PI * easeInOut(clamp((T - e.t0) / 0.7, 0, 1)) * (1 - easeInOut(clamp((T - (e.t0 + e.dur - 0.7)) / 0.7, 0, 1)));
       if (a < 0.001) return;
       ctx.fillStyle = '#04060C'; ctx.fillRect(AR.x, AR.y, AR.w, AR.h);
       const cx = AR.x + AR.w / 2, cy = AR.y + AR.h / 2;
       ctx.save(); ctx.translate(cx, cy); ctx.rotate(a * e.spin); ctx.translate(-cx, -cy); this._wRot = true;
+      // words drawn on the turned battlefield (tribe tags, troop titles, names) stay upright where they are, so nothing reads upside down
+      // (past a quarter turn, left/right and top/bottom alignments swap, so a label built from pieces keeps its pieces in place)
+      const ra = -a * e.spin, back = Math.cos(ra) < 0;
+      const SWA = { left: 'right', right: 'left', start: 'end', end: 'start' }, SWB = { top: 'bottom', bottom: 'top', hanging: 'alphabetic', alphabetic: 'hanging' };
+      const up = fn => function (t, x, y, ...r) {
+        this.save(); this.translate(x, y); this.rotate(ra);
+        if (back) { this.textAlign = SWA[this.textAlign] || this.textAlign; this.textBaseline = SWB[this.textBaseline] || this.textBaseline; }
+        fn.call(this, t, 0, 0, ...r); this.restore();
+      };
+      this._wUp = c => { const ft = c.fillText, st = c.strokeText; c.fillText = up(ft); c.strokeText = up(st); return () => { c.fillText = ft; c.strokeText = st; }; };
+      this._wTxt = this._wUp(ctx);
     },
     // on the battlefield, under the camera (world space): the darkness of a blackout, rings on the special troops
     worldMid(ctx) {
@@ -10418,7 +10430,7 @@ const RVB = (() => {
     },
     // after the battlefield is drawn (screen space, inside its frame, never rotated): grading, glitches and the event's title
     worldPost(ctx) {
-      if (this._wRot) { ctx.restore(); this._wRot = false; }
+      if (this._wRot) { ctx.restore(); this._wRot = false; if (this._wTxt) { this._wTxt(); this._wTxt = null; } this._wUp = null; }
       const e = this.wNow, T = this.fightT, zoom = this.camOn(), c = this.cam;
       const scr = (x, y) => (zoom ? [AR.x + (x - c.x) * c.z + AR.w / 2, AR.y + (y - c.y) * c.z + AR.h / 2] : [x, y]);
       if (e) {
@@ -13494,6 +13506,7 @@ const RVB = (() => {
       lc.setTransform(m.getTransform());
       lc.lineCap = m.lineCap; lc.lineJoin = m.lineJoin; lc.lineWidth = m.lineWidth; lc.font = m.font; lc.textAlign = m.textAlign; lc.textBaseline = m.textBaseline;
       lc.fillStyle = m.fillStyle; lc.strokeStyle = m.strokeStyle;
+      if (this._wRot && this._wUp) this._shTxt = this._wUp(lc); // (the world flip: words on the troops' layer stay upright too)
       this._shB = new Map(); this._shO = new Map(); this._shT = []; this._shHP = [];
       // where on screen there is something to light: horizontal bands with the span that holds troops or objects (the rim light
       // is only worked out there, which matters at 4K)
@@ -13697,6 +13710,7 @@ const RVB = (() => {
     },
     // after every troop is drawn: gloss and marks onto the layer, the rim light, then the layer and what's over it onto the screen
     shineEnd(m, lc) {
+      if (this._shTxt) { this._shTxt(); this._shTxt = null; }
       const S = this.shine, [rx, ry, rw, rh] = this._shBox, L = this._shL, R = this._shR, rc = R.getContext('2d');
       // the stampede's animals and the kraken's tentacles shine too
       for (const ev of this.events || []) if ((ev.type === 'stampede' || ev.type === 'kraken' || ev.type === 'sandworm') && ev.started && !ev.done) {
@@ -13998,6 +14012,7 @@ const RVB = (() => {
       const fresh = !(o.affT > T);
       o.affT = Math.max(o.affT || 0, T + A.seconds); o.affEl = el;
       if (!fresh) return;
+      { const X = this.xf || (this.xf = {}), F = X.fed || (X.fed = {}); (F[o.team] || (F[o.team] = {}))[el] = ((F[o.team] || {})[el] || 0) + 1; } // facts for titles only
       const w = word || AFF_WORD[el];
       this.burst(o.x, o.y, AFF_COL[el], 4, 140, 0.45, 4);
       if (T >= (this.affCo || 0)) { this.affCo = T + 1.1; this.callout(o, `${w} POWER!`, AFF_COL[el]); }
@@ -14772,7 +14787,7 @@ const RVB = (() => {
       if (this.camEv && this.titansOn && T >= (this.clashNext || 6) && this.phase === 'fight') {
         this.clashNext = T + 0.5;
         const ts = this.units.filter(u => !u.dead && isTitan(u.type));
-        for (const a of ts) { const b = a.target; if (b && !b.dead && b.team !== a.team && isTitan(b.type) && Math.hypot(a.x - b.x, a.y - b.y) < a.r + b.r + 40) { this.clashNext = T + 11; this.camEv.push({ type: 'spot', x: (a.x + b.x) / 2, y: (a.y + b.y) / 2, prio: 62, dur: 2, z: 1.55 }); this.callout(a, 'TITAN CLASH!', '#FDE047'); break; } }
+        for (const a of ts) { const b = a.target; if (b && !b.dead && b.team !== a.team && isTitan(b.type) && Math.hypot(a.x - b.x, a.y - b.y) < a.r + b.r + 40) { this.clashNext = T + 11; (this.xf || (this.xf = {})).clash = ((this.xf.clash || 0) + 1); this.camEv.push({ type: 'spot', x: (a.x + b.x) / 2, y: (a.y + b.y) / 2, prio: 62, dur: 2, z: 1.55 }); this.callout(a, 'TITAN CLASH!', '#FDE047'); break; } }
       }
     },
     // a troop held by a spell: rising out of the ground, stunned by the quake, or spinning in the tornado (returns true: no moves)

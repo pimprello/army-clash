@@ -49,7 +49,7 @@ const tc = s => s.split(' ').map(w => w.charAt(0) + w.slice(1).toLowerCase()).jo
 const cap = s => s.toUpperCase();
 
 // facts: { teams: [palette keys], nations: { KEY: 'Name' }, flags: { KEY: '🇬🇧' }, docs: [doctrine objects], start: [...], left: [...],
-//          winner, gained, low, falls, drops, strike, hazard, wild, three, clickbait, seed }
+//          winner, gained, low, falls, drops, strike, hazard, wild, three, clickbait, seed, world: [world event kinds] }
 function makeTitle(f) {
   const N = f.docs.length, w = f.winner >= 0 ? f.winner : 0, ids = [...Array(N).keys()], losers = ids.filter(t => t !== w);
   const l = losers.reduce((a, b) => (f.start[b] > f.start[a] ? b : a), losers[0]);
@@ -124,6 +124,18 @@ function makeTitle(f) {
   if (ww.includes('growth')) facts.push('They Grew GIANTS Mid-Battle 😳');
   if (gw.length >= 2) facts.push('TWO Titans Rose From the GRAVE 🪦');
   else if (gw.length) facts.push(`Their ${tc2(L(gw[0].type))} Rose From the GRAVE 🪦`);
+  // new (2026-11-10, autopilot): world events, the rest of the spell book, fire, element feeding and titan clashes (only when they happened)
+  const WLD = { glitch: 'The Simulation GLITCHED 👾', flip: 'Then the WORLD Flipped 🙃', mirror: 'Left Became RIGHT Mid-Battle 🪞', blackout: 'Then the Lights Went OUT 🌑',
+    freeze: 'TIME Stopped Mid-Battle ⏸️', bloodmoon: 'A BLOOD MOON Rose 🩸', supersize: 'Then They Grew HUGE 😳', rave: 'The Battle Turned Into a RAVE 🪩' };
+  for (const k of f.world || []) if (WLD[k]) facts.push(WLD[k]);
+  if (ww.includes('rage')) facts.push('They Went FULL RAGE 😡');
+  if (ww.includes('heal')) facts.push('One Spell HEALED Their Whole Army ✨');
+  if (ww.includes('dome')) facts.push('They Fought Under a SHIELD DOME 🛡️');
+  if (ww.includes('acid') && mw < 4) facts.push('They Threw an ACID FLASK 🧪');
+  if (x.fire) facts.push('The Grass Caught FIRE 🔥');
+  const fedW = (x.fed || {})[w] || {}, fedN = Object.values(fedW).reduce((a, b) => a + b, 0);
+  if (fedN >= 3) facts.push({ fire: 'The FIRE Made Them STRONGER 🔥', acid: 'The ACID Made Them STRONGER 🧪', ice: 'The FROST Made Them STRONGER ❄️', zap: 'LIGHTNING Made Them STRONGER ⚡' }[Object.keys(fedW).reduce((a, b) => (fedW[b] > fedW[a] ? b : a))] || 'Their Element Made Them STRONGER 🔥');
+  if (x.clash >= 2) facts.push('The TITANS Went Head to Head 😱');
   // living tribes: only what really happened (the lead tribe is the winning army's tribe with the most kills)
   const tr = f.tribes && f.tribes.lead ? f.tribes : null;
   if (tr) {

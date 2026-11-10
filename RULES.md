@@ -147,7 +147,7 @@ Every description's second line links another Short (Rellz, 2026-11-10: "always 
 
 ## Titles
 
-- **`clickbait`**: with `"every": 5`, every fifth video gets a short, funny teaser title instead of the usual one, with no team names, no hashtags and no tags, for example `Won With Only 2 Left 😱`, `The Biggest Comeback I've Ever Seen 😱`, `A Tornado Hit the Battlefield 🌪️` or `They Took Down a Dragon?! 🐉`. The teaser is always picked from what really happened in that battle (an underdog win, a near-tie, a comeback, a big unit falling, an airstrike or hazard), so it never misleads. The description still says it's a simulation.
+- **`clickbait`**: with `"every": 5`, every fifth video gets a short, funny teaser title instead of the usual one, with no team names, no hashtags and no tags, for example `Won With Only 2 Left 😱`, `The Biggest Comeback I've Ever Seen 😱`, `A Tornado Hit the Battlefield 🌪️` or `They Took Down a Dragon?! 🐉`. The teaser is always picked from what really happened in that battle (an underdog win, a near-tie, a comeback, a big unit falling, an airstrike or hazard, a world event, a spell the winners bought, the grass catching fire, the winners being fed by their element three or more times, titans clashing twice or more), so it never misleads. The description still says it's a simulation.
 
 Titles are written by `titles.js`, following research on what gets Shorts watched:
 - **Short:** the hook fits in about the first 40 characters, where the mobile feed cuts titles off (4 to 6 words do best). Never more than 60.
