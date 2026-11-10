@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 493 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 494 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -54,13 +54,13 @@ Records from 493 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - THRONE WALKER SLAYER: 1
 - IRONHORN SLAYER: 1
 - MAGMA COLOSSUS SLAYER: 1
-- GLACIER BEHEMOTH SLAYER: 1
 - ACID LEVIATHAN SLAYER: 2
 - SPIDER QUEEN SLAYER: 2
+- GLACIER BEHEMOTH SLAYER: 2
 - SIEGE GOLEM SLAYER: 2
 - GRAVITY TYRANT SLAYER: 3
 - CATAPULT SLAYER: 3
-- STORM COLOSSUS SLAYER: 3
+- STORM COLOSSUS SLAYER: 4
 - CATHEDRAL SLAYER: 5
 - HELICOPTER SLAYER: 5
 - KNIGHT SLAYER: 5
@@ -85,7 +85,7 @@ Records from 493 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - GOLEM SLAYER: 19
 - MAMMOTH SLAYER: 20
 - DRAGON SLAYER: 26
-- GIANT SLAYER: 29
+- GIANT SLAYER: 30
 - TITAN SLAYER: 33
 
 ## Mutations (rarest first)
@@ -93,8 +93,8 @@ Records from 493 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 9
 - wings: 36
 - spellward: 45
-- venom: 79
-- swift: 80
+- venom: 80
+- swift: 81
 - spikes: 88
 - regen: 101
 
@@ -133,8 +133,8 @@ Records from 493 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - possess: treant: 5
 - portal: cyclops: 9
 - portal: golem: 9
-- portal: wolfrider: 9
 - fusion: 10
+- portal: wolfrider: 10
 - portal: demon: 16
 - sudden: boss: 17
 - sudden: ring: 17
@@ -149,9 +149,9 @@ Records from 493 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 21 | 15 | 6 | 914 | 1 lost | 7 |
-| Red Hawk Company | 23 | 15 | 8 | 868 | 1 lost | 5 |
+| Red Hawk Company | 24 | 15 | 9 | 875 | 2 lost | 5 |
 | Frostwhisper Tribe | 22 | 12 | 10 | 943 | 1 lost | 4 |
-| Oakshield Clan | 17 | 12 | 5 | 743 | 2 won | 6 |
+| Oakshield Clan | 18 | 12 | 6 | 780 | 1 lost | 6 |
 | Silverbough Circle | 27 | 11 | 16 | 1373 | 1 lost | 3 |
 | Frostmere Clan | 24 | 11 | 13 | 817 | 1 won | 3 |
 | Thornheart Circle | 13 | 10 | 3 | 764 | 1 lost | 6 |
@@ -182,6 +182,7 @@ Records from 493 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-10 13:32: The Cipher Cohort Take the Desert Well (streak ended · 4th win · 87 kills)
 - 2026-11-10 11:19: The Duskwing Tribe Take the Open Plains (6th win · 59 kills)
 - 2026-11-10 09:17: The Wildbrook Clan Take the Desert Well (revenge! · 9th win · 69 kills)
 - 2026-11-10 07:01: The Frostmere Clan Take the Sky Islands (11th win · 28 kills)
@@ -191,4 +192,3 @@ Records from 493 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-10 03:03: The Crew of the Grey Shark Take the Titan's Bones (2nd win · 60 kills)
 - 2026-11-10 01:18: The Red Hawk Company Take the Haunted Crypt (15th win · 87 kills)
 - 2026-11-09 22:45: The Oakshield Clan Take the Open Plains (12th win · 70 kills)
-- 2026-11-09 21:02: The Frostmere Clan Take the World Furnace (revenge! · 10th win · 12 kills)
