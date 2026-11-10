@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 489 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 490 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -52,12 +52,12 @@ Records from 489 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Titles earned (rarest first)
 
 - THRONE WALKER SLAYER: 1
-- ACID LEVIATHAN SLAYER: 1
 - IRONHORN SLAYER: 1
 - MAGMA COLOSSUS SLAYER: 1
-- STORM COLOSSUS SLAYER: 1
 - SPIDER QUEEN SLAYER: 1
 - CATAPULT SLAYER: 2
+- ACID LEVIATHAN SLAYER: 2
+- STORM COLOSSUS SLAYER: 2
 - GRAVITY TYRANT SLAYER: 3
 - CATHEDRAL SLAYER: 5
 - HELICOPTER SLAYER: 5
@@ -91,8 +91,8 @@ Records from 489 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 9
 - wings: 35
 - spellward: 45
-- swift: 78
 - venom: 79
+- swift: 79
 - spikes: 87
 - regen: 99
 
@@ -158,14 +158,14 @@ Records from 489 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Raven Hill Clan | 17 | 9 | 8 | 549 | 1 won | 5 |
 | Emberroot Circle | 17 | 9 | 7 | 541 | 3 won | 3 |
 | Mire Witch Coven | 11 | 9 | 2 | 395 | 2 won | 7 |
-| Wildbrook Clan | 23 | 8 | 15 | 836 | 1 lost | 2 |
+| Wildbrook Clan | 24 | 8 | 16 | 840 | 2 lost | 2 |
 | Ash Wolf Clan | 18 | 8 | 10 | 738 | 1 lost | 3 |
 | Copper Crown Company | 16 | 8 | 8 | 603 | 1 lost | 3 |
 | Hollowbark Kin | 19 | 8 | 11 | 590 | 1 lost | 3 |
 | Glimmerdeep Kin | 14 | 8 | 6 | 580 | 3 won | 5 |
 | Golden Lion Order | 14 | 8 | 6 | 448 | 2 won | 3 |
 | Highmoor Clan | 13 | 8 | 5 | 425 | 1 lost | 7 |
-| Order of the Silver Stag | 17 | 7 | 10 | 717 | 3 lost | 3 |
+| Order of the Silver Stag | 18 | 7 | 11 | 793 | 4 lost | 3 |
 
 ### Great rivalries
 
@@ -180,6 +180,7 @@ Records from 489 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-10 05:26: The Saltfang Crew Take the Crystal Grove (2nd win · 40 kills)
 - 2026-11-10 04:21: The Ghoul Hollow Coven Take the Mountain Pass (streak ended · 4 wins in a row · 33 kills)
 - 2026-11-10 03:51: The Sunspire Kin Take the Mountain Pass (streak ended · 7th win · 248 kills)
 - 2026-11-10 03:03: The Crew of the Grey Shark Take the Titan's Bones (2nd win · 60 kills)
@@ -189,4 +190,3 @@ Records from 489 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-09 19:06: The House of the Moon Fox Take the Godboard (first ever win · 28 kills)
 - 2026-11-09 17:00: The Black Bear Clan Take the Desert Well (7th win · 30 kills)
 - 2026-11-09 14:56: The Viper Company Take the Open Plains (3 wins in a row · 39 kills)
-- 2026-11-09 12:40: The Glimmerdeep Kin Take the Overgrown Throne (7th win · 24 kills)

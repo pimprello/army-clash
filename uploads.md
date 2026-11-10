@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-10 05:26 | Can Vikings Survive PIRATES? 🏴‍☠️ | Purple wins | https://youtube.com/shorts/sLoZBPidQl4 |
 | 2026-11-10 04:21 | They Forged WITCH-STORM Blades and WON 🔥 | Silver wins | https://youtube.com/shorts/piFTP5bT87A |
 | 2026-11-10 03:51 | They Bought a TORNADO 🌪️ | Pink wins | https://youtube.com/shorts/gP8MKaSOZoA |
 | 2026-11-10 03:03 | Storm Mimics vs Castle Pyros 🤯 | Navy wins | https://youtube.com/shorts/GzRKvQ8ZS9k |
