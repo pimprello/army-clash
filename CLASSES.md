@@ -9,7 +9,7 @@ Counter numbers are damage multipliers (`rules.classes.counter` scales them: 0 t
 - **Role:** Massive, high-impact units
 - **Passive:** Colossal: tramples small troops in its way; arrows and bullets do 20% less
 - **Beaten by:** Assassins (+30%), Engineers (+35%), Swarms (+25%) and Gravitons pinning it down
-- **Subclasses:** Colossus (Giant, Ancient Titan, Golem, Bone Colossus, Cyclops, Magma Colossus, Glacier Behemoth, Storm Colossus); Behemoth (War Elephant, War Mammoth, Hydra, Living Fortress, Acid Leviathan, Ironhorn); Skyborne (Dragon, Phoenix); Mythic (Star Eater, The Worldroot); Walking fortress (Walking Fortress, Walking Cathedral)
+- **Subclasses:** Colossus (Giant, Ancient Titan, Golem, Bone Colossus, Cyclops, Magma Colossus, Glacier Behemoth, Storm Colossus, Siege Golem); Behemoth (War Elephant, War Mammoth, Hydra, Living Fortress, Acid Leviathan, Ironhorn, Spider Queen); Skyborne (Dragon, Phoenix); Mythic (Star Eater, The Worldroot); Walking fortress (Walking Fortress, Walking Cathedral)
 
 ## Kings
 
@@ -65,7 +65,7 @@ Counter numbers are damage multipliers (`rules.classes.counter` scales them: 0 t
 - **Role:** Aggressive melee bruisers
 - **Passive:** Frenzy: under half health they attack 30% faster and run 15% faster
 - **Beaten by:** Spear walls (+35%), Queens (+20%) slowing them; Guardians take 20% less from them
-- **Subclasses:** Pack hunter (Hellhound, Wolf Rider); Brute (Troll, Ogre, Yeti, Werewolf, Demon); Charger (War Rhino, Boar Rider)
+- **Subclasses:** Pack hunter (Hellhound, Wolf Rider); Brute (Troll, Ogre, Yeti, Werewolf, Demon); Charger (War Rhino, Boar Rider, Minotaur)
 
 ## Strategists
 
@@ -126,7 +126,7 @@ Counter numbers are damage multipliers (`rules.classes.counter` scales them: 0 t
 - **Passive:** Shoulder to shoulder: with two friends beside it, takes 12% less damage
 - **Beaten by:** Titans (+25%) and Elementalists; spear walls beat Beasts and cavalry (+35%)
 - **Why it adds strategy:** The line that everything else is built around: stronger shoulder to shoulder, and spear walls punish Beasts and cavalry. Titans and area magic break lines.
-- **Subclasses:** Line (Soldier, Swordsman, Knight, Samurai, Orc, Dwarf, Pirate); Spear wall (Spearman, Pikeman); Shock (Berserker); Cavalry (Lancer, Griffin Rider, Valkyrie)
+- **Subclasses:** Line (Soldier, Swordsman, Knight, Samurai, Orc, Dwarf, Pirate); Spear wall (Spearman, Pikeman); Shock (Berserker, Goliath); Cavalry (Lancer, Griffin Rider, Valkyrie)
 
 ## ★ Marksmen
 
@@ -142,5 +142,5 @@ Counter numbers are damage multipliers (`rules.classes.counter` scales them: 0 t
 - **Passive:** Overwhelm: +8% damage for every other swarm troop hitting the same enemy (up to +40%)
 - **Beaten by:** Elementalists (+35%) and Titans (+30%) hitting many at once
 - **Why it adds strategy:** Numbers as a weapon: every extra swarm troop on the same enemy hits harder, so they melt giants. One good area spell (Elementalists) or a Titan stomp undoes them.
-- **Subclasses:** Undead horde (Skeleton, Zombie, Empty Armour, Skeleton, Living Blade); Kamikaze (Kamikaze Drone, Barrel Bomber)
+- **Subclasses:** Undead horde (Skeleton, Zombie, Empty Armour, Skeleton, Living Blade); Kamikaze (Kamikaze Drone, Barrel Bomber); Brood (Spiderling)
 

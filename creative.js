@@ -66,6 +66,7 @@ Object.assign(HEAVY_WORD, { balloon: 'SKY' });
 // come as a small extra (the third troop), never as a whole army of them.
 const NOUN4 = { singularity: 'SAGES', orbitknight: 'ORBITERS', pulsar: 'PULSARS', zerog: 'ZERO-G', trapmaster: 'TRAPPERS', blinkblade: 'BLINKERS', bastion: 'BASTIONS' };
 const SUPPORT4 = ['crystalqueen', 'sunking', 'warmaster'];
+Object.assign(TROOP_NAME, { siegegolem: 'Siege Golem', spiderqueen: 'Spider Queen', spiderling: 'spiderlings', minotaur: 'Minotaur', goliath: 'Goliath' });
 Object.assign(TROOP_NAME, { magmacolossus: 'Magma Colossus', glaciergiant: 'Glacier Behemoth', stormcolossus: 'Storm Colossus', acidwyrm: 'Acid Leviathan', ironhorn: 'Ironhorn' });
 Object.assign(TROOP_NAME, { singularity: 'singularity sages', orbitknight: 'orbit knights', pulsar: 'pulsars', zerog: 'zero-g rangers', crystalqueen: 'crystal queens', sunking: 'sun kings',
   thronewalker: 'Throne Walker', trapmaster: 'trapmasters', blinkblade: 'blink blades', bastion: 'bastion engineers', warmaster: 'warmasters', domegen: 'dome generators' });

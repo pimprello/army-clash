@@ -114,6 +114,14 @@ function makeTitle(f) {
   if (f.hazard === 'sandworm' && x.sandworm >= 4) facts.push(`The SANDWORM Took ${x.sandworm} of Them 🪱`);
   // rules.titans: a titan raised by the graveyard spell (only when it really happened, and only for the winners)
   const gw = (x.graves || []).filter(g => g.team === w);
+  // rules.spells: what the winners bought from the merchant, and how many the acid melted (only when it happened)
+  const mw = (x.melted || []).filter(m => m.team === w).reduce((s, m) => s + m.n, 0);
+  if (mw >= 4) facts.push(`${mw} Troops MELTED to the BONE 🦴`);
+  const ww = (x.wares || []).filter(m => m.team === w).map(m => m.item);
+  if (ww.includes('tornado')) facts.push('They Bought a TORNADO 🌪️');
+  if (ww.includes('quake')) facts.push('The GROUND Split Open 💥');
+  if (ww.includes('bones')) facts.push('Skeletons Clawed Out of the GROUND 💀');
+  if (ww.includes('growth')) facts.push('They Grew GIANTS Mid-Battle 😳');
   if (gw.length >= 2) facts.push('TWO Titans Rose From the GRAVE 🪦');
   else if (gw.length) facts.push(`Their ${tc2(L(gw[0].type))} Rose From the GRAVE 🪦`);
   // living tribes: only what really happened (the lead tribe is the winning army's tribe with the most kills)
