@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-10 23:01 | Can Turbo Pulsars Survive CHAOS REAPERS? 😳 | White wins | https://youtube.com/shorts/ajqWGijMAME |
 | 2026-11-10 20:45 | METEORS Hit Mid-Battle ☄️ | Navy wins | https://youtube.com/shorts/NQukbeBhO-w |
 | 2026-11-10 19:05 | Toxic Sandmen vs Sky Goblins vs Holy Builders 🤯 | Green wins | https://youtube.com/shorts/BN0NFDudGwI |
 | 2026-11-10 16:27 | Kill the KING to Win 👑 Yetis vs Pirates | Purple wins | https://youtube.com/shorts/6SuDYpnd4Mc |

@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 498 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 499 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -60,12 +60,12 @@ Records from 498 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - CATAPULT SLAYER: 3
 - GLACIER BEHEMOTH SLAYER: 3
 - SPIDER QUEEN SLAYER: 4
-- SIEGE GOLEM SLAYER: 4
 - CATHEDRAL SLAYER: 5
 - HELICOPTER SLAYER: 5
 - KNIGHT SLAYER: 5
 - WORLDROOT SLAYER: 5
 - EXECUTIONER SLAYER: 5
+- SIEGE GOLEM SLAYER: 5
 - THOUSAND-MAN SLAYER: 6
 - STAR EATER SLAYER: 6
 - MIRROR KING SLAYER: 7
@@ -83,11 +83,11 @@ Records from 498 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - ELEPHANT SLAYER: 14
 - PLAYER SLAYER: 14
 - TANK SLAYER: 16
-- GOLEM SLAYER: 19
+- GOLEM SLAYER: 20
 - MAMMOTH SLAYER: 20
 - DRAGON SLAYER: 26
 - GIANT SLAYER: 30
-- TITAN SLAYER: 33
+- TITAN SLAYER: 35
 
 ## Mutations (rarest first)
 
@@ -183,6 +183,7 @@ Records from 498 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-10 23:01: The Quasar Wing Take the Swamp Shrine (3rd win · 27 kills)
 - 2026-11-10 20:45: The Duskwing Tribe Take the Clockwork Arena (7th win · 154 kills)
 - 2026-11-10 19:05: The Starweave Circle Take the Open Plains (10th win · 83 kills)
 - 2026-11-10 16:27: The Hollowbark Kin Take the Reactor (revenge denied · 9th win · 109 kills)
@@ -192,4 +193,3 @@ Records from 498 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-10 09:17: The Wildbrook Clan Take the Desert Well (revenge! · 9th win · 69 kills)
 - 2026-11-10 07:01: The Frostmere Clan Take the Sky Islands (11th win · 28 kills)
 - 2026-11-10 05:26: The Saltfang Crew Take the Crystal Grove (2nd win · 40 kills)
-- 2026-11-10 04:21: The Ghoul Hollow Coven Take the Mountain Pass (streak ended · 4 wins in a row · 33 kills)
