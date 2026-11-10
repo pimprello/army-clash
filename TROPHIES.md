@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 490 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 491 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -55,10 +55,12 @@ Records from 490 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - IRONHORN SLAYER: 1
 - MAGMA COLOSSUS SLAYER: 1
 - SPIDER QUEEN SLAYER: 1
-- CATAPULT SLAYER: 2
+- GLACIER BEHEMOTH SLAYER: 1
+- SIEGE GOLEM SLAYER: 1
 - ACID LEVIATHAN SLAYER: 2
 - STORM COLOSSUS SLAYER: 2
 - GRAVITY TYRANT SLAYER: 3
+- CATAPULT SLAYER: 3
 - CATHEDRAL SLAYER: 5
 - HELICOPTER SLAYER: 5
 - KNIGHT SLAYER: 5
@@ -92,7 +94,7 @@ Records from 490 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - wings: 35
 - spellward: 45
 - venom: 79
-- swift: 79
+- swift: 80
 - spikes: 87
 - regen: 99
 
@@ -138,7 +140,7 @@ Records from 490 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - sudden: ring: 17
 - portal: troll: 18
 - sudden: lava: 23
-- sudden: meteors: 24
+- sudden: meteors: 25
 
 ## The tribes' chronicle
 
@@ -151,7 +153,7 @@ Records from 490 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Frostwhisper Tribe | 22 | 12 | 10 | 943 | 1 lost | 4 |
 | Oakshield Clan | 17 | 12 | 5 | 743 | 2 won | 6 |
 | Silverbough Circle | 27 | 11 | 16 | 1373 | 1 lost | 3 |
-| Frostmere Clan | 23 | 10 | 13 | 789 | 1 lost | 3 |
+| Frostmere Clan | 24 | 11 | 13 | 817 | 1 won | 3 |
 | Thornheart Circle | 13 | 10 | 3 | 764 | 1 lost | 6 |
 | Thornwood Company | 13 | 10 | 3 | 396 | 1 lost | 9 |
 | Starweave Circle | 23 | 9 | 14 | 881 | 1 won | 5 |
@@ -180,6 +182,7 @@ Records from 490 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-10 07:01: The Frostmere Clan Take the Sky Islands (11th win · 28 kills)
 - 2026-11-10 05:26: The Saltfang Crew Take the Crystal Grove (2nd win · 40 kills)
 - 2026-11-10 04:21: The Ghoul Hollow Coven Take the Mountain Pass (streak ended · 4 wins in a row · 33 kills)
 - 2026-11-10 03:51: The Sunspire Kin Take the Mountain Pass (streak ended · 7th win · 248 kills)
@@ -189,4 +192,3 @@ Records from 490 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-09 21:02: The Frostmere Clan Take the World Furnace (revenge! · 10th win · 12 kills)
 - 2026-11-09 19:06: The House of the Moon Fox Take the Godboard (first ever win · 28 kills)
 - 2026-11-09 17:00: The Black Bear Clan Take the Desert Well (7th win · 30 kills)
-- 2026-11-09 14:56: The Viper Company Take the Open Plains (3 wins in a row · 39 kills)
