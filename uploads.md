@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-10 03:51 | They Bought a TORNADO 🌪️ | Pink wins | https://youtube.com/shorts/gP8MKaSOZoA |
 | 2026-11-10 03:03 | Storm Mimics vs Castle Pyros 🤯 | Navy wins | https://youtube.com/shorts/GzRKvQ8ZS9k |
 | 2026-11-10 01:18 | Can Giant Army Survive SOLDIERS? ⚔️ | Mint wins | https://youtube.com/shorts/OgXoUskn5jg |
 | 2026-11-09 22:45 | Empire vs Legion vs Warband 🤯 | Teal wins | https://youtube.com/shorts/N_GdltkCtSs |

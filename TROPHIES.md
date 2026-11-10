@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 487 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 488 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -13,7 +13,7 @@ Records from 487 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **48 kills**: PHOENIX · 2026-11-04 22:57 · [Phoenix Pikes vs WILD LEGION 🔥](https://youtube.com/shorts/zga-x3ZnOUs)
 - **47 kills**: LIVING FORTRESS · 2026-11-04 05:33 · [106 Orcs vs a LIVING Castle 🏰](https://youtube.com/shorts/3rsNAb0OpJA)
 - **47 kills**: TANK · 2026-11-04 10:12 · [🔥 SPELLGUNS vs Dragon Armor](https://youtube.com/shorts/g__rdIjt58w)
-- **38 kills**: GIANT · 2026-11-07 18:25 · [One Giant Got 38 KILLS 😳](https://youtube.com/shorts/MF48PV9Bt_w)
+- **47 kills**: VALKYRIE, SPIDER QUEEN SLAYER · 2026-11-10 03:51 · [They Bought a TORNADO 🌪️](https://youtube.com/shorts/gP8MKaSOZoA)
 
 ## Fastest wipe-outs
 
@@ -55,6 +55,8 @@ Records from 487 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - ACID LEVIATHAN SLAYER: 1
 - IRONHORN SLAYER: 1
 - MAGMA COLOSSUS SLAYER: 1
+- STORM COLOSSUS SLAYER: 1
+- SPIDER QUEEN SLAYER: 1
 - CATAPULT SLAYER: 2
 - GRAVITY TYRANT SLAYER: 3
 - CATHEDRAL SLAYER: 5
@@ -71,9 +73,9 @@ Records from 487 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - IMMORTAL FRAUD SLAYER: 8
 - HYDRA SLAYER: 9
 - FORTRESS SLAYER: 9
-- ELEPHANT SLAYER: 10
 - COLOSSUS SLAYER: 10
 - MECH SLAYER: 10
+- ELEPHANT SLAYER: 12
 - CYCLOPS SLAYER: 12
 - CANNON SLAYER: 13
 - PLAYER SLAYER: 14
@@ -89,10 +91,10 @@ Records from 487 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 9
 - wings: 35
 - spellward: 45
-- swift: 76
-- venom: 77
-- spikes: 86
-- regen: 97
+- swift: 77
+- venom: 78
+- spikes: 87
+- regen: 98
 
 ## Big moments
 
@@ -160,10 +162,10 @@ Records from 487 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Ash Wolf Clan | 18 | 8 | 10 | 738 | 1 lost | 3 |
 | Copper Crown Company | 16 | 8 | 8 | 603 | 1 lost | 3 |
 | Hollowbark Kin | 19 | 8 | 11 | 590 | 1 lost | 3 |
+| Glimmerdeep Kin | 14 | 8 | 6 | 580 | 3 won | 5 |
 | Golden Lion Order | 14 | 8 | 6 | 448 | 2 won | 3 |
 | Highmoor Clan | 13 | 8 | 5 | 425 | 1 lost | 7 |
 | Order of the Silver Stag | 17 | 7 | 10 | 717 | 3 lost | 3 |
-| Storm Tower Order | 19 | 7 | 12 | 713 | 3 lost | 3 |
 
 ### Great rivalries
 
@@ -178,6 +180,7 @@ Records from 487 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-10 03:51: The Sunspire Kin Take the Mountain Pass (streak ended · 7th win · 248 kills)
 - 2026-11-10 03:03: The Crew of the Grey Shark Take the Titan's Bones (2nd win · 60 kills)
 - 2026-11-10 01:18: The Red Hawk Company Take the Haunted Crypt (15th win · 87 kills)
 - 2026-11-09 22:45: The Oakshield Clan Take the Open Plains (12th win · 70 kills)
@@ -187,4 +190,3 @@ Records from 487 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-09 14:56: The Viper Company Take the Open Plains (3 wins in a row · 39 kills)
 - 2026-11-09 12:40: The Glimmerdeep Kin Take the Overgrown Throne (7th win · 24 kills)
 - 2026-11-09 10:42: The Frostwhisper Tribe Take the Old Forest (4 wins in a row · 26 kills)
-- 2026-11-09 08:14: The Copperhead Battalion Take the City (revenge! · 6th win · 13 kills)
