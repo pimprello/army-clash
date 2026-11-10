@@ -1,1 +1,0 @@
-2026-11-09T15:08:53.918Z YouTube refused the stats request (403): "Request had insufficient authentication scopes.". No API key reached this run: add a repository secret named exactly YT_API_KEY (Settings → Secrets and variables → Actions).
