@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 496 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 497 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -53,12 +53,13 @@ Records from 496 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 - THRONE WALKER SLAYER: 1
 - MAGMA COLOSSUS SLAYER: 1
+- BALLOON BOMBER SLAYER: 1
 - ACID LEVIATHAN SLAYER: 2
 - IRONHORN SLAYER: 2
-- SPIDER QUEEN SLAYER: 2
-- GLACIER BEHEMOTH SLAYER: 2
 - GRAVITY TYRANT SLAYER: 3
 - CATAPULT SLAYER: 3
+- GLACIER BEHEMOTH SLAYER: 3
+- SPIDER QUEEN SLAYER: 4
 - SIEGE GOLEM SLAYER: 4
 - CATHEDRAL SLAYER: 5
 - HELICOPTER SLAYER: 5
@@ -91,7 +92,7 @@ Records from 496 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Mutations (rarest first)
 
 - vampiric: 9
-- wings: 36
+- wings: 37
 - spellward: 45
 - swift: 81
 - venom: 82
@@ -137,8 +138,8 @@ Records from 496 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: wolfrider: 10
 - portal: demon: 16
 - sudden: boss: 17
-- sudden: ring: 17
 - portal: troll: 18
+- sudden: ring: 18
 - sudden: lava: 23
 - sudden: meteors: 25
 
@@ -154,10 +155,10 @@ Records from 496 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Frostwhisper Tribe | 22 | 12 | 10 | 943 | 1 lost | 4 |
 | Oakshield Clan | 18 | 12 | 6 | 780 | 1 lost | 6 |
 | Frostmere Clan | 24 | 11 | 13 | 817 | 1 won | 3 |
+| Starweave Circle | 24 | 10 | 14 | 964 | 2 won | 5 |
 | Thornheart Circle | 13 | 10 | 3 | 764 | 1 lost | 6 |
 | Thornwood Company | 13 | 10 | 3 | 396 | 1 lost | 9 |
 | Wildbrook Clan | 25 | 9 | 16 | 909 | 1 won | 2 |
-| Starweave Circle | 23 | 9 | 14 | 881 | 1 won | 5 |
 | Hollowbark Kin | 21 | 9 | 12 | 731 | 1 won | 3 |
 | Raven Hill Clan | 17 | 9 | 8 | 549 | 1 won | 5 |
 | Emberroot Circle | 17 | 9 | 7 | 541 | 3 won | 3 |
@@ -182,6 +183,7 @@ Records from 496 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-10 19:05: The Starweave Circle Take the Open Plains (10th win · 83 kills)
 - 2026-11-10 16:27: The Hollowbark Kin Take the Reactor (revenge denied · 9th win · 109 kills)
 - 2026-11-10 14:37: The Saltfang Crew Take the Treasure Cove (revenge denied · 3 wins in a row · 42 kills)
 - 2026-11-10 13:32: The Cipher Cohort Take the Desert Well (streak ended · 4th win · 87 kills)
@@ -191,4 +193,3 @@ Records from 496 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-10 05:26: The Saltfang Crew Take the Crystal Grove (2nd win · 40 kills)
 - 2026-11-10 04:21: The Ghoul Hollow Coven Take the Mountain Pass (streak ended · 4 wins in a row · 33 kills)
 - 2026-11-10 03:51: The Sunspire Kin Take the Mountain Pass (streak ended · 7th win · 248 kills)
-- 2026-11-10 03:03: The Crew of the Grey Shark Take the Titan's Bones (2nd win · 60 kills)
