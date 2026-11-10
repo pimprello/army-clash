@@ -227,7 +227,9 @@ async function main() {
     ...(rules.titans && rules.titans.on ? { titans: rules.titans } : {}), ...(rules.affinity && rules.affinity.on ? { affinity: rules.affinity } : {}),
     // the merchant's spell book (rules.spells), expendable small troops (rules.expendable), and the cleaner battlefield and remains (rules.ui)
     ...(rules.spells && rules.spells.on ? { spells: rules.spells } : {}), ...(rules.expendable && rules.expendable.on ? { expendable: rules.expendable } : {}),
-    ...(rules.ui && rules.ui.clean ? { clean: true } : {}), ...(rules.ui && rules.ui.remains ? { remains: true } : {}) });
+    ...(rules.ui && rules.ui.clean ? { clean: true } : {}), ...(rules.ui && rules.ui.remains ? { remains: true } : {}),
+    // blood first: splatter, pools and spattered fighters instead of sparks and smoke (rules.ui.blood; looks only)
+    ...(rules.ui && rules.ui.blood && rules.ui.blood.on ? { blood: rules.ui.blood } : {}) });
   // a creative match-up is new, so balance it now with quick test battles on this map and these formations
   let wildMul = three ? bm.slice(0, 3) : 1, wildRate = null, tuned = null;
   // with intelligent combat on, every 1v1 battle is tuned on the spot with quick test battles (combat changes who is strong),

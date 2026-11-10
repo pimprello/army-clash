@@ -2,6 +2,20 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-10 (early morning): blood first, the little ones die first in a crowd, spell circles under the troops
+
+Rellz: "when theres a lot of people fighting prioritise killing the little ones and the particles might be too much to prioritise the blood splatter instead of too much gun shot concentrated and particles. focus on the blood and its splatter", then "sometimes when there is a circle spell thing, troops are rendered under that please fix that".
+
+- **The little ones go first in a crowd** (`rules.expendable.crowd`): a troop with 7 or more others within 100 px is in a crowd. Fighters go for the small troops in a crowd first, the most wounded of them before the rest; small troops packed in a crowd take 35% more damage (crushed in the press). Of Claude's own: a titan's, giant's or big troop's blow on a small troop in a crowd cuts through up to two more small troops next to it (half damage, a wide white arc), and in the last 15 s the targeting goes back to normal so the big ones are fought too and the battle still ends with a final blow.
+- **Blood first, fewer gunfire particles** (`rules.ui.blood`, looks only): every hit throws a jet of blood the way the blow travelled and a fine mist, and a moment later a splatter lands on the ground behind the troop (a splat stretched the way it flew, smaller drops further out, a streak or two). It stays on the ground longer than the old marks. Gunfire makes much less: sparks only off metal and armour, one puff of musket smoke instead of three, fewer chips off walls, fewer laser and explosion sparks, and on a busy screen sparks and puffs thin out but blood never does. Of Claude's own:
+  - a killing blow throws a last, bigger spurt and a **pool spreads out** under the fallen troop, wet and shining; a titan's fall splashes all the way round;
+  - **whoever struck a troop down up close is spattered** with its blood for a few seconds, so you can see who did the killing;
+  - **badly hurt troops are smeared with their own blood and leave a trail of drops** as they move;
+  - **each creature bleeds its own colour**: oil for machines (which still spark), dust and chips for skeletons and stone, sap for treants, green ichor for acid creatures and spiders, glowing magma for fire creatures, meltwater for ice giants, violet for the Storm Colossus; rain washes the blood away faster.
+- **Spell circles under the troops:** the shield dome's bubble and hexagons, the acid flask's target ring, the tornado's shadow, the war cry and heal rings were drawn over the troops, so troops looked like they were under them. They're now on the ground under the troops; only the dome's rim, the falling flask and the tornado funnel go over them. Also fixed the same way: the meteor warning circles, the Glacier Behemoth's frost cone and the thunderclap's and eruption's flashes. The heal light now stops at each troop's head, and the tornado funnel is see-through so you can see the troops spinning inside it.
+- **Tested:** with these rules off, old battles and the battles posted so far play out exactly as before (same end, winner, survivors); blood on or off doesn't change a battle; stills of melee on dark and light maps, the dome and the tornado. Over 84 test battles with the crowd rule the battles end at about the same time as before (median 56 s); about one in seven runs to the time limit instead of one in ten (they still end with a winner on the clock).
+- **Rellz:** already-posted videos don't change; the next videos have all of this.
+
 ## 2026-11-10 (autopilot)
 
 - **Health:** uploads are fine. Every even-hour slot posted: 22:00 (22:45 UTC), midnight (01:18) and 02:00 (03:03); GitHub's timer ran about an hour late, which the 110-minute window covers. The spare runs in between skipped as they should. The manual run for last night's spell-book update was still making its video when I checked (started 03:33 UTC). No line-ups are waiting to be balanced.

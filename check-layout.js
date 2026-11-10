@@ -76,7 +76,7 @@ function run(label, opts, seed, teams, frames) {
     // the roster, classes, minds and pathfinding as the videos have them (class badges on the roster cards, new troops' moves),
     // and the animation and shine (so every line-up's frames are also drawn the way the videos draw them)
     ...['roster', 'classes', 'minds', 'nav', 'titans', 'affinity', 'spells', 'expendable'].filter(k => rules[k] && rules[k].on).map(k => ({ [k]: rules[k] })),
-    ...(rules.ui && rules.ui.clean ? [{ clean: true }] : []), ...(rules.ui && rules.ui.remains ? [{ remains: true }] : []),
+    ...(rules.ui && rules.ui.clean ? [{ clean: true }] : []), ...(rules.ui && rules.ui.remains ? [{ remains: true }] : []), ...(rules.ui && rules.ui.blood && rules.ui.blood.on ? [{ blood: rules.ui.blood }] : []),
     rules.ui && rules.ui.anim ? { anim: true } : {}, rules.ui && rules.ui.shine && rules.ui.shine.on ? { shine: rules.ui.shine } : {}, opts));
   let k = 0;
   // UI 2.0 has more moments to check: both beats of the story, the roster strips, the panel, chapter cards and the outro

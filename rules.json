@@ -2099,7 +2099,7 @@
       "density": 1.6
     },
     "clean": true,
-    "remains": true
+    "remains": true, "blood": { "on": true, "drops": 1.5, "sparks": 0.4, "stay": 0.6 }
   },
   "world": {
     "on": true,
@@ -2177,6 +2177,6 @@
     "cheapCost": 1.6,
     "mid": 0.75,
     "midCost": 4,
-    "hurt": 1.25
+    "hurt": 1.25, "crowd": { "on": true, "r": 100, "n": 7, "pick": 0.45, "wounded": 0.4, "hurt": 1.35, "cleave": 0.5, "late": 15, "early": 1.5 }
   }
 }
