@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 492 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 493 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 492 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **OSKA NIGHTFANG** (DEMON), 12 kills · 2026-11-10 11:19
 - **ASHKA STORMBORN** (WIZARD), 10 kills · 2026-11-09 06:51
 - **KAELEN THE MAD** (KNIGHT), 10 kills · 2026-11-09 00:08
 - **VEXA THE UNBROKEN** (JUGGERNAUT), 12 kills · 2026-11-08 22:23
@@ -47,7 +48,6 @@ Records from 492 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **KAELEN THE WALL** (SIEGE GUNNER), 10 kills · 2026-11-07 10:05
 - **NYRA IRONHIDE** (GENERAL), 23 kills · 2026-11-07 09:37
 - **RUNA THE BOLD** (CROSSBOWMAN), 10 kills · 2026-11-07 09:23
-- **TOVA GRAVEBANE** (SIEGE GUNNER), 10 kills · 2026-11-07 08:06
 
 ## Titles earned (rarest first)
 
@@ -55,12 +55,12 @@ Records from 492 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - IRONHORN SLAYER: 1
 - MAGMA COLOSSUS SLAYER: 1
 - GLACIER BEHEMOTH SLAYER: 1
-- SIEGE GOLEM SLAYER: 1
 - ACID LEVIATHAN SLAYER: 2
-- STORM COLOSSUS SLAYER: 2
 - SPIDER QUEEN SLAYER: 2
+- SIEGE GOLEM SLAYER: 2
 - GRAVITY TYRANT SLAYER: 3
 - CATAPULT SLAYER: 3
+- STORM COLOSSUS SLAYER: 3
 - CATHEDRAL SLAYER: 5
 - HELICOPTER SLAYER: 5
 - KNIGHT SLAYER: 5
@@ -77,8 +77,8 @@ Records from 492 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - FORTRESS SLAYER: 10
 - COLOSSUS SLAYER: 10
 - MECH SLAYER: 10
-- CYCLOPS SLAYER: 12
 - CANNON SLAYER: 13
+- CYCLOPS SLAYER: 13
 - ELEPHANT SLAYER: 14
 - PLAYER SLAYER: 14
 - TANK SLAYER: 16
@@ -91,12 +91,12 @@ Records from 492 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Mutations (rarest first)
 
 - vampiric: 9
-- wings: 35
+- wings: 36
 - spellward: 45
 - venom: 79
 - swift: 80
 - spikes: 88
-- regen: 100
+- regen: 101
 
 ## Big moments
 
@@ -162,8 +162,8 @@ Records from 492 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Emberroot Circle | 17 | 9 | 7 | 541 | 3 won | 3 |
 | Mire Witch Coven | 11 | 9 | 2 | 395 | 2 won | 7 |
 | Ash Wolf Clan | 18 | 8 | 10 | 738 | 1 lost | 3 |
+| Hollowbark Kin | 20 | 8 | 12 | 622 | 2 lost | 3 |
 | Copper Crown Company | 16 | 8 | 8 | 603 | 1 lost | 3 |
-| Hollowbark Kin | 19 | 8 | 11 | 590 | 1 lost | 3 |
 | Glimmerdeep Kin | 14 | 8 | 6 | 580 | 3 won | 5 |
 | Golden Lion Order | 14 | 8 | 6 | 448 | 2 won | 3 |
 | Highmoor Clan | 13 | 8 | 5 | 425 | 1 lost | 7 |
@@ -182,6 +182,7 @@ Records from 492 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-10 11:19: The Duskwing Tribe Take the Open Plains (6th win · 59 kills)
 - 2026-11-10 09:17: The Wildbrook Clan Take the Desert Well (revenge! · 9th win · 69 kills)
 - 2026-11-10 07:01: The Frostmere Clan Take the Sky Islands (11th win · 28 kills)
 - 2026-11-10 05:26: The Saltfang Crew Take the Crystal Grove (2nd win · 40 kills)
@@ -191,4 +192,3 @@ Records from 492 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-10 01:18: The Red Hawk Company Take the Haunted Crypt (15th win · 87 kills)
 - 2026-11-09 22:45: The Oakshield Clan Take the Open Plains (12th win · 70 kills)
 - 2026-11-09 21:02: The Frostmere Clan Take the World Furnace (revenge! · 10th win · 12 kills)
-- 2026-11-09 19:06: The House of the Moon Fox Take the Godboard (first ever win · 28 kills)
