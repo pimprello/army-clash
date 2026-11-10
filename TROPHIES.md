@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 486 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 487 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -54,6 +54,7 @@ Records from 486 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - THRONE WALKER SLAYER: 1
 - ACID LEVIATHAN SLAYER: 1
 - IRONHORN SLAYER: 1
+- MAGMA COLOSSUS SLAYER: 1
 - CATAPULT SLAYER: 2
 - GRAVITY TYRANT SLAYER: 3
 - CATHEDRAL SLAYER: 5
@@ -77,10 +78,10 @@ Records from 486 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - CANNON SLAYER: 13
 - PLAYER SLAYER: 14
 - TANK SLAYER: 16
-- GOLEM SLAYER: 17
+- GOLEM SLAYER: 18
 - MAMMOTH SLAYER: 19
-- GIANT SLAYER: 26
 - DRAGON SLAYER: 26
+- GIANT SLAYER: 28
 - TITAN SLAYER: 33
 
 ## Mutations (rarest first)
@@ -177,6 +178,7 @@ Records from 486 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-10 03:03: The Crew of the Grey Shark Take the Titan's Bones (2nd win · 60 kills)
 - 2026-11-10 01:18: The Red Hawk Company Take the Haunted Crypt (15th win · 87 kills)
 - 2026-11-09 22:45: The Oakshield Clan Take the Open Plains (12th win · 70 kills)
 - 2026-11-09 21:02: The Frostmere Clan Take the World Furnace (revenge! · 10th win · 12 kills)
@@ -186,4 +188,3 @@ Records from 486 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-09 12:40: The Glimmerdeep Kin Take the Overgrown Throne (7th win · 24 kills)
 - 2026-11-09 10:42: The Frostwhisper Tribe Take the Old Forest (4 wins in a row · 26 kills)
 - 2026-11-09 08:14: The Copperhead Battalion Take the City (revenge! · 6th win · 13 kills)
-- 2026-11-09 06:51: The Frostwhisper Tribe Take the Open Plains (3 wins in a row · 73 kills)
