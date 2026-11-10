@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 485 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 486 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -53,6 +53,7 @@ Records from 485 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 - THRONE WALKER SLAYER: 1
 - ACID LEVIATHAN SLAYER: 1
+- IRONHORN SLAYER: 1
 - CATAPULT SLAYER: 2
 - GRAVITY TYRANT SLAYER: 3
 - CATHEDRAL SLAYER: 5
@@ -72,13 +73,13 @@ Records from 485 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - ELEPHANT SLAYER: 10
 - COLOSSUS SLAYER: 10
 - MECH SLAYER: 10
-- CYCLOPS SLAYER: 11
+- CYCLOPS SLAYER: 12
 - CANNON SLAYER: 13
 - PLAYER SLAYER: 14
 - TANK SLAYER: 16
 - GOLEM SLAYER: 17
 - MAMMOTH SLAYER: 19
-- GIANT SLAYER: 25
+- GIANT SLAYER: 26
 - DRAGON SLAYER: 26
 - TITAN SLAYER: 33
 
@@ -143,18 +144,18 @@ Records from 485 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 21 | 15 | 6 | 914 | 1 lost | 7 |
-| Red Hawk Company | 21 | 14 | 7 | 777 | 2 lost | 5 |
+| Red Hawk Company | 22 | 15 | 7 | 864 | 1 won | 5 |
 | Frostwhisper Tribe | 21 | 12 | 9 | 866 | 4 won | 4 |
 | Oakshield Clan | 17 | 12 | 5 | 743 | 2 won | 6 |
 | Silverbough Circle | 27 | 11 | 16 | 1373 | 1 lost | 3 |
+| Frostmere Clan | 23 | 10 | 13 | 789 | 1 lost | 3 |
 | Thornheart Circle | 13 | 10 | 3 | 764 | 1 lost | 6 |
-| Frostmere Clan | 22 | 10 | 12 | 755 | 2 won | 3 |
 | Thornwood Company | 13 | 10 | 3 | 396 | 1 lost | 9 |
 | Starweave Circle | 23 | 9 | 14 | 881 | 1 won | 5 |
 | Raven Hill Clan | 17 | 9 | 8 | 549 | 1 won | 5 |
 | Emberroot Circle | 17 | 9 | 7 | 541 | 3 won | 3 |
 | Mire Witch Coven | 11 | 9 | 2 | 395 | 2 won | 7 |
-| Wildbrook Clan | 22 | 8 | 14 | 820 | 2 won | 2 |
+| Wildbrook Clan | 23 | 8 | 15 | 836 | 1 lost | 2 |
 | Ash Wolf Clan | 18 | 8 | 10 | 738 | 1 lost | 3 |
 | Copper Crown Company | 16 | 8 | 8 | 603 | 1 lost | 3 |
 | Hollowbark Kin | 19 | 8 | 11 | 590 | 1 lost | 3 |
@@ -165,7 +166,7 @@ Records from 485 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Great rivalries
 
-- **Frostmere Clan vs Greyfang Clan**: met 6 times, last won by Frostmere Clan
+- **Frostmere Clan vs Greyfang Clan**: met 7 times, last won by Greyfang Clan
 - **Greyfang Clan vs Order of the Silver Stag**: met 5 times, last won by Greyfang Clan
 - **Mossback Tribe vs Stormhorn Tribe**: met 4 times, last won by Stormhorn Tribe
 - **Black Bear Clan vs Thornwood Company**: met 4 times, last won by Thornwood Company
@@ -176,6 +177,7 @@ Records from 485 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-10 01:18: The Red Hawk Company Take the Haunted Crypt (15th win · 87 kills)
 - 2026-11-09 22:45: The Oakshield Clan Take the Open Plains (12th win · 70 kills)
 - 2026-11-09 21:02: The Frostmere Clan Take the World Furnace (revenge! · 10th win · 12 kills)
 - 2026-11-09 19:06: The House of the Moon Fox Take the Godboard (first ever win · 28 kills)
@@ -185,4 +187,3 @@ Records from 485 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-09 10:42: The Frostwhisper Tribe Take the Old Forest (4 wins in a row · 26 kills)
 - 2026-11-09 08:14: The Copperhead Battalion Take the City (revenge! · 6th win · 13 kills)
 - 2026-11-09 06:51: The Frostwhisper Tribe Take the Open Plains (3 wins in a row · 73 kills)
-- 2026-11-09 04:24: The Stormsail Crew Take the World Furnace (2nd win · 21 kills)

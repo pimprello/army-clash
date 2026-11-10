@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-10 01:18 | Can Giant Army Survive SOLDIERS? ⚔️ | Mint wins | https://youtube.com/shorts/OgXoUskn5jg |
 | 2026-11-09 22:45 | Empire vs Legion vs Warband 🤯 | Teal wins | https://youtube.com/shorts/N_GdltkCtSs |
 | 2026-11-09 21:02 | LAST STAND: 23 Robots vs Giant Army 🛡️ | Purple wins | https://youtube.com/shorts/rDtLBfVlI-U |
 | 2026-11-09 19:06 | The Weapons Came ALIVE 🗡️ | Green wins | https://youtube.com/shorts/S3GQFrQru3k |
