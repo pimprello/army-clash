@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 491 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 492 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -54,11 +54,11 @@ Records from 491 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - THRONE WALKER SLAYER: 1
 - IRONHORN SLAYER: 1
 - MAGMA COLOSSUS SLAYER: 1
-- SPIDER QUEEN SLAYER: 1
 - GLACIER BEHEMOTH SLAYER: 1
 - SIEGE GOLEM SLAYER: 1
 - ACID LEVIATHAN SLAYER: 2
 - STORM COLOSSUS SLAYER: 2
+- SPIDER QUEEN SLAYER: 2
 - GRAVITY TYRANT SLAYER: 3
 - CATAPULT SLAYER: 3
 - CATHEDRAL SLAYER: 5
@@ -77,15 +77,15 @@ Records from 491 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - FORTRESS SLAYER: 10
 - COLOSSUS SLAYER: 10
 - MECH SLAYER: 10
-- ELEPHANT SLAYER: 12
 - CYCLOPS SLAYER: 12
 - CANNON SLAYER: 13
+- ELEPHANT SLAYER: 14
 - PLAYER SLAYER: 14
 - TANK SLAYER: 16
 - GOLEM SLAYER: 19
 - MAMMOTH SLAYER: 20
 - DRAGON SLAYER: 26
-- GIANT SLAYER: 28
+- GIANT SLAYER: 29
 - TITAN SLAYER: 33
 
 ## Mutations (rarest first)
@@ -95,8 +95,8 @@ Records from 491 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 45
 - venom: 79
 - swift: 80
-- spikes: 87
-- regen: 99
+- spikes: 88
+- regen: 100
 
 ## Big moments
 
@@ -149,18 +149,18 @@ Records from 491 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 21 | 15 | 6 | 914 | 1 lost | 7 |
-| Red Hawk Company | 22 | 15 | 7 | 864 | 1 won | 5 |
+| Red Hawk Company | 23 | 15 | 8 | 868 | 1 lost | 5 |
 | Frostwhisper Tribe | 22 | 12 | 10 | 943 | 1 lost | 4 |
 | Oakshield Clan | 17 | 12 | 5 | 743 | 2 won | 6 |
 | Silverbough Circle | 27 | 11 | 16 | 1373 | 1 lost | 3 |
 | Frostmere Clan | 24 | 11 | 13 | 817 | 1 won | 3 |
 | Thornheart Circle | 13 | 10 | 3 | 764 | 1 lost | 6 |
 | Thornwood Company | 13 | 10 | 3 | 396 | 1 lost | 9 |
+| Wildbrook Clan | 25 | 9 | 16 | 909 | 1 won | 2 |
 | Starweave Circle | 23 | 9 | 14 | 881 | 1 won | 5 |
 | Raven Hill Clan | 17 | 9 | 8 | 549 | 1 won | 5 |
 | Emberroot Circle | 17 | 9 | 7 | 541 | 3 won | 3 |
 | Mire Witch Coven | 11 | 9 | 2 | 395 | 2 won | 7 |
-| Wildbrook Clan | 24 | 8 | 16 | 840 | 2 lost | 2 |
 | Ash Wolf Clan | 18 | 8 | 10 | 738 | 1 lost | 3 |
 | Copper Crown Company | 16 | 8 | 8 | 603 | 1 lost | 3 |
 | Hollowbark Kin | 19 | 8 | 11 | 590 | 1 lost | 3 |
@@ -173,15 +173,16 @@ Records from 491 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 - **Frostmere Clan vs Greyfang Clan**: met 7 times, last won by Greyfang Clan
 - **Greyfang Clan vs Order of the Silver Stag**: met 5 times, last won by Greyfang Clan
+- **Red Hawk Company vs Wildbrook Clan**: met 4 times, last won by Wildbrook Clan
 - **Mossback Tribe vs Stormhorn Tribe**: met 4 times, last won by Stormhorn Tribe
 - **Black Bear Clan vs Thornwood Company**: met 4 times, last won by Thornwood Company
 - **Greyfang Clan vs Raven Hill Clan**: met 4 times, last won by Raven Hill Clan
 - **Copper Crown Company vs Wildbrook Clan**: met 4 times, last won by Wildbrook Clan
 - **Gloomcap Circle vs Starweave Circle**: met 4 times, last won by Starweave Circle
-- **Frostwhisper Tribe vs Starweave Circle**: met 4 times, last won by Frostwhisper Tribe
 
 ### Latest from the battlefield
 
+- 2026-11-10 09:17: The Wildbrook Clan Take the Desert Well (revenge! · 9th win · 69 kills)
 - 2026-11-10 07:01: The Frostmere Clan Take the Sky Islands (11th win · 28 kills)
 - 2026-11-10 05:26: The Saltfang Crew Take the Crystal Grove (2nd win · 40 kills)
 - 2026-11-10 04:21: The Ghoul Hollow Coven Take the Mountain Pass (streak ended · 4 wins in a row · 33 kills)
@@ -191,4 +192,3 @@ Records from 491 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-09 22:45: The Oakshield Clan Take the Open Plains (12th win · 70 kills)
 - 2026-11-09 21:02: The Frostmere Clan Take the World Furnace (revenge! · 10th win · 12 kills)
 - 2026-11-09 19:06: The House of the Moon Fox Take the Godboard (first ever win · 28 kills)
-- 2026-11-09 17:00: The Black Bear Clan Take the Desert Well (7th win · 30 kills)
