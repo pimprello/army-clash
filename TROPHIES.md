@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 494 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 495 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -57,9 +57,9 @@ Records from 494 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - ACID LEVIATHAN SLAYER: 2
 - SPIDER QUEEN SLAYER: 2
 - GLACIER BEHEMOTH SLAYER: 2
-- SIEGE GOLEM SLAYER: 2
 - GRAVITY TYRANT SLAYER: 3
 - CATAPULT SLAYER: 3
+- SIEGE GOLEM SLAYER: 3
 - STORM COLOSSUS SLAYER: 4
 - CATHEDRAL SLAYER: 5
 - HELICOPTER SLAYER: 5
@@ -93,7 +93,7 @@ Records from 494 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 9
 - wings: 36
 - spellward: 45
-- venom: 80
+- venom: 81
 - swift: 81
 - spikes: 88
 - regen: 101
@@ -182,6 +182,7 @@ Records from 494 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-10 14:37: The Saltfang Crew Take the Treasure Cove (revenge denied · 3 wins in a row · 42 kills)
 - 2026-11-10 13:32: The Cipher Cohort Take the Desert Well (streak ended · 4th win · 87 kills)
 - 2026-11-10 11:19: The Duskwing Tribe Take the Open Plains (6th win · 59 kills)
 - 2026-11-10 09:17: The Wildbrook Clan Take the Desert Well (revenge! · 9th win · 69 kills)
@@ -191,4 +192,3 @@ Records from 494 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-10 03:51: The Sunspire Kin Take the Mountain Pass (streak ended · 7th win · 248 kills)
 - 2026-11-10 03:03: The Crew of the Grey Shark Take the Titan's Bones (2nd win · 60 kills)
 - 2026-11-10 01:18: The Red Hawk Company Take the Haunted Crypt (15th win · 87 kills)
-- 2026-11-09 22:45: The Oakshield Clan Take the Open Plains (12th win · 70 kills)
