@@ -54,7 +54,8 @@ function makeTitle(f) {
   const N = f.docs.length, w = f.winner >= 0 ? f.winner : 0, ids = [...Array(N).keys()], losers = ids.filter(t => t !== w);
   const l = losers.reduce((a, b) => (f.start[b] > f.start[a] ? b : a), losers[0]);
   const lost = ids.map(t => Math.max(0, f.start[t] + (f.gained[t] || 0) - f.left[t]));
-  const pick = list => list[(f.seed >>> 3) % list.length];
+  // never reuse a title from the last dozen videos (f.recent) when there's another true option ("The Weapons Came ALIVE" went out twice in a row)
+  const pick = list => { const fresh = list.filter(t => !(f.recent || []).includes(t)), L = fresh.length ? fresh : list; return L[(f.seed >>> 3) % L.length]; };
   const names = ids.map(t => (f.wild ? tc(f.docs[t].name) : nounOf(f.docs[t]).n));
   const emo = ids.map(t => (f.wild ? '' : nounOf(f.docs[t]).e));
 
@@ -132,7 +133,7 @@ function makeTitle(f) {
   if (f.mode === 'heroes') facts.push(f.heroes === w ? `${f.start[f.heroes]} HEROES Held the Line 🛡️` : 'The Last Stand FELL 💀');
   if (f.mode === 'hill' && x.hill >= 3) facts.push(`The HILL Changed Hands ${x.hill} TIMES 🚩`);
   else if (f.mode === 'hill' && x.hillTeam === w) facts.push('They Took the HILL and Won 🚩');
-  if (f.clickbait) return { title: pick(facts.length ? facts : ['Wait for the ENDING... 😳', 'I Did NOT Expect This 😳', 'This Got WAY Too Intense 🔥', 'Nobody Saw This Coming 🤯', 'Watch Till the END 👀']), kind: 'clickbait' };
+  if (f.clickbait) return { title: pick(facts.some(t => !(f.recent || []).includes(t)) ? facts : ['Wait for the ENDING... 😳', 'I Did NOT Expect This 😳', 'This Got WAY Too Intense 🔥', 'Nobody Saw This Coming 🤯', 'Watch Till the END 👀']), kind: 'clickbait' };
 
   // 2. the match-up itself, written to be specific and short
   const options = [];
@@ -180,7 +181,7 @@ function makeTitle(f) {
   // sometimes lead with what happened instead (a strong, true outcome hint)
   if (facts.length && ((f.seed >>> 5) % 3 === 0)) options.push(...facts);
   let t = pick(options);
-  if (t.length > 60) t = options.find(o => o.length <= 60) || t.slice(0, 60);
+  if (t.length > 60) t = options.find(o => o.length <= 60 && !(f.recent || []).includes(o)) || options.find(o => o.length <= 60) || t.slice(0, 60);
   return { title: t, kind: 'title' };
 }
 

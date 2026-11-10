@@ -375,6 +375,7 @@ async function main() {
     low: Fx.low, falls: Fx.falls || [], drops: Fx.drops || [], strike: Fx.strike, hazard: Fx.hazard, wild: wild || custom || (three && invent3), three, clickbait, seed,
     xf: game.xf || {}, label: RVB.labelOf, mvp: game.best && game.best[game.winner],
     mode: game.mode || undefined, heroes: mode === 'heroes' ? heroTeam : undefined, skins: skinNames, tribes: tf,
+    recent: pastVideos.slice(-12).map(v => v.title),
   });
   const hook = title;
   const MAP_NAME = { open: 'open field', rocks: 'rocky field', ruins: 'ruins', trenches: 'trenches', city: 'city rooftops', forest: 'forest', bombed: 'bombed city', enchanted: 'fantasy land', canyon: 'canyon',
@@ -411,6 +412,22 @@ async function main() {
     return `${ns[i]}: ${cl.join(', ')}`;
   }).join(' · ') + '.' : '';
   const unique = (list) => [...new Set(list)];
+  // a related video in every description (Rellz, 2026-11-10: "always add related videos"). YouTube's own "related video" link on
+  // a Short can only be set in YouTube Studio, not through the upload API, so the description links one instead: one of the last
+  // 36 videos, preferring one with a tribe or army from this battle ("their last battle"), then the most viewed (stats/views.json,
+  // once the stats run), then the newest.
+  const related = (() => {
+    let views = {};
+    try { for (const v of JSON.parse(fs.readFileSync(path.join(__dirname, 'stats', 'views.json'), 'utf8'))) if (v.id) views[v.id] = v.views || 0; } catch (e) { /* no stats yet */ }
+    const mine = new Set([...(tf ? tf.tribes.map(x => x.name) : []), ...game.doc.map(d => d.name)]);
+    const shares = v => (v.tribes || []).some(x => mine.has(x.name)) || (!v.wild && (v.armies || []).some(a => mine.has(a)));
+    const list = pastVideos.slice(-36).map((v, i) => ({ v, i })).filter(({ v }) => v.id && /^[\w-]{6,}$/.test(v.id));
+    if (!list.length) return null;
+    list.sort((a, b) => (shares(b.v) - shares(a.v)) || ((views[b.v.id] || 0) - (views[a.v.id] || 0)) || (b.i - a.i));
+    const best = list[0].v;
+    return { id: best.id, title: best.title, kin: shares(best) && !!(tf && (best.tribes || []).some(x => mine.has(x.name))) };
+  })();
+  const relatedLine = related ? `▶ ${related.kin ? 'Their last battle' : 'Watch next'}: ${related.title} https://youtube.com/shorts/${related.id}` : null;
   const meta = {
     seed,
     seconds: +DUR.toFixed(2),
@@ -424,7 +441,7 @@ async function main() {
       `New battles every 2 hours: subscribe so you don't miss the next one.${watchFor}`,
       '',
       `#shorts #${ns.map(n => n.toLowerCase().replace(/ /g, '')).join('vs')} #battlesimulation #armyclash${three ? ' #1v1v1' : ''}`,
-    ].slice(0, clickbait ? (tribeLine ? 7 : 5) : (tribeLine ? 9 : 7)).join('\n'),
+    ].slice(0, clickbait ? (tribeLine ? 7 : 5) : (tribeLine ? 9 : 7)).reduce((a, l, i) => (i === 0 && relatedLine ? a.concat(l, relatedLine) : a.concat(l)), []).join('\n'),
     tags: clickbait ? [] : unique([ns.map(n => n.toLowerCase()).join(' vs '), 'army battle', 'battle simulation', 'army simulation', 'who wins', 'army clash', ids.map(i => (showNames ? armyName(i) : `${ns[i]} ${armyName(i)}`).toLowerCase()).join(' vs '), 'shorts']
       .concat(three ? ['1v1v1', 'three way battle'] : [])
       .concat(tf ? ['tribes', 'war economy'] : [])
@@ -461,6 +478,7 @@ async function main() {
     economy: tf ? { forges: tf.forges, trades: tf.trades, merchant: tf.merchant ? tf.merchant.name : undefined } : undefined,
     cinematic,
     hook,
+    related: related ? related.id : undefined,
     clickbait: clickbait || undefined,
     slot,
     winner: game.headline,
