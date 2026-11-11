@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 503 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 504 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -59,12 +59,12 @@ Records from 503 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - CATAPULT SLAYER: 3
 - GLACIER BEHEMOTH SLAYER: 3
 - ACID LEVIATHAN SLAYER: 4
-- SPIDER QUEEN SLAYER: 4
 - CATHEDRAL SLAYER: 5
 - HELICOPTER SLAYER: 5
 - KNIGHT SLAYER: 5
 - WORLDROOT SLAYER: 5
 - EXECUTIONER SLAYER: 5
+- SPIDER QUEEN SLAYER: 5
 - SIEGE GOLEM SLAYER: 5
 - THOUSAND-MAN SLAYER: 6
 - MIRROR KING SLAYER: 7
@@ -75,7 +75,7 @@ Records from 503 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - IMMORTAL FRAUD SLAYER: 8
 - FORTRESS SLAYER: 10
 - MECH SLAYER: 10
-- STORM COLOSSUS SLAYER: 10
+- STORM COLOSSUS SLAYER: 11
 - HYDRA SLAYER: 12
 - COLOSSUS SLAYER: 12
 - CANNON SLAYER: 13
@@ -86,7 +86,7 @@ Records from 503 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - GOLEM SLAYER: 20
 - MAMMOTH SLAYER: 20
 - DRAGON SLAYER: 26
-- GIANT SLAYER: 31
+- GIANT SLAYER: 32
 - TITAN SLAYER: 35
 
 ## Mutations (rarest first)
@@ -95,7 +95,7 @@ Records from 503 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - wings: 38
 - spellward: 46
 - venom: 82
-- swift: 83
+- swift: 84
 - spikes: 90
 - regen: 103
 
@@ -151,23 +151,23 @@ Records from 503 battles with trophies (videos from 1 November 2026 on). Rebuilt
 |---|---|---|---|---|---|---|
 | Red Hawk Company | 25 | 16 | 9 | 921 | 1 won | 5 |
 | Mossback Tribe | 22 | 15 | 7 | 933 | 2 lost | 7 |
+| Frostwhisper Tribe | 23 | 13 | 10 | 1043 | 1 won | 4 |
 | Silverbough Circle | 28 | 12 | 16 | 1439 | 1 won | 3 |
-| Frostwhisper Tribe | 22 | 12 | 10 | 943 | 1 lost | 4 |
-| Oakshield Clan | 18 | 12 | 6 | 780 | 1 lost | 6 |
+| Oakshield Clan | 19 | 12 | 7 | 787 | 2 lost | 6 |
 | Frostmere Clan | 25 | 11 | 14 | 856 | 1 lost | 3 |
 | Thornheart Circle | 14 | 11 | 3 | 791 | 1 won | 6 |
 | Starweave Circle | 24 | 10 | 14 | 964 | 2 won | 5 |
 | Wildbrook Clan | 26 | 10 | 16 | 928 | 2 won | 2 |
 | Thornwood Company | 13 | 10 | 3 | 396 | 1 lost | 9 |
 | Hollowbark Kin | 21 | 9 | 12 | 731 | 1 won | 3 |
+| Glimmerdeep Kin | 15 | 9 | 6 | 587 | 4 won | 5 |
 | Raven Hill Clan | 17 | 9 | 8 | 549 | 1 won | 5 |
 | Emberroot Circle | 17 | 9 | 7 | 541 | 3 won | 3 |
 | Mire Witch Coven | 11 | 9 | 2 | 395 | 2 won | 7 |
 | Order of the Silver Stag | 21 | 8 | 13 | 936 | 1 won | 3 |
-| Ash Wolf Clan | 18 | 8 | 10 | 738 | 1 lost | 3 |
+| Ash Wolf Clan | 19 | 8 | 11 | 763 | 2 lost | 3 |
 | Copper Crown Company | 16 | 8 | 8 | 603 | 1 lost | 3 |
 | Brightwater Tribe | 19 | 8 | 11 | 594 | 1 won | 3 |
-| Glimmerdeep Kin | 14 | 8 | 6 | 580 | 3 won | 5 |
 | Golden Lion Order | 14 | 8 | 6 | 448 | 2 won | 3 |
 
 ### Great rivalries
@@ -183,6 +183,7 @@ Records from 503 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-11 09:05: The Frostwhisper Tribe Take the Old Forest (revenge denied · 13th win · 100 kills)
 - 2026-11-11 06:46: The Order of the Silver Stag Take the Haunted Crypt (revenge! · 8th win · 77 kills)
 - 2026-11-11 04:45: The Rum Barrel Crew Take the Castle (streak ended · 5th win · 33 kills)
 - 2026-11-11 02:41: The Cinderclaw Kin Take the Open Plains (5th win · 41 kills)
@@ -192,4 +193,3 @@ Records from 503 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-10 19:05: The Starweave Circle Take the Open Plains (10th win · 83 kills)
 - 2026-11-10 16:27: The Hollowbark Kin Take the Reactor (revenge denied · 9th win · 109 kills)
 - 2026-11-10 14:37: The Saltfang Crew Take the Treasure Cove (revenge denied · 3 wins in a row · 42 kills)
-- 2026-11-10 13:32: The Cipher Cohort Take the Desert Well (streak ended · 4th win · 87 kills)
