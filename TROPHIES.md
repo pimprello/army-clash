@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 509 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 510 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -52,8 +52,8 @@ Records from 509 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Titles earned (rarest first)
 
 - THRONE WALKER SLAYER: 1
-- MAGMA COLOSSUS SLAYER: 1
 - BALLOON BOMBER SLAYER: 1
+- MAGMA COLOSSUS SLAYER: 2
 - GRAVITY TYRANT SLAYER: 3
 - CATAPULT SLAYER: 3
 - IRONHORN SLAYER: 3
@@ -72,7 +72,7 @@ Records from 509 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PHOENIX SLAYER: 7
 - STORM EMPEROR SLAYER: 7
 - IMMORTAL FRAUD SLAYER: 8
-- STAR EATER SLAYER: 8
+- STAR EATER SLAYER: 9
 - FORTRESS SLAYER: 10
 - MECH SLAYER: 10
 - HYDRA SLAYER: 12
@@ -84,7 +84,7 @@ Records from 509 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - ELEPHANT SLAYER: 15
 - TANK SLAYER: 16
 - MAMMOTH SLAYER: 20
-- GOLEM SLAYER: 22
+- GOLEM SLAYER: 23
 - DRAGON SLAYER: 26
 - GIANT SLAYER: 32
 - TITAN SLAYER: 35
@@ -183,6 +183,7 @@ Records from 509 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-11 23:31: The Nightshade Coven Take the Sky-temple Relic (3rd win · 30 kills)
 - 2026-11-11 21:31: The Brightwater Tribe Take the Open Plains (9th win · 48 kills)
 - 2026-11-11 18:00: The Quasar Wing Take the Quarry (revenge denied · 4th win · 80 kills)
 - 2026-11-11 17:20: The Pulsar Wing Take the Quarry (4th win · 30 kills)
@@ -192,4 +193,3 @@ Records from 509 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-11 06:46: The Order of the Silver Stag Take the Haunted Crypt (revenge! · 8th win · 77 kills)
 - 2026-11-11 04:45: The Rum Barrel Crew Take the Castle (streak ended · 5th win · 33 kills)
 - 2026-11-11 02:41: The Cinderclaw Kin Take the Open Plains (5th win · 41 kills)
-- 2026-11-11 00:24: The Red Hawk Company Take the Overgrown Throne (revenge denied · 16th win · 46 kills)
