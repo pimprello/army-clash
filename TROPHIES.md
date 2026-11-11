@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 501 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 502 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 501 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **ASHKA THE BOLD** (OGRE), 16 kills · 2026-11-11 04:45
 - **OSKA NIGHTFANG** (DEMON), 12 kills · 2026-11-10 11:19
 - **ASHKA STORMBORN** (WIZARD), 10 kills · 2026-11-09 06:51
 - **KAELEN THE MAD** (KNIGHT), 10 kills · 2026-11-09 00:08
@@ -47,7 +48,6 @@ Records from 501 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **GHOST-6** (MACHINE GUNNER), 13 kills · 2026-11-07 12:18
 - **KAELEN THE WALL** (SIEGE GUNNER), 10 kills · 2026-11-07 10:05
 - **NYRA IRONHIDE** (GENERAL), 23 kills · 2026-11-07 09:37
-- **RUNA THE BOLD** (CROSSBOWMAN), 10 kills · 2026-11-07 09:23
 
 ## Titles earned (rarest first)
 
@@ -67,17 +67,17 @@ Records from 501 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - EXECUTIONER SLAYER: 5
 - SIEGE GOLEM SLAYER: 5
 - THOUSAND-MAN SLAYER: 6
-- STAR EATER SLAYER: 6
 - MIRROR KING SLAYER: 7
 - UNMAKER SLAYER: 7
 - PHOENIX SLAYER: 7
 - STORM EMPEROR SLAYER: 7
+- STAR EATER SLAYER: 7
 - IMMORTAL FRAUD SLAYER: 8
 - STORM COLOSSUS SLAYER: 8
 - FORTRESS SLAYER: 10
-- COLOSSUS SLAYER: 10
 - MECH SLAYER: 10
 - HYDRA SLAYER: 12
+- COLOSSUS SLAYER: 12
 - CANNON SLAYER: 13
 - CYCLOPS SLAYER: 13
 - ELEPHANT SLAYER: 14
@@ -86,7 +86,7 @@ Records from 501 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - GOLEM SLAYER: 20
 - MAMMOTH SLAYER: 20
 - DRAGON SLAYER: 26
-- GIANT SLAYER: 30
+- GIANT SLAYER: 31
 - TITAN SLAYER: 35
 
 ## Mutations (rarest first)
@@ -96,7 +96,7 @@ Records from 501 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 46
 - venom: 82
 - swift: 82
-- spikes: 89
+- spikes: 90
 - regen: 102
 
 ## Big moments
@@ -165,10 +165,10 @@ Records from 501 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Mire Witch Coven | 11 | 9 | 2 | 395 | 2 won | 7 |
 | Ash Wolf Clan | 18 | 8 | 10 | 738 | 1 lost | 3 |
 | Copper Crown Company | 16 | 8 | 8 | 603 | 1 lost | 3 |
+| Brightwater Tribe | 19 | 8 | 11 | 594 | 1 won | 3 |
 | Glimmerdeep Kin | 14 | 8 | 6 | 580 | 3 won | 5 |
 | Golden Lion Order | 14 | 8 | 6 | 448 | 2 won | 3 |
 | Highmoor Clan | 13 | 8 | 5 | 425 | 1 lost | 7 |
-| Duskwing Tribe | 23 | 7 | 15 | 866 | 2 won | 2 |
 
 ### Great rivalries
 
@@ -183,6 +183,7 @@ Records from 501 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-11 04:45: The Rum Barrel Crew Take the Castle (streak ended · 5th win · 33 kills)
 - 2026-11-11 02:41: The Cinderclaw Kin Take the Open Plains (5th win · 41 kills)
 - 2026-11-11 00:24: The Red Hawk Company Take the Overgrown Throne (revenge denied · 16th win · 46 kills)
 - 2026-11-10 23:01: The Quasar Wing Take the Swamp Shrine (3rd win · 27 kills)
@@ -192,4 +193,3 @@ Records from 501 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-10 14:37: The Saltfang Crew Take the Treasure Cove (revenge denied · 3 wins in a row · 42 kills)
 - 2026-11-10 13:32: The Cipher Cohort Take the Desert Well (streak ended · 4th win · 87 kills)
 - 2026-11-10 11:19: The Duskwing Tribe Take the Open Plains (6th win · 59 kills)
-- 2026-11-10 09:17: The Wildbrook Clan Take the Desert Well (revenge! · 9th win · 69 kills)
