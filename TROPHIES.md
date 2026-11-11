@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 500 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 501 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -54,10 +54,10 @@ Records from 500 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - THRONE WALKER SLAYER: 1
 - MAGMA COLOSSUS SLAYER: 1
 - BALLOON BOMBER SLAYER: 1
-- ACID LEVIATHAN SLAYER: 2
 - IRONHORN SLAYER: 2
 - GRAVITY TYRANT SLAYER: 3
 - CATAPULT SLAYER: 3
+- ACID LEVIATHAN SLAYER: 3
 - GLACIER BEHEMOTH SLAYER: 3
 - SPIDER QUEEN SLAYER: 4
 - CATHEDRAL SLAYER: 5
@@ -72,8 +72,8 @@ Records from 500 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - UNMAKER SLAYER: 7
 - PHOENIX SLAYER: 7
 - STORM EMPEROR SLAYER: 7
-- STORM COLOSSUS SLAYER: 7
 - IMMORTAL FRAUD SLAYER: 8
+- STORM COLOSSUS SLAYER: 8
 - FORTRESS SLAYER: 10
 - COLOSSUS SLAYER: 10
 - MECH SLAYER: 10
@@ -150,7 +150,7 @@ Records from 500 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Red Hawk Company | 25 | 16 | 9 | 921 | 1 won | 5 |
-| Mossback Tribe | 21 | 15 | 6 | 914 | 1 lost | 7 |
+| Mossback Tribe | 22 | 15 | 7 | 933 | 2 lost | 7 |
 | Silverbough Circle | 28 | 12 | 16 | 1439 | 1 won | 3 |
 | Frostwhisper Tribe | 22 | 12 | 10 | 943 | 1 lost | 4 |
 | Oakshield Clan | 18 | 12 | 6 | 780 | 1 lost | 6 |
@@ -183,6 +183,7 @@ Records from 500 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-11 02:41: The Cinderclaw Kin Take the Open Plains (5th win · 41 kills)
 - 2026-11-11 00:24: The Red Hawk Company Take the Overgrown Throne (revenge denied · 16th win · 46 kills)
 - 2026-11-10 23:01: The Quasar Wing Take the Swamp Shrine (3rd win · 27 kills)
 - 2026-11-10 20:45: The Duskwing Tribe Take the Clockwork Arena (7th win · 154 kills)
@@ -192,4 +193,3 @@ Records from 500 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-10 13:32: The Cipher Cohort Take the Desert Well (streak ended · 4th win · 87 kills)
 - 2026-11-10 11:19: The Duskwing Tribe Take the Open Plains (6th win · 59 kills)
 - 2026-11-10 09:17: The Wildbrook Clan Take the Desert Well (revenge! · 9th win · 69 kills)
-- 2026-11-10 07:01: The Frostmere Clan Take the Sky Islands (11th win · 28 kills)
