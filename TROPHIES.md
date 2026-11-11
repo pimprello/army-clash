@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 504 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 505 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -75,9 +75,9 @@ Records from 504 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - IMMORTAL FRAUD SLAYER: 8
 - FORTRESS SLAYER: 10
 - MECH SLAYER: 10
-- STORM COLOSSUS SLAYER: 11
 - HYDRA SLAYER: 12
 - COLOSSUS SLAYER: 12
+- STORM COLOSSUS SLAYER: 12
 - CANNON SLAYER: 13
 - CYCLOPS SLAYER: 13
 - ELEPHANT SLAYER: 14
@@ -157,7 +157,7 @@ Records from 504 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Frostmere Clan | 25 | 11 | 14 | 856 | 1 lost | 3 |
 | Thornheart Circle | 14 | 11 | 3 | 791 | 1 won | 6 |
 | Starweave Circle | 24 | 10 | 14 | 964 | 2 won | 5 |
-| Wildbrook Clan | 26 | 10 | 16 | 928 | 2 won | 2 |
+| Wildbrook Clan | 27 | 10 | 17 | 953 | 1 lost | 2 |
 | Thornwood Company | 13 | 10 | 3 | 396 | 1 lost | 9 |
 | Hollowbark Kin | 21 | 9 | 12 | 731 | 1 won | 3 |
 | Glimmerdeep Kin | 15 | 9 | 6 | 587 | 4 won | 5 |
@@ -183,6 +183,7 @@ Records from 504 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-11 11:18: The Harrier Squadron Take the Open Plains (5 wins in a row · 40 kills)
 - 2026-11-11 09:05: The Frostwhisper Tribe Take the Old Forest (revenge denied · 13th win · 100 kills)
 - 2026-11-11 06:46: The Order of the Silver Stag Take the Haunted Crypt (revenge! · 8th win · 77 kills)
 - 2026-11-11 04:45: The Rum Barrel Crew Take the Castle (streak ended · 5th win · 33 kills)
@@ -192,4 +193,3 @@ Records from 504 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-10 20:45: The Duskwing Tribe Take the Clockwork Arena (7th win · 154 kills)
 - 2026-11-10 19:05: The Starweave Circle Take the Open Plains (10th win · 83 kills)
 - 2026-11-10 16:27: The Hollowbark Kin Take the Reactor (revenge denied · 9th win · 109 kills)
-- 2026-11-10 14:37: The Saltfang Crew Take the Treasure Cove (revenge denied · 3 wins in a row · 42 kills)
