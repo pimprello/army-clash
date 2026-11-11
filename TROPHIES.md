@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 502 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 503 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -57,8 +57,8 @@ Records from 502 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - IRONHORN SLAYER: 2
 - GRAVITY TYRANT SLAYER: 3
 - CATAPULT SLAYER: 3
-- ACID LEVIATHAN SLAYER: 3
 - GLACIER BEHEMOTH SLAYER: 3
+- ACID LEVIATHAN SLAYER: 4
 - SPIDER QUEEN SLAYER: 4
 - CATHEDRAL SLAYER: 5
 - HELICOPTER SLAYER: 5
@@ -73,9 +73,9 @@ Records from 502 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - STORM EMPEROR SLAYER: 7
 - STAR EATER SLAYER: 7
 - IMMORTAL FRAUD SLAYER: 8
-- STORM COLOSSUS SLAYER: 8
 - FORTRESS SLAYER: 10
 - MECH SLAYER: 10
+- STORM COLOSSUS SLAYER: 10
 - HYDRA SLAYER: 12
 - COLOSSUS SLAYER: 12
 - CANNON SLAYER: 13
@@ -92,12 +92,12 @@ Records from 502 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Mutations (rarest first)
 
 - vampiric: 9
-- wings: 37
+- wings: 38
 - spellward: 46
 - venom: 82
-- swift: 82
+- swift: 83
 - spikes: 90
-- regen: 102
+- regen: 103
 
 ## Big moments
 
@@ -163,12 +163,12 @@ Records from 502 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Raven Hill Clan | 17 | 9 | 8 | 549 | 1 won | 5 |
 | Emberroot Circle | 17 | 9 | 7 | 541 | 3 won | 3 |
 | Mire Witch Coven | 11 | 9 | 2 | 395 | 2 won | 7 |
+| Order of the Silver Stag | 21 | 8 | 13 | 936 | 1 won | 3 |
 | Ash Wolf Clan | 18 | 8 | 10 | 738 | 1 lost | 3 |
 | Copper Crown Company | 16 | 8 | 8 | 603 | 1 lost | 3 |
 | Brightwater Tribe | 19 | 8 | 11 | 594 | 1 won | 3 |
 | Glimmerdeep Kin | 14 | 8 | 6 | 580 | 3 won | 5 |
 | Golden Lion Order | 14 | 8 | 6 | 448 | 2 won | 3 |
-| Highmoor Clan | 13 | 8 | 5 | 425 | 1 lost | 7 |
 
 ### Great rivalries
 
@@ -183,6 +183,7 @@ Records from 502 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-11 06:46: The Order of the Silver Stag Take the Haunted Crypt (revenge! · 8th win · 77 kills)
 - 2026-11-11 04:45: The Rum Barrel Crew Take the Castle (streak ended · 5th win · 33 kills)
 - 2026-11-11 02:41: The Cinderclaw Kin Take the Open Plains (5th win · 41 kills)
 - 2026-11-11 00:24: The Red Hawk Company Take the Overgrown Throne (revenge denied · 16th win · 46 kills)
@@ -192,4 +193,3 @@ Records from 502 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-10 16:27: The Hollowbark Kin Take the Reactor (revenge denied · 9th win · 109 kills)
 - 2026-11-10 14:37: The Saltfang Crew Take the Treasure Cove (revenge denied · 3 wins in a row · 42 kills)
 - 2026-11-10 13:32: The Cipher Cohort Take the Desert Well (streak ended · 4th win · 87 kills)
-- 2026-11-10 11:19: The Duskwing Tribe Take the Open Plains (6th win · 59 kills)
