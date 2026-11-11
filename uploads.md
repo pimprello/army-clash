@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-11 13:21 | ⚔️ CHAMPION DUEL: Soldiers vs Tank Army | Green wins | https://youtube.com/shorts/nxhl5xdwEFg |
 | 2026-11-11 11:18 | Mega Teslas vs Castle Plague vs Turbo 3d Crew 🤯 | Lime wins | https://youtube.com/shorts/uu8-JxvViXI |
 | 2026-11-11 09:05 | 🚩 KING OF THE HILL: Axes vs Knights | Sand wins | https://youtube.com/shorts/Rh9dJ8v-pTE |
 | 2026-11-11 06:46 | 5 Troops MELTED to the BONE 🦴 | Yellow wins | https://youtube.com/shorts/oPD4tkI4KXY |
