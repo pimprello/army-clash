@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 499 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 500 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -94,8 +94,8 @@ Records from 499 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 9
 - wings: 37
 - spellward: 46
-- swift: 81
 - venom: 82
+- swift: 82
 - spikes: 89
 - regen: 102
 
@@ -149,16 +149,16 @@ Records from 499 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
+| Red Hawk Company | 25 | 16 | 9 | 921 | 1 won | 5 |
 | Mossback Tribe | 21 | 15 | 6 | 914 | 1 lost | 7 |
-| Red Hawk Company | 24 | 15 | 9 | 875 | 2 lost | 5 |
 | Silverbough Circle | 28 | 12 | 16 | 1439 | 1 won | 3 |
 | Frostwhisper Tribe | 22 | 12 | 10 | 943 | 1 lost | 4 |
 | Oakshield Clan | 18 | 12 | 6 | 780 | 1 lost | 6 |
-| Frostmere Clan | 24 | 11 | 13 | 817 | 1 won | 3 |
+| Frostmere Clan | 25 | 11 | 14 | 856 | 1 lost | 3 |
 | Thornheart Circle | 14 | 11 | 3 | 791 | 1 won | 6 |
 | Starweave Circle | 24 | 10 | 14 | 964 | 2 won | 5 |
+| Wildbrook Clan | 26 | 10 | 16 | 928 | 2 won | 2 |
 | Thornwood Company | 13 | 10 | 3 | 396 | 1 lost | 9 |
-| Wildbrook Clan | 25 | 9 | 16 | 909 | 1 won | 2 |
 | Hollowbark Kin | 21 | 9 | 12 | 731 | 1 won | 3 |
 | Raven Hill Clan | 17 | 9 | 8 | 549 | 1 won | 5 |
 | Emberroot Circle | 17 | 9 | 7 | 541 | 3 won | 3 |
@@ -183,6 +183,7 @@ Records from 499 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-11 00:24: The Red Hawk Company Take the Overgrown Throne (revenge denied · 16th win · 46 kills)
 - 2026-11-10 23:01: The Quasar Wing Take the Swamp Shrine (3rd win · 27 kills)
 - 2026-11-10 20:45: The Duskwing Tribe Take the Clockwork Arena (7th win · 154 kills)
 - 2026-11-10 19:05: The Starweave Circle Take the Open Plains (10th win · 83 kills)
@@ -192,4 +193,3 @@ Records from 499 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-10 11:19: The Duskwing Tribe Take the Open Plains (6th win · 59 kills)
 - 2026-11-10 09:17: The Wildbrook Clan Take the Desert Well (revenge! · 9th win · 69 kills)
 - 2026-11-10 07:01: The Frostmere Clan Take the Sky Islands (11th win · 28 kills)
-- 2026-11-10 05:26: The Saltfang Crew Take the Crystal Grove (2nd win · 40 kills)
