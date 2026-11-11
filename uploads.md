@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-11 21:31 | Pick ONE: Stareater, Stormemperor, Worldroot 👇 | Olive wins | https://youtube.com/shorts/qbRgRZquv5w |
 | 2026-11-11 18:00 | This Was a MASSACRE 💀 | Sweden wins | https://youtube.com/shorts/jFg9I7AVtYU |
 | 2026-11-11 17:20 | Thunder Sages vs TURBO GOBLINS 🔥 | Green wins | https://youtube.com/shorts/lQGDizoVpUk |
 | 2026-11-11 13:21 | ⚔️ CHAMPION DUEL: Soldiers vs Tank Army | Green wins | https://youtube.com/shorts/nxhl5xdwEFg |

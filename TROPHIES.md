@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 508 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 509 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -71,14 +71,14 @@ Records from 508 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - UNMAKER SLAYER: 7
 - PHOENIX SLAYER: 7
 - STORM EMPEROR SLAYER: 7
-- STAR EATER SLAYER: 7
 - IMMORTAL FRAUD SLAYER: 8
+- STAR EATER SLAYER: 8
 - FORTRESS SLAYER: 10
 - MECH SLAYER: 10
 - HYDRA SLAYER: 12
 - STORM COLOSSUS SLAYER: 12
-- COLOSSUS SLAYER: 13
 - CANNON SLAYER: 13
+- COLOSSUS SLAYER: 14
 - CYCLOPS SLAYER: 14
 - PLAYER SLAYER: 14
 - ELEPHANT SLAYER: 15
@@ -150,9 +150,9 @@ Records from 508 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Red Hawk Company | 25 | 16 | 9 | 921 | 1 won | 5 |
-| Mossback Tribe | 22 | 15 | 7 | 933 | 2 lost | 7 |
+| Mossback Tribe | 23 | 15 | 8 | 986 | 3 lost | 7 |
 | Frostwhisper Tribe | 23 | 13 | 10 | 1043 | 1 won | 4 |
-| Silverbough Circle | 28 | 12 | 16 | 1439 | 1 won | 3 |
+| Silverbough Circle | 29 | 12 | 17 | 1479 | 1 lost | 3 |
 | Oakshield Clan | 19 | 12 | 7 | 787 | 2 lost | 6 |
 | Frostmere Clan | 25 | 11 | 14 | 856 | 1 lost | 3 |
 | Thornheart Circle | 14 | 11 | 3 | 791 | 1 won | 6 |
@@ -160,6 +160,7 @@ Records from 508 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Wildbrook Clan | 27 | 10 | 17 | 953 | 1 lost | 2 |
 | Thornwood Company | 13 | 10 | 3 | 396 | 1 lost | 9 |
 | Hollowbark Kin | 21 | 9 | 12 | 731 | 1 won | 3 |
+| Brightwater Tribe | 20 | 9 | 11 | 642 | 2 won | 3 |
 | Glimmerdeep Kin | 15 | 9 | 6 | 587 | 4 won | 5 |
 | Emberroot Circle | 18 | 9 | 8 | 551 | 1 lost | 3 |
 | Raven Hill Clan | 17 | 9 | 8 | 549 | 1 won | 5 |
@@ -167,7 +168,6 @@ Records from 508 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Order of the Silver Stag | 22 | 8 | 14 | 970 | 1 lost | 3 |
 | Ash Wolf Clan | 19 | 8 | 11 | 763 | 2 lost | 3 |
 | Copper Crown Company | 16 | 8 | 8 | 603 | 1 lost | 3 |
-| Brightwater Tribe | 19 | 8 | 11 | 594 | 1 won | 3 |
 | Harrier Squadron | 16 | 8 | 8 | 467 | 6 won | 6 |
 
 ### Great rivalries
@@ -183,6 +183,7 @@ Records from 508 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-11 21:31: The Brightwater Tribe Take the Open Plains (9th win · 48 kills)
 - 2026-11-11 18:00: The Quasar Wing Take the Quarry (revenge denied · 4th win · 80 kills)
 - 2026-11-11 17:20: The Pulsar Wing Take the Quarry (4th win · 30 kills)
 - 2026-11-11 13:21: The Harrier Squadron Take the Treasure Cove (revenge denied · 6 wins in a row · 62 kills)
@@ -192,4 +193,3 @@ Records from 508 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-11 04:45: The Rum Barrel Crew Take the Castle (streak ended · 5th win · 33 kills)
 - 2026-11-11 02:41: The Cinderclaw Kin Take the Open Plains (5th win · 41 kills)
 - 2026-11-11 00:24: The Red Hawk Company Take the Overgrown Throne (revenge denied · 16th win · 46 kills)
-- 2026-11-10 23:01: The Quasar Wing Take the Swamp Shrine (3rd win · 27 kills)
