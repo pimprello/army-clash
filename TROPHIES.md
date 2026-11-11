@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 506 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 507 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -83,8 +83,8 @@ Records from 506 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PLAYER SLAYER: 14
 - ELEPHANT SLAYER: 15
 - TANK SLAYER: 16
-- GOLEM SLAYER: 20
 - MAMMOTH SLAYER: 20
+- GOLEM SLAYER: 22
 - DRAGON SLAYER: 26
 - GIANT SLAYER: 32
 - TITAN SLAYER: 35
@@ -97,7 +97,7 @@ Records from 506 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - venom: 82
 - swift: 84
 - spikes: 91
-- regen: 103
+- regen: 104
 
 ## Big moments
 
@@ -164,7 +164,7 @@ Records from 506 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Raven Hill Clan | 17 | 9 | 8 | 549 | 1 won | 5 |
 | Emberroot Circle | 17 | 9 | 7 | 541 | 3 won | 3 |
 | Mire Witch Coven | 11 | 9 | 2 | 395 | 2 won | 7 |
-| Order of the Silver Stag | 21 | 8 | 13 | 936 | 1 won | 3 |
+| Order of the Silver Stag | 22 | 8 | 14 | 970 | 1 lost | 3 |
 | Ash Wolf Clan | 19 | 8 | 11 | 763 | 2 lost | 3 |
 | Copper Crown Company | 16 | 8 | 8 | 603 | 1 lost | 3 |
 | Brightwater Tribe | 19 | 8 | 11 | 594 | 1 won | 3 |
@@ -183,6 +183,7 @@ Records from 506 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-11 17:20: The Pulsar Wing Take the Quarry (4th win · 30 kills)
 - 2026-11-11 13:21: The Harrier Squadron Take the Treasure Cove (revenge denied · 6 wins in a row · 62 kills)
 - 2026-11-11 11:18: The Harrier Squadron Take the Open Plains (5 wins in a row · 40 kills)
 - 2026-11-11 09:05: The Frostwhisper Tribe Take the Old Forest (revenge denied · 13th win · 100 kills)
@@ -192,4 +193,3 @@ Records from 506 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-11 00:24: The Red Hawk Company Take the Overgrown Throne (revenge denied · 16th win · 46 kills)
 - 2026-11-10 23:01: The Quasar Wing Take the Swamp Shrine (3rd win · 27 kills)
 - 2026-11-10 20:45: The Duskwing Tribe Take the Clockwork Arena (7th win · 154 kills)
-- 2026-11-10 19:05: The Starweave Circle Take the Open Plains (10th win · 83 kills)
