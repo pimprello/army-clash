@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 511 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 512 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -64,9 +64,9 @@ Records from 511 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - KNIGHT SLAYER: 5
 - WORLDROOT SLAYER: 5
 - EXECUTIONER SLAYER: 5
-- SPIDER QUEEN SLAYER: 5
 - SIEGE GOLEM SLAYER: 5
 - THOUSAND-MAN SLAYER: 6
+- SPIDER QUEEN SLAYER: 6
 - MIRROR KING SLAYER: 7
 - UNMAKER SLAYER: 7
 - PHOENIX SLAYER: 7
@@ -138,8 +138,8 @@ Records from 511 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: wolfrider: 10
 - portal: demon: 16
 - sudden: boss: 17
-- portal: troll: 18
 - sudden: ring: 18
+- portal: troll: 19
 - sudden: lava: 23
 - sudden: meteors: 25
 
@@ -151,7 +151,7 @@ Records from 511 battles with trophies (videos from 1 November 2026 on). Rebuilt
 |---|---|---|---|---|---|---|
 | Red Hawk Company | 25 | 16 | 9 | 921 | 1 won | 5 |
 | Mossback Tribe | 23 | 15 | 8 | 986 | 3 lost | 7 |
-| Frostwhisper Tribe | 23 | 13 | 10 | 1043 | 1 won | 4 |
+| Frostwhisper Tribe | 24 | 13 | 11 | 1054 | 1 lost | 4 |
 | Silverbough Circle | 29 | 12 | 17 | 1479 | 1 lost | 3 |
 | Oakshield Clan | 19 | 12 | 7 | 787 | 2 lost | 6 |
 | Frostmere Clan | 25 | 11 | 14 | 856 | 1 lost | 3 |
@@ -162,12 +162,12 @@ Records from 511 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Thornwood Company | 13 | 10 | 3 | 396 | 1 lost | 9 |
 | Hollowbark Kin | 21 | 9 | 12 | 731 | 1 won | 3 |
 | Brightwater Tribe | 20 | 9 | 11 | 642 | 2 won | 3 |
+| Copper Crown Company | 17 | 9 | 8 | 619 | 1 won | 3 |
 | Emberroot Circle | 18 | 9 | 8 | 551 | 1 lost | 3 |
 | Raven Hill Clan | 17 | 9 | 8 | 549 | 1 won | 5 |
 | Mire Witch Coven | 11 | 9 | 2 | 395 | 2 won | 7 |
 | Order of the Silver Stag | 22 | 8 | 14 | 970 | 1 lost | 3 |
 | Ash Wolf Clan | 19 | 8 | 11 | 763 | 2 lost | 3 |
-| Copper Crown Company | 16 | 8 | 8 | 603 | 1 lost | 3 |
 | Harrier Squadron | 16 | 8 | 8 | 467 | 6 won | 6 |
 
 ### Great rivalries
@@ -183,6 +183,7 @@ Records from 511 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-12 02:35: The Stonebridge Company Take the Overgrown Throne (revenge! · 5th win · 80 kills)
 - 2026-11-12 01:28: The Crew of the Bone Compass Take the City (first ever win · 95 kills)
 - 2026-11-11 23:31: The Nightshade Coven Take the Sky-temple Relic (3rd win · 30 kills)
 - 2026-11-11 21:31: The Brightwater Tribe Take the Open Plains (9th win · 48 kills)
@@ -192,4 +193,3 @@ Records from 511 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-11 11:18: The Harrier Squadron Take the Open Plains (5 wins in a row · 40 kills)
 - 2026-11-11 09:05: The Frostwhisper Tribe Take the Old Forest (revenge denied · 13th win · 100 kills)
 - 2026-11-11 06:46: The Order of the Silver Stag Take the Haunted Crypt (revenge! · 8th win · 77 kills)
-- 2026-11-11 04:45: The Rum Barrel Crew Take the Castle (streak ended · 5th win · 33 kills)
