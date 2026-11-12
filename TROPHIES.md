@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 510 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 511 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -56,9 +56,9 @@ Records from 510 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - MAGMA COLOSSUS SLAYER: 2
 - GRAVITY TYRANT SLAYER: 3
 - CATAPULT SLAYER: 3
-- IRONHORN SLAYER: 3
 - GLACIER BEHEMOTH SLAYER: 3
 - ACID LEVIATHAN SLAYER: 4
+- IRONHORN SLAYER: 4
 - CATHEDRAL SLAYER: 5
 - HELICOPTER SLAYER: 5
 - KNIGHT SLAYER: 5
@@ -75,13 +75,13 @@ Records from 510 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - STAR EATER SLAYER: 9
 - FORTRESS SLAYER: 10
 - MECH SLAYER: 10
-- HYDRA SLAYER: 12
 - STORM COLOSSUS SLAYER: 12
+- HYDRA SLAYER: 13
 - CANNON SLAYER: 13
-- COLOSSUS SLAYER: 14
 - CYCLOPS SLAYER: 14
 - PLAYER SLAYER: 14
 - ELEPHANT SLAYER: 15
+- COLOSSUS SLAYER: 15
 - TANK SLAYER: 16
 - MAMMOTH SLAYER: 20
 - GOLEM SLAYER: 23
@@ -93,7 +93,7 @@ Records from 510 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 - vampiric: 9
 - wings: 38
-- spellward: 46
+- spellward: 47
 - venom: 82
 - swift: 84
 - spikes: 91
@@ -158,10 +158,10 @@ Records from 510 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Thornheart Circle | 14 | 11 | 3 | 791 | 1 won | 6 |
 | Starweave Circle | 24 | 10 | 14 | 964 | 2 won | 5 |
 | Wildbrook Clan | 27 | 10 | 17 | 953 | 1 lost | 2 |
+| Glimmerdeep Kin | 16 | 10 | 6 | 604 | 5 won | 5 |
 | Thornwood Company | 13 | 10 | 3 | 396 | 1 lost | 9 |
 | Hollowbark Kin | 21 | 9 | 12 | 731 | 1 won | 3 |
 | Brightwater Tribe | 20 | 9 | 11 | 642 | 2 won | 3 |
-| Glimmerdeep Kin | 15 | 9 | 6 | 587 | 4 won | 5 |
 | Emberroot Circle | 18 | 9 | 8 | 551 | 1 lost | 3 |
 | Raven Hill Clan | 17 | 9 | 8 | 549 | 1 won | 5 |
 | Mire Witch Coven | 11 | 9 | 2 | 395 | 2 won | 7 |
@@ -183,6 +183,7 @@ Records from 510 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-12 01:28: The Crew of the Bone Compass Take the City (first ever win · 95 kills)
 - 2026-11-11 23:31: The Nightshade Coven Take the Sky-temple Relic (3rd win · 30 kills)
 - 2026-11-11 21:31: The Brightwater Tribe Take the Open Plains (9th win · 48 kills)
 - 2026-11-11 18:00: The Quasar Wing Take the Quarry (revenge denied · 4th win · 80 kills)
@@ -192,4 +193,3 @@ Records from 510 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-11 09:05: The Frostwhisper Tribe Take the Old Forest (revenge denied · 13th win · 100 kills)
 - 2026-11-11 06:46: The Order of the Silver Stag Take the Haunted Crypt (revenge! · 8th win · 77 kills)
 - 2026-11-11 04:45: The Rum Barrel Crew Take the Castle (streak ended · 5th win · 33 kills)
-- 2026-11-11 02:41: The Cinderclaw Kin Take the Open Plains (5th win · 41 kills)
