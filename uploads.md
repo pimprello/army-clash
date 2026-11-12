@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-12 20:42 | The Merchant Sold Them a Flame Core 💰 | Blue wins | https://youtube.com/shorts/8TqU_uOzxlk |
 | 2026-11-12 18:36 | ⚔️ CHAMPION DUEL: Sweden vs Denmark | Denmark wins | https://youtube.com/shorts/4n7NhLLWHfI |
 | 2026-11-12 16:48 | Hold the HILL to Win? Solar Drones vs Sky Assassins 🚩 | Amber wins | https://youtube.com/shorts/6JNHzXKb2pY |
 | 2026-11-12 14:48 | A SANDWORM Burst Out 🪱 | Red wins | https://youtube.com/shorts/4r68keqz5E4 |

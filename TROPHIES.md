@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 520 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 521 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -80,12 +80,12 @@ Records from 520 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PLAYER SLAYER: 14
 - STORM COLOSSUS SLAYER: 14
 - TANK SLAYER: 16
-- CYCLOPS SLAYER: 16
-- ELEPHANT SLAYER: 17
+- CYCLOPS SLAYER: 17
+- ELEPHANT SLAYER: 18
 - COLOSSUS SLAYER: 19
 - MAMMOTH SLAYER: 20
 - DRAGON SLAYER: 26
-- GOLEM SLAYER: 28
+- GOLEM SLAYER: 29
 - GIANT SLAYER: 34
 - TITAN SLAYER: 35
 
@@ -183,6 +183,7 @@ Records from 520 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-12 20:42: The House of the Silver Tiger Take the Canyon Pass (4th win · 32 kills)
 - 2026-11-12 18:36: The Copper Crown Company Take the Mountain Pass (10th win · 183 kills)
 - 2026-11-12 16:48: The Stonebridge Company Take the Titan's Bones (revenge! · 3 wins in a row · 20 kills)
 - 2026-11-12 14:48: The Greyfang Clan Take the City (4 wins in a row · 49 kills)
@@ -192,4 +193,3 @@ Records from 520 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-12 06:55: The Ember Blade School Take the Quarry (streak ended · 2nd win · 77 kills)
 - 2026-11-12 04:52: The Stormsail Crew Take the Canyon Pass (3rd win · 83 kills)
 - 2026-11-12 02:35: The Stonebridge Company Take the Overgrown Throne (revenge! · 5th win · 80 kills)
-- 2026-11-12 01:28: The Crew of the Bone Compass Take the City (first ever win · 95 kills)
