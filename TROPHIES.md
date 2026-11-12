@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 516 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 517 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -75,16 +75,16 @@ Records from 516 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - SPIDER QUEEN SLAYER: 9
 - FORTRESS SLAYER: 10
 - MECH SLAYER: 10
-- STORM COLOSSUS SLAYER: 12
 - HYDRA SLAYER: 13
 - CANNON SLAYER: 13
+- STORM COLOSSUS SLAYER: 13
 - PLAYER SLAYER: 14
-- CYCLOPS SLAYER: 15
 - ELEPHANT SLAYER: 16
 - TANK SLAYER: 16
+- CYCLOPS SLAYER: 16
 - COLOSSUS SLAYER: 18
 - MAMMOTH SLAYER: 20
-- GOLEM SLAYER: 25
+- GOLEM SLAYER: 26
 - DRAGON SLAYER: 26
 - GIANT SLAYER: 33
 - TITAN SLAYER: 35
@@ -151,7 +151,7 @@ Records from 516 battles with trophies (videos from 1 November 2026 on). Rebuilt
 |---|---|---|---|---|---|---|
 | Red Hawk Company | 25 | 16 | 9 | 921 | 1 won | 5 |
 | Mossback Tribe | 23 | 15 | 8 | 986 | 3 lost | 7 |
-| Frostwhisper Tribe | 24 | 13 | 11 | 1054 | 1 lost | 4 |
+| Frostwhisper Tribe | 25 | 14 | 11 | 1087 | 1 won | 4 |
 | Silverbough Circle | 29 | 12 | 17 | 1479 | 1 lost | 3 |
 | Oakshield Clan | 19 | 12 | 7 | 787 | 2 lost | 6 |
 | Wildbrook Clan | 28 | 11 | 17 | 967 | 1 won | 2 |
@@ -183,6 +183,7 @@ Records from 516 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-12 13:24: The Frostwhisper Tribe Take the Open Plains (14th win · 33 kills)
 - 2026-11-12 11:14: The Order of the Silver Stag Take the Open Plains (9th win · 54 kills)
 - 2026-11-12 08:24: The Coven of Ash Take the Godboard (revenge! · 3rd win · 107 kills)
 - 2026-11-12 06:55: The Ember Blade School Take the Quarry (streak ended · 2nd win · 77 kills)
@@ -192,4 +193,3 @@ Records from 516 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-11 23:31: The Nightshade Coven Take the Sky-temple Relic (3rd win · 30 kills)
 - 2026-11-11 21:31: The Brightwater Tribe Take the Open Plains (9th win · 48 kills)
 - 2026-11-11 18:00: The Quasar Wing Take the Quarry (revenge denied · 4th win · 80 kills)
-- 2026-11-11 17:20: The Pulsar Wing Take the Quarry (4th win · 30 kills)
