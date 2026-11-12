@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 513 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 514 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -71,8 +71,8 @@ Records from 513 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PHOENIX SLAYER: 7
 - STORM EMPEROR SLAYER: 7
 - IMMORTAL FRAUD SLAYER: 8
-- SPIDER QUEEN SLAYER: 8
 - STAR EATER SLAYER: 9
+- SPIDER QUEEN SLAYER: 9
 - FORTRESS SLAYER: 10
 - MECH SLAYER: 10
 - STORM COLOSSUS SLAYER: 12
@@ -80,18 +80,18 @@ Records from 513 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - CANNON SLAYER: 13
 - CYCLOPS SLAYER: 14
 - PLAYER SLAYER: 14
-- COLOSSUS SLAYER: 15
 - ELEPHANT SLAYER: 16
 - TANK SLAYER: 16
+- COLOSSUS SLAYER: 16
 - MAMMOTH SLAYER: 20
 - GOLEM SLAYER: 24
 - DRAGON SLAYER: 26
-- GIANT SLAYER: 32
+- GIANT SLAYER: 33
 - TITAN SLAYER: 35
 
 ## Mutations (rarest first)
 
-- vampiric: 9
+- vampiric: 10
 - wings: 38
 - spellward: 47
 - venom: 82
@@ -165,7 +165,7 @@ Records from 513 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Copper Crown Company | 17 | 9 | 8 | 619 | 1 won | 3 |
 | Emberroot Circle | 18 | 9 | 8 | 551 | 1 lost | 3 |
 | Raven Hill Clan | 17 | 9 | 8 | 549 | 1 won | 5 |
-| Mire Witch Coven | 11 | 9 | 2 | 395 | 2 won | 7 |
+| Mire Witch Coven | 12 | 9 | 3 | 420 | 1 lost | 7 |
 | Order of the Silver Stag | 22 | 8 | 14 | 970 | 1 lost | 3 |
 | Ash Wolf Clan | 19 | 8 | 11 | 763 | 2 lost | 3 |
 | Harrier Squadron | 16 | 8 | 8 | 467 | 6 won | 6 |
@@ -183,6 +183,7 @@ Records from 513 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-12 06:55: The Ember Blade School Take the Quarry (streak ended · 2nd win · 77 kills)
 - 2026-11-12 04:52: The Stormsail Crew Take the Canyon Pass (3rd win · 83 kills)
 - 2026-11-12 02:35: The Stonebridge Company Take the Overgrown Throne (revenge! · 5th win · 80 kills)
 - 2026-11-12 01:28: The Crew of the Bone Compass Take the City (first ever win · 95 kills)
@@ -192,4 +193,3 @@ Records from 513 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-11 17:20: The Pulsar Wing Take the Quarry (4th win · 30 kills)
 - 2026-11-11 13:21: The Harrier Squadron Take the Treasure Cove (revenge denied · 6 wins in a row · 62 kills)
 - 2026-11-11 11:18: The Harrier Squadron Take the Open Plains (5 wins in a row · 40 kills)
-- 2026-11-11 09:05: The Frostwhisper Tribe Take the Old Forest (revenge denied · 13th win · 100 kills)

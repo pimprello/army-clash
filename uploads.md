@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-12 06:55 | Kill the KING to Win 👑 Vampires vs Samurai | Lime wins | https://youtube.com/shorts/-UTTnmq32zI |
 | 2026-11-12 04:52 | One Magma Colossus Got 20 KILLS 😳 | Green wins | https://youtube.com/shorts/JCqxOhdc0Mo |
 | 2026-11-12 02:35 | Gorgons vs VIKINGS 🪓 | Lime wins | https://youtube.com/shorts/OP9AWD4V364 |
 | 2026-11-12 01:28 | They Were LOSING Until This 😳 | Lime wins | https://youtube.com/shorts/cl7EG6-2P1k |
