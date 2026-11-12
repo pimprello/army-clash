@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 514 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 515 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 514 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **ZEDRIK IRONHIDE** (TROLL), 42 kills · 2026-11-12 08:24
 - **SABRE-7** (MACHINE GUNNER), 26 kills · 2026-11-11 13:21
 - **ASHKA THE BOLD** (OGRE), 16 kills · 2026-11-11 04:45
 - **OSKA NIGHTFANG** (DEMON), 12 kills · 2026-11-10 11:19
@@ -47,7 +48,6 @@ Records from 514 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **VEXA STORMBORN** (WIZARD), 11 kills · 2026-11-07 15:13
 - **ZEDRIK STEELHEART** (BERSERKER), 14 kills · 2026-11-07 13:47
 - **GHOST-6** (MACHINE GUNNER), 13 kills · 2026-11-07 12:18
-- **KAELEN THE WALL** (SIEGE GUNNER), 10 kills · 2026-11-07 10:05
 
 ## Titles earned (rarest first)
 
@@ -84,7 +84,7 @@ Records from 514 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - TANK SLAYER: 16
 - COLOSSUS SLAYER: 16
 - MAMMOTH SLAYER: 20
-- GOLEM SLAYER: 24
+- GOLEM SLAYER: 25
 - DRAGON SLAYER: 26
 - GIANT SLAYER: 33
 - TITAN SLAYER: 35
@@ -92,7 +92,7 @@ Records from 514 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Mutations (rarest first)
 
 - vampiric: 10
-- wings: 38
+- wings: 39
 - spellward: 47
 - venom: 82
 - swift: 84
@@ -116,7 +116,6 @@ Records from 514 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - possess: giant: 1
 - extinct: MINT: 1
 - possess: livingfortress: 1
-- portal: hydra: 2
 - extinct: GREEN: 2
 - copied: knight: 2
 - extinct: SILVER: 2
@@ -127,6 +126,7 @@ Records from 514 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - copied: trooper: 2
 - possess: stormemperor: 2
 - extinct: PURPLE: 2
+- portal: hydra: 3
 - extinct: RED: 3
 - extinct: ORANGE: 3
 - extinct: BLUE: 3
@@ -183,6 +183,7 @@ Records from 514 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-12 08:24: The Coven of Ash Take the Godboard (revenge! · 3rd win · 107 kills)
 - 2026-11-12 06:55: The Ember Blade School Take the Quarry (streak ended · 2nd win · 77 kills)
 - 2026-11-12 04:52: The Stormsail Crew Take the Canyon Pass (3rd win · 83 kills)
 - 2026-11-12 02:35: The Stonebridge Company Take the Overgrown Throne (revenge! · 5th win · 80 kills)
@@ -192,4 +193,3 @@ Records from 514 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-11 18:00: The Quasar Wing Take the Quarry (revenge denied · 4th win · 80 kills)
 - 2026-11-11 17:20: The Pulsar Wing Take the Quarry (4th win · 30 kills)
 - 2026-11-11 13:21: The Harrier Squadron Take the Treasure Cove (revenge denied · 6 wins in a row · 62 kills)
-- 2026-11-11 11:18: The Harrier Squadron Take the Open Plains (5 wins in a row · 40 kills)
