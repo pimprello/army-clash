@@ -1,10 +1,11 @@
 # Trophy room
 
-Records from 519 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 520 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
 - **112 kills**: GIANT · 2026-11-03 05:30 · [🇧🇪 Belgium vs Netherlands 🇳🇱](https://youtube.com/shorts/NeMPZ0JTCf8)
+- **94 kills**: GIANT · 2026-11-12 18:36 · [⚔️ CHAMPION DUEL: Sweden vs Denmark](https://youtube.com/shorts/4n7NhLLWHfI)
 - **86 kills**: STAR EATER · 2026-11-04 21:57 · [The Weapons Came ALIVE 🗡️](https://youtube.com/shorts/3bawEZ4_K_c)
 - **60 kills**: GIANT · 2026-11-05 15:34 · [They Were OUTNUMBERED... 😳](https://youtube.com/shorts/YMOvFZK6LgE)
 - **53 kills**: STAR EATER · 2026-11-05 22:26 · [🇪🇸 Spain Mega Bones vs Portugal Void Rifles](https://youtube.com/shorts/7BYW3nD6pho)
@@ -13,7 +14,6 @@ Records from 519 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **48 kills**: PHOENIX · 2026-11-04 22:57 · [Phoenix Pikes vs WILD LEGION 🔥](https://youtube.com/shorts/zga-x3ZnOUs)
 - **47 kills**: LIVING FORTRESS · 2026-11-04 05:33 · [106 Orcs vs a LIVING Castle 🏰](https://youtube.com/shorts/3rsNAb0OpJA)
 - **47 kills**: TANK · 2026-11-04 10:12 · [🔥 SPELLGUNS vs Dragon Armor](https://youtube.com/shorts/g__rdIjt58w)
-- **47 kills**: VALKYRIE, SPIDER QUEEN SLAYER · 2026-11-10 03:51 · [They Bought a TORNADO 🌪️](https://youtube.com/shorts/gP8MKaSOZoA)
 
 ## Fastest wipe-outs
 
@@ -85,8 +85,8 @@ Records from 519 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - COLOSSUS SLAYER: 19
 - MAMMOTH SLAYER: 20
 - DRAGON SLAYER: 26
-- GOLEM SLAYER: 27
-- GIANT SLAYER: 33
+- GOLEM SLAYER: 28
+- GIANT SLAYER: 34
 - TITAN SLAYER: 35
 
 ## Mutations (rarest first)
@@ -94,9 +94,9 @@ Records from 519 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 10
 - wings: 39
 - spellward: 47
-- venom: 82
-- swift: 84
-- spikes: 92
+- venom: 83
+- swift: 85
+- spikes: 93
 - regen: 106
 
 ## Big moments
@@ -159,16 +159,16 @@ Records from 519 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Thornheart Circle | 14 | 11 | 3 | 791 | 1 won | 6 |
 | Glimmerdeep Kin | 17 | 11 | 6 | 613 | 6 won | 6 |
 | Starweave Circle | 24 | 10 | 14 | 964 | 2 won | 5 |
+| Copper Crown Company | 18 | 10 | 8 | 802 | 2 won | 3 |
 | Thornwood Company | 13 | 10 | 3 | 396 | 1 lost | 9 |
 | Order of the Silver Stag | 23 | 9 | 14 | 1024 | 1 won | 3 |
 | Hollowbark Kin | 22 | 9 | 13 | 739 | 1 lost | 3 |
 | Brightwater Tribe | 20 | 9 | 11 | 642 | 2 won | 3 |
-| Copper Crown Company | 17 | 9 | 8 | 619 | 1 won | 3 |
 | Emberroot Circle | 18 | 9 | 8 | 551 | 1 lost | 3 |
 | Raven Hill Clan | 17 | 9 | 8 | 549 | 1 won | 5 |
+| Highmoor Clan | 14 | 9 | 5 | 506 | 1 won | 7 |
 | Mire Witch Coven | 12 | 9 | 3 | 420 | 1 lost | 7 |
 | Ash Wolf Clan | 19 | 8 | 11 | 763 | 2 lost | 3 |
-| Greyfang Clan | 25 | 8 | 17 | 652 | 4 won | 4 |
 
 ### Great rivalries
 
@@ -183,6 +183,7 @@ Records from 519 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-12 18:36: The Copper Crown Company Take the Mountain Pass (10th win · 183 kills)
 - 2026-11-12 16:48: The Stonebridge Company Take the Titan's Bones (revenge! · 3 wins in a row · 20 kills)
 - 2026-11-12 14:48: The Greyfang Clan Take the City (4 wins in a row · 49 kills)
 - 2026-11-12 13:24: The Frostwhisper Tribe Take the Open Plains (14th win · 33 kills)
@@ -192,4 +193,3 @@ Records from 519 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-12 04:52: The Stormsail Crew Take the Canyon Pass (3rd win · 83 kills)
 - 2026-11-12 02:35: The Stonebridge Company Take the Overgrown Throne (revenge! · 5th win · 80 kills)
 - 2026-11-12 01:28: The Crew of the Bone Compass Take the City (first ever win · 95 kills)
-- 2026-11-11 23:31: The Nightshade Coven Take the Sky-temple Relic (3rd win · 30 kills)
