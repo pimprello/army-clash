@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 521 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 522 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 521 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **SIRA SKULLTAKER** (WAR RHINO), 36 kills · 2026-11-12 22:32
 - **PELL THE UNBROKEN** (GENERAL), 15 kills · 2026-11-12 14:48
 - **ZEDRIK IRONHIDE** (TROLL), 42 kills · 2026-11-12 08:24
 - **SABRE-7** (MACHINE GUNNER), 26 kills · 2026-11-11 13:21
@@ -47,7 +48,6 @@ Records from 521 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **BRAMBLE THE LUCKY** (KNIGHT), 11 kills · 2026-11-07 15:47
 - **TALVO THE WALL** (WIZARD), 34 kills · 2026-11-07 15:29
 - **VEXA STORMBORN** (WIZARD), 11 kills · 2026-11-07 15:13
-- **ZEDRIK STEELHEART** (BERSERKER), 14 kills · 2026-11-07 13:47
 
 ## Titles earned (rarest first)
 
@@ -72,9 +72,9 @@ Records from 521 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - STORM EMPEROR SLAYER: 7
 - IMMORTAL FRAUD SLAYER: 8
 - STAR EATER SLAYER: 9
-- SPIDER QUEEN SLAYER: 9
 - FORTRESS SLAYER: 10
 - MECH SLAYER: 10
+- SPIDER QUEEN SLAYER: 11
 - HYDRA SLAYER: 13
 - CANNON SLAYER: 13
 - PLAYER SLAYER: 14
@@ -92,10 +92,10 @@ Records from 521 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Mutations (rarest first)
 
 - vampiric: 10
-- wings: 39
+- wings: 40
 - spellward: 47
 - venom: 83
-- swift: 85
+- swift: 86
 - spikes: 93
 - regen: 106
 
@@ -134,12 +134,12 @@ Records from 521 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - possess: treant: 5
 - portal: cyclops: 9
 - portal: golem: 9
-- fusion: 10
 - portal: wolfrider: 10
+- fusion: 11
 - portal: demon: 16
 - sudden: boss: 17
-- sudden: ring: 18
-- portal: troll: 19
+- sudden: ring: 19
+- portal: troll: 20
 - sudden: lava: 24
 - sudden: meteors: 25
 
@@ -160,15 +160,15 @@ Records from 521 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Glimmerdeep Kin | 17 | 11 | 6 | 613 | 6 won | 6 |
 | Starweave Circle | 24 | 10 | 14 | 964 | 2 won | 5 |
 | Copper Crown Company | 18 | 10 | 8 | 802 | 2 won | 3 |
+| Raven Hill Clan | 18 | 10 | 8 | 669 | 2 won | 5 |
 | Thornwood Company | 13 | 10 | 3 | 396 | 1 lost | 9 |
 | Order of the Silver Stag | 23 | 9 | 14 | 1024 | 1 won | 3 |
 | Hollowbark Kin | 22 | 9 | 13 | 739 | 1 lost | 3 |
+| Greyfang Clan | 26 | 9 | 17 | 690 | 5 won | 5 |
 | Brightwater Tribe | 20 | 9 | 11 | 642 | 2 won | 3 |
 | Emberroot Circle | 18 | 9 | 8 | 551 | 1 lost | 3 |
-| Raven Hill Clan | 17 | 9 | 8 | 549 | 1 won | 5 |
 | Highmoor Clan | 14 | 9 | 5 | 506 | 1 won | 7 |
 | Mire Witch Coven | 12 | 9 | 3 | 420 | 1 lost | 7 |
-| Ash Wolf Clan | 19 | 8 | 11 | 763 | 2 lost | 3 |
 
 ### Great rivalries
 
@@ -183,6 +183,7 @@ Records from 521 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-12 22:32: The Raven Hill Clan Take the Crystal Grove (10th win · 120 kills)
 - 2026-11-12 20:42: The House of the Silver Tiger Take the Canyon Pass (4th win · 32 kills)
 - 2026-11-12 18:36: The Copper Crown Company Take the Mountain Pass (10th win · 183 kills)
 - 2026-11-12 16:48: The Stonebridge Company Take the Titan's Bones (revenge! · 3 wins in a row · 20 kills)
@@ -192,4 +193,3 @@ Records from 521 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-12 08:24: The Coven of Ash Take the Godboard (revenge! · 3rd win · 107 kills)
 - 2026-11-12 06:55: The Ember Blade School Take the Quarry (streak ended · 2nd win · 77 kills)
 - 2026-11-12 04:52: The Stormsail Crew Take the Canyon Pass (3rd win · 83 kills)
-- 2026-11-12 02:35: The Stonebridge Company Take the Overgrown Throne (revenge! · 5th win · 80 kills)
