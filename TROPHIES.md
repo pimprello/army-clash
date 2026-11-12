@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 517 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 518 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 517 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **PELL THE UNBROKEN** (GENERAL), 15 kills · 2026-11-12 14:48
 - **ZEDRIK IRONHIDE** (TROLL), 42 kills · 2026-11-12 08:24
 - **SABRE-7** (MACHINE GUNNER), 26 kills · 2026-11-11 13:21
 - **ASHKA THE BOLD** (OGRE), 16 kills · 2026-11-11 04:45
@@ -47,7 +48,6 @@ Records from 517 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **TALVO THE WALL** (WIZARD), 34 kills · 2026-11-07 15:29
 - **VEXA STORMBORN** (WIZARD), 11 kills · 2026-11-07 15:13
 - **ZEDRIK STEELHEART** (BERSERKER), 14 kills · 2026-11-07 13:47
-- **GHOST-6** (MACHINE GUNNER), 13 kills · 2026-11-07 12:18
 
 ## Titles earned (rarest first)
 
@@ -58,11 +58,11 @@ Records from 517 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - CATAPULT SLAYER: 3
 - GLACIER BEHEMOTH SLAYER: 3
 - ACID LEVIATHAN SLAYER: 4
-- IRONHORN SLAYER: 4
 - CATHEDRAL SLAYER: 5
 - HELICOPTER SLAYER: 5
 - KNIGHT SLAYER: 5
 - WORLDROOT SLAYER: 5
+- IRONHORN SLAYER: 5
 - SIEGE GOLEM SLAYER: 5
 - THOUSAND-MAN SLAYER: 6
 - EXECUTIONER SLAYER: 6
@@ -77,15 +77,15 @@ Records from 517 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - MECH SLAYER: 10
 - HYDRA SLAYER: 13
 - CANNON SLAYER: 13
-- STORM COLOSSUS SLAYER: 13
 - PLAYER SLAYER: 14
-- ELEPHANT SLAYER: 16
+- STORM COLOSSUS SLAYER: 14
 - TANK SLAYER: 16
 - CYCLOPS SLAYER: 16
+- ELEPHANT SLAYER: 17
 - COLOSSUS SLAYER: 18
 - MAMMOTH SLAYER: 20
-- GOLEM SLAYER: 26
 - DRAGON SLAYER: 26
+- GOLEM SLAYER: 27
 - GIANT SLAYER: 33
 - TITAN SLAYER: 35
 
@@ -96,8 +96,8 @@ Records from 517 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 47
 - venom: 82
 - swift: 84
-- spikes: 91
-- regen: 105
+- spikes: 92
+- regen: 106
 
 ## Big moments
 
@@ -161,14 +161,14 @@ Records from 517 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Glimmerdeep Kin | 16 | 10 | 6 | 604 | 5 won | 5 |
 | Thornwood Company | 13 | 10 | 3 | 396 | 1 lost | 9 |
 | Order of the Silver Stag | 23 | 9 | 14 | 1024 | 1 won | 3 |
-| Hollowbark Kin | 21 | 9 | 12 | 731 | 1 won | 3 |
+| Hollowbark Kin | 22 | 9 | 13 | 739 | 1 lost | 3 |
 | Brightwater Tribe | 20 | 9 | 11 | 642 | 2 won | 3 |
 | Copper Crown Company | 17 | 9 | 8 | 619 | 1 won | 3 |
 | Emberroot Circle | 18 | 9 | 8 | 551 | 1 lost | 3 |
 | Raven Hill Clan | 17 | 9 | 8 | 549 | 1 won | 5 |
 | Mire Witch Coven | 12 | 9 | 3 | 420 | 1 lost | 7 |
 | Ash Wolf Clan | 19 | 8 | 11 | 763 | 2 lost | 3 |
-| Harrier Squadron | 16 | 8 | 8 | 467 | 6 won | 6 |
+| Greyfang Clan | 25 | 8 | 17 | 652 | 4 won | 4 |
 
 ### Great rivalries
 
@@ -183,6 +183,7 @@ Records from 517 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-12 14:48: The Greyfang Clan Take the City (4 wins in a row · 49 kills)
 - 2026-11-12 13:24: The Frostwhisper Tribe Take the Open Plains (14th win · 33 kills)
 - 2026-11-12 11:14: The Order of the Silver Stag Take the Open Plains (9th win · 54 kills)
 - 2026-11-12 08:24: The Coven of Ash Take the Godboard (revenge! · 3rd win · 107 kills)
@@ -192,4 +193,3 @@ Records from 517 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-12 01:28: The Crew of the Bone Compass Take the City (first ever win · 95 kills)
 - 2026-11-11 23:31: The Nightshade Coven Take the Sky-temple Relic (3rd win · 30 kills)
 - 2026-11-11 21:31: The Brightwater Tribe Take the Open Plains (9th win · 48 kills)
-- 2026-11-11 18:00: The Quasar Wing Take the Quarry (revenge denied · 4th win · 80 kills)

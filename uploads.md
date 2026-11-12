@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-12 14:48 | A SANDWORM Burst Out 🪱 | Red wins | https://youtube.com/shorts/4r68keqz5E4 |
 | 2026-11-12 13:24 | Pick ONE: Frost, Tempest, Spirits 👇 | Green wins | https://youtube.com/shorts/2vagzy4iCqo |
 | 2026-11-12 11:14 | The Weapons Came ALIVE 🗡️ | Green wins | https://youtube.com/shorts/UvElXSOaTL4 |
 | 2026-11-12 08:24 | Mega Smiths vs Holy Trappers 🤯 | Green wins | https://youtube.com/shorts/aXpuDwp7FhY |
