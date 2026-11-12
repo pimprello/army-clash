@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 518 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 519 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -82,7 +82,7 @@ Records from 518 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - TANK SLAYER: 16
 - CYCLOPS SLAYER: 16
 - ELEPHANT SLAYER: 17
-- COLOSSUS SLAYER: 18
+- COLOSSUS SLAYER: 19
 - MAMMOTH SLAYER: 20
 - DRAGON SLAYER: 26
 - GOLEM SLAYER: 27
@@ -157,8 +157,8 @@ Records from 518 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Wildbrook Clan | 28 | 11 | 17 | 967 | 1 won | 2 |
 | Frostmere Clan | 25 | 11 | 14 | 856 | 1 lost | 3 |
 | Thornheart Circle | 14 | 11 | 3 | 791 | 1 won | 6 |
+| Glimmerdeep Kin | 17 | 11 | 6 | 613 | 6 won | 6 |
 | Starweave Circle | 24 | 10 | 14 | 964 | 2 won | 5 |
-| Glimmerdeep Kin | 16 | 10 | 6 | 604 | 5 won | 5 |
 | Thornwood Company | 13 | 10 | 3 | 396 | 1 lost | 9 |
 | Order of the Silver Stag | 23 | 9 | 14 | 1024 | 1 won | 3 |
 | Hollowbark Kin | 22 | 9 | 13 | 739 | 1 lost | 3 |
@@ -183,6 +183,7 @@ Records from 518 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-12 16:48: The Stonebridge Company Take the Titan's Bones (revenge! · 3 wins in a row · 20 kills)
 - 2026-11-12 14:48: The Greyfang Clan Take the City (4 wins in a row · 49 kills)
 - 2026-11-12 13:24: The Frostwhisper Tribe Take the Open Plains (14th win · 33 kills)
 - 2026-11-12 11:14: The Order of the Silver Stag Take the Open Plains (9th win · 54 kills)
@@ -192,4 +193,3 @@ Records from 518 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-12 02:35: The Stonebridge Company Take the Overgrown Throne (revenge! · 5th win · 80 kills)
 - 2026-11-12 01:28: The Crew of the Bone Compass Take the City (first ever win · 95 kills)
 - 2026-11-11 23:31: The Nightshade Coven Take the Sky-temple Relic (3rd win · 30 kills)
-- 2026-11-11 21:31: The Brightwater Tribe Take the Open Plains (9th win · 48 kills)
