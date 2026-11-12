@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 512 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 513 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -63,15 +63,15 @@ Records from 512 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - HELICOPTER SLAYER: 5
 - KNIGHT SLAYER: 5
 - WORLDROOT SLAYER: 5
-- EXECUTIONER SLAYER: 5
 - SIEGE GOLEM SLAYER: 5
 - THOUSAND-MAN SLAYER: 6
-- SPIDER QUEEN SLAYER: 6
+- EXECUTIONER SLAYER: 6
 - MIRROR KING SLAYER: 7
 - UNMAKER SLAYER: 7
 - PHOENIX SLAYER: 7
 - STORM EMPEROR SLAYER: 7
 - IMMORTAL FRAUD SLAYER: 8
+- SPIDER QUEEN SLAYER: 8
 - STAR EATER SLAYER: 9
 - FORTRESS SLAYER: 10
 - MECH SLAYER: 10
@@ -80,11 +80,11 @@ Records from 512 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - CANNON SLAYER: 13
 - CYCLOPS SLAYER: 14
 - PLAYER SLAYER: 14
-- ELEPHANT SLAYER: 15
 - COLOSSUS SLAYER: 15
+- ELEPHANT SLAYER: 16
 - TANK SLAYER: 16
 - MAMMOTH SLAYER: 20
-- GOLEM SLAYER: 23
+- GOLEM SLAYER: 24
 - DRAGON SLAYER: 26
 - GIANT SLAYER: 32
 - TITAN SLAYER: 35
@@ -97,7 +97,7 @@ Records from 512 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - venom: 82
 - swift: 84
 - spikes: 91
-- regen: 104
+- regen: 105
 
 ## Big moments
 
@@ -183,6 +183,7 @@ Records from 512 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-12 04:52: The Stormsail Crew Take the Canyon Pass (3rd win · 83 kills)
 - 2026-11-12 02:35: The Stonebridge Company Take the Overgrown Throne (revenge! · 5th win · 80 kills)
 - 2026-11-12 01:28: The Crew of the Bone Compass Take the City (first ever win · 95 kills)
 - 2026-11-11 23:31: The Nightshade Coven Take the Sky-temple Relic (3rd win · 30 kills)
@@ -192,4 +193,3 @@ Records from 512 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-11 13:21: The Harrier Squadron Take the Treasure Cove (revenge denied · 6 wins in a row · 62 kills)
 - 2026-11-11 11:18: The Harrier Squadron Take the Open Plains (5 wins in a row · 40 kills)
 - 2026-11-11 09:05: The Frostwhisper Tribe Take the Old Forest (revenge denied · 13th win · 100 kills)
-- 2026-11-11 06:46: The Order of the Silver Stag Take the Haunted Crypt (revenge! · 8th win · 77 kills)
