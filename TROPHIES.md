@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 515 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 516 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -78,11 +78,11 @@ Records from 515 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - STORM COLOSSUS SLAYER: 12
 - HYDRA SLAYER: 13
 - CANNON SLAYER: 13
-- CYCLOPS SLAYER: 14
 - PLAYER SLAYER: 14
+- CYCLOPS SLAYER: 15
 - ELEPHANT SLAYER: 16
 - TANK SLAYER: 16
-- COLOSSUS SLAYER: 16
+- COLOSSUS SLAYER: 18
 - MAMMOTH SLAYER: 20
 - GOLEM SLAYER: 25
 - DRAGON SLAYER: 26
@@ -140,7 +140,7 @@ Records from 515 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - sudden: boss: 17
 - sudden: ring: 18
 - portal: troll: 19
-- sudden: lava: 23
+- sudden: lava: 24
 - sudden: meteors: 25
 
 ## The tribes' chronicle
@@ -154,19 +154,19 @@ Records from 515 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Frostwhisper Tribe | 24 | 13 | 11 | 1054 | 1 lost | 4 |
 | Silverbough Circle | 29 | 12 | 17 | 1479 | 1 lost | 3 |
 | Oakshield Clan | 19 | 12 | 7 | 787 | 2 lost | 6 |
+| Wildbrook Clan | 28 | 11 | 17 | 967 | 1 won | 2 |
 | Frostmere Clan | 25 | 11 | 14 | 856 | 1 lost | 3 |
 | Thornheart Circle | 14 | 11 | 3 | 791 | 1 won | 6 |
 | Starweave Circle | 24 | 10 | 14 | 964 | 2 won | 5 |
-| Wildbrook Clan | 27 | 10 | 17 | 953 | 1 lost | 2 |
 | Glimmerdeep Kin | 16 | 10 | 6 | 604 | 5 won | 5 |
 | Thornwood Company | 13 | 10 | 3 | 396 | 1 lost | 9 |
+| Order of the Silver Stag | 23 | 9 | 14 | 1024 | 1 won | 3 |
 | Hollowbark Kin | 21 | 9 | 12 | 731 | 1 won | 3 |
 | Brightwater Tribe | 20 | 9 | 11 | 642 | 2 won | 3 |
 | Copper Crown Company | 17 | 9 | 8 | 619 | 1 won | 3 |
 | Emberroot Circle | 18 | 9 | 8 | 551 | 1 lost | 3 |
 | Raven Hill Clan | 17 | 9 | 8 | 549 | 1 won | 5 |
 | Mire Witch Coven | 12 | 9 | 3 | 420 | 1 lost | 7 |
-| Order of the Silver Stag | 22 | 8 | 14 | 970 | 1 lost | 3 |
 | Ash Wolf Clan | 19 | 8 | 11 | 763 | 2 lost | 3 |
 | Harrier Squadron | 16 | 8 | 8 | 467 | 6 won | 6 |
 
@@ -183,6 +183,7 @@ Records from 515 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-12 11:14: The Order of the Silver Stag Take the Open Plains (9th win · 54 kills)
 - 2026-11-12 08:24: The Coven of Ash Take the Godboard (revenge! · 3rd win · 107 kills)
 - 2026-11-12 06:55: The Ember Blade School Take the Quarry (streak ended · 2nd win · 77 kills)
 - 2026-11-12 04:52: The Stormsail Crew Take the Canyon Pass (3rd win · 83 kills)
@@ -192,4 +193,3 @@ Records from 515 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-11 21:31: The Brightwater Tribe Take the Open Plains (9th win · 48 kills)
 - 2026-11-11 18:00: The Quasar Wing Take the Quarry (revenge denied · 4th win · 80 kills)
 - 2026-11-11 17:20: The Pulsar Wing Take the Quarry (4th win · 30 kills)
-- 2026-11-11 13:21: The Harrier Squadron Take the Treasure Cove (revenge denied · 6 wins in a row · 62 kills)
