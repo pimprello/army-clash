@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 527 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 528 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -69,8 +69,8 @@ Records from 527 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - UNMAKER SLAYER: 7
 - PHOENIX SLAYER: 7
 - STORM EMPEROR SLAYER: 7
-- ACID LEVIATHAN SLAYER: 7
 - IMMORTAL FRAUD SLAYER: 8
+- ACID LEVIATHAN SLAYER: 8
 - STAR EATER SLAYER: 9
 - FORTRESS SLAYER: 10
 - MECH SLAYER: 10
@@ -80,9 +80,9 @@ Records from 527 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PLAYER SLAYER: 14
 - STORM COLOSSUS SLAYER: 15
 - TANK SLAYER: 16
-- CYCLOPS SLAYER: 18
 - ELEPHANT SLAYER: 19
 - COLOSSUS SLAYER: 19
+- CYCLOPS SLAYER: 19
 - MAMMOTH SLAYER: 23
 - DRAGON SLAYER: 26
 - GOLEM SLAYER: 32
@@ -91,12 +91,12 @@ Records from 527 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Mutations (rarest first)
 
-- vampiric: 10
+- vampiric: 11
 - wings: 40
 - spellward: 47
 - venom: 84
 - swift: 88
-- spikes: 94
+- spikes: 95
 - regen: 106
 
 ## Big moments
@@ -139,7 +139,7 @@ Records from 527 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: demon: 16
 - sudden: boss: 17
 - sudden: ring: 19
-- portal: troll: 20
+- portal: troll: 21
 - sudden: lava: 24
 - sudden: meteors: 25
 
@@ -156,7 +156,7 @@ Records from 527 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Thornheart Circle | 15 | 12 | 3 | 847 | 2 won | 6 |
 | Oakshield Clan | 19 | 12 | 7 | 787 | 2 lost | 6 |
 | Wildbrook Clan | 28 | 11 | 17 | 967 | 1 won | 2 |
-| Frostmere Clan | 25 | 11 | 14 | 856 | 1 lost | 3 |
+| Frostmere Clan | 26 | 11 | 15 | 877 | 2 lost | 3 |
 | Copper Crown Company | 19 | 11 | 8 | 852 | 3 won | 3 |
 | Glimmerdeep Kin | 17 | 11 | 6 | 613 | 6 won | 6 |
 | Starweave Circle | 25 | 10 | 15 | 965 | 1 lost | 5 |
@@ -183,6 +183,7 @@ Records from 527 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-13 10:51: The Ghoul Hollow Coven Take the Reactor (revenge denied · 5 wins in a row · 97 kills)
 - 2026-11-13 08:47: The Kestrel Squadron Take the Treasure Cove (revenge denied · 6th win · 22 kills)
 - 2026-11-13 07:24: The Thornheart Circle Take the Open Plains (12th win · 56 kills)
 - 2026-11-13 05:12: The Duskwing Tribe Take the Open Plains (8th win · 61 kills)
@@ -192,4 +193,3 @@ Records from 527 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-12 20:42: The House of the Silver Tiger Take the Canyon Pass (4th win · 32 kills)
 - 2026-11-12 18:36: The Copper Crown Company Take the Mountain Pass (10th win · 183 kills)
 - 2026-11-12 16:48: The Stonebridge Company Take the Titan's Bones (revenge! · 3 wins in a row · 20 kills)
-- 2026-11-12 14:48: The Greyfang Clan Take the City (4 wins in a row · 49 kills)
