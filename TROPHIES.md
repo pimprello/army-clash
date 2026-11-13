@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 528 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 529 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 528 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **NYRA THE MAD** (SINGULARITY SAGE), 13 kills · 2026-11-13 12:45
 - **MORGRA IRONHIDE** (MINOTAUR), 16 kills · 2026-11-13 05:12
 - **SIRA SKULLTAKER** (WAR RHINO), 36 kills · 2026-11-12 22:32
 - **PELL THE UNBROKEN** (GENERAL), 15 kills · 2026-11-12 14:48
@@ -47,7 +48,6 @@ Records from 528 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **KAELEN BONECRUSHER** (BERSERKER), 11 kills · 2026-11-07 19:55
 - **DRAVEN THE BOLD** (NINJA), 15 kills · 2026-11-07 17:58
 - **BRAMBLE THE LUCKY** (KNIGHT), 11 kills · 2026-11-07 15:47
-- **TALVO THE WALL** (WIZARD), 34 kills · 2026-11-07 15:29
 
 ## Titles earned (rarest first)
 
@@ -70,11 +70,11 @@ Records from 528 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PHOENIX SLAYER: 7
 - STORM EMPEROR SLAYER: 7
 - IMMORTAL FRAUD SLAYER: 8
-- ACID LEVIATHAN SLAYER: 8
 - STAR EATER SLAYER: 9
+- ACID LEVIATHAN SLAYER: 9
 - FORTRESS SLAYER: 10
 - MECH SLAYER: 10
-- SPIDER QUEEN SLAYER: 12
+- SPIDER QUEEN SLAYER: 13
 - HYDRA SLAYER: 14
 - CANNON SLAYER: 14
 - PLAYER SLAYER: 14
@@ -86,8 +86,8 @@ Records from 528 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - MAMMOTH SLAYER: 23
 - DRAGON SLAYER: 26
 - GOLEM SLAYER: 32
-- GIANT SLAYER: 34
 - TITAN SLAYER: 36
+- GIANT SLAYER: 37
 
 ## Mutations (rarest first)
 
@@ -95,8 +95,8 @@ Records from 528 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - wings: 40
 - spellward: 47
 - venom: 84
-- swift: 88
-- spikes: 95
+- swift: 89
+- spikes: 96
 - regen: 106
 
 ## Big moments
@@ -152,8 +152,8 @@ Records from 528 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Mossback Tribe | 24 | 16 | 8 | 1009 | 1 won | 7 |
 | Red Hawk Company | 25 | 16 | 9 | 921 | 1 won | 5 |
 | Frostwhisper Tribe | 26 | 14 | 12 | 1112 | 1 lost | 4 |
+| Thornheart Circle | 16 | 13 | 3 | 897 | 3 won | 6 |
 | Silverbough Circle | 29 | 12 | 17 | 1479 | 1 lost | 3 |
-| Thornheart Circle | 15 | 12 | 3 | 847 | 2 won | 6 |
 | Oakshield Clan | 19 | 12 | 7 | 787 | 2 lost | 6 |
 | Wildbrook Clan | 28 | 11 | 17 | 967 | 1 won | 2 |
 | Frostmere Clan | 26 | 11 | 15 | 877 | 2 lost | 3 |
@@ -161,7 +161,7 @@ Records from 528 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Glimmerdeep Kin | 17 | 11 | 6 | 613 | 6 won | 6 |
 | Starweave Circle | 25 | 10 | 15 | 965 | 1 lost | 5 |
 | Raven Hill Clan | 18 | 10 | 8 | 669 | 2 won | 5 |
-| Mire Witch Coven | 13 | 10 | 3 | 440 | 1 won | 7 |
+| Mire Witch Coven | 14 | 10 | 4 | 455 | 1 lost | 7 |
 | Thornwood Company | 14 | 10 | 4 | 427 | 2 lost | 9 |
 | Order of the Silver Stag | 23 | 9 | 14 | 1024 | 1 won | 3 |
 | Hollowbark Kin | 24 | 9 | 15 | 784 | 3 lost | 3 |
@@ -183,6 +183,7 @@ Records from 528 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-13 12:45: The Thornheart Circle Take the Canyon Pass (3 wins in a row · 50 kills)
 - 2026-11-13 10:51: The Ghoul Hollow Coven Take the Reactor (revenge denied · 5 wins in a row · 97 kills)
 - 2026-11-13 08:47: The Kestrel Squadron Take the Treasure Cove (revenge denied · 6th win · 22 kills)
 - 2026-11-13 07:24: The Thornheart Circle Take the Open Plains (12th win · 56 kills)
@@ -192,4 +193,3 @@ Records from 528 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-12 22:32: The Raven Hill Clan Take the Crystal Grove (10th win · 120 kills)
 - 2026-11-12 20:42: The House of the Silver Tiger Take the Canyon Pass (4th win · 32 kills)
 - 2026-11-12 18:36: The Copper Crown Company Take the Mountain Pass (10th win · 183 kills)
-- 2026-11-12 16:48: The Stonebridge Company Take the Titan's Bones (revenge! · 3 wins in a row · 20 kills)
