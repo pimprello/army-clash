@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 522 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 523 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -57,11 +57,11 @@ Records from 522 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - GRAVITY TYRANT SLAYER: 3
 - CATAPULT SLAYER: 3
 - GLACIER BEHEMOTH SLAYER: 3
-- ACID LEVIATHAN SLAYER: 4
 - CATHEDRAL SLAYER: 5
 - HELICOPTER SLAYER: 5
 - KNIGHT SLAYER: 5
 - WORLDROOT SLAYER: 5
+- ACID LEVIATHAN SLAYER: 5
 - IRONHORN SLAYER: 5
 - SIEGE GOLEM SLAYER: 5
 - THOUSAND-MAN SLAYER: 6
@@ -83,9 +83,9 @@ Records from 522 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - CYCLOPS SLAYER: 17
 - ELEPHANT SLAYER: 18
 - COLOSSUS SLAYER: 19
-- MAMMOTH SLAYER: 20
+- MAMMOTH SLAYER: 21
 - DRAGON SLAYER: 26
-- GOLEM SLAYER: 29
+- GOLEM SLAYER: 30
 - GIANT SLAYER: 34
 - TITAN SLAYER: 35
 
@@ -95,7 +95,7 @@ Records from 522 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - wings: 40
 - spellward: 47
 - venom: 83
-- swift: 86
+- swift: 87
 - spikes: 93
 - regen: 106
 
@@ -156,10 +156,10 @@ Records from 522 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Oakshield Clan | 19 | 12 | 7 | 787 | 2 lost | 6 |
 | Wildbrook Clan | 28 | 11 | 17 | 967 | 1 won | 2 |
 | Frostmere Clan | 25 | 11 | 14 | 856 | 1 lost | 3 |
+| Copper Crown Company | 19 | 11 | 8 | 852 | 3 won | 3 |
 | Thornheart Circle | 14 | 11 | 3 | 791 | 1 won | 6 |
 | Glimmerdeep Kin | 17 | 11 | 6 | 613 | 6 won | 6 |
 | Starweave Circle | 24 | 10 | 14 | 964 | 2 won | 5 |
-| Copper Crown Company | 18 | 10 | 8 | 802 | 2 won | 3 |
 | Raven Hill Clan | 18 | 10 | 8 | 669 | 2 won | 5 |
 | Thornwood Company | 13 | 10 | 3 | 396 | 1 lost | 9 |
 | Order of the Silver Stag | 23 | 9 | 14 | 1024 | 1 won | 3 |
@@ -183,6 +183,7 @@ Records from 522 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-13 01:24: The Copper Crown Company Take the Sky Islands (revenge denied · 3 wins in a row · 50 kills)
 - 2026-11-12 22:32: The Raven Hill Clan Take the Crystal Grove (10th win · 120 kills)
 - 2026-11-12 20:42: The House of the Silver Tiger Take the Canyon Pass (4th win · 32 kills)
 - 2026-11-12 18:36: The Copper Crown Company Take the Mountain Pass (10th win · 183 kills)
@@ -192,4 +193,3 @@ Records from 522 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-12 11:14: The Order of the Silver Stag Take the Open Plains (9th win · 54 kills)
 - 2026-11-12 08:24: The Coven of Ash Take the Godboard (revenge! · 3rd win · 107 kills)
 - 2026-11-12 06:55: The Ember Blade School Take the Quarry (streak ended · 2nd win · 77 kills)
-- 2026-11-12 04:52: The Stormsail Crew Take the Canyon Pass (3rd win · 83 kills)
