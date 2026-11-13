@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 529 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 530 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -52,10 +52,10 @@ Records from 529 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Titles earned (rarest first)
 
 - THRONE WALKER SLAYER: 1
-- MAGMA COLOSSUS SLAYER: 2
 - BALLOON BOMBER SLAYER: 2
 - GRAVITY TYRANT SLAYER: 3
 - CATAPULT SLAYER: 3
+- MAGMA COLOSSUS SLAYER: 3
 - GLACIER BEHEMOTH SLAYER: 3
 - CATHEDRAL SLAYER: 5
 - HELICOPTER SLAYER: 5
@@ -83,7 +83,7 @@ Records from 529 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - ELEPHANT SLAYER: 19
 - COLOSSUS SLAYER: 19
 - CYCLOPS SLAYER: 19
-- MAMMOTH SLAYER: 23
+- MAMMOTH SLAYER: 25
 - DRAGON SLAYER: 26
 - GOLEM SLAYER: 32
 - TITAN SLAYER: 36
@@ -133,7 +133,7 @@ Records from 529 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - possess: cannon: 5
 - possess: treant: 5
 - portal: cyclops: 9
-- portal: golem: 9
+- portal: golem: 10
 - portal: wolfrider: 10
 - fusion: 11
 - portal: demon: 16
@@ -163,7 +163,7 @@ Records from 529 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Raven Hill Clan | 18 | 10 | 8 | 669 | 2 won | 5 |
 | Mire Witch Coven | 14 | 10 | 4 | 455 | 1 lost | 7 |
 | Thornwood Company | 14 | 10 | 4 | 427 | 2 lost | 9 |
-| Order of the Silver Stag | 23 | 9 | 14 | 1024 | 1 won | 3 |
+| Order of the Silver Stag | 24 | 9 | 15 | 1035 | 1 lost | 3 |
 | Hollowbark Kin | 24 | 9 | 15 | 784 | 3 lost | 3 |
 | Greyfang Clan | 26 | 9 | 17 | 690 | 5 won | 5 |
 | Brightwater Tribe | 20 | 9 | 11 | 642 | 2 won | 3 |
@@ -183,6 +183,7 @@ Records from 529 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-13 14:55: The Golden Lion Order Take the Castle (9th win · 26 kills)
 - 2026-11-13 12:45: The Thornheart Circle Take the Canyon Pass (3 wins in a row · 50 kills)
 - 2026-11-13 10:51: The Ghoul Hollow Coven Take the Reactor (revenge denied · 5 wins in a row · 97 kills)
 - 2026-11-13 08:47: The Kestrel Squadron Take the Treasure Cove (revenge denied · 6th win · 22 kills)
@@ -192,4 +193,3 @@ Records from 529 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-13 01:24: The Copper Crown Company Take the Sky Islands (revenge denied · 3 wins in a row · 50 kills)
 - 2026-11-12 22:32: The Raven Hill Clan Take the Crystal Grove (10th win · 120 kills)
 - 2026-11-12 20:42: The House of the Silver Tiger Take the Canyon Pass (4th win · 32 kills)
-- 2026-11-12 18:36: The Copper Crown Company Take the Mountain Pass (10th win · 183 kills)

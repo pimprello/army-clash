@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-13 14:55 | Cavalry vs Longbowmen, But Champions DUEL First ⚔️ | Sky wins | https://youtube.com/shorts/v1QwKmyLOuA |
 | 2026-11-13 12:45 | 3 Armies, Only 1 SURVIVES 💀 | Yellow wins | https://youtube.com/shorts/E3sXL7gpiKw |
 | 2026-11-13 10:51 | The BIGGEST Comeback I've Seen 😱 | Sweden wins | https://youtube.com/shorts/YB7Y00WsOuU |
 | 2026-11-13 08:47 | They Got INCENDIARY Rounds and WON 🔥 | Gold wins | https://youtube.com/shorts/d7ifDc99AJ8 |
