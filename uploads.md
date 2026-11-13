@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-13 18:40 | 👑 Protect the KING: Titan Army vs Tank Army | Olive wins | https://youtube.com/shorts/9_EKjZZAMtI |
 | 2026-11-13 16:45 | The GROUND Split Open 💥 | Uk wins | https://youtube.com/shorts/RlWEfQjuxVE |
 | 2026-11-13 14:55 | Cavalry vs Longbowmen, But Champions DUEL First ⚔️ | Sky wins | https://youtube.com/shorts/v1QwKmyLOuA |
 | 2026-11-13 12:45 | 3 Armies, Only 1 SURVIVES 💀 | Yellow wins | https://youtube.com/shorts/E3sXL7gpiKw |
