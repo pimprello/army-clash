@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 523 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 524 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -74,14 +74,14 @@ Records from 523 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - STAR EATER SLAYER: 9
 - FORTRESS SLAYER: 10
 - MECH SLAYER: 10
-- SPIDER QUEEN SLAYER: 11
-- HYDRA SLAYER: 13
+- SPIDER QUEEN SLAYER: 12
 - CANNON SLAYER: 13
+- HYDRA SLAYER: 14
 - PLAYER SLAYER: 14
 - STORM COLOSSUS SLAYER: 14
 - TANK SLAYER: 16
 - CYCLOPS SLAYER: 17
-- ELEPHANT SLAYER: 18
+- ELEPHANT SLAYER: 19
 - COLOSSUS SLAYER: 19
 - MAMMOTH SLAYER: 21
 - DRAGON SLAYER: 26
@@ -94,7 +94,7 @@ Records from 523 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 10
 - wings: 40
 - spellward: 47
-- venom: 83
+- venom: 84
 - swift: 87
 - spikes: 93
 - regen: 106
@@ -149,8 +149,8 @@ Records from 523 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
+| Mossback Tribe | 24 | 16 | 8 | 1009 | 1 won | 7 |
 | Red Hawk Company | 25 | 16 | 9 | 921 | 1 won | 5 |
-| Mossback Tribe | 23 | 15 | 8 | 986 | 3 lost | 7 |
 | Frostwhisper Tribe | 25 | 14 | 11 | 1087 | 1 won | 4 |
 | Silverbough Circle | 29 | 12 | 17 | 1479 | 1 lost | 3 |
 | Oakshield Clan | 19 | 12 | 7 | 787 | 2 lost | 6 |
@@ -159,7 +159,7 @@ Records from 523 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Copper Crown Company | 19 | 11 | 8 | 852 | 3 won | 3 |
 | Thornheart Circle | 14 | 11 | 3 | 791 | 1 won | 6 |
 | Glimmerdeep Kin | 17 | 11 | 6 | 613 | 6 won | 6 |
-| Starweave Circle | 24 | 10 | 14 | 964 | 2 won | 5 |
+| Starweave Circle | 25 | 10 | 15 | 965 | 1 lost | 5 |
 | Raven Hill Clan | 18 | 10 | 8 | 669 | 2 won | 5 |
 | Thornwood Company | 13 | 10 | 3 | 396 | 1 lost | 9 |
 | Order of the Silver Stag | 23 | 9 | 14 | 1024 | 1 won | 3 |
@@ -183,6 +183,7 @@ Records from 523 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-13 02:24: The Mossback Tribe Take the World Furnace (revenge denied · 16th win · 23 kills)
 - 2026-11-13 01:24: The Copper Crown Company Take the Sky Islands (revenge denied · 3 wins in a row · 50 kills)
 - 2026-11-12 22:32: The Raven Hill Clan Take the Crystal Grove (10th win · 120 kills)
 - 2026-11-12 20:42: The House of the Silver Tiger Take the Canyon Pass (4th win · 32 kills)
@@ -192,4 +193,3 @@ Records from 523 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-12 13:24: The Frostwhisper Tribe Take the Open Plains (14th win · 33 kills)
 - 2026-11-12 11:14: The Order of the Silver Stag Take the Open Plains (9th win · 54 kills)
 - 2026-11-12 08:24: The Coven of Ash Take the Godboard (revenge! · 3rd win · 107 kills)
-- 2026-11-12 06:55: The Ember Blade School Take the Quarry (streak ended · 2nd win · 77 kills)
