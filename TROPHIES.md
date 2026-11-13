@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 532 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 533 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -56,11 +56,11 @@ Records from 532 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - GRAVITY TYRANT SLAYER: 3
 - CATAPULT SLAYER: 3
 - MAGMA COLOSSUS SLAYER: 3
-- GLACIER BEHEMOTH SLAYER: 3
 - CATHEDRAL SLAYER: 5
 - HELICOPTER SLAYER: 5
 - KNIGHT SLAYER: 5
 - WORLDROOT SLAYER: 5
+- GLACIER BEHEMOTH SLAYER: 5
 - THOUSAND-MAN SLAYER: 6
 - EXECUTIONER SLAYER: 6
 - MIRROR KING SLAYER: 7
@@ -81,10 +81,10 @@ Records from 532 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - STORM COLOSSUS SLAYER: 15
 - TANK SLAYER: 16
 - ELEPHANT SLAYER: 19
-- COLOSSUS SLAYER: 19
+- COLOSSUS SLAYER: 20
 - CYCLOPS SLAYER: 20
 - DRAGON SLAYER: 26
-- MAMMOTH SLAYER: 26
+- MAMMOTH SLAYER: 28
 - GOLEM SLAYER: 32
 - GIANT SLAYER: 37
 - TITAN SLAYER: 37
@@ -97,7 +97,7 @@ Records from 532 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - venom: 84
 - swift: 89
 - spikes: 96
-- regen: 106
+- regen: 107
 
 ## Big moments
 
@@ -149,7 +149,7 @@ Records from 532 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
-| Mossback Tribe | 24 | 16 | 8 | 1009 | 1 won | 7 |
+| Mossback Tribe | 25 | 16 | 9 | 1025 | 1 lost | 7 |
 | Red Hawk Company | 25 | 16 | 9 | 921 | 1 won | 5 |
 | Frostwhisper Tribe | 26 | 14 | 12 | 1112 | 1 lost | 4 |
 | Thornheart Circle | 16 | 13 | 3 | 897 | 3 won | 6 |
@@ -165,7 +165,7 @@ Records from 532 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Thornwood Company | 14 | 10 | 4 | 427 | 2 lost | 9 |
 | Order of the Silver Stag | 24 | 9 | 15 | 1035 | 1 lost | 3 |
 | Hollowbark Kin | 24 | 9 | 15 | 784 | 3 lost | 3 |
-| Greyfang Clan | 26 | 9 | 17 | 690 | 5 won | 5 |
+| Greyfang Clan | 27 | 9 | 18 | 738 | 1 lost | 5 |
 | Brightwater Tribe | 20 | 9 | 11 | 642 | 2 won | 3 |
 | Emberroot Circle | 18 | 9 | 8 | 551 | 1 lost | 3 |
 | Highmoor Clan | 14 | 9 | 5 | 506 | 1 won | 7 |
@@ -183,6 +183,7 @@ Records from 532 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-13 20:41: The Vortex Legion Take the Canyon Pass (6th win · 43 kills)
 - 2026-11-13 18:40: The Harrier Squadron Take the Frozen End (revenge denied · 7 wins in a row · 37 kills)
 - 2026-11-13 16:45: The Ashmantle Kin Take the Swamp Shrine (revenge denied · 5th win · 19 kills)
 - 2026-11-13 14:55: The Golden Lion Order Take the Castle (9th win · 26 kills)
@@ -192,4 +193,3 @@ Records from 532 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-13 07:24: The Thornheart Circle Take the Open Plains (12th win · 56 kills)
 - 2026-11-13 05:12: The Duskwing Tribe Take the Open Plains (8th win · 61 kills)
 - 2026-11-13 02:24: The Mossback Tribe Take the World Furnace (revenge denied · 16th win · 23 kills)
-- 2026-11-13 01:24: The Copper Crown Company Take the Sky Islands (revenge denied · 3 wins in a row · 50 kills)
