@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 533 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 534 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 533 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **VEXA STORMBORN** (MINOTAUR), 15 kills · 2026-11-13 22:34
 - **NYRA THE MAD** (SINGULARITY SAGE), 13 kills · 2026-11-13 12:45
 - **MORGRA IRONHIDE** (MINOTAUR), 16 kills · 2026-11-13 05:12
 - **SIRA SKULLTAKER** (WAR RHINO), 36 kills · 2026-11-12 22:32
@@ -47,7 +48,6 @@ Records from 533 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **BRAKK BONECRUSHER** (WIZARD), 14 kills · 2026-11-07 20:36
 - **KAELEN BONECRUSHER** (BERSERKER), 11 kills · 2026-11-07 19:55
 - **DRAVEN THE BOLD** (NINJA), 15 kills · 2026-11-07 17:58
-- **BRAMBLE THE LUCKY** (KNIGHT), 11 kills · 2026-11-07 15:47
 
 ## Titles earned (rarest first)
 
@@ -70,10 +70,10 @@ Records from 533 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - IRONHORN SLAYER: 7
 - SIEGE GOLEM SLAYER: 7
 - IMMORTAL FRAUD SLAYER: 8
-- STAR EATER SLAYER: 9
 - FORTRESS SLAYER: 10
 - MECH SLAYER: 10
-- ACID LEVIATHAN SLAYER: 10
+- STAR EATER SLAYER: 10
+- ACID LEVIATHAN SLAYER: 11
 - SPIDER QUEEN SLAYER: 13
 - HYDRA SLAYER: 14
 - CANNON SLAYER: 14
@@ -84,7 +84,7 @@ Records from 533 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - COLOSSUS SLAYER: 20
 - CYCLOPS SLAYER: 20
 - DRAGON SLAYER: 26
-- MAMMOTH SLAYER: 28
+- MAMMOTH SLAYER: 29
 - GOLEM SLAYER: 32
 - GIANT SLAYER: 37
 - TITAN SLAYER: 37
@@ -92,7 +92,7 @@ Records from 533 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Mutations (rarest first)
 
 - vampiric: 11
-- wings: 40
+- wings: 41
 - spellward: 47
 - venom: 84
 - swift: 89
@@ -134,8 +134,8 @@ Records from 533 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - possess: treant: 5
 - portal: cyclops: 9
 - portal: golem: 10
-- portal: wolfrider: 10
 - fusion: 11
+- portal: wolfrider: 11
 - portal: demon: 16
 - sudden: boss: 17
 - sudden: ring: 19
@@ -183,6 +183,7 @@ Records from 533 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-13 22:34: The Thunder Platoon Take the Open Plains (revenge denied · 3 wins in a row · 33 kills)
 - 2026-11-13 20:41: The Vortex Legion Take the Canyon Pass (6th win · 43 kills)
 - 2026-11-13 18:40: The Harrier Squadron Take the Frozen End (revenge denied · 7 wins in a row · 37 kills)
 - 2026-11-13 16:45: The Ashmantle Kin Take the Swamp Shrine (revenge denied · 5th win · 19 kills)
@@ -192,4 +193,3 @@ Records from 533 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-13 08:47: The Kestrel Squadron Take the Treasure Cove (revenge denied · 6th win · 22 kills)
 - 2026-11-13 07:24: The Thornheart Circle Take the Open Plains (12th win · 56 kills)
 - 2026-11-13 05:12: The Duskwing Tribe Take the Open Plains (8th win · 61 kills)
-- 2026-11-13 02:24: The Mossback Tribe Take the World Furnace (revenge denied · 16th win · 23 kills)

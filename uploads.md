@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-13 22:34 | 🇮🇹 Italy Jetpacks vs Germany Gunners | Germany wins | https://youtube.com/shorts/ArNHKJetQVk |
 | 2026-11-13 20:41 | Their Glacier Behemoth Rose From the GRAVE 🪦 | Crimson wins | https://youtube.com/shorts/J_rugHqtt-o |
 | 2026-11-13 18:40 | 👑 Protect the KING: Titan Army vs Tank Army | Olive wins | https://youtube.com/shorts/9_EKjZZAMtI |
 | 2026-11-13 16:45 | The GROUND Split Open 💥 | Uk wins | https://youtube.com/shorts/RlWEfQjuxVE |
