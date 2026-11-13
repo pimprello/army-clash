@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-13 07:24 | 🇦🇷 Argentina Dwarves vs Brazil Orc Horde | Brazil wins | https://youtube.com/shorts/t-KctgT58JM |
 | 2026-11-13 05:12 | They Were ALMOST Wiped Out... 😱 | Purple wins | https://youtube.com/shorts/d6jL6uzE5FY |
 | 2026-11-13 02:24 | They Took the HILL and Won 🚩 | Sand wins | https://youtube.com/shorts/baemI2PwZHo |
 | 2026-11-13 01:24 | A BLIZZARD Froze the Battle ❄️ | Italy wins | https://youtube.com/shorts/Q7cAj4agB9s |

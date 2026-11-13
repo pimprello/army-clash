@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 525 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 526 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -62,10 +62,10 @@ Records from 525 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - KNIGHT SLAYER: 5
 - WORLDROOT SLAYER: 5
 - ACID LEVIATHAN SLAYER: 5
-- IRONHORN SLAYER: 5
 - SIEGE GOLEM SLAYER: 5
 - THOUSAND-MAN SLAYER: 6
 - EXECUTIONER SLAYER: 6
+- IRONHORN SLAYER: 6
 - MIRROR KING SLAYER: 7
 - UNMAKER SLAYER: 7
 - PHOENIX SLAYER: 7
@@ -75,8 +75,8 @@ Records from 525 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - FORTRESS SLAYER: 10
 - MECH SLAYER: 10
 - SPIDER QUEEN SLAYER: 12
-- CANNON SLAYER: 13
 - HYDRA SLAYER: 14
+- CANNON SLAYER: 14
 - PLAYER SLAYER: 14
 - STORM COLOSSUS SLAYER: 15
 - TANK SLAYER: 16
@@ -95,7 +95,7 @@ Records from 525 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - wings: 40
 - spellward: 47
 - venom: 84
-- swift: 87
+- swift: 88
 - spikes: 94
 - regen: 106
 
@@ -151,13 +151,13 @@ Records from 525 battles with trophies (videos from 1 November 2026 on). Rebuilt
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 24 | 16 | 8 | 1009 | 1 won | 7 |
 | Red Hawk Company | 25 | 16 | 9 | 921 | 1 won | 5 |
-| Frostwhisper Tribe | 25 | 14 | 11 | 1087 | 1 won | 4 |
+| Frostwhisper Tribe | 26 | 14 | 12 | 1112 | 1 lost | 4 |
 | Silverbough Circle | 29 | 12 | 17 | 1479 | 1 lost | 3 |
+| Thornheart Circle | 15 | 12 | 3 | 847 | 2 won | 6 |
 | Oakshield Clan | 19 | 12 | 7 | 787 | 2 lost | 6 |
 | Wildbrook Clan | 28 | 11 | 17 | 967 | 1 won | 2 |
 | Frostmere Clan | 25 | 11 | 14 | 856 | 1 lost | 3 |
 | Copper Crown Company | 19 | 11 | 8 | 852 | 3 won | 3 |
-| Thornheart Circle | 14 | 11 | 3 | 791 | 1 won | 6 |
 | Glimmerdeep Kin | 17 | 11 | 6 | 613 | 6 won | 6 |
 | Starweave Circle | 25 | 10 | 15 | 965 | 1 lost | 5 |
 | Raven Hill Clan | 18 | 10 | 8 | 669 | 2 won | 5 |
@@ -183,6 +183,7 @@ Records from 525 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-13 07:24: The Thornheart Circle Take the Open Plains (12th win · 56 kills)
 - 2026-11-13 05:12: The Duskwing Tribe Take the Open Plains (8th win · 61 kills)
 - 2026-11-13 02:24: The Mossback Tribe Take the World Furnace (revenge denied · 16th win · 23 kills)
 - 2026-11-13 01:24: The Copper Crown Company Take the Sky Islands (revenge denied · 3 wins in a row · 50 kills)
@@ -192,4 +193,3 @@ Records from 525 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-12 16:48: The Stonebridge Company Take the Titan's Bones (revenge! · 3 wins in a row · 20 kills)
 - 2026-11-12 14:48: The Greyfang Clan Take the City (4 wins in a row · 49 kills)
 - 2026-11-12 13:24: The Frostwhisper Tribe Take the Open Plains (14th win · 33 kills)
-- 2026-11-12 11:14: The Order of the Silver Stag Take the Open Plains (9th win · 54 kills)
