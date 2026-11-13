@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 524 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 525 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 524 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **MORGRA IRONHIDE** (MINOTAUR), 16 kills · 2026-11-13 05:12
 - **SIRA SKULLTAKER** (WAR RHINO), 36 kills · 2026-11-12 22:32
 - **PELL THE UNBROKEN** (GENERAL), 15 kills · 2026-11-12 14:48
 - **ZEDRIK IRONHIDE** (TROLL), 42 kills · 2026-11-12 08:24
@@ -47,7 +48,6 @@ Records from 524 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **DRAVEN THE BOLD** (NINJA), 15 kills · 2026-11-07 17:58
 - **BRAMBLE THE LUCKY** (KNIGHT), 11 kills · 2026-11-07 15:47
 - **TALVO THE WALL** (WIZARD), 34 kills · 2026-11-07 15:29
-- **VEXA STORMBORN** (WIZARD), 11 kills · 2026-11-07 15:13
 
 ## Titles earned (rarest first)
 
@@ -78,14 +78,14 @@ Records from 524 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - CANNON SLAYER: 13
 - HYDRA SLAYER: 14
 - PLAYER SLAYER: 14
-- STORM COLOSSUS SLAYER: 14
+- STORM COLOSSUS SLAYER: 15
 - TANK SLAYER: 16
 - CYCLOPS SLAYER: 17
 - ELEPHANT SLAYER: 19
 - COLOSSUS SLAYER: 19
-- MAMMOTH SLAYER: 21
+- MAMMOTH SLAYER: 23
 - DRAGON SLAYER: 26
-- GOLEM SLAYER: 30
+- GOLEM SLAYER: 32
 - GIANT SLAYER: 34
 - TITAN SLAYER: 35
 
@@ -96,7 +96,7 @@ Records from 524 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 47
 - venom: 84
 - swift: 87
-- spikes: 93
+- spikes: 94
 - regen: 106
 
 ## Big moments
@@ -161,9 +161,9 @@ Records from 524 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Glimmerdeep Kin | 17 | 11 | 6 | 613 | 6 won | 6 |
 | Starweave Circle | 25 | 10 | 15 | 965 | 1 lost | 5 |
 | Raven Hill Clan | 18 | 10 | 8 | 669 | 2 won | 5 |
-| Thornwood Company | 13 | 10 | 3 | 396 | 1 lost | 9 |
+| Thornwood Company | 14 | 10 | 4 | 427 | 2 lost | 9 |
 | Order of the Silver Stag | 23 | 9 | 14 | 1024 | 1 won | 3 |
-| Hollowbark Kin | 22 | 9 | 13 | 739 | 1 lost | 3 |
+| Hollowbark Kin | 23 | 9 | 14 | 761 | 2 lost | 3 |
 | Greyfang Clan | 26 | 9 | 17 | 690 | 5 won | 5 |
 | Brightwater Tribe | 20 | 9 | 11 | 642 | 2 won | 3 |
 | Emberroot Circle | 18 | 9 | 8 | 551 | 1 lost | 3 |
@@ -183,6 +183,7 @@ Records from 524 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-13 05:12: The Duskwing Tribe Take the Open Plains (8th win · 61 kills)
 - 2026-11-13 02:24: The Mossback Tribe Take the World Furnace (revenge denied · 16th win · 23 kills)
 - 2026-11-13 01:24: The Copper Crown Company Take the Sky Islands (revenge denied · 3 wins in a row · 50 kills)
 - 2026-11-12 22:32: The Raven Hill Clan Take the Crystal Grove (10th win · 120 kills)
@@ -192,4 +193,3 @@ Records from 524 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-12 14:48: The Greyfang Clan Take the City (4 wins in a row · 49 kills)
 - 2026-11-12 13:24: The Frostwhisper Tribe Take the Open Plains (14th win · 33 kills)
 - 2026-11-12 11:14: The Order of the Silver Stag Take the Open Plains (9th win · 54 kills)
-- 2026-11-12 08:24: The Coven of Ash Take the Godboard (revenge! · 3rd win · 107 kills)
