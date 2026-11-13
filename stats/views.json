@@ -1,5 +1,1404 @@
 [
  {
+  "id": "d6jL6uzE5FY",
+  "date": "2026-11-13 05:12",
+  "title": "They Were ALMOST Wiped Out... 😱",
+  "seed": 3472351781,
+  "slot": 1049,
+  "era": "wild",
+  "map": "open",
+  "teams": [
+   "GREEN",
+   "YELLOW",
+   "PURPLE"
+  ],
+  "armies": [
+   "OGRES",
+   "MAMMOTHS",
+   "RHINOS"
+  ],
+  "formations": [
+   "echelon",
+   "flanks"
+  ],
+  "troops": [],
+  "hook": "They Were ALMOST Wiped Out... 😱",
+  "winner": "PURPLE WINS",
+  "wild": true,
+  "sides": [
+   "OGRES",
+   "MAMMOTHS",
+   "RHINOS"
+  ],
+  "cinematic": true,
+  "three": true,
+  "titleKind": "title",
+  "trophy": {
+   "mvp": {
+    "unit": "MINOTAUR",
+    "kills": 16,
+    "name": "MORGRA IRONHIDE",
+    "title": "MAMMOTH SLAYER"
+   },
+   "fight": 60,
+   "left": 1,
+   "titles": [
+    "MAMMOTH SLAYER",
+    "GOLEM SLAYER",
+    "STORM COLOSSUS SLAYER",
+    "GOLEM SLAYER",
+    "MAMMOTH SLAYER"
+   ],
+   "mutations": [
+    "spikes"
+   ],
+   "moments": []
+  },
+  "skins": [
+   "TOXIC",
+   "NEON",
+   null
+  ],
+  "combat": true,
+  "balance": [
+   0.643,
+   1.772,
+   0.585
+  ],
+  "tribes": [
+   {
+    "name": "HOLLOWBARK KIN",
+    "team": 0,
+    "kills": 22,
+    "wt": 3,
+    "at": 3
+   },
+   {
+    "name": "THORNWOOD COMPANY",
+    "team": 1,
+    "kills": 31,
+    "wt": 3,
+    "at": 3
+   },
+   {
+    "name": "DUSKWING TRIBE",
+    "team": 2,
+    "kills": 61,
+    "wt": 5,
+    "at": 4
+   }
+  ],
+  "winTeam": 2,
+  "story": "stake",
+  "chron": [
+   "THE DUSKWING TRIBE TAKE THE OPEN PLAINS",
+   "8TH WIN · 61 KILLS"
+  ],
+  "economy": {
+   "forges": 18,
+   "trades": 0,
+   "merchant": "FROST CORE"
+  },
+  "seconds": 66.72,
+  "units": [
+   "mammoth",
+   "cyclops",
+   "giant",
+   "ogre",
+   "orc",
+   "troll",
+   "goliath",
+   "magmacolossus",
+   "berserker",
+   "juggernaut",
+   "rhino",
+   "spearman",
+   "soldier",
+   "archer",
+   "stormcolossus",
+   "golem",
+   "titan",
+   "boarrider",
+   "minotaur"
+  ],
+  "views": 0,
+  "likes": 0,
+  "comments": 0,
+  "secs": 67,
+  "published": "2026-11-13T05:13:12Z"
+ },
+ {
+  "id": "baemI2PwZHo",
+  "date": "2026-11-13 02:24",
+  "title": "They Took the HILL and Won 🚩",
+  "seed": 2854259433,
+  "slot": 1048,
+  "era": "fantasy",
+  "map": "furnace",
+  "teams": [
+   "SAND",
+   "PURPLE"
+  ],
+  "armies": [
+   "SYLVAN",
+   "INFERNAL"
+  ],
+  "formations": [
+   "block",
+   "echelon"
+  ],
+  "troops": [],
+  "hook": "They Took the HILL and Won 🚩",
+  "winner": "SAND WINS",
+  "cinematic": true,
+  "titleKind": "title",
+  "trophy": {
+   "mvp": {
+    "unit": "ACID LEVIATHAN",
+    "kills": 8
+   },
+   "fight": 53.1,
+   "wipeout": true,
+   "left": 14,
+   "titles": [
+    "SPIDER QUEEN SLAYER",
+    "ELEPHANT SLAYER",
+    "HYDRA SLAYER"
+   ],
+   "mutations": [
+    "venom"
+   ],
+   "moments": []
+  },
+  "mode": "hill",
+  "skins": [
+   null,
+   "SHADOW"
+  ],
+  "combat": true,
+  "balKey": "SYLVAN|INFERNAL|hill",
+  "tuned": 0.378,
+  "balance": 0.434,
+  "tribes": [
+   {
+    "name": "MOSSBACK TRIBE",
+    "team": 0,
+    "kills": 23,
+    "wt": 3,
+    "at": 3
+   },
+   {
+    "name": "STORMHORN TRIBE",
+    "team": 0,
+    "kills": 10,
+    "wt": 3,
+    "at": 2
+   },
+   {
+    "name": "DUSKWING TRIBE",
+    "team": 1,
+    "kills": 13,
+    "wt": 3,
+    "at": 3
+   },
+   {
+    "name": "STARWEAVE CIRCLE",
+    "team": 1,
+    "kills": 1,
+    "wt": 2,
+    "at": 0
+   }
+  ],
+  "winTeam": 0,
+  "story": "revenge",
+  "chron": [
+   "THE MOSSBACK TRIBE TAKE THE WORLD FURNACE",
+   "REVENGE DENIED · 16TH WIN · 23 KILLS"
+  ],
+  "economy": {
+   "forges": 19,
+   "trades": 5
+  },
+  "seconds": 64.03,
+  "units": [
+   "acidwyrm",
+   "mammoth",
+   "spiderqueen",
+   "titan",
+   "treant",
+   "swordsman",
+   "ogre",
+   "rhino",
+   "druid",
+   "elf",
+   "illusionist",
+   "hydra",
+   "elephant",
+   "demon",
+   "hellhound",
+   "minotaur",
+   "imp"
+  ],
+  "views": 1,
+  "likes": 0,
+  "comments": 0,
+  "secs": 65,
+  "published": "2026-11-13T02:25:47Z"
+ },
+ {
+  "id": "Q7cAj4agB9s",
+  "date": "2026-11-13 01:24",
+  "title": "A BLIZZARD Froze the Battle ❄️",
+  "seed": 1429410415,
+  "slot": 1047,
+  "era": "wild",
+  "map": "shattered",
+  "teams": [
+   "ITALY",
+   "GERMANY"
+  ],
+  "armies": [
+   "STEEL SUMOS",
+   "ROGUE 3D CREW"
+  ],
+  "formations": [
+   "flanks",
+   "wedge"
+  ],
+  "troops": [],
+  "hook": "A BLIZZARD Froze the Battle ❄️",
+  "winner": "ITALY WINS",
+  "wild": true,
+  "clickbait": true,
+  "sides": [
+   {
+    "name": "STEEL SUMOS",
+    "mix": {
+     "sumo": 0.66,
+     "jester": 0.34
+    },
+    "heavy": [],
+    "base": "jester"
+   },
+   {
+    "name": "ROGUE 3D CREW",
+    "mix": {
+     "mr3d": 0.65,
+     "bard": 0.35
+    },
+    "heavy": [],
+    "base": "bard"
+   }
+  ],
+  "cinematic": true,
+  "titleKind": "clickbait",
+  "trophy": {
+   "mvp": {
+    "unit": "ACID LEVIATHAN",
+    "kills": 16
+   },
+   "fight": 54.5,
+   "wipeout": true,
+   "left": 17,
+   "titles": [
+    "ACID LEVIATHAN SLAYER",
+    "MAMMOTH SLAYER",
+    "GOLEM SLAYER"
+   ],
+   "mutations": [
+    "swift"
+   ],
+   "moments": []
+  },
+  "combat": true,
+  "tuned": 1.674,
+  "balance": 1.674,
+  "tribes": [
+   {
+    "name": "COPPER CROWN COMPANY",
+    "team": 0,
+    "kills": 50,
+    "wt": 4,
+    "at": 4
+   },
+   {
+    "name": "HAMMER PLATOON",
+    "team": 0,
+    "kills": 4,
+    "wt": 3,
+    "at": 1
+   },
+   {
+    "name": "THE BLACK CANDLE",
+    "team": 1,
+    "kills": 10,
+    "wt": 4,
+    "at": 4
+   },
+   {
+    "name": "THE PALE PROCESSION",
+    "team": 1,
+    "kills": 2,
+    "wt": 2,
+    "at": 2
+   }
+  ],
+  "winTeam": 0,
+  "story": "revenge",
+  "chron": [
+   "THE COPPER CROWN COMPANY TAKE THE SKY ISLANDS",
+   "REVENGE DENIED · 3 WINS IN A ROW · 50 KILLS"
+  ],
+  "economy": {
+   "forges": 19,
+   "trades": 5,
+   "merchant": "FROST CORE"
+  },
+  "seconds": 65.07,
+  "units": [
+   "acidwyrm",
+   "stareater",
+   "elephant",
+   "sumo",
+   "demon",
+   "ogre",
+   "jester",
+   "golem",
+   "cyclops",
+   "mammoth",
+   "mr3d",
+   "treant",
+   "bard"
+  ],
+  "views": 1,
+  "likes": 0,
+  "comments": 0,
+  "secs": 66,
+  "published": "2026-11-13T01:25:32Z"
+ },
+ {
+  "id": "wt6-Nb4JMYg",
+  "date": "2026-11-12 22:32",
+  "title": "Half the Size and Still WON 😳",
+  "seed": 1001216562,
+  "slot": 1046,
+  "era": "wild",
+  "map": "enchanted",
+  "teams": [
+   "MAGENTA",
+   "LIME"
+  ],
+  "armies": [
+   "LEGION",
+   "EMPIRE"
+  ],
+  "formations": [
+   "crescent",
+   "crescent"
+  ],
+  "troops": [],
+  "hook": "Half the Size and Still WON 😳",
+  "winner": "LIME WINS",
+  "cinematic": true,
+  "titleKind": "title",
+  "trophy": {
+   "mvp": {
+    "unit": "WAR RHINO",
+    "kills": 36,
+    "name": "SIRA SKULLTAKER",
+    "title": "SPIDER QUEEN SLAYER"
+   },
+   "fight": 58.8,
+   "wipeout": true,
+   "left": 3,
+   "titles": [
+    "SPIDER QUEEN SLAYER",
+    "SPIDER QUEEN SLAYER"
+   ],
+   "mutations": [
+    "swift",
+    "wings"
+   ],
+   "moments": [
+    "fusion",
+    "portal:troll",
+    "sudden:ring"
+   ]
+  },
+  "combat": true,
+  "balKey": "LEGION|EMPIRE|classic",
+  "tuned": 0.503,
+  "balance": 0.286,
+  "tribes": [
+   {
+    "name": "THE SILENT MILE",
+    "team": 0,
+    "kills": 35,
+    "wt": 3,
+    "at": 3
+   },
+   {
+    "name": "GRAVE LANTERN COVEN",
+    "team": 0,
+    "kills": 15,
+    "wt": 3,
+    "at": 3
+   },
+   {
+    "name": "RAVEN HILL CLAN",
+    "team": 1,
+    "kills": 120,
+    "wt": 4,
+    "at": 4
+   },
+   {
+    "name": "GREYFANG CLAN",
+    "team": 1,
+    "kills": 38,
+    "wt": 3,
+    "at": 2
+   }
+  ],
+  "winTeam": 1,
+  "story": "revenge",
+  "chron": [
+   "THE RAVEN HILL CLAN TAKE THE CRYSTAL GROVE",
+   "10TH WIN · 120 KILLS"
+  ],
+  "economy": {
+   "forges": 23,
+   "trades": 7,
+   "merchant": "FLAME CORE"
+  },
+  "seconds": 68.43,
+  "units": [
+   "acidwyrm",
+   "spiderqueen",
+   "siegegolem",
+   "rhino",
+   "yeti",
+   "skeleton",
+   "zombie",
+   "necromancer",
+   "hydra",
+   "magmacolossus",
+   "mammoth",
+   "swordsman",
+   "lancer",
+   "pikeman"
+  ],
+  "views": 1,
+  "likes": 0,
+  "comments": 0,
+  "secs": 69,
+  "published": "2026-11-12T22:33:38Z"
+ },
+ {
+  "id": "8TqU_uOzxlk",
+  "date": "2026-11-12 20:42",
+  "title": "The Merchant Sold Them a Flame Core 💰",
+  "seed": 445649587,
+  "slot": 1045,
+  "era": "wild",
+  "map": "canyon",
+  "teams": [
+   "RED",
+   "BLUE",
+   "GREEN"
+  ],
+  "armies": [
+   "SAND BUILDERS",
+   "CHAOS SUMOS",
+   "LUNAR REAPERS"
+  ],
+  "formations": [
+   "columns",
+   "block"
+  ],
+  "troops": [],
+  "hook": "The Merchant Sold Them a Flame Core 💰",
+  "winner": "BLUE WINS",
+  "wild": true,
+  "sides": [
+   {
+    "name": "SAND BUILDERS",
+    "mix": {
+     "builder": 0.58,
+     "tesla": 0.31,
+     "sunking": 0.11
+    },
+    "heavy": [
+     "hourglass"
+    ],
+    "base": "builder"
+   },
+   {
+    "name": "CHAOS SUMOS",
+    "mix": {
+     "sumo": 0.58,
+     "shaman": 0.28,
+     "beekeeper": 0.14
+    },
+    "heavy": [
+     "hourglass"
+    ],
+    "base": "beekeeper"
+   },
+   {
+    "name": "LUNAR REAPERS",
+    "mix": {
+     "phasereaper": 0.57,
+     "pyro": 0.31,
+     "warmaster": 0.11
+    },
+    "heavy": [],
+    "base": "pyro"
+   }
+  ],
+  "cinematic": true,
+  "three": true,
+  "titleKind": "title",
+  "trophy": {
+   "mvp": {
+    "unit": "LIVING FORTRESS",
+    "kills": 21
+   },
+   "fight": 59,
+   "wipeout": true,
+   "left": 5,
+   "titles": [
+    "GOLEM SLAYER",
+    "ELEPHANT SLAYER",
+    "CYCLOPS SLAYER"
+   ],
+   "moments": []
+  },
+  "skins": [
+   null,
+   "GHOST",
+   null
+  ],
+  "combat": true,
+  "balance": [
+   0.708,
+   0.513,
+   1.779
+  ],
+  "tribes": [
+   {
+    "name": "REEFJAW CREW",
+    "team": 0,
+    "kills": 51,
+    "wt": 4,
+    "at": 4
+   },
+   {
+    "name": "HOUSE OF THE SILVER TIGER",
+    "team": 1,
+    "kills": 32,
+    "wt": 4,
+    "at": 4
+   },
+   {
+    "name": "NIGHTJAR COMPANY",
+    "team": 2,
+    "kills": 21,
+    "wt": 3,
+    "at": 3
+   }
+  ],
+  "winTeam": 1,
+  "story": "stake",
+  "chron": [
+   "THE HOUSE OF THE SILVER TIGER TAKE THE CANYON PASS",
+   "4TH WIN · 32 KILLS"
+  ],
+  "economy": {
+   "forges": 18,
+   "trades": 0,
+   "merchant": "FLAME CORE"
+  },
+  "seconds": 69.65,
+  "units": [
+   "hourglass",
+   "livingfortress",
+   "glaciergiant",
+   "cyclops",
+   "sunking",
+   "troll",
+   "juggernaut",
+   "builder",
+   "spiderqueen",
+   "ironhorn",
+   "sumo",
+   "demon",
+   "shaman",
+   "stareater",
+   "elephant",
+   "golem",
+   "phasereaper",
+   "minotaur",
+   "rhino",
+   "warmaster",
+   "pyro"
+  ],
+  "views": 0,
+  "likes": 0,
+  "comments": 0,
+  "secs": 70,
+  "published": "2026-11-12T20:44:28Z"
+ },
+ {
+  "id": "4n7NhLLWHfI",
+  "date": "2026-11-12 18:36",
+  "title": "⚔️ CHAMPION DUEL: Sweden vs Denmark",
+  "seed": 721339335,
+  "slot": 1044,
+  "era": "wild",
+  "map": "snow",
+  "teams": [
+   "SWEDEN",
+   "DENMARK"
+  ],
+  "armies": [
+   "GRAVEWITCHES",
+   "PALADINS"
+  ],
+  "formations": [
+   "wedge",
+   "line"
+  ],
+  "troops": [],
+  "hook": "⚔️ CHAMPION DUEL: Sweden vs Denmark",
+  "winner": "DENMARK WINS",
+  "cinematic": true,
+  "titleKind": "title",
+  "trophy": {
+   "mvp": {
+    "unit": "GIANT",
+    "kills": 94
+   },
+   "fight": 60,
+   "left": 4,
+   "titles": [
+    "GOLEM SLAYER",
+    "GIANT SLAYER"
+   ],
+   "mutations": [
+    "swift",
+    "venom",
+    "spikes"
+   ],
+   "moments": []
+  },
+  "mode": "duel",
+  "skins": [
+   null,
+   "GHOST"
+  ],
+  "combat": true,
+  "balKey": "GRAVEWITCHES|PALADINS|duel",
+  "tuned": 0.503,
+  "balance": 0.503,
+  "tribes": [
+   {
+    "name": "THE CROOKED SPIRE",
+    "team": 0,
+    "kills": 5,
+    "wt": 3,
+    "at": 3
+   },
+   {
+    "name": "THE BLACK CANDLE",
+    "team": 0,
+    "kills": 21,
+    "wt": 4,
+    "at": 4
+   },
+   {
+    "name": "COPPER CROWN COMPANY",
+    "team": 1,
+    "kills": 183,
+    "wt": 3,
+    "at": 3
+   },
+   {
+    "name": "HIGHMOOR CLAN",
+    "team": 1,
+    "kills": 81,
+    "wt": 3,
+    "at": 3
+   }
+  ],
+  "winTeam": 1,
+  "story": "oath",
+  "chron": [
+   "THE COPPER CROWN COMPANY TAKE THE MOUNTAIN PASS",
+   "10TH WIN · 183 KILLS"
+  ],
+  "economy": {
+   "forges": 24,
+   "trades": 4,
+   "merchant": "STORM CORE"
+  },
+  "seconds": 66.7,
+  "units": [
+   "livingfortress",
+   "golem",
+   "ironhorn",
+   "goliath",
+   "zombie",
+   "skeleton",
+   "gravewitch",
+   "giant",
+   "bonecolossus",
+   "paladin",
+   "troll"
+  ],
+  "views": 4,
+  "likes": 0,
+  "comments": 0,
+  "secs": 67,
+  "published": "2026-11-12T18:37:21Z"
+ },
+ {
+  "id": "6JNHzXKb2pY",
+  "date": "2026-11-12 16:48",
+  "title": "Hold the HILL to Win? Solar Drones vs Sky Assassins 🚩",
+  "seed": 4199029119,
+  "slot": 1043,
+  "era": "wild",
+  "map": "grave",
+  "teams": [
+   "AMBER",
+   "NAVY"
+  ],
+  "armies": [
+   "SOLAR DRONES",
+   "SKY ASSASSINS"
+  ],
+  "formations": [
+   "line",
+   "columns"
+  ],
+  "troops": [],
+  "hook": "Hold the HILL to Win? Solar Drones vs Sky Assassins 🚩",
+  "winner": "AMBER WINS",
+  "wild": true,
+  "sides": [
+   {
+    "name": "SOLAR DRONES",
+    "mix": {
+     "drone": 0.66,
+     "alchemist": 0.34
+    },
+    "heavy": [
+     "catapult"
+    ],
+    "base": "drone"
+   },
+   {
+    "name": "SKY ASSASSINS",
+    "mix": {
+     "assassin": 0.56,
+     "gunslinger": 0.3,
+     "sumo": 0.14
+    },
+    "heavy": [
+     "balloon"
+    ],
+    "base": "gunslinger"
+   }
+  ],
+  "cinematic": true,
+  "titleKind": "title",
+  "trophy": {
+   "mvp": {
+    "unit": "ACID LEVIATHAN",
+    "kills": 7
+   },
+   "fight": 53.3,
+   "wipeout": true,
+   "left": 10,
+   "titles": [
+    "COLOSSUS SLAYER"
+   ],
+   "moments": []
+  },
+  "mode": "hill",
+  "skins": [
+   "LAVA",
+   "FROST"
+  ],
+  "combat": true,
+  "tuned": 0.67,
+  "balance": 0.67,
+  "tribes": [
+   {
+    "name": "STONEBRIDGE COMPANY",
+    "team": 0,
+    "kills": 20,
+    "wt": 4,
+    "at": 4
+   },
+   {
+    "name": "GLIMMERDEEP KIN",
+    "team": 0,
+    "kills": 9,
+    "wt": 3,
+    "at": 2
+   },
+   {
+    "name": "GOLDEN LION ORDER",
+    "team": 1,
+    "kills": 14,
+    "wt": 3,
+    "at": 3
+   },
+   {
+    "name": "THE CROOKED SPIRE",
+    "team": 1,
+    "kills": 2,
+    "wt": 2,
+    "at": 1
+   }
+  ],
+  "winTeam": 0,
+  "story": "revenge",
+  "chron": [
+   "THE STONEBRIDGE COMPANY TAKE THE TITAN'S BONES",
+   "REVENGE! · 3 WINS IN A ROW · 20 KILLS"
+  ],
+  "economy": {
+   "forges": 19,
+   "trades": 4,
+   "merchant": "STORM CORE"
+  },
+  "seconds": 65.47,
+  "units": [
+   "catapult",
+   "golem",
+   "magmacolossus",
+   "acidwyrm",
+   "hydra",
+   "troll",
+   "treant",
+   "drone",
+   "alchemist",
+   "balloon",
+   "siegegolem",
+   "glaciergiant",
+   "bonecolossus",
+   "assassin",
+   "sumo",
+   "ogre",
+   "minotaur"
+  ],
+  "views": 1,
+  "likes": 0,
+  "comments": 0,
+  "secs": 66,
+  "published": "2026-11-12T16:49:44Z"
+ },
+ {
+  "id": "4r68keqz5E4",
+  "date": "2026-11-12 14:48",
+  "title": "A SANDWORM Burst Out 🪱",
+  "seed": 3077845598,
+  "slot": 1042,
+  "era": "wild",
+  "map": "city",
+  "teams": [
+   "RED",
+   "WHITE"
+  ],
+  "armies": [
+   "EMPIRE",
+   "WARBAND"
+  ],
+  "formations": [
+   "echelon",
+   "flanks"
+  ],
+  "troops": [],
+  "hook": "A SANDWORM Burst Out 🪱",
+  "winner": "RED WINS",
+  "clickbait": true,
+  "cinematic": true,
+  "titleKind": "clickbait",
+  "trophy": {
+   "mvp": {
+    "unit": "GENERAL",
+    "kills": 15,
+    "name": "PELL THE UNBROKEN",
+    "title": "STORM COLOSSUS SLAYER"
+   },
+   "fight": 58.9,
+   "wipeout": true,
+   "left": 6,
+   "titles": [
+    "IRONHORN SLAYER",
+    "GOLEM SLAYER",
+    "STORM COLOSSUS SLAYER",
+    "ELEPHANT SLAYER"
+   ],
+   "mutations": [
+    "spikes",
+    "regen"
+   ],
+   "moments": []
+  },
+  "mode": "duel",
+  "combat": true,
+  "balKey": "EMPIRE|WARBAND|duel",
+  "tuned": 0.632,
+  "balance": 0.736,
+  "tribes": [
+   {
+    "name": "GREYFANG CLAN",
+    "team": 0,
+    "kills": 49,
+    "wt": 4,
+    "at": 4
+   },
+   {
+    "name": "STONEBRIDGE COMPANY",
+    "team": 0,
+    "kills": 6,
+    "wt": 2,
+    "at": 2
+   },
+   {
+    "name": "SUNSPIRE KIN",
+    "team": 1,
+    "kills": 55,
+    "wt": 4,
+    "at": 4
+   },
+   {
+    "name": "HOLLOWBARK KIN",
+    "team": 1,
+    "kills": 8,
+    "wt": 2,
+    "at": 2
+   }
+  ],
+  "winTeam": 0,
+  "story": "revenge",
+  "chron": [
+   "THE GREYFANG CLAN TAKE THE CITY",
+   "4 WINS IN A ROW · 49 KILLS"
+  ],
+  "economy": {
+   "forges": 19,
+   "trades": 6,
+   "merchant": "FROST CORE"
+  },
+  "seconds": 69.85,
+  "units": [
+   "stormcolossus",
+   "golem",
+   "hydra",
+   "lancer",
+   "swordsman",
+   "rhino",
+   "goliath",
+   "pikeman",
+   "general",
+   "bannerman",
+   "archer",
+   "drummer",
+   "crossbowman",
+   "ironhorn",
+   "glaciergiant",
+   "elephant",
+   "orc",
+   "berserker",
+   "boarrider",
+   "troll",
+   "wolfrider",
+   "demon",
+   "ogre"
+  ],
+  "views": 12,
+  "likes": 0,
+  "comments": 0,
+  "secs": 70,
+  "published": "2026-11-12T14:49:27Z"
+ },
+ {
+  "id": "2vagzy4iCqo",
+  "date": "2026-11-12 13:24",
+  "title": "Pick ONE: Frost, Tempest, Spirits 👇",
+  "seed": 1852226268,
+  "slot": 1041,
+  "era": "wild",
+  "map": "open",
+  "teams": [
+   "BLUE",
+   "GREEN",
+   "ORANGE"
+  ],
+  "armies": [
+   "FROST",
+   "TEMPEST",
+   "SPIRITS"
+  ],
+  "formations": [
+   "block",
+   "echelon"
+  ],
+  "troops": [],
+  "hook": "Pick ONE: Frost, Tempest, Spirits 👇",
+  "winner": "GREEN WINS",
+  "wild": true,
+  "sides": [
+   "FROST",
+   "TEMPEST",
+   "SPIRITS"
+  ],
+  "cinematic": true,
+  "three": true,
+  "titleKind": "title",
+  "trophy": {
+   "mvp": {
+    "unit": "STAR EATER",
+    "kills": 8
+   },
+   "fight": 57.3,
+   "wipeout": true,
+   "left": 13,
+   "titles": [
+    "STORM COLOSSUS SLAYER",
+    "GOLEM SLAYER",
+    "CYCLOPS SLAYER"
+   ],
+   "moments": []
+  },
+  "skins": [
+   null,
+   null,
+   "LAVA"
+  ],
+  "combat": true,
+  "balance": [
+   1.239,
+   1.088,
+   0.672
+  ],
+  "tribes": [
+   {
+    "name": "CINDERCLAW KIN",
+    "team": 0,
+    "kills": 34,
+    "wt": 4,
+    "at": 4
+   },
+   {
+    "name": "FROSTWHISPER TRIBE",
+    "team": 1,
+    "kills": 33,
+    "wt": 3,
+    "at": 3
+   },
+   {
+    "name": "SUNSPIRE KIN",
+    "team": 2,
+    "kills": 22,
+    "wt": 3,
+    "at": 3
+   }
+  ],
+  "winTeam": 1,
+  "story": "stake",
+  "chron": [
+   "THE FROSTWHISPER TRIBE TAKE THE OPEN PLAINS",
+   "14TH WIN · 33 KILLS"
+  ],
+  "economy": {
+   "forges": 18,
+   "trades": 0,
+   "merchant": "FROST CORE"
+  },
+  "seconds": 67.12,
+  "units": [
+   "mammoth",
+   "cyclops",
+   "siegegolem",
+   "dwarf",
+   "minotaur",
+   "frostwitch",
+   "crossbowman",
+   "stareater",
+   "livingfortress",
+   "swordsman",
+   "goliath",
+   "treant",
+   "skeleton",
+   "elf",
+   "stormcaller",
+   "stormcolossus",
+   "magmacolossus",
+   "golem",
+   "juggernaut",
+   "wisp"
+  ],
+  "views": 7,
+  "likes": 0,
+  "comments": 0,
+  "secs": 68,
+  "published": "2026-11-12T13:25:21Z"
+ },
+ {
+  "id": "UvElXSOaTL4",
+  "date": "2026-11-12 11:14",
+  "title": "The Weapons Came ALIVE 🗡️",
+  "seed": 557384463,
+  "slot": 1040,
+  "era": "medieval",
+  "map": "open",
+  "teams": [
+   "BLUE",
+   "GREEN"
+  ],
+  "armies": [
+   "KNIGHTS",
+   "KNIGHTS"
+  ],
+  "formations": [
+   "flanks",
+   "wedge"
+  ],
+  "troops": [],
+  "hook": "The Weapons Came ALIVE 🗡️",
+  "winner": "GREEN WINS",
+  "cinematic": true,
+  "titleKind": "title",
+  "trophy": {
+   "mvp": {
+    "unit": "MAGMA COLOSSUS",
+    "kills": 38
+   },
+   "fight": 60,
+   "left": 2,
+   "titles": [
+    "COLOSSUS SLAYER",
+    "COLOSSUS SLAYER",
+    "CYCLOPS SLAYER"
+   ],
+   "moments": [
+    "sudden:lava"
+   ]
+  },
+  "mode": "mirror",
+  "skins": [
+   "FROST",
+   "LAVA"
+  ],
+  "combat": true,
+  "balKey": "KNIGHTS|KNIGHTS|mirror",
+  "balance": 1,
+  "tribes": [
+   {
+    "name": "BLACK BEAR CLAN",
+    "team": 0,
+    "kills": 31,
+    "wt": 4,
+    "at": 4
+   },
+   {
+    "name": "IRON BOAR CLAN",
+    "team": 0,
+    "kills": 7,
+    "wt": 3,
+    "at": 3
+   },
+   {
+    "name": "ORDER OF THE SILVER STAG",
+    "team": 1,
+    "kills": 54,
+    "wt": 3,
+    "at": 3
+   },
+   {
+    "name": "WILDBROOK CLAN",
+    "team": 1,
+    "kills": 14,
+    "wt": 3,
+    "at": 3
+   }
+  ],
+  "winTeam": 1,
+  "story": "revenge",
+  "chron": [
+   "THE ORDER OF THE SILVER STAG TAKE THE OPEN PLAINS",
+   "9TH WIN · 54 KILLS"
+  ],
+  "economy": {
+   "forges": 22,
+   "trades": 3,
+   "merchant": "FROST CORE"
+  },
+  "seconds": 66.68,
+  "units": [
+   "magmacolossus",
+   "bonecolossus",
+   "cyclops",
+   "knight",
+   "troll",
+   "juggernaut",
+   "soldier",
+   "siegegolem",
+   "treant"
+  ],
+  "views": 9,
+  "likes": 0,
+  "comments": 0,
+  "secs": 67,
+  "published": "2026-11-12T11:15:34Z"
+ },
+ {
+  "id": "aXpuDwp7FhY",
+  "date": "2026-11-12 08:24",
+  "title": "Mega Smiths vs Holy Trappers 🤯",
+  "seed": 2571178385,
+  "slot": 1039,
+  "era": "wild",
+  "map": "godboard",
+  "teams": [
+   "GREEN",
+   "PINK"
+  ],
+  "armies": [
+   "MEGA SMITHS",
+   "HOLY TRAPPERS"
+  ],
+  "formations": [
+   "crescent",
+   "crescent"
+  ],
+  "troops": [],
+  "hook": "Mega Smiths vs Holy Trappers 🤯",
+  "winner": "GREEN WINS",
+  "wild": true,
+  "sides": [
+   {
+    "name": "MEGA SMITHS",
+    "mix": {
+     "soulsmith": 0.63,
+     "siren": 0.37
+    },
+    "heavy": [],
+    "base": "soulsmith"
+   },
+   {
+    "name": "HOLY TRAPPERS",
+    "mix": {
+     "trapmaster": 0.57,
+     "bastion": 0.33,
+     "drone": 0.1
+    },
+    "heavy": [
+     "cathedral"
+    ],
+    "base": "drone"
+   }
+  ],
+  "cinematic": true,
+  "titleKind": "title",
+  "trophy": {
+   "mvp": {
+    "unit": "TROLL",
+    "kills": 42,
+    "name": "ZEDRIK IRONHIDE",
+    "title": "GOLEM SLAYER"
+   },
+   "fight": 55.5,
+   "wipeout": true,
+   "left": 34,
+   "titles": [
+    "GOLEM SLAYER"
+   ],
+   "mutations": [
+    "wings"
+   ],
+   "moments": [
+    "portal:hydra"
+   ]
+  },
+  "skins": [
+   null,
+   "TOXIC"
+  ],
+  "combat": true,
+  "tuned": 1.988,
+  "balance": 1.988,
+  "tribes": [
+   {
+    "name": "COVEN OF ASH",
+    "team": 0,
+    "kills": 107,
+    "wt": 4,
+    "at": 4
+   },
+   {
+    "name": "CREW OF THE GOLDEN PARROT",
+    "team": 0,
+    "kills": 28,
+    "wt": 3,
+    "at": 3
+   },
+   {
+    "name": "IRONSIDE COMPANY",
+    "team": 1,
+    "kills": 24,
+    "wt": 3,
+    "at": 3
+   },
+   {
+    "name": "SUNSPIRE KIN",
+    "team": 1,
+    "kills": 10,
+    "wt": 3,
+    "at": 3
+   }
+  ],
+  "winTeam": 0,
+  "story": "revenge",
+  "chron": [
+   "THE COVEN OF ASH TAKE THE GODBOARD",
+   "REVENGE! · 3RD WIN · 107 KILLS"
+  ],
+  "economy": {
+   "forges": 24,
+   "trades": 5,
+   "merchant": "STORM CORE"
+  },
+  "seconds": 65.88,
+  "units": [
+   "bonecolossus",
+   "giant",
+   "spiderqueen",
+   "troll",
+   "treant",
+   "soulsmith",
+   "siren",
+   "cathedral",
+   "siegegolem",
+   "golem",
+   "hydra",
+   "goliath",
+   "trapmaster",
+   "drone",
+   "bastion"
+  ],
+  "views": 6,
+  "likes": 0,
+  "comments": 0,
+  "secs": 66,
+  "published": "2026-11-12T08:26:08Z"
+ },
+ {
   "id": "-UTTnmq32zI",
   "date": "2026-11-12 06:55",
   "title": "Kill the KING to Win 👑 Vampires vs Samurai",
@@ -103,7 +1502,7 @@
    "ninja",
    "king"
   ],
-  "views": 0,
+  "views": 15,
   "likes": 0,
   "comments": 0,
   "secs": 65,
@@ -259,7 +1658,7 @@
    "griffin",
    "minotaur"
   ],
-  "views": 0,
+  "views": 15,
   "likes": 0,
   "comments": 0,
   "secs": 69,
@@ -370,7 +1769,7 @@
    "goliath",
    "spearman"
   ],
-  "views": 1,
+  "views": 5,
   "likes": 0,
   "comments": 0,
   "secs": 69,
@@ -512,7 +1911,7 @@
    "necromancer",
    "beekeeper"
   ],
-  "views": 0,
+  "views": 7,
   "likes": 0,
   "comments": 0,
   "secs": 69,
@@ -873,7 +2272,7 @@
    "zerog",
    "king"
   ],
-  "views": 5,
+  "views": 25,
   "likes": 0,
   "comments": 0,
   "secs": 63,
@@ -1007,7 +2406,7 @@
    "horsearcher",
    "zerog"
   ],
-  "views": 4,
+  "views": 5,
   "likes": 0,
   "comments": 0,
   "secs": 67,
@@ -1124,7 +2523,7 @@
    "troll",
    "ogre"
   ],
-  "views": 4,
+  "views": 11,
   "likes": 0,
   "comments": 0,
   "secs": 66,
@@ -1267,8 +2666,8 @@
    "mr3d",
    "juggernaut"
   ],
-  "views": 23,
-  "likes": 0,
+  "views": 45,
+  "likes": 1,
   "comments": 0,
   "secs": 67,
   "published": "2026-11-11T11:18:51Z"
@@ -1382,7 +2781,7 @@
    "troll",
    "soldier"
   ],
-  "views": 9,
+  "views": 12,
   "likes": 0,
   "comments": 0,
   "secs": 65,
@@ -1517,7 +2916,7 @@
    "troll",
    "pyro"
   ],
-  "views": 5,
+  "views": 6,
   "likes": 0,
   "comments": 0,
   "secs": 67,
@@ -1636,7 +3035,7 @@
    "sniper",
    "king"
   ],
-  "views": 9,
+  "views": 15,
   "likes": 0,
   "comments": 0,
   "secs": 64,
@@ -1864,7 +3263,7 @@
    "juggernaut",
    "archer"
   ],
-  "views": 22,
+  "views": 31,
   "likes": 0,
   "comments": 0,
   "secs": 68,
@@ -1994,7 +3393,7 @@
    "trapmaster",
    "shaman"
   ],
-  "views": 6,
+  "views": 10,
   "likes": 0,
   "comments": 0,
   "secs": 68,
@@ -2109,7 +3508,7 @@
    "soldier",
    "archer"
   ],
-  "views": 1,
+  "views": 2,
   "likes": 0,
   "comments": 0,
   "secs": 67,
@@ -2265,7 +3664,7 @@
    "timetraveller",
    "builder"
   ],
-  "views": 6,
+  "views": 7,
   "likes": 0,
   "comments": 0,
   "secs": 69,
@@ -2383,7 +3782,7 @@
    "musketeer",
    "king"
   ],
-  "views": 2,
+  "views": 3,
   "likes": 0,
   "comments": 0,
   "secs": 67,
@@ -2518,7 +3917,7 @@
    "rhino",
    "king"
   ],
-  "views": 52,
+  "views": 74,
   "likes": 0,
   "comments": 0,
   "secs": 68,
@@ -2632,7 +4031,7 @@
    "soldier",
    "archer"
   ],
-  "views": 11,
+  "views": 13,
   "likes": 0,
   "comments": 0,
   "secs": 62,
@@ -2880,7 +4279,7 @@
    "crossbowman",
    "archer"
   ],
-  "views": 8,
+  "views": 10,
   "likes": 1,
   "comments": 0,
   "secs": 62,
@@ -3017,7 +4416,7 @@
    "sumo",
    "treant"
   ],
-  "views": 8,
+  "views": 17,
   "likes": 0,
   "comments": 0,
   "secs": 69,
@@ -3132,7 +4531,7 @@
    "yeti",
    "demon"
   ],
-  "views": 4,
+  "views": 3,
   "likes": 0,
   "comments": 0,
   "secs": 69,
@@ -3248,8 +4647,8 @@
    "ogre",
    "zombie"
   ],
-  "views": 14,
-  "likes": 1,
+  "views": 15,
+  "likes": 2,
   "comments": 0,
   "secs": 67,
   "published": "2026-11-10T04:22:16Z"
@@ -3499,7 +4898,7 @@
    "orbitknight",
    "pyro"
   ],
-  "views": 10,
+  "views": 13,
   "likes": 0,
   "comments": 0,
   "secs": 67,
@@ -3606,7 +5005,7 @@
    "cyclops",
    "ironhorn"
   ],
-  "views": 30,
+  "views": 36,
   "likes": 1,
   "comments": 0,
   "secs": 68,
@@ -3834,7 +5233,7 @@
    "soldier",
    "archer"
   ],
-  "views": 11,
+  "views": 12,
   "likes": 0,
   "comments": 0,
   "secs": 64,
@@ -3937,7 +5336,7 @@
    "rifleman",
    "grenadier"
   ],
-  "views": 10,
+  "views": 11,
   "likes": 0,
   "comments": 0,
   "secs": 67,
@@ -4075,8 +5474,8 @@
    "pyro",
    "medicdrone"
   ],
-  "views": 12,
-  "likes": 0,
+  "views": 16,
+  "likes": 1,
   "comments": 0,
   "secs": 67,
   "published": "2026-11-09T14:57:30Z"
@@ -4176,7 +5575,7 @@
    "ninja",
    "archer"
   ],
-  "views": 8,
+  "views": 11,
   "likes": 0,
   "comments": 0,
   "secs": 65,
