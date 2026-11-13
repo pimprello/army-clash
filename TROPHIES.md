@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 526 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 527 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -52,8 +52,8 @@ Records from 526 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Titles earned (rarest first)
 
 - THRONE WALKER SLAYER: 1
-- BALLOON BOMBER SLAYER: 1
 - MAGMA COLOSSUS SLAYER: 2
+- BALLOON BOMBER SLAYER: 2
 - GRAVITY TYRANT SLAYER: 3
 - CATAPULT SLAYER: 3
 - GLACIER BEHEMOTH SLAYER: 3
@@ -61,7 +61,6 @@ Records from 526 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - HELICOPTER SLAYER: 5
 - KNIGHT SLAYER: 5
 - WORLDROOT SLAYER: 5
-- ACID LEVIATHAN SLAYER: 5
 - SIEGE GOLEM SLAYER: 5
 - THOUSAND-MAN SLAYER: 6
 - EXECUTIONER SLAYER: 6
@@ -70,6 +69,7 @@ Records from 526 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - UNMAKER SLAYER: 7
 - PHOENIX SLAYER: 7
 - STORM EMPEROR SLAYER: 7
+- ACID LEVIATHAN SLAYER: 7
 - IMMORTAL FRAUD SLAYER: 8
 - STAR EATER SLAYER: 9
 - FORTRESS SLAYER: 10
@@ -80,14 +80,14 @@ Records from 526 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PLAYER SLAYER: 14
 - STORM COLOSSUS SLAYER: 15
 - TANK SLAYER: 16
-- CYCLOPS SLAYER: 17
+- CYCLOPS SLAYER: 18
 - ELEPHANT SLAYER: 19
 - COLOSSUS SLAYER: 19
 - MAMMOTH SLAYER: 23
 - DRAGON SLAYER: 26
 - GOLEM SLAYER: 32
 - GIANT SLAYER: 34
-- TITAN SLAYER: 35
+- TITAN SLAYER: 36
 
 ## Mutations (rarest first)
 
@@ -161,14 +161,14 @@ Records from 526 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Glimmerdeep Kin | 17 | 11 | 6 | 613 | 6 won | 6 |
 | Starweave Circle | 25 | 10 | 15 | 965 | 1 lost | 5 |
 | Raven Hill Clan | 18 | 10 | 8 | 669 | 2 won | 5 |
+| Mire Witch Coven | 13 | 10 | 3 | 440 | 1 won | 7 |
 | Thornwood Company | 14 | 10 | 4 | 427 | 2 lost | 9 |
 | Order of the Silver Stag | 23 | 9 | 14 | 1024 | 1 won | 3 |
-| Hollowbark Kin | 23 | 9 | 14 | 761 | 2 lost | 3 |
+| Hollowbark Kin | 24 | 9 | 15 | 784 | 3 lost | 3 |
 | Greyfang Clan | 26 | 9 | 17 | 690 | 5 won | 5 |
 | Brightwater Tribe | 20 | 9 | 11 | 642 | 2 won | 3 |
 | Emberroot Circle | 18 | 9 | 8 | 551 | 1 lost | 3 |
 | Highmoor Clan | 14 | 9 | 5 | 506 | 1 won | 7 |
-| Mire Witch Coven | 12 | 9 | 3 | 420 | 1 lost | 7 |
 
 ### Great rivalries
 
@@ -183,6 +183,7 @@ Records from 526 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-13 08:47: The Kestrel Squadron Take the Treasure Cove (revenge denied · 6th win · 22 kills)
 - 2026-11-13 07:24: The Thornheart Circle Take the Open Plains (12th win · 56 kills)
 - 2026-11-13 05:12: The Duskwing Tribe Take the Open Plains (8th win · 61 kills)
 - 2026-11-13 02:24: The Mossback Tribe Take the World Furnace (revenge denied · 16th win · 23 kills)
@@ -192,4 +193,3 @@ Records from 526 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-12 18:36: The Copper Crown Company Take the Mountain Pass (10th win · 183 kills)
 - 2026-11-12 16:48: The Stonebridge Company Take the Titan's Bones (revenge! · 3 wins in a row · 20 kills)
 - 2026-11-12 14:48: The Greyfang Clan Take the City (4 wins in a row · 49 kills)
-- 2026-11-12 13:24: The Frostwhisper Tribe Take the Open Plains (14th win · 33 kills)
