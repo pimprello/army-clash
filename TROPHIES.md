@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 547 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 548 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -11,9 +11,9 @@ Records from 547 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **53 kills**: STAR EATER · 2026-11-05 22:26 · [🇪🇸 Spain Mega Bones vs Portugal Void Rifles](https://youtube.com/shorts/7BYW3nD6pho)
 - **51 kills**: LIVING FORTRESS · 2026-11-04 13:13 · [🇩🇰 Denmark vs Sweden 🇸🇪](https://youtube.com/shorts/EEo4SfZqAyI)
 - **49 kills**: TANK · 2026-11-03 22:12 · [They Were LOSING Until This 😳](https://youtube.com/shorts/-hvpvz0i7TA)
+- **49 kills**: STORM EMPEROR · 2026-11-14 23:46 · [The GROUND Split Open 💥](https://youtube.com/shorts/MnSsrL1rbeM)
 - **48 kills**: PHOENIX · 2026-11-04 22:57 · [Phoenix Pikes vs WILD LEGION 🔥](https://youtube.com/shorts/zga-x3ZnOUs)
 - **47 kills**: LIVING FORTRESS · 2026-11-04 05:33 · [106 Orcs vs a LIVING Castle 🏰](https://youtube.com/shorts/3rsNAb0OpJA)
-- **47 kills**: TANK · 2026-11-04 10:12 · [🔥 SPELLGUNS vs Dragon Armor](https://youtube.com/shorts/g__rdIjt58w)
 
 ## Fastest wipe-outs
 
@@ -153,11 +153,11 @@ Records from 547 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Red Hawk Company | 27 | 16 | 11 | 996 | 2 lost | 5 |
 | Frostwhisper Tribe | 26 | 14 | 12 | 1112 | 1 lost | 4 |
 | Thornheart Circle | 16 | 13 | 3 | 897 | 3 won | 6 |
+| Oakshield Clan | 21 | 13 | 8 | 804 | 1 won | 6 |
 | Silverbough Circle | 31 | 12 | 19 | 1508 | 3 lost | 3 |
 | Copper Crown Company | 20 | 12 | 8 | 925 | 4 won | 4 |
-| Oakshield Clan | 20 | 12 | 8 | 797 | 3 lost | 6 |
 | Order of the Silver Stag | 26 | 11 | 15 | 1083 | 2 won | 3 |
-| Wildbrook Clan | 28 | 11 | 17 | 967 | 1 won | 2 |
+| Wildbrook Clan | 29 | 11 | 18 | 981 | 1 lost | 2 |
 | Frostmere Clan | 27 | 11 | 16 | 883 | 3 lost | 3 |
 | Glimmerdeep Kin | 19 | 11 | 8 | 673 | 2 lost | 6 |
 | Starweave Circle | 25 | 10 | 15 | 965 | 1 lost | 5 |
@@ -165,7 +165,7 @@ Records from 547 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Brightwater Tribe | 21 | 10 | 11 | 675 | 3 won | 3 |
 | Raven Hill Clan | 18 | 10 | 8 | 669 | 2 won | 5 |
 | Mire Witch Coven | 14 | 10 | 4 | 455 | 1 lost | 7 |
-| Thornwood Company | 15 | 10 | 5 | 440 | 3 lost | 9 |
+| Thornwood Company | 16 | 10 | 6 | 452 | 4 lost | 9 |
 | Hollowbark Kin | 24 | 9 | 15 | 784 | 3 lost | 3 |
 | Stormhorn Tribe | 15 | 9 | 6 | 720 | 2 won | 4 |
 | Harrier Squadron | 18 | 9 | 9 | 575 | 1 lost | 7 |
@@ -176,13 +176,14 @@ Records from 547 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **Greyfang Clan vs Order of the Silver Stag**: met 5 times, last won by Greyfang Clan
 - **Red Hawk Company vs Wildbrook Clan**: met 4 times, last won by Wildbrook Clan
 - **Mossback Tribe vs Stormhorn Tribe**: met 4 times, last won by Stormhorn Tribe
+- **Oakshield Clan vs Wildbrook Clan**: met 4 times, last won by Oakshield Clan
 - **Black Bear Clan vs Thornwood Company**: met 4 times, last won by Thornwood Company
 - **Greyfang Clan vs Raven Hill Clan**: met 4 times, last won by Raven Hill Clan
 - **Copper Crown Company vs Wildbrook Clan**: met 4 times, last won by Wildbrook Clan
-- **Gloomcap Circle vs Starweave Circle**: met 4 times, last won by Starweave Circle
 
 ### Latest from the battlefield
 
+- 2026-11-14 23:46: The Crew of the Black Gull Take the Crystal Grove (revenge denied · 4th win · 55 kills)
 - 2026-11-14 23:13: The Ember Blade School Take the Crystal Grove (3rd win · 41 kills)
 - 2026-11-14 22:35: The Stonewall Company Take the Trench Line (7th win · 85 kills)
 - 2026-11-14 20:28: The Black Bear Clan Take the Canyon Pass (9th win · 46 kills)
@@ -192,4 +193,3 @@ Records from 547 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-14 12:42: The Badger Platoon Take the Canyon Pass (7th win · 46 kills)
 - 2026-11-14 10:33: The Stormhorn Tribe Take the Godboard (revenge denied · 9th win · 59 kills)
 - 2026-11-14 08:53: The Grave Lantern Coven Take the Quarry (revenge! · 5th win · 67 kills)
-- 2026-11-14 06:55: The Brightwater Tribe Take the Frozen End (3 wins in a row · 33 kills)
