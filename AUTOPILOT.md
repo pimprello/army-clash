@@ -26,24 +26,37 @@ Make at most three changes, each small and easy to undo. Pick in this order.
 - Shift weights toward winners: `teamPairs` weights, `modes.shares`, and the position or repetition of line-ups in `matchups` (repeat a strong line-up at most twice in the list). Change any single weight by at most 25% a day. Never drop a group to zero. Keep at least a third of the weight on anything that isn't the current winner, so the channel keeps exploring.
 - Write the numbers you used into the changelog entry.
 
-**B. Add one new thing** (every day, rotating through these kinds; see the changelog for what came last):
-1. a new troop (any genre), with its own look and behaviour, added to at least one line-up;
-2. a new army type (a doctrine), a new genre, or a hand-made custom team line-up that mixes genres;
-3. a new map, mirrored top to bottom, using the existing obstacle kinds or a new one drawn in the same style;
-4. a new team: a colour, or a nation pair (see the guardrails);
-5. new hook lines, in the engine (the in-video line) and in `render.js` (titles);
-6. a new formation, or a cross-era line-up for a "cool match-up" (knights vs tanks, dragons vs snipers and so on);
-7. a new battle event (like the airdrop), a new supply-drop kind or power-up, a new hazard, or a new director shot;
-8. new clickbait teasers in `render.js` (each one tied to something that really happens in a battle).
+**B. Add one new thing** — pick the kind using the rule below, then be inventive with the actual content.
 
-Rellz wants the channel to keep surprising viewers, so when a kind is due, be inventive. Ideas not built yet (take one, build it well, cross it off here):
-- ballistas, archers standing on the castle walls of the Castle Siege map;
-- laser turrets in sci-fi, a ghost ship in pirate battles, a volcano eruption hazard, a ghost-ship map hazard;
-- a "freeze frame" VS card when two champions meet, slow-motion replay of the best kill at the end;
-- more battle modes (capture the flag, escort the cart, waves of defenders), more skins, more melee moves (a riposte chain, a grapple, a shield wall push);
-- for the tribes: alliances that carry over between videos, a tribe's first legendary weapon named after its chief, more merchant items, a tribe banner hall in TROPHIES.md;
-- day/night or sunset versions of maps;
-- team cheers and emotes in the outro, a scoreboard of kills by troop type.
+**How to pick today's kind:**
+
+First, check the date for a seasonal event — if one matches, that overrides everything:
+- **Dec 20–26 (Christmas):** add or improve Christmas-themed content — a snow/winter night map variant, elf or toy-soldier troops, present airdrop, festive colours, snowstorm world event, or a "Santa's Workshop" map.
+- **Oct 25–31 (Halloween):** add ghost troops, a haunted-graveyard map variant, jack-o-lantern hazard, cursed-sword drop, or crank up the blood moon chance and add skeleton waves.
+- **Mar 29 – Apr 6 (Easter, approximate):** add spring troops (bunny cavalry, egg-bomb catapult), an egg-drop supply event, a spring meadow map, or a "Golden Egg" bounty mode.
+- **Dec 31 – Jan 1 (New Year):** add a fireworks world event, confetti particles, or a "Champion of the Year" finale overlay.
+- **Feb 14 (Valentine's):** add heart-shaped spells, a "love arrow" troop, or a duelling-at-sunset map.
+- **Jul 4 (Independence / summer):** add a fireworks airdrop, red-white-blue colour pair, or a beach-at-night map variant.
+
+If no seasonal event applies, use `kind = (parseInt(YYYYMMDD_today) % 12) + 1` to pick from this list (cycle so every kind comes up roughly monthly):
+1. A new troop with its own drawing, move, and class — add to at least one line-up.
+2. A new army type, genre, or hand-made custom team that mixes genres.
+3. A new map (mirrored top-to-bottom) or a day/night/weather variant of an existing map.
+4. A new team colour or nation pair (friendly rivalries only; real flag required).
+5. New hook lines in the engine and new title formats in `render.js`.
+6. A new formation, or a cross-era "cool match-up" line-up (knights vs tanks, dragons vs snipers, etc.).
+7. A new battle event (airdrop kind, meteor shower, earthquake hazard, power-up, bounty target) or a new director shot.
+8. New clickbait teasers in `render.js` — each one tied to something that really happens in a battle.
+9. A new game mode: capture the flag, escort the cart, wave defence, domination, regicide, or sudden-death overtime — keep it fair to both sides and tuned on the spot.
+10. A new merchant spell or upgrade item in the spell book (`BOOK` in `engine.js`): a freeze ray, chain lightning, summon wall, berserk shout, mirror shield, plague cloud, time warp, or anything creative.
+11. A new tribe mechanic: tribe alliances that carry across videos, a legendary named weapon for a chief, a tribe banner hall in `TROPHIES.md`, or a new tribe trait in `TRIBE_POOL`.
+12. A visual or cinematic upgrade: a "freeze-frame VS card" when two champions meet, a slow-motion replay of the best kill at the end, team cheers/emotes in the outro, or a kill-scoreboard overlay.
+
+Rellz wants the channel to keep surprising viewers — when you've picked a kind, be inventive with the specific content. Ideas not built yet (take one, build it well, cross it off here):
+- ballistas and archers standing on the castle walls of the Castle Siege map;
+- laser turrets in sci-fi, a ghost ship in pirate battles, a ghost-ship map hazard;
+- a riposte chain, a grapple, and a shield wall push as melee moves;
+- a tribe banner hall in TROPHIES.md, more merchant items.
 Already built (don't rebuild): living tribes (tribe pool, chiefs, feuds, stories from history, gold and iron, the forge, trading carts, the merchant, tribe tactics, the war council panel, the chronicle), intelligent combat (melee moves, weapon variety, roster cards), battle modes (Protect the King, Champion Duel, Last Stand, Mirror Match, King of the Hill), army skins, the beach, snow, dunes, swamp, neon city, sky temple, graveyard and moon base maps, cavalry (lancers, horse archers, wolf and boar riders, griffins), war elephants, boss troops with phases (titan, hydra, walking fortress, dread knight, Mirror King, Gravity Tyrant), a volcano map (World Furnace), an ice map (Frozen End), a castle siege map (`castle`, with low walls that shots fly over), both troop batches (including the Star Eater, Timeline Executioner, Walking Cathedral, Storm Emperor, Worldroot, Hourglass Titan, Moon Caller, Unqualified King, Undefeated General, Empty Army, the Player, the Universe, the Living Fortress, frost witches, liches, storm callers, sirens, gargoyles, assassins, ogres, mammoths, rhinos, catapults, siege gunners, drones and helicopters), living weapons, boss transformations, the blood moon, the stampede, kraken and sandworm hazards, the clone ray and ghost army drops, and the factions, systems and power-ups listed in RULES.md.
 
 **C. Fix what looks wrong.** Render stills of two or three battles (one per era) and look at them. If anything is clipped, unreadable, overlapping or off-style, fix it.
