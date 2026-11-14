@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 538 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 539 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 538 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **ORLOK THE WALL** (JUGGERNAUT), 11 kills · 2026-11-14 08:53
 - **SIRA THE BOLD** (SUN KING), 18 kills · 2026-11-14 01:09
 - **VEXA STORMBORN** (MINOTAUR), 15 kills · 2026-11-13 22:34
 - **NYRA THE MAD** (SINGULARITY SAGE), 13 kills · 2026-11-13 12:45
@@ -47,7 +48,6 @@ Records from 538 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **KAELEN THE MAD** (KNIGHT), 10 kills · 2026-11-09 00:08
 - **VEXA THE UNBROKEN** (JUGGERNAUT), 12 kills · 2026-11-08 22:23
 - **BRAKK BONECRUSHER** (WIZARD), 14 kills · 2026-11-07 20:36
-- **KAELEN BONECRUSHER** (BERSERKER), 11 kills · 2026-11-07 19:55
 
 ## Titles earned (rarest first)
 
@@ -73,16 +73,16 @@ Records from 538 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - MECH SLAYER: 10
 - STAR EATER SLAYER: 10
 - IRONHORN SLAYER: 10
-- ACID LEVIATHAN SLAYER: 12
-- HYDRA SLAYER: 14
+- ACID LEVIATHAN SLAYER: 13
 - CANNON SLAYER: 14
 - PLAYER SLAYER: 14
 - SPIDER QUEEN SLAYER: 14
+- HYDRA SLAYER: 15
 - STORM COLOSSUS SLAYER: 15
 - TANK SLAYER: 16
 - COLOSSUS SLAYER: 20
 - CYCLOPS SLAYER: 21
-- ELEPHANT SLAYER: 22
+- ELEPHANT SLAYER: 23
 - DRAGON SLAYER: 26
 - MAMMOTH SLAYER: 29
 - GOLEM SLAYER: 32
@@ -97,7 +97,7 @@ Records from 538 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - venom: 84
 - swift: 89
 - spikes: 98
-- regen: 108
+- regen: 109
 
 ## Big moments
 
@@ -161,7 +161,7 @@ Records from 538 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Glimmerdeep Kin | 19 | 11 | 8 | 673 | 2 lost | 6 |
 | Order of the Silver Stag | 25 | 10 | 15 | 1080 | 1 won | 3 |
 | Starweave Circle | 25 | 10 | 15 | 965 | 1 lost | 5 |
-| Greyfang Clan | 28 | 10 | 18 | 771 | 1 won | 5 |
+| Greyfang Clan | 29 | 10 | 19 | 781 | 1 lost | 5 |
 | Brightwater Tribe | 21 | 10 | 11 | 675 | 3 won | 3 |
 | Raven Hill Clan | 18 | 10 | 8 | 669 | 2 won | 5 |
 | Mire Witch Coven | 14 | 10 | 4 | 455 | 1 lost | 7 |
@@ -183,6 +183,7 @@ Records from 538 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-14 08:53: The Grave Lantern Coven Take the Quarry (revenge! · 5th win · 67 kills)
 - 2026-11-14 06:55: The Brightwater Tribe Take the Frozen End (3 wins in a row · 33 kills)
 - 2026-11-14 05:06: The Vector Cohort Take the Canyon Pass (3 wins in a row · 49 kills)
 - 2026-11-14 03:09: The Order of the Silver Stag Take the Old Forest (10th win · 45 kills)
@@ -192,4 +193,3 @@ Records from 538 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-13 18:40: The Harrier Squadron Take the Frozen End (revenge denied · 7 wins in a row · 37 kills)
 - 2026-11-13 16:45: The Ashmantle Kin Take the Swamp Shrine (revenge denied · 5th win · 19 kills)
 - 2026-11-13 14:55: The Golden Lion Order Take the Castle (9th win · 26 kills)
-- 2026-11-13 12:45: The Thornheart Circle Take the Canyon Pass (3 wins in a row · 50 kills)

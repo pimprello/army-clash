@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-14 08:53 | 👑 Protect the KING: Titan Pulsars vs Toxic Oracles | Purple wins | https://youtube.com/shorts/yqCv2LFR4Ko |
 | 2026-11-14 06:55 | They Forged RUNIC Blades and WON 🔥 | Crimson wins | https://youtube.com/shorts/cF32qjvMjXk |
 | 2026-11-14 05:06 | Wild Blinkers vs Siege Hooks vs Toxic Plague 🤯 | Brazil wins | https://youtube.com/shorts/-TEThThA1Rg |
 | 2026-11-14 03:09 | 157 Knights vs a HYDRA Army 🐍 | Lime wins | https://youtube.com/shorts/Vifte2yTHH4 |
