@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-14 12:42 | Pick ONE: Zombies, Infantry, Samurai 👇 | Sky wins | https://youtube.com/shorts/Tz_8oQu8pew |
 | 2026-11-14 10:33 | Hold the HILL to Win? New Zealand vs Australia 🚩 | Australia wins | https://youtube.com/shorts/9lssfceejNA |
 | 2026-11-14 08:53 | 👑 Protect the KING: Titan Pulsars vs Toxic Oracles | Purple wins | https://youtube.com/shorts/yqCv2LFR4Ko |
 | 2026-11-14 06:55 | They Forged RUNIC Blades and WON 🔥 | Crimson wins | https://youtube.com/shorts/cF32qjvMjXk |

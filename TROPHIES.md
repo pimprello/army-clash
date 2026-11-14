@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 540 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 541 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -55,7 +55,7 @@ Records from 540 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - BALLOON BOMBER SLAYER: 2
 - GRAVITY TYRANT SLAYER: 3
 - CATAPULT SLAYER: 3
-- MAGMA COLOSSUS SLAYER: 3
+- MAGMA COLOSSUS SLAYER: 4
 - CATHEDRAL SLAYER: 5
 - HELICOPTER SLAYER: 5
 - KNIGHT SLAYER: 5
@@ -72,17 +72,17 @@ Records from 540 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - FORTRESS SLAYER: 10
 - MECH SLAYER: 10
 - STAR EATER SLAYER: 10
-- IRONHORN SLAYER: 10
-- ACID LEVIATHAN SLAYER: 13
+- IRONHORN SLAYER: 11
 - CANNON SLAYER: 14
 - PLAYER SLAYER: 14
+- ACID LEVIATHAN SLAYER: 14
 - SPIDER QUEEN SLAYER: 14
 - HYDRA SLAYER: 15
 - TANK SLAYER: 16
 - STORM COLOSSUS SLAYER: 16
 - COLOSSUS SLAYER: 20
 - CYCLOPS SLAYER: 21
-- ELEPHANT SLAYER: 23
+- ELEPHANT SLAYER: 25
 - DRAGON SLAYER: 26
 - MAMMOTH SLAYER: 29
 - GOLEM SLAYER: 32
@@ -96,8 +96,8 @@ Records from 540 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 47
 - venom: 85
 - swift: 89
-- spikes: 98
-- regen: 109
+- spikes: 99
+- regen: 110
 
 ## Big moments
 
@@ -183,6 +183,7 @@ Records from 540 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-14 12:42: The Badger Platoon Take the Canyon Pass (7th win · 46 kills)
 - 2026-11-14 10:33: The Stormhorn Tribe Take the Godboard (revenge denied · 9th win · 59 kills)
 - 2026-11-14 08:53: The Grave Lantern Coven Take the Quarry (revenge! · 5th win · 67 kills)
 - 2026-11-14 06:55: The Brightwater Tribe Take the Frozen End (3 wins in a row · 33 kills)
@@ -192,4 +193,3 @@ Records from 540 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-13 22:34: The Thunder Platoon Take the Open Plains (revenge denied · 3 wins in a row · 33 kills)
 - 2026-11-13 20:41: The Vortex Legion Take the Canyon Pass (6th win · 43 kills)
 - 2026-11-13 18:40: The Harrier Squadron Take the Frozen End (revenge denied · 7 wins in a row · 37 kills)
-- 2026-11-13 16:45: The Ashmantle Kin Take the Swamp Shrine (revenge denied · 5th win · 19 kills)
