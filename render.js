@@ -16,6 +16,7 @@ const RVB = require('./engine.js');
 const C = require('./creative.js');
 const { makeTitle, nounOf } = require('./titles.js');
 const chronicle = require('./chronicle.js');
+const Music = require('./music.js');
 RVB.makeCanvas = (w, h) => createCanvas(w, h);
 
 // rules.video.scale 2 = 4K: everything is laid out in 1080x1920 units and drawn at twice the size (not stretched up).
@@ -229,7 +230,9 @@ async function main() {
     ...(rules.spells && rules.spells.on ? { spells: rules.spells } : {}), ...(rules.expendable && rules.expendable.on ? { expendable: rules.expendable } : {}),
     ...(rules.ui && rules.ui.clean ? { clean: true } : {}), ...(rules.ui && rules.ui.remains ? { remains: true } : {}),
     // blood first: splatter, pools and spattered fighters instead of sparks and smoke (rules.ui.blood; looks only)
-    ...(rules.ui && rules.ui.blood && rules.ui.blood.on ? { blood: rules.ui.blood } : {}) });
+    ...(rules.ui && rules.ui.blood && rules.ui.blood.on ? { blood: rules.ui.blood } : {}),
+    // little people instead of circles and triangles (rules.ui.humans; looks only)
+    ...(rules.ui && rules.ui.humans ? { humans: true } : {}) });
   // a creative match-up is new, so balance it now with quick test battles on this map and these formations
   let wildMul = three ? bm.slice(0, 3) : 1, wildRate = null, tuned = null;
   // with intelligent combat on, every 1v1 battle is tuned on the spot with quick test battles (combat changes who is strong),
@@ -278,20 +281,52 @@ async function main() {
   // the finale (rules.video.finale): play the battle through once without drawing to find exactly when and where the
   // final blow lands (the battle plays out the same both times), so the director can be there for it in slow motion
   let finale = null;
+  // ----- the audition (rules.quality.audition): with only a few videos a day, every one has to be a great battle. The same
+  // line-up, map and size is fought out headless with several sets of battle dice, each battle is scored for drama (a real
+  // final blow near the end, a narrow win, the lead changing hands, a comeback, titans falling, spells and events), and the
+  // best one is the one that gets filmed. Deterministic: the same seed always auditions and picks the same way. -----
+  const AUD = (rules.quality || {}).audition || 0;
+  const drama = (opts, bs) => {
+    const g = new RVB.Army(bs, opts), dd = new RVB.Director(g, { seed: bs }); g.noLate = true;
+    const n0 = [0, 1].map(t => Math.max(1, g.units.filter(u => u.team === t && !RVB.UNIT[u.type].uncounted).length));
+    let lead = 0, changes = 0, worst = [0, 0], sec = 0;
+    for (let k = 0; g.phase === 'fight' && k < MAXFRAMES * 3; k++) {
+      dd.advance(1 / FPS); g.sfx.length = 0;
+      if (g.fightT >= sec) { sec += 1; const f = [0, 1].map(t => g.units.filter(u => u.team === t && !u.dead && !RVB.UNIT[u.type].uncounted).length / n0[t]), d = f[0] - f[1];
+        const L = d > 0.08 ? 1 : d < -0.08 ? -1 : 0; if (L && lead && L !== lead) changes++; if (L) lead = L; worst[0] = Math.max(worst[0], -d); worst[1] = Math.max(worst[1], d); }
+    }
+    const kill = g.endHow === 'kill', alive = [0, 1].map(t => g.units.filter(u => u.team === t && !u.dead && !RVB.UNIT[u.type].uncounted).length), w = alive[0] >= alive[1] ? 0 : 1;
+    const titans = g.units.filter(u => u.dead && RVB.isTitan(u.type)).length, spells = g.sp3 ? (g.sp3.fx || []).filter(f => /heal|rage|yard|splash|grow|dome|tornado|quake/.test(f.kind)).length : 0;
+    const score = (kill ? 3 : 0) + Math.min(changes, 4) * 0.5 + Math.min(worst[w], 0.5) * 4 + (1 - alive[w] / n0[w]) * 1.5 + Math.min(titans, 4) * 0.25 + Math.min(spells, 6) * 0.12 - Math.abs(g.fightT - (VID.fightSeconds || 60) + 2) * 0.15;
+    return { score, kill, changes, comeback: worst[w], left: alive[w], titans, spells, end: g.fightT };
+  };
+  let bseed = seed;
+  if (AUD > 1 && process.env.AUDITION !== '0') {
+    const ta = Date.now(), opts = optsFor(wildMul); let best = null;
+    for (let k = 0; k < AUD; k++) {
+      const bs = k ? (Math.imul(seed ^ 0x0A0D17, k * 2654435761) ^ (k << 16)) >>> 0 : seed, r = drama(opts, bs);
+      console.log(`  audition ${k + 1}/${AUD}: drama ${r.score.toFixed(2)} (${r.kill ? 'final blow' : 'time'} at ${r.end.toFixed(1)} s, ${r.changes} lead changes, comeback ${(r.comeback * 100).toFixed(0)}%, ${r.left} left, ${r.titans} titans fell, ${r.spells} spells)`);
+      if (!best || r.score > best.score) best = { ...r, bs };
+      if (Date.now() - ta > ((rules.quality || {}).auditionSeconds || 240) * 1000) break;
+    }
+    bseed = best.bs;
+    console.log(`Audition: picked battle dice ${bseed} (drama ${best.score.toFixed(2)}) in ${((Date.now() - ta) / 1000).toFixed(0)} s`);
+    if (process.env.AUDITION_ONLY === '1') process.exit(0);
+  }
   if (cinematic && OUTRO && VID.finale !== false) {
-    const tf = Date.now(), pre = new RVB.Army(seed, optsFor(wildMul)), pd = new RVB.Director(pre, { seed });
+    const tf = Date.now(), pre = new RVB.Army(bseed, optsFor(wildMul)), pd = new RVB.Director(pre, { seed: bseed });
     pre.noLate = true;
     for (let k = 0; pre.phase === 'fight' && k < MAXFRAMES * 3; k++) { pd.advance(1 / FPS); pre.sfx.length = 0; }
     const d = pre.lastDeath || {}, kill = pre.endHow === 'kill';
     finale = { t: pre.fightT, how: kill ? 'kill' : 'time', uid: kill ? d.uid : 0, by: kill ? d.by : 0, x: d.x, y: d.y };
     console.log(`Finale: the battle ends at ${pre.fightT.toFixed(2)} s by ${kill ? `the final blow on a ${d.type}${d.byType ? ` by a ${d.byType}` : ''}` : 'time'} (found in ${((Date.now() - tf) / 1000).toFixed(0)} s)`);
   }
-  const game = new RVB.Army(seed, optsFor(wildMul));
+  const game = new RVB.Army(bseed, optsFor(wildMul));
   // every troop type in this battle (saved in videos.jsonl, so freshness can pick the troops seen least)
   const unitsAtStart = [...new Set(game.units.filter(u => !RVB.UNIT[u.type].uncounted).map(u => u.type).concat(...(game.waves || []).flat().map(w => w.list || [])))];
-  const director = cinematic ? new RVB.Director(game, { seed, finale }) : null;
+  const director = cinematic ? new RVB.Director(game, { seed: bseed, finale }) : null;
   const synth = new RVB.Synth(SR, MAXFRAMES / FPS + 4);
-  synth.reset(seed);
+  synth.reset(bseed);
   synth.variety = (rules.sound && rules.sound.variety) || 0;   // rules.json: how much each sound's pitch and volume vary (0 = off)
   const canvas = createCanvas(W * RS, H * RS);
   const ctx = canvas.getContext('2d');
@@ -301,7 +336,7 @@ async function main() {
     '-f', 'rawvideo', '-pix_fmt', 'bgra', '-s', `${W * RS}x${H * RS}`, '-r', String(FPS), '-i', '-',
     '-vf', 'scale=out_color_matrix=bt709:out_range=tv,format=yuv420p',
     // (constant 60 fps, every frame kept; a keyframe every 2 s; the bitrate cap scales with the picture)
-    '-c:v', 'libx264', '-preset', 'veryfast', '-crf', RS > 1 ? '19' : '18', '-maxrate', RS > 1 ? '34M' : '12M', '-bufsize', RS > 1 ? '68M' : '24M',
+    '-c:v', 'libx264', '-preset', (rules.quality || {}).preset || 'veryfast', '-crf', String((rules.quality || {}).crf || (RS > 1 ? 19 : 18)), '-maxrate', RS > 1 ? '45M' : '12M', '-bufsize', RS > 1 ? '90M' : '24M',
     '-profile:v', 'high', '-level', RS > 1 ? '5.2' : '4.2', '-g', String(FPS * 2), '-fps_mode', 'cfr',
     '-colorspace', 'bt709', '-color_primaries', 'bt709', '-color_trc', 'bt709', '-color_range', 'tv',
     '-r', String(FPS), silent,
@@ -317,9 +352,25 @@ async function main() {
   const thumbEnd = finale ? finale.t : 40;
   let thumbBg = null, thumbScore = -1;
   let nFrames = 0;
+  // ----- music (rules.music, music.js): an original soundtrack written from the seed in this era's style, following the battle.
+  // The camera punches in on the beat in the last seconds of the fight, and the outro fades into the opening frame so the
+  // Short's replay loops seamlessly. (Looks and sound only: the battle is the same with or without it.)
+  const MU = rules.music || {}, muOn = MU.on !== false;
+  const muStyle = { ancient: 'ancient', medieval: 'ancient', fantasy: 'ancient', pirate: 'ancient', modern: 'modern', ww2: 'modern', scifi: 'scifi', future: 'scifi' }[era] || 'epic';
+  const mp = muOn ? Music.plan(seed, muStyle) : null, mtr = muOn ? Music.tracker() : null;
+  let firstCv = null;
+  const FIGHT_S = VID.fightSeconds || 60;
   for (let i = 0; i < MAXFRAMES; i++) {
     ctx.setTransform(RS, 0, 0, RS, 0, 0);
+    const z0 = game.cam && game.cam.z, punch = muOn && MU.pulse !== false && game.cam && game.phase === 'fight' && game.fightT > FIGHT_S - 6 ? Music.pulse(mp, i / FPS) : 0;
+    if (punch) game.cam.z = z0 * (1 + punch);
     game.draw(ctx);
+    if (punch) game.cam.z = z0;
+    if (muOn && MU.loop !== false) {
+      if (i === 0) { firstCv = createCanvas(W * RS, H * RS); firstCv.getContext('2d').drawImage(canvas, 0, 0); }
+      const left = game.phase === 'outro' && game.outroLen ? game.outroLen - game.outroT : 9;
+      if (firstCv && left < 0.45 && !game.holdOutro) { ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = Math.min(1, (0.45 - left) / 0.4); ctx.drawImage(firstCv, 0, 0); ctx.globalAlpha = 1; }
+    }
     // between 30% and 60% of the fight, twice a second: lots of troops on both sides, and neither side clearly ahead
     if (TH.on && game.phase === 'fight' && i % 30 === 0 && game.fightT > thumbEnd * 0.3 && game.fightT < thumbEnd * 0.6) {
       const al = [...Array(game.N).keys()].map(t => game.alive[t]), lo = Math.min(...al), hi = Math.max(...al, 1);
@@ -333,6 +384,7 @@ async function main() {
     if (OUTRO && game.finished) break;
     if (director) director.advance(1 / FPS); else game.frame(1 / FPS);
     for (const ev of game.sfx) synth.play(ev, (i + 1) / FPS);
+    if (mtr) mtr.frame((i + 1) / FPS, game);
     game.sfx.length = 0;
     if ((i + 1) % (FPS * 6) === 0) console.log(`frame ${i + 1} (${((i + 1) / FPS).toFixed(0)} s of video) after ${((Date.now() - t0) / 1000).toFixed(0)} s`);
   }
@@ -345,8 +397,14 @@ async function main() {
   const gain = game.audioGain || 1;
   const L = new Float32Array(frames), R = new Float32Array(frames);
   for (let i = 0; i < frames; i++) { L[i] = Math.tanh(synth.L[i] * gain); R[i] = Math.tanh(synth.R[i] * gain); }
+  let mixed = { L, R };
+  if (muOn) {
+    const cues = mtr.cues(), mus = Music.render(mp, { sr: SR, dur: DUR, cues });
+    mixed = Music.mix(L, R, mus, { sr: SR, volume: MU.volume ?? 0.45, duck: MU.duck ?? 0.45 });
+    console.log(`Music: ${muStyle}, ${mp.bpm} bpm, the drop at ${mus.drop.toFixed(1)} s, the final hit at ${mus.fin.toFixed(1)} s`);
+  }
   const wav = path.join(OUT, 'sound.wav');
-  writeWav(wav, L, R, frames);
+  writeWav(wav, mixed.L, mixed.R, frames);
 
   const final = path.join(OUT, 'army-clash.mp4');
   await ffmpeg(['-i', silent, '-i', wav, '-map', '0:v:0', '-map', '1:a:0', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '160k', '-t', DUR.toFixed(3), '-movflags', '+faststart', final]).done;

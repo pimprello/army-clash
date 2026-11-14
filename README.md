@@ -39,7 +39,7 @@ In this repository open **Settings → Secrets and variables → Actions → New
 
 Open the **Actions** tab → **Post Army Clash** → **Run workflow**. Pick `private` the first time if you want to check the video before anyone sees it. After about five minutes it appears on your channel.
 
-From then on it posts automatically every 2 hours, at 00:00, 02:00, 04:00 and so on, London time (`schedule` in `rules.json`).
+From then on it posts automatically 4 times a day, at 10:00, 14:00, 18:00 and 22:00 London time (`schedule` in `rules.json`).
 
 ## Changing things
 

@@ -2,6 +2,22 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-14 (night): 4 a day and each one auditioned, music, beat punches, a seamless loop, little people, and the last circles off the troops
+
+- **4 a day, each one as good as it can be** (Rellz: "make army clash upload 4 a day but make them hella good make it way better because its only four"): posts at 10:00, 14:00, 18:00 and 22:00 London time (`rules.schedule`). Every battle is now **auditioned** (`rules.quality.audition`): the line-up is fought 10 times headless with different battle dice, each run scored for drama (a real final blow near the end, a narrow win, the lead changing hands, a comeback, titans falling, spells), and only the best one is filmed. Encoded sharper too (`rules.quality`: CRF 17, a slower preset, a higher bitrate cap).
+
+Rellz: "add background music to both army and tower clash and 5 more cool things you think will increase view retention", and again: "sometimes when there is a circle spell thing, troops are rendered under that please fix that".
+
+- **Music** (`rules.music`, `music.js`, the same file in Tower Clash): an original soundtrack for every video, written from the seed in the era's style, ducking under the effects. Five more things for retention, all in both games:
+  1. **the drop**: the full drums crash in on the first downbeat after the first kill;
+  2. **the final blow**: a heartbeat in the last seconds, a riser, a beat of silence, then a huge hit;
+  3. **a victory fanfare** in a major key over the outro;
+  4. **beat punches**: in the last six seconds of the fight the camera punches in a little on every beat;
+  5. **a seamless loop**: the outro's last 0.4 s fades into the first frame and the music resolves onto its opening chord, so YouTube's replay flows straight on (a rewatch).
+- **Nothing round is drawn over the troops any more**: the event tornado's swirl and shadow, the earthquake's cracks and the airstrike's warning line and targets are now on the ground under the troops (like the spell circles since the 10th), a planted shield's bubble lies on the ground, and smoke puffs stay small (at most 18 px) so they never cover a fighter.
+- **Little people instead of circles and triangles** (`rules.ui.humans`, Rellz: "replace all circle guys with the human looking guys ... make them all human like"): every person-shaped troop (over a hundred of them) is now a little person standing up with feet that step, a body in its team's colour, its own weapon in its hands (swung, thrust, drawn or fired at its target), a face looking where it goes and its own headgear. Four more touches of my own: the back of the head shows when a troop walks away; tier auras lie on the ground at its feet instead of ringing it; a spider's web pins a troop on the ground instead of covering it; and skin tones vary from troop to troop (orcs, goblins, zombies, skeletons and the undead have their own).
+- Looks and sound only: no battle plays out differently.
+
 ## 2026-11-14 (thumbnail fit)
 - Thumbnail text and pictures moved inside the part YouTube's Shorts shelf shows (about y 200 to 1720): the ARMY CLASH logo and WHO WINS? were being cut off. Rellz asked for this from the Tower Clash chat.
 

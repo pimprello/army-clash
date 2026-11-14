@@ -1,6 +1,6 @@
 // Upload times (rules.schedule): decides whether a scheduled run should post now.
 // Rellz (2026-11-07): 2 a day at 10am and 10pm; (2026-11-08): 4 a day; (2026-11-08, 23:57): "upload every 2 hours a day so
-// 00:00 02:00 04:00" -> every even hour, London time (summer time handled).
+// 00:00 02:00 04:00" -> every even hour; (2026-11-14): 4 a day, "make them hella good" -> 10:00, 14:00, 18:00, 22:00 London time.
 // GitHub's timer runs in UTC and is often late (30 to 60 minutes), so the workflow wakes every 15 minutes all day and this script
 // says "go" for the first run after a slot starts (up to `windowMinutes` later, 110 by default) when nothing has been posted since.
 // Prints go or skip (and why) for the workflow.
