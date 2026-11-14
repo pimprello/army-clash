@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 536 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 537 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -65,24 +65,24 @@ Records from 536 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - EXECUTIONER SLAYER: 6
 - MIRROR KING SLAYER: 7
 - UNMAKER SLAYER: 7
-- PHOENIX SLAYER: 7
 - STORM EMPEROR SLAYER: 7
 - SIEGE GOLEM SLAYER: 7
 - IMMORTAL FRAUD SLAYER: 8
+- PHOENIX SLAYER: 8
 - IRONHORN SLAYER: 9
 - FORTRESS SLAYER: 10
 - MECH SLAYER: 10
 - STAR EATER SLAYER: 10
 - ACID LEVIATHAN SLAYER: 11
-- SPIDER QUEEN SLAYER: 13
 - HYDRA SLAYER: 14
 - CANNON SLAYER: 14
 - PLAYER SLAYER: 14
+- SPIDER QUEEN SLAYER: 14
 - STORM COLOSSUS SLAYER: 15
 - TANK SLAYER: 16
-- ELEPHANT SLAYER: 20
 - COLOSSUS SLAYER: 20
 - CYCLOPS SLAYER: 20
+- ELEPHANT SLAYER: 21
 - DRAGON SLAYER: 26
 - MAMMOTH SLAYER: 29
 - GOLEM SLAYER: 32
@@ -92,7 +92,7 @@ Records from 536 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Mutations (rarest first)
 
 - vampiric: 11
-- wings: 41
+- wings: 42
 - spellward: 47
 - venom: 84
 - swift: 89
@@ -153,7 +153,7 @@ Records from 536 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Red Hawk Company | 25 | 16 | 9 | 921 | 1 won | 5 |
 | Frostwhisper Tribe | 26 | 14 | 12 | 1112 | 1 lost | 4 |
 | Thornheart Circle | 16 | 13 | 3 | 897 | 3 won | 6 |
-| Silverbough Circle | 30 | 12 | 18 | 1484 | 2 lost | 3 |
+| Silverbough Circle | 31 | 12 | 19 | 1508 | 3 lost | 3 |
 | Oakshield Clan | 19 | 12 | 7 | 787 | 2 lost | 6 |
 | Wildbrook Clan | 28 | 11 | 17 | 967 | 1 won | 2 |
 | Frostmere Clan | 27 | 11 | 16 | 883 | 3 lost | 3 |
@@ -183,6 +183,7 @@ Records from 536 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-14 05:06: The Vector Cohort Take the Canyon Pass (3 wins in a row · 49 kills)
 - 2026-11-14 03:09: The Order of the Silver Stag Take the Old Forest (10th win · 45 kills)
 - 2026-11-14 01:09: The Zenith Cohort Take the Haunted Crypt (revenge! · 3 wins in a row · 44 kills)
 - 2026-11-13 22:34: The Thunder Platoon Take the Open Plains (revenge denied · 3 wins in a row · 33 kills)
@@ -192,4 +193,3 @@ Records from 536 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-13 14:55: The Golden Lion Order Take the Castle (9th win · 26 kills)
 - 2026-11-13 12:45: The Thornheart Circle Take the Canyon Pass (3 wins in a row · 50 kills)
 - 2026-11-13 10:51: The Ghoul Hollow Coven Take the Reactor (revenge denied · 5 wins in a row · 97 kills)
-- 2026-11-13 08:47: The Kestrel Squadron Take the Treasure Cove (revenge denied · 6th win · 22 kills)
