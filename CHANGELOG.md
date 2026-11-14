@@ -2,6 +2,16 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-14 (quality pass)
+
+Rellz: "make them hella good, make it way better", "don't stop anything, just add", "do everything without my permission". The upload schedule stays at 12 a day; nothing was switched off.
+
+- **Quality-first rules for every daily run** (`AUTOPILOT.md`, new section 0): judge each day's work by whether a stranger would stop scrolling and watch to the end. It covers the first 3 seconds, clean readable fights, heavy hits, true titles and thumbnails, one small tested improvement a day, and not over-reading tiny samples. Added only; no existing rule changed.
+- **Learned from views (first time it ran):** 49 videos a day old, median 12 views. "Protect the King" battles had a median of 20 views (5 videos) against 11 for classic (15 videos) and 9 for King of the Hill (7 videos). Following the playbook's limits (at most 25% per weight, nothing to zero, classic stays most common): `modes.shares.king` 1.5 → 1.875 (13.8% → 17.1% of videos) and `hill` 1.5 → 1.2 (13.8% → 10.9%). Classic stays the most common at 36.4%. The samples are small, so this is a light nudge that the next runs will re-check.
+- **Stills checked, nothing broken:** a full battle's frames at 0.5 s, 2.5 s, 10 s and the thumbnail. The black strip across the bottom of the arena in the first second is the film bar (kept tall on purpose). The thumbnail and the opening story card read well at phone size.
+- **Tested:** `rules.json` parses; the mode picker is a plain weighted roll, so only how often each mode comes up changes. Line-ups, maps and battles themselves are untouched.
+- **Rellz:** already-posted videos don't change. Tower Clash could not be changed from this session: its repo (`pimprello/tower-clash`) isn't attached to the session, so add it under the session's repositories if you want me to work on it. The shared "Clash Studio" upload, schedule and stats code is built and tested but kept on the session's disk until a repo exists for it.
+
 ## 2026-11-14 (night): 4 a day and each one auditioned, music, beat punches, a seamless loop, little people, and the last circles off the troops
 
 - **4 a day, each one as good as it can be** (Rellz: "make army clash upload 4 a day but make them hella good make it way better because its only four"): posts at 10:00, 14:00, 18:00 and 22:00 London time (`rules.schedule`). Every battle is now **auditioned** (`rules.quality.audition`): the line-up is fought 10 times headless with different battle dice, each run scored for drama (a real final blow near the end, a narrow win, the lead changing hands, a comeback, titans falling, spells), and only the best one is filmed. Encoded sharper too (`rules.quality`: CRF 17, a slower preset, a higher bitrate cap).

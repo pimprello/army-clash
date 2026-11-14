@@ -2022,11 +2022,11 @@
   "modes": {
     "shares": {
       "classic": 4,
-      "king": 1.5,
+      "king": 1.875,
       "duel": 1.5,
       "heroes": 1.2,
       "mirror": 1.2,
-      "hill": 1.5
+      "hill": 1.2
     },
     "heroStart": 1
   },
