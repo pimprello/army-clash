@@ -12,6 +12,16 @@ Rellz: "make them hella good, make it way better", "don't stop anything, just ad
 - **Tested:** `rules.json` parses; the mode picker is a plain weighted roll, so only how often each mode comes up changes. Line-ups, maps and battles themselves are untouched.
 - **Rellz:** already-posted videos don't change. Tower Clash could not be changed from this session: its repo (`pimprello/tower-clash`) isn't attached to the session, so add it under the session's repositories if you want me to work on it. The shared "Clash Studio" upload, schedule and stats code is built and tested but kept on the session's disk until a repo exists for it.
 
+## 2026-11-14 (late): bones that stay, rings on the ground, coins that fly in nicely
+
+Rellz: "make every human become bones when they die and some other troops that makes sense also let the bones last longer ... also fix how the coins get given to the bottom it doesn't look nice when it comes from down under like that".
+
+- **Everyone leaves bones** (`rules.ui.remains`): every little person and every flesh-and-blood creature (beasts, riders, trolls, goblins, demons...) is left as a skeleton that collapses where it fell; machines, spirits, stone and titans aren't.
+- **The bones last**: they lie on a layer of their own that fades over about two minutes, far slower than the blood.
+- **Coins**: each coin now starts on the battlefield where you can see it (never from off screen or below the panel), pops up with a glint, spins over in a high arc and drops into its tribe's gold with a short trail.
+- Four more of my own: a torn scrap of the team's colour under each pile of bones, so you can tell whose they were; every ring round a little person (rage, slows, shields, champions...) now lies on the ground at its feet instead of circling it; coins shrink as they land; the coin's arc always rises above both ends, so it never dips under the panel.
+- Looks only.
+
 ## 2026-11-14 (night): 4 a day and each one auditioned, music, beat punches, a seamless loop, little people, and the last circles off the troops
 
 - **4 a day, each one as good as it can be** (Rellz: "make army clash upload 4 a day but make them hella good make it way better because its only four"): posts at 10:00, 14:00, 18:00 and 22:00 London time (`rules.schedule`). Every battle is now **auditioned** (`rules.quality.audition`): the line-up is fought 10 times headless with different battle dice, each run scored for drama (a real final blow near the end, a narrow win, the lead changing hands, a comeback, titans falling, spells), and only the best one is filmed. Encoded sharper too (`rules.quality`: CRF 17, a slower preset, a higher bitrate cap).

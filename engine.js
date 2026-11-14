@@ -2891,8 +2891,8 @@ const RVB = (() => {
         ctx.lineCap = 'round';
         for (const u of this.units) {
           if (u.team !== tm || u.dead) continue;
-          if (rage) { ctx.beginPath(); ctx.arc(u.x, u.y, u.r + 4, 0, TAU); ctx.lineWidth = 3; ctx.strokeStyle = `rgba(255,90,40,${0.55 + 0.35 * pulse})`; ctx.stroke(); }
-          if (shield) { ctx.beginPath(); ctx.arc(u.x, u.y, u.r + 6, 0, TAU); ctx.fillStyle = 'rgba(124,200,255,0.16)'; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(160,220,255,0.8)'; ctx.stroke(); }
+          if (rage) { ctx.beginPath(); this.ring(ctx, u, u.x, u.y, u.r + 4, 0, TAU); ctx.lineWidth = 3; ctx.strokeStyle = `rgba(255,90,40,${0.55 + 0.35 * pulse})`; ctx.stroke(); }
+          if (shield) { ctx.beginPath(); this.ring(ctx, u, u.x, u.y, u.r + 6, 0, TAU); ctx.fillStyle = 'rgba(124,200,255,0.16)'; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(160,220,255,0.8)'; ctx.stroke(); }
           if (speed) {
             const v = Math.hypot(u.vx, u.vy); if (v < 20) continue;
             const ux = u.vx / v, uy = u.vy / v;
@@ -3774,6 +3774,7 @@ const RVB = (() => {
           // ((rules.ui.blood) the splatter stays longer, and rain washes it away faster)
           g.fillStyle = this.blood ? `rgba(0,0,0,${(0.07 * this.blood.stay * (this.weather === 'rain' ? 2.2 : 1)).toFixed(4)})` : 'rgba(0,0,0,0.07)';
           g.fillRect(0, 0, AR.w, AR.h);
+          if (this.boneLayer) { const b = this.boneLayer.getContext('2d'); b.globalCompositeOperation = 'destination-out'; b.fillStyle = 'rgba(0,0,0,0.004)'; b.fillRect(0, 0, AR.w, AR.h); b.globalCompositeOperation = 'source-over'; }
           g.globalCompositeOperation = 'source-over';
         }
       }
@@ -3904,6 +3905,7 @@ const RVB = (() => {
           };
           mirror(img);
           if (this.stains) mirror(this.stains);
+          if (this.boneLayer) mirror(this.boneLayer);
           if ((this.obstacles.length || this.decor.length) && api.makeCanvas) {
             if (!this.mapLayer) { this.mapLayer = api.makeCanvas(AR.w, AR.h); this.paintMap(this.mapLayer, 1); }
             mirror(hi ? this.hiLayer('map') : this.mapLayer);
@@ -3921,6 +3923,7 @@ const RVB = (() => {
       if (this.ground) blit(hi ? this.hiLayer('ground') : this.ground, hi ? 2 : 1);
       else { ctx.fillStyle = (MAP_THEME[this.opts.map] || MAP_THEME.default).floor; ctx.fillRect(AR.x, AR.y, AR.w, AR.h); }
       if (this.stains) blit(this.stains, this.stainS || 1);
+      if (this.boneLayer) blit(this.boneLayer, this.stainS || 1);   // (rules.ui.remains: bones that stay much longer than the stains)
       if ((this.obstacles.length || this.decor.length) && api.makeCanvas) {
         if (!this.mapLayer) { this.mapLayer = api.makeCanvas(AR.w, AR.h); this.paintMap(this.mapLayer, 1); }
         blit(hi ? this.hiLayer('map') : this.mapLayer, hi ? 2 : 1);
@@ -5504,14 +5507,14 @@ const RVB = (() => {
       if (this.remainsOn && u.ms) this.drawBoneShow(ctx, u, x, y);
       if (u.burnT > T && !U.fireproof) for (let k = 0; k < 3; k++) { const a = t * 9 + k * 2.1 + u.gait, fl = 0.6 + 0.4 * Math.sin(t * 17 + k), bx = x + Math.cos(a) * r * 0.6, by = y - r * 0.2 + Math.sin(a) * r * 0.4; disc(ctx, bx, by, 4.5 * fl + 1.5, 'rgba(255,140,40,0.85)', 0); disc(ctx, bx, by - 2, 2.2 * fl, '#FFE27A', 0); }
       if (u.poisT > T) { ctx.fillStyle = 'rgba(124,255,107,0.75)'; for (let k = 0; k < 3; k++) { const p = (t * 1.4 + k / 3 + u.gait) % 1; ctx.beginPath(); ctx.arc(x + Math.sin(k * 2.3 + u.gait) * r * 0.6, y - r * 0.2 - p * r * 1.2, 2.5 * (1 - p) + 1, 0, TAU); ctx.fill(); } }
-      if (u.slowT > T && u.slowK < 0.75) { ctx.beginPath(); ctx.arc(x, y, r + 3, 0, TAU); ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(160,220,255,0.75)'; ctx.stroke(); }
+      if (u.slowT > T && u.slowK < 0.75) { ctx.beginPath(); this.ring(ctx, u, x, y, r + 3, 0, TAU); ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(160,220,255,0.75)'; ctx.stroke(); }
       if (u.frozeT > T) { roundRect(ctx, x - r - 4, y - r - 4, (r + 4) * 2, (r + 4) * 2, 5); ctx.fillStyle = 'rgba(191,230,255,0.45)'; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = 'rgba(230,246,255,0.95)'; ctx.stroke(); }
-      if (u.planted && !this.clean) { ctx.beginPath(); ctx.arc(x, y, r + u.shell, 0, TAU); ctx.fillStyle = 'rgba(124,200,255,0.08)'; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(160,220,255,0.45)'; ctx.stroke(); }
-      if (u.tileT > T) { ctx.beginPath(); ctx.arc(x, y, r + 3, 0, TAU); ctx.lineWidth = 2.5; ctx.strokeStyle = 'rgba(255,210,63,0.8)'; ctx.stroke(); }
-      if (u.forged) { ctx.beginPath(); ctx.arc(x, y, r + 1.5, 0, TAU); ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(124,243,255,0.85)'; ctx.stroke(); }
-      if (u.mimic || u.mirror) { ctx.setLineDash([5, 4]); ctx.beginPath(); ctx.arc(x, y, r + 3, t * 2, t * 2 + TAU); ctx.lineWidth = 2.5; ctx.strokeStyle = u.mimic === 'copy' ? 'rgba(192,132,252,0.9)' : 'rgba(220,235,250,0.95)'; ctx.stroke(); ctx.setLineDash([]); }
-      if (u.possessed) { ctx.beginPath(); ctx.arc(x, y, r + 4 + Math.sin(t * 6) * 1.5, 0, TAU); ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(168,85,247,0.75)'; ctx.stroke(); }
-      if (u.bribed !== undefined && T - u.bribed < 1.5) { ctx.beginPath(); ctx.arc(x, y, r + 4, 0, TAU); ctx.lineWidth = 3; ctx.strokeStyle = `rgba(255,210,63,${1 - (T - u.bribed) / 1.5})`; ctx.stroke(); }
+      if (u.planted && !this.clean) { ctx.beginPath(); this.ring(ctx, u, x, y, r + u.shell, 0, TAU); ctx.fillStyle = 'rgba(124,200,255,0.08)'; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(160,220,255,0.45)'; ctx.stroke(); }
+      if (u.tileT > T) { ctx.beginPath(); this.ring(ctx, u, x, y, r + 3, 0, TAU); ctx.lineWidth = 2.5; ctx.strokeStyle = 'rgba(255,210,63,0.8)'; ctx.stroke(); }
+      if (u.forged) { ctx.beginPath(); this.ring(ctx, u, x, y, r + 1.5, 0, TAU); ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(124,243,255,0.85)'; ctx.stroke(); }
+      if (u.mimic || u.mirror) { ctx.setLineDash([5, 4]); ctx.beginPath(); this.ring(ctx, u, x, y, r + 3, t * 2, t * 2 + TAU); ctx.lineWidth = 2.5; ctx.strokeStyle = u.mimic === 'copy' ? 'rgba(192,132,252,0.9)' : 'rgba(220,235,250,0.95)'; ctx.stroke(); ctx.setLineDash([]); }
+      if (u.possessed) { ctx.beginPath(); this.ring(ctx, u, x, y, r + 4 + Math.sin(t * 6) * 1.5, 0, TAU); ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(168,85,247,0.75)'; ctx.stroke(); }
+      if (u.bribed !== undefined && T - u.bribed < 1.5) { ctx.beginPath(); this.ring(ctx, u, x, y, r + 4, 0, TAU); ctx.lineWidth = 3; ctx.strokeStyle = `rgba(255,210,63,${1 - (T - u.bribed) / 1.5})`; ctx.stroke(); }
       if (u.confT > T) { ctx.font = font(18, 800, false); ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; strokeText(ctx, '?', x - r * 0.6, y - r - 6, '#C084FC', COL.ink, 5); }
       if (u.panicT > T || (this.panic[u.team] > T && !(u.crownT > T))) { ctx.font = font(20, 800, false); ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; strokeText(ctx, '!', x + r * 0.7, y - r - 6, '#FFFFFF', COL.ink, 5); }
       if (u.mut === 'wings') for (const sd of [-1, 1]) { const fx = Math.cos(u.face), fy = Math.sin(u.face), px = -fy * sd, py = fx * sd, fl = 0.8 + 0.2 * Math.sin(t * 10 + u.gait); tri(ctx, x + px * r * 0.6 - fx * r * 0.2, y + py * r * 0.6 - fy * r * 0.2, x + px * r * 1.6 * fl - fx * r * 0.8, y + py * r * 1.6 * fl - fy * r * 0.8, x + px * r * 0.7 - fx * r * 0.9, y + py * r * 0.7 - fy * r * 0.9, 'rgba(244,246,251,0.9)'); }
@@ -5533,16 +5536,16 @@ const RVB = (() => {
       if (u.lvl >= 2) {
         ctx.lineWidth = 2.5; ctx.strokeStyle = COL.gold; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
         for (let k = 0; k < u.lvl - 1; k++) { const cy2 = y + r + 5 + k * 5; ctx.beginPath(); ctx.moveTo(x - 6, cy2 + 3); ctx.lineTo(x, cy2 - 1); ctx.lineTo(x + 6, cy2 + 3); ctx.stroke(); }
-        if (u.lvl >= 3) { ctx.beginPath(); ctx.arc(x, y, r + 2, 0, TAU); ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(255,210,63,0.8)'; ctx.stroke(); }
+        if (u.lvl >= 3) { ctx.beginPath(); this.ring(ctx, u, x, y, r + 2, 0, TAU); ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(255,210,63,0.8)'; ctx.stroke(); }
       }
-      if (u.slayer && !u.god) { ctx.beginPath(); ctx.arc(x, y, r + 3, 0, TAU); ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(229,72,77,0.85)'; ctx.stroke(); }
+      if (u.slayer && !u.god) { ctx.beginPath(); this.ring(ctx, u, x, y, r + 3, 0, TAU); ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(229,72,77,0.85)'; ctx.stroke(); }
       if (u.god) {
         for (let k = 0; k < 6; k++) { const a = t * 3 + k * TAU / 6, fl = 0.6 + 0.4 * Math.sin(t * 11 + k); disc(ctx, x + Math.cos(a) * (r + 6), y + Math.sin(a) * (r + 6), 4 * fl + 2, u.cosmic ? 'rgba(167,139,250,0.8)' : 'rgba(255,190,60,0.8)', 0); }
       }
       if (u.champ || u.title) {
         // champions and titled troops carry their name (and kill count) over their head
         const pulse = 0.5 + 0.5 * Math.sin(t * 5 + u.gait);
-        if (u.champ) { ctx.beginPath(); ctx.arc(x, y, r + 6 + pulse * 3, 0, TAU); ctx.fillStyle = rgba(tm.c, 0.16); ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = `rgba(255,210,63,${0.5 + 0.4 * pulse})`; ctx.stroke(); }
+        if (u.champ) { ctx.beginPath(); this.ring(ctx, u, x, y, r + 6 + pulse * 3, 0, TAU); ctx.fillStyle = rgba(tm.c, 0.16); ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = `rgba(255,210,63,${0.5 + 0.4 * pulse})`; ctx.stroke(); }
         const name = u.champ ? `${u.champ} · ${u.kills || 0}` : u.title, hb = HPBAR[u.type] && u.hp < u.max ? 14 : 0;
         ctx.font = font(u.champ ? 20 : 17, 800, false); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
         // in a champion duel the bottom champion's name goes under it, so the two names never overlap
@@ -5555,7 +5558,7 @@ const RVB = (() => {
         if (!this.clean || this.labFree(x, ly, ctx.measureText(name).width + 8, 20)) strokeText(ctx, name, x, ly, u.team === MONSTERS ? '#D9F99D' : '#FFFFFF', COL.ink, 5);
       }
       this.drawStatus2(ctx, u, x, y, tm);
-      if (u.team === MONSTERS) { ctx.setLineDash([3, 4]); ctx.beginPath(); ctx.arc(x, y, r + 4, 0, TAU); ctx.lineWidth = 2.5; ctx.strokeStyle = 'rgba(190,242,100,0.75)'; ctx.stroke(); ctx.setLineDash([]); }
+      if (u.team === MONSTERS) { ctx.setLineDash([3, 4]); ctx.beginPath(); this.ring(ctx, u, x, y, r + 4, 0, TAU); ctx.lineWidth = 2.5; ctx.strokeStyle = 'rgba(190,242,100,0.75)'; ctx.stroke(); ctx.setLineDash([]); }
       ctx.textBaseline = 'alphabetic';
     },
     // projectiles of the new troops
@@ -8429,10 +8432,10 @@ const RVB = (() => {
     drawStatus2(ctx, u, x, y, tm) {
       const T = this.fightT, t = this.t, r = u.r;
       if (u.charmT > T) { const hx = x, hy = y - r - 11 - 2 * Math.sin(t * 6); ctx.beginPath(); ctx.arc(hx - 3, hy, 3.6, 0, TAU); ctx.arc(hx + 3, hy, 3.6, 0, TAU); ctx.moveTo(hx - 6.5, hy + 1); ctx.lineTo(hx, hy + 8); ctx.lineTo(hx + 6.5, hy + 1); ctx.fillStyle = '#F472B6'; ctx.fill(); }
-      if (u.stoneT > T) { ctx.beginPath(); ctx.arc(x, y, r + 3, 0, TAU); ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(210,214,220,0.85)'; ctx.stroke(); }
-      if (u.hollow) { ctx.setLineDash([2, 4]); ctx.beginPath(); ctx.arc(x, y, r + 3, -t * 2, -t * 2 + TAU); ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(124,243,255,0.85)'; ctx.stroke(); ctx.setLineDash([]); }
+      if (u.stoneT > T) { ctx.beginPath(); this.ring(ctx, u, x, y, r + 3, 0, TAU); ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(210,214,220,0.85)'; ctx.stroke(); }
+      if (u.hollow) { ctx.setLineDash([2, 4]); ctx.beginPath(); this.ring(ctx, u, x, y, r + 3, -t * 2, -t * 2 + TAU); ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(124,243,255,0.85)'; ctx.stroke(); ctx.setLineDash([]); }
       if (u.ghost) disc(ctx, x, y, r + 5, 'rgba(226,232,240,0.16)', 0);
-      if (u.transformed) { ctx.beginPath(); ctx.arc(x, y, r + 5 + 2 * Math.sin(t * 8), 0, TAU); ctx.lineWidth = 4; ctx.strokeStyle = 'rgba(229,72,77,0.7)'; ctx.stroke(); }
+      if (u.transformed) { ctx.beginPath(); this.ring(ctx, u, x, y, r + 5 + 2 * Math.sin(t * 8), 0, TAU); ctx.lineWidth = 4; ctx.strokeStyle = 'rgba(229,72,77,0.7)'; ctx.stroke(); }
     },
     // under the troops: the Worldroot's roots, lightning about to strike, the rising tide
     drawField2(ctx) {
@@ -9967,13 +9970,24 @@ const RVB = (() => {
     drawCoins(ctx) {
       const t = this.t, c = this.cam, zoom = this.camOn();
       const dy = this.opts.ui >= 2 ? UI_DY : 0, scr = (x, y) => (zoom ? [AR.x + (x - c.x) * c.z + AR.w / 2, AR.y + (y - c.y) * c.z + AR.h / 2 + dy] : [x, y + dy]);
+      // (Rellz, 2026-11-14: the coins came up from under the screen to the panel, "it doesn't look nice": now each coin starts on the
+      // battlefield where you can see it (never from off screen), pops up with a glint, spins over in a high arc and drops into its
+      // tribe's gold, leaving a short trail; the gold on the card bumps as it lands)
+      const vx0 = AR.x + 14, vx1 = AR.x + AR.w - 14, vy0 = AR.y + dy + 14, vy1 = AR.y + AR.h + dy - 14;
       this.coins = this.coins.filter(o => {
-        const k = (t - o.t0) / 0.75;
+        const k = (t - o.t0) / 0.9;
         if (k >= 1) { o.tb.goldFx = t; return false; }
         if (!o.tb.coinAt) return true;
-        if (o.sx === undefined) [o.sx, o.sy] = scr(o.x, o.y);
-        const e = easeOutCubic(k), x = o.sx + (o.tb.coinAt.x - o.sx) * e, y = o.sy + (o.tb.coinAt.y - o.sy) * k * k - Math.sin(Math.PI * k) * 90;
-        disc(ctx, x, y, 6.5, COL.gold, 2);
+        if (o.sx === undefined) { [o.sx, o.sy] = scr(o.x, o.y); o.sx = clamp(o.sx, vx0, vx1); o.sy = clamp(o.sy, vy0, vy1); }
+        const T2 = o.tb.coinAt, cx = (o.sx + T2.x) / 2, cy = Math.min(o.sy, T2.y) - 140;
+        const at = q => { const e = q < 0.5 ? 2 * q * q : 1 - Math.pow(-2 * q + 2, 2) / 2, u1 = 1 - e; return [u1 * u1 * o.sx + 2 * u1 * e * cx + e * e * T2.x, u1 * u1 * o.sy + 2 * u1 * e * cy + e * e * T2.y]; };
+        const pop = clamp(k / 0.12, 0, 1), sc = (0.6 + 0.6 * easeOutBack(pop)) * (1 - 0.35 * clamp((k - 0.75) / 0.25, 0, 1));
+        for (let i = 3; i >= 1; i--) { const [qx, qy] = at(Math.max(0, k - i * 0.035)); ctx.globalAlpha = 0.18 * (4 - i) / 3; disc(ctx, qx, qy, 5.5 * sc, COL.gold, 0); }
+        ctx.globalAlpha = 1;
+        const [x, y] = at(k), spin = Math.abs(Math.cos(t * 12 + o.t0 * 7));
+        ctx.beginPath(); ctx.ellipse(x, y, 7.5 * sc * (0.35 + 0.65 * spin), 7.5 * sc, 0, 0, TAU); ctx.fillStyle = COL.gold; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = COL.ink; ctx.stroke();
+        ctx.beginPath(); ctx.ellipse(x, y, 4.2 * sc * (0.35 + 0.65 * spin), 4.2 * sc, 0, 0, TAU); ctx.lineWidth = 1.2; ctx.strokeStyle = '#B7791F'; ctx.stroke();
+        if (k < 0.15) { ctx.globalAlpha = 1 - k / 0.15; ctx.strokeStyle = '#FFF7D6'; ctx.lineWidth = 2; ctx.beginPath(); for (let i = 0; i < 4; i++) { const an = i * Math.PI / 2 + 0.4, r0 = 9 + 14 * k / 0.15; ctx.moveTo(o.sx + Math.cos(an) * r0, o.sy + Math.sin(an) * r0); ctx.lineTo(o.sx + Math.cos(an) * (r0 + 6), o.sy + Math.sin(an) * (r0 + 6)); } ctx.stroke(); ctx.globalAlpha = 1; }
         return true;
       });
     },
@@ -13291,6 +13305,8 @@ const RVB = (() => {
     ichor: { key: 'I', c: '#A6D23A', d: '#3D5A0E' }, magma: { key: 'M', c: '#FF8C1A', d: '#7C2606', glow: true },
     frost: { key: 'F', c: '#B3E8FB', d: '#4E8DB0' }, plasma: { key: 'P', c: '#C9B8FF', d: '#4C3D8F' },
   };
+  // flesh-and-blood creatures (not people) that also leave a skeleton
+  const BONY = new Set(['wolfrider', 'boarrider', 'horsearcher', 'lancer', 'general', 'hellhound', 'werewolf', 'troll', 'ogre', 'yeti', 'minotaur', 'cyclops', 'goliath', 'elephant', 'rhino', 'mammoth', 'griffin', 'dragon', 'hydra', 'imp', 'demon', 'goblin', 'spiderling', 'valkyrie', 'giant', 'gorgon', 'siren']);
   const BLOOD_OF = {};
   for (const [b, list] of Object.entries({ dust: 'skeleton bonecolossus bonelet lich deathknight hollow wisp gargoyle golem livingblade livingfortress', sap: 'treant worldroot',
     ichor: 'acidwyrm hydra zombie spiderqueen spiderling', magma: 'magmacolossus phoenix imp demon hellhound', frost: 'glaciergiant crystalqueen', plasma: 'stormcolossus' })) for (const k of list.split(' ')) BLOOD_OF[k] = b;
@@ -15197,7 +15213,7 @@ const RVB = (() => {
         // rage: a red glow, steam puffing off and angry red eyes of light
         const k = clamp((u.rageT - T) / 0.5, 0, 1);
         ctx.save(); ctx.globalAlpha = 0.75 * k;
-        ctx.beginPath(); ctx.arc(x, y, r + 3 + 2 * Math.sin(t * 14 + (u.gait || 0)), 0, TAU); ctx.lineWidth = 4; ctx.strokeStyle = '#EF4444'; ctx.stroke();
+        ctx.beginPath(); this.ring(ctx, u, x, y, r + 3 + 2 * Math.sin(t * 14 + (u.gait || 0)), 0, TAU); ctx.lineWidth = 4; ctx.strokeStyle = '#EF4444'; ctx.stroke();
         for (let i = 0; i < 2; i++) { const ph = (t * 2.2 + i * 0.5 + (u.gait || 0)) % 1, sx = x + (i ? 1 : -1) * r * 0.5; disc(ctx, sx, y - r * 0.7 - ph * 18, 3 + ph * 4, `rgba(254,226,226,${0.7 * (1 - ph)})`, 0); }
         ctx.restore();
       }
@@ -15287,11 +15303,14 @@ const RVB = (() => {
     // lightning its skeleton flashes through it, x-ray style; swallowed by an earthquake it drops into the crack.
     remainAdd(u) {
       const T = this.fightT, ms = u.ms;
-      const kind = u.fallD ? 'fall' : u.meltD || (ms && ms.acid > 0.45) || this._kind === 'acid' ? 'melt' : this._shXk === 'lightning' || this._elK === 'zap' ? 'xray' : (u.burnT || 0) > T || (ms && ms.heat > 0.5) ? 'char' : null;
+      let kind = u.fallD ? 'fall' : u.meltD || (ms && ms.acid > 0.45) || this._kind === 'acid' ? 'melt' : this._shXk === 'lightning' || this._elK === 'zap' ? 'xray' : (u.burnT || 0) > T || (ms && ms.heat > 0.5) ? 'char' : null;
+      // (Rellz, 2026-11-14: "make every human become bones when they die and some other troops that makes sense") every person
+      // and every flesh-and-blood creature falls and is left as a skeleton (machines, spirits, stone, slimes and titans aren't)
+      if (!kind && this.bonesOf(u)) kind = 'bones';
       if (!kind) return;
       const L = this.remains || (this.remains = []);
-      L.push({ kind, x: u.x, y: u.y, r: u.r, f: u.face || 0, t0: this.t, team: u.team, fall: u.fallD || null, big: UNIT[u.type].rank === 0, uid: u.uid || 0 });
-      if (L.length > 60) L.shift();
+      L.push({ kind, x: u.x, y: u.y, r: u.r, f: u.face || 0, t0: this.t, team: u.team, fall: u.fallD || null, big: UNIT[u.type].rank === 0, uid: u.uid || 0, col: TEAMS[u.team] ? TEAMS[u.team].c : '#888' });
+      if (L.length > 240) L.shift();
     },
     // a cartoon skeleton seen from above (skull, spine, ribs, arms, hips), k = how far it has fallen apart (0 to 1)
     drawSkel(ctx, x, y, r, f, k, a) {
@@ -15341,6 +15360,11 @@ const RVB = (() => {
             for (let i = 0; i < 4; i++) { const an = i * 1.7 + m.uid; ctx.moveTo(m.x, m.y); ctx.lineTo(m.x + Math.cos(an) * m.r * 0.7 * s, m.y + Math.sin(an) * m.r * 0.7 * s); }
             ctx.stroke();
           } else if (!m.done) { m.done = true; this.paintAsh(m); }
+        } else if (m.kind === 'bones') {
+          // the skeleton is left where it fell, collapsing as it settles, then it stays on the ground
+          const show = clamp((a - 0.05) / 0.3, 0, 1), apart = clamp((a - 0.45) / 0.45, 0, 1) * 0.7;
+          if (show > 0) this.drawSkel(ctx, m.x, m.y, m.r, m.f, apart, show * (1 - clamp((a - 0.95) / 0.1, 0, 1)));
+          if (a >= 1.0 && !m.done) { m.done = true; this.paintBones(m); }
         } else if (m.kind === 'fall') {
           // the earthquake: it drops into the crack, shrinking into the dark
           const k = clamp(a / 0.45, 0, 1);
@@ -15348,14 +15372,16 @@ const RVB = (() => {
         }
       }
       ctx.restore(); ctx.globalAlpha = 1;
-      if (L.length > 20) this.remains = L.filter(m => t - m.t0 < 1.6);
+      if (L.length > 20) this.remains = L.filter(m => t - m.t0 < 1.6 || !m.done && m.kind === 'bones' && t - m.t0 < 3);
     },
     // painted into the ground for good: a pile of bones with the skull on top, ash, a scorch mark
     paintBones(m) {
       if (!this.stains) return;
-      const g = this.stains.getContext('2d'), cx = m.x - AR.x, cy = m.y - AR.y, r = m.r, n = m.big ? 9 : 5;
+      const g = this.boneCtx(), cx = m.x - AR.x, cy = m.y - AR.y, r = m.r, n = m.big ? 9 : 5;
       g.save(); g.lineCap = 'round';
-      g.globalAlpha = 0.35; g.beginPath(); g.ellipse(cx, cy, r * 1.2, r * 0.75, 0, 0, TAU); g.fillStyle = 'rgba(77,124,15,0.6)'; g.fill(); g.globalAlpha = 1;
+      if (m.kind === 'melt') { g.globalAlpha = 0.35; g.beginPath(); g.ellipse(cx, cy, r * 1.2, r * 0.75, 0, 0, TAU); g.fillStyle = 'rgba(77,124,15,0.6)'; g.fill(); g.globalAlpha = 1; }
+      // a torn scrap of its team's colour under the bones, so you can still tell whose they were
+      else { g.globalAlpha = 0.8; g.beginPath(); g.moveTo(cx - r * 0.5, cy + r * 0.1); g.lineTo(cx + r * 0.35, cy - r * 0.15); g.lineTo(cx + r * 0.55, cy + r * 0.3); g.lineTo(cx - r * 0.2, cy + r * 0.45); g.closePath(); g.fillStyle = m.col; g.fill(); g.globalAlpha = 1; }
       for (let i = 0; i < n; i++) {
         const a = hash01(m.uid + i, cx) * TAU, d = r * 0.7 * hash01(i, m.uid + cy), ba = hash01(cy + i, m.uid) * TAU, L = r * (0.35 + 0.25 * hash01(i, cx));
         const x0 = cx + Math.cos(a) * d - Math.cos(ba) * L / 2, y0 = cy + Math.sin(a) * d * 0.7 - Math.sin(ba) * L / 2, x1 = x0 + Math.cos(ba) * L, y1 = y0 + Math.sin(ba) * L;
@@ -15365,6 +15391,23 @@ const RVB = (() => {
       g.beginPath(); g.arc(cx, cy, r * 0.3, 0, TAU); g.fillStyle = '#EDE6D2'; g.fill(); g.lineWidth = 2.5; g.strokeStyle = 'rgba(17,17,17,0.85)'; g.stroke();
       for (const sd of [-1, 1]) { g.beginPath(); g.arc(cx + sd * r * 0.11, cy - r * 0.03, r * 0.075, 0, TAU); g.fillStyle = '#1C1917'; g.fill(); }
       g.restore();
+    },
+    // a ring round a troop (a buff, a slow, a champion...): for a little person it lies on the ground at its feet instead of
+    // circling its body, so nobody looks trapped inside a circle
+    ring(ctx, u, x, y, R, a0, a1) {
+      if (this.humans && HUMAN[u.type]) ctx.ellipse(x, y + u.r * 0.8, Math.max(0.5, R), Math.max(0.5, R * 0.38), 0, a0, a1);
+      else ctx.arc(x, y, R, a0, a1);
+    },
+    bonesOf(u) {
+      const k = u.type, H = HUMAN[k];
+      if (MACHINE[k] || SH_UNDEAD.has(k) || isTitan(k) || UNIT[k].uncounted) return false;
+      if (H) return H.skin !== 'metal';
+      return !!(LIVING[k] || BONY.has(k));
+    },
+    // the bone layer: painted bones stay far longer than blood and scorch marks (they fade over about two minutes)
+    boneCtx() {
+      if (!this.boneLayer) { this.boneLayer = api.makeCanvas(this.stains.width, this.stains.height); if (this.stainS !== 1) this.boneLayer.getContext('2d').scale(this.stainS, this.stainS); }
+      return this.boneLayer.getContext('2d');
     },
     paintAsh(m) {
       if (!this.stains) return;
