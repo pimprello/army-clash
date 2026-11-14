@@ -2,6 +2,9 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-14 (thumbnail fit)
+- Thumbnail text and pictures moved inside the part YouTube's Shorts shelf shows (about y 200 to 1720): the ARMY CLASH logo and WHO WINS? were being cut off. Rellz asked for this from the Tower Clash chat.
+
 ## 2026-11-10 (early morning): blood first, the little ones die first in a crowd, spell circles under the troops
 
 Rellz: "when theres a lot of people fighting prioritise killing the little ones and the particles might be too much to prioritise the blood splatter instead of too much gun shot concentrated and particles. focus on the blood and its splatter", then "sometimes when there is a circle spell thing, troops are rendered under that please fix that".
