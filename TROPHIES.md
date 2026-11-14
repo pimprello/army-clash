@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 539 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 540 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 539 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **ASHKA IRONHIDE** (BOAR RIDER), 21 kills · 2026-11-14 10:33
 - **ORLOK THE WALL** (JUGGERNAUT), 11 kills · 2026-11-14 08:53
 - **SIRA THE BOLD** (SUN KING), 18 kills · 2026-11-14 01:09
 - **VEXA STORMBORN** (MINOTAUR), 15 kills · 2026-11-13 22:34
@@ -47,7 +48,6 @@ Records from 539 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **ASHKA STORMBORN** (WIZARD), 10 kills · 2026-11-09 06:51
 - **KAELEN THE MAD** (KNIGHT), 10 kills · 2026-11-09 00:08
 - **VEXA THE UNBROKEN** (JUGGERNAUT), 12 kills · 2026-11-08 22:23
-- **BRAKK BONECRUSHER** (WIZARD), 14 kills · 2026-11-07 20:36
 
 ## Titles earned (rarest first)
 
@@ -78,8 +78,8 @@ Records from 539 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PLAYER SLAYER: 14
 - SPIDER QUEEN SLAYER: 14
 - HYDRA SLAYER: 15
-- STORM COLOSSUS SLAYER: 15
 - TANK SLAYER: 16
+- STORM COLOSSUS SLAYER: 16
 - COLOSSUS SLAYER: 20
 - CYCLOPS SLAYER: 21
 - ELEPHANT SLAYER: 23
@@ -94,7 +94,7 @@ Records from 539 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 11
 - wings: 43
 - spellward: 47
-- venom: 84
+- venom: 85
 - swift: 89
 - spikes: 98
 - regen: 109
@@ -149,7 +149,7 @@ Records from 539 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
-| Mossback Tribe | 25 | 16 | 9 | 1025 | 1 lost | 7 |
+| Mossback Tribe | 26 | 17 | 9 | 1052 | 1 won | 7 |
 | Red Hawk Company | 25 | 16 | 9 | 921 | 1 won | 5 |
 | Frostwhisper Tribe | 26 | 14 | 12 | 1112 | 1 lost | 4 |
 | Thornheart Circle | 16 | 13 | 3 | 897 | 3 won | 6 |
@@ -165,10 +165,10 @@ Records from 539 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Brightwater Tribe | 21 | 10 | 11 | 675 | 3 won | 3 |
 | Raven Hill Clan | 18 | 10 | 8 | 669 | 2 won | 5 |
 | Mire Witch Coven | 14 | 10 | 4 | 455 | 1 lost | 7 |
-| Thornwood Company | 14 | 10 | 4 | 427 | 2 lost | 9 |
+| Thornwood Company | 15 | 10 | 5 | 440 | 3 lost | 9 |
 | Hollowbark Kin | 24 | 9 | 15 | 784 | 3 lost | 3 |
+| Stormhorn Tribe | 15 | 9 | 6 | 720 | 2 won | 4 |
 | Emberroot Circle | 19 | 9 | 9 | 563 | 2 lost | 3 |
-| Highmoor Clan | 14 | 9 | 5 | 506 | 1 won | 7 |
 
 ### Great rivalries
 
@@ -183,6 +183,7 @@ Records from 539 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-14 10:33: The Stormhorn Tribe Take the Godboard (revenge denied · 9th win · 59 kills)
 - 2026-11-14 08:53: The Grave Lantern Coven Take the Quarry (revenge! · 5th win · 67 kills)
 - 2026-11-14 06:55: The Brightwater Tribe Take the Frozen End (3 wins in a row · 33 kills)
 - 2026-11-14 05:06: The Vector Cohort Take the Canyon Pass (3 wins in a row · 49 kills)
@@ -192,4 +193,3 @@ Records from 539 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-13 20:41: The Vortex Legion Take the Canyon Pass (6th win · 43 kills)
 - 2026-11-13 18:40: The Harrier Squadron Take the Frozen End (revenge denied · 7 wins in a row · 37 kills)
 - 2026-11-13 16:45: The Ashmantle Kin Take the Swamp Shrine (revenge denied · 5th win · 19 kills)
-- 2026-11-13 14:55: The Golden Lion Order Take the Castle (9th win · 26 kills)
