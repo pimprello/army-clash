@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 534 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 535 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 534 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **SIRA THE BOLD** (SUN KING), 18 kills · 2026-11-14 01:09
 - **VEXA STORMBORN** (MINOTAUR), 15 kills · 2026-11-13 22:34
 - **NYRA THE MAD** (SINGULARITY SAGE), 13 kills · 2026-11-13 12:45
 - **MORGRA IRONHIDE** (MINOTAUR), 16 kills · 2026-11-13 05:12
@@ -47,7 +48,6 @@ Records from 534 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **VEXA THE UNBROKEN** (JUGGERNAUT), 12 kills · 2026-11-08 22:23
 - **BRAKK BONECRUSHER** (WIZARD), 14 kills · 2026-11-07 20:36
 - **KAELEN BONECRUSHER** (BERSERKER), 11 kills · 2026-11-07 19:55
-- **DRAVEN THE BOLD** (NINJA), 15 kills · 2026-11-07 17:58
 
 ## Titles earned (rarest first)
 
@@ -80,7 +80,7 @@ Records from 534 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PLAYER SLAYER: 14
 - STORM COLOSSUS SLAYER: 15
 - TANK SLAYER: 16
-- ELEPHANT SLAYER: 19
+- ELEPHANT SLAYER: 20
 - COLOSSUS SLAYER: 20
 - CYCLOPS SLAYER: 20
 - DRAGON SLAYER: 26
@@ -96,8 +96,8 @@ Records from 534 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 47
 - venom: 84
 - swift: 89
-- spikes: 96
-- regen: 107
+- spikes: 97
+- regen: 108
 
 ## Big moments
 
@@ -156,9 +156,9 @@ Records from 534 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Silverbough Circle | 30 | 12 | 18 | 1484 | 2 lost | 3 |
 | Oakshield Clan | 19 | 12 | 7 | 787 | 2 lost | 6 |
 | Wildbrook Clan | 28 | 11 | 17 | 967 | 1 won | 2 |
-| Frostmere Clan | 26 | 11 | 15 | 877 | 2 lost | 3 |
+| Frostmere Clan | 27 | 11 | 16 | 883 | 3 lost | 3 |
 | Copper Crown Company | 19 | 11 | 8 | 852 | 3 won | 3 |
-| Glimmerdeep Kin | 17 | 11 | 6 | 613 | 6 won | 6 |
+| Glimmerdeep Kin | 18 | 11 | 7 | 616 | 1 lost | 6 |
 | Starweave Circle | 25 | 10 | 15 | 965 | 1 lost | 5 |
 | Raven Hill Clan | 18 | 10 | 8 | 669 | 2 won | 5 |
 | Mire Witch Coven | 14 | 10 | 4 | 455 | 1 lost | 7 |
@@ -183,6 +183,7 @@ Records from 534 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-14 01:09: The Zenith Cohort Take the Haunted Crypt (revenge! · 3 wins in a row · 44 kills)
 - 2026-11-13 22:34: The Thunder Platoon Take the Open Plains (revenge denied · 3 wins in a row · 33 kills)
 - 2026-11-13 20:41: The Vortex Legion Take the Canyon Pass (6th win · 43 kills)
 - 2026-11-13 18:40: The Harrier Squadron Take the Frozen End (revenge denied · 7 wins in a row · 37 kills)
@@ -192,4 +193,3 @@ Records from 534 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-13 10:51: The Ghoul Hollow Coven Take the Reactor (revenge denied · 5 wins in a row · 97 kills)
 - 2026-11-13 08:47: The Kestrel Squadron Take the Treasure Cove (revenge denied · 6th win · 22 kills)
 - 2026-11-13 07:24: The Thornheart Circle Take the Open Plains (12th win · 56 kills)
-- 2026-11-13 05:12: The Duskwing Tribe Take the Open Plains (8th win · 61 kills)
