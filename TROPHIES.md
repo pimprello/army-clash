@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 546 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 547 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -51,7 +51,7 @@ Records from 546 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Titles earned (rarest first)
 
-- THRONE WALKER SLAYER: 1
+- THRONE WALKER SLAYER: 2
 - BALLOON BOMBER SLAYER: 2
 - GRAVITY TYRANT SLAYER: 3
 - CATAPULT SLAYER: 3
@@ -59,10 +59,10 @@ Records from 546 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - CATHEDRAL SLAYER: 5
 - HELICOPTER SLAYER: 5
 - WORLDROOT SLAYER: 5
-- GLACIER BEHEMOTH SLAYER: 5
 - KNIGHT SLAYER: 6
 - THOUSAND-MAN SLAYER: 6
 - EXECUTIONER SLAYER: 6
+- GLACIER BEHEMOTH SLAYER: 6
 - MIRROR KING SLAYER: 7
 - UNMAKER SLAYER: 7
 - STORM EMPEROR SLAYER: 7
@@ -78,16 +78,16 @@ Records from 546 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - ACID LEVIATHAN SLAYER: 15
 - TANK SLAYER: 16
 - HYDRA SLAYER: 17
-- STORM COLOSSUS SLAYER: 17
 - SPIDER QUEEN SLAYER: 17
+- STORM COLOSSUS SLAYER: 18
 - COLOSSUS SLAYER: 20
 - CYCLOPS SLAYER: 24
 - ELEPHANT SLAYER: 25
 - DRAGON SLAYER: 26
-- MAMMOTH SLAYER: 29
+- MAMMOTH SLAYER: 30
 - GOLEM SLAYER: 32
 - GIANT SLAYER: 38
-- TITAN SLAYER: 38
+- TITAN SLAYER: 39
 
 ## Mutations (rarest first)
 
@@ -95,7 +95,7 @@ Records from 546 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - wings: 43
 - spellward: 47
 - venom: 86
-- swift: 90
+- swift: 91
 - spikes: 101
 - regen: 112
 
@@ -141,7 +141,7 @@ Records from 546 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - sudden: ring: 19
 - portal: troll: 21
 - sudden: meteors: 25
-- sudden: lava: 25
+- sudden: lava: 26
 
 ## The tribes' chronicle
 
@@ -155,13 +155,13 @@ Records from 546 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Thornheart Circle | 16 | 13 | 3 | 897 | 3 won | 6 |
 | Silverbough Circle | 31 | 12 | 19 | 1508 | 3 lost | 3 |
 | Copper Crown Company | 20 | 12 | 8 | 925 | 4 won | 4 |
-| Oakshield Clan | 19 | 12 | 7 | 787 | 2 lost | 6 |
+| Oakshield Clan | 20 | 12 | 8 | 797 | 3 lost | 6 |
 | Order of the Silver Stag | 26 | 11 | 15 | 1083 | 2 won | 3 |
 | Wildbrook Clan | 28 | 11 | 17 | 967 | 1 won | 2 |
 | Frostmere Clan | 27 | 11 | 16 | 883 | 3 lost | 3 |
 | Glimmerdeep Kin | 19 | 11 | 8 | 673 | 2 lost | 6 |
 | Starweave Circle | 25 | 10 | 15 | 965 | 1 lost | 5 |
-| Greyfang Clan | 29 | 10 | 19 | 781 | 1 lost | 5 |
+| Greyfang Clan | 30 | 10 | 20 | 826 | 2 lost | 5 |
 | Brightwater Tribe | 21 | 10 | 11 | 675 | 3 won | 3 |
 | Raven Hill Clan | 18 | 10 | 8 | 669 | 2 won | 5 |
 | Mire Witch Coven | 14 | 10 | 4 | 455 | 1 lost | 7 |
@@ -183,6 +183,7 @@ Records from 546 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-14 23:13: The Ember Blade School Take the Crystal Grove (3rd win · 41 kills)
 - 2026-11-14 22:35: The Stonewall Company Take the Trench Line (7th win · 85 kills)
 - 2026-11-14 20:28: The Black Bear Clan Take the Canyon Pass (9th win · 46 kills)
 - 2026-11-14 18:52: The Copper Crown Company Take the Quarry (revenge denied · 4 wins in a row · 73 kills)
@@ -192,4 +193,3 @@ Records from 546 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-14 10:33: The Stormhorn Tribe Take the Godboard (revenge denied · 9th win · 59 kills)
 - 2026-11-14 08:53: The Grave Lantern Coven Take the Quarry (revenge! · 5th win · 67 kills)
 - 2026-11-14 06:55: The Brightwater Tribe Take the Frozen End (3 wins in a row · 33 kills)
-- 2026-11-14 05:06: The Vector Cohort Take the Canyon Pass (3 wins in a row · 49 kills)
