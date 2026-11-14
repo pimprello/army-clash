@@ -1,5 +1,1382 @@
 [
  {
+  "id": "Vifte2yTHH4",
+  "date": "2026-11-14 03:09",
+  "title": "157 Knights vs a HYDRA Army 🐍",
+  "seed": 4250298754,
+  "slot": 1060,
+  "era": "wild",
+  "map": "forest",
+  "teams": [
+   "PURPLE",
+   "LIME"
+  ],
+  "armies": [
+   "HYDRA",
+   "KNIGHTS"
+  ],
+  "formations": [
+   "crescent",
+   "crescent"
+  ],
+  "troops": [],
+  "hook": "157 Knights vs a HYDRA Army 🐍",
+  "winner": "LIME WINS",
+  "cinematic": true,
+  "titleKind": "title",
+  "trophy": {
+   "mvp": {
+    "unit": "GIANT",
+    "kills": 11
+   },
+   "fight": 54.6,
+   "wipeout": true,
+   "left": 53,
+   "titles": [
+    "IRONHORN SLAYER",
+    "IRONHORN SLAYER",
+    "TITAN SLAYER"
+   ],
+   "mutations": [
+    "spikes"
+   ],
+   "moments": [
+    "extinct:LIME"
+   ]
+  },
+  "combat": true,
+  "balKey": "HYDRA|KNIGHTS|classic",
+  "tuned": 1.581,
+  "balance": 2.692,
+  "tribes": [
+   {
+    "name": "GLIMMERDEEP KIN",
+    "team": 0,
+    "kills": 57,
+    "wt": 3,
+    "at": 3
+   },
+   {
+    "name": "EMBERROOT CIRCLE",
+    "team": 0,
+    "kills": 12,
+    "wt": 3,
+    "at": 3
+   },
+   {
+    "name": "ORDER OF THE SILVER STAG",
+    "team": 1,
+    "kills": 45,
+    "wt": 5,
+    "at": 4
+   },
+   {
+    "name": "GREYFANG CLAN",
+    "team": 1,
+    "kills": 33,
+    "wt": 3,
+    "at": 3
+   }
+  ],
+  "winTeam": 1,
+  "story": "raid",
+  "chron": [
+   "THE ORDER OF THE SILVER STAG TAKE THE OLD FOREST",
+   "10TH WIN · 45 KILLS"
+  ],
+  "economy": {
+   "forges": 24,
+   "trades": 2,
+   "merchant": "HOLY CORE"
+  },
+  "seconds": 65.03,
+  "units": [
+   "hydra",
+   "ironhorn",
+   "stareater",
+   "orc",
+   "ogre",
+   "elf",
+   "wizard",
+   "magmacolossus",
+   "giant",
+   "stormcolossus",
+   "livingfortress",
+   "knight",
+   "goliath",
+   "soldier"
+  ],
+  "views": 0,
+  "likes": 0,
+  "comments": 0,
+  "secs": 66,
+  "published": "2026-11-14T03:10:06Z"
+ },
+ {
+  "id": "wb86KqAKe_A",
+  "date": "2026-11-14 01:09",
+  "title": "Then the Lights Went OUT 🌑",
+  "seed": 454740303,
+  "slot": 1059,
+  "era": "wild",
+  "map": "graveyard",
+  "teams": [
+   "BELGIUM",
+   "NETHERLANDS"
+  ],
+  "armies": [
+   "TITAN BOMBERS",
+   "CHAOS ORACLES"
+  ],
+  "formations": [
+   "columns",
+   "block"
+  ],
+  "troops": [],
+  "hook": "Then the Lights Went OUT 🌑",
+  "winner": "BELGIUM WINS",
+  "wild": true,
+  "sides": [
+   {
+    "name": "TITAN BOMBERS",
+    "mix": {
+     "bomber": 0.59,
+     "bastion": 0.26,
+     "sunking": 0.15
+    },
+    "heavy": [],
+    "base": "bomber"
+   },
+   {
+    "name": "CHAOS ORACLES",
+    "mix": {
+     "phalanx": 0.54,
+     "oracle": 0.34,
+     "turtle": 0.12
+    },
+    "heavy": [],
+    "base": "phalanx"
+   }
+  ],
+  "cinematic": true,
+  "titleKind": "title",
+  "trophy": {
+   "mvp": {
+    "unit": "SUN KING",
+    "kills": 18,
+    "name": "SIRA THE BOLD"
+   },
+   "fight": 55.3,
+   "wipeout": true,
+   "left": 12,
+   "titles": [
+    "ELEPHANT SLAYER"
+   ],
+   "mutations": [
+    "spikes",
+    "regen"
+   ],
+   "moments": []
+  },
+  "mode": "heroes",
+  "heroes": 0,
+  "skins": [
+   "GOLDEN",
+   null
+  ],
+  "combat": true,
+  "tuned": 0.503,
+  "balance": 0.503,
+  "tribes": [
+   {
+    "name": "ZENITH COHORT",
+    "team": 0,
+    "kills": 44,
+    "wt": 3,
+    "at": 3
+   },
+   {
+    "name": "CREW OF THE SEA WOLF",
+    "team": 0,
+    "kills": 5,
+    "wt": 2,
+    "at": 0
+   },
+   {
+    "name": "FROSTMERE CLAN",
+    "team": 1,
+    "kills": 6,
+    "wt": 1,
+    "at": 3
+   },
+   {
+    "name": "GLIMMERDEEP KIN",
+    "team": 1,
+    "kills": 3,
+    "wt": 1,
+    "at": 1
+   }
+  ],
+  "winTeam": 0,
+  "story": "revenge",
+  "chron": [
+   "THE ZENITH COHORT TAKE THE HAUNTED CRYPT",
+   "REVENGE! · 3 WINS IN A ROW · 44 KILLS"
+  ],
+  "economy": {
+   "forges": 14,
+   "trades": 3
+  },
+  "seconds": 65.8,
+  "units": [
+   "sunking",
+   "bomber",
+   "bastion",
+   "elephant",
+   "spiderqueen",
+   "glaciergiant",
+   "phalanx",
+   "turtle",
+   "ogre",
+   "goliath"
+  ],
+  "views": 2,
+  "likes": 0,
+  "comments": 0,
+  "secs": 66,
+  "published": "2026-11-14T01:11:25Z"
+ },
+ {
+  "id": "ArNHKJetQVk",
+  "date": "2026-11-13 22:34",
+  "title": "🇮🇹 Italy Jetpacks vs Germany Gunners",
+  "seed": 1608233505,
+  "slot": 1058,
+  "era": "modern",
+  "map": "open",
+  "teams": [
+   "ITALY",
+   "GERMANY"
+  ],
+  "armies": [
+   "JETPACKS",
+   "ASSAULT"
+  ],
+  "formations": [
+   "wedge",
+   "line"
+  ],
+  "troops": [],
+  "hook": "🇮🇹 Italy Jetpacks vs Germany Gunners",
+  "winner": "GERMANY WINS",
+  "cinematic": true,
+  "titleKind": "title",
+  "trophy": {
+   "mvp": {
+    "unit": "MINOTAUR",
+    "kills": 15,
+    "name": "VEXA STORMBORN",
+    "title": "MAMMOTH SLAYER"
+   },
+   "fight": 53.2,
+   "wipeout": true,
+   "left": 23,
+   "titles": [
+    "MAMMOTH SLAYER",
+    "STAR EATER SLAYER",
+    "ACID LEVIATHAN SLAYER"
+   ],
+   "mutations": [
+    "wings"
+   ],
+   "moments": [
+    "portal:wolfrider"
+   ]
+  },
+  "skins": [
+   "SHADOW",
+   "ROYAL"
+  ],
+  "combat": true,
+  "balKey": "JETPACKS|ASSAULT|classic",
+  "tuned": 0.892,
+  "balance": 0.892,
+  "tribes": [
+   {
+    "name": "GRANITE BATTALION",
+    "team": 0,
+    "kills": 11,
+    "wt": 2,
+    "at": 3
+   },
+   {
+    "name": "BADGER PLATOON",
+    "team": 0,
+    "kills": 15,
+    "wt": 4,
+    "at": 4
+   },
+   {
+    "name": "MUSTANG BATTALION",
+    "team": 1,
+    "kills": 24,
+    "wt": 3,
+    "at": 3
+   },
+   {
+    "name": "THUNDER PLATOON",
+    "team": 1,
+    "kills": 33,
+    "wt": 3,
+    "at": 3
+   }
+  ],
+  "winTeam": 1,
+  "story": "revenge",
+  "chron": [
+   "THE THUNDER PLATOON TAKE THE OPEN PLAINS",
+   "REVENGE DENIED · 3 WINS IN A ROW · 33 KILLS"
+  ],
+  "economy": {
+   "forges": 20,
+   "trades": 5,
+   "merchant": "STORM CORE"
+  },
+  "seconds": 63.9,
+  "units": [
+   "ironhorn",
+   "siegegolem",
+   "stareater",
+   "mammoth",
+   "demon",
+   "minotaur",
+   "jetpack",
+   "rifleman",
+   "medicdrone",
+   "magmacolossus",
+   "giant",
+   "acidwyrm",
+   "titan",
+   "gunner",
+   "grenadier"
+  ],
+  "views": 1,
+  "likes": 0,
+  "comments": 0,
+  "secs": 64,
+  "published": "2026-11-13T22:35:28Z"
+ },
+ {
+  "id": "J_rugHqtt-o",
+  "date": "2026-11-13 20:41",
+  "title": "Their Glacier Behemoth Rose From the GRAVE 🪦",
+  "seed": 2703458714,
+  "slot": 1057,
+  "era": "wild",
+  "map": "canyon",
+  "teams": [
+   "SKY",
+   "OLIVE",
+   "CRIMSON"
+  ],
+  "armies": [
+   "KNIGHTS",
+   "ORCS",
+   "ROBOTS"
+  ],
+  "formations": [
+   "line",
+   "columns"
+  ],
+  "troops": [],
+  "hook": "Their Glacier Behemoth Rose From the GRAVE 🪦",
+  "winner": "CRIMSON WINS",
+  "wild": true,
+  "clickbait": true,
+  "sides": [
+   "KNIGHTS",
+   "ORCS",
+   "ROBOTS"
+  ],
+  "cinematic": true,
+  "three": true,
+  "titleKind": "clickbait",
+  "trophy": {
+   "mvp": {
+    "unit": "ACID LEVIATHAN",
+    "kills": 12
+   },
+   "fight": 58.5,
+   "wipeout": true,
+   "left": 5,
+   "titles": [
+    "MAMMOTH SLAYER",
+    "GLACIER BEHEMOTH SLAYER",
+    "MAMMOTH SLAYER",
+    "COLOSSUS SLAYER",
+    "GLACIER BEHEMOTH SLAYER"
+   ],
+   "mutations": [
+    "regen"
+   ],
+   "moments": []
+  },
+  "combat": true,
+  "balance": [
+   1.41,
+   0.946,
+   0.644
+  ],
+  "tribes": [
+   {
+    "name": "GREYFANG CLAN",
+    "team": 0,
+    "kills": 48,
+    "wt": 4,
+    "at": 4
+   },
+   {
+    "name": "MOSSBACK TRIBE",
+    "team": 1,
+    "kills": 16,
+    "wt": 3,
+    "at": 3
+   },
+   {
+    "name": "VORTEX LEGION",
+    "team": 2,
+    "kills": 43,
+    "wt": 4,
+    "at": 4
+   }
+  ],
+  "winTeam": 2,
+  "story": "stake",
+  "chron": [
+   "THE VORTEX LEGION TAKE THE CANYON PASS",
+   "6TH WIN · 43 KILLS"
+  ],
+  "economy": {
+   "forges": 17,
+   "trades": 0,
+   "merchant": "HOLY CORE"
+  },
+  "seconds": 68.05,
+  "units": [
+   "siegegolem",
+   "magmacolossus",
+   "bonecolossus",
+   "knight",
+   "goliath",
+   "yeti",
+   "mammoth",
+   "cyclops",
+   "ironhorn",
+   "orc",
+   "acidwyrm",
+   "stareater",
+   "glaciergiant",
+   "robot",
+   "ogre"
+  ],
+  "views": 2,
+  "likes": 0,
+  "comments": 0,
+  "secs": 69,
+  "published": "2026-11-13T20:43:02Z"
+ },
+ {
+  "id": "9_EKjZZAMtI",
+  "date": "2026-11-13 18:40",
+  "title": "👑 Protect the KING: Titan Army vs Tank Army",
+  "seed": 742714629,
+  "slot": 1056,
+  "era": "mixed",
+  "map": "frozen",
+  "teams": [
+   "PINK",
+   "OLIVE"
+  ],
+  "armies": [
+   "TITAN",
+   "ARMORED"
+  ],
+  "formations": [
+   "echelon",
+   "flanks"
+  ],
+  "troops": [],
+  "hook": "👑 Protect the KING: Titan Army vs Tank Army",
+  "winner": "OLIVE WINS",
+  "cinematic": true,
+  "titleKind": "title",
+  "trophy": {
+   "mvp": {
+    "unit": "ACID LEVIATHAN",
+    "kills": 26
+   },
+   "fight": 53.4,
+   "wipeout": true,
+   "left": 22,
+   "titles": [
+    "IRONHORN SLAYER",
+    "MAMMOTH SLAYER",
+    "TITAN SLAYER"
+   ],
+   "moments": []
+  },
+  "mode": "king",
+  "combat": true,
+  "balKey": "TITAN|ARMORED|king",
+  "tuned": 0.564,
+  "balance": 0.724,
+  "tribes": [
+   {
+    "name": "DUSKWING TRIBE",
+    "team": 0,
+    "kills": 1,
+    "wt": 2,
+    "at": 3
+   },
+   {
+    "name": "SILVERBOUGH CIRCLE",
+    "team": 0,
+    "kills": 5,
+    "wt": 2,
+    "at": 0
+   },
+   {
+    "name": "HARRIER SQUADRON",
+    "team": 1,
+    "kills": 37,
+    "wt": 4,
+    "at": 4
+   },
+   {
+    "name": "BADGER PLATOON",
+    "team": 1,
+    "kills": 11,
+    "wt": 3,
+    "at": 3
+   }
+  ],
+  "winTeam": 1,
+  "story": "revenge",
+  "chron": [
+   "THE HARRIER SQUADRON TAKE THE FROZEN END",
+   "REVENGE DENIED · 7 WINS IN A ROW · 37 KILLS"
+  ],
+  "economy": {
+   "forges": 18,
+   "trades": 4,
+   "merchant": "FLAME CORE"
+  },
+  "seconds": 64.05,
+  "units": [
+   "titan",
+   "giant",
+   "ironhorn",
+   "mammoth",
+   "dwarf",
+   "rhino",
+   "minotaur",
+   "elf",
+   "wizard",
+   "tank",
+   "magmacolossus",
+   "bonecolossus",
+   "acidwyrm",
+   "stareater",
+   "goliath",
+   "gunner",
+   "rifleman",
+   "grenadier",
+   "king"
+  ],
+  "views": 12,
+  "likes": 0,
+  "comments": 0,
+  "secs": 65,
+  "published": "2026-11-13T18:40:51Z"
+ },
+ {
+  "id": "RlWEfQjuxVE",
+  "date": "2026-11-13 16:45",
+  "title": "The GROUND Split Open 💥",
+  "seed": 1658980630,
+  "slot": 1055,
+  "era": "wild",
+  "map": "swamp",
+  "teams": [
+   "USA",
+   "UK"
+  ],
+  "armies": [
+   "OMEGA SHAMANS",
+   "STEEL GORGONS"
+  ],
+  "formations": [
+   "block",
+   "echelon"
+  ],
+  "troops": [],
+  "hook": "The GROUND Split Open 💥",
+  "winner": "UK WINS",
+  "wild": true,
+  "sides": [
+   {
+    "name": "OMEGA SHAMANS",
+    "mix": {
+     "orbitknight": 0.65,
+     "shaman": 0.35
+    },
+    "heavy": [],
+    "base": "shaman"
+   },
+   {
+    "name": "STEEL GORGONS",
+    "mix": {
+     "gargoyle": 0.56,
+     "gorgon": 0.31,
+     "blinkblade": 0.13
+    },
+    "heavy": [],
+    "base": "gargoyle"
+   }
+  ],
+  "cinematic": true,
+  "titleKind": "title",
+  "trophy": {
+   "mvp": {
+    "unit": "GIANT",
+    "kills": 6
+   },
+   "fight": 57.5,
+   "wipeout": true,
+   "left": 9,
+   "titles": [
+    "SIEGE GOLEM SLAYER",
+    "ACID LEVIATHAN SLAYER",
+    "SIEGE GOLEM SLAYER",
+    "CYCLOPS SLAYER"
+   ],
+   "moments": []
+  },
+  "combat": true,
+  "tuned": 0.795,
+  "balance": 0.795,
+  "tribes": [
+   {
+    "name": "THUNDER GATE SCHOOL",
+    "team": 0,
+    "kills": 18,
+    "wt": 4,
+    "at": 4
+   },
+   {
+    "name": "WOLVERINE COMPANY",
+    "team": 0,
+    "kills": 3,
+    "wt": 2,
+    "at": 1
+   },
+   {
+    "name": "ASHMANTLE KIN",
+    "team": 1,
+    "kills": 19,
+    "wt": 3,
+    "at": 3
+   },
+   {
+    "name": "THE ROTTING CHOIR",
+    "team": 1,
+    "kills": 17,
+    "wt": 3,
+    "at": 3
+   }
+  ],
+  "winTeam": 1,
+  "story": "revenge",
+  "chron": [
+   "THE ASHMANTLE KIN TAKE THE SWAMP SHRINE",
+   "REVENGE DENIED · 5TH WIN · 19 KILLS"
+  ],
+  "economy": {
+   "forges": 21,
+   "trades": 4,
+   "merchant": "FROST CORE"
+  },
+  "seconds": 67.23,
+  "units": [
+   "acidwyrm",
+   "cyclops",
+   "siegegolem",
+   "orbitknight",
+   "rhino",
+   "shaman",
+   "stareater",
+   "ironhorn",
+   "giant",
+   "gargoyle",
+   "ogre",
+   "yeti"
+  ],
+  "views": 10,
+  "likes": 0,
+  "comments": 0,
+  "secs": 68,
+  "published": "2026-11-13T16:46:27Z"
+ },
+ {
+  "id": "v1QwKmyLOuA",
+  "date": "2026-11-13 14:55",
+  "title": "Cavalry vs Longbowmen, But Champions DUEL First ⚔️",
+  "seed": 1738268828,
+  "slot": 1054,
+  "era": "medieval",
+  "map": "castle",
+  "teams": [
+   "CRIMSON",
+   "SKY"
+  ],
+  "armies": [
+   "CAVALRY",
+   "LONGBOWS"
+  ],
+  "formations": [
+   "flanks",
+   "wedge"
+  ],
+  "troops": [],
+  "hook": "Cavalry vs Longbowmen, But Champions DUEL First ⚔️",
+  "winner": "SKY WINS",
+  "cinematic": true,
+  "titleKind": "title",
+  "trophy": {
+   "mvp": {
+    "unit": "MAGMA COLOSSUS",
+    "kills": 12
+   },
+   "fight": 60,
+   "left": 7,
+   "titles": [
+    "MAMMOTH SLAYER",
+    "MAGMA COLOSSUS SLAYER",
+    "MAMMOTH SLAYER"
+   ],
+   "moments": [
+    "portal:golem"
+   ]
+  },
+  "mode": "duel",
+  "skins": [
+   "FROST",
+   null
+  ],
+  "combat": true,
+  "balKey": "CAVALRY|LONGBOWS|duel",
+  "tuned": 0.999,
+  "balance": 0.739,
+  "tribes": [
+   {
+    "name": "STORM TOWER ORDER",
+    "team": 0,
+    "kills": 27,
+    "wt": 4,
+    "at": 4
+   },
+   {
+    "name": "ORDER OF THE SILVER STAG",
+    "team": 0,
+    "kills": 11,
+    "wt": 3,
+    "at": 2
+   },
+   {
+    "name": "BLACK BEAR CLAN",
+    "team": 1,
+    "kills": 24,
+    "wt": 3,
+    "at": 3
+   },
+   {
+    "name": "GOLDEN LION ORDER",
+    "team": 1,
+    "kills": 26,
+    "wt": 3,
+    "at": 3
+   }
+  ],
+  "winTeam": 1,
+  "story": "revenge",
+  "chron": [
+   "THE GOLDEN LION ORDER TAKE THE CASTLE",
+   "9TH WIN · 26 KILLS"
+  ],
+  "economy": {
+   "forges": 23,
+   "trades": 4,
+   "merchant": "HOLY CORE"
+  },
+  "seconds": 66.68,
+  "units": [
+   "cyclops",
+   "magmacolossus",
+   "titan",
+   "lancer",
+   "demon",
+   "goliath",
+   "soldier",
+   "horsearcher",
+   "mammoth",
+   "royalguard",
+   "pikeman",
+   "longbow",
+   "firearcher"
+  ],
+  "views": 15,
+  "likes": 0,
+  "comments": 0,
+  "secs": 67,
+  "published": "2026-11-13T14:57:05Z"
+ },
+ {
+  "id": "E3sXL7gpiKw",
+  "date": "2026-11-13 12:45",
+  "title": "3 Armies, Only 1 SURVIVES 💀",
+  "seed": 166459854,
+  "slot": 1053,
+  "era": "wild",
+  "map": "canyon",
+  "teams": [
+   "YELLOW",
+   "PURPLE",
+   "GREEN"
+  ],
+  "armies": [
+   "TURBO SAGES",
+   "OMEGA MIRRORS",
+   "VOID GRIFFINS"
+  ],
+  "formations": [
+   "crescent",
+   "crescent"
+  ],
+  "troops": [],
+  "hook": "3 Armies, Only 1 SURVIVES 💀",
+  "winner": "YELLOW WINS",
+  "wild": true,
+  "sides": [
+   {
+    "name": "TURBO SAGES",
+    "mix": {
+     "singularity": 0.64,
+     "longbow": 0.26,
+     "crystalqueen": 0.1
+    },
+    "heavy": [],
+    "base": "longbow"
+   },
+   {
+    "name": "OMEGA MIRRORS",
+    "mix": {
+     "mirrorknight": 0.53,
+     "medicdrone": 0.34,
+     "beekeeper": 0.13
+    },
+    "heavy": [],
+    "base": "medicdrone"
+   },
+   {
+    "name": "VOID GRIFFINS",
+    "mix": {
+     "griffin": 0.57,
+     "royalguard": 0.28,
+     "gargoyle": 0.15
+    },
+    "heavy": [
+     "gravitytyrant"
+    ],
+    "base": "gargoyle"
+   }
+  ],
+  "cinematic": true,
+  "three": true,
+  "titleKind": "title",
+  "trophy": {
+   "mvp": {
+    "unit": "SINGULARITY SAGE",
+    "kills": 13,
+    "name": "NYRA THE MAD",
+    "title": "GIANT SLAYER"
+   },
+   "fight": 60,
+   "left": 6,
+   "titles": [
+    "GIANT SLAYER",
+    "GIANT SLAYER",
+    "ACID LEVIATHAN SLAYER",
+    "SPIDER QUEEN SLAYER",
+    "GIANT SLAYER"
+   ],
+   "mutations": [
+    "spikes",
+    "swift"
+   ],
+   "moments": []
+  },
+  "skins": [
+   null,
+   null,
+   "TOXIC"
+  ],
+  "combat": true,
+  "balance": [
+   0.884,
+   1.332,
+   0.783
+  ],
+  "tribes": [
+   {
+    "name": "THORNHEART CIRCLE",
+    "team": 0,
+    "kills": 50,
+    "wt": 4,
+    "at": 4
+   },
+   {
+    "name": "MIRE WITCH COVEN",
+    "team": 1,
+    "kills": 15,
+    "wt": 3,
+    "at": 3
+   },
+   {
+    "name": "VORTEX LEGION",
+    "team": 2,
+    "kills": 48,
+    "wt": 3,
+    "at": 3
+   }
+  ],
+  "winTeam": 0,
+  "story": "stake",
+  "chron": [
+   "THE THORNHEART CIRCLE TAKE THE CANYON PASS",
+   "3 WINS IN A ROW · 50 KILLS"
+  ],
+  "economy": {
+   "forges": 16,
+   "trades": 0,
+   "merchant": "HOLY CORE"
+  },
+  "seconds": 66.67,
+  "units": [
+   "spiderqueen",
+   "golem",
+   "magmacolossus",
+   "crystalqueen",
+   "juggernaut",
+   "longbow",
+   "singularity",
+   "giant",
+   "glaciergiant",
+   "livingfortress",
+   "mirrorknight",
+   "rhino",
+   "ogre",
+   "medicdrone",
+   "beekeeper",
+   "gravitytyrant",
+   "acidwyrm",
+   "cyclops",
+   "griffin",
+   "gargoyle",
+   "royalguard"
+  ],
+  "views": 9,
+  "likes": 0,
+  "comments": 0,
+  "secs": 67,
+  "published": "2026-11-13T12:46:51Z"
+ },
+ {
+  "id": "YB7Y00WsOuU",
+  "date": "2026-11-13 10:51",
+  "title": "The BIGGEST Comeback I've Seen 😱",
+  "seed": 1944863426,
+  "slot": 1052,
+  "era": "wild",
+  "map": "moon",
+  "teams": [
+   "SWEDEN",
+   "FINLAND"
+  ],
+  "armies": [
+   "WEREWOLVES",
+   "KNIGHTS"
+  ],
+  "formations": [
+   "columns",
+   "block"
+  ],
+  "troops": [],
+  "hook": "The BIGGEST Comeback I've Seen 😱",
+  "winner": "SWEDEN WINS",
+  "clickbait": true,
+  "cinematic": true,
+  "titleKind": "clickbait",
+  "trophy": {
+   "mvp": {
+    "unit": "ANCIENT TITAN",
+    "kills": 27
+   },
+   "fight": 58.3,
+   "wipeout": true,
+   "left": 8,
+   "titles": [
+    "ACID LEVIATHAN SLAYER",
+    "CYCLOPS SLAYER"
+   ],
+   "mutations": [
+    "spikes",
+    "vampiric"
+   ],
+   "moments": [
+    "portal:troll"
+   ]
+  },
+  "skins": [
+   "TOXIC",
+   "GHOST"
+  ],
+  "combat": true,
+  "balKey": "WEREWOLVES|KNIGHTS|classic",
+  "tuned": 1.988,
+  "balance": 1.988,
+  "tribes": [
+   {
+    "name": "GHOUL HOLLOW COVEN",
+    "team": 0,
+    "kills": 97,
+    "wt": 4,
+    "at": 4
+   },
+   {
+    "name": "THE SILENT MILE",
+    "team": 0,
+    "kills": 18,
+    "wt": 3,
+    "at": 3
+   },
+   {
+    "name": "ASH WOLF CLAN",
+    "team": 1,
+    "kills": 17,
+    "wt": 3,
+    "at": 3
+   },
+   {
+    "name": "FROSTMERE CLAN",
+    "team": 1,
+    "kills": 21,
+    "wt": 4,
+    "at": 4
+   }
+  ],
+  "winTeam": 0,
+  "story": "revenge",
+  "chron": [
+   "THE GHOUL HOLLOW COVEN TAKE THE REACTOR",
+   "REVENGE DENIED · 5 WINS IN A ROW · 97 KILLS"
+  ],
+  "economy": {
+   "forges": 24,
+   "trades": 6,
+   "merchant": "STORM CORE"
+  },
+  "seconds": 68.03,
+  "units": [
+   "titan",
+   "bonecolossus",
+   "magmacolossus",
+   "vampire",
+   "werewolf",
+   "rhino",
+   "goliath",
+   "giant",
+   "stormcolossus",
+   "cyclops",
+   "acidwyrm",
+   "knight",
+   "demon",
+   "soldier"
+  ],
+  "views": 10,
+  "likes": 0,
+  "comments": 0,
+  "secs": 69,
+  "published": "2026-11-13T10:53:13Z"
+ },
+ {
+  "id": "d7ifDc99AJ8",
+  "date": "2026-11-13 08:47",
+  "title": "They Got INCENDIARY Rounds and WON 🔥",
+  "seed": 1509397559,
+  "slot": 1051,
+  "era": "wild",
+  "map": "beach",
+  "teams": [
+   "MAGENTA",
+   "GOLD"
+  ],
+  "armies": [
+   "SAND JETPACKS",
+   "WILD DRONES"
+  ],
+  "formations": [
+   "wedge",
+   "line"
+  ],
+  "troops": [],
+  "hook": "They Got INCENDIARY Rounds and WON 🔥",
+  "winner": "GOLD WINS",
+  "wild": true,
+  "sides": [
+   {
+    "name": "SAND JETPACKS",
+    "mix": {
+     "jetpack": 0.58,
+     "tesla": 0.42
+    },
+    "heavy": [
+     "hourglass"
+    ],
+    "base": "jetpack"
+   },
+   {
+    "name": "WILD DRONES",
+    "mix": {
+     "drone": 0.52,
+     "griffin": 0.34,
+     "gunslinger": 0.15
+    },
+    "heavy": [
+     "balloon"
+    ],
+    "base": "drone"
+   }
+  ],
+  "cinematic": true,
+  "titleKind": "title",
+  "trophy": {
+   "mvp": {
+    "unit": "GRIFFIN RIDER",
+    "kills": 6,
+    "title": "TITAN SLAYER"
+   },
+   "fight": 54,
+   "wipeout": true,
+   "left": 13,
+   "titles": [
+    "BALLOON BOMBER SLAYER",
+    "ACID LEVIATHAN SLAYER",
+    "ACID LEVIATHAN SLAYER",
+    "CYCLOPS SLAYER",
+    "TITAN SLAYER"
+   ],
+   "moments": []
+  },
+  "mode": "hill",
+  "combat": true,
+  "tuned": 1.773,
+  "balance": 1.773,
+  "tribes": [
+   {
+    "name": "HOLLOWBARK KIN",
+    "team": 0,
+    "kills": 23,
+    "wt": 4,
+    "at": 4
+   },
+   {
+    "name": "MOUNTAIN WIND SCHOOL",
+    "team": 0,
+    "kills": 33,
+    "wt": 3,
+    "at": 3
+   },
+   {
+    "name": "MIRE WITCH COVEN",
+    "team": 1,
+    "kills": 20,
+    "wt": 4,
+    "at": 4
+   },
+   {
+    "name": "KESTREL SQUADRON",
+    "team": 1,
+    "kills": 22,
+    "wt": 3,
+    "at": 3
+   }
+  ],
+  "winTeam": 1,
+  "story": "revenge",
+  "chron": [
+   "THE KESTREL SQUADRON TAKE THE TREASURE COVE",
+   "REVENGE DENIED · 6TH WIN · 22 KILLS"
+  ],
+  "economy": {
+   "forges": 24,
+   "trades": 2,
+   "merchant": "FLAME CORE"
+  },
+  "seconds": 64.53,
+  "units": [
+   "hourglass",
+   "stormcolossus",
+   "acidwyrm",
+   "cyclops",
+   "demon",
+   "ogre",
+   "jetpack",
+   "tesla",
+   "balloon",
+   "hydra",
+   "glaciergiant",
+   "siegegolem",
+   "griffin",
+   "goliath",
+   "troll",
+   "drone"
+  ],
+  "views": 5,
+  "likes": 0,
+  "comments": 0,
+  "secs": 65,
+  "published": "2026-11-13T08:48:07Z"
+ },
+ {
+  "id": "t-KctgT58JM",
+  "date": "2026-11-13 07:24",
+  "title": "🇦🇷 Argentina Dwarves vs Brazil Orc Horde",
+  "seed": 1065157982,
+  "slot": 1050,
+  "era": "fantasy",
+  "map": "open",
+  "teams": [
+   "ARGENTINA",
+   "BRAZIL"
+  ],
+  "armies": [
+   "DWARVES",
+   "WARBAND"
+  ],
+  "formations": [
+   "line",
+   "columns"
+  ],
+  "troops": [],
+  "hook": "🇦🇷 Argentina Dwarves vs Brazil Orc Horde",
+  "winner": "BRAZIL WINS",
+  "cinematic": true,
+  "titleKind": "title",
+  "trophy": {
+   "mvp": {
+    "unit": "MAGMA COLOSSUS",
+    "kills": 11
+   },
+   "fight": 56.4,
+   "wipeout": true,
+   "left": 8,
+   "titles": [
+    "IRONHORN SLAYER",
+    "CANNON SLAYER"
+   ],
+   "mutations": [
+    "swift"
+   ],
+   "moments": []
+  },
+  "skins": [
+   "NEON",
+   "FROST"
+  ],
+  "combat": true,
+  "balKey": "DWARVES|WARBAND|classic",
+  "tuned": 0.632,
+  "balance": 0.643,
+  "tribes": [
+   {
+    "name": "FROSTWHISPER TRIBE",
+    "team": 0,
+    "kills": 25,
+    "wt": 3,
+    "at": 3
+   },
+   {
+    "name": "DUSKWING TRIBE",
+    "team": 0,
+    "kills": 11,
+    "wt": 3,
+    "at": 3
+   },
+   {
+    "name": "THORNHEART CIRCLE",
+    "team": 1,
+    "kills": 56,
+    "wt": 4,
+    "at": 4
+   },
+   {
+    "name": "SUNSPIRE KIN",
+    "team": 1,
+    "kills": 4,
+    "wt": 2,
+    "at": 2
+   }
+  ],
+  "winTeam": 1,
+  "story": "revenge",
+  "chron": [
+   "THE THORNHEART CIRCLE TAKE THE OPEN PLAINS",
+   "12TH WIN · 56 KILLS"
+  ],
+  "economy": {
+   "forges": 22,
+   "trades": 2,
+   "merchant": "FROST CORE"
+  },
+  "seconds": 66.4,
+  "units": [
+   "cannon",
+   "hydra",
+   "mammoth",
+   "siegegolem",
+   "ironhorn",
+   "dwarf",
+   "treant",
+   "goliath",
+   "engineer",
+   "crossbowman",
+   "stareater",
+   "giant",
+   "magmacolossus",
+   "glaciergiant",
+   "orc",
+   "wolfrider",
+   "boarrider",
+   "troll",
+   "minotaur"
+  ],
+  "views": 11,
+  "likes": 1,
+  "comments": 0,
+  "secs": 67,
+  "published": "2026-11-13T07:25:42Z"
+ },
+ {
   "id": "d6jL6uzE5FY",
   "date": "2026-11-13 05:12",
   "title": "They Were ALMOST Wiped Out... 😱",
@@ -121,7 +1498,7 @@
    "boarrider",
    "minotaur"
   ],
-  "views": 0,
+  "views": 23,
   "likes": 0,
   "comments": 0,
   "secs": 67,
@@ -239,7 +1616,7 @@
    "minotaur",
    "imp"
   ],
-  "views": 1,
+  "views": 13,
   "likes": 0,
   "comments": 0,
   "secs": 65,
@@ -370,7 +1747,7 @@
    "treant",
    "bard"
   ],
-  "views": 1,
+  "views": 8,
   "likes": 0,
   "comments": 0,
   "secs": 66,
@@ -487,7 +1864,7 @@
    "lancer",
    "pikeman"
   ],
-  "views": 1,
+  "views": 3,
   "likes": 0,
   "comments": 0,
   "secs": 69,
@@ -642,7 +2019,7 @@
    "warmaster",
    "pyro"
   ],
-  "views": 0,
+  "views": 1,
   "likes": 0,
   "comments": 0,
   "secs": 70,
@@ -755,7 +2132,7 @@
    "paladin",
    "troll"
   ],
-  "views": 4,
+  "views": 16,
   "likes": 0,
   "comments": 0,
   "secs": 67,
@@ -894,7 +2271,7 @@
    "ogre",
    "minotaur"
   ],
-  "views": 1,
+  "views": 4,
   "likes": 0,
   "comments": 0,
   "secs": 66,
@@ -1020,7 +2397,7 @@
    "demon",
    "ogre"
   ],
-  "views": 12,
+  "views": 16,
   "likes": 0,
   "comments": 0,
   "secs": 70,
@@ -1143,7 +2520,7 @@
    "juggernaut",
    "wisp"
   ],
-  "views": 7,
+  "views": 22,
   "likes": 0,
   "comments": 0,
   "secs": 68,
@@ -1251,7 +2628,7 @@
    "siegegolem",
    "treant"
   ],
-  "views": 9,
+  "views": 15,
   "likes": 0,
   "comments": 0,
   "secs": 67,
@@ -1392,7 +2769,7 @@
    "drone",
    "bastion"
   ],
-  "views": 6,
+  "views": 10,
   "likes": 0,
   "comments": 0,
   "secs": 66,
@@ -1502,7 +2879,7 @@
    "ninja",
    "king"
   ],
-  "views": 15,
+  "views": 16,
   "likes": 0,
   "comments": 0,
   "secs": 65,
@@ -1769,7 +3146,7 @@
    "goliath",
    "spearman"
   ],
-  "views": 5,
+  "views": 11,
   "likes": 0,
   "comments": 0,
   "secs": 69,
@@ -2272,7 +3649,7 @@
    "zerog",
    "king"
   ],
-  "views": 25,
+  "views": 34,
   "likes": 0,
   "comments": 0,
   "secs": 63,
@@ -2406,7 +3783,7 @@
    "horsearcher",
    "zerog"
   ],
-  "views": 5,
+  "views": 9,
   "likes": 0,
   "comments": 0,
   "secs": 67,
@@ -2523,7 +3900,7 @@
    "troll",
    "ogre"
   ],
-  "views": 11,
+  "views": 16,
   "likes": 0,
   "comments": 0,
   "secs": 66,
@@ -2666,7 +4043,7 @@
    "mr3d",
    "juggernaut"
   ],
-  "views": 45,
+  "views": 63,
   "likes": 1,
   "comments": 0,
   "secs": 67,
@@ -2781,7 +4158,7 @@
    "troll",
    "soldier"
   ],
-  "views": 12,
+  "views": 14,
   "likes": 0,
   "comments": 0,
   "secs": 65,
@@ -2916,7 +4293,7 @@
    "troll",
    "pyro"
   ],
-  "views": 6,
+  "views": 8,
   "likes": 0,
   "comments": 0,
   "secs": 67,
@@ -3035,7 +4412,7 @@
    "sniper",
    "king"
   ],
-  "views": 15,
+  "views": 20,
   "likes": 0,
   "comments": 0,
   "secs": 64,
@@ -3263,7 +4640,7 @@
    "juggernaut",
    "archer"
   ],
-  "views": 31,
+  "views": 38,
   "likes": 0,
   "comments": 0,
   "secs": 68,
@@ -3393,7 +4770,7 @@
    "trapmaster",
    "shaman"
   ],
-  "views": 10,
+  "views": 13,
   "likes": 0,
   "comments": 0,
   "secs": 68,
@@ -3508,7 +4885,7 @@
    "soldier",
    "archer"
   ],
-  "views": 2,
+  "views": 3,
   "likes": 0,
   "comments": 0,
   "secs": 67,
@@ -3664,7 +5041,7 @@
    "timetraveller",
    "builder"
   ],
-  "views": 7,
+  "views": 8,
   "likes": 0,
   "comments": 0,
   "secs": 69,
@@ -3782,7 +5159,7 @@
    "musketeer",
    "king"
   ],
-  "views": 3,
+  "views": 4,
   "likes": 0,
   "comments": 0,
   "secs": 67,
@@ -3917,7 +5294,7 @@
    "rhino",
    "king"
   ],
-  "views": 74,
+  "views": 84,
   "likes": 0,
   "comments": 0,
   "secs": 68,
@@ -4161,7 +5538,7 @@
    "minotaur",
    "engineer"
   ],
-  "views": 4,
+  "views": 6,
   "likes": 0,
   "comments": 0,
   "secs": 68,
@@ -4279,7 +5656,7 @@
    "crossbowman",
    "archer"
   ],
-  "views": 10,
+  "views": 11,
   "likes": 1,
   "comments": 0,
   "secs": 62,
@@ -4416,7 +5793,7 @@
    "sumo",
    "treant"
   ],
-  "views": 17,
+  "views": 19,
   "likes": 0,
   "comments": 0,
   "secs": 69,
@@ -4647,7 +6024,7 @@
    "ogre",
    "zombie"
   ],
-  "views": 15,
+  "views": 14,
   "likes": 2,
   "comments": 0,
   "secs": 67,
@@ -4768,7 +6145,7 @@
    "yeti",
    "zombie"
   ],
-  "views": 3,
+  "views": 2,
   "likes": 0,
   "comments": 0,
   "secs": 64,
@@ -4898,7 +6275,7 @@
    "orbitknight",
    "pyro"
   ],
-  "views": 13,
+  "views": 12,
   "likes": 0,
   "comments": 0,
   "secs": 67,
@@ -5132,7 +6509,7 @@
    "berserker",
    "troll"
   ],
-  "views": 4,
+  "views": 5,
   "likes": 0,
   "comments": 0,
   "secs": 67,
@@ -5336,7 +6713,7 @@
    "rifleman",
    "grenadier"
   ],
-  "views": 11,
+  "views": 8,
   "likes": 0,
   "comments": 0,
   "secs": 67,
@@ -5474,7 +6851,7 @@
    "pyro",
    "medicdrone"
   ],
-  "views": 16,
+  "views": 14,
   "likes": 1,
   "comments": 0,
   "secs": 67,
@@ -5575,7 +6952,7 @@
    "ninja",
    "archer"
   ],
-  "views": 11,
+  "views": 9,
   "likes": 0,
   "comments": 0,
   "secs": 65,
@@ -5693,7 +7070,7 @@
    "shadowninja",
    "axethrower"
   ],
-  "views": 5,
+  "views": 3,
   "likes": 0,
   "comments": 0,
   "secs": 67,
@@ -5795,7 +7172,7 @@
    "grenadier",
    "tank"
   ],
-  "views": 69,
+  "views": 74,
   "likes": 0,
   "comments": 0,
   "secs": 60,
@@ -5998,7 +7375,7 @@
    "skeleton",
    "wizard"
   ],
-  "views": 11,
+  "views": 10,
   "likes": 0,
   "comments": 0,
   "secs": 67,
@@ -6126,7 +7503,7 @@
    "pulsar",
    "trapmaster"
   ],
-  "views": 24,
+  "views": 22,
   "likes": 0,
   "comments": 0,
   "secs": 68,
