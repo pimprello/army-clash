@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-14 03:09 | 157 Knights vs a HYDRA Army 🐍 | Lime wins | https://youtube.com/shorts/Vifte2yTHH4 |
 | 2026-11-14 01:09 | Then the Lights Went OUT 🌑 | Belgium wins | https://youtube.com/shorts/wb86KqAKe_A |
 | 2026-11-13 22:34 | 🇮🇹 Italy Jetpacks vs Germany Gunners | Germany wins | https://youtube.com/shorts/ArNHKJetQVk |
 | 2026-11-13 20:41 | Their Glacier Behemoth Rose From the GRAVE 🪦 | Crimson wins | https://youtube.com/shorts/J_rugHqtt-o |
