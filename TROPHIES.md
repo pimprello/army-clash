@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 542 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 543 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -71,12 +71,12 @@ Records from 542 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - SIEGE GOLEM SLAYER: 8
 - FORTRESS SLAYER: 10
 - MECH SLAYER: 10
-- STAR EATER SLAYER: 10
+- STAR EATER SLAYER: 11
 - IRONHORN SLAYER: 13
 - CANNON SLAYER: 14
 - PLAYER SLAYER: 14
-- ACID LEVIATHAN SLAYER: 14
 - HYDRA SLAYER: 15
+- ACID LEVIATHAN SLAYER: 15
 - SPIDER QUEEN SLAYER: 15
 - TANK SLAYER: 16
 - STORM COLOSSUS SLAYER: 16
@@ -97,7 +97,7 @@ Records from 542 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - venom: 86
 - swift: 90
 - spikes: 99
-- regen: 110
+- regen: 111
 
 ## Big moments
 
@@ -140,8 +140,8 @@ Records from 542 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - sudden: boss: 17
 - sudden: ring: 19
 - portal: troll: 21
-- sudden: lava: 24
 - sudden: meteors: 25
+- sudden: lava: 25
 
 ## The tribes' chronicle
 
@@ -183,6 +183,7 @@ Records from 542 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-14 16:37: The Black Candle Take the City (streak ended · 6th win · 58 kills)
 - 2026-11-14 14:38: The Bilgewater Crew Take the Swamp Shrine (streak ended · 3rd win · 85 kills)
 - 2026-11-14 12:42: The Badger Platoon Take the Canyon Pass (7th win · 46 kills)
 - 2026-11-14 10:33: The Stormhorn Tribe Take the Godboard (revenge denied · 9th win · 59 kills)
@@ -192,4 +193,3 @@ Records from 542 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-14 03:09: The Order of the Silver Stag Take the Old Forest (10th win · 45 kills)
 - 2026-11-14 01:09: The Zenith Cohort Take the Haunted Crypt (revenge! · 3 wins in a row · 44 kills)
 - 2026-11-13 22:34: The Thunder Platoon Take the Open Plains (revenge denied · 3 wins in a row · 33 kills)
-- 2026-11-13 20:41: The Vortex Legion Take the Canyon Pass (6th win · 43 kills)
