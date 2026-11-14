@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 543 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 544 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 543 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **BRAMBLE THE SWIFT** (MINOTAUR), 25 kills · 2026-11-14 18:52
 - **ASHKA IRONHIDE** (BOAR RIDER), 21 kills · 2026-11-14 10:33
 - **ORLOK THE WALL** (JUGGERNAUT), 11 kills · 2026-11-14 08:53
 - **SIRA THE BOLD** (SUN KING), 18 kills · 2026-11-14 01:09
@@ -47,7 +48,6 @@ Records from 543 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **OSKA NIGHTFANG** (DEMON), 12 kills · 2026-11-10 11:19
 - **ASHKA STORMBORN** (WIZARD), 10 kills · 2026-11-09 06:51
 - **KAELEN THE MAD** (KNIGHT), 10 kills · 2026-11-09 00:08
-- **VEXA THE UNBROKEN** (JUGGERNAUT), 12 kills · 2026-11-08 22:23
 
 ## Titles earned (rarest first)
 
@@ -71,14 +71,14 @@ Records from 543 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - SIEGE GOLEM SLAYER: 8
 - FORTRESS SLAYER: 10
 - MECH SLAYER: 10
-- STAR EATER SLAYER: 11
+- STAR EATER SLAYER: 12
 - IRONHORN SLAYER: 13
 - CANNON SLAYER: 14
 - PLAYER SLAYER: 14
-- HYDRA SLAYER: 15
 - ACID LEVIATHAN SLAYER: 15
 - SPIDER QUEEN SLAYER: 15
 - TANK SLAYER: 16
+- HYDRA SLAYER: 16
 - STORM COLOSSUS SLAYER: 16
 - COLOSSUS SLAYER: 20
 - CYCLOPS SLAYER: 22
@@ -86,7 +86,7 @@ Records from 543 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - DRAGON SLAYER: 26
 - MAMMOTH SLAYER: 29
 - GOLEM SLAYER: 32
-- GIANT SLAYER: 37
+- GIANT SLAYER: 38
 - TITAN SLAYER: 38
 
 ## Mutations (rarest first)
@@ -97,7 +97,7 @@ Records from 543 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - venom: 86
 - swift: 90
 - spikes: 99
-- regen: 111
+- regen: 112
 
 ## Big moments
 
@@ -150,16 +150,16 @@ Records from 543 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 26 | 17 | 9 | 1052 | 1 won | 7 |
-| Red Hawk Company | 25 | 16 | 9 | 921 | 1 won | 5 |
+| Red Hawk Company | 26 | 16 | 10 | 972 | 1 lost | 5 |
 | Frostwhisper Tribe | 26 | 14 | 12 | 1112 | 1 lost | 4 |
 | Thornheart Circle | 16 | 13 | 3 | 897 | 3 won | 6 |
 | Silverbough Circle | 31 | 12 | 19 | 1508 | 3 lost | 3 |
+| Copper Crown Company | 20 | 12 | 8 | 925 | 4 won | 4 |
 | Oakshield Clan | 19 | 12 | 7 | 787 | 2 lost | 6 |
+| Order of the Silver Stag | 26 | 11 | 15 | 1083 | 2 won | 3 |
 | Wildbrook Clan | 28 | 11 | 17 | 967 | 1 won | 2 |
 | Frostmere Clan | 27 | 11 | 16 | 883 | 3 lost | 3 |
-| Copper Crown Company | 19 | 11 | 8 | 852 | 3 won | 3 |
 | Glimmerdeep Kin | 19 | 11 | 8 | 673 | 2 lost | 6 |
-| Order of the Silver Stag | 25 | 10 | 15 | 1080 | 1 won | 3 |
 | Starweave Circle | 25 | 10 | 15 | 965 | 1 lost | 5 |
 | Greyfang Clan | 29 | 10 | 19 | 781 | 1 lost | 5 |
 | Brightwater Tribe | 21 | 10 | 11 | 675 | 3 won | 3 |
@@ -183,6 +183,7 @@ Records from 543 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-14 18:52: The Copper Crown Company Take the Quarry (revenge denied · 4 wins in a row · 73 kills)
 - 2026-11-14 16:37: The Black Candle Take the City (streak ended · 6th win · 58 kills)
 - 2026-11-14 14:38: The Bilgewater Crew Take the Swamp Shrine (streak ended · 3rd win · 85 kills)
 - 2026-11-14 12:42: The Badger Platoon Take the Canyon Pass (7th win · 46 kills)
@@ -192,4 +193,3 @@ Records from 543 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-14 05:06: The Vector Cohort Take the Canyon Pass (3 wins in a row · 49 kills)
 - 2026-11-14 03:09: The Order of the Silver Stag Take the Old Forest (10th win · 45 kills)
 - 2026-11-14 01:09: The Zenith Cohort Take the Haunted Crypt (revenge! · 3 wins in a row · 44 kills)
-- 2026-11-13 22:34: The Thunder Platoon Take the Open Plains (revenge denied · 3 wins in a row · 33 kills)
