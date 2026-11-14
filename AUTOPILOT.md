@@ -26,9 +26,12 @@ Make at most three changes, each small and easy to undo. Pick in this order.
 - Shift weights toward winners: `teamPairs` weights, `modes.shares`, and the position or repetition of line-ups in `matchups` (repeat a strong line-up at most twice in the list). Change any single weight by at most 25% a day. Never drop a group to zero. Keep at least a third of the weight on anything that isn't the current winner, so the channel keeps exploring.
 - Write the numbers you used into the changelog entry.
 
-**B. Add one new thing** — pick the kind using the rule below, then be inventive with the actual content.
+**B. Add one new thing** — first write your own creative brief, then build it.
 
-**How to pick today's kind:**
+**Step 1: Generate today's creative prompt.**
+Before picking anything, write a short brief for yourself (3–5 sentences) that answers: *What would genuinely surprise a viewer who has seen the last 10 videos? What theme, mechanic or visual hasn't been done recently? What's the most exciting thing I could add today?* Read the last 10 entries of `CHANGELOG.md` and `stats/summary.md` to inform this. Write the brief at the top of your changelog entry under the heading **"Today's idea:"** — it's the pitch, not just a category name. Then build exactly what the brief describes.
+
+**Step 2: Let the date and your brief guide the kind.**
 
 First, check the date for a seasonal event — if one matches, that overrides everything:
 - **Dec 20–26 (Christmas):** add or improve Christmas-themed content — a snow/winter night map variant, elf or toy-soldier troops, present airdrop, festive colours, snowstorm world event, or a "Santa's Workshop" map.
