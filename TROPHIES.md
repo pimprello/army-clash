@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 545 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 546 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 545 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **ORLOK THE WALL** (JUGGERNAUT), 30 kills · 2026-11-14 22:35
 - **BRAMBLE THE SWIFT** (MINOTAUR), 25 kills · 2026-11-14 18:52
 - **ASHKA IRONHIDE** (BOAR RIDER), 21 kills · 2026-11-14 10:33
 - **ORLOK THE WALL** (JUGGERNAUT), 11 kills · 2026-11-14 08:53
@@ -47,7 +48,6 @@ Records from 545 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **ASHKA THE BOLD** (OGRE), 16 kills · 2026-11-11 04:45
 - **OSKA NIGHTFANG** (DEMON), 12 kills · 2026-11-10 11:19
 - **ASHKA STORMBORN** (WIZARD), 10 kills · 2026-11-09 06:51
-- **KAELEN THE MAD** (KNIGHT), 10 kills · 2026-11-09 00:08
 
 ## Titles earned (rarest first)
 
@@ -77,9 +77,9 @@ Records from 545 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PLAYER SLAYER: 14
 - ACID LEVIATHAN SLAYER: 15
 - TANK SLAYER: 16
-- HYDRA SLAYER: 16
-- STORM COLOSSUS SLAYER: 16
-- SPIDER QUEEN SLAYER: 16
+- HYDRA SLAYER: 17
+- STORM COLOSSUS SLAYER: 17
+- SPIDER QUEEN SLAYER: 17
 - COLOSSUS SLAYER: 20
 - CYCLOPS SLAYER: 24
 - ELEPHANT SLAYER: 25
@@ -96,7 +96,7 @@ Records from 545 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 47
 - venom: 86
 - swift: 90
-- spikes: 100
+- spikes: 101
 - regen: 112
 
 ## Big moments
@@ -150,7 +150,7 @@ Records from 545 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 26 | 17 | 9 | 1052 | 1 won | 7 |
-| Red Hawk Company | 26 | 16 | 10 | 972 | 1 lost | 5 |
+| Red Hawk Company | 27 | 16 | 11 | 996 | 2 lost | 5 |
 | Frostwhisper Tribe | 26 | 14 | 12 | 1112 | 1 lost | 4 |
 | Thornheart Circle | 16 | 13 | 3 | 897 | 3 won | 6 |
 | Silverbough Circle | 31 | 12 | 19 | 1508 | 3 lost | 3 |
@@ -183,6 +183,7 @@ Records from 545 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-14 22:35: The Stonewall Company Take the Trench Line (7th win · 85 kills)
 - 2026-11-14 20:28: The Black Bear Clan Take the Canyon Pass (9th win · 46 kills)
 - 2026-11-14 18:52: The Copper Crown Company Take the Quarry (revenge denied · 4 wins in a row · 73 kills)
 - 2026-11-14 16:37: The Black Candle Take the City (streak ended · 6th win · 58 kills)
@@ -192,4 +193,3 @@ Records from 545 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-14 08:53: The Grave Lantern Coven Take the Quarry (revenge! · 5th win · 67 kills)
 - 2026-11-14 06:55: The Brightwater Tribe Take the Frozen End (3 wins in a row · 33 kills)
 - 2026-11-14 05:06: The Vector Cohort Take the Canyon Pass (3 wins in a row · 49 kills)
-- 2026-11-14 03:09: The Order of the Silver Stag Take the Old Forest (10th win · 45 kills)
