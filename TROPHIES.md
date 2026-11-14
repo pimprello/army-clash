@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 537 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 538 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -66,14 +66,14 @@ Records from 537 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - MIRROR KING SLAYER: 7
 - UNMAKER SLAYER: 7
 - STORM EMPEROR SLAYER: 7
-- SIEGE GOLEM SLAYER: 7
 - IMMORTAL FRAUD SLAYER: 8
 - PHOENIX SLAYER: 8
-- IRONHORN SLAYER: 9
+- SIEGE GOLEM SLAYER: 8
 - FORTRESS SLAYER: 10
 - MECH SLAYER: 10
 - STAR EATER SLAYER: 10
-- ACID LEVIATHAN SLAYER: 11
+- IRONHORN SLAYER: 10
+- ACID LEVIATHAN SLAYER: 12
 - HYDRA SLAYER: 14
 - CANNON SLAYER: 14
 - PLAYER SLAYER: 14
@@ -81,8 +81,8 @@ Records from 537 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - STORM COLOSSUS SLAYER: 15
 - TANK SLAYER: 16
 - COLOSSUS SLAYER: 20
-- CYCLOPS SLAYER: 20
-- ELEPHANT SLAYER: 21
+- CYCLOPS SLAYER: 21
+- ELEPHANT SLAYER: 22
 - DRAGON SLAYER: 26
 - MAMMOTH SLAYER: 29
 - GOLEM SLAYER: 32
@@ -92,7 +92,7 @@ Records from 537 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Mutations (rarest first)
 
 - vampiric: 11
-- wings: 42
+- wings: 43
 - spellward: 47
 - venom: 84
 - swift: 89
@@ -162,11 +162,11 @@ Records from 537 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Order of the Silver Stag | 25 | 10 | 15 | 1080 | 1 won | 3 |
 | Starweave Circle | 25 | 10 | 15 | 965 | 1 lost | 5 |
 | Greyfang Clan | 28 | 10 | 18 | 771 | 1 won | 5 |
+| Brightwater Tribe | 21 | 10 | 11 | 675 | 3 won | 3 |
 | Raven Hill Clan | 18 | 10 | 8 | 669 | 2 won | 5 |
 | Mire Witch Coven | 14 | 10 | 4 | 455 | 1 lost | 7 |
 | Thornwood Company | 14 | 10 | 4 | 427 | 2 lost | 9 |
 | Hollowbark Kin | 24 | 9 | 15 | 784 | 3 lost | 3 |
-| Brightwater Tribe | 20 | 9 | 11 | 642 | 2 won | 3 |
 | Emberroot Circle | 19 | 9 | 9 | 563 | 2 lost | 3 |
 | Highmoor Clan | 14 | 9 | 5 | 506 | 1 won | 7 |
 
@@ -183,6 +183,7 @@ Records from 537 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-14 06:55: The Brightwater Tribe Take the Frozen End (3 wins in a row · 33 kills)
 - 2026-11-14 05:06: The Vector Cohort Take the Canyon Pass (3 wins in a row · 49 kills)
 - 2026-11-14 03:09: The Order of the Silver Stag Take the Old Forest (10th win · 45 kills)
 - 2026-11-14 01:09: The Zenith Cohort Take the Haunted Crypt (revenge! · 3 wins in a row · 44 kills)
@@ -192,4 +193,3 @@ Records from 537 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-13 16:45: The Ashmantle Kin Take the Swamp Shrine (revenge denied · 5th win · 19 kills)
 - 2026-11-13 14:55: The Golden Lion Order Take the Castle (9th win · 26 kills)
 - 2026-11-13 12:45: The Thornheart Circle Take the Canyon Pass (3 wins in a row · 50 kills)
-- 2026-11-13 10:51: The Ghoul Hollow Coven Take the Reactor (revenge denied · 5 wins in a row · 97 kills)
