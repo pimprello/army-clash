@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 544 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 545 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -58,9 +58,9 @@ Records from 544 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - MAGMA COLOSSUS SLAYER: 4
 - CATHEDRAL SLAYER: 5
 - HELICOPTER SLAYER: 5
-- KNIGHT SLAYER: 5
 - WORLDROOT SLAYER: 5
 - GLACIER BEHEMOTH SLAYER: 5
+- KNIGHT SLAYER: 6
 - THOUSAND-MAN SLAYER: 6
 - EXECUTIONER SLAYER: 6
 - MIRROR KING SLAYER: 7
@@ -70,18 +70,18 @@ Records from 544 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PHOENIX SLAYER: 8
 - SIEGE GOLEM SLAYER: 8
 - FORTRESS SLAYER: 10
-- MECH SLAYER: 10
+- MECH SLAYER: 12
 - STAR EATER SLAYER: 12
 - IRONHORN SLAYER: 13
 - CANNON SLAYER: 14
 - PLAYER SLAYER: 14
 - ACID LEVIATHAN SLAYER: 15
-- SPIDER QUEEN SLAYER: 15
 - TANK SLAYER: 16
 - HYDRA SLAYER: 16
 - STORM COLOSSUS SLAYER: 16
+- SPIDER QUEEN SLAYER: 16
 - COLOSSUS SLAYER: 20
-- CYCLOPS SLAYER: 22
+- CYCLOPS SLAYER: 24
 - ELEPHANT SLAYER: 25
 - DRAGON SLAYER: 26
 - MAMMOTH SLAYER: 29
@@ -96,7 +96,7 @@ Records from 544 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 47
 - venom: 86
 - swift: 90
-- spikes: 99
+- spikes: 100
 - regen: 112
 
 ## Big moments
@@ -183,6 +183,7 @@ Records from 544 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-14 20:28: The Black Bear Clan Take the Canyon Pass (9th win · 46 kills)
 - 2026-11-14 18:52: The Copper Crown Company Take the Quarry (revenge denied · 4 wins in a row · 73 kills)
 - 2026-11-14 16:37: The Black Candle Take the City (streak ended · 6th win · 58 kills)
 - 2026-11-14 14:38: The Bilgewater Crew Take the Swamp Shrine (streak ended · 3rd win · 85 kills)
@@ -192,4 +193,3 @@ Records from 544 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-14 06:55: The Brightwater Tribe Take the Frozen End (3 wins in a row · 33 kills)
 - 2026-11-14 05:06: The Vector Cohort Take the Canyon Pass (3 wins in a row · 49 kills)
 - 2026-11-14 03:09: The Order of the Silver Stag Take the Old Forest (10th win · 45 kills)
-- 2026-11-14 01:09: The Zenith Cohort Take the Haunted Crypt (revenge! · 3 wins in a row · 44 kills)

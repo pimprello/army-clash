@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-14 20:28 | TOXIC PLAGUE vs Mech Sumos vs Holy Blinkers 🔥 | Yellow wins | https://youtube.com/shorts/ZlPouk5Na5U |
 | 2026-11-14 18:52 | Lava Archers vs Royal Archers 🪞 | Uk wins | https://youtube.com/shorts/_xHjBEUUxuU |
 | 2026-11-14 16:37 | Their Acid Leviathan Rose From the GRAVE 🪦 | Rose wins | https://youtube.com/shorts/xPBgvY8pj4E |
 | 2026-11-14 14:38 | 🇺🇸 USA vs Canada: WHO WINS? | Canada wins | https://youtube.com/shorts/iexhbOe4T1U |
