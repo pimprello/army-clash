@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 550 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 551 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -65,11 +65,11 @@ Records from 550 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - GLACIER BEHEMOTH SLAYER: 6
 - MIRROR KING SLAYER: 7
 - UNMAKER SLAYER: 7
-- STORM EMPEROR SLAYER: 7
 - IMMORTAL FRAUD SLAYER: 8
 - PHOENIX SLAYER: 8
-- SIEGE GOLEM SLAYER: 9
+- STORM EMPEROR SLAYER: 8
 - FORTRESS SLAYER: 10
+- SIEGE GOLEM SLAYER: 10
 - MECH SLAYER: 12
 - STAR EATER SLAYER: 12
 - IRONHORN SLAYER: 13
@@ -78,8 +78,8 @@ Records from 550 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - TANK SLAYER: 16
 - HYDRA SLAYER: 17
 - ACID LEVIATHAN SLAYER: 17
-- SPIDER QUEEN SLAYER: 17
 - STORM COLOSSUS SLAYER: 18
+- SPIDER QUEEN SLAYER: 18
 - COLOSSUS SLAYER: 20
 - CYCLOPS SLAYER: 24
 - ELEPHANT SLAYER: 26
@@ -137,7 +137,7 @@ Records from 550 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: golem: 10
 - fusion: 11
 - portal: wolfrider: 11
-- portal: demon: 16
+- portal: demon: 17
 - sudden: boss: 17
 - sudden: ring: 19
 - portal: troll: 21
@@ -161,13 +161,13 @@ Records from 550 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Wildbrook Clan | 29 | 11 | 18 | 981 | 1 lost | 2 |
 | Frostmere Clan | 27 | 11 | 16 | 883 | 3 lost | 3 |
 | Glimmerdeep Kin | 19 | 11 | 8 | 673 | 2 lost | 6 |
-| Starweave Circle | 25 | 10 | 15 | 965 | 1 lost | 5 |
+| Starweave Circle | 26 | 10 | 16 | 977 | 2 lost | 5 |
+| Hollowbark Kin | 26 | 10 | 16 | 842 | 1 won | 3 |
 | Greyfang Clan | 30 | 10 | 20 | 826 | 2 lost | 5 |
 | Brightwater Tribe | 21 | 10 | 11 | 675 | 3 won | 3 |
 | Raven Hill Clan | 18 | 10 | 8 | 669 | 2 won | 5 |
 | Mire Witch Coven | 14 | 10 | 4 | 455 | 1 lost | 7 |
 | Thornwood Company | 16 | 10 | 6 | 452 | 4 lost | 9 |
-| Hollowbark Kin | 25 | 9 | 16 | 822 | 4 lost | 3 |
 | Stormhorn Tribe | 15 | 9 | 6 | 720 | 2 won | 4 |
 | Harrier Squadron | 18 | 9 | 9 | 575 | 1 lost | 7 |
 
@@ -184,6 +184,7 @@ Records from 550 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-15 05:03: The Hollowbark Kin Take the Frozen End (10th win · 20 kills)
 - 2026-11-15 04:05: The Badger Platoon Take the Trench Line (8th win · 49 kills)
 - 2026-11-15 00:29: The Pulsar Wing Take the Open Plains (3 wins in a row · 33 kills)
 - 2026-11-14 23:46: The Crew of the Black Gull Take the Crystal Grove (revenge denied · 4th win · 55 kills)
@@ -193,4 +194,3 @@ Records from 550 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-14 18:52: The Copper Crown Company Take the Quarry (revenge denied · 4 wins in a row · 73 kills)
 - 2026-11-14 16:37: The Black Candle Take the City (streak ended · 6th win · 58 kills)
 - 2026-11-14 14:38: The Bilgewater Crew Take the Swamp Shrine (streak ended · 3rd win · 85 kills)
-- 2026-11-14 12:42: The Badger Platoon Take the Canyon Pass (7th win · 46 kills)
