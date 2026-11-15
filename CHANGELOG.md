@@ -2,6 +2,13 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-15 (Rellz's request, from the Tower Clash chat, for both games): electric face-off intro, better music
+
+Rellz: "add the better intro which is like a face off animated with electricity and do the same for army clash for music intro and other stuff".
+- **Electric face-off intro** (`faceoff.js`, shared with Tower Clash): replaces the still title card. Each army's hero sits in a big glossy ring on a band of its colour; the bands slam in from opposite sides, a lightning seam strikes between them (two seams in a 1v1v1) and VS slams onto it, arcs crackle round the rings and sparks fly off the seams (whoosh, thunder, zaps), then a white flash opens onto the battle. Looks and sound only.
+- **Better music** (`music.js`, the same file in both repos): every video gets its own two-bar hook on a lead instrument (brass, flute, square lead or synth by style), eight bars on and four off; wide detuned pads that breathe with the kick; staccato strings or an arpeggio; claps and four-on-the-floor for modern and sci-fi; a hall reverb and a ping-pong echo; a reversed swell and a sub boom into the drop; and the same loudness whatever the style.
+- Both channels now post at the same times, 10:00, 14:00, 18:00 and 22:00 London, 4 a day (Tower Clash moved to Army Clash's times; nothing changed here).
+
 ## 2026-11-15 (morning, Rellz's request): UI never jumps, in both games
 
 Rellz, with a screen recording of the "PURPLE: LAST 10" banner hopping up: "i said all ui should be smooth, it should never glitch or teleport like that and i mean that for all ui even in tower clash ... no glitch or teleporting ui for both games!"

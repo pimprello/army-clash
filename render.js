@@ -380,9 +380,25 @@ async function main() {
     const card = createCanvas(W * RS, H * RS), cc = card.getContext('2d'); cc.scale(RS, RS);
     game.drawThumb(cc, bg1, sides0, { tag: tag0 });
     const ease = x => 1 - Math.pow(1 - x, 3);
-    synth.play({ type: 'boom', gain: 0.8 }, 0.02);
-    synth.play({ type: 'whoosh' }, Math.max(0, IN_S - 0.35));
+    // two armies: the electric face-off (faceoff.js, shared with Tower Clash; Rellz 2026-11-15 "a face off animated with
+    // electricity"): each army's hero in a ring in its colour, a lightning seam between them, VS, then a flash into the battle
+    const FO = sides0.length >= 2 ? require('./faceoff.js') : null;
+    const foSides = FO ? sides0.map((sd, n) => {
+      const hero = game.thumbPicks(sd.list).hero, U = RVB.UNIT ? RVB.UNIT[hero] : null;
+      return { col: RVB.TEAMS[sd.team], name: sd.label, sub: sd.name, count: sd.count ? `×${sd.count}` : '',
+        portrait: hero ? FO.portraitCanvas((c, r) => { const ur = (U && U.r) || 14, sc = r * 0.7 / ur; c.translate(0, r * 0.04); c.scale(n % 2 ? -sc : sc, sc); game.drawPortrait(c, hero, sd.team); }, (three ? 145 : 200) * RS, 1) : null };
+    }) : null;
+    const fo = FO ? { W, H, RS, seed, dur: IN_S, title: 'ARMY CLASH', tag: tag0, question: 'WHO WINS?', sides: foSides, bg: bg1, battle0 } : null;
+    if (FO) FO.faceoffSounds(synth, IN_S);
+    else { synth.play({ type: 'boom', gain: 0.8 }, 0.02); synth.play({ type: 'whoosh' }, Math.max(0, IN_S - 0.35)); }
     for (let k = 0; k < INTRO_F; k++) {
+      if (FO) {
+        FO.drawFaceoff(ctx, k / FPS, fo);
+        if (k === 0 && muOn && MU.loop !== false) { firstCv = createCanvas(W * RS, H * RS); firstCv.getContext('2d').drawImage(canvas, 0, 0); }
+        if (process.env.INTRO_STILLS && [12, 60, 100, INTRO_F - 10].includes(k)) fs.writeFileSync(path.join(__dirname, 'out', `intro-${k}.png`), canvas.toBuffer('image/png'));
+        const frame = canvas.toBuffer('raw'); if (!enc.p.stdin.write(frame)) await once(enc.p.stdin, 'drain');
+        nFrames++; continue;
+      }
       const t = k / FPS, z = 1.04 - 0.04 * ease(Math.min(1, t / 0.5)) + 0.025 * Math.max(0, t - 0.5) / IN_S;
       ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.fillStyle = '#05070D'; ctx.fillRect(0, 0, W * RS, H * RS);
       ctx.save(); ctx.translate(W * RS / 2, H * RS / 2); ctx.scale(z, z); ctx.drawImage(card, -W * RS / 2, -H * RS / 2); ctx.restore();
@@ -395,7 +411,7 @@ async function main() {
       nFrames++;
     }
     if (mtr) mtr.frame(IN_S, game);
-    console.log(`Intro: ${IN_S.toFixed(2)} s title card`);
+    console.log(`Intro: ${IN_S.toFixed(2)} s electric face-off`);
   }
   for (let i = 0; i < MAXFRAMES; i++) {
     ctx.setTransform(RS, 0, 0, RS, 0, 0);
