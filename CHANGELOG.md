@@ -31,6 +31,8 @@ Rellz, with a screen recording of the "PURPLE: LAST 10" banner hopping up: "i sa
 - **New helper `glide()`** in `engine.js`: any value on screen eases to a new target over a few frames (video clock only, never the battle). The same fix is in Tower Clash's copy.
 - **Tested:** a frame-by-frame probe (every text's position on every frame of a full battle) before and after, plus stills around 8.6 s. Battles are unchanged (looks only).
 - Already-posted videos don't change; the next video has the fix.
+- **Follow-up, same morning:** `glide()` is now a damped spring, so a label that moves sets off gently instead of hopping its first few pixels; the camera's aim is eased in two stages, so a new shot starts moving from rest instead of jolting off at full speed (the camera only; battles unchanged, same result hash with and without drawing, layout check passed, the finale still centres the falling troop as before).
+- **Crash fixed:** the ground-ring helper for little people (`ring()`, added 2026-11-14) shared its name with the shrinking-arena event's data (`this.ring`), so a video with that event would crash when drawing. The helper is now `gRing()`, in both games' engines.
 
 ## 2026-11-15 (evening, Clash Autopilot + Rellz's live requests): an intro card, notices that never stack, two cross-era line-ups, new titles
 
