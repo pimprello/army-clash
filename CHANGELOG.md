@@ -2,6 +2,16 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-15 (morning, Rellz's request): UI never jumps, in both games
+
+Rellz, with a screen recording of the "PURPLE: LAST 10" banner hopping up: "i said all ui should be smooth, it should never glitch or teleport like that and i mean that for all ui even in tower clash ... no glitch or teleporting ui for both games!"
+
+- **The jump he saw:** while the roster strips are up (4 to 8.6 s), banners sit lower so they don't cover the top strip; at 8.6 s they snapped back up 80 px in one frame. Now banners glide down as the strips arrive and glide back up as they leave (`rosterK()`, eased over 0.4 s), so a banner on screen at that moment just drifts.
+- **Four more of my own:** the chapter pill at the bottom glides the same way instead of jumping; a banner that's replaced lifts away and fades in 0.3 s instead of vanishing in one frame; tactic tags that step clear of another tag, or are held inside the camera's view, glide there (`glide()`); troop names that have to make room (another name, a floating word) fade out and back in instead of blinking.
+- **New helper `glide()`** in `engine.js`: any value on screen eases to a new target over a few frames (video clock only, never the battle). The same fix is in Tower Clash's copy.
+- **Tested:** a frame-by-frame probe (every text's position on every frame of a full battle) before and after, plus stills around 8.6 s. Battles are unchanged (looks only).
+- Already-posted videos don't change; the next video has the fix.
+
 ## 2026-11-15 (evening, Clash Autopilot + Rellz's live requests): an intro card, notices that never stack, two cross-era line-ups, new titles
 
 Rellz, during today's run: "can you finish all steps (in army clash) so that army clash is complete", "when a notification comes it should not stack on top of each other and that goes for both games", and "make an intro for both games, instead of the video starting right in the battle it should be a bit like the thumbnail and should be a few seconds giving context about whats happening or who vs who".
