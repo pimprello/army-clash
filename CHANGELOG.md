@@ -12,6 +12,20 @@ Rellz: "make them hella good, make it way better", "don't stop anything, just ad
 - **Tested:** `rules.json` parses; the mode picker is a plain weighted roll, so only how often each mode comes up changes. Line-ups, maps and battles themselves are untouched.
 - **Rellz:** already-posted videos don't change. Tower Clash could not be changed from this session: its repo (`pimprello/tower-clash`) isn't attached to the session, so add it under the session's repositories if you want me to work on it. The shared "Clash Studio" upload, schedule and stats code is built and tested but kept on the session's disk until a repo exists for it.
 
+## 2026-11-15: logic fixes (things that didn't make sense on screen)
+
+Rellz: "fix every single logical issue one example is acid shouldn't be displayed over a tree".
+
+- Nothing on the ground covers a tree, a rock or a wall any more: acid, lava and frost pools, blood pools, bones, spell areas, event marks and fire all lie under the map's obstacles (`obsLayer`, drawn back on top of the ground effects). In Tower Clash the towers, pads and base are likewise drawn above them (`liveDecorTop`).
+- No blood pool for a troop that was dissolved by acid, burned, struck by lightning or swallowed by a crack (they leave bones, ash, a scorch mark or nothing).
+- Skeletons, bonelets, liches, death knights and the bone colossus fall apart into a pile of bones instead of a coloured mark.
+- A burned little person leaves a charred body lying down, and one falling into a crack is a shrinking figure, not a disc.
+- Flying little people (jetpacks, valkyries) hover above their shadow with their legs hanging instead of standing on the ground; a spider's web never pins a flying troop to the floor.
+- Health bars, names, callouts, the champion's crown, hearts, steam and other head-top marks sit above a little person's head instead of across it.
+- An ice block covers a frozen little person from head to feet.
+- No extra round contact shadow under little people (they cast their own); the guardian's hexagon lies at their feet.
+- Skeletons raised by the graveyard spell never stand inside a tree or a rock (pushed out of obstacles).
+
 ## 2026-11-14 (late): bones that stay, rings on the ground, coins that fly in nicely
 
 Rellz: "make every human become bones when they die and some other troops that makes sense also let the bones last longer ... also fix how the coins get given to the bottom it doesn't look nice when it comes from down under like that".
