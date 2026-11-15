@@ -4,7 +4,7 @@ Newest first. Each entry says what changed in the videos and why.
 
 ## 2026-11-14 (quality pass)
 
-Rellz: "make them hella good, make it way better", "don't stop anything, just add", "do everything without my permission". The upload schedule stays at 12 a day; nothing was switched off.
+Rellz: "make them hella good, make it way better", "don't stop anything, just add", "do everything without my permission". (Correction, 2026-11-15: the channel now posts 4 a day at 10:00, 14:00, 18:00 and 22:00 London time, as Rellz set it later that day; this entry said 12 because it was written before that change.) Nothing was switched off.
 
 - **Quality-first rules for every daily run** (`AUTOPILOT.md`, new section 0): judge each day's work by whether a stranger would stop scrolling and watch to the end. It covers the first 3 seconds, clean readable fights, heavy hits, true titles and thumbnails, one small tested improvement a day, and not over-reading tiny samples. Added only; no existing rule changed.
 - **Learned from views (first time it ran):** 49 videos a day old, median 12 views. "Protect the King" battles had a median of 20 views (5 videos) against 11 for classic (15 videos) and 9 for King of the Hill (7 videos). Following the playbook's limits (at most 25% per weight, nothing to zero, classic stays most common): `modes.shares.king` 1.5 → 1.875 (13.8% → 17.1% of videos) and `hill` 1.5 → 1.2 (13.8% → 10.9%). Classic stays the most common at 36.4%. The samples are small, so this is a light nudge that the next runs will re-check.
