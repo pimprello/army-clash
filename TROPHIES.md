@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 553 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 554 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -61,10 +61,10 @@ Records from 553 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - KNIGHT SLAYER: 6
 - THOUSAND-MAN SLAYER: 6
 - EXECUTIONER SLAYER: 6
-- MAGMA COLOSSUS SLAYER: 6
 - GLACIER BEHEMOTH SLAYER: 6
 - MIRROR KING SLAYER: 7
-- UNMAKER SLAYER: 7
+- MAGMA COLOSSUS SLAYER: 7
+- UNMAKER SLAYER: 8
 - IMMORTAL FRAUD SLAYER: 8
 - PHOENIX SLAYER: 8
 - STORM EMPEROR SLAYER: 8
@@ -85,7 +85,7 @@ Records from 553 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - ELEPHANT SLAYER: 26
 - DRAGON SLAYER: 26
 - MAMMOTH SLAYER: 30
-- GOLEM SLAYER: 33
+- GOLEM SLAYER: 34
 - GIANT SLAYER: 38
 - TITAN SLAYER: 39
 
@@ -96,7 +96,7 @@ Records from 553 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 47
 - venom: 86
 - swift: 91
-- spikes: 104
+- spikes: 105
 - regen: 113
 
 ## Big moments
@@ -161,7 +161,7 @@ Records from 553 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Wildbrook Clan | 29 | 11 | 18 | 981 | 1 lost | 2 |
 | Frostmere Clan | 27 | 11 | 16 | 883 | 3 lost | 3 |
 | Glimmerdeep Kin | 19 | 11 | 8 | 673 | 2 lost | 6 |
-| Starweave Circle | 26 | 10 | 16 | 977 | 2 lost | 5 |
+| Starweave Circle | 27 | 10 | 17 | 1020 | 3 lost | 5 |
 | Hollowbark Kin | 26 | 10 | 16 | 842 | 1 won | 3 |
 | Greyfang Clan | 30 | 10 | 20 | 826 | 2 lost | 5 |
 | Brightwater Tribe | 21 | 10 | 11 | 675 | 3 won | 3 |
@@ -184,6 +184,7 @@ Records from 553 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-15 11:56: The Saltfang Crew Take the Canyon Pass (5 wins in a row · 44 kills)
 - 2026-11-15 11:07: The Crew of the Golden Parrot Take the Canyon Pass (3 wins in a row · 52 kills)
 - 2026-11-15 05:51: The Bulldog Company Take the Trench Line (4th win · 36 kills)
 - 2026-11-15 05:03: The Hollowbark Kin Take the Frozen End (10th win · 20 kills)
@@ -193,4 +194,3 @@ Records from 553 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-14 23:13: The Ember Blade School Take the Crystal Grove (3rd win · 41 kills)
 - 2026-11-14 22:35: The Stonewall Company Take the Trench Line (7th win · 85 kills)
 - 2026-11-14 20:28: The Black Bear Clan Take the Canyon Pass (9th win · 46 kills)
-- 2026-11-14 18:52: The Copper Crown Company Take the Quarry (revenge denied · 4 wins in a row · 73 kills)
