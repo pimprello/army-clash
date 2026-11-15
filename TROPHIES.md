@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 549 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 550 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -115,6 +115,7 @@ Records from 549 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - possess: giant: 1
 - extinct: MINT: 1
 - possess: livingfortress: 1
+- extinct: BRAZIL: 1
 - extinct: GREEN: 2
 - copied: knight: 2
 - extinct: SILVER: 2
@@ -183,6 +184,7 @@ Records from 549 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-15 04:05: The Badger Platoon Take the Trench Line (8th win · 49 kills)
 - 2026-11-15 00:29: The Pulsar Wing Take the Open Plains (3 wins in a row · 33 kills)
 - 2026-11-14 23:46: The Crew of the Black Gull Take the Crystal Grove (revenge denied · 4th win · 55 kills)
 - 2026-11-14 23:13: The Ember Blade School Take the Crystal Grove (3rd win · 41 kills)
@@ -192,4 +194,3 @@ Records from 549 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-14 16:37: The Black Candle Take the City (streak ended · 6th win · 58 kills)
 - 2026-11-14 14:38: The Bilgewater Crew Take the Swamp Shrine (streak ended · 3rd win · 85 kills)
 - 2026-11-14 12:42: The Badger Platoon Take the Canyon Pass (7th win · 46 kills)
-- 2026-11-14 10:33: The Stormhorn Tribe Take the Godboard (revenge denied · 9th win · 59 kills)
