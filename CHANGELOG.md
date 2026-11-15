@@ -47,6 +47,8 @@ Rellz: "fix every single logical issue one example is acid shouldn't be displaye
 - Tribe tactic tags stay inside what the camera shows (a zoomed-in camera used to cut them in half), and floating words move above a tag instead of landing across it.
 - A little person's shot leaves from its gun or bow at chest height instead of from its feet.
 - Weapon glints sit at a little person's hands.
+- Troop and titan names are kept inside what the camera shows (a zoomed-in camera used to cut "ANCIENT TITAN" in half), and a name steps aside for a moment while a floating word like "TRIPLE KILL" sits on it.
+- Two tactic tags pushed to the same edge of the view no longer overlap: the later one steps clear.
 
 ## 2026-11-14 (late): bones that stay, rings on the ground, coins that fly in nicely
 
