@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-15 14:36 | A TORNADO Hit Mid-Battle 🌪️ | Indigo wins | https://youtube.com/shorts/Zo3p4KVuoco |
 | 2026-11-15 12:57 | FIRST Ever Win for the Comet Wing 🏆 | Purple wins | https://youtube.com/shorts/Ewa1fSaHHwc |
 | 2026-11-15 11:56 | The Grass Caught FIRE 🔥 | White wins | https://youtube.com/shorts/qwiweBq0x24 |
 | 2026-11-15 11:07 | The Weapons Came ALIVE 🗡️ | Magenta wins | https://youtube.com/shorts/yrkx7I6ql9E |

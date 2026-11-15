@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 555 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 556 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -71,7 +71,7 @@ Records from 555 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - FORTRESS SLAYER: 10
 - SIEGE GOLEM SLAYER: 11
 - MECH SLAYER: 12
-- STAR EATER SLAYER: 12
+- STAR EATER SLAYER: 13
 - CANNON SLAYER: 14
 - PLAYER SLAYER: 14
 - IRONHORN SLAYER: 15
@@ -84,7 +84,7 @@ Records from 555 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - CYCLOPS SLAYER: 24
 - DRAGON SLAYER: 26
 - ELEPHANT SLAYER: 27
-- MAMMOTH SLAYER: 30
+- MAMMOTH SLAYER: 31
 - GOLEM SLAYER: 34
 - GIANT SLAYER: 38
 - TITAN SLAYER: 39
@@ -94,9 +94,9 @@ Records from 555 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 11
 - wings: 43
 - spellward: 47
-- venom: 86
-- swift: 91
-- spikes: 105
+- venom: 87
+- swift: 92
+- spikes: 106
 - regen: 113
 
 ## Big moments
@@ -150,14 +150,14 @@ Records from 555 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
+| Red Hawk Company | 28 | 17 | 11 | 1092 | 1 won | 5 |
 | Mossback Tribe | 27 | 17 | 10 | 1060 | 1 lost | 7 |
-| Red Hawk Company | 27 | 16 | 11 | 996 | 2 lost | 5 |
 | Frostwhisper Tribe | 26 | 14 | 12 | 1112 | 1 lost | 4 |
 | Thornheart Circle | 16 | 13 | 3 | 897 | 3 won | 6 |
 | Oakshield Clan | 21 | 13 | 8 | 804 | 1 won | 6 |
 | Silverbough Circle | 32 | 12 | 20 | 1544 | 4 lost | 3 |
 | Copper Crown Company | 20 | 12 | 8 | 925 | 4 won | 4 |
-| Order of the Silver Stag | 26 | 11 | 15 | 1083 | 2 won | 3 |
+| Order of the Silver Stag | 27 | 11 | 16 | 1157 | 1 lost | 3 |
 | Wildbrook Clan | 29 | 11 | 18 | 981 | 1 lost | 2 |
 | Frostmere Clan | 27 | 11 | 16 | 883 | 3 lost | 3 |
 | Glimmerdeep Kin | 19 | 11 | 8 | 673 | 2 lost | 6 |
@@ -184,6 +184,7 @@ Records from 555 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-15 14:36: The Red Hawk Company Take the Mountain Pass (revenge! · 17th win · 96 kills)
 - 2026-11-15 12:57: The Comet Wing Take the Clockwork Arena (first ever win · 63 kills)
 - 2026-11-15 11:56: The Saltfang Crew Take the Canyon Pass (5 wins in a row · 44 kills)
 - 2026-11-15 11:07: The Crew of the Golden Parrot Take the Canyon Pass (3 wins in a row · 52 kills)
@@ -193,4 +194,3 @@ Records from 555 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-15 00:29: The Pulsar Wing Take the Open Plains (3 wins in a row · 33 kills)
 - 2026-11-14 23:46: The Crew of the Black Gull Take the Crystal Grove (revenge denied · 4th win · 55 kills)
 - 2026-11-14 23:13: The Ember Blade School Take the Crystal Grove (3rd win · 41 kills)
-- 2026-11-14 22:35: The Stonewall Company Take the Trench Line (7th win · 85 kills)
