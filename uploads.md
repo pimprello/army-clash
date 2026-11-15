@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-15 05:51 | 👑 Protect the KING: Turtle Army vs Gunners | Gold wins | https://youtube.com/shorts/g0P1-9TY5Jk |
 | 2026-11-15 05:03 | He Opened a BLACK HOLE 🌑 | Teal wins | https://youtube.com/shorts/DObVfo_CRmY |
 | 2026-11-15 04:05 | 56 HEROES vs Pyros 🛡️ | Brazil wins | https://youtube.com/shorts/F2GCquySUb0 |
 | 2026-11-15 00:29 | DRAGON vs Armored vs Mechs 🔥 | New zealand wins | https://youtube.com/shorts/j_A2dWPiVPc |

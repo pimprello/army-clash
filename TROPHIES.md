@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 551 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 552 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -55,13 +55,13 @@ Records from 551 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - BALLOON BOMBER SLAYER: 2
 - GRAVITY TYRANT SLAYER: 3
 - CATAPULT SLAYER: 3
-- MAGMA COLOSSUS SLAYER: 4
 - CATHEDRAL SLAYER: 5
 - HELICOPTER SLAYER: 5
 - WORLDROOT SLAYER: 5
 - KNIGHT SLAYER: 6
 - THOUSAND-MAN SLAYER: 6
 - EXECUTIONER SLAYER: 6
+- MAGMA COLOSSUS SLAYER: 6
 - GLACIER BEHEMOTH SLAYER: 6
 - MIRROR KING SLAYER: 7
 - UNMAKER SLAYER: 7
@@ -78,8 +78,8 @@ Records from 551 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - TANK SLAYER: 16
 - HYDRA SLAYER: 17
 - ACID LEVIATHAN SLAYER: 17
-- STORM COLOSSUS SLAYER: 18
 - SPIDER QUEEN SLAYER: 18
+- STORM COLOSSUS SLAYER: 19
 - COLOSSUS SLAYER: 20
 - CYCLOPS SLAYER: 24
 - ELEPHANT SLAYER: 26
@@ -96,7 +96,7 @@ Records from 551 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 47
 - venom: 86
 - swift: 91
-- spikes: 102
+- spikes: 103
 - regen: 112
 
 ## Big moments
@@ -150,12 +150,12 @@ Records from 551 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
-| Mossback Tribe | 26 | 17 | 9 | 1052 | 1 won | 7 |
+| Mossback Tribe | 27 | 17 | 10 | 1060 | 1 lost | 7 |
 | Red Hawk Company | 27 | 16 | 11 | 996 | 2 lost | 5 |
 | Frostwhisper Tribe | 26 | 14 | 12 | 1112 | 1 lost | 4 |
 | Thornheart Circle | 16 | 13 | 3 | 897 | 3 won | 6 |
 | Oakshield Clan | 21 | 13 | 8 | 804 | 1 won | 6 |
-| Silverbough Circle | 31 | 12 | 19 | 1508 | 3 lost | 3 |
+| Silverbough Circle | 32 | 12 | 20 | 1544 | 4 lost | 3 |
 | Copper Crown Company | 20 | 12 | 8 | 925 | 4 won | 4 |
 | Order of the Silver Stag | 26 | 11 | 15 | 1083 | 2 won | 3 |
 | Wildbrook Clan | 29 | 11 | 18 | 981 | 1 lost | 2 |
@@ -184,6 +184,7 @@ Records from 551 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-15 05:51: The Bulldog Company Take the Trench Line (4th win · 36 kills)
 - 2026-11-15 05:03: The Hollowbark Kin Take the Frozen End (10th win · 20 kills)
 - 2026-11-15 04:05: The Badger Platoon Take the Trench Line (8th win · 49 kills)
 - 2026-11-15 00:29: The Pulsar Wing Take the Open Plains (3 wins in a row · 33 kills)
@@ -193,4 +194,3 @@ Records from 551 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-14 20:28: The Black Bear Clan Take the Canyon Pass (9th win · 46 kills)
 - 2026-11-14 18:52: The Copper Crown Company Take the Quarry (revenge denied · 4 wins in a row · 73 kills)
 - 2026-11-14 16:37: The Black Candle Take the City (streak ended · 6th win · 58 kills)
-- 2026-11-14 14:38: The Bilgewater Crew Take the Swamp Shrine (streak ended · 3rd win · 85 kills)
