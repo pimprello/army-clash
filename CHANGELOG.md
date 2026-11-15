@@ -49,6 +49,7 @@ Rellz: "fix every single logical issue one example is acid shouldn't be displaye
 - Weapon glints sit at a little person's hands.
 - Troop and titan names are kept inside what the camera shows (a zoomed-in camera used to cut "ANCIENT TITAN" in half), and a name steps aside for a moment while a floating word like "TRIPLE KILL" sits on it.
 - Two tactic tags pushed to the same edge of the view no longer overlap: the later one steps clear.
+- The thumbnail's big portrait is one of the army's own troops, matching the name under it (a tank over "ARMORED", a sniper over "SNIPERS"), instead of the titan or giant character every army now brings along.
 
 ## 2026-11-14 (late): bones that stay, rings on the ground, coins that fly in nicely
 

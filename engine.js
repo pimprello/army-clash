@@ -13179,7 +13179,10 @@ const RVB = (() => {
     thumbPicks(list) {
       const ok = list.filter(([t]) => UNIT[t] && !UNIT[t].uncounted && t !== 'king');
       const pool = ok.length ? ok : list.filter(([t]) => UNIT[t]);
-      const hero = pool.slice().sort((p, q) => UNIT[q[0]].r - UNIT[p[0]].r || q[1] - p[1])[0];
+      // (logic) the big portrait is one of the army's own troops, matching the name under it ("SNIPERS"), not a titan or giant
+      // character that every army now brings along
+      const own = pool.filter(([t]) => !isTitan(t) && !GIANT_POOL.some(([g]) => g === t)), from = own.length ? own : pool;
+      const hero = from.slice().sort((p, q) => UNIT[q[0]].r - UNIT[p[0]].r || q[1] - p[1])[0];
       const rest = pool.filter(p => p !== hero).sort((p, q) => q[1] - p[1]).slice(0, 2);
       return { hero: hero ? hero[0] : 'soldier', rest: rest.map(p => p[0]) };
     },
