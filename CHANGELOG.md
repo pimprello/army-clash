@@ -2,6 +2,24 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-15 (afternoon): one Clash Autopilot for both games, lighter daily process
+
+Rellz: "heavily optimise both autopliots, remove anything redundant or unnecesary, i want towerclash and army clash to run but without taking up as much usage", then, after he deleted Tower Clash's own scheduled run and asked whether it was even needed: "rename it to Clash Autopilot, make it work for both tower clash and army clash... add 3 unique things each time to each game and only run it and do checks once a day so we dont use up credits."
+
+- **No code or rule changed today** — this entry is about the *process*, not the videos. Nothing in `rules.json`, `engine.js` or `render.js` moved.
+- **The scheduled task is now one "Clash Autopilot" run a day for both games**, instead of a separate full session per game: it attaches both repos, does one health check and one round of changes per game, and pushes to both `main`s in the same pass. That's the actual usage saving Rellz asked for — one session's worth of setup overhead instead of two.
+- **`AUTOPILOT.md` rewritten to cost less to run every day, regardless of game count:**
+  - Trimmed the daily reading list (3 changelog entries instead of 10, 20 upload rows instead of 100, `RULES.md` skimmed for the relevant section instead of read whole).
+  - The big "already built" / "not built yet" idea catalog moved out to a new `IDEAS.md`, only opened when actually picking a new thing, so it's not re-read on a health-check-only or fix-only day.
+  - Section 3B now asks for **three** unique new things a day instead of one (Rellz's ask), with one combined brief instead of three separate ones, and three consecutive "kinds" from the monthly list instead of one, so all twelve still cycle through roughly every 4 days.
+  - Section 5 (testing) rewritten to be scoped: list what today's three things actually touch (engine, visuals, a map, balance, or none of those) and only run the tests that apply, instead of the full suite every day regardless. A pure data/weight change now costs a syntax check, not a battery of test battles it can't affect. The regression smoke test dropped from "two untouched line-ups" to one.
+  - "Fix what looks wrong" (3C) now only fires when something actually looked wrong in the health check or in building B, instead of a routine still-render hunt every day.
+  - "Learn from views" (3A) now skips itself if it already ran in the last 3 days with nothing crossing a threshold, instead of recomputing the same unchanged conclusion daily.
+- **Tower Clash:** this session has no access to `pimprello/tower-clash` (no `add_repo` tool available here), so I couldn't open or update its `AUTOPILOT.md` today. The merged trigger's own prompt tells the next run to attach it and give it the same efficiency pass the first time it has access. **Rellz needs to grant GitHub access to that repo** (connect it the way Army Clash is connected, or install the Claude GitHub App on it) before the merged autopilot can actually touch it — until then the daily run will do Army Clash only and say so.
+- **Parked, not lost:** four new nations (Ireland/Scotland, Nigeria/Ghana — today's planned "add one new thing" before the process work took priority) are stashed in this repo (`git stash list`), coded and passing `node --check` and the colour-gap check, but not yet checked on a still or committed. Pick this up on a future run.
+- **Tested:** `node --check` on every changed `.md`/file path reference; no JS, `rules.json` or workflow changed, so no battle or layout tests applied (nothing in scope for them moved).
+- **Rellz:** already-posted videos don't change — this only affects how the daily update itself runs. Three-line summary below.
+
 ## 2026-11-14 (quality pass)
 
 Rellz: "make them hella good, make it way better", "don't stop anything, just add", "do everything without my permission". (Correction, 2026-11-15: the channel now posts 4 a day at 10:00, 14:00, 18:00 and 22:00 London time, as Rellz set it later that day; this entry said 12 because it was written before that change.) Nothing was switched off.
