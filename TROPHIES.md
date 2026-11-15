@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 552 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 553 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 552 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **ZEDRIK SKULLTAKER** (DEMON), 14 kills · 2026-11-15 11:07
 - **ORLOK THE WALL** (JUGGERNAUT), 30 kills · 2026-11-14 22:35
 - **BRAMBLE THE SWIFT** (MINOTAUR), 25 kills · 2026-11-14 18:52
 - **ASHKA IRONHIDE** (BOAR RIDER), 21 kills · 2026-11-14 10:33
@@ -47,7 +48,6 @@ Records from 552 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **SABRE-7** (MACHINE GUNNER), 26 kills · 2026-11-11 13:21
 - **ASHKA THE BOLD** (OGRE), 16 kills · 2026-11-11 04:45
 - **OSKA NIGHTFANG** (DEMON), 12 kills · 2026-11-10 11:19
-- **ASHKA STORMBORN** (WIZARD), 10 kills · 2026-11-09 06:51
 
 ## Titles earned (rarest first)
 
@@ -69,13 +69,13 @@ Records from 552 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PHOENIX SLAYER: 8
 - STORM EMPEROR SLAYER: 8
 - FORTRESS SLAYER: 10
-- SIEGE GOLEM SLAYER: 10
+- SIEGE GOLEM SLAYER: 11
 - MECH SLAYER: 12
 - STAR EATER SLAYER: 12
-- IRONHORN SLAYER: 13
 - CANNON SLAYER: 14
 - PLAYER SLAYER: 14
-- TANK SLAYER: 16
+- IRONHORN SLAYER: 14
+- TANK SLAYER: 17
 - HYDRA SLAYER: 17
 - ACID LEVIATHAN SLAYER: 17
 - SPIDER QUEEN SLAYER: 18
@@ -85,7 +85,7 @@ Records from 552 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - ELEPHANT SLAYER: 26
 - DRAGON SLAYER: 26
 - MAMMOTH SLAYER: 30
-- GOLEM SLAYER: 32
+- GOLEM SLAYER: 33
 - GIANT SLAYER: 38
 - TITAN SLAYER: 39
 
@@ -96,8 +96,8 @@ Records from 552 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 47
 - venom: 86
 - swift: 91
-- spikes: 103
-- regen: 112
+- spikes: 104
+- regen: 113
 
 ## Big moments
 
@@ -137,8 +137,8 @@ Records from 552 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: golem: 10
 - fusion: 11
 - portal: wolfrider: 11
-- portal: demon: 17
 - sudden: boss: 17
+- portal: demon: 18
 - sudden: ring: 19
 - portal: troll: 21
 - sudden: meteors: 25
@@ -184,6 +184,7 @@ Records from 552 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-15 11:07: The Crew of the Golden Parrot Take the Canyon Pass (3 wins in a row · 52 kills)
 - 2026-11-15 05:51: The Bulldog Company Take the Trench Line (4th win · 36 kills)
 - 2026-11-15 05:03: The Hollowbark Kin Take the Frozen End (10th win · 20 kills)
 - 2026-11-15 04:05: The Badger Platoon Take the Trench Line (8th win · 49 kills)
@@ -193,4 +194,3 @@ Records from 552 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-14 22:35: The Stonewall Company Take the Trench Line (7th win · 85 kills)
 - 2026-11-14 20:28: The Black Bear Clan Take the Canyon Pass (9th win · 46 kills)
 - 2026-11-14 18:52: The Copper Crown Company Take the Quarry (revenge denied · 4 wins in a row · 73 kills)
-- 2026-11-14 16:37: The Black Candle Take the City (streak ended · 6th win · 58 kills)
