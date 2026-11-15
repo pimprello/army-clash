@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 554 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 555 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -74,7 +74,7 @@ Records from 554 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - STAR EATER SLAYER: 12
 - CANNON SLAYER: 14
 - PLAYER SLAYER: 14
-- IRONHORN SLAYER: 14
+- IRONHORN SLAYER: 15
 - TANK SLAYER: 17
 - HYDRA SLAYER: 17
 - ACID LEVIATHAN SLAYER: 17
@@ -82,8 +82,8 @@ Records from 554 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - STORM COLOSSUS SLAYER: 19
 - COLOSSUS SLAYER: 20
 - CYCLOPS SLAYER: 24
-- ELEPHANT SLAYER: 26
 - DRAGON SLAYER: 26
+- ELEPHANT SLAYER: 27
 - MAMMOTH SLAYER: 30
 - GOLEM SLAYER: 34
 - GIANT SLAYER: 38
@@ -184,6 +184,7 @@ Records from 554 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-15 12:57: The Comet Wing Take the Clockwork Arena (first ever win · 63 kills)
 - 2026-11-15 11:56: The Saltfang Crew Take the Canyon Pass (5 wins in a row · 44 kills)
 - 2026-11-15 11:07: The Crew of the Golden Parrot Take the Canyon Pass (3 wins in a row · 52 kills)
 - 2026-11-15 05:51: The Bulldog Company Take the Trench Line (4th win · 36 kills)
@@ -193,4 +194,3 @@ Records from 554 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-14 23:46: The Crew of the Black Gull Take the Crystal Grove (revenge denied · 4th win · 55 kills)
 - 2026-11-14 23:13: The Ember Blade School Take the Crystal Grove (3rd win · 41 kills)
 - 2026-11-14 22:35: The Stonewall Company Take the Trench Line (7th win · 85 kills)
-- 2026-11-14 20:28: The Black Bear Clan Take the Canyon Pass (9th win · 46 kills)
