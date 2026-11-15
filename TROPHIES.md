@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 556 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 557 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -74,20 +74,20 @@ Records from 556 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - STAR EATER SLAYER: 13
 - CANNON SLAYER: 14
 - PLAYER SLAYER: 14
-- IRONHORN SLAYER: 15
 - TANK SLAYER: 17
 - HYDRA SLAYER: 17
 - ACID LEVIATHAN SLAYER: 17
+- IRONHORN SLAYER: 17
 - SPIDER QUEEN SLAYER: 18
-- STORM COLOSSUS SLAYER: 19
 - COLOSSUS SLAYER: 20
+- STORM COLOSSUS SLAYER: 20
 - CYCLOPS SLAYER: 24
 - DRAGON SLAYER: 26
 - ELEPHANT SLAYER: 27
 - MAMMOTH SLAYER: 31
 - GOLEM SLAYER: 34
 - GIANT SLAYER: 38
-- TITAN SLAYER: 39
+- TITAN SLAYER: 40
 
 ## Mutations (rarest first)
 
@@ -95,7 +95,7 @@ Records from 556 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - wings: 43
 - spellward: 47
 - venom: 87
-- swift: 92
+- swift: 93
 - spikes: 106
 - regen: 113
 
@@ -162,8 +162,8 @@ Records from 556 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Frostmere Clan | 27 | 11 | 16 | 883 | 3 lost | 3 |
 | Glimmerdeep Kin | 19 | 11 | 8 | 673 | 2 lost | 6 |
 | Starweave Circle | 27 | 10 | 17 | 1020 | 3 lost | 5 |
+| Greyfang Clan | 31 | 10 | 21 | 858 | 3 lost | 5 |
 | Hollowbark Kin | 26 | 10 | 16 | 842 | 1 won | 3 |
-| Greyfang Clan | 30 | 10 | 20 | 826 | 2 lost | 5 |
 | Brightwater Tribe | 21 | 10 | 11 | 675 | 3 won | 3 |
 | Raven Hill Clan | 18 | 10 | 8 | 669 | 2 won | 5 |
 | Mire Witch Coven | 14 | 10 | 4 | 455 | 1 lost | 7 |
@@ -184,6 +184,7 @@ Records from 556 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-15 18:59: The House of the Gold Dragonfly Take the Open Plains (2nd win · 79 kills)
 - 2026-11-15 14:36: The Red Hawk Company Take the Mountain Pass (revenge! · 17th win · 96 kills)
 - 2026-11-15 12:57: The Comet Wing Take the Clockwork Arena (first ever win · 63 kills)
 - 2026-11-15 11:56: The Saltfang Crew Take the Canyon Pass (5 wins in a row · 44 kills)
@@ -193,4 +194,3 @@ Records from 556 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-15 04:05: The Badger Platoon Take the Trench Line (8th win · 49 kills)
 - 2026-11-15 00:29: The Pulsar Wing Take the Open Plains (3 wins in a row · 33 kills)
 - 2026-11-14 23:46: The Crew of the Black Gull Take the Crystal Grove (revenge denied · 4th win · 55 kills)
-- 2026-11-14 23:13: The Ember Blade School Take the Crystal Grove (3rd win · 41 kills)
