@@ -4135,7 +4135,17 @@ const RVB = (() => {
       }
       if (ART) this.flushArt(ctx);
       if (SH) { this.shineEnd(mainCtx, ctx); ctx = mainCtx; }
-      if (this._labQ) { const Q = this._labQ; this._labQ = null; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; for (const q of Q) { ctx.font = q.f; strokeText(ctx, ...q.a); } ctx.textBaseline = 'alphabetic'; }
+      if (this._labQ) {
+        // (logic) a name is kept inside what the camera shows, and is left out for a moment while a floating word (a kill streak,
+        // a callout) sits on it, so the two never print across each other
+        const Q = this._labQ, V = this.viewRect(ctx); this._labQ = null; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        for (const q of Q) {
+          ctx.font = q.f; const [text, x0, y0, ...rest] = q.a, w = ctx.measureText(text).width, x = clamp(x0, V.x0 + w / 2 + 6, V.x1 - w / 2 - 6), y = clamp(y0, V.y0 + 14, V.y1 - 14);
+          if (this.floats.some(f => f.age < f.life && Math.abs(f.x - x) < (w + String(f.text).length * f.size * 0.5) / 2 && Math.abs(f.y - 30 - y) < 34)) continue;
+          strokeText(ctx, text, x, y, ...rest);
+        }
+        ctx.textBaseline = 'alphabetic';
+      }
       if (this.cast3on) this.drawCast3Fx(ctx);
       if (this.c4on) this.drawCast4Fx(ctx);
       if (this.g5) this.drawCast5Fx(ctx);
@@ -9861,8 +9871,10 @@ const RVB = (() => {
           for (let tries = 0; tries < 4 && placed.some(p => Math.abs(p.x - x) < (p.w + w) / 2 + 6 && Math.abs(p.y - y) < 40); tries++) y = clamp(y - 42, AR.y + 34, AR.y + AR.h - 24) === y ? y + 42 : clamp(y - 42, AR.y + 34, AR.y + AR.h - 24);
           L.py = y;
         }
-        const y = clamp(L.py, V.y0 + 24, V.y1 - 24) - 10 * easeOutCubic(k);
-        placed.push({ x, y: L.py, w }); L.px = x; L.w = w;
+        let y = clamp(L.py, V.y0 + 24, V.y1 - 24) - 10 * easeOutCubic(k);
+        // (logic) two tags pushed to the same edge of the view would overlap: the later one steps clear of the earlier
+        for (let tries = 0; tries < 3 && placed.some(p => Math.abs(p.x - x) < (p.w + w) / 2 + 6 && Math.abs(p.y - y) < 40); tries++) y = y - 42 < V.y0 + 24 ? y + 42 : y - 42;
+        placed.push({ x, y, w }); L.px = x; L.w = w;
         ctx.globalAlpha = al;
         roundRect(ctx, x - w / 2, y - 17, w, 34, 17); ctx.fillStyle = 'rgba(8,11,20,0.88)'; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = TEAMS[tb.team].c; ctx.stroke();
         disc(ctx, x - w / 2 + 17, y, 13, TEAMS[tb.team].c, 2); drawEmblem(ctx, tb.emblem, x - w / 2 + 17, y, 9.5);
