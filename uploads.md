@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-15 00:29 | DRAGON vs Armored vs Mechs 🔥 | New zealand wins | https://youtube.com/shorts/j_A2dWPiVPc |
 | 2026-11-14 23:46 | The GROUND Split Open 💥 | Belgium wins | https://youtube.com/shorts/MnSsrL1rbeM |
 | 2026-11-14 23:13 | 🇬🇧 UK vs USA: WHO WINS? | Usa wins | https://youtube.com/shorts/Zf0ZgZ-KLYA |
 | 2026-11-14 22:35 | 👑 Protect the KING: War Elephants vs Soldiers | Crimson wins | https://youtube.com/shorts/KfkDgex2J3g |

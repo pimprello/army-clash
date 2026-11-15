@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 548 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 549 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -68,21 +68,21 @@ Records from 548 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - STORM EMPEROR SLAYER: 7
 - IMMORTAL FRAUD SLAYER: 8
 - PHOENIX SLAYER: 8
-- SIEGE GOLEM SLAYER: 8
+- SIEGE GOLEM SLAYER: 9
 - FORTRESS SLAYER: 10
 - MECH SLAYER: 12
 - STAR EATER SLAYER: 12
 - IRONHORN SLAYER: 13
 - CANNON SLAYER: 14
 - PLAYER SLAYER: 14
-- ACID LEVIATHAN SLAYER: 15
 - TANK SLAYER: 16
 - HYDRA SLAYER: 17
+- ACID LEVIATHAN SLAYER: 17
 - SPIDER QUEEN SLAYER: 17
 - STORM COLOSSUS SLAYER: 18
 - COLOSSUS SLAYER: 20
 - CYCLOPS SLAYER: 24
-- ELEPHANT SLAYER: 25
+- ELEPHANT SLAYER: 26
 - DRAGON SLAYER: 26
 - MAMMOTH SLAYER: 30
 - GOLEM SLAYER: 32
@@ -96,7 +96,7 @@ Records from 548 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 47
 - venom: 86
 - swift: 91
-- spikes: 101
+- spikes: 102
 - regen: 112
 
 ## Big moments
@@ -166,7 +166,7 @@ Records from 548 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Raven Hill Clan | 18 | 10 | 8 | 669 | 2 won | 5 |
 | Mire Witch Coven | 14 | 10 | 4 | 455 | 1 lost | 7 |
 | Thornwood Company | 16 | 10 | 6 | 452 | 4 lost | 9 |
-| Hollowbark Kin | 24 | 9 | 15 | 784 | 3 lost | 3 |
+| Hollowbark Kin | 25 | 9 | 16 | 822 | 4 lost | 3 |
 | Stormhorn Tribe | 15 | 9 | 6 | 720 | 2 won | 4 |
 | Harrier Squadron | 18 | 9 | 9 | 575 | 1 lost | 7 |
 
@@ -183,6 +183,7 @@ Records from 548 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-15 00:29: The Pulsar Wing Take the Open Plains (3 wins in a row · 33 kills)
 - 2026-11-14 23:46: The Crew of the Black Gull Take the Crystal Grove (revenge denied · 4th win · 55 kills)
 - 2026-11-14 23:13: The Ember Blade School Take the Crystal Grove (3rd win · 41 kills)
 - 2026-11-14 22:35: The Stonewall Company Take the Trench Line (7th win · 85 kills)
@@ -192,4 +193,3 @@ Records from 548 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-14 14:38: The Bilgewater Crew Take the Swamp Shrine (streak ended · 3rd win · 85 kills)
 - 2026-11-14 12:42: The Badger Platoon Take the Canyon Pass (7th win · 46 kills)
 - 2026-11-14 10:33: The Stormhorn Tribe Take the Godboard (revenge denied · 9th win · 59 kills)
-- 2026-11-14 08:53: The Grave Lantern Coven Take the Quarry (revenge! · 5th win · 67 kills)
