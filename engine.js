@@ -4111,6 +4111,7 @@ const RVB = (() => {
         if (u.lift) ell(SH ? mainCtx : ctx, u.x + 6, u.y + 8, u.r, u.r * 0.6, 0, 'rgba(0,0,0,0.25)', 0);
         const sq = this.anim && this.animOn(ctx, u, x, y);
         this.drawBody(ctx, u, x, y, tm, swordy);
+        if (this.humans && RIDER[u.type] && !(u.sheepT > this.fightT)) this.drawRider(ctx, u, x, y, tm);
         if (ART && !(u.sheepT > this.fightT) && !(this.humans && HUMAN[u.type])) { this.drawWear(ctx, u, x, y); this.artFinish(ctx, u, x, y); }
         if (sq) ctx.restore();
         if (SH) this.shineUnit(ctx, u, x, y);
@@ -9038,7 +9039,7 @@ const RVB = (() => {
       const fake = { fake: true, type, team, r: U.r, x: 0, y: 0, face: -Math.PI / 2 + 0.5, mface: -Math.PI / 2 + 0.5, vx: 0, vy: 0, gait: 1.3, lunge: 0, swing: 0, hp: 1, max: 1, cd: 1,
         heads: U.heads || 0, bodies: [], souls: 0, decoyEnd: 99, look: 'illusion', lives: 1, muzzle: 0, flying: !!U.flying, gear: pool ? (type === 'soldier' ? 'shield' : pool[0]) : undefined };
       if (type === 'king') this.drawKing(ctx, fake, 0, 0, TEAMS[team]);
-      else this.drawBody(ctx, fake, 0, 0, TEAMS[team], !!U.sword);
+      else { this.drawBody(ctx, fake, 0, 0, TEAMS[team], !!U.sword); if (this.humans && RIDER[fake.type]) this.drawRider(ctx, fake, 0, 0, TEAMS[team]); }
     },
   };
   // ----- living tribes (rules.tribes): a fixed pool of invented tribes per genre, so the same tribes come back video after video -----
@@ -15437,6 +15438,11 @@ const RVB = (() => {
       try { const m = ctx.getTransform().inverse(), a = m.transformPoint({ x: AR.x * RS, y: (AR.y + dy) * RS }), b = m.transformPoint({ x: (AR.x + AR.w) * RS, y: (AR.y + AR.h + dy) * RS }); return { x0: Math.min(a.x, b.x), y0: Math.min(a.y, b.y), x1: Math.max(a.x, b.x), y1: Math.max(a.y, b.y) }; }
       catch (e) { return { x0: AR.x, y0: AR.y, x1: AR.x + AR.w, y1: AR.y + AR.h }; }
     },
+    // a rider sitting up on its mount, bobbing with the mount's stride
+    drawRider(ctx, u, x, y, tm) {
+      const bob = Math.hypot(u.vx || 0, u.vy || 0) > 8 ? Math.abs(Math.sin(this.fightT * 9 + (u.gait || 0))) * 1.5 : 0, big = UNIT[u.type].r >= 24;
+      this.drawHuman(ctx, u, x, y - u.r * (big ? 0.55 : 0.12) - bob, tm, RIDER[u.type], big ? u.r * 0.62 : u.r * 0.8);
+    },
     labLater(ctx, ...a) { if (this._labQ) this._labQ.push({ f: ctx.font, a }); else strokeText(ctx, ...a); },
     headR(u) { return this.humans && HUMAN[u.type] ? u.r * 1.6 : u.r; },
     // the map's obstacles alone (trees, rocks, walls), at twice the size so they stay sharp when the camera zooms in
@@ -15495,7 +15501,7 @@ const RVB = (() => {
   const HUMAN = {};
   for (const row of `
     soldier helm sword h cloth|swordsman helm sword h armor|spearman helm spear h cloth|pikeman helm pike h armor|shieldbearer helm shield h armor
-    archer hood bow h cloth|crossbowman helm crossbow h cloth|longbow hood longbow h cloth|firearcher hood firebow h cloth|horsearcher hood bow h cloth
+    archer hood bow h cloth|crossbowman helm crossbow h cloth|longbow hood longbow h cloth|firearcher hood firebow h cloth
     berserker horns axe h fur|healer hood heal h robe|knight fullhelm sword h armor|royalguard fullhelm halberd h armor|duelist hair rapier h coat
     rifleman cap rifle h cloth|gunner cap mg h cloth|sniper beret sniper h cloth|grenadier cap bomb h cloth|musketeer tricorn musket h coat
     trooper visor blaster h suit|jetpack visor blaster h suit|zerog visor blaster h suit|orbitknight visor sword h suit|pulsar visor blaster h suit
@@ -15515,14 +15521,18 @@ const RVB = (() => {
     unqualifiedking crown wand h robe|siren hair trident blue robe|sandman hood staff h robe|gravewitch wizard skullstaff pale robe|medic cap heal h cloth
     robot antenna blaster metal metal|giant helm club h fur
   `.trim().split(/[|\n]/)) { const [k, head, weapon, skin, body] = row.trim().split(/\s+/); if (k) HUMAN[k] = { head, weapon, skin, body }; }
+  // the riders of mounted troops: a little person sitting up on its horse, wolf, boar, elephant, nightmare, griffin or mammoth
+  // (instead of a round rider seen from above)
+  const RIDER = {};
+  for (const row of 'lancer fullhelm spear h armor|horsearcher hood bow h cloth|elephant helm spear h cloth|deathknight fullhelm sword pale armor|wolfrider horns axe goblin fur|boarrider bald cleaver orc fur|griffin helm spear h armor|mammoth fur spear h fur'.split('|')) { const [k, head, weapon, skin, body] = row.split(' '); RIDER[k] = { head, weapon, skin, body, seated: true }; }
   const SKIN = ['#F2C9A0', '#E3B088', '#C98E64', '#9B6A45', '#6E4A30'];
   const SKIN_OF = { orc: '#7FAE4A', goblin: '#8FBF4A', zombie: '#9DB58A', bone: '#EDE6D3', pale: '#E9E4F2', green: '#9CCB7A', fur: '#8A6A4A', metal: '#B8C2CE', gold: '#F5D27A', blue: '#8FD3E8', troll: '#7C9A6A' };
   const ARMY_HUMAN = {
-    drawHuman(ctx, u, x, y, tm, kit) {
-      const T = this.fightT, t = this.t, INK = COL.ink, k = u.r / 9.5, face = u.mface !== undefined && u.mface !== 0 ? u.face : u.face;
+    drawHuman(ctx, u, x, y, tm, kit, rr) {
+      const T = this.fightT, t = this.t, INK = COL.ink, k = (rr || u.r) / 9.5, face = u.mface !== undefined && u.mface !== 0 ? u.face : u.face;
       const cs = Math.cos(face), sn = Math.sin(face), dir = cs >= 0 ? 1 : -1, away = sn < -0.6;
       const al = clamp(Math.atan2(sn, Math.abs(cs)), -1.25, 1.25);       // where it aims, in its own (right-facing) frame
-      const moving = Math.hypot(u.vx || 0, u.vy || 0) > 8, ph = T * 10 + (u.gait || 0), st = moving ? Math.sin(ph) * 2.3 : 0, bob = moving ? Math.abs(Math.cos(ph)) * 0.6 : 0;
+      const moving = !kit.seated && Math.hypot(u.vx || 0, u.vy || 0) > 8, ph = T * 10 + (u.gait || 0), st = moving ? Math.sin(ph) * 2.3 : 0, bob = moving ? Math.abs(Math.cos(ph)) * 0.6 : 0;
       const skin = kit.skin === 'h' ? SKIN[(u.uid || u.gait * 7 | 0) % 3] : SKIN_OF[kit.skin] || SKIN[0];
       const big = kit.weapon === 'greatsword' || kit.weapon === 'club' ? 1.1 : 1;
       ctx.save(); ctx.translate(x, y); ctx.scale(k * dir, k);
@@ -15530,11 +15540,12 @@ const RVB = (() => {
       const dot = (cx, cy, r, c) => { ctx.beginPath(); ctx.arc(cx, cy, r, 0, TAU); ctx.fillStyle = c; ctx.fill(); ctx.lineWidth = lw; ctx.strokeStyle = INK; ctx.stroke(); };
       // shadow and legs
       // (a flying troop, a jetpack or a valkyrie, hovers above its shadow with its legs hanging, instead of standing on the ground)
-      const fly = u.flying || UNIT[u.type].flying;
-      ctx.beginPath(); ctx.ellipse(0, 8.2, fly ? 6 : 7.5, fly ? 1.9 : 2.4, 0, 0, TAU); ctx.fillStyle = fly ? 'rgba(0,0,0,0.2)' : 'rgba(0,0,0,0.28)'; ctx.fill();
+      const fly = !kit.seated && (u.flying || UNIT[u.type].flying);
+      if (!kit.seated) { ctx.beginPath(); ctx.ellipse(0, 8.2, fly ? 6 : 7.5, fly ? 1.9 : 2.4, 0, 0, TAU); ctx.fillStyle = fly ? 'rgba(0,0,0,0.2)' : 'rgba(0,0,0,0.28)'; ctx.fill(); }
       if (fly) ctx.translate(0, -8 - Math.sin(T * 4 + (u.gait || 0)) * 1.4);
       const pants = kit.body === 'armor' ? '#8E99A8' : kit.body === 'suit' || kit.body === 'suitb' ? '#E8EDF3' : tm.d;
-      if (kit.body !== 'robe') { if (fly) { line(-1.6, 2.5, -3.2, 6.8, 2.6, pants); line(1.6, 2.5, -0.4, 7.2, 2.6, pants); } else { line(-1.6, 2.5, -2.2 + st, 7.4, 2.6, pants); line(1.6, 2.5, 2.2 - st, 7.4, 2.6, pants); } }
+      if (kit.seated) { line(-1.8, 2.5, -4.6, 5.6, 2.6, pants); line(1.8, 2.5, 4.6, 5.6, 2.6, pants); }
+      else if (kit.body !== 'robe') { if (fly) { line(-1.6, 2.5, -3.2, 6.8, 2.6, pants); line(1.6, 2.5, -0.4, 7.2, 2.6, pants); } else { line(-1.6, 2.5, -2.2 + st, 7.4, 2.6, pants); line(1.6, 2.5, 2.2 - st, 7.4, 2.6, pants); } }
       ctx.translate(0, -bob);
       // the weapon arm's pose: swinging, thrusting, drawn or recoiling
       const sw = u.swing > 0 ? u.swing : 0, lunge = u.lunge || 0, rec = (u.muzzle || 0) * 1.6;

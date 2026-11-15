@@ -50,6 +50,7 @@ Rellz: "fix every single logical issue one example is acid shouldn't be displaye
 - Troop and titan names are kept inside what the camera shows (a zoomed-in camera used to cut "ANCIENT TITAN" in half), and a name steps aside for a moment while a floating word like "TRIPLE KILL" sits on it.
 - Two tactic tags pushed to the same edge of the view no longer overlap: the later one steps clear.
 - The thumbnail's big portrait is one of the army's own troops, matching the name under it (a tank over "ARMORED", a sniper over "SNIPERS"), instead of the titan or giant character every army now brings along.
+- Mounted troops (lancers, horse archers, wolf and boar riders, death knights, elephants, griffins, mammoths) carry a little person sitting up astride the mount, holding its own weapon, instead of a round rider; the horse archer keeps its horse.
 
 ## 2026-11-14 (late): bones that stay, rings on the ground, coins that fly in nicely
 
