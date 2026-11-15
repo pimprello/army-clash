@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 557 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 558 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 557 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **KAELEN NIGHTFANG** (MINOTAUR), 36 kills · 2026-11-15 22:38
 - **ZEDRIK SKULLTAKER** (DEMON), 14 kills · 2026-11-15 11:07
 - **ORLOK THE WALL** (JUGGERNAUT), 30 kills · 2026-11-14 22:35
 - **BRAMBLE THE SWIFT** (MINOTAUR), 25 kills · 2026-11-14 18:52
@@ -47,7 +48,6 @@ Records from 557 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **ZEDRIK IRONHIDE** (TROLL), 42 kills · 2026-11-12 08:24
 - **SABRE-7** (MACHINE GUNNER), 26 kills · 2026-11-11 13:21
 - **ASHKA THE BOLD** (OGRE), 16 kills · 2026-11-11 04:45
-- **OSKA NIGHTFANG** (DEMON), 12 kills · 2026-11-10 11:19
 
 ## Titles earned (rarest first)
 
@@ -69,23 +69,23 @@ Records from 557 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PHOENIX SLAYER: 8
 - STORM EMPEROR SLAYER: 8
 - FORTRESS SLAYER: 10
-- SIEGE GOLEM SLAYER: 11
 - MECH SLAYER: 12
+- SIEGE GOLEM SLAYER: 12
 - STAR EATER SLAYER: 13
 - CANNON SLAYER: 14
 - PLAYER SLAYER: 14
 - TANK SLAYER: 17
-- HYDRA SLAYER: 17
 - ACID LEVIATHAN SLAYER: 17
 - IRONHORN SLAYER: 17
 - SPIDER QUEEN SLAYER: 18
+- HYDRA SLAYER: 19
 - COLOSSUS SLAYER: 20
 - STORM COLOSSUS SLAYER: 20
 - CYCLOPS SLAYER: 24
 - DRAGON SLAYER: 26
 - ELEPHANT SLAYER: 27
 - MAMMOTH SLAYER: 31
-- GOLEM SLAYER: 34
+- GOLEM SLAYER: 35
 - GIANT SLAYER: 38
 - TITAN SLAYER: 40
 
@@ -94,10 +94,10 @@ Records from 557 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 11
 - wings: 43
 - spellward: 47
-- venom: 87
+- venom: 88
 - swift: 93
 - spikes: 106
-- regen: 113
+- regen: 114
 
 ## Big moments
 
@@ -184,6 +184,7 @@ Records from 557 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-15 22:38: The Nightjar Company Take the Open Plains (revenge denied · 3 wins in a row · 68 kills)
 - 2026-11-15 18:59: The House of the Gold Dragonfly Take the Open Plains (2nd win · 79 kills)
 - 2026-11-15 14:36: The Red Hawk Company Take the Mountain Pass (revenge! · 17th win · 96 kills)
 - 2026-11-15 12:57: The Comet Wing Take the Clockwork Arena (first ever win · 63 kills)
@@ -193,4 +194,3 @@ Records from 557 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-15 05:03: The Hollowbark Kin Take the Frozen End (10th win · 20 kills)
 - 2026-11-15 04:05: The Badger Platoon Take the Trench Line (8th win · 49 kills)
 - 2026-11-15 00:29: The Pulsar Wing Take the Open Plains (3 wins in a row · 33 kills)
-- 2026-11-14 23:46: The Crew of the Black Gull Take the Crystal Grove (revenge denied · 4th win · 55 kills)
