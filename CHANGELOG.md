@@ -2,6 +2,19 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-15 (later): the two champions now taunt each other in the intro
+
+Rellz: "it should be animated ... a 3 seconds visualizer showing who vs who ... a little face off ... the two main opponents are facing off/taunting each other for 3 seconds, make it very high quality".
+
+The electric face-off from this morning's entry was already in both games, so I built on it rather than replacing it (I had a second face-off of my own half built when that one landed; I dropped mine so the two games keep one shared intro).
+
+- **The champions are alive now.** They were a picture drawn once and held still; each one is now drawn fresh every frame, bobbing and swaying on the spot.
+- **They taunt each other.** After the lightning strikes, they take it in turns to lunge at the seam using their own real attack move — the samurai's sword goes up and thrusts, the trooper's rifle comes round — leaning in, their ring punching toward the other one, a bright ring of their army's colour snapping out and extra arcs crackling round whoever is going. Then both go at once, just before WHO WINS? lands.
+- **Three seconds** instead of 2.4 (`rules.intro.seconds`), which is what Rellz asked for and what the three taunts need.
+- The names and counts stay put while the rings move, so no text jitters.
+- **Tested:** `node --check` on every changed file; a full short render at 1080p with stills of the charge, both single taunts and the double taunt; a 1v1v1 checked separately (three bands, two seams, all three champions taunting). The battle is never touched — the intro is drawn before the first simulation tick — so no battle, balance, map or layout test applied.
+- **Tower Clash:** `faceoff.js` is the same file in both repos, so **this change needs copying across** (the one extra thing it needs is a live `portrait` function from its own render.js). This session still can't reach that repo; the daily autopilot has it as its first job.
+
 ## 2026-11-15 (Rellz's request, from the Tower Clash chat, for both games): electric face-off intro, better music
 
 Rellz: "add the better intro which is like a face off animated with electricity and do the same for army clash for music intro and other stuff".

@@ -383,10 +383,22 @@ async function main() {
     // two armies: the electric face-off (faceoff.js, shared with Tower Clash; Rellz 2026-11-15 "a face off animated with
     // electricity"): each army's hero in a ring in its colour, a lightning seam between them, VS, then a flash into the battle
     const FO = sides0.length >= 2 ? require('./faceoff.js') : null;
+    // the champions are drawn live every frame so they can square up and taunt each other (Rellz, 2026-11-15:
+    // "the two main opponents are facing off/taunting each other for 3 seconds"): the hero's own attack animation,
+    // driven by the pose faceoff.js hands back. The battle is not stepped during any of this.
     const foSides = FO ? sides0.map((sd, n) => {
-      const hero = game.thumbPicks(sd.list).hero, U = RVB.UNIT ? RVB.UNIT[hero] : null;
-      return { col: RVB.TEAMS[sd.team], name: sd.label, sub: sd.name, count: sd.count ? `×${sd.count}` : '',
-        portrait: hero ? FO.portraitCanvas((c, r) => { const ur = (U && U.r) || 14, sc = r * 0.7 / ur; c.translate(0, r * 0.04); c.scale(n % 2 ? -sc : sc, sc); game.drawPortrait(c, hero, sd.team); }, (three ? 145 : 200) * RS, 1) : null };
+      const hero = game.thumbPicks(sd.list).hero, U = hero && RVB.UNIT ? RVB.UNIT[hero] : null;
+      const live = hero ? (c, r, pose) => {
+        const ur = (U && U.r) || 14, sc = r * 0.7 / ur, flip = n % 2 === 1;
+        const fake = { fake: true, type: hero, team: sd.team, r: ur, x: 0, y: 0, face: -Math.PI / 2 + 0.5, mface: -Math.PI / 2 + 0.5,
+          vx: 0, vy: 0, gait: n * 2.3, lunge: pose.lunge || 0, swing: pose.swing || 0, hp: 1, max: 1, cd: 1,
+          heads: (U && U.heads) || 0, bodies: [], souls: 0, decoyEnd: 99, look: 'illusion', lives: 1, muzzle: 0, flying: !!(U && U.flying) };
+        c.save(); c.translate(0, r * 0.04); c.rotate(flip ? -pose.lean : pose.lean); c.scale(flip ? -sc : sc, sc);
+        const t0 = game.t, f0 = game.fightT; game.t = pose.t; game.fightT = pose.t;
+        try { game.drawBody(c, fake, 0, 0, RVB.TEAMS[sd.team], !!(U && U.sword)); } catch (e) { /* no portrait */ }
+        game.t = t0; game.fightT = f0; c.restore();
+      } : null;
+      return { col: RVB.TEAMS[sd.team], name: sd.label, sub: sd.name, count: sd.count ? `×${sd.count}` : '', portrait: live };
     }) : null;
     const fo = FO ? { W, H, RS, seed, dur: IN_S, title: 'ARMY CLASH', tag: tag0, question: 'WHO WINS?', sides: foSides, bg: bg1, battle0 } : null;
     if (FO) FO.faceoffSounds(synth, IN_S);

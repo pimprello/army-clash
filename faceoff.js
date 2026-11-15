@@ -55,7 +55,17 @@ function portraitCanvas(drawFn, r, RS) {
   return cv;
 }
 
-// o: { W, H, RS, seed, dur, title, question, tag, sides: [{ col: {c,l,d}, name, sub, count, portrait (canvas) }, x2],
+// The champions are alive (Rellz, 2026-11-15: "the two main opponents are facing off/taunting each other for 3 seconds"):
+// side.portrait may be a canvas (drawn once) or a function (ctx, r, pose) called every frame, where pose is
+// { t, lunge, swing, lean }: each hero squares up and lunges at the other in turn, leaning in with its own attack move.
+// taunts(dur, n): when each side goes. They take it in turns after the strike, then both at once just before the end.
+function taunts(dur, n) {
+  const first = 0.95, gap = 0.42, last = Math.max(first + gap * n, dur - 1.0);
+  return Array.from({ length: n }, (_, i) => [first + i * gap, last].filter(x => x < dur - 0.42));
+}
+const bump = (t, t0, len) => (t <= t0 || t >= t0 + len ? 0 : Math.sin((t - t0) / len * Math.PI));
+
+// o: { W, H, RS, seed, dur, title, question, tag, sides: [{ col: {c,l,d}, name, sub, count, portrait (canvas or fn) }, x2],
 //      bg (battle's first frame, W x H), battle0 (battle's first frame at full resolution, for the flash into it) }
 // ctx has no transform applied (device pixels); t is seconds into the intro
 function drawFaceoff(ctx, t, o) {
@@ -79,6 +89,7 @@ function drawFaceoff(ctx, t, o) {
   const lay = N === 2
     ? [{ cx: W * 0.36, cy: 640, r: 200 }, { cx: W * 0.64, cy: 1250, r: 200 }]
     : [{ cx: W * 0.3, cy: 480, r: 145 }, { cx: W * 0.7, cy: 970, r: 145 }, { cx: W * 0.3, cy: 1460, r: 140 }];
+  const TA = taunts(dur, N);
   const band = (side, idx, dx) => {
     ctx.save(); ctx.translate(dx, 0);
     const top = idx === 0 ? [[-60, -60], [W + 60, -60]] : [[-60, seams[idx - 1][0]], [W + 60, seams[idx - 1][1]]];
@@ -98,30 +109,44 @@ function drawFaceoff(ctx, t, o) {
     }
     ctx.restore();
     // the hero in a ring, with a gloss like the troops' shine
-    const { cx, cy, r } = lay[idx];
+    const L0 = lay[idx];
+    // the taunt: it squares up, leans at the one it is fighting and swings, then settles back (looks only)
+    const my = TA[idx] || [], lunge = Math.min(1, my.reduce((a, t0) => Math.max(a, bump(t, t0, 0.46)), 0));
+    const foe = lay[idx === N - 1 ? idx - 1 : idx + 1] || L0;
+    const fdx = foe.cx - L0.cx, fdy = foe.cy - L0.cy, fl = Math.hypot(fdx, fdy) || 1;
+    const bob = Math.sin(t * 3.1 + idx * 2.1) * 7 * kIn;
+    const cx = L0.cx + fdx / fl * lunge * 34, cy = L0.cy + fdy / fl * lunge * 34 + bob, r = L0.r * (1 + lunge * 0.05);
     ctx.save(); ctx.shadowColor = side.col.l; ctx.shadowBlur = r * 0.3; ctx.beginPath(); ctx.arc(cx, cy, r + 14, 0, TAU); ctx.fillStyle = '#0B0F1A'; ctx.fill(); ctx.restore();
     const rg = ctx.createRadialGradient(cx - r * 0.3, cy - r * 0.35, r * 0.1, cx, cy, r);
     rg.addColorStop(0, side.col.l); rg.addColorStop(0.6, side.col.c); rg.addColorStop(1, side.col.d);
     ctx.beginPath(); ctx.arc(cx, cy, r, 0, TAU); ctx.fillStyle = rg; ctx.fill();
-    if (side.portrait) { ctx.save(); ctx.beginPath(); ctx.arc(cx, cy, r - 6, 0, TAU); ctx.clip(); ctx.drawImage(side.portrait, cx - r, cy - r, r * 2, r * 2); ctx.restore(); }
+    if (typeof side.portrait === 'function') {
+      ctx.save(); ctx.beginPath(); ctx.arc(cx, cy, r - 6, 0, TAU); ctx.clip(); ctx.translate(cx, cy);
+      try { side.portrait(ctx, r, { t, lunge, swing: lunge > 0.2 ? 1 - lunge : 0, lean: Math.sin(t * 2.3 + idx * 1.7) * 0.03 + lunge * 0.16 }); } catch (e) { /* no portrait */ }
+      ctx.restore();
+    } else if (side.portrait) { ctx.save(); ctx.beginPath(); ctx.arc(cx, cy, r - 6, 0, TAU); ctx.clip(); ctx.drawImage(side.portrait, cx - r, cy - r, r * 2, r * 2); ctx.restore(); }
     const gl = ctx.createLinearGradient(cx, cy - r, cx, cy);
     gl.addColorStop(0, 'rgba(255,255,255,0.32)'); gl.addColorStop(1, 'rgba(255,255,255,0)');
     ctx.save(); ctx.beginPath(); ctx.ellipse(cx - r * 0.12, cy - r * 0.5, r * 0.72, r * 0.38, -0.25, 0, TAU); ctx.fillStyle = gl; ctx.fill(); ctx.restore();
     ctx.beginPath(); ctx.arc(cx, cy, r, 0, TAU); ctx.lineWidth = 14; ctx.strokeStyle = '#0B0F1A'; ctx.stroke();
     ctx.beginPath(); ctx.arc(cx, cy, r - 12, 0, TAU); ctx.lineWidth = 4; ctx.strokeStyle = 'rgba(255,255,255,0.6)'; ctx.stroke();
+    if (lunge > 0.05) {
+      ctx.save(); ctx.globalCompositeOperation = 'lighter'; ctx.globalAlpha = 0.55 * lunge;
+      ctx.beginPath(); ctx.arc(cx, cy, r + 20 + 150 * (1 - lunge), 0, TAU); ctx.lineWidth = 14 * lunge; ctx.strokeStyle = side.col.l; ctx.stroke(); ctx.restore();
+    }
     ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
     if (BIG) {
       // name above the ring for the top side, below it for the bottom side (both away from the seam); the count beside it
-      const ny = up ? cy - r - 92 : cy + r + 70;
+      const ny = up ? L0.cy - L0.r - 92 : L0.cy + L0.r + 70;
       const fz = fitFont(ctx, side.name, 76, W - 140, 36); textOut(ctx, side.name, W / 2, ny, '#FFFFFF', '#0B0F1A', 14);
       if (side.sub) { fitFont(ctx, side.sub, 44, W - 220, 24); textOut(ctx, side.sub, W / 2, ny + fz * 0.8, side.col.l, '#0B0F1A', 9); }
-      if (side.count) { const qx = up ? cx + r + 170 : cx - r - 170; fitFont(ctx, side.count, 76, 300, 30); textOut(ctx, side.count, qx, cy + (up ? 40 : -40), '#FFD23F', '#0B0F1A', 13, 310); }
+      if (side.count) { const qx = up ? L0.cx + L0.r + 170 : L0.cx - L0.r - 170; fitFont(ctx, side.count, 76, 300, 30); textOut(ctx, side.count, qx, L0.cy + (up ? 40 : -40), '#FFD23F', '#0B0F1A', 13, 310); }
     } else {
       // three sides: name, line and count beside the ring, in the other half of the band
-      const tx = cx < W / 2 ? W * 0.69 : W * 0.31, mw = W * 0.5;
-      const fz = fitFont(ctx, side.name, 62, mw, 30); textOut(ctx, side.name, tx, cy - 34, '#FFFFFF', '#0B0F1A', 12);
-      if (side.sub) { fitFont(ctx, side.sub, 38, mw, 22); textOut(ctx, side.sub, tx, cy - 34 + fz * 0.8, side.col.l, '#0B0F1A', 8); }
-      if (side.count) { fitFont(ctx, side.count, 60, mw, 28); textOut(ctx, side.count, tx, cy + 70, '#FFD23F', '#0B0F1A', 11); }
+      const tx = L0.cx < W / 2 ? W * 0.69 : W * 0.31, mw = W * 0.5;
+      const fz = fitFont(ctx, side.name, 62, mw, 30); textOut(ctx, side.name, tx, L0.cy - 34, '#FFFFFF', '#0B0F1A', 12);
+      if (side.sub) { fitFont(ctx, side.sub, 38, mw, 22); textOut(ctx, side.sub, tx, L0.cy - 34 + fz * 0.8, side.col.l, '#0B0F1A', 8); }
+      if (side.count) { fitFont(ctx, side.count, 60, mw, 28); textOut(ctx, side.count, tx, L0.cy + 70, '#FFD23F', '#0B0F1A', 11); }
     }
     ctx.restore();
     return { cx: cx + dx, cy, r };
@@ -145,7 +170,8 @@ function drawFaceoff(ctx, t, o) {
     });
     // arcs crawling round every ring in its team colour
     rings.forEach((rg, n) => {
-      for (let i = 0; i < 3; i++) {
+      const hot = (TA[n] || []).reduce((a, t0) => Math.max(a, bump(t, t0, 0.46)), 0);
+      for (let i = 0; i < 3 + Math.round(hot * 4); i++) {
         const a0 = R() * TAU, a1 = a0 + 0.5 + R() * 0.9, rr = rg.r + 10;
         const pts = []; for (let s = 0; s <= 10; s++) { const a = a0 + (a1 - a0) * s / 10, j = (R() - 0.5) * 26; pts.push([rg.cx + Math.cos(a) * (rr + j), rg.cy + Math.sin(a) * (rr + j)]); }
         strokeBolt(ctx, pts, o.sides[n].col.l, 2.4, k * (0.6 + 0.4 * R()));
