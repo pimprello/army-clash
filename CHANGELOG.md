@@ -25,6 +25,10 @@ Rellz: "fix every single logical issue one example is acid shouldn't be displaye
 - An ice block covers a frozen little person from head to feet.
 - No extra round contact shadow under little people (they cast their own); the guardian's hexagon lies at their feet.
 - Skeletons raised by the graveyard spell never stand inside a tree or a rock (pushed out of obstacles).
+- Troop names are drawn after every troop, so no troop is drawn across another's name.
+- Tribe tactic tags stay inside what the camera shows (a zoomed-in camera used to cut them in half), and floating words move above a tag instead of landing across it.
+- A little person's shot leaves from its gun or bow at chest height instead of from its feet.
+- Weapon glints sit at a little person's hands.
 
 ## 2026-11-14 (late): bones that stay, rings on the ground, coins that fly in nicely
 
