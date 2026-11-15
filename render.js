@@ -32,6 +32,10 @@ const OUTRO = process.env.SECS ? 0 : VID.outroSeconds || 0;
 const SECS = process.env.SECS ? Number(process.env.SECS) : OUTRO ? (VID.fightSeconds || 60) + OUTRO : 60;
 // (the finale's slow motion adds up to about 8 s after the battle: rules.video.finale)
 const MAXFRAMES = FPS * (OUTRO ? SECS + 16 : SECS);
+// the intro (rules.intro, Rellz 2026-11-15: "instead of the video starting right in the battle it should be a bit like the
+// thumbnail and should be a few seconds giving context about who vs who"): a short title card before the battle
+const INTRO = (() => { const r = JSON.parse(fs.readFileSync(path.join(__dirname, 'rules.json'), 'utf8')).intro || {}; return r.on && (!process.env.SECS || process.env.INTRO === '1') ? Math.max(1, Math.min(4, r.seconds || 2.4)) : 0; })();
+const INTRO_F = Math.round(INTRO * FPS), IN_S = INTRO_F / FPS;
 const OUT = path.join(__dirname, 'out');
 const seed = process.env.SEED ? Number(process.env.SEED) >>> 0 : crypto.randomBytes(4).readUInt32LE(0);
 
@@ -229,6 +233,8 @@ async function main() {
     // the merchant's spell book (rules.spells), expendable small troops (rules.expendable), and the cleaner battlefield and remains (rules.ui)
     ...(rules.spells && rules.spells.on ? { spells: rules.spells } : {}), ...(rules.expendable && rules.expendable.on ? { expendable: rules.expendable } : {}),
     ...(rules.ui && rules.ui.clean ? { clean: true } : {}), ...(rules.ui && rules.ui.remains ? { remains: true } : {}),
+    // screen notices never stack on top of each other (rules.ui.noStack; looks only)
+    ...(rules.ui && rules.ui.noStack ? { noStack: true } : {}),
     // blood first: splatter, pools and spattered fighters instead of sparks and smoke (rules.ui.blood; looks only)
     ...(rules.ui && rules.ui.blood && rules.ui.blood.on ? { blood: rules.ui.blood } : {}),
     // little people instead of circles and triangles (rules.ui.humans; looks only)
@@ -325,7 +331,7 @@ async function main() {
   // every troop type in this battle (saved in videos.jsonl, so freshness can pick the troops seen least)
   const unitsAtStart = [...new Set(game.units.filter(u => !RVB.UNIT[u.type].uncounted).map(u => u.type).concat(...(game.waves || []).flat().map(w => w.list || [])))];
   const director = cinematic ? new RVB.Director(game, { seed: bseed, finale }) : null;
-  const synth = new RVB.Synth(SR, MAXFRAMES / FPS + 4);
+  const synth = new RVB.Synth(SR, MAXFRAMES / FPS + 4 + IN_S);
   synth.reset(bseed);
   synth.variety = (rules.sound && rules.sound.variety) || 0;   // rules.json: how much each sound's pitch and volume vary (0 = off)
   const canvas = createCanvas(W * RS, H * RS);
@@ -360,14 +366,45 @@ async function main() {
   const mp = muOn ? Music.plan(seed, muStyle) : null, mtr = muOn ? Music.tracker() : null;
   let firstCv = null;
   const FIGHT_S = VID.fightSeconds || 60;
+  // ----- the intro (rules.intro): the thumbnail's layout (logo, both armies' troops and counts, VS, WHO WINS?) over the
+  // blurred opening battlefield, easing in with a slam, then a flash into the battle's first frame. Looks only: the battle
+  // starts exactly as before, everything after it (sound, music, beat punches) is just shifted by the intro's length.
+  if (INTRO_F && thumbLists) {
+    const ids0 = three ? [0, 1, 2] : [0, 1];
+    ctx.setTransform(RS, 0, 0, RS, 0, 0); game.draw(ctx);
+    const battle0 = createCanvas(W * RS, H * RS); battle0.getContext('2d').drawImage(canvas, 0, 0);
+    const bg1 = createCanvas(W, H); bg1.getContext('2d').drawImage(canvas, 0, 0, W, H);
+    const nm = k => (k === 'NEWZEALAND' ? 'NEW ZEALAND' : k);
+    const sides0 = ids0.map(i => ({ team: i, list: thumbLists[i] || [], label: RVB.docLabel(game.doc[i]), name: nm(pair[i]), count: game.start[i] }));
+    const tag0 = three ? '1 v 1 v 1' : game.mode && RVB.MODE_HOOK[game.mode] ? RVB.MODE_HOOK[game.mode].replace(/!$/, '') : '';
+    const card = createCanvas(W * RS, H * RS), cc = card.getContext('2d'); cc.scale(RS, RS);
+    game.drawThumb(cc, bg1, sides0, { tag: tag0 });
+    const ease = x => 1 - Math.pow(1 - x, 3);
+    synth.play({ type: 'boom', gain: 0.8 }, 0.02);
+    synth.play({ type: 'whoosh' }, Math.max(0, IN_S - 0.35));
+    for (let k = 0; k < INTRO_F; k++) {
+      const t = k / FPS, z = 1.04 - 0.04 * ease(Math.min(1, t / 0.5)) + 0.025 * Math.max(0, t - 0.5) / IN_S;
+      ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.fillStyle = '#05070D'; ctx.fillRect(0, 0, W * RS, H * RS);
+      ctx.save(); ctx.translate(W * RS / 2, H * RS / 2); ctx.scale(z, z); ctx.drawImage(card, -W * RS / 2, -H * RS / 2); ctx.restore();
+      // the last 0.35 s: a white flash that opens onto the battle's first frame
+      const out = (t - (IN_S - 0.35)) / 0.35;
+      if (out > 0) { ctx.globalAlpha = ease(Math.min(1, out)); ctx.drawImage(battle0, 0, 0); ctx.globalAlpha = Math.max(0, 0.55 * (1 - Math.abs(out - 0.35) / 0.35)); ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, W * RS, H * RS); ctx.globalAlpha = 1; }
+      if (k === 0 && muOn && MU.loop !== false) { firstCv = createCanvas(W * RS, H * RS); firstCv.getContext('2d').drawImage(canvas, 0, 0); }
+      const frame = canvas.toBuffer('raw');
+      if (!enc.p.stdin.write(frame)) await once(enc.p.stdin, 'drain');
+      nFrames++;
+    }
+    if (mtr) mtr.frame(IN_S, game);
+    console.log(`Intro: ${IN_S.toFixed(2)} s title card`);
+  }
   for (let i = 0; i < MAXFRAMES; i++) {
     ctx.setTransform(RS, 0, 0, RS, 0, 0);
-    const z0 = game.cam && game.cam.z, punch = muOn && MU.pulse !== false && game.cam && game.phase === 'fight' && game.fightT > FIGHT_S - 6 ? Music.pulse(mp, i / FPS) : 0;
+    const z0 = game.cam && game.cam.z, punch = muOn && MU.pulse !== false && game.cam && game.phase === 'fight' && game.fightT > FIGHT_S - 6 ? Music.pulse(mp, i / FPS + (INTRO_F && thumbLists ? IN_S : 0)) : 0;
     if (punch) game.cam.z = z0 * (1 + punch);
     game.draw(ctx);
     if (punch) game.cam.z = z0;
     if (muOn && MU.loop !== false) {
-      if (i === 0) { firstCv = createCanvas(W * RS, H * RS); firstCv.getContext('2d').drawImage(canvas, 0, 0); }
+      if (i === 0 && !firstCv) { firstCv = createCanvas(W * RS, H * RS); firstCv.getContext('2d').drawImage(canvas, 0, 0); }
       const left = game.phase === 'outro' && game.outroLen ? game.outroLen - game.outroT : 9;
       if (firstCv && left < 0.45 && !game.holdOutro) { ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = Math.min(1, (0.45 - left) / 0.4); ctx.drawImage(firstCv, 0, 0); ctx.globalAlpha = 1; }
     }
@@ -383,8 +420,9 @@ async function main() {
     // the video ends when the outro does (outroSeconds after the battle), or at the fixed length
     if (OUTRO && game.finished) break;
     if (director) director.advance(1 / FPS); else game.frame(1 / FPS);
-    for (const ev of game.sfx) synth.play(ev, (i + 1) / FPS);
-    if (mtr) mtr.frame((i + 1) / FPS, game);
+    const off = INTRO_F && thumbLists ? IN_S : 0;
+    for (const ev of game.sfx) synth.play(ev, (i + 1) / FPS + off);
+    if (mtr) mtr.frame((i + 1) / FPS + off, game);
     game.sfx.length = 0;
     if ((i + 1) % (FPS * 6) === 0) console.log(`frame ${i + 1} (${((i + 1) / FPS).toFixed(0)} s of video) after ${((Date.now() - t0) / 1000).toFixed(0)} s`);
   }
@@ -438,7 +476,7 @@ async function main() {
     low: Fx.low, falls: Fx.falls || [], drops: Fx.drops || [], strike: Fx.strike, hazard: Fx.hazard, wild: wild || custom || (three && invent3), three, clickbait, seed,
     xf: game.xf || {}, world: game.worldLog || [], label: RVB.labelOf, mvp: game.best && game.best[game.winner],
     mode: game.mode || undefined, heroes: mode === 'heroes' ? heroTeam : undefined, skins: skinNames, tribes: tf,
-    recent: pastVideos.slice(-12).map(v => v.title),
+    recent: pastVideos.slice(-12).map(v => v.title), eras: three ? null : eras,
   });
   const hook = title;
   const MAP_NAME = { open: 'open field', rocks: 'rocky field', ruins: 'ruins', trenches: 'trenches', city: 'city rooftops', forest: 'forest', bombed: 'bombed city', enchanted: 'fantasy land', canyon: 'canyon',

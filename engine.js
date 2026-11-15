@@ -363,6 +363,8 @@ const RVB = (() => {
       const cap = this.shine ? 2600 : 700;
       if (this.parts.length > cap) this.parts.splice(0, this.parts.length - cap);
     }
+    // the finale's window (the slow-motion final blow and the moments before it): nothing new is put over it
+    finWin() { return !!this.finalePlan && this.phase === 'fight' && this.fightT > this.finalePlan.t - FIN_LEAD - 0.4; }
     float(x, y, text, color, size = 56, life = 0.9) {
       // the finale: no new floating labels over the final blow
       if (this.finalePlan && (this.phase !== 'fight' || this.fightT > this.finalePlan.t - FIN_LEAD - 0.4)) return;
@@ -378,8 +380,16 @@ const RVB = (() => {
       // UI 2.0: nothing covers the opening story card: banners wait until it's gone (only the last two are kept)
       if (this.opts.ui >= 2 && this.story && this.t < 4.4) { (this.heldB || (this.heldB = [])).push({ text, color, life }); if (this.heldB.length > 2) this.heldB.shift(); return; }
       // UI 2.0: a banner still being read (on screen under 1.1 s) isn't replaced; the new one waits its turn
+      // (rules.ui.noStack) the same news twice is said once; once the battle is over, no more banners cover the result
+      if (this.opts.noStack && this.opts.ui >= 2) {
+        if (this.phase === 'outro' || this.finWin()) return;
+        if (this.banners.some(b => b.text === text && b.age < b.life - 0.3) || (this.bannerQ || []).some(q => !q.done && q.text === text && q.at > this.fightT)) return;
+      }
       if (this.opts.ui >= 2 && this.bannerQ && this.phase === 'fight') {
         const cur = this.banners.find(b => b.age < 1.1 && b.age < b.life - 0.3);
+        // (rules.ui.noStack) news never piles up: with two already waiting, the newest replaces the last one waiting,
+        // so nothing turns up seconds after it happened
+        if (cur && this.opts.noStack) { const wait = this.bannerQ.filter(q => !q.done && q.at > this.fightT); if (wait.length >= 2) { const last = wait[wait.length - 1]; last.text = text; last.col = color; return; } }
         if (cur) { this.bannerQ.push({ at: this.fightT + (1.1 - cur.age) + 0.05 + this.bannerQ.filter(q => !q.done && q.at > this.fightT).length * 1.2, text, col: color }); return; }
       }
       // Replace a banner that is still on screen rather than stacking them.
@@ -396,6 +406,8 @@ const RVB = (() => {
       for (const f of this.floats) f.age += dt;
       this.floats = this.floats.filter(f => f.age < f.life);
       for (const b of this.banners) b.age += dt;
+      // (rules.ui.noStack) a banner still up when the battle ends fades out quickly instead of sitting over the result
+      if (this.opts.noStack && (this.phase === 'outro' || this.finWin())) for (const b of this.banners) if (!b.cut) { b.cut = true; b.life = Math.min(b.life, b.age + 0.3); }
       this.banners = this.banners.filter(b => b.age < b.life);
       this.shakeAmt *= Math.pow(0.0009, dt);
       if (this.shakeAmt < 0.3) this.shakeAmt = 0;
@@ -627,12 +639,13 @@ const RVB = (() => {
         ctx.globalAlpha = outK;
         // UI 2.0: while the roster strips are up, banners drop below the top strip(s) instead of covering them
         const rosterUp = this.ui2 && this.cmb && this.cmb.roster && this.t > 4.0 && this.t < 8.6;
-        const by = rosterUp ? AR.y + 14 + (this.N === 3 ? 3 * 84 : 100) + 48 : AR.y + 82;
-        ctx.translate(VW / 2, by);
-        ctx.scale(0.6 + 0.4 * inK, 0.6 + 0.4 * inK);
+        let by = rosterUp ? AR.y + 14 + (this.N === 3 ? 3 * 84 : 100) + 48 : AR.y + 82;
         ctx.font = font(54, 800); spaced(ctx, 3);
         const ft = [0, 1].find(i => hasFlag(TEAMS[i]) && (b.text.startsWith(TEAMS[i].name + ' ') || b.text.startsWith(TEAMS[i].name + ':')));
         const tw = ctx.measureText(b.text).width, fw = ft !== undefined ? 66 : 0, w = tw + 70 + fw, maxW = this.ui2 ? 900 : 1040;
+        if (this.noteR) { const kk = Math.min(1, maxW / w); by += this.noteFit('banner', 'banner', VW / 2 - (w / 2 + 16) * kk, by - 40 * kk, (w + 32) * kk, 80 * kk); }
+        ctx.translate(VW / 2, by);
+        ctx.scale(0.6 + 0.4 * inK, 0.6 + 0.4 * inK);
         if (w > maxW) ctx.scale(maxW / w, maxW / w);
         if (this.ui2 && this.lay && inK >= 1 && outK >= 1) { const k = Math.min(1, maxW / w); this.lay.push({ kind: 'banner', x: VW / 2 - (w / 2 + 16) * k, y: by - 40 * k + (this.layDY || 0), w: (w + 32) * k, h: 80 * k, text: b.text }); }
         ctx.beginPath();
@@ -4191,6 +4204,7 @@ const RVB = (() => {
       }
       this.drawArenaFrame(ctx);
       this.drawFX(ctx);
+      if (U2) this.noteBegin();
       this.drawBanners(ctx);
       if (U2) {
         if (this.tribes) this.drawStory2(ctx);
@@ -10064,6 +10078,31 @@ const RVB = (() => {
   const SAFE = { x0: 48, x1: 1032, top: 60, bottom: 1560, btnX: 940, btnY0: 900 };
   const shortTribe = n => n.replace(/^THE /, '').replace(/^(ORDER|HOUSE|CREW) OF THE /, '').replace(/ (CLAN|COMPANY|TRIBE|KIN|CIRCLE|SCHOOL|ORDER)$/, '');
   const ARMY_UI2 = {
+    // ----- the notice lane (rules.ui.noStack): screen notices (banners, the chapter pill, upgrade and shop cards) never sit on
+    // top of each other (Rellz, 2026-11-15: "when a notification comes it should not stack on top of each other"). Every frame
+    // each notice claims its box in drawing order; one that would overlap a box already claimed by another kind slides clear
+    // of it (down, or up for the chapter pill at the bottom), easing there so nothing jumps. Looks only: drawn after the battle.
+    noteBegin() {
+      this.noteR = this.opts.noStack ? [] : null;
+      const t = this.t, dt = this.noteT === undefined ? 0 : clamp(t - this.noteT, 0, 0.1);
+      this.noteT = t; this.noteDt = dt;
+      if (!this.noteDY) this.noteDY = {};
+    },
+    noteFit(group, key, x, y, w, h, dir = 1) {
+      if (!this.noteR) return 0;
+      let dy = 0;
+      for (let pass = 0; pass < 4; pass++) {
+        const o = this.noteR.find(r => r.group !== group && x < r.x + r.w && r.x < x + w && y + dy < r.y + r.h + 10 && r.y < y + dy + h + 10);
+        if (!o) break;
+        dy = dir > 0 ? o.y + o.h + 12 - y : o.y - 12 - h - y;
+      }
+      const m = this.noteDY, prev = m[key];
+      let cur = dy;
+      if (prev && this.t - prev.seen < 0.25) cur = prev.dy + (dy - prev.dy) * (1 - Math.exp(-(this.noteDt || 0) * 14));
+      m[key] = { dy: cur, seen: this.t };
+      this.noteR.push({ group, x, y: y + cur, w, h });
+      return cur;
+    },
     // the scoreboard: logo, hook, both armies' names and live counts, the battle clock in the centre pill, and the strength bar
     drawHUD2(ctx) {
       const t = this.t, L = this.alive[0] + this.reserve[0], R = this.alive[1] + this.reserve[1];
@@ -10157,10 +10196,12 @@ const RVB = (() => {
         if (k < 0 || k > 1) continue;
         // (while the roster strip is up at the bottom of the battlefield, the card sits just above it)
         const low = this.N !== 3 && this.cmb && this.cmb.roster && this.t > 4.0 && this.t < 8.6 ? 14 + 92 + 10 : 0;
-        const a = Math.min(1, k * 8, (1 - k) * 6), y = AR.y + AR.h - 40 - low + (1 - Math.min(1, k * 8)) * 20;
+        const a = Math.min(1, k * 8, (1 - k) * 6);
+        let y = AR.y + AR.h - 40 - low + (1 - Math.min(1, k * 8)) * 20;
         ctx.save(); ctx.globalAlpha = a;
         ctx.font = font(28, 800); spaced(ctx, 3);
         const w = Math.min(2 * (SAFE.btnX - VW / 2), ctx.measureText(c.text).width + 80);
+        if (this.noteR) y += this.noteFit('chapter', 'chapter', VW / 2 - w / 2, y - 24, w, 48, -1);
         roundRect(ctx, VW / 2 - w / 2, y - 24, w, 48, 24); ctx.fillStyle = 'rgba(8,11,20,0.9)'; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = c.col; ctx.stroke();
         for (const sx of [-1, 1]) { const dx = VW / 2 + sx * (w / 2 - 22); ctx.beginPath(); ctx.moveTo(dx, y - 7); ctx.lineTo(dx + 7, y); ctx.lineTo(dx, y + 7); ctx.lineTo(dx - 7, y); ctx.closePath(); ctx.fillStyle = c.col; ctx.fill(); }
         spaced(ctx, 0);
@@ -11547,7 +11588,9 @@ const RVB = (() => {
       for (;;) {
         if (E.show) { const end = E.show.t0 + (E.show.big ? 2.3 : 1.7); if (t <= end) return; E.show = null; E.next = end + 0.6; }
         if (!E.cards.length) return;
-        const start = Math.max(E.next, E.cards[0].at || 0, 8.8);
+        // (rules.ui.noStack: the merchant's shop card and the upgrade cards share a spot, so they take turns)
+        if (this.opts.noStack && (this.shopBusy() || this.finWin())) return;
+        const start = Math.max(E.next, E.cards[0].at || 0, 8.8, this.opts.noStack && this.merch && this.merch.cardFree ? this.merch.cardFree : 0);
         if (t < start) return;
         E.show = E.cards.shift(); E.show.t0 = start;
       }
@@ -11560,7 +11603,9 @@ const RVB = (() => {
       const age = t - c.t0, dur = c.big ? 2.3 : 1.7;
       const tb = c.tb, tm = TEAMS[tb.team], ecol = c.which === 'w' ? this.wCol(tb, c.tier) : c.tier >= 4 ? ELEM[tb.elem].col : A_COL[c.tier];
       const inK = easeOutBack(clamp(age / 0.28, 0, 1)), a = Math.min(1, age / 0.12, (dur - age) / 0.25);
-      const W = 800, H = 150, cx = VW / 2, cy = AR.y + 205;
+      const W = 800, H = 150, cx = VW / 2;
+      let cy = AR.y + 205;
+      if (this.noteR) cy += this.noteFit('evo', 'evo', cx - W / 2, cy - H / 2, W, H);
       ctx.save(); ctx.globalAlpha = a; ctx.translate(cx, cy); ctx.scale(0.7 + 0.3 * inK, 0.7 + 0.3 * inK);
       roundRect(ctx, -W / 2, -H / 2, W, H, 18); ctx.fillStyle = 'rgba(10,14,24,0.92)'; ctx.fill(); ctx.lineWidth = 4; ctx.strokeStyle = tm.c; ctx.stroke();
       // the element's colour sweeping across the card
@@ -13048,14 +13093,30 @@ const RVB = (() => {
       if (this.mkFx && this.mkFx.length > 12) this.mkFx = this.mkFx.filter(f => t - f.t0 < 2);
       ctx.restore(); ctx.globalAlpha = 1;
     },
+    // (rules.ui.noStack) the shop card is waiting to show or on screen
+    shopBusy() {
+      const m = this.merch;
+      if (!m || !this.market2 || this.phase !== 'fight' || m.cardDone) return false;
+      return this.fightT - m.t0 - 0.3 >= 0 && (m.cardF !== undefined || this.fightT - m.t0 - 0.3 < 4);
+    },
     // the shop card when the merchant arrives: his four wares and their prices
     drawShopCard(ctx) {
       const m = this.merch;
       if (!m || !this.market2 || this.phase !== 'fight') return;
-      const age = this.fightT - m.t0 - 0.3, dur = 1.6;
+      let age = this.fightT - m.t0 - 0.3;
+      const dur = 1.6;
+      if (this.opts.noStack) {
+        // (rules.ui.noStack: wait for an upgrade card that's still on screen, then show the shop for its full time)
+        if (age < 0 || m.cardDone) return;
+        if (m.cardF === undefined) { if (this.finWin()) { m.cardDone = true; return; } if (this.evo && this.evo.show && age < 4) return; m.cardF = this.fightT - Math.max(0, Math.min(age, 0.05)); }
+        age = this.fightT - m.cardF;
+        if (age > dur) { m.cardDone = true; m.cardFree = this.t + 0.5; return; }
+      }
       if (age < 0 || age > dur) return;
       const inK = easeOutBack(clamp(age / 0.28, 0, 1)), a = Math.min(1, age / 0.12, (dur - age) / 0.25);
-      const W = 800, H = 150, cx = VW / 2, cy = AR.y + 205;
+      const W = 800, H = 150, cx = VW / 2;
+      let cy = AR.y + 205;
+      if (this.noteR) cy += this.noteFit('shop', 'shop', cx - W / 2, cy - H / 2, W, H);
       const OLD = { evolve: ['EVOLUTION CORE', '#C084FC'], spell: ['BATTLE SPELL', '#FB923C'], barrage: ['BARRAGE', '#F87171'], summon: ['SUMMONS', '#2DD4BF'] };
       // (rules.spells: this visit's wares from the spell book)
       const wares = m.offer ? m.offer.map(k => BOOK[k] ? [k, BOOK[k].name, BOOK[k].col] : [k, ...OLD[k]]) : Object.entries(OLD).map(([k, v]) => [k, ...v]);

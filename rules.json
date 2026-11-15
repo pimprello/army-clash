@@ -349,7 +349,10 @@
         "LIME"
       ],
       "weight": 1
-    }
+    },
+    { "teams": ["GREEN", "MAGENTA"], "weight": 1 },
+    { "teams": ["GOLD", "INDIGO"], "weight": 1 },
+    { "teams": ["CRIMSON", "MINT"], "weight": 1 }
   ],
   "minColourGap": 30,
   "teamStyles": {
@@ -1614,7 +1617,9 @@
       "bottom": "SUNKINGDOM",
       "balance": 1,
       "combatBalance": 1.581
-    }
+    },
+    { "top": "SAMURAI", "bottom": "TROOPERS", "balance": 1, "combatBalance": 0.632 },
+    { "top": "KNIGHTS", "bottom": "ROBOTS", "balance": 1, "combatBalance": 1 }
   ],
   "cinematic": true,
   "sound": {
@@ -2075,6 +2080,7 @@
   },
   "ui": {
     "layout": 2,
+    "noStack": true,
     "art": 2,
     "anim": true,
     "shine": {
@@ -2114,6 +2120,10 @@
   },
   "thumbnail": {
     "on": true
+  },
+  "intro": {
+    "on": true,
+    "seconds": 2.4
   },
   "roster": {
     "on": true

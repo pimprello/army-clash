@@ -63,6 +63,8 @@ function makeTitle(f) {
   const facts = [];
   if (f.start[w] < f.start[l] * 0.8) facts.push('The Smaller Army Did WHAT? 😳', 'They Were OUTNUMBERED... 😳');
   if (f.left[w] > 0 && f.left[w] <= 3) facts.push(`Won With Only ${f.left[w]} LEFT 😱`, 'This Ending Was WAY Too Close 😰');
+  // new (2026-11-15, autopilot): the very last one standing
+  if (f.left[w] === 1) facts.push('Down to the LAST Soldier 😱', 'ONE Survivor Decided It 😳');
   if (f.low && f.low[w] < 0.32) facts.push('The BIGGEST Comeback I\'ve Seen 😱', 'They Were LOSING Until This 😳');
   if (f.left[w] >= 25 && lost[w] < (f.start[w] + (f.gained[w] || 0)) * 0.3) facts.push('This Was a MASSACRE 💀', 'Total DOMINATION 😤');
   // new (2026-11-05): stronger versions of the same true outcomes
@@ -162,7 +164,9 @@ function makeTitle(f) {
   } else if (f.nations) {
     // nation battles: the flags are the hook
     const [a, b] = f.teams;
-    options.push(`${f.flags[a]} ${f.nations[a]} vs ${f.nations[b]} ${f.flags[b]}`, `${f.flags[a]} ${f.nations[a]} ${names[0]} vs ${f.nations[b]} ${names[1]}`, `${f.flags[a]} ${f.nations[a]} vs ${f.nations[b]}: WHO WINS?`);
+    options.push(`${f.flags[a]} ${f.nations[a]} vs ${f.nations[b]} ${f.flags[b]}`, `${f.flags[a]} ${f.nations[a]} ${names[0]} vs ${f.nations[b]} ${names[1]}`, `${f.flags[a]} ${f.nations[a]} vs ${f.nations[b]}: WHO WINS?`,
+      // new (2026-11-15, autopilot): the friendly rivalry as the hook
+      `${f.flags[a]} ${f.nations[a]} vs ${f.nations[b]} ${f.flags[b]}: The RIVALRY ⚔️`);
   } else {
     const [A, B] = [nounOf(f.docs[0]), nounOf(f.docs[1])];
     if (!f.wild && A.count && B.count && names[0] !== names[1]) options.push(`${f.start[0]} ${names[0]} vs ${f.start[1]} ${names[1]} ${emo[0] || emo[1]}`);
@@ -181,6 +185,12 @@ function makeTitle(f) {
       if (!f.wild && A.count) options.push(`${f.start[0]} ${col[0]} ${names[0]} vs ${f.start[1]} ${col[1]} ${names[1]} ${emo[0] || '🔥'}`);
     }
     if (f.wild) options.push(`${names[0]} vs ${names[1]} 🤯`, `DREAM TEAM Battle: ${names[0]} vs ${names[1]}`);
+    // new (2026-11-15, autopilot): armies from different times ("PAST vs FUTURE: Samurai vs Troopers")
+    const AGE = { medieval: 0, samurai: 0, pirate: 1, modern: 2, scifi: 3 }, ea = (f.eras || [])[0], eb = (f.eras || [])[1];
+    if (!f.wild && ea in AGE && eb in AGE && Math.abs(AGE[ea] - AGE[eb]) >= 2 && names[0] !== names[1]) {
+      const word = e => (AGE[e] === 3 ? 'FUTURE' : AGE[e] === 2 ? 'TODAY' : 'PAST');
+      options.unshift(`${word(ea)} vs ${word(eb)}: ${names[0]} vs ${names[1]} ⏳`);
+    }
     if (names[0] !== names[1]) options.push(`Can ${names[1]} Survive ${cap(names[0])}? ${emo[0] || '😳'}`);
   }
   // battle modes are the hook, so their titles come first; skins name the armies ("Neon Knights vs Shadow Knights")
