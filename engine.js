@@ -82,6 +82,16 @@ const RVB = (() => {
   // the smaller of the differences between two teams' main colours and their dark shades
   const colourGap = (a, b) => { const A = PALETTES[a], B = PALETTES[b]; return Math.min(de2000(A.c, B.c), de2000(A.d, B.d)); };
   const rgba = (hex, a) => { const n = parseInt(hex.slice(1), 16); return `rgba(${n >> 16},${(n >> 8) & 255},${n & 255},${a})`; };
+  // how light a colour is (relative luminance 0..1, for '#rgb', '#rrggbb' or 'rgb(a)(...)'); readable text on a light fill is dark
+  const lumOf = col => {
+    const s = String(col).trim(); let c = null, m;
+    if ((m = /^#([0-9a-f]{3})$/i.exec(s))) c = m[1].split('').map(h => parseInt(h + h, 16));
+    else if ((m = /^#([0-9a-f]{6})/i.exec(s))) c = [0, 2, 4].map(i => parseInt(m[1].slice(i, i + 2), 16));
+    else if ((m = /rgba?\(([^)]+)\)/.exec(s))) c = m[1].split(',').slice(0, 3).map(Number);
+    if (!c) return 0;
+    const f = v => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); };
+    return 0.2126 * f(c[0]) + 0.7152 * f(c[1]) + 0.0722 * f(c[2]);
+  };
   const FONT = '"Barlow Condensed", "Arial Narrow", "Roboto Condensed", "Helvetica Neue", Arial, sans-serif';
   const TAU = Math.PI * 2;
 
@@ -674,9 +684,11 @@ const RVB = (() => {
         ctx.fillStyle = b.color; ctx.fill();
         ctx.lineWidth = 5; ctx.strokeStyle = COL.ink; ctx.stroke();
         ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-        ctx.fillStyle = b.color === COL.gold ? COL.ink : COL.white;
         if (fw) drawFlag(ctx, TEAMS[ft].key, -w / 2 + 30, -21, 60, 40, 3);
-        ctx.fillText(b.text, fw / 2, 3);
+        // (readable, Rellz 2026-11-15) on a light banner (a white, silver, yellow, cyan or lime team, a pale event) the words are dark;
+        // otherwise they're white with a dark outline, so they never melt into the banner's colour
+        if (b.color === COL.gold || lumOf(b.color) > 0.42) { ctx.fillStyle = COL.ink; ctx.fillText(b.text, fw / 2, 3); }
+        else strokeText(ctx, b.text, fw / 2, 3, COL.white, 'rgba(8,11,20,0.9)', 7);
         spaced(ctx, 0);
         ctx.restore();
       }
@@ -9963,7 +9975,7 @@ const RVB = (() => {
         this.ticker.slice(0, 2).forEach((e, i) => {
           const a = clamp((t - e.t) / 0.25, 0, 1);
           ctx.globalAlpha = inK * a * (i ? 0.55 : 1);
-          this.fitText(ctx, e.text, VW / 2, ty + i * 32, W - 20, i ? 19 : 22, 800, false, i ? COL.muted : e.team >= 0 ? TEAMS[e.team].l : COL.gold, 'center', 18);
+          this.fitTextO(ctx, e.text, VW / 2, ty + i * 32, W - 20, i ? 19 : 22, 800, false, i ? COL.muted : e.team >= 0 ? TEAMS[e.team].l : COL.gold, 'center', 18);
         });
         ctx.globalAlpha = 1;
         this.drawCoins(ctx);
@@ -9973,6 +9985,14 @@ const RVB = (() => {
       ctx.textBaseline = 'alphabetic';
     },
     // text that shrinks to fit its space (never squashed, never under `min` pixels), recorded for the layout check
+    // fitText with a soft dark outline, for words that may end up over something bright
+    fitTextO(ctx, text, x, y, maxW, size, weight, italic, color, align = 'left', min = 16) {
+      let s = size; ctx.font = font(s, weight, italic);
+      while (s > min && ctx.measureText(text).width > maxW) { s -= 1; ctx.font = font(s, weight, italic); }
+      ctx.save(); ctx.textAlign = align; ctx.textBaseline = 'middle'; ctx.lineJoin = 'round'; ctx.lineWidth = 4; ctx.strokeStyle = 'rgba(8,11,20,0.85)';
+      ctx.strokeText(text, x, y, maxW); ctx.restore();
+      return this.fitText(ctx, text, x, y, maxW, size, weight, italic, color, align, min);
+    },
     fitText(ctx, text, x, y, maxW, size, weight, italic, color, align = 'left', min = 16) {
       let s = size;
       ctx.font = font(s, weight, italic);
@@ -10310,7 +10330,7 @@ const RVB = (() => {
       if (e) {
         const a = clamp((t - e.t) / 0.25, 0, 1);
         ctx.globalAlpha = inK * a;
-        this.fitText(ctx, e.text, VW / 2, top, W, 20, 800, false, e.team >= 0 ? TEAMS[e.team].l : COL.gold, 'center', 18);
+        this.fitTextO(ctx, e.text, VW / 2, top, W, 20, 800, false, e.team >= 0 ? TEAMS[e.team].l : COL.gold, 'center', 18);
         ctx.globalAlpha = inK;
       }
       const three = this.N === 3, cols = three ? 3 : 2, gap = 14, cw = (W - gap * (cols - 1)) / cols, ch = three ? 140 : 72;

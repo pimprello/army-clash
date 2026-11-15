@@ -2,6 +2,15 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-15 (midday, Rellz's request): readable banners on every team colour
+
+Rellz, with a screenshot of a white banner with white words on it (a WHITE army's "SALTFANG CREW BUY SHIELD DOME!"): "fix unreadability in ui".
+
+- **The fix:** a banner's words now pick their colour from the banner's own: dark words on a light banner (white, silver, yellow, gold, cyan, lime and the pale event banners such as Blood Moon or Sandworm), white words on the rest.
+- **Four more of my own:** white banner words now always carry a dark outline, so they stay crisp on mid colours (green, orange, red) and over a flash; the ticker line under the scoreboard (the latest thing that happened, in the team's light colour) gets a soft dark outline so it can't fade into a bright moment; a new contrast probe measures every word drawn on every quarter-second of a battle against what's behind it; and it was run on white, silver, yellow, cyan and lime armies, in a three-army battle and on the snow and dunes maps: nothing below a readable contrast is left (before: 14 banners and lines in three battles).
+- `lumOf()` in `engine.js` (how light a colour is). Looks only; battles unchanged. Army Clash only (asked in the Army Clash chat).
+- Already-posted videos don't change; the next video has the fix.
+
 ## 2026-11-15 (later): the two champions now taunt each other in the intro
 
 Rellz: "it should be animated ... a 3 seconds visualizer showing who vs who ... a little face off ... the two main opponents are facing off/taunting each other for 3 seconds, make it very high quality".
