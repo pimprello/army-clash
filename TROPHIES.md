@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 561 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 562 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -10,10 +10,10 @@ Records from 561 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **60 kills**: GIANT · 2026-11-05 15:34 · [They Were OUTNUMBERED... 😳](https://youtube.com/shorts/YMOvFZK6LgE)
 - **53 kills**: STAR EATER · 2026-11-05 22:26 · [🇪🇸 Spain Mega Bones vs Portugal Void Rifles](https://youtube.com/shorts/7BYW3nD6pho)
 - **51 kills**: LIVING FORTRESS · 2026-11-04 13:13 · [🇩🇰 Denmark vs Sweden 🇸🇪](https://youtube.com/shorts/EEo4SfZqAyI)
+- **51 kills**: GIANT · 2026-11-16 19:30 · [Netherlands vs Belgium, But Champions DUEL First ⚔️](https://youtube.com/shorts/nZhfGcdTZ1I)
 - **49 kills**: TANK · 2026-11-03 22:12 · [They Were LOSING Until This 😳](https://youtube.com/shorts/-hvpvz0i7TA)
 - **49 kills**: STORM EMPEROR · 2026-11-14 23:46 · [The GROUND Split Open 💥](https://youtube.com/shorts/MnSsrL1rbeM)
 - **48 kills**: PHOENIX · 2026-11-04 22:57 · [Phoenix Pikes vs WILD LEGION 🔥](https://youtube.com/shorts/zga-x3ZnOUs)
-- **47 kills**: LIVING FORTRESS · 2026-11-04 05:33 · [106 Orcs vs a LIVING Castle 🏰](https://youtube.com/shorts/3rsNAb0OpJA)
 
 ## Fastest wipe-outs
 
@@ -85,7 +85,7 @@ Records from 561 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - DRAGON SLAYER: 26
 - ELEPHANT SLAYER: 28
 - MAMMOTH SLAYER: 33
-- GOLEM SLAYER: 35
+- GOLEM SLAYER: 37
 - GIANT SLAYER: 38
 - TITAN SLAYER: 40
 
@@ -94,10 +94,10 @@ Records from 561 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 11
 - wings: 43
 - spellward: 48
-- venom: 88
+- venom: 89
 - swift: 93
-- spikes: 106
-- regen: 116
+- spikes: 107
+- regen: 117
 
 ## Big moments
 
@@ -184,6 +184,7 @@ Records from 561 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-16 19:30: The Thunder Platoon Take the Overgrown Throne (revenge! · 5 wins in a row · 252 kills)
 - 2026-11-16 15:48: The Mossback Tribe Take the Canyon Pass (18th win · 58 kills)
 - 2026-11-16 12:43: The Hollowbark Kin Take the Haunted Crypt (streak ended · 11th win · 84 kills)
 - 2026-11-16 11:25: The Ashmantle Kin Take the Castle (6th win · 57 kills)
@@ -193,4 +194,3 @@ Records from 561 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-15 12:57: The Comet Wing Take the Clockwork Arena (first ever win · 63 kills)
 - 2026-11-15 11:56: The Saltfang Crew Take the Canyon Pass (5 wins in a row · 44 kills)
 - 2026-11-15 11:07: The Crew of the Golden Parrot Take the Canyon Pass (3 wins in a row · 52 kills)
-- 2026-11-15 05:51: The Bulldog Company Take the Trench Line (4th win · 36 kills)
