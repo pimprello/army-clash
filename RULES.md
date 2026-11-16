@@ -358,3 +358,7 @@ The stand-off before the battle (Rellz, 2026-11-15): both armies hold their line
 ## ui.cineClean
 
 `true`: while the director's black film bars are in, all overlay UI (scoreboard, names, bars, tags, banners, cards) fades out, and back in as the bars leave (Rellz, 2026-11-16). `false`: the UI stays on screen under the bars.
+
+## music.levels
+
+How loud the effects and the music are, in dB (Rellz, 2026-11-16: the same levels in all three games, the music a bit louder but never over the effects): `effects` -14, `music` -19. Each video is measured and brought to these, so every video and every game sounds the same. Keep the music below the effects. When set, `music.volume` is not used.

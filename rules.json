@@ -2183,6 +2183,8 @@
     "midCost": 4,
     "hurt": 1.25, "crowd": { "on": true, "r": 100, "n": 7, "pick": 0.45, "wounded": 0.4, "hurt": 1.35, "cleave": 0.5, "late": 15, "early": 1.5 }
   },
-  "music": { "on": true, "volume": 0.45, "duck": 0.45, "pulse": true, "loop": true },
+  "music": { "on": true, "volume": 0.45, "duck": 0.45, "pulse": true, "loop": true,
+    "levels": { "effects": -14, "music": -19 }
+  },
   "quality": { "audition": 10, "auditionSeconds": 300, "crf": 17, "preset": "faster" }
 }
