@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-16 11:25 | The FROST Made Them STRONGER ❄️ | Green wins | https://youtube.com/shorts/irraiTrcfow |
 | 2026-11-15 22:38 | The Merchant Sold Them a Storm Core 💰 | Magenta wins | https://youtube.com/shorts/B7_l1_61zx4 |
 | 2026-11-15 18:59 | Half the Size and Still WON 😳 | New zealand wins | https://youtube.com/shorts/OE-wBRJ3s54 |
 | 2026-11-15 14:36 | A TORNADO Hit Mid-Battle 🌪️ | Indigo wins | https://youtube.com/shorts/Zo3p4KVuoco |
