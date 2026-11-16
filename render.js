@@ -179,7 +179,9 @@ const balOf = m => (combat && m.combatBalance !== undefined ? m.combatBalance : 
 const budgetMul = !mu ? undefined : three ? (balOf(mu) || [1, 1, 1]) : [1, balOf(mu) ?? 1];
 // Maps rotate too, among the ones allowed for this era (see rules.maps; three-way battles use maps marked "three").
 const mapList = three ? ((mu && mu.maps) || tw.maps || ['open']).map(name => ({ name })) : (rules.maps || [{ name: 'open' }]).filter(m => !m.eras || m.eras.includes(era));
-const map = process.env.MAP || (mapList.length ? mapList[(slot * 7 + 3 + shift) % mapList.length].name : 'open');
+// holiday specials (holiday.js, Rellz 2026-11-16): on a holiday the map that suits it is used when the line-up allows it
+const Holiday = require('./holiday.js'), HOL = Holiday.of();
+const map = process.env.MAP || Holiday.map(HOL, mapList.map(m => m.name)) || (mapList.length ? mapList[(slot * 7 + 3 + shift) % mapList.length].name : 'open');
 fs.mkdirSync(OUT, { recursive: true });
 
 function ffmpeg(args) {
@@ -602,18 +604,19 @@ async function main() {
   const meta = {
     seed,
     seconds: +DUR.toFixed(2),
-    title,
+    title: Holiday.title(HOL, title),
     description: [
       `${ids.map(i => `${EMOJI[pair[i]] || ''} ${who(i)}${three ? '' : `${formations[i]} formation, `}${game.start[i]} units)`).join(' vs ')}. Who wins? Pick your side and tell us in the comments before the end.`,
       '',
       `A ${Math.round(DUR)}-second ${three ? 'three-way (1v1v1) ' : ''}${GENRE[era] || ''}battle simulation on the ${MAP_NAME[map] || map} map${showNames ? `, ${ns.join(' vs ')}` : ''}. The outcome comes from the game's rules and chance, not real footage.${game.mode && MODE_LINE[game.mode] ? ' ' + MODE_LINE[game.mode] : ''}${classLine}`,
       ...(tribeLine ? ['', tribeLine] : []),
       '',
-      `New battles every 2 hours: subscribe so you don't miss the next one.${watchFor}`,
+      `4 new battles every day: subscribe so you don't miss the next one.${watchFor}`,
       '',
       `#shorts #${ns.map(n => n.toLowerCase().replace(/ /g, '')).join('vs')} #battlesimulation #armyclash${three ? ' #1v1v1' : ''}`,
     ].slice(0, clickbait ? (tribeLine ? 7 : 5) : (tribeLine ? 9 : 7)).reduce((a, l, i) => (i === 0 && relatedLine ? a.concat(l, relatedLine) : a.concat(l)), []).join('\n'),
     tags: clickbait ? [] : unique([ns.map(n => n.toLowerCase()).join(' vs '), 'army battle', 'battle simulation', 'army simulation', 'who wins', 'army clash', ids.map(i => (showNames ? armyName(i) : `${ns[i]} ${armyName(i)}`).toLowerCase()).join(' vs '), 'shorts']
+      .concat(HOL ? HOL.tags : [])
       .concat(three ? ['1v1v1', 'three way battle'] : [])
       .concat(tf ? ['tribes', 'war economy'] : [])
       .concat({ king: ['protect the king'], duel: ['champion duel', '1v1 duel'], heroes: ['last stand', 'heroes vs army'], mirror: ['mirror match'], hill: ['king of the hill'] }[game.mode] || [])
@@ -661,6 +664,7 @@ async function main() {
         moments: ['possess', 'fusion', 'godEater', 'portal', 'extinct', 'sudden', 'copied'].filter(k => x[k]).map(k => `${k}${typeof x[k] === 'string' ? ':' + x[k] : ''}`) };
     })(),
   };
+  if (HOL) meta.description = `${HOL.emoji} ${HOL.line}\n\n${meta.description}`.slice(0, 4900);
   fs.writeFileSync(path.join(OUT, 'meta.json'), JSON.stringify(meta, null, 2));
   // the thumbnail: out/thumb.jpg (upload.js sets it on the video when YouTube allows it)
   if (TH.on && thumbLists) {
