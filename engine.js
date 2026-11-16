@@ -694,6 +694,59 @@ const RVB = (() => {
       }
       ctx.textBaseline = 'alphabetic';
     }
+    // (rules.charge, Rellz 2026-11-15: "make it like they arent fighting then a nice charge animation pops up with a voice saying
+    // charge like in a war and then they start running to eachother") the stand-off before the battle: both armies hold their
+    // lines under film bars, then CHARGE! slams in with a flash, a shockwave and each army's colour slashing across, and as the
+    // battle starts the word rushes at the camera and is gone. m = { t, at, len }: video seconds into the stand-off. Looks only.
+    drawCharge(ctx, m) {
+      const t = m.t, at = m.at, len = m.len, k = t - at, N = this.N || 2;
+      // in the battlefield's own place on screen (the Shorts-safe layout lifts it), and nothing spills past its frame
+      ctx.save(); if (this.opts.ui >= 2) ctx.translate(0, UI_DY);
+      roundRect(ctx, AR.x, AR.y, AR.w, AR.h, 18); ctx.clip();
+      // (the film bars are the director's own, eased in by render.js during the stand-off, so they carry on unbroken)
+      // before the shout: a quiet line, READY…, so the stillness reads as a held breath, not a frozen video
+      if (k < 0) {
+        const a = clamp(t / 0.35, 0, 1) * clamp(-k / 0.15, 0, 1);
+        ctx.globalAlpha = a; ctx.font = font(54, 800); spaced(ctx, 12); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        strokeText(ctx, 'READY…', VW / 2, AR.y + AR.h / 2 + 3 * Math.sin(t * 5), '#F8FAFC', 'rgba(8,11,20,0.92)', 10);
+        spaced(ctx, 0); ctx.restore(); return;
+      }
+      const cx = VW / 2, cy = AR.y + AR.h / 2;
+      // the flash and the shockwave
+      if (k < 0.16) { ctx.globalAlpha = 0.6 * (1 - k / 0.16); ctx.fillStyle = '#FFFFFF'; ctx.fillRect(AR.x, AR.y, AR.w, AR.h); }
+      if (k < 0.7) {
+        const rr = 60 + easeOutCubic(k / 0.7) * 620;
+        ctx.globalAlpha = 0.75 * (1 - k / 0.7); ctx.beginPath(); ctx.ellipse(cx, cy, rr, rr * 0.62, 0, 0, TAU); ctx.lineWidth = 14 * (1 - k / 0.7) + 2; ctx.strokeStyle = '#FFF6D6'; ctx.stroke();
+      }
+      // speed lines rushing out from the word
+      if (k < 0.9) {
+        ctx.globalAlpha = 0.5 * (1 - k / 0.9); ctx.strokeStyle = '#FFFFFF'; ctx.lineCap = 'round';
+        for (let i = 0; i < 28; i++) {
+          const an = i * 2.399 + 0.3, r0 = 150 + easeOutCubic(Math.min(1, k * 2.2)) * 260 + (i % 4) * 30, r1 = r0 + 90 + (i % 3) * 50;
+          ctx.lineWidth = 2 + (i % 3); ctx.beginPath(); ctx.moveTo(cx + Math.cos(an) * r0, cy + Math.sin(an) * r0 * 0.7); ctx.lineTo(cx + Math.cos(an) * r1, cy + Math.sin(an) * r1 * 0.7); ctx.stroke();
+        }
+      }
+      // leaving: in the last 0.3 s the word grows towards the camera and fades as the armies set off
+      const out = clamp((t - (len - 0.3)) / 0.3, 0, 1), aOut = 1 - out;
+      // each army's colour slashes across behind the word, one from each side
+      for (let i = 0; i < N; i++) {
+        const dirn = i % 2 ? 1 : -1, sl = 1 - easeOutCubic(clamp((k - 0.03 * i) / 0.22, 0, 1)), y = cy - 18 + (i - (N - 1) / 2) * 34;
+        ctx.globalAlpha = 0.95 * aOut; ctx.save(); ctx.translate(cx + dirn * sl * 900, y); ctx.rotate(-0.07);
+        ctx.beginPath(); ctx.moveTo(-430, -16); ctx.lineTo(450, -16); ctx.lineTo(430, 16); ctx.lineTo(-450, 16); ctx.closePath();
+        ctx.fillStyle = TEAMS[i].c; ctx.fill(); ctx.lineWidth = 4; ctx.strokeStyle = COL.ink; ctx.stroke(); ctx.restore();
+      }
+      // the word: slams in big, settles with a little bounce, trembles with the roar
+      const sIn = lerp(2.4, 1, easeOutBack(clamp(k / 0.2, 0, 1))), s = sIn * (1 + 0.35 * out * out), tr = k < 0.6 ? (1 - k / 0.6) * 3 : 0;
+      ctx.globalAlpha = clamp(k / 0.05, 0, 1) * aOut;
+      ctx.translate(cx + Math.sin(t * 61) * tr, cy + Math.cos(t * 53) * tr); ctx.rotate(-0.07); ctx.scale(s, s);
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.font = font(176, 800); spaced(ctx, 4);
+      ctx.shadowColor = 'rgba(0,0,0,0.55)'; ctx.shadowBlur = 24; ctx.shadowOffsetY = 8;
+      strokeText(ctx, 'CHARGE!', 0, 0, '#FFFFFF', COL.ink, 20);
+      ctx.shadowColor = 'transparent'; ctx.shadowBlur = 0; ctx.shadowOffsetY = 0;
+      // a hot gold edge on the letters for the first moment
+      if (k < 0.5) { ctx.globalAlpha *= 1 - k / 0.5; ctx.lineWidth = 5; ctx.strokeStyle = COL.gold; ctx.strokeText('CHARGE!', 0, 0); }
+      spaced(ctx, 0); ctx.restore(); ctx.textBaseline = 'alphabetic';
+    }
     drawIntro(ctx, word) {
       if (this.t > 1.1) return;
       const k = this.t / 1.1;
@@ -4255,7 +4308,7 @@ const RVB = (() => {
         this.drawChapters(ctx);
         if (this.evo) this.drawEvolveCards(ctx);
         if (this.market2) this.drawShopCard(ctx);
-        this.drawIntro(ctx, 'CHARGE!');
+        if (!this.opts.charge) this.drawIntro(ctx, 'CHARGE!');
         this.drawOutro(ctx);
         this.drawTally(ctx);
         if (this.finalePlan) this.drawFinale(ctx);
@@ -4268,7 +4321,7 @@ const RVB = (() => {
       if (this.tribes) this.drawCouncil(ctx);
       if (this.evo) this.drawEvolveCards(ctx);
       if (this.market2) this.drawShopCard(ctx);
-      this.drawIntro(ctx, 'CHARGE!');
+      if (!this.opts.charge) this.drawIntro(ctx, 'CHARGE!');
       this.drawOutro(ctx);
       this.drawTally(ctx);
       if (this.finalePlan) this.drawFinale(ctx);
@@ -4735,6 +4788,8 @@ const RVB = (() => {
       if (this.fin) { game.finalePlan = this.fin; game.noLate = true; }
     }
     get debt() { return this.t - this.g.t; }
+    // (rules.charge) after the stand-off (drawn without stepping the battle), carry on from the camera it left
+    fromCam() { const c = this.g.cam; this.lz = Math.log(c.z); this.aimZ = this.lz; this.aimX = c.x; this.aimY = c.y; }
     finUnit(uid) { if (!uid) return null; for (const u of this.g.units) if (u.uid === uid && !u.dead) return u; return null; }
     // the busiest fighting: the 160 px cell where both teams are most mixed, averaged with its neighbours
     hotspot() {
@@ -4781,9 +4836,16 @@ const RVB = (() => {
           const score = n - Math.abs(x - this.cx) * 0.02;
           if (score > best) { best = score; bx = x; }
         }
-        g.cam.x = bx; g.cam.z = 1.9; this.lz = Math.log(1.9); this.aimZ = this.lz; this.aimX = bx; this.aimY = g.cam.y;
-        this.start('open', { prio: 60, dur: 3.2, x: bx, y: this.cy, z: 1.9, bars: 1, spd: 2, zspd: 2 });
-        g.cine.bars = 1;
+        if (g.opts.charge) {
+          // (rules.charge) the stand-off has already shown both armies; the camera goes with the charge, gliding in from where
+          // the stand-off left it, no cut and no sudden zoom
+          this.lz = Math.log(g.cam.z); this.aimZ = this.lz; this.aimX = g.cam.x; this.aimY = g.cam.y;
+          this.start('open', { prio: 60, dur: 3.4, x: bx, y: this.cy, z: 1.55, bars: 1, spd: 1.2, zspd: 1.1 });
+        } else {
+          g.cam.x = bx; g.cam.z = 1.9; this.lz = Math.log(1.9); this.aimZ = this.lz; this.aimX = bx; this.aimY = g.cam.y;
+          this.start('open', { prio: 60, dur: 3.2, x: bx, y: this.cy, z: 1.9, bars: 1, spd: 2, zspd: 2 });
+          g.cine.bars = 1;
+        }
       }
       if (g.phase !== 'fight') {
         if (this.fin && this.finEnd === undefined) {
@@ -15660,7 +15722,13 @@ const RVB = (() => {
       const moving = !kit.seated && Math.hypot(u.vx || 0, u.vy || 0) > 8, ph = T * 10 + (u.gait || 0), st = moving ? Math.sin(ph) * 2.3 : 0, bob = moving ? Math.abs(Math.cos(ph)) * 0.6 : 0;
       const skin = kit.skin === 'h' ? SKIN[(u.uid || u.gait * 7 | 0) % 3] : SKIN_OF[kit.skin] || SKIN[0];
       const big = kit.weapon === 'greatsword' || kit.weapon === 'club' ? 1.1 : 1;
-      ctx.save(); ctx.translate(x, y); ctx.scale(k * dir, k);
+      // (rules.charge) before the battle the troops stand in their lines breathing, then hop on the spot as their army roars
+      let idle = 0;
+      if (this.must && !moving && !kit.seated) {
+        const M = this.must, ph2 = (u.gait || 0) * 3.1;
+        idle = M.t < M.at ? (Math.sin(M.t * 2.6 + ph2) * 0.5 + 0.5) * 0.35 : Math.abs(Math.sin((M.t - M.at) * 9 + ph2)) * 1.5 * clamp((M.t - M.at) / 0.15, 0, 1);
+      }
+      ctx.save(); ctx.translate(x, y - idle * k); ctx.scale(k * dir, k);
       const lw = 1.6, line = (x0, y0, x1, y1, w, c) => { ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.lineCap = 'round'; ctx.lineWidth = w + lw * 1.6; ctx.strokeStyle = INK; ctx.stroke(); ctx.lineWidth = w; ctx.strokeStyle = c; ctx.stroke(); };
       const dot = (cx, cy, r, c) => { ctx.beginPath(); ctx.arc(cx, cy, r, 0, TAU); ctx.fillStyle = c; ctx.fill(); ctx.lineWidth = lw; ctx.strokeStyle = INK; ctx.stroke(); };
       // shadow and legs

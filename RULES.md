@@ -346,3 +346,11 @@ Machine guns show a tracer on every third round, like real tracer ammo, and all 
 ## Stats and the autopilot
 
 Every posted video's settings are logged to `videos.jsonl`. Once a day the post workflow fetches view counts into `stats/summary.md` (needs a `YT_API_KEY` GitHub secret). A daily autopilot run (see `AUTOPILOT.md`) reads those stats, adds new content and tunes these rules; every change is listed in `CHANGELOG.md`.
+
+## charge
+
+The stand-off before the battle (Rellz, 2026-11-15): both armies hold their lines, then CHARGE! with a war cry, and the battle starts.
+- `on`: true/false.
+- `seconds`: how long the stand-off lasts in all (1.4 to 4; 2.6).
+- `shoutAt`: when CHARGE! and the war cry land (1.1 s in).
+- `voices`: how many war cries in `sfx/` to choose from by the seed (3).

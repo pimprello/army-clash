@@ -2,6 +2,16 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-15/16 (Rellz's request): the charge
+
+Rellz: "i also dont like how the charge is already shown then zoom out instantly ... make it like they arent fighting then a nice charge animation pops up with a voice saying charge like in a war and then they start running to eachother".
+
+- **The stand-off (`rules.charge`, 2.6 s after the face-off):** both armies stand in their lines, breathing, under film bars, with READY… between them, while the camera eases in. The battle isn't stepped during it, so every battle plays out exactly as before; everything after is shifted by its length.
+- **CHARGE!** slams in at 1.1 s with a flash, a shockwave, speed lines and each army's colour slashing across, then rushes at the camera as the troops set off. The old close-up that opened on a battle already running and then zoomed straight out is gone: the camera glides from the stand-off into the charge with no cut.
+- **The voice:** a commander's war cry, his army shouting it back and a roar (`sfx/charge-1..3.wav`, one picked by the seed; made once by `sfx/make_charge.py` from Piper text-to-speech, deepened, roughened and layered into a crowd with a hall echo).
+- **Four more of my own:** a war horn call while the lines hold; a drum roll that builds to the shout, then a big boom; the troops hop on the spot as their army roars; and the old CHARGE! word over the running battle is off, so it's never shown twice.
+- Engine: `drawCharge()`, `must` (idle stance), `Director.fromCam()`; render.js: the stand-off frames and sounds. Army Clash only. Already-posted videos don't change.
+
 ## 2026-11-15 (midday, Rellz's request): readable banners on every team colour
 
 Rellz, with a screenshot of a white banner with white words on it (a WHITE army's "SALTFANG CREW BUY SHIELD DOME!"): "fix unreadability in ui".

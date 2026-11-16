@@ -36,6 +36,10 @@ const MAXFRAMES = FPS * (OUTRO ? SECS + 16 : SECS);
 // thumbnail and should be a few seconds giving context about who vs who"): a short title card before the battle
 const INTRO = (() => { const r = JSON.parse(fs.readFileSync(path.join(__dirname, 'rules.json'), 'utf8')).intro || {}; return r.on && (!process.env.SECS || process.env.INTRO === '1') ? Math.max(1, Math.min(4, r.seconds || 2.4)) : 0; })();
 const INTRO_F = Math.round(INTRO * FPS), IN_S = INTRO_F / FPS;
+// the charge (rules.charge, Rellz 2026-11-15: "make it like they arent fighting then a nice charge animation pops up with a voice
+// saying charge like in a war and then they start running to eachother"): a stand-off before the battle, with both armies still
+// in their lines, then CHARGE! and a war cry; the battle is not stepped during it, so it plays out exactly as before
+const CHARGE = (() => { const r = JSON.parse(fs.readFileSync(path.join(__dirname, 'rules.json'), 'utf8')).charge || {}; return r.on && (!process.env.SECS || process.env.CHARGE === '1') ? { len: Math.max(1.4, Math.min(4, r.seconds || 2.6)), at: Math.max(0.5, Math.min(2.5, r.shoutAt || 1.1)), voices: r.voices || 3 } : null; })();
 const OUT = path.join(__dirname, 'out');
 const seed = process.env.SEED ? Number(process.env.SEED) >>> 0 : crypto.randomBytes(4).readUInt32LE(0);
 
@@ -223,7 +227,7 @@ async function main() {
   const cmbOpts = combat ? { combat: { armySize: combat.armySize ?? 0.8, hp: combat.hp ?? 1, moves: combat.moves !== false, fewerBullets: combat.fewerBullets !== false, roster: combat.roster !== false, smart: !!combat.smart }, mode: mode || undefined, skins, heroes: mode === 'heroes' ? heroTeam : undefined } : {};
   const pacing = Object.assign(OUTRO ? { outroSecs: OUTRO, pace: VID.pace !== false } : {}, VID.smooth ? { smooth: true } : {});
   const UIL = (rules.ui && rules.ui.layout) || 1; // 2 = the Shorts-safe layout (scoreboard on top, tribes strip above YouTube's title)
-  const optsFor = mul => ({ target: SECS, fixedLength: SECS, weaponSfx: !!(rules.sound && rules.sound.weapons), ...pacing, swordsmen, crossbowmen, map, doctrines, budgetMul: three ? mul : [bm[0], bm[1] * mul], swordsmenByTeam, extras, extrasByTeam, era, formations, events,
+  const optsFor = mul => ({ ...(CHARGE && rules.cinematic !== false && process.env.CINEMATIC !== '0' ? { charge: true } : {}), target: SECS, fixedLength: SECS, weaponSfx: !!(rules.sound && rules.sound.weapons), ...pacing, swordsmen, crossbowmen, map, doctrines, budgetMul: three ? mul : [bm[0], bm[1] * mul], swordsmenByTeam, extras, extrasByTeam, era, formations, events,
     teams: three ? 3 : 2, dream: !!(wild || custom || three), ...systems, ...cmbOpts, ...trbOpts, ...(UIL >= 2 ? { ui: UIL } : {}), ...(rules.ui && rules.ui.art >= 2 ? { art: rules.ui.art } : {}), ...(rules.ui && rules.ui.anim ? { anim: true } : {}), ...(rules.ui && rules.ui.shine && rules.ui.shine.on ? { shine: rules.ui.shine } : {}), ...(rules.world && rules.world.on ? { world: rules.world } : {}),
     // the roster, classes, minds and pathfinding (each off when its rule is off, which keeps old seeds playing out as before)
     ...(roster ? { roster } : {}), ...(rules.classes && rules.classes.on ? { classes: rules.classes } : {}), ...(rules.minds && rules.minds.on ? { minds: rules.minds } : {}),
@@ -331,7 +335,8 @@ async function main() {
   // every troop type in this battle (saved in videos.jsonl, so freshness can pick the troops seen least)
   const unitsAtStart = [...new Set(game.units.filter(u => !RVB.UNIT[u.type].uncounted).map(u => u.type).concat(...(game.waves || []).flat().map(w => w.list || [])))];
   const director = cinematic ? new RVB.Director(game, { seed: bseed, finale }) : null;
-  const synth = new RVB.Synth(SR, MAXFRAMES / FPS + 4 + IN_S);
+  const CH_F = CHARGE && director ? Math.round(CHARGE.len * FPS) : 0, CH_S = CH_F / FPS;
+  const synth = new RVB.Synth(SR, MAXFRAMES / FPS + 4 + IN_S + CH_S);
   synth.reset(bseed);
   synth.variety = (rules.sound && rules.sound.variety) || 0;   // rules.json: how much each sound's pitch and volume vary (0 = off)
   const canvas = createCanvas(W * RS, H * RS);
@@ -425,9 +430,46 @@ async function main() {
     if (mtr) mtr.frame(IN_S, game);
     console.log(`Intro: ${IN_S.toFixed(2)} s electric face-off`);
   }
+  // ----- the charge (rules.charge): both armies hold their lines (breathing, under film bars, READY…) while the camera eases in,
+  // then CHARGE! slams in with the commander's war cry, his army shouting it back and a roar; the troops hop on the spot, and the
+  // battle starts as the word rushes at the camera. The battle is not stepped here; everything after is shifted by its length.
+  const PRE = (INTRO_F && thumbLists ? IN_S : 0);
+  if (CH_F) {
+    const at = CHARGE.at, len = CH_S, cam = game.cam, x0 = cam.x, y0 = cam.y;
+    const sm = x => x * x * (3 - 2 * x);
+    // sound: a war horn as the lines hold, a drum roll building to the shout, the shout (one of the war cries in sfx/, picked
+    // by the seed), a big boom and a whoosh as the armies set off
+    for (const [f, t, d] of [[98, 0.05, 0.75], [147, 0.42, 0.55]]) synth.voice(PRE + t, { dur: d + 0.5, gain: 0.11, attack: 0.09, partials: [1, 2, 3, 4, 5, 6].map(h => ({ f: f * h, f2: f * h * 1.012, a: 1 / h, decay: d * 0.9 })) });
+    for (let tr = 0.15; tr < at - 0.02; tr += Math.max(0.035, 0.16 - tr * 0.11)) synth.voice(PRE + tr, { dur: 0.08, gain: 0.05 + 0.13 * (tr / at), noise: { a: 1, decay: 0.025, lp: 0.45, hp: true } });
+    synth.play({ type: 'boom', gain: 1.1 }, PRE + at);
+    synth.play({ type: 'whoosh' }, PRE + len - 0.3);
+    try {
+      const wav = fs.readFileSync(path.join(__dirname, 'sfx', `charge-${1 + (seed % CHARGE.voices)}.wav`));
+      // a plain 16-bit PCM wav at the synth's own rate (sfx/make_charge.py writes them)
+      let o = 12; while (o < wav.length - 8 && wav.toString('ascii', o, o + 4) !== 'data') o += 8 + wav.readUInt32LE(o + 4);
+      const ch = wav.readUInt16LE(22), n = wav.readUInt32LE(o + 4) / 2 / ch, s0 = Math.round((PRE + at - 0.04) * SR), g = 0.95;
+      for (let i = 0; i < n && s0 + i < synth.len; i++) { synth.L[s0 + i] += wav.readInt16LE(o + 8 + i * 2 * ch) / 32768 * g; synth.R[s0 + i] += wav.readInt16LE(o + 8 + (i * ch + ch - 1) * 2) / 32768 * g; }
+    } catch (e) { console.log('Charge: no war cry (' + e.message + ')'); synth.play({ type: 'roar' }, PRE + at); }
+    for (let k = 0; k < CH_F; k++) {
+      const t = k / FPS, kk = t - at;
+      // the camera: a slow push in on the two lines, a punch on the shout, a little shake with the roar
+      const punch = kk > 0 ? 0.085 * Math.exp(-kk * 6) * Math.cos(kk * 14) + 0.03 * sm(Math.min(1, kk / 0.4)) : 0;
+      cam.x = x0; cam.y = y0; cam.z = 1 + 0.05 * sm(Math.min(1, t / at)) + punch;
+      const sh = kk > 0 ? 7 * Math.exp(-kk * 4) : 0; game.shakeX = Math.sin(t * 57) * sh; game.shakeY = Math.cos(t * 49) * sh;
+      game.must = { t, at, len }; game.cine.bars = Math.min(1, t / at);
+      ctx.setTransform(RS, 0, 0, RS, 0, 0); game.draw(ctx); game.drawCharge(ctx, game.must);
+      if (process.env.CHARGE_STILLS && [10, Math.round(at * FPS) - 10, Math.round(at * FPS) + 4, Math.round(at * FPS) + 20, CH_F - 8].includes(k)) fs.writeFileSync(path.join(OUT, `charge-${k}.png`), canvas.toBuffer('image/png'));
+      const frame = canvas.toBuffer('raw'); if (!enc.p.stdin.write(frame)) await once(enc.p.stdin, 'drain');
+      nFrames++;
+    }
+    game.must = null; game.shakeX = 0; game.shakeY = 0; director.fromCam();
+    if (mtr) mtr.frame(PRE + CH_S, game);
+    console.log(`Charge: ${CH_S.toFixed(2)} s stand-off, CHARGE! at ${at.toFixed(2)} s`);
+  }
+  const OFF = PRE + CH_S;
   for (let i = 0; i < MAXFRAMES; i++) {
     ctx.setTransform(RS, 0, 0, RS, 0, 0);
-    const z0 = game.cam && game.cam.z, punch = muOn && MU.pulse !== false && game.cam && game.phase === 'fight' && game.fightT > FIGHT_S - 6 ? Music.pulse(mp, i / FPS + (INTRO_F && thumbLists ? IN_S : 0)) : 0;
+    const z0 = game.cam && game.cam.z, punch = muOn && MU.pulse !== false && game.cam && game.phase === 'fight' && game.fightT > FIGHT_S - 6 ? Music.pulse(mp, i / FPS + OFF) : 0;
     if (punch) game.cam.z = z0 * (1 + punch);
     game.draw(ctx);
     if (punch) game.cam.z = z0;
@@ -448,7 +490,7 @@ async function main() {
     // the video ends when the outro does (outroSeconds after the battle), or at the fixed length
     if (OUTRO && game.finished) break;
     if (director) director.advance(1 / FPS); else game.frame(1 / FPS);
-    const off = INTRO_F && thumbLists ? IN_S : 0;
+    const off = OFF;
     for (const ev of game.sfx) synth.play(ev, (i + 1) / FPS + off);
     if (mtr) mtr.frame((i + 1) / FPS + off, game);
     game.sfx.length = 0;
