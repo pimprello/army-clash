@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 560 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 561 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -97,7 +97,7 @@ Records from 560 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - venom: 88
 - swift: 93
 - spikes: 106
-- regen: 115
+- regen: 116
 
 ## Big moments
 
@@ -150,8 +150,8 @@ Records from 560 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
+| Mossback Tribe | 28 | 18 | 10 | 1118 | 1 won | 7 |
 | Red Hawk Company | 28 | 17 | 11 | 1092 | 1 won | 5 |
-| Mossback Tribe | 27 | 17 | 10 | 1060 | 1 lost | 7 |
 | Frostwhisper Tribe | 26 | 14 | 12 | 1112 | 1 lost | 4 |
 | Silverbough Circle | 33 | 13 | 20 | 1555 | 1 won | 3 |
 | Thornheart Circle | 16 | 13 | 3 | 897 | 3 won | 6 |
@@ -184,6 +184,7 @@ Records from 560 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-16 15:48: The Mossback Tribe Take the Canyon Pass (18th win · 58 kills)
 - 2026-11-16 12:43: The Hollowbark Kin Take the Haunted Crypt (streak ended · 11th win · 84 kills)
 - 2026-11-16 11:25: The Ashmantle Kin Take the Castle (6th win · 57 kills)
 - 2026-11-15 22:38: The Nightjar Company Take the Open Plains (revenge denied · 3 wins in a row · 68 kills)
@@ -193,4 +194,3 @@ Records from 560 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-15 11:56: The Saltfang Crew Take the Canyon Pass (5 wins in a row · 44 kills)
 - 2026-11-15 11:07: The Crew of the Golden Parrot Take the Canyon Pass (3 wins in a row · 52 kills)
 - 2026-11-15 05:51: The Bulldog Company Take the Trench Line (4th win · 36 kills)
-- 2026-11-15 05:03: The Hollowbark Kin Take the Frozen End (10th win · 20 kills)

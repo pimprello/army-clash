@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-16 15:48 | 3 Armies, Only 1 SURVIVES 💀 | Brazil wins | https://youtube.com/shorts/Lj556gBz_E8 |
 | 2026-11-16 12:43 | Arcane Army vs NINJAS 🥷 | Crimson wins | https://youtube.com/shorts/r35HT5lqs0s |
 | 2026-11-16 11:25 | The FROST Made Them STRONGER ❄️ | Green wins | https://youtube.com/shorts/irraiTrcfow |
 | 2026-11-15 22:38 | The Merchant Sold Them a Storm Core 💰 | Magenta wins | https://youtube.com/shorts/B7_l1_61zx4 |
