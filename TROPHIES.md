@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 559 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 560 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -71,16 +71,16 @@ Records from 559 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - FORTRESS SLAYER: 10
 - MECH SLAYER: 12
 - STAR EATER SLAYER: 13
-- SIEGE GOLEM SLAYER: 13
 - CANNON SLAYER: 14
 - PLAYER SLAYER: 14
+- SIEGE GOLEM SLAYER: 14
 - TANK SLAYER: 17
 - ACID LEVIATHAN SLAYER: 17
 - IRONHORN SLAYER: 17
 - HYDRA SLAYER: 19
-- SPIDER QUEEN SLAYER: 19
 - COLOSSUS SLAYER: 20
 - STORM COLOSSUS SLAYER: 20
+- SPIDER QUEEN SLAYER: 20
 - CYCLOPS SLAYER: 24
 - DRAGON SLAYER: 26
 - ELEPHANT SLAYER: 28
@@ -97,7 +97,7 @@ Records from 559 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - venom: 88
 - swift: 93
 - spikes: 106
-- regen: 114
+- regen: 115
 
 ## Big moments
 
@@ -153,17 +153,17 @@ Records from 559 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Red Hawk Company | 28 | 17 | 11 | 1092 | 1 won | 5 |
 | Mossback Tribe | 27 | 17 | 10 | 1060 | 1 lost | 7 |
 | Frostwhisper Tribe | 26 | 14 | 12 | 1112 | 1 lost | 4 |
+| Silverbough Circle | 33 | 13 | 20 | 1555 | 1 won | 3 |
 | Thornheart Circle | 16 | 13 | 3 | 897 | 3 won | 6 |
 | Oakshield Clan | 21 | 13 | 8 | 804 | 1 won | 6 |
-| Silverbough Circle | 32 | 12 | 20 | 1544 | 4 lost | 3 |
 | Copper Crown Company | 20 | 12 | 8 | 925 | 4 won | 4 |
 | Order of the Silver Stag | 27 | 11 | 16 | 1157 | 1 lost | 3 |
 | Wildbrook Clan | 29 | 11 | 18 | 981 | 1 lost | 2 |
+| Hollowbark Kin | 27 | 11 | 16 | 926 | 2 won | 3 |
 | Frostmere Clan | 27 | 11 | 16 | 883 | 3 lost | 3 |
 | Glimmerdeep Kin | 19 | 11 | 8 | 673 | 2 lost | 6 |
 | Starweave Circle | 27 | 10 | 17 | 1020 | 3 lost | 5 |
 | Greyfang Clan | 31 | 10 | 21 | 858 | 3 lost | 5 |
-| Hollowbark Kin | 26 | 10 | 16 | 842 | 1 won | 3 |
 | Brightwater Tribe | 21 | 10 | 11 | 675 | 3 won | 3 |
 | Raven Hill Clan | 18 | 10 | 8 | 669 | 2 won | 5 |
 | Mire Witch Coven | 14 | 10 | 4 | 455 | 1 lost | 7 |
@@ -184,6 +184,7 @@ Records from 559 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-16 12:43: The Hollowbark Kin Take the Haunted Crypt (streak ended · 11th win · 84 kills)
 - 2026-11-16 11:25: The Ashmantle Kin Take the Castle (6th win · 57 kills)
 - 2026-11-15 22:38: The Nightjar Company Take the Open Plains (revenge denied · 3 wins in a row · 68 kills)
 - 2026-11-15 18:59: The House of the Gold Dragonfly Take the Open Plains (2nd win · 79 kills)
@@ -193,4 +194,3 @@ Records from 559 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-15 11:07: The Crew of the Golden Parrot Take the Canyon Pass (3 wins in a row · 52 kills)
 - 2026-11-15 05:51: The Bulldog Company Take the Trench Line (4th win · 36 kills)
 - 2026-11-15 05:03: The Hollowbark Kin Take the Frozen End (10th win · 20 kills)
-- 2026-11-15 04:05: The Badger Platoon Take the Trench Line (8th win · 49 kills)
