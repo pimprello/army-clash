@@ -2092,7 +2092,8 @@
       "density": 1.6
     },
     "clean": true,
-    "remains": true, "humans": true, "blood": { "on": true, "drops": 1.5, "sparks": 0.4, "stay": 0.6 }
+    "remains": true, "humans": true,
+    "cineClean": true, "blood": { "on": true, "drops": 1.5, "sparks": 0.4, "stay": 0.6 }
   },
   "world": {
     "on": true,

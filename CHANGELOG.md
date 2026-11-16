@@ -2,6 +2,14 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-16 (Rellz's request): no UI under the film bars
+
+Rellz: "when it does the black cinematic bars there should be no ui in order to enhance the cinematic effect".
+
+- **`rules.ui.cineClean`:** while the director's black film bars are in (the charge, kill cams, slow motion, close-ups), all overlay UI fades out: the scoreboard, troop names, health bars and status icons, tactic tags, floating words, banners, the story and roster cards, the shop and upgrade cards. It fades back as the bars leave.
+- **Details of my own:** it all fades together as one layer (`uiLayer()` in `engine.js`), so nothing pops out piece by piece; the hidden UI keeps running underneath, so banners and cards come back exactly where they would be, never jumping; the charge's stand-off now opens on a clean screen too; and the winner screen and final-blow text at the end still show.
+- Looks only; battles unchanged. Army Clash only. Already-posted videos don't change; the next scheduled post has it.
+
 ## 2026-11-16 (Rellz's request, both games): no test uploads, holiday specials
 
 Rellz: "for army clash and tower clash don't do test uploads save usage on update and upload on schedule try to make matches balanced but even if one is overpowered it will make for an interesting short (try to make your own cool updates whenever you can to maintain the video evolution process for both channels and also remember to do specific videos for holidays like Christmas Easter etc etc".

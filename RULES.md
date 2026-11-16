@@ -354,3 +354,7 @@ The stand-off before the battle (Rellz, 2026-11-15): both armies hold their line
 - `seconds`: how long the stand-off lasts in all (1.4 to 4; 2.6).
 - `shoutAt`: when CHARGE! and the war cry land (1.1 s in).
 - `voices`: how many war cries in `sfx/` to choose from by the seed (3).
+
+## ui.cineClean
+
+`true`: while the director's black film bars are in, all overlay UI (scoreboard, names, bars, tags, banners, cards) fades out, and back in as the bars leave (Rellz, 2026-11-16). `false`: the UI stays on screen under the bars.

@@ -3769,7 +3769,7 @@ const RVB = (() => {
         this.parts = all.filter(p => p.confetti); if (this.parts.length) super.drawFX(ctx);
         this.parts = all; this.floats = fl;
         if (this.shine) this.shinePost(ctx);
-        if (fl.length) { this.drawFloats(ctx, null); ctx.textBaseline = 'alphabetic'; }
+        if (fl.length) { this.uiLayer(ctx, c => this.drawFloats(c, null)); ctx.textBaseline = 'alphabetic'; }
         return;
       }
       const all = this.parts, fl = this.floats;
@@ -3781,7 +3781,7 @@ const RVB = (() => {
       this.parts = all; this.floats = fl;
       if (this.shine) this.shinePost(ctx);
       // the labels at screen size, over the zoomed battle (clipped to the battlefield)
-      if (fl.length) { ctx.save(); roundRect(ctx, AR.x, AR.y, AR.w, AR.h, 18); ctx.clip(); this.drawFloats(ctx, this.cam); ctx.restore(); ctx.textBaseline = 'alphabetic'; }
+      if (fl.length) { this.uiLayer(ctx, c => { c.save(); roundRect(c, AR.x, AR.y, AR.w, AR.h, 18); c.clip(); this.drawFloats(c, this.cam); c.restore(); }); ctx.textBaseline = 'alphabetic'; }
     }
     // film bars and a dark vignette during the director's slow-motion moments
     drawCine(ctx) {
@@ -3925,10 +3925,28 @@ const RVB = (() => {
       if (!this[key]) { this[key] = api.makeCanvas(AR.w * 2, AR.h * 2); if (name === 'ground') this.paintGround(this[key], 2); else this.paintMap(this[key], 2); }
       return this[key];
     }
+    // (rules.ui.cineClean, Rellz 2026-11-16: "when it does the black cinematic bars there should be no ui in order to enhance the
+    // cinematic effect") while the film bars are in, every piece of overlay UI fades out together, and back in as they leave.
+    // fn draws some UI; at full strength it goes straight on, otherwise it's drawn on a layer of its own and laid on faded
+    // (it's always drawn, so the UI's own easing and timers carry on unbroken while it's hidden). Looks only.
+    uiLayer(ctx, fn) {
+      const k = this.uiK === undefined ? 1 : this.uiK;
+      if (k >= 0.999 || !api.makeCanvas) return fn(ctx);
+      const W = ctx.canvas.width, H = ctx.canvas.height;
+      if (!this._uiCv || this._uiCv.width !== W || this._uiCv.height !== H) this._uiCv = api.makeCanvas(W, H);
+      const c = this._uiCv.getContext('2d'); c.setTransform(1, 0, 0, 1, 0, 0); c.globalAlpha = 1; c.clearRect(0, 0, W, H);
+      c.setTransform(ctx.getTransform()); c.font = ctx.font; c.textAlign = ctx.textAlign; c.textBaseline = ctx.textBaseline;
+      fn(c);
+      if (k > 0.001) { ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = k; ctx.drawImage(this._uiCv, 0, 0); ctx.restore(); }
+    }
     draw(ctx) {
       this.drawBG(ctx);
       const U2 = this.ui2 = this.opts.ui >= 2;
-      if (U2) { if (this.N === 3) this.drawHUD3v2(ctx); else this.drawHUD2(ctx); }
+      { const b = this.opts.cineClean && this.cine && this.phase !== 'outro' ? clamp(this.cine.bars, 0, 1) : 0; this.uiK = 1 - b * b * (3 - 2 * b); }
+      if (this.uiK < 0.999) { const k0 = this.uiK; this.uiLayer(ctx, c => { this.uiK = 1; if (U2) { if (this.N === 3) this.drawHUD3v2(c); else this.drawHUD2(c); } else if (this.N === 3) this.drawHUD3(c); else this.drawHUD(c, {
+        title: this.title, hook: this.hook, lv: String(this.alive[0] + this.reserve[0]), rv: String(this.alive[1] + this.reserve[1]),
+        ls: `${this.start[0]} UNITS`, rs: `${this.start[1]} UNITS`, ratio: this.dispRatio }); this.uiK = k0; }); }
+      else if (U2) { if (this.N === 3) this.drawHUD3v2(ctx); else this.drawHUD2(ctx); }
       else if (this.N === 3) this.drawHUD3(ctx); else this.drawHUD(ctx, {
         title: this.title, hook: this.hook,
         lv: String(this.alive[0] + this.reserve[0]), rv: String(this.alive[1] + this.reserve[1]),
@@ -4172,6 +4190,7 @@ const RVB = (() => {
       // (rules.ui.shine) the troops go on a layer of their own, so the gloss, the damage and the rim light follow every shape
       const SH = !!(this.shine && api.makeCanvas), mainCtx = ctx;
       this._lab = [];
+      this._uiQ = [];    // (rules.ui.cineClean) health bars and status icons, laid on with the rest of the UI while it fades
       this._labQ = [];   // (logic) troop names are drawn after every troop, so no troop is drawn across another's name
       if (SH) { ctx = this.shineBegin(mainCtx); if (this.tribes) this.drawCamps(ctx); }
       for (const u of drawOrder) {
@@ -4228,14 +4247,16 @@ const RVB = (() => {
         if (HPBAR[u.type] && u.hp < u.max && !(this.clean && u.r < 20 && UNIT[u.type].rank !== 0)) {
           // (shine: health bars go over the troops' layer, so they get no gloss)
           const bar = (c, a) => { const w = u.r * 2, k = c.globalAlpha; c.globalAlpha = a; c.fillStyle = COL.ink; c.fillRect(x - w / 2 - 2, y - this.headR(u) - 13, w + 4, 8); c.fillStyle = tm.l; c.fillRect(x - w / 2, y - this.headR(u) - 11, w * clamp(u.hp / u.max, 0, 1), 4); c.globalAlpha = k; };
-          if (SH) { const a = ctx.globalAlpha; this._shHP.push(() => bar(mainCtx, a)); } else { const a = ctx.globalAlpha; bar(ctx, a); }
+          if (this.uiK < 0.999) { const a = ctx.globalAlpha; this._uiQ.push(c => bar(c, a)); }
+          else if (SH) { const a = ctx.globalAlpha; this._shHP.push(() => bar(mainCtx, a)); } else { const a = ctx.globalAlpha; bar(ctx, a); }
         }
-        if (this.ext) this.drawStatus(ctx, u, x, y, tm);
+        if (this.ext) { if (this.uiK < 0.999) { const a = ctx.globalAlpha; this._uiQ.push(c => { c.globalAlpha = a; this.drawStatus(c, u, x, y, tm); c.globalAlpha = 1; }); } else this.drawStatus(ctx, u, x, y, tm); }
         ctx.globalAlpha = 1;
       }
       if (ART) this.flushArt(ctx);
       if (SH) { this.shineEnd(mainCtx, ctx); ctx = mainCtx; }
-      if (this._labQ) {
+      if (this._uiQ.length) { const q = this._uiQ; this._uiQ = []; this.uiLayer(ctx, c => { for (const f of q) f(c); }); }
+      if (this._labQ) this.uiLayer(ctx, ctx => {
         // (logic) a name is kept inside what the camera shows, and is left out for a moment while a floating word (a kill streak,
         // a callout) sits on it, so the two never print across each other
         const Q = this._labQ, V = this.viewRect(ctx); this._labQ = null; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
@@ -4254,7 +4275,7 @@ const RVB = (() => {
           ctx.globalAlpha = al; strokeText(ctx, text, x, y, ...rest); ctx.globalAlpha = 1;
         }
         ctx.textBaseline = 'alphabetic';
-      }
+      });
       if (this.cast3on) this.drawCast3Fx(ctx);
       if (this.c4on) this.drawCast4Fx(ctx);
       if (this.g5) this.drawCast5Fx(ctx);
@@ -4301,26 +4322,34 @@ const RVB = (() => {
       this.drawArenaFrame(ctx);
       this.drawFX(ctx);
       if (U2) this.noteBegin();
-      this.drawBanners(ctx);
+      this.uiLayer(ctx, c => {
+        c.save(); if (U2) c.setTransform(ctx.getTransform());
+        this.drawBanners(c);
+        if (U2) {
+          if (this.tribes) this.drawStory2(c);
+          this.drawRosterStrips(c);
+          this.drawChapters(c);
+          if (this.evo) this.drawEvolveCards(c);
+          if (this.market2) this.drawShopCard(c);
+        }
+        c.restore();
+      });
       if (U2) {
-        if (this.tribes) this.drawStory2(ctx);
-        this.drawRosterStrips(ctx);
-        this.drawChapters(ctx);
-        if (this.evo) this.drawEvolveCards(ctx);
-        if (this.market2) this.drawShopCard(ctx);
         if (!this.opts.charge) this.drawIntro(ctx, 'CHARGE!');
         this.drawOutro(ctx);
         this.drawTally(ctx);
         if (this.finalePlan) this.drawFinale(ctx);
         ctx.restore(); this.layDY = 0;
-        if (this.tribes) this.drawCouncil2(ctx);
+        if (this.tribes) this.uiLayer(ctx, c => this.drawCouncil2(c));
         return;
       }
-      if (this.cmb) this.drawRosterCards(ctx);
-      this.drawFooter(ctx, 'BATTLE TIME', fmtTime(this.fightT), false);
-      if (this.tribes) this.drawCouncil(ctx);
-      if (this.evo) this.drawEvolveCards(ctx);
-      if (this.market2) this.drawShopCard(ctx);
+      this.uiLayer(ctx, c => {
+        if (this.cmb) this.drawRosterCards(c);
+        this.drawFooter(c, 'BATTLE TIME', fmtTime(this.fightT), false);
+        if (this.tribes) this.drawCouncil(c);
+        if (this.evo) this.drawEvolveCards(c);
+        if (this.market2) this.drawShopCard(c);
+      });
       if (!this.opts.charge) this.drawIntro(ctx, 'CHARGE!');
       this.drawOutro(ctx);
       this.drawTally(ctx);
@@ -9989,7 +10018,7 @@ const RVB = (() => {
       for (const L of this.tacLabels) {
         const k = (t - L.t0) / 1.8;
         if (k < 0 || k > 1) continue;
-        const tb = L.tb, al = Math.min(1, k * 6, (1 - k) * 4), text = `${L.text}!`;
+        const tb = L.tb, al = Math.min(1, k * 6, (1 - k) * 4) * (this.uiK === undefined ? 1 : this.uiK), text = `${L.text}!`;
         ctx.font = font(21, 800);
         // (logic) kept inside what the camera shows, not just inside the arena, so a zoomed-in camera never cuts a tag in half
         const V = this.viewRect(ctx), w = ctx.measureText(text).width + 50, x = clamp(L.x ?? tb.cx, Math.max(AR.x, V.x0) + w / 2 + 6, Math.min(AR.x + AR.w, V.x1) - w / 2 - 6);
