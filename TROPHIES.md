@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 562 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 563 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -116,7 +116,6 @@ Records from 562 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: MINT: 1
 - possess: livingfortress: 1
 - extinct: BRAZIL: 1
-- extinct: GREEN: 2
 - copied: knight: 2
 - extinct: SILVER: 2
 - possess: rhino: 2
@@ -131,6 +130,7 @@ Records from 562 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: RED: 3
 - extinct: ORANGE: 3
 - extinct: BLUE: 3
+- extinct: GREEN: 3
 - possess: cannon: 5
 - possess: treant: 5
 - portal: cyclops: 9
@@ -138,7 +138,7 @@ Records from 562 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - fusion: 11
 - portal: wolfrider: 11
 - sudden: boss: 17
-- portal: demon: 18
+- portal: demon: 19
 - sudden: ring: 19
 - portal: troll: 21
 - sudden: meteors: 25
@@ -156,11 +156,11 @@ Records from 562 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Silverbough Circle | 33 | 13 | 20 | 1555 | 1 won | 3 |
 | Thornheart Circle | 16 | 13 | 3 | 897 | 3 won | 6 |
 | Oakshield Clan | 21 | 13 | 8 | 804 | 1 won | 6 |
+| Hollowbark Kin | 28 | 12 | 16 | 938 | 3 won | 3 |
 | Copper Crown Company | 20 | 12 | 8 | 925 | 4 won | 4 |
 | Order of the Silver Stag | 27 | 11 | 16 | 1157 | 1 lost | 3 |
 | Wildbrook Clan | 29 | 11 | 18 | 981 | 1 lost | 2 |
-| Hollowbark Kin | 27 | 11 | 16 | 926 | 2 won | 3 |
-| Frostmere Clan | 27 | 11 | 16 | 883 | 3 lost | 3 |
+| Frostmere Clan | 28 | 11 | 17 | 883 | 4 lost | 3 |
 | Glimmerdeep Kin | 19 | 11 | 8 | 673 | 2 lost | 6 |
 | Starweave Circle | 27 | 10 | 17 | 1020 | 3 lost | 5 |
 | Greyfang Clan | 31 | 10 | 21 | 858 | 3 lost | 5 |
@@ -184,6 +184,7 @@ Records from 562 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-16 22:54: The Hollowbark Kin Take the Desert Well (revenge denied · 3 wins in a row · 12 kills)
 - 2026-11-16 19:30: The Thunder Platoon Take the Overgrown Throne (revenge! · 5 wins in a row · 252 kills)
 - 2026-11-16 15:48: The Mossback Tribe Take the Canyon Pass (18th win · 58 kills)
 - 2026-11-16 12:43: The Hollowbark Kin Take the Haunted Crypt (streak ended · 11th win · 84 kills)
@@ -193,4 +194,3 @@ Records from 562 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-15 14:36: The Red Hawk Company Take the Mountain Pass (revenge! · 17th win · 96 kills)
 - 2026-11-15 12:57: The Comet Wing Take the Clockwork Arena (first ever win · 63 kills)
 - 2026-11-15 11:56: The Saltfang Crew Take the Canyon Pass (5 wins in a row · 44 kills)
-- 2026-11-15 11:07: The Crew of the Golden Parrot Take the Canyon Pass (3 wins in a row · 52 kills)
