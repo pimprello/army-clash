@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 566 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 567 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -63,11 +63,11 @@ Records from 566 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - EXECUTIONER SLAYER: 6
 - MIRROR KING SLAYER: 7
 - GLACIER BEHEMOTH SLAYER: 7
-- UNMAKER SLAYER: 8
 - IMMORTAL FRAUD SLAYER: 8
 - PHOENIX SLAYER: 8
 - STORM EMPEROR SLAYER: 8
 - MAGMA COLOSSUS SLAYER: 8
+- UNMAKER SLAYER: 9
 - FORTRESS SLAYER: 11
 - MECH SLAYER: 12
 - STAR EATER SLAYER: 13
@@ -87,14 +87,14 @@ Records from 566 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - MAMMOTH SLAYER: 33
 - GOLEM SLAYER: 38
 - GIANT SLAYER: 38
-- TITAN SLAYER: 40
+- TITAN SLAYER: 41
 
 ## Mutations (rarest first)
 
 - vampiric: 11
 - wings: 43
 - spellward: 48
-- venom: 91
+- venom: 92
 - swift: 95
 - spikes: 108
 - regen: 117
@@ -128,9 +128,9 @@ Records from 566 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: PURPLE: 2
 - portal: hydra: 3
 - extinct: RED: 3
-- extinct: ORANGE: 3
 - extinct: BLUE: 3
 - extinct: GREEN: 3
+- extinct: ORANGE: 4
 - possess: cannon: 5
 - possess: treant: 5
 - portal: cyclops: 9
@@ -184,6 +184,7 @@ Records from 566 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-17 19:07: The Axiom Legion Take the Sky-temple Relic (streak ended · 5th win · 9 kills)
 - 2026-11-17 15:12: The Nebula Cohort Take the Swamp Shrine (revenge denied · 4 wins in a row · 60 kills)
 - 2026-11-17 11:57: The Falcon Squadron Take the Trench Line (3rd win · 32 kills)
 - 2026-11-17 11:15: The Viper Company Take the Trench Line (6th win · 36 kills)
@@ -193,4 +194,3 @@ Records from 566 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-16 12:43: The Hollowbark Kin Take the Haunted Crypt (streak ended · 11th win · 84 kills)
 - 2026-11-16 11:25: The Ashmantle Kin Take the Castle (6th win · 57 kills)
 - 2026-11-15 22:38: The Nightjar Company Take the Open Plains (revenge denied · 3 wins in a row · 68 kills)
-- 2026-11-15 18:59: The House of the Gold Dragonfly Take the Open Plains (2nd win · 79 kills)

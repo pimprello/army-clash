@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-17 19:07 | 15 HEROES vs Root Bombers 🛡️ | Orange wins | https://youtube.com/shorts/Whs7ytBgUqU |
 | 2026-11-17 15:12 | The Weapons Came ALIVE 🗡️ | Belgium wins | https://youtube.com/shorts/jSVObLBBZ3E |
 | 2026-11-17 11:57 | Turtle Army vs GUNNERS 💥 | Mint wins | https://youtube.com/shorts/EtA7K11WVbk |
 | 2026-11-17 11:15 | Kill the KING to Win 👑 Turtle Army vs Gunners | Blue wins | https://youtube.com/shorts/mUcHen0dTNQ |
