@@ -27,21 +27,46 @@ const STYLES = {
   ancient: { kick: 0.7, snare: 0.5, taiko: 1.1, hat: 0.3, pad: 'saw', padLp: 1000, arp: 'pluck', arpLp: 4000, bass: 'saw', bassLp: 380 },
   modern: { kick: 1.1, snare: 1, taiko: 0.4, hat: 0.7, pad: 'saw', padLp: 1800, arp: 'sq', arpLp: 2600, bass: 'sq', bassLp: 600 },
   scifi: { kick: 1, snare: 0.9, taiko: 0.3, hat: 0.6, pad: 'sq', padLp: 2200, arp: 'saw', arpLp: 3800, bass: 'saw', bassLp: 700 },
+  // (Territory Clash's copy, Rellz 2026-11-16: "the music should sound medieval and there should be a variety") four medieval
+  // styles: frame drums and tambourines instead of a kit, a drone under everything, lute plucks, and a recorder, horn, fiddle or
+  // chanter on the tune, each in an old mode. Additive: the other styles sound exactly as before.
+  crusade: { kick: 0, snare: 0.5, taiko: 1.3, hat: 0.2, pad: 'saw', padLp: 900, arp: 'pluck', arpLp: 3000, bass: 'saw', bassLp: 320 },
+  tavern: { kick: 0, snare: 0.4, taiko: 0.8, hat: 0.6, pad: 'tri', padLp: 1600, arp: 'pluck', arpLp: 4200, bass: 'tri', bassLp: 500 },
+  court: { kick: 0, snare: 0.35, taiko: 0.7, hat: 0.35, pad: 'saw', padLp: 1300, arp: 'pluck', arpLp: 5000, bass: 'tri', bassLp: 450 },
+  highland: { kick: 0, snare: 0.9, taiko: 1, hat: 0.25, pad: 'saw', padLp: 1100, arp: 'pluck', arpLp: 3600, bass: 'saw', bassLp: 380 },
 };
+// map themes (rules.picks.mapMusic, Rellz 2026-11-16, idea 27): a map's own sound on top of the era's style. The map key picks it
+// (no dice) and the notes still come from the seed; only the instruments change, never the loudness (music.levels sets that).
+// desert: hand drums and a plucked oud-like lead; snow: sleigh bells and glassy bells over soft pads (festive at Christmas: more bells
+// and a bright counter-melody); forest: a breathy flute and plucked strings; synth: a neon lead and arpeggio; war: heavy war drums.
+const THEMES = {
+  desert: { S: { taiko: 1.1, hat: 0.45, arp: 'pluck', arpLp: 4200, padLp: 1100 }, lead: { wave: 'tri', voices: 2, det: 0.003, lp: 3600, att: 0.008, vib: 0.016, rev: 0.35, dly: 0.2, amp: 0.07 }, ost: false, darbuka: true },
+  snow: { S: { kick: 0.7, snare: 0.55, taiko: 0.4, hat: 0.3, padLp: 1700, arp: 'tri', arpLp: 5200 }, lead: { wave: 'tri', voices: 1, lp: 6000, att: 0.004, vib: 0.003, rev: 0.6, dly: 0.3, amp: 0.06 }, bells: true, ost: true },
+  forest: { S: { taiko: 0.6, hat: 0.35, arp: 'pluck', arpLp: 3600, padLp: 1200 }, lead: { wave: 'tri', voices: 1, lp: 3000, att: 0.06, vib: 0.013, rev: 0.55, dly: 0.22, amp: 0.075 }, ost: false, breath: true },
+  synth: { S: { kick: 1.1, snare: 0.9, taiko: 0.2, hat: 0.7, pad: 'sq', padLp: 2400, arp: 'saw', arpLp: 4200, bass: 'saw', bassLp: 800 }, lead: { wave: 'saw', voices: 3, det: 0.01, lp: 2800, fenv: 1.5, fdec: 0.2, att: 0.01, vib: 0.005, rev: 0.3, dly: 0.35, amp: 0.045 }, ost: false, four: true, pump: 0.6 },
+  war: { S: { kick: 1.1, snare: 1, taiko: 1.4, hat: 0.4, padLp: 1100, bassLp: 420 }, ost: true, warDrums: true },
+};
+// (Army Clash's maps, Tower Clash's (pyramid, shroom, blossom) and Territory Clash's island themes (frostwild, thornvale...))
+const MAP_THEME = { dunes: 'desert', snow: 'snow', frozen: 'snow', forest: 'forest', overgrown: 'forest', enchanted: 'forest', swamp: 'forest', neon: 'synth', city: 'synth', furnace: 'war', bombed: 'war',
+  pyramid: 'desert', shroom: 'forest', blossom: 'forest', frostwild: 'snow', thornvale: 'forest', duskfen: 'forest', goldmarch: 'desert', saltreach: 'desert', ashen: 'war' };
+const MODES = { minor: [0, 2, 3, 5, 7, 8, 10], dorian: [0, 2, 3, 5, 7, 9, 10], phrygian: [0, 1, 3, 5, 7, 8, 10], mixolydian: [0, 2, 4, 5, 7, 9, 10] };
 const PROGS = [[0, 5, 2, 6], [0, 3, 5, 4], [0, 6, 5, 6], [0, 5, 3, 4], [0, 2, 5, 6], [0, 3, 6, 4]];
 const MINOR = [0, 2, 3, 5, 7, 8, 10];
 
 // the tempo, key and chords of a video (no rendering): render.js uses it before the video to time the camera's beat punches
-function plan(seed, style) {
+function plan(seed, style, opts = {}) {
   const r = rng(seed >>> 0);
-  const bpm = 120 + Math.floor(r() * 5) * 5;              // 120..140
+  let bpm = 120 + Math.floor(r() * 5) * 5;              // 120..140
   const root = 45 + Math.floor(r() * 8);                    // A2..E3
   const prog = PROGS[Math.floor(r() * PROGS.length)];
-  return { seed: seed >>> 0, style: STYLES[style] ? style : 'epic', bpm, beat: 60 / bpm, root, prog, r };
+  const st = STYLES[style] ? style : 'epic', VX = VOICE[st] || {};
+  if (VX.bpm) bpm = VX.bpm[0] + Math.round((bpm - 120) / 20 * (VX.bpm[1] - VX.bpm[0]));   // (same dice, the style's own range)
+  const theme = opts.theme || (opts.map && MAP_THEME[opts.map]) || null;
+  return { seed: seed >>> 0, style: st, bpm, beat: 60 / bpm, root, prog, r, scale: MODES[VX.mode] || MINOR, theme: THEMES[theme] ? theme : null, festive: !!opts.festive };
 }
 // the chord of a degree in the key (harmonic minor for the fifth, so it pulls home)
-function chord(root, deg) {
-  const s = i => { const o = Math.floor(i / 7), d = ((i % 7) + 7) % 7; return root + 12 * o + MINOR[d] + (deg === 4 && d === 6 ? 1 : 0); };
+function chord(root, deg, SC = MINOR) {
+  const s = i => { const o = Math.floor(i / 7), d = ((i % 7) + 7) % 7; return root + 12 * o + SC[d] + (deg === 4 && d === 6 && SC === MINOR ? 1 : 0); };
   return [s(deg), s(deg + 2), s(deg + 4)];
 }
 
@@ -171,6 +196,11 @@ const VOICE = {
   ancient: { lead: { wave: 'tri', voices: 1, lp: 3800, att: 0.05, vib: 0.011, rev: 0.5, dly: 0.25, amp: 0.075 }, double: false, ost: true, pump: 0.2, four: false },
   modern: { lead: { wave: 'sq', voices: 2, det: 0.004, lp: 2200, fenv: 2.2, fdec: 0.12, att: 0.01, vib: 0.004, rev: 0.25, dly: 0.3, amp: 0.04 }, double: false, ost: false, pump: 0.55, four: true },
   scifi: { lead: { wave: 'saw', voices: 3, det: 0.009, lp: 2600, fenv: 1.4, fdec: 0.2, att: 0.01, vib: 0.005, rev: 0.3, dly: 0.35, amp: 0.045 }, double: false, ost: false, pump: 0.6, four: true },
+  // medieval (Territory Clash): war horns over war drums; a tavern recorder and lute; a court fiddle and harp; a highland chanter on a drone
+  crusade: { lead: { wave: 'saw', voices: 2, det: 0.004, lp: 1100, fenv: 0.8, fdec: 0.25, att: 0.06, vib: 0.008, rev: 0.6, dly: 0.1, amp: 0.06 }, double: true, ost: false, pump: 0.15, four: false, medieval: true, drone: 0.022, mode: 'phrygian', bpm: [96, 112] },
+  tavern: { lead: { wave: 'tri', voices: 1, lp: 3400, att: 0.025, vib: 0.016, vibDelay: 0.08, rev: 0.35, dly: 0.15, amp: 0.085 }, double: false, ost: false, pump: 0.1, four: false, medieval: true, drone: 0.012, mode: 'dorian', bpm: [138, 156], lute: true },
+  court: { lead: { wave: 'saw', voices: 2, det: 0.003, lp: 2300, att: 0.06, vib: 0.012, rev: 0.55, dly: 0.2, amp: 0.05 }, double: false, ost: false, pump: 0.1, four: false, medieval: true, drone: 0.014, mode: 'minor', bpm: [104, 120], lute: true },
+  highland: { lead: { wave: 'sq', voices: 2, det: 0.002, lp: 2000, att: 0.015, vib: 0.004, rev: 0.4, dly: 0.12, amp: 0.045 }, double: false, ost: false, pump: 0.1, four: false, medieval: true, drone: 0.028, mode: 'mixolydian', bpm: [112, 128], rolls: true },
 };
 // a two-bar hook: rhythms on a sixteenth grid ([start, length]) and a melodic walk over the key
 const RHYTHMS = [
@@ -184,16 +214,21 @@ function motif(r) {
   let d = 4 + Math.floor(r() * 3); const steps = [-2, -1, -1, 1, 1, 2, 3, -3, 0];
   return rh.map(([st, ln], n) => { if (n) d = Math.max(0, Math.min(10, d + steps[Math.floor(r() * steps.length)])); return { st, ln, d }; });
 }
-const scaleNote = (root, i) => { const o = Math.floor(i / 7), d = ((i % 7) + 7) % 7; return root + 12 * o + MINOR[d]; };
+const scaleNote = (root, i, SC = MINOR) => { const o = Math.floor(i / 7), d = ((i % 7) + 7) % 7; return root + 12 * o + SC[d]; };
 
 // the whole soundtrack, as long as the video: { L, R } at the given sample rate
 function render(p, { sr, dur, cues }) {
-  const len = Math.ceil(sr * (dur + 0.05)), B = new Bus(sr, len), S = STYLES[p.style], VX = VOICE[p.style] || VOICE.epic, r = p.r, beat = p.beat, bar = beat * 4;
+  const len = Math.ceil(sr * (dur + 0.05)), B = new Bus(sr, len), r = p.r, beat = p.beat, bar = beat * 4, TM = p.theme ? THEMES[p.theme] : null;
+  let S = STYLES[p.style], VX = VOICE[p.style] || VOICE.epic;
+  if (TM) {
+    S = Object.assign({}, S, TM.S || {});
+    VX = Object.assign({}, VX, TM.lead ? { lead: Object.assign({}, VX.lead, TM.lead) } : {}, 'ost' in TM ? { ost: TM.ost } : {}, 'four' in TM ? { four: TM.four } : {}, 'pump' in TM ? { pump: TM.pump } : {}, { double: false });
+  }
   const { start, end } = cues, busy = cues.busy;
   const drop = Math.max(start, Math.ceil((cues.first - 0.05) / bar) * bar);               // first downbeat after the first kill
   const fin = Math.max(drop + bar, end);                                                    // the final blow
   const busyAt = t => busy[Math.max(0, Math.min(busy.length - 1, Math.floor(t * 2)))] || 0;
-  const chordAt = t => chord(p.root + 12, p.prog[Math.floor(t / bar) % 4]);
+  const SC = p.scale || MINOR, chordAt = t => chord(p.root + 12, p.prog[Math.floor(t / bar) % 4], SC);
   const nBars = Math.ceil(dur / bar) + 1;
   const hook = motif(r), hookB = hook.map((n, k) => (k >= hook.length - 2 ? { ...n, d: k === hook.length - 1 ? 0 : n.d } : n));   // the answer ends on the root
   // the pump: pads and bass dip under every kick and swell back (the sidechain feel)
@@ -211,6 +246,8 @@ function render(p, { sr, dur, cues }) {
       const pk = t0 < drop ? 0.55 + 0.35 * (t0 / Math.max(drop, 0.1)) : 0.8;
       const padEnd = Math.min(t0 + bar, fin - 0.3);
       if (padEnd > t0) for (const [k, m] of ch.entries()) B.tone(t0, padEnd - t0, mtof(m), 0.026 * pk, { wave: S.pad, voices: 5, det: 0.012, lp: S.padLp, att: 0.3, rel: 0.5, pan: (k - 1) * 0.6, rev: 0.55, pump: VX.pump });
+      // (medieval) the drone: root and fifth held under everything, like a hurdy-gurdy or the pipes' drones
+      if (VX.drone && padEnd > t0) for (const [k, m] of [p.root, p.root + 7].entries()) B.tone(t0, padEnd - t0 + 0.05, mtof(m), VX.drone, { wave: 'saw', voices: 3, det: 0.004, lp: 650, att: 0.08, rel: 0.12, pan: k ? 0.25 : -0.25, rev: 0.3 });
       // a low choir-like octave under the pad
       if (padEnd > t0) B.tone(t0, padEnd - t0, mtof(ch[0] - 12), 0.03 * pk, { wave: 'tri', lp: 900, att: 0.4, rel: 0.6, rev: 0.4, pump: VX.pump * 0.6 });
     }
@@ -220,7 +257,7 @@ function render(p, { sr, dur, cues }) {
       for (const n of notes) {
         const t = drop + (fb - half) * bar + n.st * beat / 4, l = n.ln * beat / 4; if (t >= fin - 0.3) continue;
         const strong = n.st % 8 === 0, ch2 = chordAt(t);
-        let m = scaleNote(p.root + 12, n.d);
+        let m = scaleNote(p.root + 12, n.d, SC);
         if (strong) { m = ch2.map(c => c + 12 * Math.round((m - c) / 12)).reduce((a, c) => (Math.abs(c - m) < Math.abs(a - m) ? c : a)); }
         const L = VX.lead;
         B.tone(t, l * 0.92, mtof(m), L.amp * (0.85 + 0.3 * busyAt(t)), { ...L, rel: 0.12, pan: 0.05 });
@@ -240,10 +277,31 @@ function render(p, { sr, dur, cues }) {
         continue;
       }
       // the fight
+      if (VX.medieval) {
+        // frame drums (a deep boom on one and three, a lighter one on the and of two), a tambourine's jingle, a field snare
+        if (q === 0 || q === 8) B.taiko(t, 0.3 * S.taiko, r, q ? 66 : 58);
+        if (q === 6 || (q === 14 && I > 0.4)) B.taiko(t, 0.16 * S.taiko, r, 92);
+        if (on && (beatN === 1 || beatN === 3)) B.snare(t, 0.14 * S.snare, r, 0.35);
+        if (VX.rolls && b % 2 === 1 && q >= 12) B.snare(t, 0.05 + 0.02 * (q - 12), r, 0.3);
+        if (q % 2 === 0 || I > 0.5) { const a = (q % 4 === 2 ? 0.06 : 0.035) * S.hat * (0.6 + 0.6 * I); B.hat(t, a, r, q % 4 ? 0.35 : -0.35, true); B.hat(t + 0.012, a * 0.6, r, q % 4 ? 0.3 : -0.3, false); }
+      } else {
       if (on && (VX.four || beatN === 0 || beatN === 2 || (I > 0.6 && q === 10))) B.kick(t, 0.5 * S.kick);
       if (on && (beatN === 1 || beatN === 3)) { B.snare(t, 0.22 * S.snare, r); if (VX.four) B.clap(t, 0.12, r); }
       if (q % 2 === 0 || I > 0.55) B.hat(t, (q % 4 === 2 ? 0.07 : 0.04) * S.hat * (0.6 + 0.6 * I), r, q % 2 ? -0.3 : 0.3, VX.four && q % 4 === 2);
+      }
       if (S.taiko > 0.5 && (q === 6 || q === 14) && I > 0.3) B.taiko(t, 0.18 * S.taiko, r, q === 6 ? 82 : 70);
+      if (TM) {
+        // desert hand drums: a doum on the beat, teks in between; snow sleigh bells on the eighths (all sixteenths when it's busy or
+        // festive) and a glassy bell on each bar; forest: a breath of wind on the bar; war: a second, deeper drum line
+        if (TM.darbuka) { if (q === 0 || q === 6 || q === 10) B.taiko(t, 0.09, r, 120); else if (q % 2 === 1 && I > 0.35) B.hat(t, 0.035, r, q % 4 === 1 ? 0.4 : -0.4); }
+        if (TM.bells) {
+          if (q % 2 === 0 || I > 0.6 || p.festive) for (let j = 0; j < 3; j++) B.tone(t + j * 0.006, 0.05, 5200 + j * 730 + (q % 4) * 90, 0.006 * (0.7 + 0.5 * I), { wave: 'sq', lp: 9000, dec: 0.05, rel: 0.02, pan: q % 4 < 2 ? 0.45 : -0.45, rev: 0.25 });
+          if (q === 0) { const ch3 = chordAt(t); B.tone(t, bar * 0.9, mtof(ch3[0] + 36), 0.018, { wave: 'tri', lp: 8000, dec: 0.9, rel: 0.4, rev: 0.6, dly: 0.3 }); }
+          if (p.festive && (q === 4 || q === 12)) { const ch3 = chordAt(t); B.tone(t, beat * 0.9, mtof(ch3[q === 4 ? 1 : 2] + 24), 0.016, { wave: 'tri', lp: 7000, dec: 0.5, rel: 0.2, rev: 0.5, pan: 0.2 }); }
+        }
+        if (TM.breath && q === 0 && (b % 2 === 0)) B.noise(t, bar * 0.8, 0.012, { lp: 1800, sweep: 3, rise: 1.5, hp: true, rev: 0.6 }, r);
+        if (TM.warDrums && (q === 3 || q === 11 || (I > 0.5 && q === 7))) B.taiko(t, 0.14, r, 48);
+      }
       // bass: the root on the eighths, with a filter pluck, breathing with the kick
       if (q % 2 === 0) { const ch2 = chordAt(t), oct = VX.four && q % 4 === 2 ? 12 : 0; B.tone(t, beat / 2 * 0.85, mtof(ch2[0] - 12 + oct), 0.1, { wave: S.bass, voices: 2, det: 0.003, lp: S.bassLp, fenv: 2.5, fdec: 0.06, dec: 0.4, rel: 0.03, pump: VX.pump * 0.7 }); }
       // strings on the sixteenths (epic, ancient) or the arpeggio (modern, sci-fi), louder when the screen is busy
@@ -252,7 +310,11 @@ function render(p, { sr, dur, cues }) {
         const m = ch2[[0, 0, 1, 0, 2, 0, 1, 0][q % 8]] + (q % 8 === 4 ? 12 : 0);
         B.tone(t, beat / 4 * 0.55, mtof(m), 0.022 + 0.025 * I, { wave: 'saw', voices: 3, det: 0.006, lp: 2400, dec: 0.09, rel: 0.03, rev: 0.3, pan: q % 2 ? 0.35 : -0.35 });
       }
-      if (!VX.ost || sec >= 8 ? I > 0.15 : I > 0.7) {
+      if (VX.lute && (q % 2 === 0 || I > 0.5)) {
+        // the lute: broken chords, plucked, a little brighter on the off-beats
+        const m = ch2[[0, 2, 1, 2][(q >> 1) % 4]] + 12 * (q % 8 < 4 ? 0 : 1);
+        B.tone(t, beat / 2 * 0.9, mtof(m), 0.03 + 0.02 * I, { wave: 'tri', voices: 2, det: 0.003, lp: S.arpLp, fenv: 2.4, fdec: 0.03, dec: 0.16, rel: 0.05, pan: q % 4 ? 0.4 : -0.2, rev: 0.25 });
+      } else if (!VX.ost || sec >= 8 ? I > 0.15 : I > 0.7) {
         const m = ch2[[0, 1, 2, 1][q % 4]] + 12 * (q % 8 < 4 ? 1 : 2);
         B.tone(t, beat / 4 * 0.8, mtof(m), 0.018 + 0.026 * I, { wave: S.arp === 'pluck' ? 'tri' : S.arp, lp: S.arpLp, fenv: 1.5, fdec: 0.05, dec: S.arp === 'pluck' ? 0.12 : 0.22, rel: 0.03, pan: Math.sin(q) * 0.5, dly: 0.25, rev: 0.15 });
       }
@@ -323,4 +385,4 @@ function mix(sfxL, sfxR, mus, { volume = 0.8, duck = 0.45, sr, levels = null } =
   return { L, R };
 }
 
-module.exports = { plan, tracker, render, pulse, mix, loud, STYLES };
+module.exports = { plan, tracker, render, pulse, mix, loud, STYLES, THEMES, MAP_THEME };

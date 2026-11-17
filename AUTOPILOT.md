@@ -151,3 +151,5 @@ Background processes are stopped a few minutes after you start them, so run long
 ## 7. Improve this playbook
 
 If something in this file slowed you down or led you wrong, improve it, keeping every guardrail in section 4, and say what you changed in the changelog. Rellz can override anything here by editing this file or by telling Claude in a session.
+
+- Rellz's picks (`rules.picks`, 2026-11-17) are in all three games with the same dial names; when a pick is changed for every game, change it in all three, and keep `commentary.js`, `music.js` and `holiday.js` identical.

@@ -17,6 +17,7 @@ const C = require('./creative.js');
 const { makeTitle, nounOf } = require('./titles.js');
 const chronicle = require('./chronicle.js');
 const Music = require('./music.js');
+const Commentary = require('./commentary.js');
 RVB.makeCanvas = (w, h) => createCanvas(w, h);
 
 // rules.video.scale 2 = 4K: everything is laid out in 1080x1920 units and drawn at twice the size (not stretched up).
@@ -109,7 +110,10 @@ const fresh = (() => {
   }
   return f;
 })();
-const melee = Object.assign({}, combat && combat.creativeMelee ? { melee: combat.creativeMelee } : {}, fresh ? { fresh } : {}, roster ? { roster: true } : {});
+// Rellz's picks (rules.picks, 2026-11-16): 26 updates for all three games (new troops, spells, modes, weather, dusk, the MVP card,
+// the commentator, the crowd and map music). PICKS=0 turns them off for a test; with them off every old seed plays as before.
+const PK = rules.picks && rules.picks.on && process.env.PICKS !== '0' ? rules.picks : null;
+const melee = Object.assign({}, combat && combat.creativeMelee ? { melee: combat.creativeMelee } : {}, fresh ? { fresh } : {}, roster ? { roster: true } : {}, PK && PK.troops !== false ? { picks: true } : {});
 const mu0 = three
   ? (invent3 ? C.invent3(seed, melee) : lineups3[Math.floor(posted / Math.max(1, tw.every || 4) / 2) % lineups3.length])
   : wild ? C.invent(seed, melee) : matchups.length ? matchups[listSlot % matchups.length] : null;
@@ -123,7 +127,7 @@ const crowd = d => typeof d === 'string' && !!nounOf({ name: d }).count;
 let mode = null, heroTeam = 0;
 if (process.env.MODE) mode = process.env.MODE === 'none' ? null : process.env.MODE;
 else if (combat && !three && modeCfg.shares && mu0) {
-  const list = Object.entries(modeCfg.shares), total = list.reduce((a, [, w]) => a + w, 0);
+  const list = Object.entries(Object.assign({}, modeCfg.shares, PK && PK.modes ? PK.modes : {})), total = list.reduce((a, [, w]) => a + w, 0);
   let r = modeRoll * total;
   for (const [k, w] of list) if ((r -= w) <= 0) { mode = k; break; }
   if (mode === 'classic') mode = null;
@@ -244,7 +248,9 @@ async function main() {
     // blood first: splatter, pools and spattered fighters instead of sparks and smoke (rules.ui.blood; looks only)
     ...(rules.ui && rules.ui.blood && rules.ui.blood.on ? { blood: rules.ui.blood } : {}),
     // little people instead of circles and triangles (rules.ui.humans; looks only)
-    ...(rules.ui && rules.ui.humans ? { humans: true } : {}), ...(rules.ui && rules.ui.cineClean ? { cineClean: true } : {}) });
+    ...(rules.ui && rules.ui.humans ? { humans: true } : {}), ...(rules.ui && rules.ui.cineClean ? { cineClean: true } : {}),
+    // the picks, with the holiday (Christmas snow) and which side defends a siege or is the boss (the mode's own dice)
+    ...(PK ? { picks: Object.assign({}, PK, { on: true, holiday: HOL ? HOL.key : null }), pkSide: sideRoll < 0.5 ? 0 : 1 } : {}) });
   // a creative match-up is new, so balance it now with quick test battles on this map and these formations
   let wildMul = three ? bm.slice(0, 3) : 1, wildRate = null, tuned = null;
   // with intelligent combat on, every 1v1 battle is tuned on the spot with quick test battles (combat changes who is strong),
@@ -370,7 +376,8 @@ async function main() {
   // Short's replay loops seamlessly. (Looks and sound only: the battle is the same with or without it.)
   const MU = rules.music || {}, muOn = MU.on !== false;
   const muStyle = { ancient: 'ancient', medieval: 'ancient', fantasy: 'ancient', pirate: 'ancient', modern: 'modern', ww2: 'modern', scifi: 'scifi', future: 'scifi' }[era] || 'epic';
-  const mp = muOn ? Music.plan(seed, muStyle) : null, mtr = muOn ? Music.tracker() : null;
+  // (rules.picks.mapMusic: the map's own sound on top of the era's style; festive at Christmas)
+  const mp = muOn ? Music.plan(seed, muStyle, PK && PK.mapMusic !== false ? { map, festive: !!(HOL && HOL.key === 'christmas') } : {}) : null, mtr = muOn ? Music.tracker() : null;
   let firstCv = null;
   const FIGHT_S = VID.fightSeconds || 60;
   // ----- the intro (rules.intro): the thumbnail's layout (logo, both armies' troops and counts, VS, WHO WINS?) over the
@@ -469,6 +476,11 @@ async function main() {
     console.log(`Charge: ${CH_S.toFixed(2)} s stand-off, CHARGE! at ${at.toFixed(2)} s`);
   }
   const OFF = PRE + CH_S;
+  const pkCalls = [], pkCrowd = [];
+  let pkEndAt = null;
+  // the slow-motion replay of the final kill (rules.picks.replay): the last moments of the fight are kept at half size, and as the
+  // battle ends they play again at half speed over the start of the outro, then fade back; the video is no longer for it
+  const RP = PK && PK.replay !== false ? { n: Math.round((PK.replaySecs ?? 0.8) * FPS), ring: [], at: -1, k: 0 } : null;
   for (let i = 0; i < MAXFRAMES; i++) {
     ctx.setTransform(RS, 0, 0, RS, 0, 0);
     const z0 = game.cam && game.cam.z, punch = muOn && MU.pulse !== false && game.cam && game.phase === 'fight' && game.fightT > FIGHT_S - 6 ? Music.pulse(mp, i / FPS + OFF) : 0;
@@ -486,6 +498,29 @@ async function main() {
       const sc = (lo / hi) * al.reduce((a, b) => a + b, 0);
       if (sc > thumbScore) { thumbScore = sc; thumbBg = thumbBg || createCanvas(W, H); thumbBg.getContext('2d').drawImage(canvas, 0, 0, W, H); }
     }
+    if (RP) {
+      if (game.phase === 'fight' && game.fightT > FIGHT_S * 0.5) {
+        // keep the last few frames (half size; the oldest canvas is reused)
+        const c = RP.ring.length >= RP.n ? RP.ring.shift() : createCanvas(W * RS / 2, H * RS / 2);
+        c.getContext('2d').drawImage(canvas, 0, 0, W * RS / 2, H * RS / 2); RP.ring.push(c);
+      } else if (game.phase === 'outro' && RP.ring.length >= 4) {
+        if (RP.at < 0) RP.at = i;
+        const k = i - RP.at, len = RP.ring.length * 2, fade = 8;
+        if (k < len + fade) {
+          // half speed (each kept frame twice), a slow push in, film bars and a REPLAY tag, then a fade back to the outro
+          const f = RP.ring[Math.min(RP.ring.length - 1, k >> 1)], a = k < len ? 1 : 1 - (k - len) / fade, z = 1 + 0.06 * Math.min(1, k / len);
+          ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = a;
+          ctx.drawImage(f, (W * RS - W * RS * z) / 2, (H * RS - H * RS * z) / 2, W * RS * z, H * RS * z);
+          ctx.fillStyle = 'rgba(40,20,10,0.14)'; ctx.fillRect(0, 0, W * RS, H * RS);
+          const bar = 120 * RS; ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W * RS, bar); ctx.fillRect(0, H * RS - bar, W * RS, bar);
+          ctx.setTransform(RS, 0, 0, RS, 0, 0); ctx.font = `800 54px ${RVB.FONT || 'sans-serif'}`; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+          const tx = 70, ty = 66; ctx.fillStyle = '#E11D48'; ctx.beginPath(); ctx.arc(tx, ty, 13 * (0.75 + 0.25 * Math.cos(k * 0.35)), 0, Math.PI * 2); ctx.fill();
+          ctx.lineWidth = 8; ctx.strokeStyle = 'rgba(8,11,20,0.9)'; ctx.strokeText('REPLAY', tx + 30, ty); ctx.fillStyle = '#FFFFFF'; ctx.fillText('REPLAY', tx + 30, ty);
+          ctx.globalAlpha = 1; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+          if (k === 0) synth.play({ type: 'whoosh' }, (i + 0.5) / FPS + OFF);
+        } else if (RP.ring.length) RP.ring.length = 0;
+      }
+    }
     const frame = canvas.toBuffer('raw');
     if (!enc.p.stdin.write(frame)) await once(enc.p.stdin, 'drain');
     nFrames++;
@@ -493,7 +528,13 @@ async function main() {
     if (OUTRO && game.finished) break;
     if (director) director.advance(1 / FPS); else game.frame(1 / FPS);
     const off = OFF;
-    for (const ev of game.sfx) synth.play(ev, (i + 1) / FPS + off);
+    for (const ev of game.sfx) {
+      // the commentator's cues and the crowd's swells are kept for the mix after the battle (commentary.js)
+      if (ev.type === 'pk_call') { pkCalls.push({ t: (i + 1) / FPS + off, kind: ev.kind }); continue; }
+      if (ev.type === 'pk_crowd') { pkCrowd.push({ t: (i + 1) / FPS + off, k: ev.k || 1 }); continue; }
+      synth.play(ev, (i + 1) / FPS + off);
+    }
+    if (PK && game.phase !== 'fight' && pkEndAt == null && game.fightT > 1) { pkEndAt = (i + 1) / FPS + off; pkCalls.push({ t: pkEndAt, kind: 'end' }); }
     if (mtr) mtr.frame((i + 1) / FPS + off, game);
     game.sfx.length = 0;
     if ((i + 1) % (FPS * 6) === 0) console.log(`frame ${i + 1} (${((i + 1) / FPS).toFixed(0)} s of video) after ${((Date.now() - t0) / 1000).toFixed(0)} s`);
@@ -505,6 +546,12 @@ async function main() {
   // Sound: the match's sound effects, soft-limited, exactly as long as the video.
   const frames = Math.round(SR * DUR);
   const gain = game.audioGain || 1;
+  // the commentator and the crowd (rules.picks), into the effects before they're limited
+  if (PK && (PK.commentator !== false || PK.crowd !== false)) {
+    const said = Commentary.mix(synth.L, synth.R, { sr: SR, cues: PK.commentator !== false ? pkCalls : [], crowd: pkCrowd, seed, startAt: OFF + 1, endAt: Math.min(DUR, (pkEndAt ?? DUR) + 2.5),
+      bed: PK.crowd !== false ? (PK.crowdBed ?? 0.075) : 0, voice: PK.voice ?? 0.62, max: PK.maxCalls ?? 8, gap: PK.callGap ?? 6 });
+    console.log(`Commentator: ${said.length ? said.join(', ') : 'quiet'}; crowd ${PK.crowd !== false ? `on, ${pkCrowd.length} swells` : 'off'}`);
+  }
   const L = new Float32Array(frames), R = new Float32Array(frames);
   for (let i = 0; i < frames; i++) { L[i] = Math.tanh(synth.L[i] * gain); R[i] = Math.tanh(synth.R[i] * gain); }
   let mixed = { L, R };
@@ -559,7 +606,10 @@ async function main() {
     duel: 'Champion Duel: each army\'s best fighter duels in the middle first while both armies watch, then everyone charges.',
     heroes: `Last Stand: one army is a small band of heroes (far stronger fighters, gold rings) against a full army.`,
     mirror: 'Mirror Match: the same army on both sides, told apart by colour and look.',
-    hill: 'King of the Hill: the army with more troops on the hill in the middle takes it and hits 25% harder while it holds it.' };
+    hill: `King of the Hill: the army with more troops on the hill in the middle takes it and hits 25% harder while it holds it${PK && PK.hillScore !== false ? `; the first army to hold it for ${PK.hillTarget ?? 25} seconds wins` : ''}.`,
+    tug: 'Tug of War: a rope across the middle; every troop near it pushes the knot toward the enemy, and the army that gets it past the other\'s line wins.',
+    siege: 'Siege: one army defends a castle wall with a gate in the middle; the other has to break the gate (or the wall) to get at them.',
+    boss: 'Boss Fight: one army is a single giant boss champion with a small guard, against a whole crowd.' };
   const GENRE = { modern: 'modern warfare ', fantasy: 'fantasy ', mixed: 'old vs new ', scifi: 'sci-fi ', pirate: 'pirate ', horror: 'zombie ', samurai: 'samurai ', wild: 'mixed-genre ' };
   // custom teams get their own names in the title ("Storm Mages vs Dragon Bones"); army types stay in the description otherwise
   const showNames = era === 'wild';

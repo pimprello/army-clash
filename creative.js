@@ -72,6 +72,11 @@ Object.assign(TROOP_NAME, { singularity: 'singularity sages', orbitknight: 'orbi
   thronewalker: 'Throne Walker', trapmaster: 'trapmasters', blinkblade: 'blink blades', bastion: 'bastion engineers', warmaster: 'warmasters', domegen: 'dome generators' });
 Object.assign(HEAVY_WORD, { thronewalker: 'THRONE' });
 let ROSTER_ON = false;
+// Rellz's picks (rules.picks, 2026-11-16): the new troops join invented match-ups only with picks on, so old seeds invent the same
+const NOUN5 = { plaguedoctor: 'DOCTORS', ghostknight: 'GHOSTS', traitor: 'TRAITORS', bombrats: 'RATS' };
+Object.assign(TROOP_NAME, { plaguedoctor: 'plague doctors', ghostknight: 'ghost knights', traitor: 'traitors', bombrats: 'bomb rats', bombrat: 'bomb rats', ram: 'battering ram', golemling: 'little golems' });
+Object.assign(HEAVY_WORD, { ram: 'RAM' });
+let PICKS_ON = false;
 // freshness: with a count of how often each troop showed up lately, pick from the least seen (ties broken by the dice)
 const freshPick = (R, list, fresh, keep) => {
   if (!fresh || !list.length) return R.pick(list);
@@ -84,6 +89,7 @@ const freshPick = (R, list, fresh, keep) => {
 function inventSide(R, avoid, melee, fresh) {
   let nouns = fresh ? Object.assign({}, NOUN, NOUN3) : NOUN;
   if (ROSTER_ON) { nouns = Object.assign({}, NOUN, NOUN3, NOUN4); for (const k of RVB.RETIRED) delete nouns[k]; }
+  if (PICKS_ON) nouns = Object.assign({}, nouns, NOUN5);
   const pool = Object.keys(nouns).filter(k => !avoid.includes(k));
   const genre = k => RVB.UNIT_ERA[k];
   const close = pool.filter(k => !RVB.UNIT[k].range);
@@ -99,7 +105,8 @@ function inventSide(R, avoid, melee, fresh) {
   troops.forEach((k, i) => { mix[k] = Math.round(w[i] / sum * 100) / 100; });
   const heavy = [];
   const h = R.next();
-  const HV = ROSTER_ON ? HEAVIES.concat(['balloon', 'thronewalker']).filter(k => !RVB.RETIRED.includes(k)) : fresh ? HEAVIES.concat(['balloon']) : HEAVIES;
+  let HV = ROSTER_ON ? HEAVIES.concat(['balloon', 'thronewalker']).filter(k => !RVB.RETIRED.includes(k)) : fresh ? HEAVIES.concat(['balloon']) : HEAVIES;
+  if (PICKS_ON) HV = HV.concat(['ram']);
   if (h < 0.12) { const a = fresh ? freshPick(R, HV, fresh, 6) : R.pick(HV); heavy.push(a, R.pick(HV.filter(k => k !== a))); }
   else if (h < 0.5) heavy.push(fresh ? freshPick(R, HV, fresh, 6) : R.pick(HV));
   // a name that fits the scoreboard
@@ -116,9 +123,9 @@ function inventSide(R, avoid, melee, fresh) {
 }
 
 // A new creative match-up from a seed (the same seed always gives the same match-up).
-function invent(seed, { melee, fresh, roster } = {}) {
+function invent(seed, { melee, fresh, roster, picks } = {}) {
   const R = RVB.rng((seed ^ 0xC2EA7E) >>> 0);
-  ROSTER_ON = !!roster;
+  ROSTER_ON = !!roster; PICKS_ON = !!picks;
   const top = inventSide(R, [], melee, fresh);
   // (with freshness, the top army's troops count as just seen, so the bottom army brings different ones)
   const f2 = fresh ? Object.assign({}, fresh, ...Object.keys(top.mix).map(k => ({ [k]: (fresh[k] || 0) + 5 }))) : undefined;
@@ -225,8 +232,8 @@ async function tune(optsFor, { sims = 16, steps = 5, seed = 1, start = 1, spread
 }
 
 // A three-way creative match-up: three made-up teams that each lead with a different troop.
-function invent3(seed, { melee, fresh, roster } = {}) {
-  ROSTER_ON = !!roster;
+function invent3(seed, { melee, fresh, roster, picks } = {}) {
+  ROSTER_ON = !!roster; PICKS_ON = !!picks;
   const R = RVB.rng((seed ^ 0x3A3A3A) >>> 0);
   const sides = [];
   let f = fresh ? Object.assign({}, fresh) : undefined;
