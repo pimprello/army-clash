@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 567 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 568 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -62,11 +62,11 @@ Records from 567 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - THOUSAND-MAN SLAYER: 6
 - EXECUTIONER SLAYER: 6
 - MIRROR KING SLAYER: 7
-- GLACIER BEHEMOTH SLAYER: 7
 - IMMORTAL FRAUD SLAYER: 8
 - PHOENIX SLAYER: 8
 - STORM EMPEROR SLAYER: 8
 - MAGMA COLOSSUS SLAYER: 8
+- GLACIER BEHEMOTH SLAYER: 8
 - UNMAKER SLAYER: 9
 - FORTRESS SLAYER: 11
 - MECH SLAYER: 12
@@ -76,11 +76,11 @@ Records from 567 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - SIEGE GOLEM SLAYER: 15
 - TANK SLAYER: 17
 - ACID LEVIATHAN SLAYER: 18
-- IRONHORN SLAYER: 18
 - HYDRA SLAYER: 19
+- IRONHORN SLAYER: 19
 - STORM COLOSSUS SLAYER: 20
-- SPIDER QUEEN SLAYER: 20
 - COLOSSUS SLAYER: 21
+- SPIDER QUEEN SLAYER: 21
 - CYCLOPS SLAYER: 24
 - DRAGON SLAYER: 26
 - ELEPHANT SLAYER: 30
@@ -96,7 +96,7 @@ Records from 567 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 48
 - venom: 92
 - swift: 95
-- spikes: 108
+- spikes: 109
 - regen: 117
 
 ## Big moments
@@ -154,18 +154,18 @@ Records from 567 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Red Hawk Company | 28 | 17 | 11 | 1092 | 1 won | 5 |
 | Frostwhisper Tribe | 27 | 14 | 13 | 1145 | 2 lost | 4 |
 | Silverbough Circle | 33 | 13 | 20 | 1555 | 1 won | 3 |
+| Hollowbark Kin | 30 | 13 | 17 | 1003 | 1 won | 3 |
 | Thornheart Circle | 16 | 13 | 3 | 897 | 3 won | 6 |
 | Oakshield Clan | 21 | 13 | 8 | 804 | 1 won | 6 |
-| Hollowbark Kin | 29 | 12 | 17 | 966 | 1 lost | 3 |
 | Copper Crown Company | 20 | 12 | 8 | 925 | 4 won | 4 |
 | Order of the Silver Stag | 27 | 11 | 16 | 1157 | 1 lost | 3 |
 | Wildbrook Clan | 29 | 11 | 18 | 981 | 1 lost | 2 |
 | Frostmere Clan | 28 | 11 | 17 | 883 | 4 lost | 3 |
+| Brightwater Tribe | 22 | 11 | 11 | 703 | 4 won | 4 |
 | Glimmerdeep Kin | 20 | 11 | 9 | 692 | 3 lost | 6 |
 | Nightjar Company | 15 | 11 | 4 | 552 | 5 won | 5 |
 | Starweave Circle | 27 | 10 | 17 | 1020 | 3 lost | 5 |
 | Greyfang Clan | 31 | 10 | 21 | 858 | 3 lost | 5 |
-| Brightwater Tribe | 21 | 10 | 11 | 675 | 3 won | 3 |
 | Raven Hill Clan | 18 | 10 | 8 | 669 | 2 won | 5 |
 | Mire Witch Coven | 14 | 10 | 4 | 455 | 1 lost | 7 |
 | Thornwood Company | 16 | 10 | 6 | 452 | 4 lost | 9 |
@@ -184,6 +184,7 @@ Records from 567 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-17 23:16: The Hollowbark Kin Take the Frozen End (revenge denied · 13th win · 37 kills)
 - 2026-11-17 19:07: The Axiom Legion Take the Sky-temple Relic (streak ended · 5th win · 9 kills)
 - 2026-11-17 15:12: The Nebula Cohort Take the Swamp Shrine (revenge denied · 4 wins in a row · 60 kills)
 - 2026-11-17 11:57: The Falcon Squadron Take the Trench Line (3rd win · 32 kills)
@@ -193,4 +194,3 @@ Records from 567 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-16 15:48: The Mossback Tribe Take the Canyon Pass (18th win · 58 kills)
 - 2026-11-16 12:43: The Hollowbark Kin Take the Haunted Crypt (streak ended · 11th win · 84 kills)
 - 2026-11-16 11:25: The Ashmantle Kin Take the Castle (6th win · 57 kills)
-- 2026-11-15 22:38: The Nightjar Company Take the Open Plains (revenge denied · 3 wins in a row · 68 kills)
