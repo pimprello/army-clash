@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-17 11:15 | Kill the KING to Win 👑 Turtle Army vs Gunners | Blue wins | https://youtube.com/shorts/mUcHen0dTNQ |
 | 2026-11-16 22:54 | 3 Wins in a ROW for the Hollowbark Kin 🔥 | Green wins | https://youtube.com/shorts/jbQ5b8oPKF4 |
 | 2026-11-16 19:30 | Netherlands vs Belgium, But Champions DUEL First ⚔️ | Netherlands wins | https://youtube.com/shorts/nZhfGcdTZ1I |
 | 2026-11-16 15:48 | 3 Armies, Only 1 SURVIVES 💀 | Brazil wins | https://youtube.com/shorts/Lj556gBz_E8 |

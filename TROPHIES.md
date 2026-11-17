@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 563 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 564 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -68,22 +68,22 @@ Records from 563 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - IMMORTAL FRAUD SLAYER: 8
 - PHOENIX SLAYER: 8
 - STORM EMPEROR SLAYER: 8
-- FORTRESS SLAYER: 10
+- FORTRESS SLAYER: 11
 - MECH SLAYER: 12
 - STAR EATER SLAYER: 13
 - CANNON SLAYER: 14
 - PLAYER SLAYER: 14
-- SIEGE GOLEM SLAYER: 14
+- SIEGE GOLEM SLAYER: 15
 - TANK SLAYER: 17
 - ACID LEVIATHAN SLAYER: 17
-- IRONHORN SLAYER: 17
+- IRONHORN SLAYER: 18
 - HYDRA SLAYER: 19
 - COLOSSUS SLAYER: 20
 - STORM COLOSSUS SLAYER: 20
 - SPIDER QUEEN SLAYER: 20
 - CYCLOPS SLAYER: 24
 - DRAGON SLAYER: 26
-- ELEPHANT SLAYER: 28
+- ELEPHANT SLAYER: 30
 - MAMMOTH SLAYER: 33
 - GOLEM SLAYER: 37
 - GIANT SLAYER: 38
@@ -94,9 +94,9 @@ Records from 563 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 11
 - wings: 43
 - spellward: 48
-- venom: 89
-- swift: 93
-- spikes: 107
+- venom: 90
+- swift: 94
+- spikes: 108
 - regen: 117
 
 ## Big moments
@@ -166,10 +166,10 @@ Records from 563 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Greyfang Clan | 31 | 10 | 21 | 858 | 3 lost | 5 |
 | Brightwater Tribe | 21 | 10 | 11 | 675 | 3 won | 3 |
 | Raven Hill Clan | 18 | 10 | 8 | 669 | 2 won | 5 |
+| Nightjar Company | 14 | 10 | 4 | 523 | 4 won | 5 |
 | Mire Witch Coven | 14 | 10 | 4 | 455 | 1 lost | 7 |
 | Thornwood Company | 16 | 10 | 6 | 452 | 4 lost | 9 |
 | Stormhorn Tribe | 15 | 9 | 6 | 720 | 2 won | 4 |
-| Harrier Squadron | 18 | 9 | 9 | 575 | 1 lost | 7 |
 
 ### Great rivalries
 
@@ -184,6 +184,7 @@ Records from 563 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-17 11:15: The Viper Company Take the Trench Line (6th win · 36 kills)
 - 2026-11-16 22:54: The Hollowbark Kin Take the Desert Well (revenge denied · 3 wins in a row · 12 kills)
 - 2026-11-16 19:30: The Thunder Platoon Take the Overgrown Throne (revenge! · 5 wins in a row · 252 kills)
 - 2026-11-16 15:48: The Mossback Tribe Take the Canyon Pass (18th win · 58 kills)
@@ -193,4 +194,3 @@ Records from 563 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-15 18:59: The House of the Gold Dragonfly Take the Open Plains (2nd win · 79 kills)
 - 2026-11-15 14:36: The Red Hawk Company Take the Mountain Pass (revenge! · 17th win · 96 kills)
 - 2026-11-15 12:57: The Comet Wing Take the Clockwork Arena (first ever win · 63 kills)
-- 2026-11-15 11:56: The Saltfang Crew Take the Canyon Pass (5 wins in a row · 44 kills)
