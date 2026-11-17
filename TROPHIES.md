@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 565 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 566 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -75,7 +75,7 @@ Records from 565 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PLAYER SLAYER: 14
 - SIEGE GOLEM SLAYER: 15
 - TANK SLAYER: 17
-- ACID LEVIATHAN SLAYER: 17
+- ACID LEVIATHAN SLAYER: 18
 - IRONHORN SLAYER: 18
 - HYDRA SLAYER: 19
 - STORM COLOSSUS SLAYER: 20
@@ -85,7 +85,7 @@ Records from 565 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - DRAGON SLAYER: 26
 - ELEPHANT SLAYER: 30
 - MAMMOTH SLAYER: 33
-- GOLEM SLAYER: 37
+- GOLEM SLAYER: 38
 - GIANT SLAYER: 38
 - TITAN SLAYER: 40
 
@@ -94,7 +94,7 @@ Records from 565 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 11
 - wings: 43
 - spellward: 48
-- venom: 90
+- venom: 91
 - swift: 95
 - spikes: 108
 - regen: 117
@@ -161,7 +161,7 @@ Records from 565 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Order of the Silver Stag | 27 | 11 | 16 | 1157 | 1 lost | 3 |
 | Wildbrook Clan | 29 | 11 | 18 | 981 | 1 lost | 2 |
 | Frostmere Clan | 28 | 11 | 17 | 883 | 4 lost | 3 |
-| Glimmerdeep Kin | 19 | 11 | 8 | 673 | 2 lost | 6 |
+| Glimmerdeep Kin | 20 | 11 | 9 | 692 | 3 lost | 6 |
 | Nightjar Company | 15 | 11 | 4 | 552 | 5 won | 5 |
 | Starweave Circle | 27 | 10 | 17 | 1020 | 3 lost | 5 |
 | Greyfang Clan | 31 | 10 | 21 | 858 | 3 lost | 5 |
@@ -184,6 +184,7 @@ Records from 565 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-17 15:12: The Nebula Cohort Take the Swamp Shrine (revenge denied · 4 wins in a row · 60 kills)
 - 2026-11-17 11:57: The Falcon Squadron Take the Trench Line (3rd win · 32 kills)
 - 2026-11-17 11:15: The Viper Company Take the Trench Line (6th win · 36 kills)
 - 2026-11-16 22:54: The Hollowbark Kin Take the Desert Well (revenge denied · 3 wins in a row · 12 kills)
@@ -193,4 +194,3 @@ Records from 565 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-16 11:25: The Ashmantle Kin Take the Castle (6th win · 57 kills)
 - 2026-11-15 22:38: The Nightjar Company Take the Open Plains (revenge denied · 3 wins in a row · 68 kills)
 - 2026-11-15 18:59: The House of the Gold Dragonfly Take the Open Plains (2nd win · 79 kills)
-- 2026-11-15 14:36: The Red Hawk Company Take the Mountain Pass (revenge! · 17th win · 96 kills)
