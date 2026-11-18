@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-18 10:32 | SIEGE GORGONS vs Royal Necros vs Omega Oracles 🔥 | Magenta wins | https://youtube.com/shorts/X_XP6PZU0D0 |
 | 2026-11-17 23:16 | Their Golem Rose From the GRAVE 🪦 | Argentina wins | https://youtube.com/shorts/pWkPnPRmpes |
 | 2026-11-17 19:07 | 15 HEROES vs Root Bombers 🛡️ | Orange wins | https://youtube.com/shorts/Whs7ytBgUqU |
 | 2026-11-17 15:12 | The Weapons Came ALIVE 🗡️ | Belgium wins | https://youtube.com/shorts/jSVObLBBZ3E |

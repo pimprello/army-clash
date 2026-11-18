@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 568 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 569 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -80,7 +80,7 @@ Records from 568 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - IRONHORN SLAYER: 19
 - STORM COLOSSUS SLAYER: 20
 - COLOSSUS SLAYER: 21
-- SPIDER QUEEN SLAYER: 21
+- SPIDER QUEEN SLAYER: 22
 - CYCLOPS SLAYER: 24
 - DRAGON SLAYER: 26
 - ELEPHANT SLAYER: 30
@@ -96,7 +96,7 @@ Records from 568 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 48
 - venom: 92
 - swift: 95
-- spikes: 109
+- spikes: 110
 - regen: 117
 
 ## Big moments
@@ -184,6 +184,7 @@ Records from 568 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-18 10:32: The Crew of the Red Kraken Take the Canyon Pass (2nd win · 61 kills)
 - 2026-11-17 23:16: The Hollowbark Kin Take the Frozen End (revenge denied · 13th win · 37 kills)
 - 2026-11-17 19:07: The Axiom Legion Take the Sky-temple Relic (streak ended · 5th win · 9 kills)
 - 2026-11-17 15:12: The Nebula Cohort Take the Swamp Shrine (revenge denied · 4 wins in a row · 60 kills)
@@ -193,4 +194,3 @@ Records from 568 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-16 19:30: The Thunder Platoon Take the Overgrown Throne (revenge! · 5 wins in a row · 252 kills)
 - 2026-11-16 15:48: The Mossback Tribe Take the Canyon Pass (18th win · 58 kills)
 - 2026-11-16 12:43: The Hollowbark Kin Take the Haunted Crypt (streak ended · 11th win · 84 kills)
-- 2026-11-16 11:25: The Ashmantle Kin Take the Castle (6th win · 57 kills)
