@@ -1,19 +1,19 @@
 # Trophy room
 
-Records from 569 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 570 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
 - **112 kills**: GIANT · 2026-11-03 05:30 · [🇧🇪 Belgium vs Netherlands 🇳🇱](https://youtube.com/shorts/NeMPZ0JTCf8)
 - **94 kills**: GIANT · 2026-11-12 18:36 · [⚔️ CHAMPION DUEL: Sweden vs Denmark](https://youtube.com/shorts/4n7NhLLWHfI)
 - **86 kills**: STAR EATER · 2026-11-04 21:57 · [The Weapons Came ALIVE 🗡️](https://youtube.com/shorts/3bawEZ4_K_c)
+- **68 kills**: LIVING FORTRESS · 2026-11-18 15:05 · [🪞 MIRROR KING vs Pirates](https://youtube.com/shorts/o2I5Uhp_v6Y)
 - **60 kills**: GIANT · 2026-11-05 15:34 · [They Were OUTNUMBERED... 😳](https://youtube.com/shorts/YMOvFZK6LgE)
 - **53 kills**: STAR EATER · 2026-11-05 22:26 · [🇪🇸 Spain Mega Bones vs Portugal Void Rifles](https://youtube.com/shorts/7BYW3nD6pho)
 - **51 kills**: LIVING FORTRESS · 2026-11-04 13:13 · [🇩🇰 Denmark vs Sweden 🇸🇪](https://youtube.com/shorts/EEo4SfZqAyI)
 - **51 kills**: GIANT · 2026-11-16 19:30 · [Netherlands vs Belgium, But Champions DUEL First ⚔️](https://youtube.com/shorts/nZhfGcdTZ1I)
 - **49 kills**: TANK · 2026-11-03 22:12 · [They Were LOSING Until This 😳](https://youtube.com/shorts/-hvpvz0i7TA)
 - **49 kills**: STORM EMPEROR · 2026-11-14 23:46 · [The GROUND Split Open 💥](https://youtube.com/shorts/MnSsrL1rbeM)
-- **48 kills**: PHOENIX · 2026-11-04 22:57 · [Phoenix Pikes vs WILD LEGION 🔥](https://youtube.com/shorts/zga-x3ZnOUs)
 
 ## Fastest wipe-outs
 
@@ -61,7 +61,7 @@ Records from 569 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - KNIGHT SLAYER: 6
 - THOUSAND-MAN SLAYER: 6
 - EXECUTIONER SLAYER: 6
-- MIRROR KING SLAYER: 7
+- MIRROR KING SLAYER: 8
 - IMMORTAL FRAUD SLAYER: 8
 - PHOENIX SLAYER: 8
 - STORM EMPEROR SLAYER: 8
@@ -75,18 +75,18 @@ Records from 569 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PLAYER SLAYER: 14
 - SIEGE GOLEM SLAYER: 15
 - TANK SLAYER: 17
-- ACID LEVIATHAN SLAYER: 18
 - HYDRA SLAYER: 19
 - IRONHORN SLAYER: 19
+- ACID LEVIATHAN SLAYER: 20
 - STORM COLOSSUS SLAYER: 20
 - COLOSSUS SLAYER: 21
-- SPIDER QUEEN SLAYER: 22
 - CYCLOPS SLAYER: 24
+- SPIDER QUEEN SLAYER: 24
 - DRAGON SLAYER: 26
 - ELEPHANT SLAYER: 30
 - MAMMOTH SLAYER: 33
-- GOLEM SLAYER: 38
-- GIANT SLAYER: 38
+- GOLEM SLAYER: 39
+- GIANT SLAYER: 39
 - TITAN SLAYER: 41
 
 ## Mutations (rarest first)
@@ -97,7 +97,7 @@ Records from 569 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - venom: 92
 - swift: 95
 - spikes: 110
-- regen: 117
+- regen: 118
 
 ## Big moments
 
@@ -159,17 +159,17 @@ Records from 569 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Oakshield Clan | 21 | 13 | 8 | 804 | 1 won | 6 |
 | Copper Crown Company | 20 | 12 | 8 | 925 | 4 won | 4 |
 | Order of the Silver Stag | 27 | 11 | 16 | 1157 | 1 lost | 3 |
+| Starweave Circle | 28 | 11 | 17 | 1078 | 1 won | 5 |
 | Wildbrook Clan | 29 | 11 | 18 | 981 | 1 lost | 2 |
 | Frostmere Clan | 28 | 11 | 17 | 883 | 4 lost | 3 |
 | Brightwater Tribe | 22 | 11 | 11 | 703 | 4 won | 4 |
 | Glimmerdeep Kin | 20 | 11 | 9 | 692 | 3 lost | 6 |
 | Nightjar Company | 15 | 11 | 4 | 552 | 5 won | 5 |
-| Starweave Circle | 27 | 10 | 17 | 1020 | 3 lost | 5 |
 | Greyfang Clan | 31 | 10 | 21 | 858 | 3 lost | 5 |
 | Raven Hill Clan | 18 | 10 | 8 | 669 | 2 won | 5 |
 | Mire Witch Coven | 14 | 10 | 4 | 455 | 1 lost | 7 |
 | Thornwood Company | 16 | 10 | 6 | 452 | 4 lost | 9 |
-| Stormhorn Tribe | 15 | 9 | 6 | 720 | 2 won | 4 |
+| Duskwing Tribe | 28 | 9 | 18 | 1083 | 1 won | 2 |
 
 ### Great rivalries
 
@@ -184,6 +184,7 @@ Records from 569 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-18 15:05: The Duskwing Tribe Take the Mountain Pass (revenge! · 9th win · 131 kills)
 - 2026-11-18 10:32: The Crew of the Red Kraken Take the Canyon Pass (2nd win · 61 kills)
 - 2026-11-17 23:16: The Hollowbark Kin Take the Frozen End (revenge denied · 13th win · 37 kills)
 - 2026-11-17 19:07: The Axiom Legion Take the Sky-temple Relic (streak ended · 5th win · 9 kills)
@@ -193,4 +194,3 @@ Records from 569 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-16 22:54: The Hollowbark Kin Take the Desert Well (revenge denied · 3 wins in a row · 12 kills)
 - 2026-11-16 19:30: The Thunder Platoon Take the Overgrown Throne (revenge! · 5 wins in a row · 252 kills)
 - 2026-11-16 15:48: The Mossback Tribe Take the Canyon Pass (18th win · 58 kills)
-- 2026-11-16 12:43: The Hollowbark Kin Take the Haunted Crypt (streak ended · 11th win · 84 kills)
