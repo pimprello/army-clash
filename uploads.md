@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-18 23:07 | Hold the HILL to Win? 3d vs Ninjas 🚩 | Brown wins | https://youtube.com/shorts/gQ4Pg1rUwr0 |
 | 2026-11-18 18:55 | They Fought Under a SHIELD DOME 🛡️ | France wins | https://youtube.com/shorts/TpoEp7aE8YM |
 | 2026-11-18 15:05 | 🪞 MIRROR KING vs Pirates | Gold wins | https://youtube.com/shorts/o2I5Uhp_v6Y |
 | 2026-11-18 10:32 | SIEGE GORGONS vs Royal Necros vs Omega Oracles 🔥 | Magenta wins | https://youtube.com/shorts/X_XP6PZU0D0 |

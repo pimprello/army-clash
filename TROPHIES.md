@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 571 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 572 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -65,9 +65,9 @@ Records from 571 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - IMMORTAL FRAUD SLAYER: 8
 - PHOENIX SLAYER: 8
 - STORM EMPEROR SLAYER: 8
-- MAGMA COLOSSUS SLAYER: 8
-- GLACIER BEHEMOTH SLAYER: 8
 - UNMAKER SLAYER: 9
+- MAGMA COLOSSUS SLAYER: 9
+- GLACIER BEHEMOTH SLAYER: 9
 - FORTRESS SLAYER: 11
 - MECH SLAYER: 12
 - CANNON SLAYER: 14
@@ -81,8 +81,8 @@ Records from 571 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - STORM COLOSSUS SLAYER: 20
 - COLOSSUS SLAYER: 21
 - CYCLOPS SLAYER: 24
-- SPIDER QUEEN SLAYER: 25
 - DRAGON SLAYER: 26
+- SPIDER QUEEN SLAYER: 27
 - ELEPHANT SLAYER: 30
 - MAMMOTH SLAYER: 35
 - GOLEM SLAYER: 39
@@ -97,7 +97,7 @@ Records from 571 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - venom: 92
 - swift: 95
 - spikes: 110
-- regen: 118
+- regen: 119
 
 ## Big moments
 
@@ -184,6 +184,7 @@ Records from 571 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-18 23:07: The Ember Blade School Take the Swamp Shrine (4th win · 61 kills)
 - 2026-11-18 18:55: The Brightwater Tribe Take the Open Plains (revenge denied · 5 wins in a row · 60 kills)
 - 2026-11-18 15:05: The Duskwing Tribe Take the Mountain Pass (revenge! · 9th win · 131 kills)
 - 2026-11-18 10:32: The Crew of the Red Kraken Take the Canyon Pass (2nd win · 61 kills)
@@ -193,4 +194,3 @@ Records from 571 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-17 11:57: The Falcon Squadron Take the Trench Line (3rd win · 32 kills)
 - 2026-11-17 11:15: The Viper Company Take the Trench Line (6th win · 36 kills)
 - 2026-11-16 22:54: The Hollowbark Kin Take the Desert Well (revenge denied · 3 wins in a row · 12 kills)
-- 2026-11-16 19:30: The Thunder Platoon Take the Overgrown Throne (revenge! · 5 wins in a row · 252 kills)
