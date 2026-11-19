@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 575 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 576 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -53,8 +53,8 @@ Records from 575 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 - THRONE WALKER SLAYER: 2
 - BALLOON BOMBER SLAYER: 2
-- GRAVITY TYRANT SLAYER: 3
 - CATAPULT SLAYER: 3
+- GRAVITY TYRANT SLAYER: 4
 - CATHEDRAL SLAYER: 5
 - HELICOPTER SLAYER: 5
 - WORLDROOT SLAYER: 5
@@ -66,8 +66,8 @@ Records from 575 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PHOENIX SLAYER: 8
 - STORM EMPEROR SLAYER: 8
 - UNMAKER SLAYER: 9
-- GLACIER BEHEMOTH SLAYER: 9
 - MAGMA COLOSSUS SLAYER: 10
+- GLACIER BEHEMOTH SLAYER: 10
 - FORTRESS SLAYER: 11
 - MECH SLAYER: 12
 - CANNON SLAYER: 14
@@ -78,8 +78,8 @@ Records from 575 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - HYDRA SLAYER: 19
 - STORM COLOSSUS SLAYER: 20
 - COLOSSUS SLAYER: 21
-- ACID LEVIATHAN SLAYER: 21
 - IRONHORN SLAYER: 21
+- ACID LEVIATHAN SLAYER: 22
 - CYCLOPS SLAYER: 25
 - DRAGON SLAYER: 26
 - SPIDER QUEEN SLAYER: 27
@@ -184,6 +184,7 @@ Records from 575 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-19 23:04: The Wormwood Coven Take the Frozen End (streak ended · 3rd win · 36 kills)
 - 2026-11-19 18:53: The Nightshade Coven Take the Trench Line (4th win · 42 kills)
 - 2026-11-19 14:22: The Wildbrook Clan Take the Quarry (revenge denied · 12th win · 34 kills)
 - 2026-11-19 11:07: The Duskwing Tribe Take the Open Plains (10th win · 64 kills)
@@ -193,4 +194,3 @@ Records from 575 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-18 10:32: The Crew of the Red Kraken Take the Canyon Pass (2nd win · 61 kills)
 - 2026-11-17 23:16: The Hollowbark Kin Take the Frozen End (revenge denied · 13th win · 37 kills)
 - 2026-11-17 19:07: The Axiom Legion Take the Sky-temple Relic (streak ended · 5th win · 9 kills)
-- 2026-11-17 15:12: The Nebula Cohort Take the Swamp Shrine (revenge denied · 4 wins in a row · 60 kills)
