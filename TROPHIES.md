@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 573 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 574 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -66,8 +66,8 @@ Records from 573 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PHOENIX SLAYER: 8
 - STORM EMPEROR SLAYER: 8
 - UNMAKER SLAYER: 9
-- MAGMA COLOSSUS SLAYER: 9
 - GLACIER BEHEMOTH SLAYER: 9
+- MAGMA COLOSSUS SLAYER: 10
 - FORTRESS SLAYER: 11
 - MECH SLAYER: 12
 - CANNON SLAYER: 14
@@ -76,10 +76,10 @@ Records from 573 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - TANK SLAYER: 17
 - SIEGE GOLEM SLAYER: 17
 - HYDRA SLAYER: 19
-- IRONHORN SLAYER: 19
 - STORM COLOSSUS SLAYER: 20
 - COLOSSUS SLAYER: 21
 - ACID LEVIATHAN SLAYER: 21
+- IRONHORN SLAYER: 21
 - CYCLOPS SLAYER: 25
 - DRAGON SLAYER: 26
 - SPIDER QUEEN SLAYER: 27
@@ -96,7 +96,7 @@ Records from 573 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 48
 - venom: 92
 - swift: 96
-- spikes: 111
+- spikes: 112
 - regen: 119
 
 ## Big moments
@@ -157,11 +157,11 @@ Records from 573 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Hollowbark Kin | 31 | 13 | 18 | 1082 | 1 lost | 3 |
 | Thornheart Circle | 16 | 13 | 3 | 897 | 3 won | 6 |
 | Oakshield Clan | 21 | 13 | 8 | 804 | 1 won | 6 |
+| Wildbrook Clan | 30 | 12 | 18 | 1015 | 1 won | 2 |
 | Copper Crown Company | 20 | 12 | 8 | 925 | 4 won | 4 |
 | Brightwater Tribe | 23 | 12 | 11 | 763 | 5 won | 5 |
 | Order of the Silver Stag | 27 | 11 | 16 | 1157 | 1 lost | 3 |
 | Starweave Circle | 28 | 11 | 17 | 1078 | 1 won | 5 |
-| Wildbrook Clan | 29 | 11 | 18 | 981 | 1 lost | 2 |
 | Frostmere Clan | 28 | 11 | 17 | 883 | 4 lost | 3 |
 | Glimmerdeep Kin | 20 | 11 | 9 | 692 | 3 lost | 6 |
 | Nightjar Company | 15 | 11 | 4 | 552 | 5 won | 5 |
@@ -184,6 +184,7 @@ Records from 573 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-19 14:22: The Wildbrook Clan Take the Quarry (revenge denied · 12th win · 34 kills)
 - 2026-11-19 11:07: The Duskwing Tribe Take the Open Plains (10th win · 64 kills)
 - 2026-11-18 23:07: The Ember Blade School Take the Swamp Shrine (4th win · 61 kills)
 - 2026-11-18 18:55: The Brightwater Tribe Take the Open Plains (revenge denied · 5 wins in a row · 60 kills)
@@ -193,4 +194,3 @@ Records from 573 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-17 19:07: The Axiom Legion Take the Sky-temple Relic (streak ended · 5th win · 9 kills)
 - 2026-11-17 15:12: The Nebula Cohort Take the Swamp Shrine (revenge denied · 4 wins in a row · 60 kills)
 - 2026-11-17 11:57: The Falcon Squadron Take the Trench Line (3rd win · 32 kills)
-- 2026-11-17 11:15: The Viper Company Take the Trench Line (6th win · 36 kills)
