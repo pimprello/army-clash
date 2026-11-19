@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 574 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 575 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -74,7 +74,7 @@ Records from 574 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PLAYER SLAYER: 14
 - STAR EATER SLAYER: 14
 - TANK SLAYER: 17
-- SIEGE GOLEM SLAYER: 17
+- SIEGE GOLEM SLAYER: 18
 - HYDRA SLAYER: 19
 - STORM COLOSSUS SLAYER: 20
 - COLOSSUS SLAYER: 21
@@ -87,7 +87,7 @@ Records from 574 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - MAMMOTH SLAYER: 35
 - GOLEM SLAYER: 41
 - GIANT SLAYER: 41
-- TITAN SLAYER: 41
+- TITAN SLAYER: 42
 
 ## Mutations (rarest first)
 
@@ -142,7 +142,7 @@ Records from 574 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: demon: 20
 - portal: troll: 21
 - sudden: meteors: 25
-- sudden: lava: 26
+- sudden: lava: 27
 
 ## The tribes' chronicle
 
@@ -184,6 +184,7 @@ Records from 574 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-19 18:53: The Nightshade Coven Take the Trench Line (4th win · 42 kills)
 - 2026-11-19 14:22: The Wildbrook Clan Take the Quarry (revenge denied · 12th win · 34 kills)
 - 2026-11-19 11:07: The Duskwing Tribe Take the Open Plains (10th win · 64 kills)
 - 2026-11-18 23:07: The Ember Blade School Take the Swamp Shrine (4th win · 61 kills)
@@ -193,4 +194,3 @@ Records from 574 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-17 23:16: The Hollowbark Kin Take the Frozen End (revenge denied · 13th win · 37 kills)
 - 2026-11-17 19:07: The Axiom Legion Take the Sky-temple Relic (streak ended · 5th win · 9 kills)
 - 2026-11-17 15:12: The Nebula Cohort Take the Swamp Shrine (revenge denied · 4 wins in a row · 60 kills)
-- 2026-11-17 11:57: The Falcon Squadron Take the Trench Line (3rd win · 32 kills)
