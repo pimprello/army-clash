@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 572 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 573 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -73,19 +73,19 @@ Records from 572 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - CANNON SLAYER: 14
 - PLAYER SLAYER: 14
 - STAR EATER SLAYER: 14
-- SIEGE GOLEM SLAYER: 16
 - TANK SLAYER: 17
+- SIEGE GOLEM SLAYER: 17
 - HYDRA SLAYER: 19
 - IRONHORN SLAYER: 19
-- ACID LEVIATHAN SLAYER: 20
 - STORM COLOSSUS SLAYER: 20
 - COLOSSUS SLAYER: 21
-- CYCLOPS SLAYER: 24
+- ACID LEVIATHAN SLAYER: 21
+- CYCLOPS SLAYER: 25
 - DRAGON SLAYER: 26
 - SPIDER QUEEN SLAYER: 27
 - ELEPHANT SLAYER: 30
 - MAMMOTH SLAYER: 35
-- GOLEM SLAYER: 39
+- GOLEM SLAYER: 41
 - GIANT SLAYER: 41
 - TITAN SLAYER: 41
 
@@ -95,8 +95,8 @@ Records from 572 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - wings: 43
 - spellward: 48
 - venom: 92
-- swift: 95
-- spikes: 110
+- swift: 96
+- spikes: 111
 - regen: 119
 
 ## Big moments
@@ -154,7 +154,7 @@ Records from 572 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Red Hawk Company | 28 | 17 | 11 | 1092 | 1 won | 5 |
 | Frostwhisper Tribe | 27 | 14 | 13 | 1145 | 2 lost | 4 |
 | Silverbough Circle | 33 | 13 | 20 | 1555 | 1 won | 3 |
-| Hollowbark Kin | 30 | 13 | 17 | 1003 | 1 won | 3 |
+| Hollowbark Kin | 31 | 13 | 18 | 1082 | 1 lost | 3 |
 | Thornheart Circle | 16 | 13 | 3 | 897 | 3 won | 6 |
 | Oakshield Clan | 21 | 13 | 8 | 804 | 1 won | 6 |
 | Copper Crown Company | 20 | 12 | 8 | 925 | 4 won | 4 |
@@ -165,25 +165,26 @@ Records from 572 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Frostmere Clan | 28 | 11 | 17 | 883 | 4 lost | 3 |
 | Glimmerdeep Kin | 20 | 11 | 9 | 692 | 3 lost | 6 |
 | Nightjar Company | 15 | 11 | 4 | 552 | 5 won | 5 |
+| Duskwing Tribe | 29 | 10 | 18 | 1147 | 2 won | 2 |
 | Greyfang Clan | 31 | 10 | 21 | 858 | 3 lost | 5 |
 | Raven Hill Clan | 18 | 10 | 8 | 669 | 2 won | 5 |
 | Mire Witch Coven | 14 | 10 | 4 | 455 | 1 lost | 7 |
 | Thornwood Company | 16 | 10 | 6 | 452 | 4 lost | 9 |
-| Duskwing Tribe | 28 | 9 | 18 | 1083 | 1 won | 2 |
 
 ### Great rivalries
 
 - **Frostmere Clan vs Greyfang Clan**: met 7 times, last won by Greyfang Clan
 - **Greyfang Clan vs Order of the Silver Stag**: met 5 times, last won by Greyfang Clan
+- **Duskwing Tribe vs Hollowbark Kin**: met 5 times, last won by Duskwing Tribe
 - **Red Hawk Company vs Wildbrook Clan**: met 4 times, last won by Wildbrook Clan
 - **Mossback Tribe vs Stormhorn Tribe**: met 4 times, last won by Stormhorn Tribe
 - **Oakshield Clan vs Wildbrook Clan**: met 4 times, last won by Oakshield Clan
 - **Black Bear Clan vs Thornwood Company**: met 4 times, last won by Thornwood Company
 - **Greyfang Clan vs Raven Hill Clan**: met 4 times, last won by Raven Hill Clan
-- **Copper Crown Company vs Wildbrook Clan**: met 4 times, last won by Wildbrook Clan
 
 ### Latest from the battlefield
 
+- 2026-11-19 11:07: The Duskwing Tribe Take the Open Plains (10th win · 64 kills)
 - 2026-11-18 23:07: The Ember Blade School Take the Swamp Shrine (4th win · 61 kills)
 - 2026-11-18 18:55: The Brightwater Tribe Take the Open Plains (revenge denied · 5 wins in a row · 60 kills)
 - 2026-11-18 15:05: The Duskwing Tribe Take the Mountain Pass (revenge! · 9th win · 131 kills)
@@ -193,4 +194,3 @@ Records from 572 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-17 15:12: The Nebula Cohort Take the Swamp Shrine (revenge denied · 4 wins in a row · 60 kills)
 - 2026-11-17 11:57: The Falcon Squadron Take the Trench Line (3rd win · 32 kills)
 - 2026-11-17 11:15: The Viper Company Take the Trench Line (6th win · 36 kills)
-- 2026-11-16 22:54: The Hollowbark Kin Take the Desert Well (revenge denied · 3 wins in a row · 12 kills)
