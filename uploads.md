@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-20 22:56 | 🇺🇸 USA vs Canada: WHO WINS? | Canada wins | https://youtube.com/shorts/SvGPIgl5XpA |
 | 2026-11-20 19:12 | The FIRE Made Them STRONGER 🔥 | Mint wins | https://youtube.com/shorts/VE97a17cMZE |
 | 2026-11-20 15:11 | One Glacier Behemoth Got 14 KILLS 😳 | Purple wins | https://youtube.com/shorts/nBhGTTNYs94 |
 | 2026-11-20 10:56 | 3 Armies, Only 1 SURVIVES 💀 | Cyan wins | https://youtube.com/shorts/50QptpjSSGY |

@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 579 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 580 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -82,11 +82,11 @@ Records from 579 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - IRONHORN SLAYER: 22
 - CYCLOPS SLAYER: 25
 - DRAGON SLAYER: 26
-- SPIDER QUEEN SLAYER: 27
+- SPIDER QUEEN SLAYER: 28
 - ELEPHANT SLAYER: 30
 - MAMMOTH SLAYER: 35
-- GOLEM SLAYER: 41
 - GIANT SLAYER: 41
+- GOLEM SLAYER: 42
 - TITAN SLAYER: 42
 
 ## Mutations (rarest first)
@@ -94,7 +94,7 @@ Records from 579 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 11
 - wings: 43
 - spellward: 48
-- venom: 92
+- venom: 93
 - swift: 96
 - spikes: 112
 - regen: 120
@@ -154,17 +154,17 @@ Records from 579 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Mossback Tribe | 28 | 18 | 10 | 1118 | 1 won | 7 |
 | Red Hawk Company | 28 | 17 | 11 | 1092 | 1 won | 5 |
 | Frostwhisper Tribe | 27 | 14 | 13 | 1145 | 2 lost | 4 |
-| Silverbough Circle | 33 | 13 | 20 | 1555 | 1 won | 3 |
+| Silverbough Circle | 34 | 13 | 21 | 1604 | 1 lost | 3 |
 | Hollowbark Kin | 31 | 13 | 18 | 1082 | 1 lost | 3 |
 | Thornheart Circle | 16 | 13 | 3 | 897 | 3 won | 6 |
 | Oakshield Clan | 21 | 13 | 8 | 804 | 1 won | 6 |
+| Starweave Circle | 29 | 12 | 17 | 1146 | 2 won | 5 |
 | Wildbrook Clan | 30 | 12 | 18 | 1015 | 1 won | 2 |
 | Copper Crown Company | 20 | 12 | 8 | 925 | 4 won | 4 |
 | Brightwater Tribe | 23 | 12 | 11 | 763 | 5 won | 5 |
+| Glimmerdeep Kin | 21 | 12 | 9 | 710 | 1 won | 6 |
 | Order of the Silver Stag | 27 | 11 | 16 | 1157 | 1 lost | 3 |
-| Starweave Circle | 28 | 11 | 17 | 1078 | 1 won | 5 |
 | Frostmere Clan | 28 | 11 | 17 | 883 | 4 lost | 3 |
-| Glimmerdeep Kin | 20 | 11 | 9 | 692 | 3 lost | 6 |
 | Nightjar Company | 15 | 11 | 4 | 552 | 5 won | 5 |
 | Duskwing Tribe | 29 | 10 | 18 | 1147 | 2 won | 2 |
 | Greyfang Clan | 31 | 10 | 21 | 858 | 3 lost | 5 |
@@ -185,6 +185,7 @@ Records from 579 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-20 22:56: The Starweave Circle Take the Sky-temple Relic (revenge! · 12th win · 68 kills)
 - 2026-11-20 19:12: The Black Candle Take the Bombed City (revenge! · 7th win · 25 kills)
 - 2026-11-20 15:11: The Prism Cohort Take the Reactor (2nd win · 41 kills)
 - 2026-11-20 10:56: The Granite Battalion Take the Canyon Pass (5th win · 57 kills)
@@ -194,4 +195,3 @@ Records from 579 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-19 11:07: The Duskwing Tribe Take the Open Plains (10th win · 64 kills)
 - 2026-11-18 23:07: The Ember Blade School Take the Swamp Shrine (4th win · 61 kills)
 - 2026-11-18 18:55: The Brightwater Tribe Take the Open Plains (revenge denied · 5 wins in a row · 60 kills)
-- 2026-11-18 15:05: The Duskwing Tribe Take the Mountain Pass (revenge! · 9th win · 131 kills)
