@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 576 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 577 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -75,10 +75,10 @@ Records from 576 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - STAR EATER SLAYER: 14
 - TANK SLAYER: 17
 - SIEGE GOLEM SLAYER: 18
-- HYDRA SLAYER: 19
-- STORM COLOSSUS SLAYER: 20
+- HYDRA SLAYER: 20
 - COLOSSUS SLAYER: 21
 - IRONHORN SLAYER: 21
+- STORM COLOSSUS SLAYER: 21
 - ACID LEVIATHAN SLAYER: 22
 - CYCLOPS SLAYER: 25
 - DRAGON SLAYER: 26
@@ -97,7 +97,7 @@ Records from 576 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - venom: 92
 - swift: 96
 - spikes: 112
-- regen: 119
+- regen: 120
 
 ## Big moments
 
@@ -184,6 +184,7 @@ Records from 576 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-20 10:56: The Granite Battalion Take the Canyon Pass (5th win · 57 kills)
 - 2026-11-19 23:04: The Wormwood Coven Take the Frozen End (streak ended · 3rd win · 36 kills)
 - 2026-11-19 18:53: The Nightshade Coven Take the Trench Line (4th win · 42 kills)
 - 2026-11-19 14:22: The Wildbrook Clan Take the Quarry (revenge denied · 12th win · 34 kills)
@@ -193,4 +194,3 @@ Records from 576 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-18 15:05: The Duskwing Tribe Take the Mountain Pass (revenge! · 9th win · 131 kills)
 - 2026-11-18 10:32: The Crew of the Red Kraken Take the Canyon Pass (2nd win · 61 kills)
 - 2026-11-17 23:16: The Hollowbark Kin Take the Frozen End (revenge denied · 13th win · 37 kills)
-- 2026-11-17 19:07: The Axiom Legion Take the Sky-temple Relic (streak ended · 5th win · 9 kills)

@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-20 10:56 | 3 Armies, Only 1 SURVIVES 💀 | Cyan wins | https://youtube.com/shorts/50QptpjSSGY |
 | 2026-11-19 23:04 | ⚔️ CHAMPION DUEL: Gravity Tyrant vs Undead | Yellow wins | https://youtube.com/shorts/wqklnJHTxGU |
 | 2026-11-19 18:53 | 🚩 KING OF THE HILL: Wild Hollows vs Ghost Mortars | Red wins | https://youtube.com/shorts/6QoRuSnbB0U |
 | 2026-11-19 14:22 | MIRROR MATCH: Knights vs KNIGHTS 🪞 | Green wins | https://youtube.com/shorts/FrhOwTQ4nZA |
