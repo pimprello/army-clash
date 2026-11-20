@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-20 15:11 | One Glacier Behemoth Got 14 KILLS 😳 | Purple wins | https://youtube.com/shorts/nBhGTTNYs94 |
 | 2026-11-20 10:56 | 3 Armies, Only 1 SURVIVES 💀 | Cyan wins | https://youtube.com/shorts/50QptpjSSGY |
 | 2026-11-19 23:04 | ⚔️ CHAMPION DUEL: Gravity Tyrant vs Undead | Yellow wins | https://youtube.com/shorts/wqklnJHTxGU |
 | 2026-11-19 18:53 | 🚩 KING OF THE HILL: Wild Hollows vs Ghost Mortars | Red wins | https://youtube.com/shorts/6QoRuSnbB0U |

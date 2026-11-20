@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 577 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 578 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -125,11 +125,11 @@ Records from 577 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: LIME: 2
 - copied: trooper: 2
 - possess: stormemperor: 2
-- extinct: PURPLE: 2
 - portal: hydra: 3
 - extinct: RED: 3
 - extinct: BLUE: 3
 - extinct: GREEN: 3
+- extinct: PURPLE: 3
 - extinct: ORANGE: 4
 - possess: cannon: 5
 - possess: treant: 5
@@ -184,6 +184,7 @@ Records from 577 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-20 15:11: The Prism Cohort Take the Reactor (2nd win · 41 kills)
 - 2026-11-20 10:56: The Granite Battalion Take the Canyon Pass (5th win · 57 kills)
 - 2026-11-19 23:04: The Wormwood Coven Take the Frozen End (streak ended · 3rd win · 36 kills)
 - 2026-11-19 18:53: The Nightshade Coven Take the Trench Line (4th win · 42 kills)
@@ -193,4 +194,3 @@ Records from 577 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-18 18:55: The Brightwater Tribe Take the Open Plains (revenge denied · 5 wins in a row · 60 kills)
 - 2026-11-18 15:05: The Duskwing Tribe Take the Mountain Pass (revenge! · 9th win · 131 kills)
 - 2026-11-18 10:32: The Crew of the Red Kraken Take the Canyon Pass (2nd win · 61 kills)
-- 2026-11-17 23:16: The Hollowbark Kin Take the Frozen End (revenge denied · 13th win · 37 kills)
