@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 578 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 579 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -60,7 +60,7 @@ Records from 578 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - WORLDROOT SLAYER: 5
 - KNIGHT SLAYER: 6
 - THOUSAND-MAN SLAYER: 6
-- EXECUTIONER SLAYER: 6
+- EXECUTIONER SLAYER: 7
 - MIRROR KING SLAYER: 8
 - IMMORTAL FRAUD SLAYER: 8
 - PHOENIX SLAYER: 8
@@ -77,9 +77,9 @@ Records from 578 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - SIEGE GOLEM SLAYER: 18
 - HYDRA SLAYER: 20
 - COLOSSUS SLAYER: 21
-- IRONHORN SLAYER: 21
 - STORM COLOSSUS SLAYER: 21
 - ACID LEVIATHAN SLAYER: 22
+- IRONHORN SLAYER: 22
 - CYCLOPS SLAYER: 25
 - DRAGON SLAYER: 26
 - SPIDER QUEEN SLAYER: 27
@@ -116,6 +116,7 @@ Records from 578 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: MINT: 1
 - possess: livingfortress: 1
 - extinct: BRAZIL: 1
+- possess: ironhorn: 1
 - copied: knight: 2
 - extinct: SILVER: 2
 - possess: rhino: 2
@@ -142,7 +143,7 @@ Records from 578 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: demon: 20
 - portal: troll: 21
 - sudden: meteors: 25
-- sudden: lava: 27
+- sudden: lava: 28
 
 ## The tribes' chronicle
 
@@ -184,6 +185,7 @@ Records from 578 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-20 19:12: The Black Candle Take the Bombed City (revenge! · 7th win · 25 kills)
 - 2026-11-20 15:11: The Prism Cohort Take the Reactor (2nd win · 41 kills)
 - 2026-11-20 10:56: The Granite Battalion Take the Canyon Pass (5th win · 57 kills)
 - 2026-11-19 23:04: The Wormwood Coven Take the Frozen End (streak ended · 3rd win · 36 kills)
@@ -193,4 +195,3 @@ Records from 578 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-18 23:07: The Ember Blade School Take the Swamp Shrine (4th win · 61 kills)
 - 2026-11-18 18:55: The Brightwater Tribe Take the Open Plains (revenge denied · 5 wins in a row · 60 kills)
 - 2026-11-18 15:05: The Duskwing Tribe Take the Mountain Pass (revenge! · 9th win · 131 kills)
-- 2026-11-18 10:32: The Crew of the Red Kraken Take the Canyon Pass (2nd win · 61 kills)
