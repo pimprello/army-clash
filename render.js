@@ -13,6 +13,8 @@ registerFont(path.join(__dirname, 'fonts/BarlowCondensed-ExtraBoldItalic.ttf'), 
 registerFont(path.join(__dirname, 'fonts/BarlowCondensed-Bold.ttf'), { family: 'Barlow Condensed', weight: '700', style: 'normal' });
 
 const RVB = require('./engine.js');
+const CO = require('./coldopen.js');
+const AR = RVB.AR;
 const C = require('./creative.js');
 const { makeTitle, nounOf } = require('./titles.js');
 const chronicle = require('./chronicle.js');
@@ -325,12 +327,22 @@ async function main() {
     console.log(`Audition: picked battle dice ${bseed} (drama ${best.score.toFixed(2)}) in ${((Date.now() - ta) / 1000).toFixed(0)} s`);
     if (process.env.AUDITION_ONLY === '1') process.exit(0);
   }
+  // (rules.coldOpen) how much happens in every frame of the battle, for the cold open's moment: kills, titans falling, blasts,
+  // big hits (the camera's shake), and how many each side has left (so the moment never shows who's winning)
+  const CO_R = rules.coldOpen || {}, coldOn = CO_R.on !== false && !process.env.SECS;
+  const coldHeat = coldOn ? { list: [], see(g) {
+    const al = g.alive.reduce((a, b) => a + b, 0), kills = this.al === undefined ? 0 : Math.max(0, this.al - al); this.al = al;
+    const ld = g.lastDeath, titan = ld && ld !== this.ld && RVB.isTitan(ld.type) ? 1 : 0; this.ld = ld;
+    const nb = (g.booms || []).length, booms = Math.max(0, nb - (this.nb || 0)); this.nb = nb;
+    if (g.phase === 'fight') this.list.push([g.fightT, kills * 2 + titan * 10 + booms * 1.5 + Math.min(20, g.shakeAmt || 0) * 0.08, [0, 1, 2].map(t => ((g.alive[t] || 0) + (g.reserve[t] || 0)) / Math.max(1, g.start[t] || 0))]);
+  } } : null;
   if (cinematic && OUTRO && VID.finale !== false) {
     const tf = Date.now(), pre = new RVB.Army(bseed, optsFor(wildMul)), pd = new RVB.Director(pre, { seed: bseed });
     pre.noLate = true;
-    for (let k = 0; pre.phase === 'fight' && k < MAXFRAMES * 3; k++) { pd.advance(1 / FPS); pre.sfx.length = 0; }
+    for (let k = 0; pre.phase === 'fight' && k < MAXFRAMES * 3; k++) { pd.advance(1 / FPS); pre.sfx.length = 0; if (coldHeat) coldHeat.see(pre); }
     const d = pre.lastDeath || {}, kill = pre.endHow === 'kill';
     finale = { t: pre.fightT, how: kill ? 'kill' : 'time', uid: kill ? d.uid : 0, by: kill ? d.by : 0, x: d.x, y: d.y };
+    if (coldHeat) { coldHeat.endT = pre.fightT; coldHeat.winner = pre.winner; }
     console.log(`Finale: the battle ends at ${pre.fightT.toFixed(2)} s by ${kill ? `the final blow on a ${d.type}${d.byType ? ` by a ${d.byType}` : ''}` : 'time'} (found in ${((Date.now() - tf) / 1000).toFixed(0)} s)`);
   }
   const game = new RVB.Army(bseed, optsFor(wildMul));
@@ -338,7 +350,7 @@ async function main() {
   const unitsAtStart = [...new Set(game.units.filter(u => !RVB.UNIT[u.type].uncounted).map(u => u.type).concat(...(game.waves || []).flat().map(w => w.list || [])))];
   const director = cinematic ? new RVB.Director(game, { seed: bseed, finale }) : null;
   const CH_F = CHARGE && director ? Math.round(CHARGE.len * FPS) : 0, CH_S = CH_F / FPS;
-  const synth = new RVB.Synth(SR, MAXFRAMES / FPS + 4 + IN_S + CH_S);
+  const synth = new RVB.Synth(SR, MAXFRAMES / FPS + 4 + IN_S + CH_S + 6);
   synth.reset(bseed);
   synth.variety = (rules.sound && rules.sound.variety) || 0;   // rules.json: how much each sound's pitch and volume vary (0 = off)
   const canvas = createCanvas(W * RS, H * RS);
@@ -373,6 +385,60 @@ async function main() {
   const mp = muOn ? Music.plan(seed, muStyle) : null, mtr = muOn ? Music.tracker() : null;
   let firstCv = null;
   const FIGHT_S = VID.fightSeconds || 60;
+  // ----- the cold open (rules.coldOpen, coldopen.js: the same file in Army Clash, Tower Clash and Territory Clash; Rellz
+  // 2026-11-17: "make an improved intro system for all 3 games"): the best few seconds of this very battle, full screen with no
+  // scoreboard, cards or words, before the face-off. It punches in on the action, slows into the peak, lands it with an impact
+  // frame, freezes, then rewinds back to the start and flashes into the face-off (see coldopen.js). Played on a copy of the
+  // battle (looks only: the battle is the same with or without it). -----
+  let CO_F = 0;
+  if (coldHeat && cinematic) {
+    const ct0 = Date.now();
+    if (coldHeat.endT === undefined) { const pre = new RVB.Army(bseed, optsFor(wildMul)), pd = new RVB.Director(pre, { seed: bseed }); pre.noLate = true;
+      for (let k = 0; pre.phase === 'fight' && k < MAXFRAMES * 3; k++) { pd.advance(1 / FPS); pre.sfx.length = 0; coldHeat.see(pre); } coldHeat.endT = pre.fightT; coldHeat.winner = pre.winner; }
+    const H0 = coldHeat.list, win = coldHeat.winner ?? 0;
+    // never a moment where the eventual winner is clearly ahead (the cold open mustn't hint at the result)
+    const spoil = t => { const e = H0.find(q => q[0] >= t); if (!e) return true; const fr = e[2], mine = fr[win], best = Math.max(...fr.filter((_, k) => k !== win && k < game.N)); return mine > best + 0.35; };
+    const peakT = CO.pick(H0, { endT: coldHeat.endT, minT: 8, tail: 4, spoil });
+    if (peakT != null) {
+      const CT = CO.make({ fps: FPS, seconds: CO_R.seconds || 3.4, rewind: CO_R.rewind !== false });
+      const g3 = new RVB.Army(bseed, optsFor(wildMul)); g3.noLate = true; g3.fixedTicks = true; g3.tickAcc = 0; g3.camEv = [];
+      const t0 = Math.max(4, peakT - CT.lead);
+      let q = 0; while (g3.phase === 'fight' && g3.fightT < t0 && q < MAXFRAMES * 3) { g3.frame(1 / FPS); g3.sfx.length = 0; q++; }
+      // where the action is at the peak (another copy run up to it), so the camera is already heading there
+      const hot = g => RVB.Director.prototype.hotspot.call({ g, cx: AR.x + AR.w / 2, cy: AR.y + AR.h / 2 });
+      let pk = null;
+      { const g4 = new RVB.Army(bseed, optsFor(wildMul)); g4.noLate = true; g4.fixedTicks = true; g4.tickAcc = 0; g4.camEv = []; let k = 0;
+        while (g4.phase === 'fight' && g4.fightT < peakT && k < MAXFRAMES * 3) { g4.frame(1 / FPS); g4.sfx.length = 0; k++; }
+        if (g4.phase === 'fight') pk = hot(g4); }
+      if (g3.phase === 'fight') {
+        const KS = CO_R.sharp || 1.5, big = createCanvas(Math.round(W * RS * KS), Math.round(H * RS * KS)), bx = big.getContext('2d');
+        const aim = f => { const a = hot(g3); if (!pk) return a; const w = Math.max(0, Math.min(1, 1 - Math.abs(f - CO.PEAK) / 0.5)) * 0.6 + 0.4; return { x: a.x + (pk.x - a.x) * w, y: a.y + (pk.y - a.y) * w }; };
+        const a0 = aim(0); g3.cam = { x: a0.x, y: a0.y, z: 1.4 }; g3.noUi = true;
+        const dy = (rules.ui && rules.ui.layout >= 2) ? -90 : 0, ins = 8, k2 = RS * KS;
+        const crop = { sx: (AR.x + ins) * k2, sy: (AR.y + dy + ins) * k2, sw: (AR.w - ins * 2) * k2, sh: (AR.h - ins * 2) * k2 };
+        const cold = new CO.ColdOpen(ctx, { fps: FPS, seconds: CT.seconds, rewind: CT.rewind, seed });
+        for (let j = 0; j < CT.n; j++) {
+          const f = j / CT.n;
+          if (CT.live(j)) {
+            const fc = aim(f); g3.cam.x += (fc.x - g3.cam.x) * 0.07; g3.cam.y += (fc.y - g3.cam.y) * 0.07; g3.cam.z = 1.4 + 0.45 * Math.min(1, f / 0.5) * (2 - Math.min(1, f / 0.5));
+            g3.floats.length = 0; g3.banners.length = 0;
+            bx.setTransform(k2, 0, 0, k2, 0, 0); g3.draw(bx);
+            cold.frame(j, big, crop);
+          } else cold.frame(j, null, null);
+          if (j === 0 && muOn && MU.loop !== false) { firstCv = createCanvas(W * RS, H * RS); firstCv.getContext('2d').drawImage(canvas, 0, 0); }
+          if (process.env.COLD_STILLS && [3, Math.round(CT.n * 0.25), CT.peakJ, CT.peakJ + 2, Math.round(CT.n * 0.5), Math.round(CT.n * 0.7), Math.round(CT.n * 0.9), CT.n - 3].includes(j)) fs.writeFileSync(path.join(OUT, `still-cold-${String(j).padStart(3, '0')}.png`), canvas.toBuffer('image/png'));
+          const frame = canvas.toBuffer('raw'); if (!enc.p.stdin.write(frame)) await once(enc.p.stdin, 'drain');
+          nFrames++;
+          if (CT.live(j)) { const sp = CT.speed(f); if (sp > 0) g3.frame(sp / FPS); for (const ev of g3.sfx) synth.play(ev, (j + 1) / FPS); g3.sfx.length = 0; }
+        }
+        CO.sounds(synth, 0, CT);
+        CO_F = CT.n;
+        console.log(`Cold open: ${CT.seconds.toFixed(1)} s, peak ${peakT.toFixed(1)} s into the battle, made in ${((Date.now() - ct0) / 1000).toFixed(0)} s`);
+        if (process.env.COLD_ONLY) process.exit(0);
+      }
+    }
+  }
+  const CO_S = CO_F / FPS;
   // ----- the intro (rules.intro): the thumbnail's layout (logo, both armies' troops and counts, VS, WHO WINS?) over the
   // blurred opening battlefield, easing in with a slam, then a flash into the battle's first frame. Looks only: the battle
   // starts exactly as before, everything after it (sound, music, beat punches) is just shifted by the intro's length.
@@ -408,12 +474,12 @@ async function main() {
       return { col: RVB.TEAMS[sd.team], name: sd.label, sub: sd.name, count: sd.count ? `×${sd.count}` : '', portrait: live };
     }) : null;
     const fo = FO ? { W, H, RS, seed, dur: IN_S, title: 'ARMY CLASH', tag: tag0, question: 'WHO WINS?', sides: foSides, bg: bg1, battle0 } : null;
-    if (FO) FO.faceoffSounds(synth, IN_S);
-    else { synth.play({ type: 'boom', gain: 0.8 }, 0.02); synth.play({ type: 'whoosh' }, Math.max(0, IN_S - 0.35)); }
+    if (FO) FO.faceoffSounds(synth, IN_S, CO_S);
+    else { synth.play({ type: 'boom', gain: 0.8 }, CO_S + 0.02); synth.play({ type: 'whoosh' }, CO_S + Math.max(0, IN_S - 0.35)); }
     for (let k = 0; k < INTRO_F; k++) {
       if (FO) {
         FO.drawFaceoff(ctx, k / FPS, fo);
-        if (k === 0 && muOn && MU.loop !== false) { firstCv = createCanvas(W * RS, H * RS); firstCv.getContext('2d').drawImage(canvas, 0, 0); }
+        if (k === 0 && muOn && MU.loop !== false && !firstCv) { firstCv = createCanvas(W * RS, H * RS); firstCv.getContext('2d').drawImage(canvas, 0, 0); }
         if (process.env.INTRO_STILLS && [12, 60, 100, INTRO_F - 10].includes(k)) fs.writeFileSync(path.join(__dirname, 'out', `intro-${k}.png`), canvas.toBuffer('image/png'));
         const frame = canvas.toBuffer('raw'); if (!enc.p.stdin.write(frame)) await once(enc.p.stdin, 'drain');
         nFrames++; continue;
@@ -424,18 +490,18 @@ async function main() {
       // the last 0.35 s: a white flash that opens onto the battle's first frame
       const out = (t - (IN_S - 0.35)) / 0.35;
       if (out > 0) { ctx.globalAlpha = ease(Math.min(1, out)); ctx.drawImage(battle0, 0, 0); ctx.globalAlpha = Math.max(0, 0.55 * (1 - Math.abs(out - 0.35) / 0.35)); ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, W * RS, H * RS); ctx.globalAlpha = 1; }
-      if (k === 0 && muOn && MU.loop !== false) { firstCv = createCanvas(W * RS, H * RS); firstCv.getContext('2d').drawImage(canvas, 0, 0); }
+      if (k === 0 && muOn && MU.loop !== false && !firstCv) { firstCv = createCanvas(W * RS, H * RS); firstCv.getContext('2d').drawImage(canvas, 0, 0); }
       const frame = canvas.toBuffer('raw');
       if (!enc.p.stdin.write(frame)) await once(enc.p.stdin, 'drain');
       nFrames++;
     }
-    if (mtr) mtr.frame(IN_S, game);
+    if (mtr) mtr.frame(CO_S + IN_S, game);
     console.log(`Intro: ${IN_S.toFixed(2)} s electric face-off`);
   }
   // ----- the charge (rules.charge): both armies hold their lines (breathing, under film bars, READY…) while the camera eases in,
   // then CHARGE! slams in with the commander's war cry, his army shouting it back and a roar; the troops hop on the spot, and the
   // battle starts as the word rushes at the camera. The battle is not stepped here; everything after is shifted by its length.
-  const PRE = (INTRO_F && thumbLists ? IN_S : 0);
+  const PRE = CO_S + (INTRO_F && thumbLists ? IN_S : 0);
   if (CH_F) {
     const at = CHARGE.at, len = CH_S, cam = game.cam, x0 = cam.x, y0 = cam.y;
     const sm = x => x * x * (3 - 2 * x);
@@ -606,26 +672,35 @@ async function main() {
     seconds: +DUR.toFixed(2),
     title: Holiday.title(HOL, title),
     description: [
-      `${ids.map(i => `${EMOJI[pair[i]] || ''} ${who(i)}${three ? '' : `${formations[i]} formation, `}${game.start[i]} units)`).join(' vs ')}. Who wins? Pick your side and tell us in the comments before the end.`,
+      `⚔️ ${ids.map(i => `${EMOJI[pair[i]] || ''}${who(i)}${three ? '' : ` — ${formations[i]} formation, `}${game.start[i]} troops`).join(' vs ')} ⚔️`,
       '',
-      `A ${Math.round(DUR)}-second ${three ? 'three-way (1v1v1) ' : ''}${GENRE[era] || ''}battle simulation on the ${MAP_NAME[map] || map} map${showNames ? `, ${ns.join(' vs ')}` : ''}. The outcome comes from the game's rules and chance, not real footage.${game.mode && MODE_LINE[game.mode] ? ' ' + MODE_LINE[game.mode] : ''}${classLine}`,
-      ...(tribeLine ? ['', tribeLine] : []),
+      `💬 Who wins? Drop your pick in the comments BEFORE the battle ends!`,
       '',
-      `4 new battles every day: subscribe so you don't miss the next one.${watchFor}`,
+      `${ids.map(i => `${EMOJI[pair[i]] || ''}${who(i)}`).join(' vs ')} — a ${Math.round(DUR)}-second ${three ? 'three-way ' : ''}${GENRE[era] || ''}army battle simulation on the ${MAP_NAME[map] || map} map. Pure strategy and chance — no real footage. Every troop has its own class, tactics and personality.${game.mode && MODE_LINE[game.mode] ? ' ' + MODE_LINE[game.mode] : ''}${classLine}`,
+      ...(tribeLine ? ['', `🏴 ${tribeLine}`] : []),
+      ...(relatedLine ? ['', `▶ ${relatedLine}`] : []),
       '',
-      `#shorts #${ns.map(n => n.toLowerCase().replace(/ /g, '')).join('vs')} #battlesimulation #armyclash${three ? ' #1v1v1' : ''}`,
-    ].slice(0, clickbait ? (tribeLine ? 7 : 5) : (tribeLine ? 9 : 7)).reduce((a, l, i) => (i === 0 && relatedLine ? a.concat(l, relatedLine) : a.concat(l)), []).join('\n'),
-    tags: clickbait ? [] : unique([ns.map(n => n.toLowerCase()).join(' vs '), 'army battle', 'battle simulation', 'army simulation', 'who wins', 'army clash', ids.map(i => (showNames ? armyName(i) : `${ns[i]} ${armyName(i)}`).toLowerCase()).join(' vs '), 'shorts']
+      `🔔 New battle every day — subscribe and hit the bell so you never miss one!`,
+      '',
+      `#shorts #armyclash #battlesimulation #epicbattle #${ns.map(n => n.toLowerCase().replace(/ /g, '')).join('vs')}${three ? ' #1v1v1' : ''}${era !== 'mixed' ? ` #${era}battle` : ''} #whowins #strategy`,
+    ].join('\n'),
+    tags: clickbait ? [] : unique([
+      `${ns[0].toLowerCase()} vs ${ns[1] ? ns[1].toLowerCase() : ''}`,
+      'army battle', 'battle simulation', 'army simulation', 'who wins', 'army clash', 'epic battle', 'strategy game',
+      'battle royale', 'military simulation', 'army vs army', 'troop simulation', 'unit battle', 'troop battle',
+      ids.map(i => (showNames ? armyName(i) : `${ns[i]} ${armyName(i)}`).toLowerCase()).join(' vs '),
+      'shorts', 'short video', 'viral shorts',
+    ]
       .concat(HOL ? HOL.tags : [])
-      .concat(three ? ['1v1v1', 'three way battle'] : [])
-      .concat(tf ? ['tribes', 'war economy'] : [])
-      .concat({ king: ['protect the king'], duel: ['champion duel', '1v1 duel'], heroes: ['last stand', 'heroes vs army'], mirror: ['mirror match'], hill: ['king of the hill'] }[game.mode] || [])
-      .concat({ modern: ['modern warfare'], fantasy: ['fantasy battle', 'dragon'], mixed: ['old vs new', 'swords vs guns'], scifi: ['sci fi battle', 'robots', 'lasers'], pirate: ['pirate battle', 'pirates'],
-        horror: ['zombie battle', 'zombies'], samurai: ['samurai battle', 'ninja'], wild: wild || custom || three ? ['dream team', 'crazy matchup'] : ['crossover battle', 'crazy matchup'] }[era] || [])
-      .concat(heavyIn('tank') ? ['tank battle'] : []).concat(heavyIn('dragon') ? ['dragon'] : []).concat(heavyIn('mech') ? ['mech'] : [])
+      .concat(three ? ['1v1v1', 'three way battle', '3 armies'] : [])
+      .concat(tf ? ['tribes', 'tribal war', 'war economy'] : [])
+      .concat({ king: ['protect the king', 'king battle'], duel: ['champion duel', '1v1 duel', 'hero battle'], heroes: ['last stand', 'heroes vs army', 'underdog battle'], mirror: ['mirror match', 'same army'], hill: ['king of the hill', 'hill battle'] }[game.mode] || [])
+      .concat({ modern: ['modern warfare', 'modern army', 'guns vs tanks'], fantasy: ['fantasy battle', 'dragon', 'fantasy army', 'wizard battle'], mixed: ['old vs new', 'swords vs guns', 'ancient vs modern'], scifi: ['sci fi battle', 'robots vs soldiers', 'future war'], pirate: ['pirate battle', 'pirates', 'sea battle'],
+        horror: ['zombie battle', 'zombies vs soldiers', 'undead army'], samurai: ['samurai battle', 'ninja', 'feudal japan battle'], wild: wild || custom || three ? ['dream team', 'crazy matchup', 'custom army'] : ['crossover battle', 'crazy matchup'] }[era] || [])
+      .concat(heavyIn('tank') ? ['tank battle', 'tank vs infantry'] : []).concat(heavyIn('dragon') ? ['dragon battle', 'fantasy dragon'] : []).concat(heavyIn('mech') ? ['mech battle', 'giant robot'] : [])
       .concat(standout.map(k => RVB.labelOf(k).replace(/^THE /, '').toLowerCase()))
       .concat(rules.classes && rules.classes.on ? [...new Set(unitsAtStart.filter(k => RVB.UNIT[k] && !RVB.UNIT[k].uncounted).map(k => RVB.CLASSES[RVB.classOf(k)[0]].plural.toLowerCase()))].slice(0, 4) : [])
-      .concat(['strategy game', 'epic battle'])).slice(0, 30),
+    ).slice(0, 30),
     teams: pair,
     troops,
     units: unitsAtStart,

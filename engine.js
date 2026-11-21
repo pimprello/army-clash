@@ -3943,6 +3943,7 @@ const RVB = (() => {
       this.drawBG(ctx);
       const U2 = this.ui2 = this.opts.ui >= 2;
       { const b = this.opts.cineClean && this.cine && this.phase !== 'outro' ? clamp(this.cine.bars, 0, 1) : 0; this.uiK = 1 - b * b * (3 - 2 * b); }
+      if (this.noUi) this.uiK = 0;   // (the cold open, coldopen.js: the battle and nothing else)
       if (this.uiK < 0.999) { const k0 = this.uiK; this.uiLayer(ctx, c => { this.uiK = 1; if (U2) { if (this.N === 3) this.drawHUD3v2(c); else this.drawHUD2(c); } else if (this.N === 3) this.drawHUD3(c); else this.drawHUD(c, {
         title: this.title, hook: this.hook, lv: String(this.alive[0] + this.reserve[0]), rv: String(this.alive[1] + this.reserve[1]),
         ls: `${this.start[0]} UNITS`, rs: `${this.start[1]} UNITS`, ratio: this.dispRatio }); this.uiK = k0; }); }
