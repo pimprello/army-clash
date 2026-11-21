@@ -1,8 +1,8 @@
 # View stats
 
-Updated 2026-11-20 15:23 UTC. 3 videos, 0 at least a day old (used below). Groups need 3+ videos.
+Updated 2026-11-21 15:09 UTC. 7 videos, 2 at least a day old (used below). Groups need 3+ videos.
 
-Total views: 9. Median views per video: 0.
+Total views: 37. Median views per video: 6.
 
 ### By upload hour (UK time)
 
@@ -23,6 +23,8 @@ Total views: 9. Median views per video: 0.
 
 | Day | Videos | Median views | Total views |
 | --- | --- | --- | --- |
+| 2026-11-19 | 1 | 4 | 4 |
+| 2026-11-20 | 1 | 6 | 6 |
 
 ### By era
 
@@ -103,6 +105,10 @@ Total views: 9. Median views per video: 0.
 
 | Views | Likes | Title |
 | --- | --- | --- |
-| 4 | 0 | 3 Armies, Only 1 SURVIVES 💀 |
+| 12 | 0 | One Glacier Behemoth Got 14 KILLS 😳 |
+| 6 | 0 | 3 Armies, Only 1 SURVIVES 💀 |
+| 5 | 0 | The Last One TRANSFORMED 😱 |
+| 5 | 0 | 🇺🇸 USA vs Canada: WHO WINS? |
+| 5 | 0 | The FIRE Made Them STRONGER 🔥 |
 | 4 | 0 | ⚔️ CHAMPION DUEL: Gravity Tyrant vs Undead |
-| 1 | 0 | One Glacier Behemoth Got 14 KILLS 😳 |
+| 0 | 0 | ⚔️ CHAMPION DUEL: Sweden vs Norway |
