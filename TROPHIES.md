@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 580 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 581 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 580 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **TALVO BONECRUSHER** (GENERAL), 28 kills · 2026-11-21 10:54
 - **ASHKA THE WALL** (PLAGUE ALCHEMIST), 10 kills · 2026-11-16 11:25
 - **KAELEN NIGHTFANG** (MINOTAUR), 36 kills · 2026-11-15 22:38
 - **ZEDRIK SKULLTAKER** (DEMON), 14 kills · 2026-11-15 11:07
@@ -47,7 +48,6 @@ Records from 580 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **SIRA SKULLTAKER** (WAR RHINO), 36 kills · 2026-11-12 22:32
 - **PELL THE UNBROKEN** (GENERAL), 15 kills · 2026-11-12 14:48
 - **ZEDRIK IRONHIDE** (TROLL), 42 kills · 2026-11-12 08:24
-- **SABRE-7** (MACHINE GUNNER), 26 kills · 2026-11-11 13:21
 
 ## Titles earned (rarest first)
 
@@ -78,25 +78,25 @@ Records from 580 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - HYDRA SLAYER: 20
 - COLOSSUS SLAYER: 21
 - STORM COLOSSUS SLAYER: 21
-- ACID LEVIATHAN SLAYER: 22
 - IRONHORN SLAYER: 22
+- ACID LEVIATHAN SLAYER: 23
 - CYCLOPS SLAYER: 25
 - DRAGON SLAYER: 26
 - SPIDER QUEEN SLAYER: 28
 - ELEPHANT SLAYER: 30
-- MAMMOTH SLAYER: 35
-- GIANT SLAYER: 41
+- MAMMOTH SLAYER: 36
 - GOLEM SLAYER: 42
+- GIANT SLAYER: 42
 - TITAN SLAYER: 42
 
 ## Mutations (rarest first)
 
 - vampiric: 11
 - wings: 43
-- spellward: 48
+- spellward: 49
 - venom: 93
 - swift: 96
-- spikes: 112
+- spikes: 113
 - regen: 120
 
 ## Big moments
@@ -153,7 +153,7 @@ Records from 580 battles with trophies (videos from 1 November 2026 on). Rebuilt
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 28 | 18 | 10 | 1118 | 1 won | 7 |
 | Red Hawk Company | 28 | 17 | 11 | 1092 | 1 won | 5 |
-| Frostwhisper Tribe | 27 | 14 | 13 | 1145 | 2 lost | 4 |
+| Frostwhisper Tribe | 28 | 14 | 14 | 1296 | 3 lost | 4 |
 | Silverbough Circle | 34 | 13 | 21 | 1604 | 1 lost | 3 |
 | Hollowbark Kin | 31 | 13 | 18 | 1082 | 1 lost | 3 |
 | Thornheart Circle | 16 | 13 | 3 | 897 | 3 won | 6 |
@@ -165,10 +165,10 @@ Records from 580 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Glimmerdeep Kin | 21 | 12 | 9 | 710 | 1 won | 6 |
 | Order of the Silver Stag | 27 | 11 | 16 | 1157 | 1 lost | 3 |
 | Frostmere Clan | 28 | 11 | 17 | 883 | 4 lost | 3 |
+| Raven Hill Clan | 19 | 11 | 8 | 734 | 3 won | 5 |
 | Nightjar Company | 15 | 11 | 4 | 552 | 5 won | 5 |
 | Duskwing Tribe | 29 | 10 | 18 | 1147 | 2 won | 2 |
 | Greyfang Clan | 31 | 10 | 21 | 858 | 3 lost | 5 |
-| Raven Hill Clan | 18 | 10 | 8 | 669 | 2 won | 5 |
 | Mire Witch Coven | 14 | 10 | 4 | 455 | 1 lost | 7 |
 | Thornwood Company | 16 | 10 | 6 | 452 | 4 lost | 9 |
 
@@ -185,6 +185,7 @@ Records from 580 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-21 10:54: The Raven Hill Clan Take the Open Plains (3 wins in a row · 65 kills)
 - 2026-11-20 22:56: The Starweave Circle Take the Sky-temple Relic (revenge! · 12th win · 68 kills)
 - 2026-11-20 19:12: The Black Candle Take the Bombed City (revenge! · 7th win · 25 kills)
 - 2026-11-20 15:11: The Prism Cohort Take the Reactor (2nd win · 41 kills)
@@ -194,4 +195,3 @@ Records from 580 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-19 14:22: The Wildbrook Clan Take the Quarry (revenge denied · 12th win · 34 kills)
 - 2026-11-19 11:07: The Duskwing Tribe Take the Open Plains (10th win · 64 kills)
 - 2026-11-18 23:07: The Ember Blade School Take the Swamp Shrine (4th win · 61 kills)
-- 2026-11-18 18:55: The Brightwater Tribe Take the Open Plains (revenge denied · 5 wins in a row · 60 kills)
