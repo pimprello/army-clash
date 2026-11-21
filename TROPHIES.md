@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 582 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 583 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -84,7 +84,7 @@ Records from 582 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - DRAGON SLAYER: 26
 - SPIDER QUEEN SLAYER: 29
 - ELEPHANT SLAYER: 31
-- MAMMOTH SLAYER: 36
+- MAMMOTH SLAYER: 37
 - GOLEM SLAYER: 42
 - GIANT SLAYER: 42
 - TITAN SLAYER: 42
@@ -151,7 +151,7 @@ Records from 582 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
-| Mossback Tribe | 28 | 18 | 10 | 1118 | 1 won | 7 |
+| Mossback Tribe | 29 | 18 | 11 | 1125 | 1 lost | 7 |
 | Red Hawk Company | 29 | 17 | 12 | 1133 | 1 lost | 5 |
 | Frostwhisper Tribe | 28 | 14 | 14 | 1296 | 3 lost | 4 |
 | Silverbough Circle | 34 | 13 | 21 | 1604 | 1 lost | 3 |
@@ -185,6 +185,7 @@ Records from 582 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-21 21:26: The Ion Legion Take the World Furnace (revenge! · first ever win · 24 kills)
 - 2026-11-21 14:57: The Coven of Ash Take the Ruined Fort (3 wins in a row · 40 kills)
 - 2026-11-21 10:54: The Raven Hill Clan Take the Open Plains (3 wins in a row · 65 kills)
 - 2026-11-20 22:56: The Starweave Circle Take the Sky-temple Relic (revenge! · 12th win · 68 kills)
@@ -194,4 +195,3 @@ Records from 582 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-19 23:04: The Wormwood Coven Take the Frozen End (streak ended · 3rd win · 36 kills)
 - 2026-11-19 18:53: The Nightshade Coven Take the Trench Line (4th win · 42 kills)
 - 2026-11-19 14:22: The Wildbrook Clan Take the Quarry (revenge denied · 12th win · 34 kills)
-- 2026-11-19 11:07: The Duskwing Tribe Take the Open Plains (10th win · 64 kills)

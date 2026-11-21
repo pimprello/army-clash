@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-21 21:26 | A SANDWORM Burst Out 🪱 | Purple wins | https://youtube.com/shorts/zQEVZlj8ICs |
 | 2026-11-21 14:57 | ⚔️ CHAMPION DUEL: Sweden vs Norway | Sweden wins | https://youtube.com/shorts/k6a6a1-wO9o |
 | 2026-11-21 10:54 | The Last One TRANSFORMED 😱 | White wins | https://youtube.com/shorts/IY5EfwClJt8 |
 | 2026-11-20 22:56 | 🇺🇸 USA vs Canada: WHO WINS? | Canada wins | https://youtube.com/shorts/SvGPIgl5XpA |
