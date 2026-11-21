@@ -2,6 +2,23 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-21 14:57 | ⚔️ CHAMPION DUEL: Sweden vs Norway | Sweden wins | https://youtube.com/shorts/k6a6a1-wO9o |
+| 2026-11-21 10:54 | The Last One TRANSFORMED 😱 | White wins | https://youtube.com/shorts/IY5EfwClJt8 |
+| 2026-11-20 22:56 | 🇺🇸 USA vs Canada: WHO WINS? | Canada wins | https://youtube.com/shorts/SvGPIgl5XpA |
+| 2026-11-20 19:12 | The FIRE Made Them STRONGER 🔥 | Mint wins | https://youtube.com/shorts/VE97a17cMZE |
+| 2026-11-20 15:11 | One Glacier Behemoth Got 14 KILLS 😳 | Purple wins | https://youtube.com/shorts/nBhGTTNYs94 |
+| 2026-11-20 10:56 | 3 Armies, Only 1 SURVIVES 💀 | Cyan wins | https://youtube.com/shorts/50QptpjSSGY |
+| 2026-11-19 23:04 | ⚔️ CHAMPION DUEL: Gravity Tyrant vs Undead | Yellow wins | https://youtube.com/shorts/wqklnJHTxGU |
+| 2026-11-19 18:53 | 🚩 KING OF THE HILL: Wild Hollows vs Ghost Mortars | Red wins | https://youtube.com/shorts/6QoRuSnbB0U |
+| 2026-11-19 14:22 | MIRROR MATCH: Knights vs KNIGHTS 🪞 | Green wins | https://youtube.com/shorts/FrhOwTQ4nZA |
+| 2026-11-19 11:07 | The Smaller Army Did WHAT? 😳 | Blue wins | https://youtube.com/shorts/oTZSujtMgts |
+| 2026-11-18 23:07 | Hold the HILL to Win? 3d vs Ninjas 🚩 | Brown wins | https://youtube.com/shorts/gQ4Pg1rUwr0 |
+| 2026-11-18 18:55 | They Fought Under a SHIELD DOME 🛡️ | France wins | https://youtube.com/shorts/TpoEp7aE8YM |
+| 2026-11-18 15:05 | 🪞 MIRROR KING vs Pirates | Gold wins | https://youtube.com/shorts/o2I5Uhp_v6Y |
+| 2026-11-18 10:32 | SIEGE GORGONS vs Royal Necros vs Omega Oracles 🔥 | Magenta wins | https://youtube.com/shorts/X_XP6PZU0D0 |
+| 2026-11-17 23:16 | Their Golem Rose From the GRAVE 🪦 | Argentina wins | https://youtube.com/shorts/pWkPnPRmpes |
+| 2026-11-17 19:07 | 15 HEROES vs Root Bombers 🛡️ | Orange wins | https://youtube.com/shorts/Whs7ytBgUqU |
+| 2026-11-17 15:12 | The Weapons Came ALIVE 🗡️ | Belgium wins | https://youtube.com/shorts/jSVObLBBZ3E |
 | 2026-11-17 11:57 | Turtle Army vs GUNNERS 💥 | Mint wins | https://youtube.com/shorts/EtA7K11WVbk |
 | 2026-11-17 11:15 | Kill the KING to Win 👑 Turtle Army vs Gunners | Blue wins | https://youtube.com/shorts/mUcHen0dTNQ |
 | 2026-11-16 22:54 | 3 Wins in a ROW for the Hollowbark Kin 🔥 | Green wins | https://youtube.com/shorts/jbQ5b8oPKF4 |

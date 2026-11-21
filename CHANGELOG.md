@@ -4,7 +4,7 @@ Newest first. Each entry says what changed in the videos and why.
 
 ## 2026-11-17 (Rellz's request, all three games): Rellz's 26 picks (`rules.picks`)
 
-Rellz picked 26 of my 30 ideas (1 to 23 and 25 to 27) and asked for them in Army Clash, Tower Clash and Territory Clash, with only game-specific details different. Everything sits behind `rules.picks` (one dial per idea, the same names in every game); with it off, old seeds play exactly as before (checked in all three). Battle logic runs on the battle clock with no dice or with its own dice; the looks have their own. Already-posted videos don't change: the 10:00 post on 17 November is the first with them, in every channel.
+Rellz picked 26 of my 30 ideas (1 to 23 and 25 to 27) and asked for them in Army Clash, Tower Clash and Territory Clash, with only game-specific details different. Everything sits behind `rules.picks` (one dial per idea, the same names in every game); with it off, old seeds play exactly as before (checked in all three). Battle logic runs on the battle clock with no dice or with its own dice; the looks have their own. Already-posted videos don't change. Tower and Territory have them from the 10:00 post on 17 November; Army's push was held up by a merge conflict and went out on 21 November, so Army has them from the 18:00 post on 22 November.
 
 **Shared by all three** (identical files): `music.js` (map music themes), `commentary.js` and `sfx/call-*.wav`, `sfx/crowd-bed.wav`, `sfx/make_commentary.py` (the commentator and the crowd), `holiday.js`. Army's and Tower's `engine.js` are back in step (Tower's and Territory's are Army's plus the `api._` line, now also exporting `lumOf`, `PK_SET`, `PK_SPELLS`).
 

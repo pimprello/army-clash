@@ -1,8 +1,8 @@
 # View stats
 
-Updated 2026-11-16 19:42 UTC. 13 videos, 8 at least a day old (used below). Groups need 3+ videos.
+Updated 2026-11-21 15:09 UTC. 7 videos, 2 at least a day old (used below). Groups need 3+ videos.
 
-Total views: 516. Median views per video: 71.
+Total views: 37. Median views per video: 6.
 
 ### By upload hour (UK time)
 
@@ -13,47 +13,38 @@ Total views: 516. Median views per video: 71.
 
 | Group | Videos | Median views | Average views |
 | --- | --- | --- | --- |
-| Sun | 5 | 38 | 51 |
 
 ### By video length
 
 | Group | Videos | Median views | Average views |
 | --- | --- | --- | --- |
-| 61-75 s | 6 | 71 | 59 |
 
 ### Posts per day
 
 | Day | Videos | Median views | Total views |
 | --- | --- | --- | --- |
-| 2026-11-09 | 1 | 73 | 73 |
-| 2026-11-10 | 1 | 86 | 86 |
-| 2026-11-11 | 1 | 71 | 71 |
-| 2026-11-15 | 5 | 38 | 253 |
+| 2026-11-19 | 1 | 4 | 4 |
+| 2026-11-20 | 1 | 6 | 6 |
 
 ### By era
 
 | Group | Videos | Median views | Average views |
 | --- | --- | --- | --- |
-| wild | 5 | 58 | 56 |
 
 ### Creative (invented) vs list line-ups
 
 | Group | Videos | Median views | Average views |
 | --- | --- | --- | --- |
-| list | 4 | 73 | 65 |
-| creative | 4 | 71 | 56 |
 
 ### Cinematic camera
 
 | Group | Videos | Median views | Average views |
 | --- | --- | --- | --- |
-| on | 8 | 71 | 60 |
 
 ### Clickbait title
 
 | Group | Videos | Median views | Average views |
 | --- | --- | --- | --- |
-| normal | 7 | 58 | 59 |
 
 ### By map
 
@@ -69,26 +60,21 @@ Total views: 516. Median views per video: 71.
 
 | Group | Videos | Median views | Average views |
 | --- | --- | --- | --- |
-| no skin | 3 | 86 | 70 |
-| skinned | 5 | 58 | 55 |
 
 ### Tribe story
 
 | Group | Videos | Median views | Average views |
 | --- | --- | --- | --- |
-| revenge | 3 | 73 | 66 |
 
 ### Merchant item bought
 
 | Group | Videos | Median views | Average views |
 | --- | --- | --- | --- |
-| FLAME CORE | 3 | 34 | 35 |
 
 ### By team type
 
 | Group | Videos | Median views | Average views |
 | --- | --- | --- | --- |
-| colours | 6 | 73 | 65 |
 
 ### By colour pair
 
@@ -109,25 +95,20 @@ Total views: 516. Median views per video: 71.
 
 | Group | Videos | Median views | Average views |
 | --- | --- | --- | --- |
-| title | 7 | 58 | 59 |
 
 ### By formation (top side)
 
 | Group | Videos | Median views | Average views |
 | --- | --- | --- | --- |
-| crescent | 3 | 58 | 59 |
 
 ### Top 10 videos
 
 | Views | Likes | Title |
 | --- | --- | --- |
-| 91 | 2 | 👑 Protect the KING: Turtle Army vs Gunners |
-| 86 | 0 | 👑 Protect the KING: Castle Smiths vs Ultra 3d Crew |
-| 73 | 0 | The Copperhead Battalion Got REVENGE ⚔️ |
-| 71 | 1 | Mega Teslas vs Castle Plague vs Turbo 3d Crew 🤯 |
-| 58 | 0 | 56 HEROES vs Pyros 🛡️ |
-| 38 | 0 | A TORNADO Hit Mid-Battle 🌪️ |
-| 34 | 0 | Half the Size and Still WON 😳 |
-| 32 | 0 | FIRST Ever Win for the Comet Wing 🏆 |
-| 20 | 0 | The Merchant Sold Them a Storm Core 💰 |
-| 11 | 0 | The FROST Made Them STRONGER ❄️ |
+| 12 | 0 | One Glacier Behemoth Got 14 KILLS 😳 |
+| 6 | 0 | 3 Armies, Only 1 SURVIVES 💀 |
+| 5 | 0 | The Last One TRANSFORMED 😱 |
+| 5 | 0 | 🇺🇸 USA vs Canada: WHO WINS? |
+| 5 | 0 | The FIRE Made Them STRONGER 🔥 |
+| 4 | 0 | ⚔️ CHAMPION DUEL: Gravity Tyrant vs Undead |
+| 0 | 0 | ⚔️ CHAMPION DUEL: Sweden vs Norway |

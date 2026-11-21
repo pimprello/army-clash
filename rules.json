@@ -350,9 +350,27 @@
       ],
       "weight": 1
     },
-    { "teams": ["GREEN", "MAGENTA"], "weight": 1 },
-    { "teams": ["GOLD", "INDIGO"], "weight": 1 },
-    { "teams": ["CRIMSON", "MINT"], "weight": 1 }
+    {
+      "teams": [
+        "GREEN",
+        "MAGENTA"
+      ],
+      "weight": 1
+    },
+    {
+      "teams": [
+        "GOLD",
+        "INDIGO"
+      ],
+      "weight": 1
+    },
+    {
+      "teams": [
+        "CRIMSON",
+        "MINT"
+      ],
+      "weight": 1
+    }
   ],
   "minColourGap": 30,
   "teamStyles": {
@@ -1618,8 +1636,18 @@
       "balance": 1,
       "combatBalance": 1.581
     },
-    { "top": "SAMURAI", "bottom": "TROOPERS", "balance": 1, "combatBalance": 0.632 },
-    { "top": "KNIGHTS", "bottom": "ROBOTS", "balance": 1, "combatBalance": 1 }
+    {
+      "top": "SAMURAI",
+      "bottom": "TROOPERS",
+      "balance": 1,
+      "combatBalance": 0.632
+    },
+    {
+      "top": "KNIGHTS",
+      "bottom": "ROBOTS",
+      "balance": 1,
+      "combatBalance": 1
+    }
   ],
   "cinematic": true,
   "sound": {
@@ -1628,8 +1656,8 @@
   },
   "creative": {
     "every": 2,
-    "balanceBattles": 8,
-    "balanceSteps": 6,
+    "balanceBattles": 0,
+    "balanceSteps": 0,
     "fresh": true
   },
   "clickbait": {
@@ -2017,8 +2045,8 @@
     "fewerBullets": true,
     "roster": true,
     "creativeMelee": 0.75,
-    "balanceBattles": 10,
-    "balanceSteps": 5,
+    "balanceBattles": 0,
+    "balanceSteps": 0,
     "balanceSpread": 2.5,
     "balanceRounds3": 4,
     "balanceSeconds": 100,
@@ -2074,7 +2102,9 @@
     "market2": true
   },
   "schedule": {
-    "hours": [10, 14, 18, 22],
+    "hours": [
+      18
+    ],
     "timeZone": "Europe/London",
     "windowMinutes": 110
   },
@@ -2092,8 +2122,15 @@
       "density": 1.6
     },
     "clean": true,
-    "remains": true, "humans": true,
-    "cineClean": true, "blood": { "on": true, "drops": 1.5, "sparks": 0.4, "stay": 0.6 }
+    "remains": true,
+    "humans": true,
+    "cineClean": true,
+    "blood": {
+      "on": true,
+      "drops": 1.5,
+      "sparks": 0.4,
+      "stay": 0.6
+    }
   },
   "world": {
     "on": true,
@@ -2121,6 +2158,12 @@
   },
   "thumbnail": {
     "on": true
+  },
+  "coldOpen": {
+    "on": true,
+    "seconds": 3.4,
+    "sharp": 1.5,
+    "rewind": true
   },
   "intro": {
     "on": true,
@@ -2181,12 +2224,36 @@
     "cheapCost": 1.6,
     "mid": 0.75,
     "midCost": 4,
-    "hurt": 1.25, "crowd": { "on": true, "r": 100, "n": 7, "pick": 0.45, "wounded": 0.4, "hurt": 1.35, "cleave": 0.5, "late": 15, "early": 1.5 }
+    "hurt": 1.25,
+    "crowd": {
+      "on": true,
+      "r": 100,
+      "n": 7,
+      "pick": 0.45,
+      "wounded": 0.4,
+      "hurt": 1.35,
+      "cleave": 0.5,
+      "late": 15,
+      "early": 1.5
+    }
   },
-  "music": { "on": true, "volume": 0.45, "duck": 0.45, "pulse": true, "loop": true,
-    "levels": { "effects": -14, "music": -19 }
+  "music": {
+    "on": true,
+    "volume": 0.45,
+    "duck": 0.45,
+    "pulse": true,
+    "loop": true,
+    "levels": {
+      "effects": -14,
+      "music": -19
+    }
   },
-  "quality": { "audition": 10, "auditionSeconds": 300, "crf": 17, "preset": "faster" },
+  "quality": {
+    "audition": 0,
+    "auditionSeconds": 0,
+    "crf": 17,
+    "preset": "faster"
+  },
   "picks": {
     "on": true,
     "troops": true,
