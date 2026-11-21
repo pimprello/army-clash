@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 581 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 582 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -78,12 +78,12 @@ Records from 581 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - HYDRA SLAYER: 20
 - COLOSSUS SLAYER: 21
 - STORM COLOSSUS SLAYER: 21
-- IRONHORN SLAYER: 22
 - ACID LEVIATHAN SLAYER: 23
+- IRONHORN SLAYER: 23
 - CYCLOPS SLAYER: 25
 - DRAGON SLAYER: 26
-- SPIDER QUEEN SLAYER: 28
-- ELEPHANT SLAYER: 30
+- SPIDER QUEEN SLAYER: 29
+- ELEPHANT SLAYER: 31
 - MAMMOTH SLAYER: 36
 - GOLEM SLAYER: 42
 - GIANT SLAYER: 42
@@ -93,11 +93,11 @@ Records from 581 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 - vampiric: 11
 - wings: 43
-- spellward: 49
+- spellward: 50
 - venom: 93
 - swift: 96
 - spikes: 113
-- regen: 120
+- regen: 121
 
 ## Big moments
 
@@ -152,7 +152,7 @@ Records from 581 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 28 | 18 | 10 | 1118 | 1 won | 7 |
-| Red Hawk Company | 28 | 17 | 11 | 1092 | 1 won | 5 |
+| Red Hawk Company | 29 | 17 | 12 | 1133 | 1 lost | 5 |
 | Frostwhisper Tribe | 28 | 14 | 14 | 1296 | 3 lost | 4 |
 | Silverbough Circle | 34 | 13 | 21 | 1604 | 1 lost | 3 |
 | Hollowbark Kin | 31 | 13 | 18 | 1082 | 1 lost | 3 |
@@ -185,6 +185,7 @@ Records from 581 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-21 14:57: The Coven of Ash Take the Ruined Fort (3 wins in a row · 40 kills)
 - 2026-11-21 10:54: The Raven Hill Clan Take the Open Plains (3 wins in a row · 65 kills)
 - 2026-11-20 22:56: The Starweave Circle Take the Sky-temple Relic (revenge! · 12th win · 68 kills)
 - 2026-11-20 19:12: The Black Candle Take the Bombed City (revenge! · 7th win · 25 kills)
@@ -194,4 +195,3 @@ Records from 581 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-19 18:53: The Nightshade Coven Take the Trench Line (4th win · 42 kills)
 - 2026-11-19 14:22: The Wildbrook Clan Take the Quarry (revenge denied · 12th win · 34 kills)
 - 2026-11-19 11:07: The Duskwing Tribe Take the Open Plains (10th win · 64 kills)
-- 2026-11-18 23:07: The Ember Blade School Take the Swamp Shrine (4th win · 61 kills)
