@@ -1,862 +1,117 @@
 [
  {
-  "id": "k6a6a1-wO9o",
-  "date": "2026-11-21 14:57",
-  "title": "⚔️ CHAMPION DUEL: Sweden vs Norway",
-  "seed": 2347808310,
-  "slot": 1106,
-  "era": "wild",
-  "map": "ruins",
+  "id": "L68_qRUo2ys",
+  "date": "2026-11-22 18:50",
+  "title": "Royal Hooks vs Shadow Pirates ⚔️",
+  "seed": 958588799,
+  "slot": 1108,
+  "era": "pirate",
+  "map": "airship",
   "teams": [
-   "SWEDEN",
-   "NORWAY"
+   "TEAL",
+   "CRIMSON"
   ],
   "armies": [
-   "DREADKNIGHT",
-   "EMPIRE"
-  ],
-  "formations": [
-   "line",
-   "columns"
-  ],
-  "troops": [],
-  "hook": "⚔️ CHAMPION DUEL: Sweden vs Norway",
-  "winner": "SWEDEN WINS",
-  "cinematic": true,
-  "titleKind": "title",
-  "trophy": {
-   "mvp": {
-    "unit": "MAGMA COLOSSUS",
-    "kills": 22
-   },
-   "fight": 53.5,
-   "wipeout": true,
-   "left": 8,
-   "titles": [
-    "IRONHORN SLAYER",
-    "ELEPHANT SLAYER",
-    "SPIDER QUEEN SLAYER"
-   ],
-   "mutations": [
-    "regen",
-    "spellward"
-   ],
-   "moments": []
-  },
-  "mode": "duel",
-  "combat": true,
-  "balKey": "DREADKNIGHT|EMPIRE|duel",
-  "tuned": 0.796,
-  "balance": 0.507,
-  "tribes": [
-   {
-    "name": "COVEN OF ASH",
-    "team": 0,
-    "kills": 40,
-    "wt": 4,
-    "at": 4
-   },
-   {
-    "name": "BONE GARDEN COVEN",
-    "team": 0,
-    "kills": 9,
-    "wt": 3,
-    "at": 3
-   },
-   {
-    "name": "ASH WOLF CLAN",
-    "team": 1,
-    "kills": 99,
-    "wt": 4,
-    "at": 4
-   },
-   {
-    "name": "RED HAWK COMPANY",
-    "team": 1,
-    "kills": 41,
-    "wt": 3,
-    "at": 3
-   }
-  ],
-  "winTeam": 0,
-  "story": "streak",
-  "chron": [
-   "THE COVEN OF ASH TAKE THE RUINED FORT",
-   "3 WINS IN A ROW · 40 KILLS"
-  ],
-  "economy": {
-   "forges": 24,
-   "trades": 3,
-   "merchant": "HOLY CORE"
-  },
-  "seconds": 70.08,
-  "units": [
-   "deathknight",
-   "magmacolossus",
-   "glaciergiant",
-   "livingfortress",
-   "goliath",
-   "skeleton",
-   "zombie",
-   "necromancer",
-   "elephant",
-   "spiderqueen",
-   "ironhorn",
-   "giant",
-   "lancer",
-   "swordsman",
-   "rhino",
-   "yeti"
-  ],
-  "views": 0,
-  "likes": 0,
-  "comments": 0,
-  "secs": 71,
-  "published": "2026-11-21T14:58:07Z"
- },
- {
-  "id": "IY5EfwClJt8",
-  "date": "2026-11-21 10:54",
-  "title": "The Last One TRANSFORMED 😱",
-  "seed": 1140699956,
-  "slot": 1105,
-  "era": "wild",
-  "map": "open",
-  "teams": [
-   "WHITE",
-   "RED",
-   "BLUE"
-  ],
-  "armies": [
-   "EMPIRE",
-   "LEGION",
-   "WARBAND"
-  ],
-  "formations": [
-   "echelon",
-   "flanks"
-  ],
-  "troops": [],
-  "hook": "The Last One TRANSFORMED 😱",
-  "winner": "WHITE WINS",
-  "wild": true,
-  "sides": [
-   "EMPIRE",
-   "LEGION",
-   "WARBAND"
-  ],
-  "cinematic": true,
-  "three": true,
-  "titleKind": "title",
-  "trophy": {
-   "mvp": {
-    "unit": "GENERAL",
-    "kills": 28,
-    "name": "TALVO BONECRUSHER",
-    "title": "ACID LEVIATHAN SLAYER"
-   },
-   "fight": 58.7,
-   "wipeout": true,
-   "left": 1,
-   "titles": [
-    "MAMMOTH SLAYER",
-    "GIANT SLAYER",
-    "ACID LEVIATHAN SLAYER"
-   ],
-   "mutations": [
-    "spikes",
-    "spellward"
-   ],
-   "moments": []
-  },
-  "skins": [
-   "TOXIC",
-   "GHOST",
-   null
-  ],
-  "combat": true,
-  "balance": [
-   1.114,
-   1.491,
-   0.395
-  ],
-  "tribes": [
-   {
-    "name": "RAVEN HILL CLAN",
-    "team": 0,
-    "kills": 65,
-    "wt": 3,
-    "at": 3
-   },
-   {
-    "name": "GRAVE LANTERN COVEN",
-    "team": 1,
-    "kills": 40,
-    "wt": 4,
-    "at": 4
-   },
-   {
-    "name": "FROSTWHISPER TRIBE",
-    "team": 2,
-    "kills": 151,
-    "wt": 5,
-    "at": 4
-   }
-  ],
-  "winTeam": 0,
-  "story": "stake",
-  "chron": [
-   "THE RAVEN HILL CLAN TAKE THE OPEN PLAINS",
-   "3 WINS IN A ROW · 65 KILLS"
-  ],
-  "economy": {
-   "forges": 18,
-   "trades": 0,
-   "merchant": "FROST CORE"
-  },
-  "seconds": 75.08,
-  "units": [
-   "spiderqueen",
-   "stormcolossus",
-   "giant",
-   "swordsman",
-   "lancer",
-   "minotaur",
-   "pikeman",
-   "general",
-   "acidwyrm",
-   "mammoth",
-   "glaciergiant",
-   "goliath",
-   "yeti",
-   "skeleton",
-   "zombie",
-   "necromancer",
-   "titan",
-   "boarrider",
-   "orc",
-   "wolfrider",
-   "troll",
-   "berserker",
-   "treant"
-  ],
-  "views": 5,
-  "likes": 0,
-  "comments": 0,
-  "secs": 76,
-  "published": "2026-11-21T10:55:53Z"
- },
- {
-  "id": "SvGPIgl5XpA",
-  "date": "2026-11-20 22:56",
-  "title": "🇺🇸 USA vs Canada: WHO WINS?",
-  "seed": 3334695632,
-  "slot": 1104,
-  "era": "fantasy",
-  "map": "temple",
-  "teams": [
-   "USA",
-   "CANADA"
-  ],
-  "armies": [
-   "METEOR",
-   "HORDE"
-  ],
-  "formations": [
-   "block",
-   "echelon"
-  ],
-  "troops": [],
-  "hook": "🇺🇸 USA vs Canada: WHO WINS?",
-  "winner": "CANADA WINS",
-  "cinematic": true,
-  "titleKind": "title",
-  "trophy": {
-   "mvp": {
-    "unit": "STORM COLOSSUS",
-    "kills": 23
-   },
-   "fight": 50,
-   "wipeout": true,
-   "left": 83,
-   "titles": [
-    "SPIDER QUEEN SLAYER",
-    "GOLEM SLAYER"
-   ],
-   "mutations": [
-    "venom"
-   ],
-   "moments": []
-  },
-  "skins": [
-   "LAVA",
-   null
-  ],
-  "combat": true,
-  "balKey": "METEOR|HORDE|classic",
-  "tuned": 1.581,
-  "balance": 2.103,
-  "tribes": [
-   {
-    "name": "EMBERROOT CIRCLE",
-    "team": 0,
-    "kills": 140,
-    "wt": 3,
-    "at": 3
-   },
-   {
-    "name": "SILVERBOUGH CIRCLE",
-    "team": 0,
-    "kills": 49,
-    "wt": 3,
-    "at": 3
-   },
-   {
-    "name": "STARWEAVE CIRCLE",
-    "team": 1,
-    "kills": 68,
-    "wt": 5,
-    "at": 4
-   },
-   {
-    "name": "GLIMMERDEEP KIN",
-    "team": 1,
-    "kills": 18,
-    "wt": 3,
-    "at": 3
-   }
-  ],
-  "winTeam": 1,
-  "story": "revenge",
-  "chron": [
-   "THE STARWEAVE CIRCLE TAKE THE SKY-TEMPLE RELIC",
-   "REVENGE! · 12TH WIN · 68 KILLS"
-  ],
-  "economy": {
-   "forges": 24,
-   "trades": 2,
-   "merchant": "HOLY CORE"
-  },
-  "seconds": 67.08,
-  "units": [
-   "spiderqueen",
-   "hydra",
-   "golem",
-   "orc",
-   "ogre",
-   "skeleton",
-   "meteorshepherd",
-   "wizard",
-   "elf",
-   "mammoth",
-   "bonecolossus",
-   "stormcolossus",
-   "juggernaut",
-   "rhino"
-  ],
-  "views": 5,
-  "likes": 0,
-  "comments": 0,
-  "secs": 68,
-  "published": "2026-11-20T22:56:56Z"
- },
- {
-  "id": "VE97a17cMZE",
-  "date": "2026-11-20 19:12",
-  "title": "The FIRE Made Them STRONGER 🔥",
-  "seed": 4192936427,
-  "slot": 1103,
-  "era": "wild",
-  "map": "bombed",
-  "teams": [
-   "CRIMSON",
-   "MINT"
-  ],
-  "armies": [
-   "STORM SHAMANS",
-   "NEON TRAPPERS"
-  ],
-  "formations": [
-   "flanks",
-   "wedge"
-  ],
-  "troops": [],
-  "hook": "The FIRE Made Them STRONGER 🔥",
-  "winner": "MINT WINS",
-  "wild": true,
-  "sides": [
-   {
-    "name": "STORM SHAMANS",
-    "mix": {
-     "gargoyle": 0.59,
-     "shaman": 0.31,
-     "frostwitch": 0.11
-    },
-    "heavy": [],
-    "base": "frostwitch"
-   },
-   {
-    "name": "NEON TRAPPERS",
-    "mix": {
-     "trapmaster": 0.61,
-     "warlock": 0.39
-    },
-    "heavy": [
-     "helicopter",
-     "timeexec"
-    ],
-    "base": "trapmaster"
-   }
-  ],
-  "cinematic": true,
-  "titleKind": "title",
-  "trophy": {
-   "mvp": {
-    "unit": "MAGMA COLOSSUS",
-    "kills": 12
-   },
-   "fight": 59,
-   "wipeout": true,
-   "left": 8,
-   "titles": [
-    "EXECUTIONER SLAYER",
-    "IRONHORN SLAYER"
-   ],
-   "moments": [
-    "possess:ironhorn",
-    "sudden:lava"
-   ]
-  },
-  "mode": "king",
-  "combat": true,
-  "tuned": 1,
-  "balance": 1,
-  "tribes": [
-   {
-    "name": "ASHMANTLE KIN",
-    "team": 0,
-    "kills": 29,
-    "wt": 4,
-    "at": 4
-   },
-   {
-    "name": "ASH WOLF CLAN",
-    "team": 0,
-    "kills": 6,
-    "wt": 3,
-    "at": 3
-   },
-   {
-    "name": "THE HOLLOW BELL",
-    "team": 1,
-    "kills": 15,
-    "wt": 3,
-    "at": 3
-   },
-   {
-    "name": "THE BLACK CANDLE",
-    "team": 1,
-    "kills": 25,
-    "wt": 3,
-    "at": 3
-   }
-  ],
-  "winTeam": 1,
-  "story": "revenge",
-  "chron": [
-   "THE BLACK CANDLE TAKE THE BOMBED CITY",
-   "REVENGE! · 7TH WIN · 25 KILLS"
-  ],
-  "economy": {
-   "forges": 23,
-   "trades": 5,
-   "merchant": "VENOM CORE"
-  },
-  "seconds": 74.13,
-  "units": [
-   "glaciergiant",
-   "cyclops",
-   "acidwyrm",
-   "ironhorn",
-   "gargoyle",
-   "troll",
-   "juggernaut",
-   "shaman",
-   "frostwitch",
-   "helicopter",
-   "timeexec",
-   "bonecolossus",
-   "magmacolossus",
-   "livingfortress",
-   "trapmaster",
-   "warlock",
-   "king"
-  ],
-  "views": 5,
-  "likes": 0,
-  "comments": 0,
-  "secs": 75,
-  "published": "2026-11-20T19:13:00Z"
- },
- {
-  "id": "nBhGTTNYs94",
-  "date": "2026-11-20 15:11",
-  "title": "One Glacier Behemoth Got 14 KILLS 😳",
-  "seed": 244812117,
-  "slot": 1102,
-  "era": "wild",
-  "map": "moon",
-  "teams": [
-   "PURPLE",
-   "GREEN"
-  ],
-  "armies": [
-   "TESLAS",
-   "INFANTRY"
-  ],
-  "formations": [
-   "crescent",
-   "crescent"
-  ],
-  "troops": [],
-  "hook": "One Glacier Behemoth Got 14 KILLS 😳",
-  "winner": "PURPLE WINS",
-  "clickbait": true,
-  "cinematic": true,
-  "titleKind": "clickbait",
-  "trophy": {
-   "mvp": {
-    "unit": "GLACIER BEHEMOTH",
-    "kills": 14
-   },
-   "fight": 56.8,
-   "wipeout": true,
-   "left": 20,
-   "moments": [
-    "extinct:PURPLE"
-   ]
-  },
-  "mode": "heroes",
-  "heroes": 1,
-  "combat": true,
-  "balKey": "TESLAS|INFANTRY|heroes1",
-  "tuned": 2.229,
-  "balance": 2.229,
-  "tribes": [
-   {
-    "name": "PRISM COHORT",
-    "team": 0,
-    "kills": 41,
-    "wt": 3,
-    "at": 3
-   },
-   {
-    "name": "HELIX COHORT",
-    "team": 0,
-    "kills": 29,
-    "wt": 3,
-    "at": 3
-   },
-   {
-    "name": "GRANITE BATTALION",
-    "team": 1,
-    "kills": 18,
-    "wt": 4,
-    "at": 4
-   },
-   {
-    "name": "LYNX COMPANY",
-    "team": 1,
-    "kills": 23,
-    "wt": 3,
-    "at": 3
-   }
-  ],
-  "winTeam": 0,
-  "story": "stake",
-  "chron": [
-   "THE PRISM COHORT TAKE THE REACTOR",
-   "2ND WIN · 41 KILLS"
-  ],
-  "economy": {
-   "forges": 22,
-   "trades": 3,
-   "merchant": "VENOM CORE"
-  },
-  "seconds": 71.78,
-  "units": [
-   "acidwyrm",
-   "golem",
-   "glaciergiant",
-   "ironhorn",
-   "robot",
-   "ogre",
-   "troll",
-   "trooper",
-   "tesla",
-   "gunner",
-   "rifleman",
-   "grenadier"
-  ],
-  "views": 12,
-  "likes": 0,
-  "comments": 0,
-  "secs": 72,
-  "published": "2026-11-20T15:12:30Z"
- },
- {
-  "id": "50QptpjSSGY",
-  "date": "2026-11-20 10:56",
-  "title": "3 Armies, Only 1 SURVIVES 💀",
-  "seed": 1722421925,
-  "slot": 1101,
-  "era": "wild",
-  "map": "canyon",
-  "teams": [
-   "YELLOW",
-   "RED",
-   "CYAN"
-  ],
-  "armies": [
-   "CYBER SANDMEN",
-   "CHAOS REAPERS",
-   "BUILDERS"
+   "HOOKS",
+   "PIRATES"
   ],
   "formations": [
    "columns",
    "block"
   ],
   "troops": [],
-  "hook": "3 Armies, Only 1 SURVIVES 💀",
-  "winner": "CYAN WINS",
-  "wild": true,
-  "sides": [
-   {
-    "name": "CYBER SANDMEN",
-    "mix": {
-     "sandman": 0.6,
-     "hollow": 0.28,
-     "bannerman": 0.12
-    },
-    "heavy": [],
-    "base": "hollow"
-   },
-   {
-    "name": "CHAOS REAPERS",
-    "mix": {
-     "phasereaper": 0.66,
-     "griffin": 0.34
-    },
-    "heavy": [],
-    "base": "phasereaper"
-   },
-   {
-    "name": "BUILDERS",
-    "mix": {
-     "builder": 0.54,
-     "gargoyle": 0.35,
-     "zerog": 0.11
-    },
-    "heavy": [],
-    "base": "builder"
-   }
-  ],
+  "hook": "Royal Hooks vs Shadow Pirates ⚔️",
+  "winner": "TEAL WINS",
   "cinematic": true,
-  "three": true,
   "titleKind": "title",
   "trophy": {
    "mvp": {
-    "unit": "ACID LEVIATHAN",
-    "kills": 19
+    "unit": "YETI",
+    "kills": 28,
+    "name": "PELL STORMBORN",
+    "title": "GIANT SLAYER"
    },
-   "fight": 58.9,
+   "fight": 57.9,
    "wipeout": true,
-   "left": 2,
+   "left": 9,
    "titles": [
-    "STORM COLOSSUS SLAYER",
-    "HYDRA SLAYER"
+    "GIANT SLAYER",
+    "SIEGE GOLEM SLAYER"
    ],
    "mutations": [
-    "regen"
+    "spikes"
    ],
-   "moments": []
+   "moments": [
+    "sudden:meteors"
+   ]
   },
-  "combat": true,
-  "balance": [
-   1.049,
-   0.656,
-   1.296
+  "mode": "siege",
+  "skins": [
+   "ROYAL",
+   "SHADOW"
   ],
+  "combat": true,
+  "balKey": "HOOKS|PIRATES|siege",
   "tribes": [
    {
-    "name": "FALLING LEAF SCHOOL",
+    "name": "REEFJAW CREW",
     "team": 0,
-    "kills": 48,
+    "kills": 30,
+    "wt": 3,
+    "at": 3
+   },
+   {
+    "name": "CREW OF THE SEA WOLF",
+    "team": 0,
+    "kills": 55,
     "wt": 4,
     "at": 4
    },
    {
-    "name": "HIGHMOOR CLAN",
+    "name": "TIDEBREAKER CREW",
     "team": 1,
-    "kills": 70,
+    "kills": 55,
     "wt": 3,
     "at": 3
    },
    {
-    "name": "GRANITE BATTALION",
-    "team": 2,
-    "kills": 57,
-    "wt": 3,
-    "at": 3
-   }
-  ],
-  "winTeam": 2,
-  "story": "stake",
-  "chron": [
-   "THE GRANITE BATTALION TAKE THE CANYON PASS",
-   "5TH WIN · 57 KILLS"
-  ],
-  "economy": {
-   "forges": 18,
-   "trades": 0,
-   "merchant": "FROST CORE"
-  },
-  "seconds": 73.98,
-  "units": [
-   "mammoth",
-   "spiderqueen",
-   "hydra",
-   "minotaur",
-   "ogre",
-   "hollow",
-   "sandman",
-   "bannerman",
-   "bonecolossus",
-   "griffin",
-   "phasereaper",
-   "stormcolossus",
-   "acidwyrm",
-   "gargoyle",
-   "builder"
-  ],
-  "views": 6,
-  "likes": 0,
-  "comments": 0,
-  "secs": 75,
-  "published": "2026-11-20T10:57:45Z"
- },
- {
-  "id": "wqklnJHTxGU",
-  "date": "2026-11-19 23:04",
-  "title": "⚔️ CHAMPION DUEL: Gravity Tyrant vs Undead",
-  "seed": 2844447894,
-  "slot": 1100,
-  "era": "wild",
-  "map": "frozen",
-  "teams": [
-   "PINK",
-   "YELLOW"
-  ],
-  "armies": [
-   "GRAVITY",
-   "UNDEAD"
-  ],
-  "formations": [
-   "wedge",
-   "line"
-  ],
-  "troops": [],
-  "hook": "⚔️ CHAMPION DUEL: Gravity Tyrant vs Undead",
-  "winner": "YELLOW WINS",
-  "cinematic": true,
-  "titleKind": "title",
-  "trophy": {
-   "mvp": {
-    "unit": "LIVING FORTRESS",
-    "kills": 18
-   },
-   "fight": 57.4,
-   "wipeout": true,
-   "left": 4,
-   "titles": [
-    "ACID LEVIATHAN SLAYER",
-    "GRAVITY TYRANT SLAYER",
-    "GLACIER BEHEMOTH SLAYER"
-   ],
-   "moments": []
-  },
-  "mode": "duel",
-  "skins": [
-   null,
-   "SHADOW"
-  ],
-  "combat": true,
-  "balKey": "GRAVITY|UNDEAD|duel",
-  "tuned": 2.803,
-  "balance": 1.786,
-  "tribes": [
-   {
-    "name": "CINDERCLAW KIN",
-    "team": 0,
-    "kills": 42,
-    "wt": 3,
-    "at": 3
-   },
-   {
-    "name": "ASHMANTLE KIN",
-    "team": 0,
-    "kills": 215,
-    "wt": 3,
-    "at": 3
-   },
-   {
-    "name": "WORMWOOD COVEN",
-    "team": 1,
-    "kills": 36,
-    "wt": 5,
-    "at": 4
-   },
-   {
-    "name": "THE WEEPING GATE",
+    "name": "SALTFANG CREW",
     "team": 1,
     "kills": 8,
     "wt": 3,
-    "at": 3
+    "at": 2
    }
   ],
-  "winTeam": 1,
-  "story": "streak",
+  "winTeam": 0,
+  "story": "revenge",
   "chron": [
-   "THE WORMWOOD COVEN TAKE THE FROZEN END",
-   "STREAK ENDED · 3RD WIN · 36 KILLS"
+   "THE CREW OF THE SEA WOLF TAKE THE BATTLEFIELD",
+   "4TH WIN · 55 KILLS"
   ],
   "economy": {
-   "forges": 22,
-   "trades": 1,
-   "merchant": "FROST CORE"
+   "forges": 23,
+   "trades": 4,
+   "merchant": "FLAME CORE"
   },
-  "seconds": 72.83,
+  "seconds": 72.12,
   "units": [
-   "gravitytyrant",
-   "glaciergiant",
-   "stareater",
+   "spiderqueen",
    "siegegolem",
-   "orc",
-   "goliath",
+   "hydra",
+   "stormcolossus",
+   "hookman",
+   "yeti",
+   "ogre",
+   "pirate",
+   "giant",
+   "glaciergiant",
    "juggernaut",
-   "gravitymonk",
-   "livingfortress",
-   "acidwyrm",
-   "mammoth",
-   "treant",
-   "skeleton",
-   "zombie",
-   "wizard"
+   "musketeer"
   ],
-  "views": 4,
+  "views": 2,
   "likes": 0,
   "comments": 0,
   "secs": 73,
-  "published": "2026-11-19T23:04:51Z"
+  "published": "2026-11-22T18:51:11Z"
  }
 ]
