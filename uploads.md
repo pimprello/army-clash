@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-22 18:50 | Royal Hooks vs Shadow Pirates ⚔️ | Teal wins | https://youtube.com/shorts/L68_qRUo2ys |
 | 2026-11-21 21:26 | A SANDWORM Burst Out 🪱 | Purple wins | https://youtube.com/shorts/zQEVZlj8ICs |
 | 2026-11-21 14:57 | ⚔️ CHAMPION DUEL: Sweden vs Norway | Sweden wins | https://youtube.com/shorts/k6a6a1-wO9o |
 | 2026-11-21 10:54 | The Last One TRANSFORMED 😱 | White wins | https://youtube.com/shorts/IY5EfwClJt8 |

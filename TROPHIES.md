@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 583 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 584 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 583 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **PELL STORMBORN** (YETI), 28 kills · 2026-11-22 18:50
 - **TALVO BONECRUSHER** (GENERAL), 28 kills · 2026-11-21 10:54
 - **ASHKA THE WALL** (PLAGUE ALCHEMIST), 10 kills · 2026-11-16 11:25
 - **KAELEN NIGHTFANG** (MINOTAUR), 36 kills · 2026-11-15 22:38
@@ -47,7 +48,6 @@ Records from 583 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **MORGRA IRONHIDE** (MINOTAUR), 16 kills · 2026-11-13 05:12
 - **SIRA SKULLTAKER** (WAR RHINO), 36 kills · 2026-11-12 22:32
 - **PELL THE UNBROKEN** (GENERAL), 15 kills · 2026-11-12 14:48
-- **ZEDRIK IRONHIDE** (TROLL), 42 kills · 2026-11-12 08:24
 
 ## Titles earned (rarest first)
 
@@ -74,7 +74,7 @@ Records from 583 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - PLAYER SLAYER: 14
 - STAR EATER SLAYER: 14
 - TANK SLAYER: 17
-- SIEGE GOLEM SLAYER: 18
+- SIEGE GOLEM SLAYER: 19
 - HYDRA SLAYER: 20
 - COLOSSUS SLAYER: 21
 - STORM COLOSSUS SLAYER: 21
@@ -86,8 +86,8 @@ Records from 583 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - ELEPHANT SLAYER: 31
 - MAMMOTH SLAYER: 37
 - GOLEM SLAYER: 42
-- GIANT SLAYER: 42
 - TITAN SLAYER: 42
+- GIANT SLAYER: 43
 
 ## Mutations (rarest first)
 
@@ -96,7 +96,7 @@ Records from 583 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 50
 - venom: 93
 - swift: 96
-- spikes: 113
+- spikes: 114
 - regen: 121
 
 ## Big moments
@@ -142,7 +142,7 @@ Records from 583 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - sudden: ring: 19
 - portal: demon: 20
 - portal: troll: 21
-- sudden: meteors: 25
+- sudden: meteors: 26
 - sudden: lava: 28
 
 ## The tribes' chronicle
@@ -185,6 +185,7 @@ Records from 583 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-22 18:50: The Crew of the Sea Wolf Take the Battlefield (4th win · 55 kills)
 - 2026-11-21 21:26: The Ion Legion Take the World Furnace (revenge! · first ever win · 24 kills)
 - 2026-11-21 14:57: The Coven of Ash Take the Ruined Fort (3 wins in a row · 40 kills)
 - 2026-11-21 10:54: The Raven Hill Clan Take the Open Plains (3 wins in a row · 65 kills)
@@ -194,4 +195,3 @@ Records from 583 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-20 10:56: The Granite Battalion Take the Canyon Pass (5th win · 57 kills)
 - 2026-11-19 23:04: The Wormwood Coven Take the Frozen End (streak ended · 3rd win · 36 kills)
 - 2026-11-19 18:53: The Nightshade Coven Take the Trench Line (4th win · 42 kills)
-- 2026-11-19 14:22: The Wildbrook Clan Take the Quarry (revenge denied · 12th win · 34 kills)
