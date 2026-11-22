@@ -18,6 +18,8 @@ const AR = RVB.AR;
 const C = require('./creative.js');
 const { makeTitle, nounOf } = require('./titles.js');
 const { Cliff } = require('./cliffhanger.js');
+// (rules.ui.notch, Rellz 2026-11-21: "nothing in the UI should be in the top 190 px": the phone's notch and YouTube's top bar)
+const NOTCH = !!(require('./rules.json').ui || {}).notch;
 const chronicle = require('./chronicle.js');
 const Music = require('./music.js');
 const Commentary = require('./commentary.js');
@@ -254,7 +256,7 @@ async function main() {
     // blood first: splatter, pools and spattered fighters instead of sparks and smoke (rules.ui.blood; looks only)
     ...(rules.ui && rules.ui.blood && rules.ui.blood.on ? { blood: rules.ui.blood } : {}),
     // little people instead of circles and triangles (rules.ui.humans; looks only)
-    ...(rules.ui && rules.ui.humans ? { humans: true } : {}), ...(rules.ui && rules.ui.cineClean ? { cineClean: true } : {}),
+    ...(rules.ui && rules.ui.humans ? { humans: true } : {}), ...(rules.ui && rules.ui.cineClean ? { cineClean: true } : {}), ...(NOTCH ? { notch: true } : {}),
     // the picks, with the holiday (Christmas snow) and which side defends a siege or is the boss (the mode's own dice)
     ...(PK ? { picks: Object.assign({}, PK, { on: true, holiday: HOL ? HOL.key : null }), pkSide: sideRoll < 0.5 ? 0 : 1 } : {}),
     // real-life damage (rules.realism, Rellz 2026-11-21): deadly guns, black holes that erase, limping wounded (battle logic, no dice)
@@ -486,7 +488,7 @@ async function main() {
       } : null;
       return { col: RVB.TEAMS[sd.team], name: sd.label, sub: sd.name, count: sd.count ? `×${sd.count}` : '', portrait: live };
     }) : null;
-    const fo = FO ? { W, H, RS, seed, dur: IN_S, title: 'ARMY CLASH', tag: tag0, question: 'WHO WINS?', sides: foSides, bg: bg1, battle0 } : null;
+    const fo = FO ? { W, H, RS, seed, dur: IN_S, title: NOTCH ? null : 'ARMY CLASH', tag: tag0, question: 'WHO WINS?', sides: foSides, bg: bg1, battle0 } : null;
     if (FO) FO.faceoffSounds(synth, IN_S, CO_S);
     else { synth.play({ type: 'boom', gain: 0.8 }, CO_S + 0.02); synth.play({ type: 'whoosh' }, CO_S + Math.max(0, IN_S - 0.35)); }
     for (let k = 0; k < INTRO_F; k++) {

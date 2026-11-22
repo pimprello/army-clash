@@ -26,7 +26,7 @@ const AREA = { roster: { x0: 30, y0: 222, x1: 1050, y1: 478, min: 12 }, council:
 // UI 2.0 (rules.ui.layout 2): everything must also stay inside the Shorts safe zone: clear of the phone's edges, the top bar,
 // YouTube's title/channel line at the bottom (below y 1560) and the like/comment/share column (right of x 940, from y 900 down)
 const UI = (rules.ui && rules.ui.layout) || 1;
-const SAFE = { x0: 48, x1: 1032, y0: 60, y1: 1560, btnX: 940, btnY0: 900 };
+const SAFE = { x0: 48, x1: 1032, y0: (require('./rules.json').ui || {}).notch || 60, y1: 1560, btnX: 940, btnY0: 900 };
 const MIN2 = { council: 18, story: 18, roster: 13, chapter: 18, banner: 0 };
 const cv = createCanvas(1080, 1920), ctx = cv.getContext('2d');
 const problems = [];

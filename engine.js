@@ -10432,8 +10432,12 @@ const RVB = (() => {
     drawHUD2(ctx) {
       const t = this.t, L = this.alive[0] + this.reserve[0], R = this.alive[1] + this.reserve[1];
       ctx.textBaseline = 'alphabetic'; ctx.textAlign = 'center';
-      ctx.font = font(this.title.length > 15 ? 58 : 64, 800); spaced(ctx, 2); ctx.fillStyle = COL.white; ctx.fillText(this.title, VW / 2, 126);
-      ctx.font = font(28, 700, false); spaced(ctx, 6); ctx.fillStyle = COL.gold; ctx.fillText(this.hook, VW / 2, 170, 760);
+      // (rules.ui.notch, Rellz 2026-11-21: nothing in the top 190 px, where the phone's notch and YouTube's top bar cover it: the
+      // logo and the hook line are gone from the top; the scoreboard starts below the line)
+      if (!this.opts.notch) {
+        ctx.font = font(this.title.length > 15 ? 58 : 64, 800); spaced(ctx, 2); ctx.fillStyle = COL.white; ctx.fillText(this.title, VW / 2, 126);
+        ctx.font = font(28, 700, false); spaced(ctx, 6); ctx.fillStyle = COL.gold; ctx.fillText(this.hook, VW / 2, 170, 760);
+      }
       // smooth counts: the shown number eases toward the real one
       this.hudN = this.hudN || [L, R];
       this.hudN = [L, R].map((v, i) => (Math.abs(v - this.hudN[i]) < 0.5 ? v : this.hudN[i] + (v - this.hudN[i]) * 0.35));
@@ -10469,8 +10473,10 @@ const RVB = (() => {
     drawHUD3v2(ctx) {
       const tot = this.totals(), xs = [210, 540, 870];
       ctx.textBaseline = 'alphabetic'; ctx.textAlign = 'center';
-      ctx.font = font(64, 800); spaced(ctx, 2); ctx.fillStyle = COL.white; ctx.fillText(this.title, VW / 2, 126);
-      ctx.font = font(28, 700, false); spaced(ctx, 6); ctx.fillStyle = COL.gold; ctx.fillText(`${this.hook}   ·   ${fmtTime(this.fightT)}`, VW / 2, 170, 820);
+      if (!this.opts.notch) {
+        ctx.font = font(64, 800); spaced(ctx, 2); ctx.fillStyle = COL.white; ctx.fillText(this.title, VW / 2, 126);
+        ctx.font = font(28, 700, false); spaced(ctx, 6); ctx.fillStyle = COL.gold; ctx.fillText(`${this.hook}   ·   ${fmtTime(this.fightT)}`, VW / 2, 170, 820);
+      }
       for (let tm = 0; tm < 3; tm++) {
         const x = xs[tm];
         spaced(ctx, 3); ctx.font = font(30, 800); ctx.fillStyle = TEAMS[tm].c; ctx.fillText(TEAMS[tm].name, x, 224, 300);

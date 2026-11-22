@@ -2,6 +2,10 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-22 (Rellz): nothing in the top 190 px (phone notch, YouTube's top bar)
+
+- `rules.ui.notch: 190`: the ARMY CLASH logo and the hook line above the scoreboard are gone (the scoreboard itself already starts below the line), and the face-off no longer shows the logo at the top (its tag sits below the line). `check-layout.js` now treats 190 px as the top of the safe zone. Same as Tower and Territory Clash did on 21 November. The cliffhanger ending (another session's work, all three games) was merged in, so Army's fun-park maps, realism, general and human music go out with it.
+
 ## 2026-11-21 (Rellz, Army Clash chat): fun-park maps, real-life damage, the war general, map-matched human music
 
 Rellz: "add new maps inspired by mario kart and mario world like rainbow sand air and other cool ideas kinda like tower clash but not the same, make the damage more accurate like that black hole void think should kill them instantly, 2 bullets should do more damage, make it like real life kind off. make the voice sound like a war general and have a fade and bled in with th music, also make the music match the theme of the map make it sound less robotic". Army Clash only.

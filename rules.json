@@ -2213,7 +2213,8 @@
       "drops": 1.5,
       "sparks": 0.4,
       "stay": 0.6
-    }
+    },
+    "notch": 190
   },
   "world": {
     "on": true,
@@ -2242,7 +2243,12 @@
   "thumbnail": {
     "on": true
   },
-  "cliffhanger": { "on": true, "lead": 0.5, "leadTime": 1.5, "seconds": 3.4 },
+  "cliffhanger": {
+    "on": true,
+    "lead": 0.5,
+    "leadTime": 1.5,
+    "seconds": 3.4
+  },
   "coldOpen": {
     "on": true,
     "seconds": 3.4,
