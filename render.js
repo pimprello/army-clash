@@ -765,7 +765,6 @@ async function main() {
       '',
       `${ids.map(i => `${EMOJI[pair[i]] || ''}${showNames ? armyName(i) : `${ns[i]} ${armyName(i)}`}`).join(' vs ')} — a ${Math.round(DUR)}-second ${three ? 'three-way ' : ''}${GENRE[era] || ''}army battle simulation on the ${MAP_NAME[map] || map} map. Pure strategy and chance — no real footage. Every troop has its own class, tactics and personality.${game.mode && MODE_LINE[game.mode] ? ' ' + MODE_LINE[game.mode] : ''}${classLine}`,
       ...(tribeLine ? ['', `🏴 ${tribeLine}`] : []),
-      ...(relatedLine ? ['', `▶ ${relatedLine}`] : []),
       '',
       `🔔 New battle every day on Army Clash · Tower Clash · Territory Clash — subscribe and hit the bell!`,
       '',
