@@ -561,6 +561,8 @@ async function main() {
     const z0 = game.cam && game.cam.z, punch = muOn && MU.pulse !== false && game.cam && game.phase === 'fight' && game.fightT > FIGHT_S - 6 ? Music.pulse(mp, i / FPS + OFF) : 0;
     if (punch) game.cam.z = z0 * (1 + punch);
     game.draw(ctx);
+    // defensive reset: clear any leaked canvas state from draw() so overlays are never invisible
+    ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over';
     if (punch) game.cam.z = z0;
     if (muOn && MU.loop !== false) {
       if (i === 0 && !firstCv) { firstCv = createCanvas(W * RS, H * RS); firstCv.getContext('2d').drawImage(canvas, 0, 0); }
@@ -765,16 +767,16 @@ async function main() {
       ...(tribeLine ? ['', `🏴 ${tribeLine}`] : []),
       ...(relatedLine ? ['', `▶ ${relatedLine}`] : []),
       '',
-      `🔔 New battle every day — subscribe and hit the bell so you never miss one!`,
+      `🔔 New battle every day on Army Clash · Tower Clash · Territory Clash — subscribe and hit the bell!`,
       '',
-      `#shorts #armyclash #battlesimulation #epicbattle #${ns.map(n => n.toLowerCase().replace(/ /g, '')).join('vs')}${three ? ' #1v1v1' : ''}${era !== 'mixed' ? ` #${era}battle` : ''} #whowins #strategy`,
+      `#shorts #armyclash #battlesimulation #epicbattle #${ns.map(n => n.toLowerCase().replace(/ /g, '')).join('vs')}${three ? ' #1v1v1' : ''}${era !== 'mixed' ? ` #${era}battle` : ''} #whowins #strategy #clashuniverse`,
     ].join('\n'),
     tags: clickbait ? [] : unique([
       `${ns[0].toLowerCase()} vs ${ns[1] ? ns[1].toLowerCase() : ''}`,
       'army battle', 'battle simulation', 'army simulation', 'who wins', 'army clash', 'epic battle', 'strategy game',
       'battle royale', 'military simulation', 'army vs army', 'troop simulation', 'unit battle', 'troop battle',
       ids.map(i => (showNames ? armyName(i) : `${ns[i]} ${armyName(i)}`).toLowerCase()).join(' vs '),
-      'shorts', 'short video', 'viral shorts',
+      'shorts', 'short video', 'viral shorts', 'clash game', 'clash universe',
     ]
       .concat(HOL ? HOL.tags : [])
       .concat(three ? ['1v1v1', 'three way battle', '3 armies'] : [])
