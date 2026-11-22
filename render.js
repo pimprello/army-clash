@@ -17,6 +17,7 @@ const CO = require('./coldopen.js');
 const AR = RVB.AR;
 const C = require('./creative.js');
 const { makeTitle, nounOf } = require('./titles.js');
+const { Cliff } = require('./cliffhanger.js');
 const chronicle = require('./chronicle.js');
 const Music = require('./music.js');
 const Commentary = require('./commentary.js');
@@ -552,6 +553,7 @@ async function main() {
   // the slow-motion replay of the final kill (rules.picks.replay): the last moments of the fight are kept at half size, and as the
   // battle ends they play again at half speed over the start of the outro, then fade back; the video is no longer for it
   const RP = PK && PK.replay !== false ? { n: Math.round((PK.replaySecs ?? 0.8) * FPS), ring: [], at: -1, k: 0 } : null;
+  let cliffed = false;
   for (let i = 0; i < MAXFRAMES; i++) {
     ctx.setTransform(RS, 0, 0, RS, 0, 0);
     const z0 = game.cam && game.cam.z, punch = muOn && MU.pulse !== false && game.cam && game.phase === 'fight' && game.fightT > FIGHT_S - 6 ? Music.pulse(mp, i / FPS + OFF) : 0;
@@ -595,6 +597,21 @@ async function main() {
     const frame = canvas.toBuffer('raw');
     if (!enc.p.stdin.write(frame)) await once(enc.p.stdin, 'drain');
     nFrames++;
+    // ----- the cliffhanger ending (rules.cliffhanger, cliffhanger.js, the same in all three games; Rellz 2026-11-21: "instead of
+    // fully ending and saying game over just end at the cliff hanger and say subscribe"): just before the final blow lands (the
+    // finale already knows when), the picture freezes and the Short ends on WHO WINS?! and SUBSCRIBE TO SEE THE ENDING. The
+    // battle is then played on to its end without drawing, so the titles, description and records still know what happened. -----
+    const CLR = rules.cliffhanger || {};
+    if (CLR.on !== false && finale && game.phase === 'fight' && game.fightT >= finale.t - (finale.how === 'kill' ? (CLR.lead ?? 0.5) : (CLR.leadTime ?? 1.5))) {
+      const still = createCanvas(W * RS, H * RS); still.getContext('2d').drawImage(canvas, 0, 0);
+      const C = new Cliff({ W, H, RS, fps: FPS, seed: bseed, seconds: CLR.seconds || 3.4, question: game.N === 3 ? 'WHO SURVIVES?!' : 'WHO WINS?!', cta: ['SUBSCRIBE', 'TO SEE THE ENDING'] });
+      C.sounds(synth, (i + 1) / FPS + OFF);
+      for (let j = 0; j < C.n; j++) { C.frame(ctx, j, still); const fr = canvas.toBuffer('raw'); if (!enc.p.stdin.write(fr)) await once(enc.p.stdin, 'drain'); nFrames++; }
+      cliffed = true;
+      for (let k = 0; !game.finished && k < MAXFRAMES * 3; k++) { if (director) director.advance(1 / FPS); else game.frame(1 / FPS); game.sfx.length = 0; }
+      console.log(`cliffhanger: froze ${(finale.t - (game.lastFightT ?? game.fightT)).toFixed(2)} s before the end (${game.headline || ''})`);
+      break;
+    }
     // the video ends when the outro does (outroSeconds after the battle), or at the fixed length
     if (OUTRO && game.finished) break;
     if (director) director.advance(1 / FPS); else game.frame(1 / FPS);
@@ -636,6 +653,8 @@ async function main() {
     const cues = mtr.cues(), mus = Music.render(mp, { sr: SR, dur: DUR, cues });
     mixed = Music.mix(L, R, mus, { sr: SR, volume: MU.volume ?? 0.45, duck: MU.duck ?? 0.45, levels: MU.levels || null,
       ...(vBus ? { voice: { L: vBus.L.map(v => v * gain), R: vBus.R.map(v => v * gain) }, dips: vDips, dipDb: GEN.dipDb ?? -6 } : {}) });
+    // (the cliffhanger: the sound fades away over the last moments instead of being cut off)
+    if (cliffed) { const fo = Math.round(SR * 0.9); for (let k = 0; k < fo; k++) { const f = frames - fo + k, g = 1 - k / fo; if (f >= 0) { mixed.L[f] *= g * g; mixed.R[f] *= g * g; } } }
     console.log(`Music: ${muStyle}${mp.theme ? ` (${mp.theme} theme)` : ''}${mp.human ? ', human' : ''}, ${mp.bpm} bpm, the drop at ${mus.drop.toFixed(1)} s, the final hit at ${mus.fin.toFixed(1)} s`);
   }
   const wav = path.join(OUT, 'sound.wav');
@@ -668,6 +687,7 @@ async function main() {
   const skinNames = skins ? ids.map(i => (skins[i] && RVB.SKINS[skins[i]] ? RVB.SKINS[skins[i]].name : null)) : undefined;
   const nationBattle = pair.every(k => NATION[k]);
   const { title, kind: titleKind } = makeTitle({
+    cliff: cliffed,
     teams: pair, nations: nationBattle ? NATION : null, flags: FLAG, docs: game.doc, start: game.start.slice(0, ids.length),
     left: ids.map(t => game.alive[t] + game.reserve[t]), gained: ids.map(t => (game.gained && game.gained[t]) || 0), winner: game.winner,
     low: Fx.low, falls: Fx.falls || [], drops: Fx.drops || [], strike: Fx.strike, hazard: Fx.hazard, wild: wild || custom || (three && invent3), three, clickbait, seed,
