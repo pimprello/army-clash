@@ -2,6 +2,14 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-22: fixed the description's army names
+
+- The description's opening line had a stray "(" after each army ("Denmark Chain Hooks ("), from the SEO rewrite; it reads "Denmark Chain Hooks (columns formation, 67 troops)" again, and the summary line shows just the names.
+
+## 2026-11-22: Christmas content ready (switched on 24 to 26 December only)
+
+- On Christmas posts (`holiday.js`, 24 to 26 December) every little person wears a Santa hat, every drop comes as a wrapped present (red or green paper, gold ribbon and bow) and the banner reads GIFT DROP! (`this.xmas` in `engine.js`, looks only, so battles are unchanged). Together with what was already there (snow falling, the snowy map, the festive soundtrack, the holiday title and tags) this is the Christmas special. Built in Army and Tower Clash's engines (the same code in both); Territory Clash already has its Christmas look (the Frostwild island in snow, festive music).
+
 ## 2026-11-22 (Rellz): nothing in the top 190 px (phone notch, YouTube's top bar)
 
 - `rules.ui.notch: 190`: the ARMY CLASH logo and the hook line above the scoreboard are gone (the scoreboard itself already starts below the line), and the face-off no longer shows the logo at the top (its tag sits below the line). `check-layout.js` now treats 190 px as the top of the safe zone. Same as Tower and Territory Clash did on 21 November. The cliffhanger ending (another session's work, all three games) was merged in, so Army's fun-park maps, realism, general and human music go out with it.

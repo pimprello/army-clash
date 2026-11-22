@@ -757,11 +757,11 @@ async function main() {
     seconds: +DUR.toFixed(2),
     title: Holiday.title(HOL, title),
     description: [
-      `⚔️ ${ids.map(i => `${EMOJI[pair[i]] || ''}${who(i)}${three ? '' : ` — ${formations[i]} formation, `}${game.start[i]} troops`).join(' vs ')} ⚔️`,
+      `⚔️ ${ids.map(i => `${EMOJI[pair[i]] || ''}${who(i)}${three ? '' : `${formations[i]} formation, `}${game.start[i]} troops)`).join(' vs ')} ⚔️`,
       '',
       `💬 Who wins? Drop your pick in the comments BEFORE the battle ends!`,
       '',
-      `${ids.map(i => `${EMOJI[pair[i]] || ''}${who(i)}`).join(' vs ')} — a ${Math.round(DUR)}-second ${three ? 'three-way ' : ''}${GENRE[era] || ''}army battle simulation on the ${MAP_NAME[map] || map} map. Pure strategy and chance — no real footage. Every troop has its own class, tactics and personality.${game.mode && MODE_LINE[game.mode] ? ' ' + MODE_LINE[game.mode] : ''}${classLine}`,
+      `${ids.map(i => `${EMOJI[pair[i]] || ''}${showNames ? armyName(i) : `${ns[i]} ${armyName(i)}`}`).join(' vs ')} — a ${Math.round(DUR)}-second ${three ? 'three-way ' : ''}${GENRE[era] || ''}army battle simulation on the ${MAP_NAME[map] || map} map. Pure strategy and chance — no real footage. Every troop has its own class, tactics and personality.${game.mode && MODE_LINE[game.mode] ? ' ' + MODE_LINE[game.mode] : ''}${classLine}`,
       ...(tribeLine ? ['', `🏴 ${tribeLine}`] : []),
       ...(relatedLine ? ['', `▶ ${relatedLine}`] : []),
       '',
