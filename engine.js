@@ -2240,6 +2240,8 @@ const RVB = (() => {
       this.initSys();
       // (rules.picks, 2026-11-16) Rellz's 26 updates: new troops, spells, modes, weather, dusk, the MVP card, the commentator's cues
       if (this.opts.picks && this.opts.picks.on) this.initPicks();
+      // (rules.realism, Rellz 2026-11-21: "make the damage more accurate ... make it like real life")
+      if (this.opts.realism && this.opts.realism.on) this.realInit();
       // rules.titans (two or three titans in every army, the graveyard spell) and rules.affinity (troops fed by their element)
       if (this.opts.titans && this.opts.titans.on) { this.titansOn = true; this.graveOn = this.opts.titans.graveyard !== false; this.ext = true; this.g5 = { pools: [], fx: [], globs: [], graves: [] }; }
       // (sixth batch) the merchant's spell book, expendable small troops, remains and a cleaner battlefield
@@ -3240,7 +3242,7 @@ const RVB = (() => {
       for (const o of this.units) {
         if (o.dead || o.team === a.team || o.phased) continue;
         const d = Math.hypot(o.x - a.x, o.y - a.y), reach = a.splash + o.r;
-        if (d < reach) { if (this.ext) this._kind = 'blast'; this.damage(o, a.dmg * (1 - 0.5 * d / reach) * Math.max(UNIT[o.type].armor, 0.5) * this.dmgMul, a.from); if (this.ext && a.fx) this.hitFx(o, a.fx, a.from); }
+        if (d < reach) { if (this.ext) this._kind = 'blast'; this.damage(o, a.dmg * (this.real ? this.realBlast(d / reach) : 1 - 0.5 * d / reach) * Math.max(UNIT[o.type].armor, 0.5) * this.dmgMul, a.from); if (this.ext && a.fx) this.hitFx(o, a.fx, a.from); }
       }
       if (this.affOn) this._elK = null;
       if (this.shine) { this._shXk = null; this._shBx = undefined; this.shineBoom(a); }
@@ -3276,6 +3278,7 @@ const RVB = (() => {
     // colour for a banner about a fallen troop: the other side's colour (in three-way battles, the killer's)
     foeCol(u, from) { return this.N === 2 && u.team < 2 ? TEAMS[1 - u.team].c : from && TEAMS[from.team] ? TEAMS[from.team].c : COL.gold; }
     damage(u, dmg, from) {
+      if (this.xDmg) { dmg = this.xDmgK(u, dmg, from); if (!(dmg > 0)) return; }
       // (rules.affinity) a blast of a troop's own element feeds it instead; a fed troop hits harder
       if (this.affOn) { if (this._elK && !u.dead && this.affBlast(u, dmg)) return; if (from && from.affT > this.fightT) dmg *= this.aff.boost; }
       // (sixth batch) rage and giant growth hit harder, knights take more, and a shield dome takes most of it
@@ -3565,7 +3568,7 @@ const RVB = (() => {
           if (hitU) {
             const arm = UNIT[hitU.type].armor, floor = a.bolt ? 0.75 : a.pierce || 0;
             if (this.ext) this._kind = 'shot';
-            this.damage(hitU, (a.dmg || UNIT.archer.dmg) * Math.max(arm, floor) * this.dmgMul, a.from);
+            this.damage(hitU, (a.dmg || UNIT.archer.dmg) * Math.max(arm, floor) * this.dmgMul * (this.real ? this.realShot(a, hitU) : 1), a.from);
             if (this.ext && a.fx) this.hitFx(hitU, a.fx, a.from);
             this.snd('thunk', { pan: (a.x - AR.x) / AR.w * 1.4 - 0.7, quiet: true });
             continue;
@@ -4291,6 +4294,7 @@ const RVB = (() => {
       if (this.g5) this.drawCast5Fx(ctx);
       if (this.sp3) this.drawSp3Fx(ctx);
       if (this.pk) this.pkFx(ctx);
+      if (this.fun || this.sucked) this.drawFunTop(ctx);
       if (this.market2) this.drawMarketFx(ctx, true);
       if (this.anim) this.drawAnimFx(ctx, drawOrder);
       if (this.slashes) this.drawSlashes(ctx);
@@ -6341,6 +6345,156 @@ const RVB = (() => {
     SAND: { c: '#E3C07A', d: '#8A6B2E', l: '#F6E7C6' },
   });
 
+  // ----- the fun-park maps (Rellz, 2026-11-21: "add new maps inspired by mario kart and mario world like rainbow sand air and other
+  // cool ideas kinda like tower clash but not the same"). Original designs, no borrowed names or characters: a rainbow road in space,
+  // a desert of pyramids and quicksand, a kingdom on the clouds, and four of my own (candy hills, a jungle of snapping plants, a sky
+  // galleon in a storm, a low-gravity star orbit). Each one is mirrored top to bottom like every map, and each has its own trick
+  // (ARMY_FUN). The edges that drop into the sky or space are "void" (a knocked-back troop falls; walkers are kept on the road).
+  Object.assign(MAPS, {
+    // Rainbow Skyway: a glowing rainbow road through space, open to the stars on both sides, with notches bitten out of the edges,
+    // star blocks to hide behind and boost pads that fire troops forward
+    rainbow: mirrorMap([
+      { b: [-800, -600, 490, 1200], kind: 'void' }, { b: [310, -600, 490, 1200], kind: 'void' },
+      { c: [-310, -170, 66], kind: 'void' }, { c: [310, -170, 66], kind: 'void' },
+      { c: [0, -250, 26], kind: 'starblock' }, { c: [-170, -50, 20], kind: 'starblock' }, { c: [170, -50, 20], kind: 'starblock' },
+    ]),
+    // Pyramid Sands: golden sand, two pyramids, obelisks, a paved road, quicksand pits that drag troops in, and sandstorms
+    pyramid: mirrorMap([
+      { b: [-440, -330, 120, 120], kind: 'pyramid' }, { b: [320, -330, 120, 120], kind: 'pyramid' },
+      { c: [-150, -240, 16], kind: 'obelisk' }, { c: [150, -240, 16], kind: 'obelisk' },
+      { c: [-340, -80, 18], kind: 'pillar' }, { c: [340, -80, 18], kind: 'pillar' },
+    ]),
+    // Cloud Kingdom: islands of cloud high in the sky; gaps fall away to the open sky, bouncy cloud springs throw troops about,
+    // and gusts of wind push the whole battle sideways
+    cloud: mirrorMap([
+      { b: [-800, -70, 510, 140], kind: 'void' }, { b: [290, -70, 510, 140], kind: 'void' },
+      { c: [-250, -250, 50], kind: 'void' }, { c: [250, -250, 50], kind: 'void' },
+      { c: [0, -210, 34], kind: 'cloudpuff' }, { c: [-410, -350, 28], kind: 'cloudpuff' }, { c: [410, -350, 28], kind: 'cloudpuff' },
+    ]),
+    // (my own) Candy Hills: gumdrops, candy canes and lollipops on raspberry ground, with chocolate pools that slow everyone down
+    candy: mirrorMap([
+      { c: [-300, -110, 28], kind: 'gumdrop' }, { c: [300, -110, 28], kind: 'gumdrop' }, { c: [0, 0, 26], kind: 'lolly' },
+      { c: [0, -250, 17], kind: 'candycane' }, { c: [-170, -340, 15], kind: 'candycane' }, { c: [170, -340, 15], kind: 'candycane' },
+      { c: [-420, -260, 22], kind: 'lolly' }, { c: [420, -260, 22], kind: 'lolly' },
+    ]),
+    // (my own) Snapjaw Jungle: giant trees and snapping plants that bite whoever walks too close, from either army
+    jungle: mirrorMap([
+      { c: [-340, -270, 34], kind: 'tree' }, { c: [340, -270, 34], kind: 'tree' }, { c: [-430, -60, 22], kind: 'bush' }, { c: [430, -60, 22], kind: 'bush' },
+      { c: [-250, -100, 22], kind: 'snapper' }, { c: [250, -100, 22], kind: 'snapper' }, { c: [0, -210, 22], kind: 'snapper' },
+      { c: [-120, -360, 20], kind: 'snapper' }, { c: [120, -360, 20], kind: 'snapper' },
+    ]),
+    // (my own) Storm Galleon: the deck of a flying ship; over the rails is a long drop, and the cannons fire broadsides onto the deck
+    airship: mirrorMap([
+      { b: [-800, -600, 470, 1200], kind: 'void' }, { b: [330, -600, 470, 1200], kind: 'void' },
+      { c: [0, -170, 20], kind: 'mast' }, { c: [0, -390, 18], kind: 'mast' },
+      { b: [-280, -270, 50, 50], kind: 'crate' }, { b: [230, -270, 50, 50], kind: 'crate' },
+      { c: [-250, -70, 16], kind: 'barrel' }, { c: [250, -70, 16], kind: 'barrel' },
+    ]),
+    // (my own) Starfall Orbit: planets in deep space; gravity is low, so every blow sends troops flying, and falling stars give
+    // whoever grabs one a few seconds of star power
+    galaxy: mirrorMap([
+      { c: [-300, -130, 40], kind: 'planet' }, { c: [300, -130, 40], kind: 'planet' }, { c: [0, -300, 32], kind: 'planet' },
+      { c: [-140, -40, 15], kind: 'asteroid' }, { c: [140, -40, 15], kind: 'asteroid' }, { c: [-420, -330, 18], kind: 'asteroid' }, { c: [420, -330, 18], kind: 'asteroid' },
+    ]),
+  });
+  // where each map's tricks are (centre-relative, mirrored top to bottom in FUN_AT)
+  const FUN_M = (list) => list.flatMap(p => (p[1] === 0 ? [p] : [p, [p[0], -p[1], ...p.slice(2)]]));
+  const FUN_AT = {
+    pads: FUN_M([[0, -110], [-190, -310], [190, -310]]),                 // rainbow: boost pads [x, y]
+    sand: FUN_M([[-200, -120, 62], [200, -120, 62], [0, 0, 76]]),         // pyramid: quicksand pits [x, y, r]
+    springs: FUN_M([[-130, -140, 26], [130, -140, 26], [0, -370, 26]]),   // cloud: springs [x, y, r]
+    choc: FUN_M([[-170, -180, 68], [170, -180, 68], [-390, 0, 58], [390, 0, 58]]),   // candy: chocolate pools [x, y, r]
+  };
+  Object.assign(MAP_MECH, { rainbow: { void: 1, pads: 1 }, pyramid: { sand: 1, storm: 1 }, cloud: { void: 1, springs: 1, wind: 1 }, candy: { choc: 1 }, jungle: { snap: 1 }, airship: { void: 1, broadside: 1 }, galaxy: { lowgrav: 1, stars: 1 } });
+  Object.assign(XOB, { starblock: 1, pyramid: 1, obelisk: 1, cloudpuff: 1, gumdrop: 1, lolly: 1, candycane: 1, snapper: 1, mast: 1, barrel: 1, planet: 1, asteroid: 1 });
+  Object.assign(OB_HP, { starblock: 999, pyramid: 999, obelisk: 60, cloudpuff: 999, gumdrop: 40, lolly: 30, candycane: 30, snapper: 45, mast: 90, barrel: 20, planet: 999, asteroid: 50 });
+  Object.assign(OB_DUST, { obelisk: '#D9B26F', gumdrop: '#F472B6', lolly: '#FDE68A', candycane: '#F87171', snapper: '#4ADE80', mast: '#8B5A2B', barrel: '#8B5A2B', asteroid: '#9CA3AF' });
+  // the ground of each (painted once)
+  const stars = (g, seed, n, a = 0.7) => scatter(seed, n, S => { g.beginPath(); g.arc(S.range(0, AR.w), S.range(0, AR.h), S.range(0.6, 2.2), 0, TAU); g.fillStyle = `rgba(255,255,255,${S.range(0.2, a)})`; g.fill(); });
+  const RAINBOW = ['#FF4D6D', '#FF9F1C', '#FFE066', '#5EEA8C', '#3ABEFF', '#6C7BFF', '#C77DFF'];
+  Object.assign(MAP_THEME, {
+    rainbow: {
+      floor: '#07061A', grid: null, mid: 'rgba(255,255,255,0.22)',
+      texture: g => {
+        stars(g, 0x5AB0, 140, 0.9);
+        // the road: seven bands of colour along its length, tiles across it, and glowing rails
+        const x0 = AR.w / 2 - 310, w = 620, bw = w / RAINBOW.length;
+        RAINBOW.forEach((c, k) => { g.fillStyle = c; g.globalAlpha = 0.5; g.fillRect(x0 + k * bw, 0, bw + 0.5, AR.h); });
+        g.globalAlpha = 1;
+        const sh = g.createLinearGradient(x0, 0, x0 + w, 0); sh.addColorStop(0, 'rgba(255,255,255,0.18)'); sh.addColorStop(0.5, 'rgba(255,255,255,0.02)'); sh.addColorStop(1, 'rgba(255,255,255,0.18)');
+        g.fillStyle = sh; g.fillRect(x0, 0, w, AR.h);
+        g.lineWidth = 2; g.strokeStyle = 'rgba(255,255,255,0.16)';
+        for (let y = 40; y < AR.h; y += 80) { g.beginPath(); g.moveTo(x0, y); g.lineTo(x0 + w, y); g.stroke(); }
+        for (const x of [x0, x0 + w]) { g.lineWidth = 10; g.strokeStyle = 'rgba(255,255,255,0.25)'; g.beginPath(); g.moveTo(x, 0); g.lineTo(x, AR.h); g.stroke(); g.lineWidth = 4; g.strokeStyle = '#FFFFFF'; g.stroke(); }
+      },
+    },
+    pyramid: {
+      floor: '#4A3416', grid: null, mid: 'rgba(255,235,190,0.12)',
+      texture: g => {
+        g.lineCap = 'round';
+        scatter(0x9A12, 46, S => { const x = S.range(-40, AR.w), y = S.range(0, AR.h), l = S.range(70, 150); g.beginPath(); g.moveTo(x, y); g.quadraticCurveTo(x + l / 2, y - S.range(6, 14), x + l, y); g.lineWidth = 3; g.strokeStyle = S.chance(0.5) ? 'rgba(255,214,140,0.13)' : 'rgba(60,35,10,0.22)'; g.stroke(); });
+        // the processional road of sandstone slabs, half buried
+        const cx = AR.w / 2; g.fillStyle = 'rgba(214,180,120,0.22)'; g.fillRect(cx - 54, 0, 108, AR.h);
+        g.lineWidth = 2; g.strokeStyle = 'rgba(60,35,10,0.35)';
+        for (let y = 0; y < AR.h; y += 54) { g.beginPath(); g.moveTo(cx - 54, y); g.lineTo(cx + 54, y); g.stroke(); g.beginPath(); g.moveTo(cx + ((y / 54) % 2 ? -18 : 18), y); g.lineTo(cx + ((y / 54) % 2 ? -18 : 18), y + 54); g.stroke(); }
+        scatter(0x9A13, 26, S => { g.beginPath(); g.arc(S.range(0, AR.w), S.range(0, AR.h), S.range(2, 4), 0, TAU); g.fillStyle = 'rgba(80,50,20,0.4)'; g.fill(); });
+      },
+    },
+    cloud: {
+      floor: '#2C3F6B', grid: null, mid: 'rgba(255,255,255,0.18)',
+      texture: g => {
+        // a deck of soft cloud: overlapping puffs, lit from the top left
+        scatter(0xC10D, 70, S => { const x = S.range(-20, AR.w + 20), y = S.range(-20, AR.h + 20), r = S.range(26, 70); const gr = g.createRadialGradient(x - r * 0.3, y - r * 0.3, r * 0.1, x, y, r); gr.addColorStop(0, 'rgba(255,255,255,0.16)'); gr.addColorStop(1, 'rgba(255,255,255,0)'); g.fillStyle = gr; g.beginPath(); g.arc(x, y, r, 0, TAU); g.fill(); });
+        scatter(0xC10E, 30, S => { g.beginPath(); g.ellipse(S.range(0, AR.w), S.range(0, AR.h), S.range(30, 60), S.range(14, 26), 0, 0, TAU); g.fillStyle = 'rgba(20,30,60,0.16)'; g.fill(); });
+      },
+    },
+    candy: {
+      floor: '#3A1D33', grid: null, mid: 'rgba(255,220,240,0.14)',
+      texture: g => {
+        scatter(0xCA0D, 16, S => { g.beginPath(); g.ellipse(S.range(0, AR.w), S.range(0, AR.h), S.range(40, 90), S.range(26, 50), S.range(0, 3), 0, TAU); g.fillStyle = S.chance(0.5) ? 'rgba(255,150,200,0.09)' : 'rgba(150,230,255,0.06)'; g.fill(); });
+        const SPR = ['#FF6FA8', '#7FE3FF', '#FFE27A', '#9BF29B', '#FFFFFF', '#C79BFF'];
+        g.lineCap = 'round'; g.lineWidth = 3;
+        scatter(0xCA0E, 160, S => { const x = S.range(0, AR.w), y = S.range(0, AR.h), a = S.range(0, TAU); g.strokeStyle = SPR[S.int(0, SPR.length - 1)]; g.globalAlpha = 0.55; g.beginPath(); g.moveTo(x, y); g.lineTo(x + Math.cos(a) * 6, y + Math.sin(a) * 6); g.stroke(); });
+        g.globalAlpha = 1;
+        // the chocolate pools
+        for (const [px, py, r] of FUN_AT.choc) { const x = AR.w / 2 + px, y = AR.h / 2 + py;
+          g.beginPath(); for (let k = 0; k <= 14; k++) { const a = k / 14 * TAU, rr = r * (0.92 + 0.1 * Math.sin(k * 2.7 + px)); k ? g.lineTo(x + Math.cos(a) * rr, y + Math.sin(a) * rr * 0.8) : g.moveTo(x + Math.cos(a) * rr, y + Math.sin(a) * rr * 0.8); }
+          g.closePath(); g.fillStyle = '#4A2614'; g.fill(); g.lineWidth = 4; g.strokeStyle = '#2A1408'; g.stroke();
+          g.beginPath(); g.ellipse(x - r * 0.35, y - r * 0.25, r * 0.35, r * 0.1, -0.3, 0, TAU); g.fillStyle = 'rgba(255,220,190,0.18)'; g.fill(); }
+      },
+    },
+    jungle: {
+      floor: '#0E2416', grid: null, mid: 'rgba(200,255,210,0.10)',
+      texture: g => {
+        // big leaves lying on the forest floor, and a muddy track
+        scatter(0x1E6F, 34, S => { const x = S.range(0, AR.w), y = S.range(0, AR.h), l = S.range(26, 52), a = S.range(0, TAU);
+          g.save(); g.translate(x, y); g.rotate(a); g.beginPath(); g.moveTo(-l, 0); g.quadraticCurveTo(0, -l * 0.45, l, 0); g.quadraticCurveTo(0, l * 0.45, -l, 0); g.fillStyle = S.chance(0.5) ? 'rgba(60,140,70,0.22)' : 'rgba(30,90,45,0.28)'; g.fill();
+          g.lineWidth = 1.5; g.strokeStyle = 'rgba(160,230,150,0.18)'; g.beginPath(); g.moveTo(-l, 0); g.lineTo(l, 0); g.stroke(); g.restore(); });
+        const cx = AR.w / 2; g.beginPath(); for (let k = 0; k <= 20; k++) { const y = AR.h * k / 20, x = cx + Math.sin(k * 0.8) * 60; k ? g.lineTo(x, y) : g.moveTo(x, y); }
+        g.lineWidth = 70; g.strokeStyle = 'rgba(70,45,20,0.28)'; g.stroke();
+      },
+    },
+    airship: {
+      floor: '#3A2616', grid: null, mid: 'rgba(255,230,190,0.12)',
+      texture: g => {
+        // planks along the length of the deck, with nail heads and a few darker boards
+        const x0 = AR.w / 2 - 330, x1 = AR.w / 2 + 330;
+        for (let x = x0, k = 0; x < x1; x += 30, k++) { g.fillStyle = k % 5 === 2 ? 'rgba(0,0,0,0.12)' : k % 3 ? 'rgba(255,200,140,0.04)' : 'rgba(0,0,0,0.05)'; g.fillRect(x, 0, 30, AR.h);
+          g.lineWidth = 2; g.strokeStyle = 'rgba(0,0,0,0.35)'; g.beginPath(); g.moveTo(x, 0); g.lineTo(x, AR.h); g.stroke();
+          for (let y = (k * 97) % 160; y < AR.h; y += 160) { g.beginPath(); g.moveTo(x, y); g.lineTo(x + 30, y); g.stroke(); g.fillStyle = 'rgba(20,12,6,0.6)'; g.fillRect(x + 5, y + 4, 3, 3); g.fillRect(x + 22, y + 4, 3, 3); } }
+        // the rails
+        for (const x of [x0, x1]) { g.lineWidth = 14; g.strokeStyle = '#5A3A1E'; g.beginPath(); g.moveTo(x, 0); g.lineTo(x, AR.h); g.stroke(); g.lineWidth = 3; g.strokeStyle = '#1A0F06'; g.stroke(); for (let y = 30; y < AR.h; y += 60) { g.fillStyle = '#2A1A0C'; g.fillRect(x - 6, y, 12, 12); } }
+      },
+    },
+    galaxy: {
+      floor: '#120A26', grid: null, mid: 'rgba(220,200,255,0.12)',
+      texture: g => {
+        scatter(0x6A1A, 10, S => { const x = S.range(0, AR.w), y = S.range(0, AR.h), r = S.range(90, 200); const gr = g.createRadialGradient(x, y, 0, x, y, r); gr.addColorStop(0, S.chance(0.5) ? 'rgba(200,90,255,0.16)' : 'rgba(70,160,255,0.14)'); gr.addColorStop(1, 'rgba(0,0,0,0)'); g.fillStyle = gr; g.fillRect(x - r, y - r, r * 2, r * 2); });
+        stars(g, 0x6A1B, 180, 0.95);
+      },
+    },
+  });
+
   const ARMY_EXT = {
     // ----- setup -----
     initSys() {
@@ -6474,7 +6628,7 @@ const RVB = (() => {
       const O = UNIT[o.type];
       if (o.dead || O.immovable || O.unstoppable) return;
       if (O.rank === 0) amt *= 0.3;
-      if (this.mod === 'lowgrav' || this.zeroG > this.fightT) amt *= 2.5;
+      if (this.mod === 'lowgrav' || this.zeroG > this.fightT || this.lowG) amt *= 2.5;
       const dx = o.x - fx, dy = o.y - fy, d = Math.hypot(dx, dy) || 1;
       o.kx = (o.kx || 0) + dx / d * amt * 7; o.ky = (o.ky || 0) + dy / d * amt * 7;
     },
@@ -6584,6 +6738,7 @@ const RVB = (() => {
       if (this.huntTeam !== undefined && u.team !== this.huntTeam && u.team <= 2) k *= 1.8;
       if (u.rageT > T) k *= 1.35;
       if (this.pk) k *= this.pkSpd(u);
+      if (this.xSpd) k *= this.xSpdK(u);
       if (u.giantK) k *= 0.9;
       if (u.panicT > T || (this.panic[u.team] > T && !(u.crownT > T))) k *= 0.8;
       if (this.mod === 'fast') k *= 1.5;
@@ -7204,7 +7359,7 @@ const RVB = (() => {
         for (const o of this.near(f.x, f.y, f.r)) {
           if (o.team === f.team || UNIT[o.type].immovable || o === f.follow || o.phased) continue;
           const dx = f.x - o.x, dy = f.y - o.y, d = Math.hypot(dx, dy) || 1;
-          if (d < 24 + o.r) continue;
+          if (d < 24 + o.r) { if (this.real && this.real.hole && f.kind === 'singularity') this.realHole(o, f.x, f.y, h, null); continue; }
           const s = Math.min(f.pow * k * h * (UNIT[o.type].rank === 0 ? 0.3 : 1), d - 20);
           o.x += dx / d * s; o.y += dy / d * s;
         }
@@ -12769,7 +12924,7 @@ const RVB = (() => {
           if (o.team === b.team || o.dead || o.phased || UNIT[o.type].immovable || o === b.follow) continue;
           const dx = b.x - o.x, dy = b.y - o.y, d = Math.hypot(dx, dy) || 1;
           if (d > 18 + o.r) { const s = Math.min(b.pow * k * h * (UNIT[o.type].rank === 0 ? 0.3 : 1) * (0.5 + 0.5 * (1 - d / b.r)), d - 16); o.x += dx / d * s; o.y += dy / d * s; }
-          if (d < b.core + o.r) { this._dot = true; this.damage(o, b.dps * h, b.from && !b.from.dead ? b.from : null); this._dot = false; }
+          if (d < b.core + o.r) { if (this.real && this.real.hole) this.realHole(o, b.x, b.y, h, b.from && !b.from.dead ? b.from : null); else { this._dot = true; this.damage(o, b.dps * h, b.from && !b.from.dead ? b.from : null); this._dot = false; } }
         }
         if (T >= b.end && !b.done) {
           b.done = true;
@@ -16078,7 +16233,7 @@ const RVB = (() => {
   });
   const PK_SPELLS = ['chain', 'nova', 'rain', 'smoke', 'shieldwall', 'vamp'];
   // the commentator's cues and how much each matters (the render picks the lines and keeps them apart)
-  const PK_CALL = { titan: 5, last: 5, traitor: 4, split: 4, gate: 4, spell: 3, streak: 3, bighit: 2, first: 2 };
+  const PK_CALL = { void: 4, titan: 5, last: 5, traitor: 4, split: 4, gate: 4, spell: 3, streak: 3, bighit: 2, first: 2 };
   const pkMix = (a, b, k) => {
     const p = h => [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), parseInt(h.slice(5, 7), 16)], A = p(a), B = p(b);
     return '#' + A.map((v, i) => Math.round(v + (B[i] - v) * k).toString(16).padStart(2, '0')).join('');
@@ -16747,7 +16902,322 @@ const RVB = (() => {
       return true;
     },
   };
-  Object.assign(Army.prototype, ARMY_EXT, ARMY_DRAW, ARMY_MAPS, ARMY_EXT2, ARMY_DRAW2, ARMY_COMBAT, ARMY_TRIBES, ARMY_TRIBES_DRAW, ARMY_PACE, ARMY_UI2, ARMY_WORLD, ARMY_FX2, ARMY_SMART, ARMY_CAST3, ARMY_CAST3_DRAW, ARMY_EVOLVE, ARMY_THUMB, ARMY_NAV, ARMY_MINDS, ARMY_CLASS, ARMY_CAST4, ARMY_MARKET2, ARMY_ANIM, ARMY_SHINE, ARMY_CAST5, ARMY_SP3, ARMY_BLOOD, ARMY_HUMAN, ARMY_PICKS);
+  // ----- the fun-park maps' tricks, and real-life damage (Rellz, 2026-11-21) -----
+  // The maps (see FUN_AT, MAP_MECH): boost pads, quicksand and sandstorms, cloud springs and wind, chocolate, snapping plants,
+  // broadsides, low gravity and falling stars. Battle logic runs on the battle clock (fightT) and the map's own dice (this.SR);
+  // every trick hits both armies alike (mirrored top to bottom, or the nearest troop whoever it belongs to).
+  // rules.realism: guns are deadly (about two rifle bullets drop a soldier), point-blank shots hit harder and long shots a little
+  // less, the middle of a blast is deadlier than its edge, badly wounded troops limp, and a black hole's core erases whatever it
+  // swallows (a titan is torn apart over a second or two instead). No dice. With it off, old seeds play exactly as before.
+  const SPAG = 0.45;
+  const ARMY_FUN = {
+    realInit() {
+      const R = this.opts.realism;
+      this.real = Object.assign({ gun: 2.6, rapid: 0.55, arrow: 1.3, close: 1.2, far: 0.85, blast: true, limp: 0.35, limpK: 0.8, hole: true, titanHole: 0.35 }, R);
+      this.ext = true; this.xSpd = true;
+    },
+    // a shot lands: how much deadlier it is in real life (guns, arrows; magic and lasers stay as they are)
+    realShot(a, o) {
+      const R = this.real, f = a.from, U = f && UNIT[f.type];
+      if (!U || U.shot || U.lob || U.laser) return 1;
+      if (a.kind === 'bullet' || a.kind === 'sniper') {
+        // every bullet is deadly, but a machine gun sprays (so each of its many bullets counts a bit less)
+        const cd = U.cd || 1, sp = cd >= 0.6 ? 1 : cd <= 0.15 ? R.rapid : R.rapid + (1 - R.rapid) * (cd - 0.15) / 0.45;
+        let k = 1 + (R.gun - 1) * sp;
+        if (!f.dead && U.range) { const d = Math.hypot(f.x - o.x, f.y - o.y) / U.range; k *= d < 0.35 ? R.close : R.close + (R.far - R.close) * Math.min(1, (d - 0.35) / 0.65); }
+        return k;
+      }
+      return a.kind === undefined ? R.arrow : 1;
+    },
+    // how much of a blast's damage reaches a troop at fraction f (0 = the middle, 1 = the edge)
+    realBlast(f) { return this.real.blast ? 1.3 * (1 - 0.7 * f) : 1 - 0.5 * f; },
+    // a troop on the black hole's core: gone (a titan is torn apart a little at a time)
+    realHole(o, hx, hy, h, from) {
+      if (o.dead) return;
+      if (UNIT[o.type].rank === 0 || isTitan(o.type)) { this._dot = true; this.damage(o, o.max * this.real.titanHole * h, from); this._dot = false; return; }
+      (this.sucked || (this.sucked = [])).push({ x: o.x, y: o.y, r: o.r, c: TEAMS[o.team].c, hx, hy, t0: this.fightT });
+      if (this.fightT >= (this.suckSaid || 0)) { this.suckSaid = this.fightT + 2.5; this.float(hx, hy - 40, 'ERASED!', '#C4B5FD', 30, 0.9); if (this.pk) this.pkCue('void', o); }
+      this.xf.erased = (this.xf.erased || 0) + 1;
+      this._dot = true; this.damage(o, o.hp + 999, from); this._dot = false;
+    },
+    // speed: limping when badly hurt; boost pads, star power
+    xSpdK(u) {
+      const T = this.fightT; let k = 1;
+      if (this.real && this.real.limp && u.hp < u.max * this.real.limp && UNIT[u.type].rank !== 0 && !u.flying) k *= this.real.limpK;
+      if (u.boostT > T) k *= 1.6;
+      if (u.starT > T) k *= 1.3;
+      return k;
+    },
+    // damage: star power can't be hurt, and hits harder
+    xDmgK(u, dmg, from) {
+      const T = this.fightT;
+      if (u.starT > T) return 0;
+      if (from && from.starT > T) dmg *= 1.5;
+      return dmg;
+    },
+    // ----- the maps -----
+    mapInit() {
+      ARMY_MAPS.mapInit.call(this);
+      const m = this.mapMech, cx = AR.x + AR.w / 2, cy = AR.y + AR.h / 2, at = l => l.map(p => ({ x: cx + p[0], y: cy + p[1], r: p[2] || 0, hitT: -9 }));
+      const F = this.fun = {};
+      if (m.pads) { F.pads = at(FUN_AT.pads); this.xSpd = true; }
+      if (m.sand) F.sand = at(FUN_AT.sand);
+      if (m.storm) F.storm = { next: 12, end: 0, dir: 1, name: 'SANDSTORM!', col: '#F5D38A', push: 36 };
+      if (m.springs) F.springs = at(FUN_AT.springs);
+      if (m.wind) F.storm = { next: 10, end: 0, dir: 1, name: 'GUST OF WIND!', col: '#E0F2FE', push: 30 };
+      if (m.choc) F.choc = at(FUN_AT.choc);
+      if (m.snap) F.snap = this.obstacles.filter(o => o.kind === 'snapper').map((ob, i) => ({ ob, next: 2 + i * 0.45, hitT: -9, tx: ob.x, ty: ob.y }));
+      if (m.broadside) F.shots = { next: 9, list: [] };
+      if (m.lowgrav) this.lowG = true;
+      if (m.stars) { F.stars = { next: 8, list: [] }; this.xSpd = true; this.xDmg = true; }
+    },
+    mapTick(h) {
+      ARMY_MAPS.mapTick.call(this, h);
+      const T = this.fightT, F = this.fun, S = this.SR, cx = AR.x + AR.w / 2, cy = AR.y + AR.h / 2;
+      if (!F) return;
+      const ground = o => !o.dead && !o.flying && !o.phased && !UNIT[o.type].immovable;
+      if (F.pads) for (const p of F.pads) for (const o of this.near(p.x, p.y, 40)) {
+        if (!ground(o) || Math.abs(o.x - p.x) > 34 || Math.abs(o.y - p.y) > 24 || o.padT > T - 1) continue;
+        o.padT = T; o.boostT = T + 1.3; p.hitT = T;
+        if (T >= (F.padSnd || 0)) { F.padSnd = T + 0.4; this.snd('wind', { pan: (p.x - AR.x) / AR.w * 1.4 - 0.7 }); }
+      }
+      if (F.sand) for (const p of F.sand) for (const o of this.near(p.x, p.y, p.r)) {
+        if (!ground(o)) continue;
+        const dx = p.x - o.x, dy = p.y - o.y, d = Math.hypot(dx, dy) || 1; if (d > p.r) continue;
+        this.slowDown(o, 0.55, 0.25);
+        if (d > 6) { const s = Math.min(d - 4, 34 * h * (UNIT[o.type].rank === 0 ? 0.3 : 1)); o.x += dx / d * s; o.y += dy / d * s; }
+        if (d < 24 && UNIT[o.type].rank !== 0) { o.sinkT = T; this.dot(o, 1.1 * h, null); }
+      }
+      if (F.choc) for (const p of F.choc) for (const o of this.near(p.x, p.y, p.r)) if (ground(o) && Math.hypot(o.x - p.x, o.y - p.y) < p.r * 0.9) this.slowDown(o, 0.6, 0.25);
+      if (F.storm) {
+        const st = F.storm;
+        if (T >= st.next) { st.end = T + 3.5; st.dir = -st.dir; st.next = T + 15; st.t0 = T; this.banner(st.name, st.col, 1.3); this.snd('wind', {}); }
+        if (T < st.end) for (const o of this.units) if (ground(o)) o.x += st.dir * st.push * h * (UNIT[o.type].rank === 0 ? 0.3 : 1);
+      }
+      if (F.springs) for (const p of F.springs) for (const o of this.near(p.x, p.y, p.r + 30)) {
+        if (!ground(o) || o.sprT > T || Math.hypot(o.x - p.x, o.y - p.y) > p.r + o.r) continue;
+        o.sprT = T + 1.6; p.hitT = T; this.knock(o, p.x, p.y, 34);
+        if (T >= (F.sprSnd || 0)) { F.sprSnd = T + 0.3; this.snd('bonk', { pan: (p.x - AR.x) / AR.w * 1.4 - 0.7 }); }
+      }
+      if (F.snap) for (const s of F.snap) {
+        if (T < s.next || !this.obstacles.includes(s.ob)) continue;
+        let best = null, bd = s.ob.r + 54;
+        for (const o of this.near(s.ob.x, s.ob.y, s.ob.r + 80)) { if (!ground(o)) continue; const d = Math.hypot(o.x - s.ob.x, o.y - s.ob.y) - o.r; if (d < bd || (d === bd && best && o.uid < best.uid)) { bd = d; best = o; } }
+        if (!best) { s.next = T + 0.25; continue; }
+        s.next = T + 2.4; s.hitT = T; s.tx = best.x; s.ty = best.y;
+        this.damage(best, 2.6 * Math.max(UNIT[best.type].armor, 0.5), null);
+        this.snd('chop', { pan: (s.ob.x - AR.x) / AR.w * 1.4 - 0.7 });
+        if (T >= (F.snapSaid || 0)) { F.snapSaid = T + 6; this.float(s.ob.x, s.ob.y - 40, 'SNAP!', '#86EFAC', 26, 0.8); }
+      }
+      if (F.shots) {
+        const sh = F.shots;
+        if (T >= sh.next) {
+          sh.next = T + 8;
+          const x = cx + S.range(-270, 270), y = S.range(70, 380);
+          sh.list.push({ x, y: cy - y, t0: T, at: T + 1.3 }, { x, y: cy + y, t0: T, at: T + 1.3 });
+          if (!sh.said) { sh.said = true; this.banner('BROADSIDE!', '#FCA5A5', 1.2); }
+        }
+        for (const b of sh.list) if (!b.done && T >= b.at) { b.done = true; this.explode({ team: -1, kind: 'cannonball', x: b.x, y: b.y, splash: 58, dmg: 4, from: null }); this.shake(9); this.snd('cannon', { pan: (b.x - AR.x) / AR.w * 1.4 - 0.7 }); }
+        if (sh.list.some(b => b.done)) sh.list = sh.list.filter(b => !b.done);
+      }
+      if (F.stars) {
+        const st = F.stars;
+        if (T >= st.next) {
+          st.next = T + 11;
+          const x = cx + S.range(-300, 300), y = S.range(40, 300);
+          st.list.push({ x, y: cy - y, t0: T, end: T + 9 }, { x, y: cy + y, t0: T, end: T + 9 });
+        }
+        for (const s of st.list) {
+          if (s.taken || T < s.t0 + 0.6) continue;
+          let best = null, bd = 30;
+          for (const o of this.near(s.x, s.y, 60)) { if (!ground(o) || o.starT > T) continue; const d = Math.hypot(o.x - s.x, o.y - s.y) - o.r; if (d < bd || (d === bd && best && o.uid < best.uid)) { bd = d; best = o; } }
+          if (best) { s.taken = true; best.starT = T + 4; this.float(s.x, s.y - 30, 'STAR POWER!', '#FDE047', 30, 1); this.snd('powerup', { pan: (s.x - AR.x) / AR.w * 1.4 - 0.7 }); }
+        }
+        st.list = st.list.filter(s => !s.taken && T < s.end);
+        // a troop with star power flattens the enemies it runs into
+        for (const u of this.units) if (u.starT > T && !u.dead) for (const o of this.near(u.x, u.y, u.r + 30)) if (o.team !== u.team && !o.dead && Math.hypot(o.x - u.x, o.y - u.y) < u.r + o.r + 4) { this._dot = true; this.damage(o, 4 * h, u); this._dot = false; }
+      }
+    },
+    // ----- drawing (looks only) -----
+    paintObstacle(g, o, ox, oy, S) {
+      const INK = COL.ink, map = this.opts.map;
+      if (o.void && (map === 'rainbow' || map === 'cloud' || map === 'airship')) {
+        g.beginPath(); if (o.circle) g.arc(o.x - ox, o.y - oy, o.r, 0, TAU); else g.rect(o.x0 - ox, o.y0 - oy, o.x1 - o.x0, o.y1 - o.y0);
+        if (map === 'cloud') {
+          // the open sky far below: bright blue, with little clouds drifting under the islands
+          const gr = g.createLinearGradient(0, o.circle ? o.y - oy - o.r : o.y0 - oy, 0, o.circle ? o.y - oy + o.r : o.y1 - oy); gr.addColorStop(0, '#6FB4EE'); gr.addColorStop(1, '#A9D8FF');
+          g.fillStyle = gr; g.fill(); g.save(); g.clip();
+          const R = rng(Math.round(o.circle ? o.x * 7 + o.y : o.x0 * 13 + o.y0));
+          for (let k = 0; k < (o.circle ? 3 : 8); k++) { const x = o.circle ? o.x - ox + R.range(-o.r, o.r) : R.range(Math.max(o.x0, AR.x) - ox, Math.min(o.x1, AR.x + AR.w) - ox), y = o.circle ? o.y - oy + R.range(-o.r, o.r) : R.range(o.y0 - oy, o.y1 - oy); for (let j = 0; j < 3; j++) { g.beginPath(); g.arc(x + j * 9, y + (j % 2) * 3, 8 + (j % 2) * 3, 0, TAU); g.fillStyle = 'rgba(255,255,255,0.6)'; g.fill(); } }
+          g.restore();
+          // a soft, puffy white edge
+          g.beginPath(); if (o.circle) g.arc(o.x - ox, o.y - oy, o.r, 0, TAU); else g.rect(o.x0 - ox, o.y0 - oy, o.x1 - o.x0, o.y1 - o.y0);
+          g.lineWidth = 12; g.strokeStyle = 'rgba(255,255,255,0.55)'; g.stroke(); g.lineWidth = 4; g.strokeStyle = '#FFFFFF'; g.stroke();
+          return;
+        }
+        g.fillStyle = map === 'airship' ? '#18263C' : '#04041A'; g.fill();
+        g.save(); g.clip();
+        const R = rng(Math.round(o.circle ? o.x * 7 + o.y : o.x0 * 13 + o.y0));
+        if (map === 'airship') for (let k = 0; k < 9; k++) { const x = R.range(Math.max(o.x0 ?? o.x - o.r, AR.x) - ox, Math.min(o.x1 ?? o.x + o.r, AR.x + AR.w) - ox), y = R.range(0, AR.h); g.beginPath(); g.ellipse(x, y, R.range(30, 60), R.range(8, 14), 0, 0, TAU); g.fillStyle = 'rgba(190,205,230,0.14)'; g.fill(); }
+        else for (let k = 0; k < (o.circle ? 8 : 40); k++) { const x = o.circle ? o.x - ox + R.range(-o.r, o.r) : R.range(Math.max(o.x0, AR.x) - ox, Math.min(o.x1, AR.x + AR.w) - ox), y = o.circle ? o.y - oy + R.range(-o.r, o.r) : R.range(o.y0 - oy, o.y1 - oy); g.beginPath(); g.arc(x, y, R.range(0.7, 2), 0, TAU); g.fillStyle = 'rgba(255,255,255,0.7)'; g.fill(); }
+        g.restore();
+        if (map === 'rainbow') { g.beginPath(); if (o.circle) g.arc(o.x - ox, o.y - oy, o.r, 0, TAU); else g.rect(o.x0 - ox, o.y0 - oy, o.x1 - o.x0, o.y1 - o.y0); g.lineWidth = 4; g.strokeStyle = 'rgba(255,255,255,0.8)'; g.stroke(); }
+        return;
+      }
+      if (!o.circle && o.kind === 'pyramid') {
+        // a pyramid from above: four sunlit and shaded faces meeting at a gold capstone
+        const x0 = o.x0 - ox, y0 = o.y0 - oy, x1 = o.x1 - ox, y1 = o.y1 - oy, mx = (x0 + x1) / 2, my = (y0 + y1) / 2;
+        g.fillStyle = 'rgba(0,0,0,0.35)'; g.fillRect(x0 + 8, y0 + 10, x1 - x0, y1 - y0);
+        for (const [c, a, b] of [['#EBC57A', [x0, y0], [x1, y0]], ['#C8963F', [x1, y0], [x1, y1]], ['#A8782C', [x1, y1], [x0, y1]], ['#D9AB57', [x0, y1], [x0, y0]]]) { g.beginPath(); g.moveTo(mx, my); g.lineTo(...a); g.lineTo(...b); g.closePath(); g.fillStyle = c; g.fill(); g.lineWidth = 2; g.strokeStyle = 'rgba(60,35,10,0.5)'; g.stroke(); }
+        g.lineWidth = 1.5; g.strokeStyle = 'rgba(60,35,10,0.25)';
+        for (let k = 1; k < 6; k++) { const f = k / 6; g.strokeRect(mx - (mx - x0) * f, my - (my - y0) * f, (x1 - x0) * f, (y1 - y0) * f); }
+        g.fillStyle = '#FFD95A'; g.fillRect(mx - 9, my - 9, 18, 18); g.lineWidth = 2; g.strokeStyle = INK; g.strokeRect(mx - 9, my - 9, 18, 18);
+        g.lineWidth = 4; g.strokeStyle = INK; g.strokeRect(x0, y0, x1 - x0, y1 - y0);
+        return;
+      }
+      if (o.circle) {
+        const x = o.x - ox, y = o.y - oy, r = o.r, R = rng(Math.round(o.x * 7 + o.y));
+        g.beginPath(); g.ellipse(x + 5, y + 7, r, r * 0.9, 0, 0, TAU); g.fillStyle = 'rgba(0,0,0,0.38)'; g.fill();
+        const star = (sx, sy, rr, col) => { g.beginPath(); for (let k = 0; k < 10; k++) { const a = -Math.PI / 2 + k * Math.PI / 5, q = k % 2 ? rr * 0.45 : rr; k ? g.lineTo(sx + Math.cos(a) * q, sy + Math.sin(a) * q) : g.moveTo(sx + Math.cos(a) * q, sy + Math.sin(a) * q); } g.closePath(); g.fillStyle = col; g.fill(); g.lineWidth = 2; g.strokeStyle = INK; g.stroke(); };
+        if (o.kind === 'starblock') {
+          const s = r * 0.95; g.beginPath(); g.roundRect ? g.roundRect(x - s, y - s, s * 2, s * 2, r * 0.3) : g.rect(x - s, y - s, s * 2, s * 2);
+          g.fillStyle = '#FFC93C'; g.fill(); g.lineWidth = 4; g.strokeStyle = INK; g.stroke();
+          g.lineWidth = 3; g.strokeStyle = 'rgba(255,250,220,0.7)'; g.beginPath(); g.moveTo(x - s + 5, y + s - 6); g.lineTo(x - s + 5, y - s + 5); g.lineTo(x + s - 6, y - s + 5); g.stroke();
+          star(x, y, r * 0.62, '#FFF3B0');
+        } else if (o.kind === 'obelisk') {
+          g.save(); g.translate(x, y); g.rotate(Math.PI / 4); g.fillStyle = '#C9A66B'; g.fillRect(-r, -r, r * 2, r * 2); g.lineWidth = 3.5; g.strokeStyle = INK; g.strokeRect(-r, -r, r * 2, r * 2);
+          g.beginPath(); g.moveTo(-r, -r); g.lineTo(r, r); g.moveTo(r, -r); g.lineTo(-r, r); g.lineWidth = 1.5; g.strokeStyle = 'rgba(60,35,10,0.4)'; g.stroke();
+          g.fillStyle = '#FFD95A'; g.fillRect(-r * 0.35, -r * 0.35, r * 0.7, r * 0.7); g.restore();
+        } else if (o.kind === 'cloudpuff') {
+          for (let k = 0; k < 7; k++) { const a = k / 7 * TAU + o.x * 0.01, px = x + Math.cos(a) * r * 0.55, py = y + Math.sin(a) * r * 0.5; g.beginPath(); g.arc(px, py, r * 0.52, 0, TAU); g.fillStyle = '#C9D7EE'; g.fill(); }
+          for (let k = 0; k < 7; k++) { const a = k / 7 * TAU + o.x * 0.01, px = x + Math.cos(a) * r * 0.5 - 3, py = y + Math.sin(a) * r * 0.45 - 4; g.beginPath(); g.arc(px, py, r * 0.46, 0, TAU); g.fillStyle = '#FFFFFF'; g.fill(); }
+          g.beginPath(); g.arc(x - 3, y - 4, r * 0.55, 0, TAU); g.fillStyle = '#FFFFFF'; g.fill();
+        } else if (o.kind === 'gumdrop') {
+          g.beginPath(); g.arc(x, y, r, 0, TAU); g.fillStyle = ['#FF5FA2', '#5EE1C1', '#FFB13B'][Math.abs(Math.round(o.x)) % 3]; g.fill(); g.lineWidth = 4; g.strokeStyle = INK; g.stroke();
+          g.fillStyle = 'rgba(255,255,255,0.75)'; for (let k = 0; k < 16; k++) { g.beginPath(); g.arc(x + R.range(-r * 0.7, r * 0.7), y + R.range(-r * 0.7, r * 0.7), 1.6, 0, TAU); g.fill(); }
+          g.beginPath(); g.ellipse(x - r * 0.35, y - r * 0.4, r * 0.32, r * 0.18, -0.5, 0, TAU); g.fillStyle = 'rgba(255,255,255,0.45)'; g.fill();
+        } else if (o.kind === 'lolly') {
+          g.beginPath(); g.arc(x, y, r, 0, TAU); g.fillStyle = '#FFFFFF'; g.fill();
+          g.save(); g.beginPath(); g.arc(x, y, r, 0, TAU); g.clip(); g.lineWidth = r * 0.32; g.lineCap = 'butt';
+          for (let k = 0; k < 4; k++) { g.beginPath(); for (let j = 0; j <= 30; j++) { const a = j / 30 * TAU * 1.6 + k * TAU / 4, q = j / 30 * r * 1.1; j ? g.lineTo(x + Math.cos(a) * q, y + Math.sin(a) * q) : g.moveTo(x, y); } g.strokeStyle = ['#FF4D6D', '#3ABEFF', '#FFE066', '#5EEA8C'][k]; g.stroke(); }
+          g.restore(); g.beginPath(); g.arc(x, y, r, 0, TAU); g.lineWidth = 4; g.strokeStyle = INK; g.stroke();
+        } else if (o.kind === 'candycane') {
+          g.beginPath(); g.arc(x, y, r, 0, TAU); g.fillStyle = '#FFFFFF'; g.fill();
+          g.save(); g.beginPath(); g.arc(x, y, r, 0, TAU); g.clip(); g.lineWidth = r * 0.45; g.strokeStyle = '#E11D48';
+          for (let k = -3; k <= 3; k++) { g.beginPath(); g.moveTo(x + k * r * 0.8 - r, y - r); g.lineTo(x + k * r * 0.8 + r, y + r); g.stroke(); }
+          g.restore(); g.beginPath(); g.arc(x, y, r, 0, TAU); g.lineWidth = 3.5; g.strokeStyle = INK; g.stroke();
+          g.beginPath(); g.arc(x + r * 0.9, y - r * 0.2, r * 0.8, Math.PI, Math.PI * 1.9); g.lineWidth = r * 0.7; g.strokeStyle = INK; g.stroke(); g.lineWidth = r * 0.5; g.strokeStyle = '#FFFFFF'; g.stroke();
+        } else if (o.kind === 'snapper') {
+          // the plant's leaves (its head and jaws are drawn live, see drawFunTop)
+          for (let k = 0; k < 6; k++) { const a = k / 6 * TAU + 0.3; g.save(); g.translate(x + Math.cos(a) * r * 0.75, y + Math.sin(a) * r * 0.75); g.rotate(a); g.beginPath(); g.ellipse(0, 0, r * 0.75, r * 0.32, 0, 0, TAU); g.fillStyle = k % 2 ? '#1F7A3A' : '#2E9A4C'; g.fill(); g.lineWidth = 2.5; g.strokeStyle = INK; g.stroke(); g.restore(); }
+          g.beginPath(); g.arc(x, y, r * 0.4, 0, TAU); g.fillStyle = '#14532D'; g.fill();
+        } else if (o.kind === 'mast') {
+          g.lineWidth = 2; g.strokeStyle = 'rgba(230,210,170,0.5)';
+          for (let k = 0; k < 6; k++) { const a = k / 6 * TAU; g.beginPath(); g.moveTo(x, y); g.lineTo(x + Math.cos(a) * r * 3, y + Math.sin(a) * r * 3); g.stroke(); }
+          g.beginPath(); g.arc(x, y, r * 1.45, 0, TAU); g.lineWidth = 6; g.strokeStyle = INK; g.stroke(); g.lineWidth = 3; g.strokeStyle = '#7A5230'; g.stroke();
+          g.beginPath(); g.arc(x, y, r, 0, TAU); g.fillStyle = '#6B4423'; g.fill(); g.lineWidth = 3.5; g.strokeStyle = INK; g.stroke();
+          g.beginPath(); g.arc(x, y, r * 0.55, 0, TAU); g.lineWidth = 2; g.strokeStyle = 'rgba(30,18,8,0.6)'; g.stroke();
+        } else if (o.kind === 'barrel') {
+          g.beginPath(); g.arc(x, y, r, 0, TAU); g.fillStyle = '#8B5A2B'; g.fill(); g.lineWidth = 3.5; g.strokeStyle = INK; g.stroke();
+          g.beginPath(); g.arc(x, y, r * 0.7, 0, TAU); g.lineWidth = 3; g.strokeStyle = '#4B5563'; g.stroke();
+          g.lineWidth = 1.5; g.strokeStyle = 'rgba(30,18,8,0.5)'; for (let k = -1; k <= 1; k++) { g.beginPath(); g.moveTo(x + k * r * 0.35, y - r * 0.65); g.lineTo(x + k * r * 0.35, y + r * 0.65); g.stroke(); }
+        } else if (o.kind === 'planet') {
+          const hue = ['#7C3AED', '#F97316', '#0EA5E9'][Math.abs(Math.round(o.x + o.y)) % 3];
+          const gr = g.createRadialGradient(x - r * 0.35, y - r * 0.35, r * 0.1, x, y, r); gr.addColorStop(0, '#FFFFFF'); gr.addColorStop(0.25, hue); gr.addColorStop(1, '#0B0620');
+          g.beginPath(); g.arc(x, y, r, 0, TAU); g.fillStyle = gr; g.fill(); g.lineWidth = 3.5; g.strokeStyle = INK; g.stroke();
+          for (let k = 0; k < 4; k++) { g.beginPath(); g.arc(x + R.range(-r * 0.5, r * 0.5), y + R.range(-r * 0.5, r * 0.5), R.range(3, r * 0.2), 0, TAU); g.fillStyle = 'rgba(0,0,0,0.2)'; g.fill(); }
+          if (Math.abs(Math.round(o.x)) % 2 === 0) { g.beginPath(); g.ellipse(x, y, r * 1.6, r * 0.45, -0.35, 0, TAU); g.lineWidth = 5; g.strokeStyle = 'rgba(253,230,138,0.75)'; g.stroke(); }
+        } else if (o.kind === 'asteroid') {
+          g.beginPath(); for (let k = 0; k <= 9; k++) { const a = k / 9 * TAU, rr = r * (0.82 + 0.2 * Math.sin(k * 2.9 + o.x)); k ? g.lineTo(x + Math.cos(a) * rr, y + Math.sin(a) * rr) : g.moveTo(x + Math.cos(a) * rr, y + Math.sin(a) * rr); }
+          g.closePath(); g.fillStyle = '#6B7280'; g.fill(); g.lineWidth = 3; g.strokeStyle = INK; g.stroke();
+          g.beginPath(); g.arc(x - r * 0.2, y - r * 0.1, r * 0.25, 0, TAU); g.fillStyle = 'rgba(0,0,0,0.25)'; g.fill();
+        } else return ARMY_MAPS.paintObstacle.call(this, g, o, ox, oy, S);
+        return;
+      }
+      return ARMY_MAPS.paintObstacle.call(this, g, o, ox, oy, S);
+    },
+    // under the troops: pads, quicksand, springs, cannon warnings, stars
+    drawMapDyn(ctx) {
+      ARMY_MAPS.drawMapDyn.call(this, ctx);
+      const F = this.fun, T = this.fightT, t = this.t;
+      if (!F) return;
+      if (F.pads) for (const p of F.pads) {
+        const dir = p.y < AR.y + AR.h / 2 ? 1 : -1, hit = clamp(1 - (T - p.hitT) / 0.4, 0, 1);
+        ctx.save(); ctx.translate(p.x, p.y);
+        ctx.beginPath(); ctx.roundRect ? ctx.roundRect(-36, -24, 72, 48, 10) : ctx.rect(-36, -24, 72, 48); ctx.fillStyle = `rgba(20,10,40,${0.65})`; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = `rgba(255,255,255,${0.6 + 0.4 * hit})`; ctx.stroke();
+        for (let k = 0; k < 3; k++) { const ph = ((t * 2.2 + k / 3) % 1), yy = (-14 + ph * 28) * dir, a = Math.sin(ph * Math.PI); ctx.beginPath(); ctx.moveTo(-18, yy - 7 * dir); ctx.lineTo(0, yy + 5 * dir); ctx.lineTo(18, yy - 7 * dir); ctx.lineWidth = 6; ctx.strokeStyle = RAINBOW[(k * 2 + Math.floor(t * 4)) % RAINBOW.length]; ctx.globalAlpha = a; ctx.stroke(); }
+        ctx.globalAlpha = 1; ctx.restore();
+      }
+      if (F.sand) for (const p of F.sand) {
+        ctx.save(); ctx.translate(p.x, p.y);
+        const gr = ctx.createRadialGradient(0, 0, 4, 0, 0, p.r); gr.addColorStop(0, 'rgba(30,15,3,0.92)'); gr.addColorStop(0.35, 'rgba(105,66,22,0.75)'); gr.addColorStop(0.8, 'rgba(238,200,128,0.45)'); gr.addColorStop(1, 'rgba(238,200,128,0)');
+        ctx.fillStyle = gr; ctx.beginPath(); ctx.arc(0, 0, p.r, 0, TAU); ctx.fill();
+        ctx.setLineDash([10, 8]); ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(255,228,170,0.5)'; ctx.beginPath(); ctx.arc(0, 0, p.r * 0.92, t * 0.5, t * 0.5 + TAU); ctx.stroke(); ctx.setLineDash([]);
+        ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(40,22,6,0.6)';
+        for (let k = 0; k < 3; k++) { ctx.beginPath(); for (let j = 0; j <= 24; j++) { const a = j / 24 * TAU * 1.3 + k * TAU / 3 + t * 1.4, q = p.r * (1 - j / 24) * 0.95; j ? ctx.lineTo(Math.cos(a) * q, Math.sin(a) * q) : ctx.moveTo(Math.cos(a) * q, Math.sin(a) * q); } ctx.stroke(); }
+        ctx.restore();
+      }
+      if (F.springs) for (const p of F.springs) {
+        const sq = clamp(1 - (T - p.hitT) / 0.35, 0, 1), s = 1 + 0.25 * sq * Math.sin((T - p.hitT) * 30);
+        ctx.save(); ctx.translate(p.x, p.y); ctx.scale(s, 2 - s);
+        for (let k = 0; k < 6; k++) { const a = k / 6 * TAU; ctx.beginPath(); ctx.arc(Math.cos(a) * p.r * 0.55, Math.sin(a) * p.r * 0.5, p.r * 0.5, 0, TAU); ctx.fillStyle = '#FFFFFF'; ctx.fill(); }
+        ctx.beginPath(); ctx.arc(0, 0, p.r * 0.5, 0, TAU); ctx.fillStyle = '#F472B6'; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = COL.ink; ctx.stroke();
+        ctx.beginPath(); for (let k = 0; k < 3; k++) ctx.arc(0, 0, p.r * (0.18 + k * 0.1), 0, TAU); ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(255,255,255,0.8)'; ctx.stroke();
+        ctx.restore();
+      }
+      if (F.shots) for (const b of F.shots.list) {
+        const k = clamp((T - b.t0) / (b.at - b.t0), 0, 1), pul = 0.5 + 0.5 * Math.sin(t * 14);
+        ctx.beginPath(); ctx.arc(b.x, b.y, 58, 0, TAU); ctx.fillStyle = `rgba(248,113,113,${0.12 + 0.12 * pul})`; ctx.fill(); ctx.lineWidth = 4; ctx.strokeStyle = `rgba(254,202,202,${0.5 + 0.4 * pul})`; ctx.stroke();
+        ctx.beginPath(); ctx.ellipse(b.x, b.y, 6 + 14 * k, (6 + 14 * k) * 0.7, 0, 0, TAU); ctx.fillStyle = `rgba(0,0,0,${0.2 + 0.4 * k})`; ctx.fill();
+      }
+      if (F.stars) for (const s of F.stars.list) {
+        const a = clamp((T - s.t0) / 0.6, 0, 1) * clamp((s.end - T) / 0.5, 0, 1), y = s.y - 6 * Math.sin(t * 4 + s.x), sp = t * 2.5;
+        const gr = ctx.createRadialGradient(s.x, y, 2, s.x, y, 46); gr.addColorStop(0, `rgba(253,224,71,${0.55 * a})`); gr.addColorStop(1, 'rgba(253,224,71,0)'); ctx.fillStyle = gr; ctx.beginPath(); ctx.arc(s.x, y, 46, 0, TAU); ctx.fill();
+        ctx.globalAlpha = a; ctx.beginPath(); for (let k = 0; k < 10; k++) { const an = sp - Math.PI / 2 + k * Math.PI / 5, q = k % 2 ? 9 : 21; k ? ctx.lineTo(s.x + Math.cos(an) * q, y + Math.sin(an) * q) : ctx.moveTo(s.x + Math.cos(an) * q, y + Math.sin(an) * q); }
+        ctx.closePath(); ctx.fillStyle = '#FDE047'; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = COL.ink; ctx.stroke(); ctx.globalAlpha = 1;
+      }
+    },
+    // over the troops: snapping plants' heads, the sandstorm and the wind, star power and boost trails, troops swallowed by a black hole
+    drawFunTop(ctx) {
+      const F = this.fun, T = this.fightT, t = this.t;
+      if (F && F.snap) for (const s of F.snap) {
+        if (!this.obstacles.includes(s.ob)) continue;
+        const ob = s.ob, k = clamp((T - s.hitT) / 0.3, 0, 1), lunge = Math.sin(Math.min(1, k * 1.6) * Math.PI) * 0.55;
+        const ax = s.tx - ob.x, ay = s.ty - ob.y, ad = Math.hypot(ax, ay) || 1, ang = Math.atan2(ay, ax), hx = ob.x + ax / ad * ob.r * lunge * 1.6, hy = ob.y + ay / ad * ob.r * lunge * 1.6;
+        const open = T - s.hitT < 0.3 ? 0.15 + 0.85 * k : 0.55 + 0.25 * Math.sin(t * 3 + ob.x);
+        ctx.save(); ctx.translate(hx, hy); ctx.rotate(ang);
+        for (const sg of [1, -1]) { ctx.beginPath(); ctx.arc(0, 0, ob.r * 0.7, sg * open * 0.9 - 0.1 * sg, sg * (Math.PI - 0.2) , sg < 0); ctx.closePath(); ctx.fillStyle = '#DC2626'; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = COL.ink; ctx.stroke(); }
+        ctx.fillStyle = '#FFFFFF'; for (const [px, py] of [[-ob.r * 0.3, -ob.r * 0.35], [-ob.r * 0.1, ob.r * 0.4], [-ob.r * 0.45, ob.r * 0.1]]) { ctx.beginPath(); ctx.arc(px, py, 3, 0, TAU); ctx.fill(); }
+        ctx.restore();
+      }
+      if (F && F.storm && T < F.storm.end + 0.8 && F.storm.t0 !== undefined) {
+        const st = F.storm, a = clamp((T - st.t0) / 0.6, 0, 1) * clamp((st.end + 0.8 - T) / 0.8, 0, 1), sand = this.opts.map === 'pyramid';
+        ctx.fillStyle = sand ? `rgba(214,170,100,${0.22 * a})` : `rgba(220,235,255,${0.1 * a})`; ctx.fillRect(AR.x, AR.y, AR.w, AR.h);
+        ctx.lineCap = 'round'; ctx.lineWidth = sand ? 3 : 2.5;
+        for (let k = 0; k < 40; k++) { const y = AR.y + ((k * 211) % AR.h), sp = 700 + (k % 7) * 90, x = AR.x + (((k * 137 + t * sp * st.dir) % AR.w) + AR.w) % AR.w, l = 40 + (k % 5) * 14;
+          ctx.strokeStyle = sand ? `rgba(255,225,160,${0.45 * a})` : `rgba(255,255,255,${0.5 * a})`; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x - st.dir * l, y + (sand ? 0 : Math.sin(k) * 6)); ctx.stroke(); }
+      }
+      for (const u of this.units) {
+        if (u.dead) continue;
+        if (u.starT > T) { const a = clamp((u.starT - T) / 0.6, 0, 1); ctx.beginPath(); ctx.arc(u.x, u.y, u.r + 6 + 2 * Math.sin(t * 20), 0, TAU); ctx.lineWidth = 5; ctx.strokeStyle = RAINBOW[Math.floor(t * 14) % RAINBOW.length]; ctx.globalAlpha = a; ctx.stroke(); ctx.globalAlpha = 1; }
+        if (u.boostT > T && Math.hypot(u.vx, u.vy) > 10) { const sp = Math.hypot(u.vx, u.vy), dx = -u.vx / sp, dy = -u.vy / sp, a = clamp((u.boostT - T) / 0.5, 0, 1);
+          for (let k = 0; k < 3; k++) { ctx.beginPath(); ctx.moveTo(u.x + dx * u.r + (k - 1) * dy * 6, u.y + dy * u.r - (k - 1) * dx * 6); ctx.lineTo(u.x + dx * (u.r + 26) + (k - 1) * dy * 6, u.y + dy * (u.r + 26) - (k - 1) * dx * 6); ctx.lineWidth = 4; ctx.strokeStyle = RAINBOW[(k * 2 + 1) % RAINBOW.length]; ctx.globalAlpha = 0.7 * a; ctx.stroke(); }
+          ctx.globalAlpha = 1; }
+      }
+      if (this.sucked && this.sucked.length) {
+        // spaghettified: stretched towards the hole, thinner and darker, then gone
+        for (const s of this.sucked) {
+          const k = clamp((T - s.t0) / SPAG, 0, 1), x = s.x + (s.hx - s.x) * k * k, y = s.y + (s.hy - s.y) * k * k, ang = Math.atan2(s.hy - s.y, s.hx - s.x);
+          ctx.save(); ctx.translate(x, y); ctx.rotate(ang); ctx.globalAlpha = 1 - k * 0.6;
+          ctx.beginPath(); ctx.ellipse(0, 0, s.r * (1 + 2.2 * k), s.r * (1 - 0.85 * k), 0, 0, TAU); ctx.fillStyle = s.c; ctx.fill();
+          ctx.fillStyle = `rgba(20,8,40,${0.7 * k})`; ctx.fill(); ctx.restore(); ctx.globalAlpha = 1;
+        }
+        if (this.sucked.some(s => T - s.t0 >= SPAG)) this.sucked = this.sucked.filter(s => T - s.t0 < SPAG);
+      }
+    },
+  };
+
+  Object.assign(Army.prototype, ARMY_EXT, ARMY_DRAW, ARMY_MAPS, ARMY_EXT2, ARMY_DRAW2, ARMY_COMBAT, ARMY_TRIBES, ARMY_TRIBES_DRAW, ARMY_PACE, ARMY_UI2, ARMY_WORLD, ARMY_FX2, ARMY_SMART, ARMY_CAST3, ARMY_CAST3_DRAW, ARMY_EVOLVE, ARMY_THUMB, ARMY_NAV, ARMY_MINDS, ARMY_CLASS, ARMY_CAST4, ARMY_MARKET2, ARMY_ANIM, ARMY_SHINE, ARMY_CAST5, ARMY_SP3, ARMY_BLOOD, ARMY_HUMAN, ARMY_PICKS, ARMY_FUN);
 
   const GAMES = { territory: Territory, duel: Duel, army: Army };
   Object.assign(api, { rng, Match, Territory, Duel, Army, Director, Synth, GAMES, WEAPONS, DOCTRINES, MODERN_DOCTRINES, FANTASY_DOCTRINES, GENRES, UNIT_ERA, ALL_DOCTRINES, MAPS, MAP_THEME, UNIT, eraOf, fmtTime, labelOf, docLabel, MAP_MECH, SKINS, MODE_HOOK, specOf, TRIBE_POOL, TRAIT, STAKE, CLASSES, classOf, RETIRED: [...RETIRED_SET], docRetired, CAST4 , isTitan });

@@ -187,7 +187,10 @@ const budgetMul = !mu ? undefined : three ? (balOf(mu) || [1, 1, 1]) : [1, balOf
 const mapList = three ? ((mu && mu.maps) || tw.maps || ['open']).map(name => ({ name })) : (rules.maps || [{ name: 'open' }]).filter(m => !m.eras || m.eras.includes(era));
 // holiday specials (holiday.js, Rellz 2026-11-16): on a holiday the map that suits it is used when the line-up allows it
 const Holiday = require('./holiday.js'), HOL = Holiday.of();
-const map = process.env.MAP || Holiday.map(HOL, mapList.map(m => m.name)) || (mapList.length ? mapList[(slot * 7 + 3 + shift) % mapList.length].name : 'open');
+// (rules.mapsFresh, Rellz 2026-11-21: the new fun-park maps) until the given date, every few videos is on one of the newest maps
+const MF = rules.mapsFresh, freshList = MF && MF.on && !three && new Date() < new Date(MF.until) ? mapList.filter(m => m.fresh) : [];
+const freshMap = freshList.length && slot % (MF.every || 2) === 0 ? freshList[Math.floor(slot / (MF.every || 2)) % freshList.length].name : null;
+const map = process.env.MAP || Holiday.map(HOL, mapList.map(m => m.name)) || freshMap || (mapList.length ? mapList[(slot * 7 + 3 + shift) % mapList.length].name : 'open');
 fs.mkdirSync(OUT, { recursive: true });
 
 function ffmpeg(args) {
@@ -252,7 +255,9 @@ async function main() {
     // little people instead of circles and triangles (rules.ui.humans; looks only)
     ...(rules.ui && rules.ui.humans ? { humans: true } : {}), ...(rules.ui && rules.ui.cineClean ? { cineClean: true } : {}),
     // the picks, with the holiday (Christmas snow) and which side defends a siege or is the boss (the mode's own dice)
-    ...(PK ? { picks: Object.assign({}, PK, { on: true, holiday: HOL ? HOL.key : null }), pkSide: sideRoll < 0.5 ? 0 : 1 } : {}) });
+    ...(PK ? { picks: Object.assign({}, PK, { on: true, holiday: HOL ? HOL.key : null }), pkSide: sideRoll < 0.5 ? 0 : 1 } : {}),
+    // real-life damage (rules.realism, Rellz 2026-11-21): deadly guns, black holes that erase, limping wounded (battle logic, no dice)
+    ...(rules.realism && rules.realism.on && process.env.REALISM !== '0' ? { realism: rules.realism } : {}) });
   // a creative match-up is new, so balance it now with quick test battles on this map and these formations
   let wildMul = three ? bm.slice(0, 3) : 1, wildRate = null, tuned = null;
   // with intelligent combat on, every 1v1 battle is tuned on the spot with quick test battles (combat changes who is strong),
@@ -389,7 +394,7 @@ async function main() {
   const MU = rules.music || {}, muOn = MU.on !== false;
   const muStyle = { ancient: 'ancient', medieval: 'ancient', fantasy: 'ancient', pirate: 'ancient', modern: 'modern', ww2: 'modern', scifi: 'scifi', future: 'scifi' }[era] || 'epic';
   // (rules.picks.mapMusic: the map's own sound on top of the era's style; festive at Christmas)
-  const mp = muOn ? Music.plan(seed, muStyle, PK && PK.mapMusic !== false ? { map, festive: !!(HOL && HOL.key === 'christmas') } : {}) : null, mtr = muOn ? Music.tracker() : null;
+  const mp = muOn ? Music.plan(seed, muStyle, Object.assign(PK && PK.mapMusic !== false ? { map, festive: !!(HOL && HOL.key === 'christmas') } : {}, MU.human ? { human: true } : {})) : null, mtr = muOn ? Music.tracker() : null;
   let firstCv = null;
   const FIGHT_S = VID.fightSeconds || 60;
   // ----- the cold open (rules.coldOpen, coldopen.js: the same file in Army Clash, Tower Clash and Territory Clash; Rellz
@@ -613,18 +618,25 @@ async function main() {
   const frames = Math.round(SR * DUR);
   const gain = game.audioGain || 1;
   // the commentator and the crowd (rules.picks), into the effects before they're limited
+  // (rules.picks.general, Rellz 2026-11-21: "make the voice sound like a war general and have a fade and blend in with the music")
+  // the war general on a bus of its own, faded in and out, sent into a hall like the music's and landed on the beat; the music
+  // dips smoothly under each line (music.js mix: voice, dips) instead of being chopped by the effects' ducking
+  const GEN = PK && PK.general && PK.general.on ? PK.general : null, vBus = GEN ? { L: new Float32Array(synth.L.length), R: new Float32Array(synth.R.length) } : null, vDips = GEN ? [] : null;
   if (PK && (PK.commentator !== false || PK.crowd !== false)) {
     const said = Commentary.mix(synth.L, synth.R, { sr: SR, cues: PK.commentator !== false ? pkCalls : [], crowd: pkCrowd, seed, startAt: OFF + 1, endAt: Math.min(DUR, (pkEndAt ?? DUR) + 2.5),
-      bed: PK.crowd !== false ? (PK.crowdBed ?? 0.075) : 0, voice: PK.voice ?? 0.62, max: PK.maxCalls ?? 8, gap: PK.callGap ?? 6 });
+      bed: PK.crowd !== false ? (PK.crowdBed ?? 0.075) : 0, voice: GEN ? (GEN.voice ?? 0.7) : PK.voice ?? 0.62, max: PK.maxCalls ?? 8, gap: PK.callGap ?? 6,
+      ...(GEN ? { lines: 'general', bus: vBus, fade: GEN.fade || [0.04, 0.25], wet: GEN.wet ?? 0.22, beat: mp && GEN.onBeat !== false ? mp.beat : 0, dips: vDips } : {}) });
     console.log(`Commentator: ${said.length ? said.join(', ') : 'quiet'}; crowd ${PK.crowd !== false ? `on, ${pkCrowd.length} swells` : 'off'}`);
   }
   const L = new Float32Array(frames), R = new Float32Array(frames);
-  for (let i = 0; i < frames; i++) { L[i] = Math.tanh(synth.L[i] * gain); R[i] = Math.tanh(synth.R[i] * gain); }
+  const vIn = vBus && !muOn ? vBus : null;   // (no music: the general goes straight in with the effects)
+  for (let i = 0; i < frames; i++) { L[i] = Math.tanh((synth.L[i] + (vIn ? vIn.L[i] : 0)) * gain); R[i] = Math.tanh((synth.R[i] + (vIn ? vIn.R[i] : 0)) * gain); }
   let mixed = { L, R };
   if (muOn) {
     const cues = mtr.cues(), mus = Music.render(mp, { sr: SR, dur: DUR, cues });
-    mixed = Music.mix(L, R, mus, { sr: SR, volume: MU.volume ?? 0.45, duck: MU.duck ?? 0.45, levels: MU.levels || null });
-    console.log(`Music: ${muStyle}, ${mp.bpm} bpm, the drop at ${mus.drop.toFixed(1)} s, the final hit at ${mus.fin.toFixed(1)} s`);
+    mixed = Music.mix(L, R, mus, { sr: SR, volume: MU.volume ?? 0.45, duck: MU.duck ?? 0.45, levels: MU.levels || null,
+      ...(vBus ? { voice: { L: vBus.L.map(v => v * gain), R: vBus.R.map(v => v * gain) }, dips: vDips, dipDb: GEN.dipDb ?? -6 } : {}) });
+    console.log(`Music: ${muStyle}${mp.theme ? ` (${mp.theme} theme)` : ''}${mp.human ? ', human' : ''}, ${mp.bpm} bpm, the drop at ${mus.drop.toFixed(1)} s, the final hit at ${mus.fin.toFixed(1)} s`);
   }
   const wav = path.join(OUT, 'sound.wav');
   writeWav(wav, mixed.L, mixed.R, frames);
@@ -666,7 +678,8 @@ async function main() {
   const hook = title;
   const MAP_NAME = { open: 'open field', rocks: 'rocky field', ruins: 'ruins', trenches: 'trenches', city: 'city rooftops', forest: 'forest', bombed: 'bombed city', enchanted: 'fantasy land', canyon: 'canyon',
     godboard: 'Godboard (a giant chessboard)', furnace: 'World Furnace (lava)', frozen: 'Frozen End (ice)', grave: "Titan's Grave", overgrown: 'Overgrown Kingdom', clockwork: 'Clockwork Colosseum', shattered: 'Shattered Sky (floating islands)', mirror: 'Mirror Dimension', castle: 'Castle Siege',
-    beach: 'Pirate Beach', snow: 'Snowy Pass', dunes: 'Dune Sea', swamp: 'Murk Swamp', neon: 'Neon City', temple: 'Sky Temple', graveyard: 'Haunted Graveyard', moon: 'Moon Base' };
+    beach: 'Pirate Beach', snow: 'Snowy Pass', dunes: 'Dune Sea', swamp: 'Murk Swamp', neon: 'Neon City', temple: 'Sky Temple', graveyard: 'Haunted Graveyard', moon: 'Moon Base',
+    rainbow: 'Rainbow Skyway (a rainbow road in space)', pyramid: 'Pyramid Sands (quicksand and sandstorms)', cloud: 'Cloud Kingdom (islands in the sky)', candy: 'Candy Hills', jungle: 'Snapjaw Jungle', airship: 'Storm Galleon (a flying ship)', galaxy: 'Starfall Orbit (low gravity)' };
   // battle modes, said plainly in the description
   const MODE_LINE = { king: 'Protect the King: each army has a king at the back, behind a royal shield for the first part of the battle; an army whose king falls loses heart (weaker and slower) for the rest of the fight.',
     duel: 'Champion Duel: each army\'s best fighter duels in the middle first while both armies watch, then everyone charges.',

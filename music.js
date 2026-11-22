@@ -14,6 +14,8 @@
 
 const TAU = Math.PI * 2;
 
+// (human) a fixed hash of two numbers to 0..1: the little timing and loudness wobbles of a real player, without using the dice
+function hash2(a, b) { let h = (Math.floor(a * 9973) * 374761393 + Math.floor(b * 7919) * 668265263) >>> 0; h = Math.imul(h ^ (h >>> 13), 1274126177) >>> 0; return ((h ^ (h >>> 16)) >>> 0) / 4294967296; }
 function rng(seed) {
   let a = (seed ^ 0x6D757321) >>> 0;
   return () => { a = (a + 0x6D2B79F5) >>> 0; let t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
@@ -46,10 +48,35 @@ const THEMES = {
   synth: { S: { kick: 1.1, snare: 0.9, taiko: 0.2, hat: 0.7, pad: 'sq', padLp: 2400, arp: 'saw', arpLp: 4200, bass: 'saw', bassLp: 800 }, lead: { wave: 'saw', voices: 3, det: 0.01, lp: 2800, fenv: 1.5, fdec: 0.2, att: 0.01, vib: 0.005, rev: 0.3, dly: 0.35, amp: 0.045 }, ost: false, four: true, pump: 0.6 },
   war: { S: { kick: 1.1, snare: 1, taiko: 1.4, hat: 0.4, padLp: 1100, bassLp: 420 }, ost: true, warDrums: true },
 };
+// (Army Clash, Rellz 2026-11-21: "make the music match the theme of the map make it sound less robotic") more themes, each with
+// its own mode and tempo (used when the plan asks for `human`): rainbow (bright pop: a soft square lead, sparkling plucks, four on
+// the floor), sky (airy: a breathy flute, a harp, lydian), candy (bouncy: marimba, pizzicato, glockenspiel, a swing), jungle
+// (marimba, hand drums and toms, dorian), shanty (an accordion with tremolo, stomps and claps, mixolydian), cosmic (shimmering
+// pads, bells, a slow synth lead, lydian), spooky (an organ, a harpsichord, low bells), heroic (brass over strings and a choir,
+// taiko), clockwork (ticking wood, a music box, plucks). Older themes get a mode too (desert: hijaz, a plucked oud lead).
+Object.assign(THEMES, {
+  rainbow: { S: { kick: 1.05, snare: 0.8, taiko: 0.2, hat: 0.65, pad: 'saw', padLp: 2600, arp: 'pluck', arpLp: 6000, bass: 'sq', bassLp: 900 }, lead: { wave: 'sq', voices: 2, det: 0.004, lp: 3400, att: 0.012, vib: 0.006, rev: 0.35, dly: 0.3, amp: 0.04, scoop: 20 }, ost: false, four: true, pump: 0.45, bells: true, sparkle: true, mode: 'major', bpm: [148, 160] },
+  sky: { S: { kick: 0.5, snare: 0.4, taiko: 0.25, hat: 0.35, pad: 'soft', padLp: 2400, arp: 'pluck', arpLp: 5200, bass: 'tri', bassLp: 500 }, lead: { wave: 'soft', voices: 1, lp: 4200, att: 0.07, vib: 0.012, rev: 0.65, dly: 0.3, amp: 0.08, scoop: 25 }, ost: false, breath: true, harp: true, flute: true, mode: 'lydian', bpm: [100, 112] },
+  candy: { S: { kick: 0.85, snare: 0.7, taiko: 0.15, hat: 0.55, pad: 'tri', padLp: 2200, arp: 'pluck', arpLp: 6000, bass: 'tri', bassLp: 700 }, lead: { wave: 'sq', voices: 1, lp: 2800, att: 0.006, vib: 0.008, rev: 0.3, dly: 0.25, amp: 0.045, scoop: 15 }, ost: false, mallet: true, glock: true, swing: 0.57, mode: 'major', bpm: [126, 138] },
+  jungle: { S: { kick: 0.7, snare: 0.45, taiko: 0.9, hat: 0.5, pad: 'soft', padLp: 1500, arp: 'pluck', arpLp: 4200, bass: 'tri', bassLp: 450 }, lead: { wave: 'soft', voices: 1, lp: 3600, att: 0.05, vib: 0.014, rev: 0.5, dly: 0.25, amp: 0.075, scoop: 30 }, ost: false, mallet: true, darbuka: true, toms: true, flute: true, swing: 0.55, mode: 'dorian', bpm: [108, 120] },
+  shanty: { S: { kick: 0.9, snare: 0.5, taiko: 0.5, hat: 0.35, pad: 'saw', padLp: 1300, arp: 'pluck', arpLp: 3800, bass: 'tri', bassLp: 480 }, lead: { wave: 'saw', voices: 3, det: 0.007, lp: 2300, att: 0.03, vib: 0.004, rev: 0.35, dly: 0.12, amp: 0.045, trem: 0.25 }, ost: false, stomp: true, mode: 'mixolydian', bpm: [116, 128] },
+  cosmic: { S: { kick: 0.6, snare: 0.5, taiko: 0.3, hat: 0.4, pad: 'saw', padLp: 2000, arp: 'tri', arpLp: 4800, bass: 'saw', bassLp: 420 }, lead: { wave: 'tri', voices: 2, det: 0.006, lp: 3000, att: 0.12, vib: 0.008, rev: 0.75, dly: 0.4, amp: 0.06 }, ost: false, bells: true, shimmer: true, mode: 'lydian', bpm: [92, 104] },
+  spooky: { S: { kick: 0.8, snare: 0.6, taiko: 0.9, hat: 0.35, pad: 'organ', padLp: 1800, arp: 'pluck', arpLp: 5200, bass: 'tri', bassLp: 400 }, lead: { wave: 'organ', voices: 1, lp: 2600, att: 0.04, vib: 0.006, rev: 0.6, dly: 0.2, amp: 0.05 }, ost: false, harpsi: true, lowBells: true, mode: 'minor', bpm: [96, 108] },
+  heroic: { S: { kick: 1, snare: 0.8, taiko: 1.2, hat: 0.4, pad: 'saw', padLp: 1500, arp: 'tri', arpLp: 3200, bass: 'saw', bassLp: 450 }, lead: { wave: 'saw', voices: 4, det: 0.005, lp: 1400, fenv: 1.8, fdec: 0.2, att: 0.05, vib: 0.007, rev: 0.5, dly: 0.1, amp: 0.05, scoop: 18 }, ost: true, choir: true, mode: 'minor', bpm: [120, 132] },
+  clockwork: { S: { kick: 0.9, snare: 0.7, taiko: 0.3, hat: 0.3, pad: 'tri', padLp: 1800, arp: 'pluck', arpLp: 6000, bass: 'sq', bassLp: 500 }, lead: { wave: 'tri', voices: 1, lp: 5000, att: 0.005, vib: 0.003, rev: 0.4, dly: 0.3, amp: 0.06 }, ost: false, tick: true, musicbox: true, mode: 'minor', bpm: [124, 136] },
+});
+Object.assign(THEMES.desert, { mode: 'hijaz', pluckLead: true });
+Object.assign(THEMES.snow, { mode: 'major' });
+Object.assign(THEMES.forest, { mode: 'dorian', flute: true, harp: true });
 // (Army Clash's maps, Tower Clash's (pyramid, shroom, blossom) and Territory Clash's island themes (frostwild, thornvale...))
 const MAP_THEME = { dunes: 'desert', snow: 'snow', frozen: 'snow', forest: 'forest', overgrown: 'forest', enchanted: 'forest', swamp: 'forest', neon: 'synth', city: 'synth', furnace: 'war', bombed: 'war',
-  pyramid: 'desert', shroom: 'forest', blossom: 'forest', frostwild: 'snow', thornvale: 'forest', duskfen: 'forest', goldmarch: 'desert', saltreach: 'desert', ashen: 'war' };
-const MODES = { minor: [0, 2, 3, 5, 7, 8, 10], dorian: [0, 2, 3, 5, 7, 9, 10], phrygian: [0, 1, 3, 5, 7, 8, 10], mixolydian: [0, 2, 4, 5, 7, 9, 10] };
+  pyramid: 'desert', shroom: 'forest', blossom: 'forest', frostwild: 'snow', thornvale: 'forest', duskfen: 'forest', goldmarch: 'desert', saltreach: 'desert', ashen: 'war',
+  // (Army Clash 2026-11-21: every map has a theme now, and the new fun-park maps theirs)
+  rainbow: 'rainbow', cloud: 'sky', candy: 'candy', jungle: 'jungle', airship: 'shanty', beach: 'shanty', galaxy: 'cosmic', moon: 'cosmic', shattered: 'cosmic',
+  graveyard: 'spooky', grave: 'spooky', mirror: 'spooky', castle: 'heroic', ruins: 'heroic', temple: 'heroic', open: 'heroic', rocks: 'heroic', godboard: 'heroic',
+  clockwork: 'clockwork', trenches: 'war', canyon: 'desert' };
+const MODES = { minor: [0, 2, 3, 5, 7, 8, 10], dorian: [0, 2, 3, 5, 7, 9, 10], phrygian: [0, 1, 3, 5, 7, 8, 10], mixolydian: [0, 2, 4, 5, 7, 9, 10],
+  major: [0, 2, 4, 5, 7, 9, 11], lydian: [0, 2, 4, 6, 7, 9, 11], hijaz: [0, 1, 4, 5, 7, 8, 10] };
 const PROGS = [[0, 5, 2, 6], [0, 3, 5, 4], [0, 6, 5, 6], [0, 5, 3, 4], [0, 2, 5, 6], [0, 3, 6, 4]];
 const MINOR = [0, 2, 3, 5, 7, 8, 10];
 
@@ -61,8 +88,11 @@ function plan(seed, style, opts = {}) {
   const prog = PROGS[Math.floor(r() * PROGS.length)];
   const st = STYLES[style] ? style : 'epic', VX = VOICE[st] || {};
   if (VX.bpm) bpm = VX.bpm[0] + Math.round((bpm - 120) / 20 * (VX.bpm[1] - VX.bpm[0]));   // (same dice, the style's own range)
-  const theme = opts.theme || (opts.map && MAP_THEME[opts.map]) || null;
-  return { seed: seed >>> 0, style: st, bpm, beat: 60 / bpm, root, prog, r, scale: MODES[VX.mode] || MINOR, theme: THEMES[theme] ? theme : null, festive: !!opts.festive };
+  const theme = opts.theme || (opts.map && MAP_THEME[opts.map]) || null, TH = THEMES[theme] || null;
+  // (human, Army Clash 2026-11-21) the map's theme also sets the mode and the tempo range, and the playing is humanised (render)
+  let mode = VX.mode;
+  if (opts.human && TH) { if (TH.mode) mode = TH.mode; if (TH.bpm) bpm = TH.bpm[0] + Math.round((bpm - 120) / 20 * (TH.bpm[1] - TH.bpm[0])); }
+  return { seed: seed >>> 0, style: st, bpm, beat: 60 / bpm, root, prog, r, scale: MODES[mode] || MINOR, theme: TH ? theme : null, festive: !!opts.festive, human: !!opts.human };
 }
 // the chord of a degree in the key (harmonic minor for the fifth, so it pulls home)
 function chord(root, deg, SC = MINOR) {
@@ -105,6 +135,7 @@ class Bus {
   // one note: one or more detuned voices through a two-pole low-pass (with an optional filter sweep), attack and release,
   // vibrato, panned, with sends to the reverb and the echo, and the sidechain pump on pads and bass
   tone(t, dur, f, amp, o = {}) {
+    if (this.hum && !o.tight) { const h = hash2(t, f); t = Math.max(0, t + (h - 0.5) * this.hum * 0.012); amp *= 1 + (hash2(f, t) - 0.5) * this.hum * 0.24; }
     const sr = this.sr, s0 = Math.floor(t * sr), att = Math.max(1, (o.att || 0.005) * sr), rel = Math.max(1, (o.rel || 0.08) * sr);
     const n = Math.min(Math.floor((dur + (o.rel || 0.08)) * sr), this.len - s0); if (n <= 0 || s0 < 0) return;
     const hold = Math.floor(dur * sr), pan = o.pan || 0, gl = amp * Math.cos((pan + 1) * Math.PI / 4), gr = amp * Math.sin((pan + 1) * Math.PI / 4);
@@ -113,15 +144,18 @@ class Bus {
     const V = o.voices || (o.det ? 2 : 1), det = o.det || 0, ph = [], inc = [], nrm = 1 / Math.sqrt(V);
     for (let v = 0; v < V; v++) { const d = V === 1 ? 0 : (v / (V - 1) - 0.5) * 2 * det; ph.push((v * 0.37) % 1); inc.push(f * (1 + d) / sr); }
     const vib = o.vib || 0, vibD = (o.vibDelay || 0.15) * sr, vr = TAU * 5.4 / sr;
-    const rv = o.rev || 0, dl = o.dly || 0, pump = o.pump && this.pump ? o.pump : 0;
+    const rv = o.rev || 0, dl = o.dly || 0, pump = o.pump && this.pump ? o.pump : 0, sc = o.scoop ? o.scoop / 1200 * Math.LN2 : 0, scN = 0.07 * sr, trem = o.trem || 0, tr = TAU * 6.2 / sr;
     let z1 = 0, z2 = 0, env = 1, fenv = 1;
     for (let i = 0; i < n; i++) {
-      const vb = vib && i > vibD ? 1 + vib * Math.sin(vr * i) * Math.min(1, (i - vibD) / (0.3 * sr)) : 1;
+      // (a player slides up into the note, and the vibrato only blooms once the note is held)
+      const vb = (vib && i > vibD ? 1 + vib * Math.sin(vr * i) * Math.min(1, (i - vibD) / (0.3 * sr)) : 1) * (sc && i < scN ? Math.exp(-sc * (1 - i / scN)) : 1);
       let x = 0;
       for (let v = 0; v < V; v++) {
         ph[v] += inc[v] * vb; if (ph[v] >= 1) ph[v] -= 1;
         const p1 = ph[v];
-        x += w === 'saw' ? 2 * p1 - 1 : w === 'sq' ? (p1 < 0.5 ? 1 : -1) : w === 'tri' ? 1 - 4 * Math.abs(p1 - 0.5) : Math.sin(TAU * p1);
+        x += w === 'saw' ? 2 * p1 - 1 : w === 'sq' ? (p1 < 0.5 ? 1 : -1) : w === 'tri' ? 1 - 4 * Math.abs(p1 - 0.5)
+          : w === 'organ' ? (Math.sin(TAU * p1) + 0.5 * Math.sin(TAU * 2 * p1) + 0.3 * Math.sin(TAU * 3 * p1) + 0.15 * Math.sin(TAU * 4 * p1)) * 0.6
+          : w === 'soft' ? Math.sin(TAU * p1) + 0.18 * Math.sin(TAU * 3 * p1) + 0.06 * Math.sin(TAU * 5 * p1) : Math.sin(TAU * p1);
       }
       x *= nrm; const cut = Math.min(sr * 0.45, lp0 * (1 + fe * fenv)), a = 1 - Math.exp(-TAU * cut / sr);
       fenv *= fd;
@@ -129,10 +163,32 @@ class Bus {
       let e = env; if (i < att) e *= i / att; if (i > hold) e *= Math.max(0, 1 - (i - hold) / rel);
       env *= dec;
       if (pump) e *= 1 - pump * this.pump[s0 + i];
+      if (trem) e *= 1 - trem * (0.5 + 0.5 * Math.sin(tr * i));
       const L = z2 * e * gl, R = z2 * e * gr;
       this.L[s0 + i] += L; this.R[s0 + i] += R;
       if (rv) { this.vL[s0 + i] += L * rv; this.vR[s0 + i] += R * rv; }
       if (dl) { this.dL[s0 + i] += L * dl; this.dR[s0 + i] += R * dl; }
+    }
+  }
+  // (human) a plucked string (Karplus-Strong): a burst of noise ringing round a delay line the length of one period, a little
+  // darker every time round. Lute, oud, harp, harpsichord, marimba and music box all come from this, by brightness and decay.
+  // Its noise is from its own hash, so the seed's dice are untouched.
+  pluck(t, f, amp, o = {}) {
+    if (this.hum) { const h = hash2(t, f); t = Math.max(0, t + (h - 0.5) * this.hum * 0.01); amp *= 1 + (hash2(f, t) - 0.5) * this.hum * 0.25; }
+    const sr = this.sr, s0 = Math.floor(t * sr), dec = o.dec || 1.2, n = Math.min(Math.floor((dec * 1.3 + 0.05) * sr), this.len - s0); if (n <= 0 || s0 < 0) return;
+    const P = Math.max(2, Math.round(sr / f)), buf = new Float32Array(P), br = o.bright ?? 0.5;
+    let seed = (Math.floor(t * 1000) * 2654435761 ^ Math.floor(f * 100)) >>> 0, lp = 0;
+    for (let i = 0; i < P; i++) { seed = (seed * 1664525 + 1013904223) >>> 0; const w = seed / 4294967296 * 2 - 1; lp += (w - lp) * (0.15 + 0.85 * br); buf[i] = lp; }
+    const loss = Math.pow(0.001, 1 / (dec * f)), pan = o.pan || 0, gl = amp * Math.cos((pan + 1) * Math.PI / 4) * 1.6, gr = amp * Math.sin((pan + 1) * Math.PI / 4) * 1.6, rv = o.rev || 0, dl = o.dly || 0, mallet = o.mallet ? 1 : 0;
+    let k = 0, prev = 0;
+    for (let i = 0; i < n; i++) {
+      const cur = buf[k], nx = buf[(k + 1) % P]; let y = (cur + nx) * 0.5 * loss; buf[k] = y; k = (k + 1) % P;
+      // a mallet (marimba) is a hollow, rounder tone: the string's ring through a gentle smoothing, with a woody knock at the start
+      if (mallet) { prev += (cur - prev) * 0.35; y = prev; } else y = cur;
+      const e = i < 40 ? i / 40 : 1, v = y * e;
+      this.L[s0 + i] += v * gl; this.R[s0 + i] += v * gr;
+      if (rv) { this.vL[s0 + i] += v * gl * rv; this.vR[s0 + i] += v * gr * rv; }
+      if (dl) { this.dL[s0 + i] += v * gl * dl; this.dR[s0 + i] += v * gr * dl; }
     }
   }
   // drums and noises
@@ -146,6 +202,7 @@ class Bus {
     }
   }
   noise(t, dur, amp, o, r) {
+    if (this.hum && !o.tight) { const h = hash2(t, dur); t = Math.max(0, t + (h - 0.5) * this.hum * 0.008); amp *= 1 + (hash2(dur, t) - 0.5) * this.hum * 0.3; }
     const sr = this.sr, s0 = Math.floor(t * sr), n = Math.min(Math.floor(dur * sr), this.len - s0); if (n <= 0 || s0 < 0) return;
     const pan = o.pan || 0, gl = Math.cos((pan + 1) * Math.PI / 4) * 1.41, gr = Math.sin((pan + 1) * Math.PI / 4) * 1.41, rv = o.rev || 0;
     let lp = 0, prev = 0;
@@ -218,7 +275,8 @@ const scaleNote = (root, i, SC = MINOR) => { const o = Math.floor(i / 7), d = ((
 
 // the whole soundtrack, as long as the video: { L, R } at the given sample rate
 function render(p, { sr, dur, cues }) {
-  const len = Math.ceil(sr * (dur + 0.05)), B = new Bus(sr, len), r = p.r, beat = p.beat, bar = beat * 4, TM = p.theme ? THEMES[p.theme] : null;
+  const len = Math.ceil(sr * (dur + 0.05)), B = new Bus(sr, len), r = p.r, beat = p.beat, bar = beat * 4, TM = p.theme ? THEMES[p.theme] : null, HU = !!p.human;
+  if (HU) B.hum = 1;   // (human: every note a few milliseconds off the grid and a little louder or softer, like a player)
   let S = STYLES[p.style], VX = VOICE[p.style] || VOICE.epic;
   if (TM) {
     S = Object.assign({}, S, TM.S || {});
@@ -260,7 +318,11 @@ function render(p, { sr, dur, cues }) {
         let m = scaleNote(p.root + 12, n.d, SC);
         if (strong) { m = ch2.map(c => c + 12 * Math.round((m - c) / 12)).reduce((a, c) => (Math.abs(c - m) < Math.abs(a - m) ? c : a)); }
         const L = VX.lead;
-        B.tone(t, l * 0.92, mtof(m), L.amp * (0.85 + 0.3 * busyAt(t)), { ...L, rel: 0.12, pan: 0.05 });
+        // (human) phrasing: the hook swells towards its middle and the strong beats lean in
+        const ph = HU ? (0.88 + 0.16 * Math.sin(Math.PI * (n.st / 32)) + (strong ? 0.06 : 0)) : 1;
+        if (HU && TM && TM.pluckLead) B.pluck(t, mtof(m), L.amp * 1.5 * ph, { dec: 0.9, bright: 0.62, rev: 0.35, dly: 0.2, pan: 0.05 });
+        else B.tone(t, l * 0.92, mtof(m), L.amp * (0.85 + 0.3 * busyAt(t)) * ph, { ...L, rel: HU ? 0.18 : 0.12, pan: 0.05 });
+        if (HU && TM && TM.flute) B.noise(t, 0.09, L.amp * 0.22, { lp: 3800, hp: true, dec: 0.05, rev: 0.4, pan: 0.05 }, r);
         if (VX.double) B.tone(t, l * 0.92, mtof(m - 12), L.amp * 0.45, { wave: 'saw', voices: 2, det: 0.006, lp: 1100, att: 0.05, rel: 0.15, rev: 0.4, pan: -0.15 });
       }
     }
@@ -287,9 +349,24 @@ function render(p, { sr, dur, cues }) {
       } else {
       if (on && (VX.four || beatN === 0 || beatN === 2 || (I > 0.6 && q === 10))) B.kick(t, 0.5 * S.kick);
       if (on && (beatN === 1 || beatN === 3)) { B.snare(t, 0.22 * S.snare, r); if (VX.four) B.clap(t, 0.12, r); }
-      if (q % 2 === 0 || I > 0.55) B.hat(t, (q % 4 === 2 ? 0.07 : 0.04) * S.hat * (0.6 + 0.6 * I), r, q % 2 ? -0.3 : 0.3, VX.four && q % 4 === 2);
+      if (q % 2 === 0 || I > 0.55) B.hat(HU && TM && TM.swing && q % 2 ? t + (TM.swing - 0.5) * beat : t, (q % 4 === 2 ? 0.07 : 0.04) * S.hat * (0.6 + 0.6 * I), r, q % 2 ? -0.3 : 0.3, VX.four && q % 4 === 2);
       }
       if (S.taiko > 0.5 && (q === 6 || q === 14) && I > 0.3) B.taiko(t, 0.18 * S.taiko, r, q === 6 ? 82 : 70);
+      const ts = HU && TM && TM.swing && q % 2 ? t + (TM.swing - 0.5) * beat : t;   // (a swing on the off sixteenths)
+      if (HU && TM) {
+        // the map's own players (human only)
+        const c3 = chordAt(t);
+        if (TM.sparkle && q % 2 === 1 && I > 0.3) B.pluck(ts, mtof(c3[(q >> 1) % 3] + 36), 0.018, { dec: 0.3, bright: 0.9, pan: q % 4 === 1 ? 0.5 : -0.5, dly: 0.3 });
+        if (TM.harp && (q === 0 || q === 8)) for (let j = 0; j < 4; j++) B.pluck(t + j * 0.055, mtof(c3[j % 3] + 12 + (j === 3 ? 12 : 0)), 0.028, { dec: 1.6, bright: 0.4, pan: -0.3 + j * 0.2, rev: 0.5 });
+        if (TM.glock && q === 0) B.pluck(t, mtof(c3[2] + 36), 0.02, { dec: 0.6, bright: 1, pan: 0.3, rev: 0.4 });
+        if (TM.toms && ((q === 4 || q === 12) && I > 0.3 || (q === 14 && b % 2))) B.taiko(t, 0.1, r, q === 14 ? 140 : q === 4 ? 112 : 92);
+        if (TM.stomp) { if (q === 0 || q === 8) B.kick(t, 0.32, 1.3); if (q === 4 || q === 12) B.clap(t, 0.13, r); }
+        if (TM.tick && q % 2 === 0) B.tone(t, 0.02, q % 4 ? 1900 : 1450, 0.03, { wave: 'sin', dec: 0.012, rel: 0.01, pan: q % 4 ? 0.3 : -0.3 });
+        if (TM.musicbox && q % 4 === 2) B.pluck(t, mtof(c3[(q >> 2) % 3] + 36), 0.016, { dec: 0.8, bright: 0.95, pan: 0.2, rev: 0.4, dly: 0.2 });
+        if (TM.shimmer && q === 0) B.tone(t, bar * 0.95, mtof(c3[1] + 24), 0.012, { wave: 'tri', voices: 3, det: 0.004, lp: 6000, att: 0.6, rel: 0.6, rev: 0.9, dly: 0.3 });
+        if (TM.lowBells && q === 0 && b % 2 === 0) { B.tone(t, 1.6, mtof(c3[0]), 0.028, { wave: 'sin', dec: 1.2, rel: 0.4, rev: 0.7 }); B.tone(t, 1.2, mtof(c3[0]) * 2.76, 0.01, { wave: 'sin', dec: 0.6, rel: 0.3, rev: 0.7 }); }
+        if (TM.choir && q === 0) for (const [j, mm] of c3.entries()) B.tone(t, bar * 0.95, mtof(mm), 0.014, { wave: 'soft', voices: 4, det: 0.007, vib: 0.01, vibDelay: 0.3, lp: 2600, att: 0.45, rel: 0.5, rev: 0.6, pan: (j - 1) * 0.5 });
+      }
       if (TM) {
         // desert hand drums: a doum on the beat, teks in between; snow sleigh bells on the eighths (all sixteenths when it's busy or
         // festive) and a glassy bell on each bar; forest: a breath of wind on the bar; war: a second, deeper drum line
@@ -308,15 +385,17 @@ function render(p, { sr, dur, cues }) {
       const ch2 = chordAt(t);
       if (VX.ost) {
         const m = ch2[[0, 0, 1, 0, 2, 0, 1, 0][q % 8]] + (q % 8 === 4 ? 12 : 0);
-        B.tone(t, beat / 4 * 0.55, mtof(m), 0.022 + 0.025 * I, { wave: 'saw', voices: 3, det: 0.006, lp: 2400, dec: 0.09, rel: 0.03, rev: 0.3, pan: q % 2 ? 0.35 : -0.35 });
+        B.tone(t, beat / 4 * 0.55, mtof(m), (0.022 + 0.025 * I) * (HU ? (q % 4 === 0 ? 1.1 : 0.9) : 1), { wave: 'saw', voices: 3, det: 0.006, lp: 2400, dec: 0.09, rel: 0.03, rev: 0.3, pan: q % 2 ? 0.35 : -0.35, ...(HU ? { att: 0.008, vib: 0.003 } : {}) });
       }
       if (VX.lute && (q % 2 === 0 || I > 0.5)) {
         // the lute: broken chords, plucked, a little brighter on the off-beats
         const m = ch2[[0, 2, 1, 2][(q >> 1) % 4]] + 12 * (q % 8 < 4 ? 0 : 1);
-        B.tone(t, beat / 2 * 0.9, mtof(m), 0.03 + 0.02 * I, { wave: 'tri', voices: 2, det: 0.003, lp: S.arpLp, fenv: 2.4, fdec: 0.03, dec: 0.16, rel: 0.05, pan: q % 4 ? 0.4 : -0.2, rev: 0.25 });
+        if (HU) B.pluck(ts, mtof(m), 0.03 + 0.02 * I, { dec: 0.7, bright: 0.5, pan: q % 4 ? 0.4 : -0.2, rev: 0.25 });
+        else B.tone(t, beat / 2 * 0.9, mtof(m), 0.03 + 0.02 * I, { wave: 'tri', voices: 2, det: 0.003, lp: S.arpLp, fenv: 2.4, fdec: 0.03, dec: 0.16, rel: 0.05, pan: q % 4 ? 0.4 : -0.2, rev: 0.25 });
       } else if (!VX.ost || sec >= 8 ? I > 0.15 : I > 0.7) {
-        const m = ch2[[0, 1, 2, 1][q % 4]] + 12 * (q % 8 < 4 ? 1 : 2);
-        B.tone(t, beat / 4 * 0.8, mtof(m), 0.018 + 0.026 * I, { wave: S.arp === 'pluck' ? 'tri' : S.arp, lp: S.arpLp, fenv: 1.5, fdec: 0.05, dec: S.arp === 'pluck' ? 0.12 : 0.22, rel: 0.03, pan: Math.sin(q) * 0.5, dly: 0.25, rev: 0.15 });
+        const m = ch2[[0, 1, 2, 1][q % 4]] + 12 * (q % 8 < 4 ? 1 : 2), acc = HU ? (q % 4 === 0 ? 1.15 : q % 2 ? 0.8 : 0.95) : 1;
+        if (HU && (S.arp === 'pluck' || (TM && (TM.mallet || TM.harpsi)))) B.pluck(ts, mtof(m), (0.02 + 0.026 * I) * acc, { dec: TM && TM.mallet ? 0.35 : TM && TM.harpsi ? 0.3 : 0.45, bright: TM && TM.harpsi ? 0.95 : TM && TM.mallet ? 0.8 : 0.6, mallet: !!(TM && TM.mallet), pan: Math.sin(q) * 0.5, dly: 0.25, rev: 0.15 });
+        else B.tone(ts, beat / 4 * 0.8, mtof(m), (0.018 + 0.026 * I) * acc, { wave: S.arp === 'pluck' ? 'tri' : S.arp, lp: S.arpLp, fenv: 1.5, fdec: 0.05, dec: S.arp === 'pluck' ? 0.12 : 0.22, rel: 0.03, pan: Math.sin(q) * 0.5, dly: 0.25, rev: 0.15 });
       }
       // a fill on the last beat of every fourth bar, toms rolling into each new section
       if (b % 4 === 3 && q >= 12 && I > 0.2) B.snare(t, 0.08 + 0.04 * (q - 12), r);
@@ -342,7 +421,7 @@ function render(p, { sr, dur, cues }) {
     B.tone(t, step * 0.9, mtof(c[2] + 12), 0.045, { ...VX.lead, att: 0.02, rel: 0.3 });
     if (k < 3) B.taiko(t, 0.2, r, 66);
   });
-  B.fx(beat);
+  B.fx(beat, HU ? 1.15 : 1);
   // level: the same loudness whatever the style (about the old soundtrack's), then soft-limited
   let ss = 0, nn = 0; for (let i = Math.floor(drop * sr); i < Math.min(len, Math.floor(fin * sr)); i += 4) { ss += B.L[i] * B.L[i] + B.R[i] * B.R[i]; nn += 2; }
   const g = nn ? Math.min(4, 0.11 / Math.max(1e-4, Math.sqrt(ss / nn))) : 1;
@@ -361,7 +440,10 @@ function loud(Lc, Rc, sr, scale = 1) {
   const on = blocks.filter(e => e > 1e-6); if (!on.length) return -120;
   return 10 * Math.log10(on.reduce((a, b) => a + b, 0) / on.length);
 }
-function mix(sfxL, sfxR, mus, { volume = 0.8, duck = 0.45, sr, levels = null } = {}) {
+// (Army Clash, 2026-11-21) `voice` ({ L, R }): the commentator on a bus of its own, kept at the effects' level; `dips` ([start, end]
+// in seconds): the music sinks smoothly by `dipDb` under each line and comes back up (instead of the effects' fast ducking), so the
+// voice sits in the music rather than chopping it. Both off by default: other games sound exactly as before.
+function mix(sfxL, sfxR, mus, { volume = 0.8, duck = 0.45, sr, levels = null, voice = null, dips = null, dipDb = -6 } = {}) {
   const n = sfxL.length, L = new Float32Array(n), R = new Float32Array(n);
   // (levels, Rellz 2026-11-16: "make the sfx and music all same levels in all 3 ... the music should be a bit louder but not
   // louder than sfx") every game, every video: the effects are brought to levels.effects and the music to levels.music
@@ -374,13 +456,20 @@ function mix(sfxL, sfxR, mus, { volume = 0.8, duck = 0.45, sr, levels = null } =
   }
   if (process.env.AUDIO_STATS) console.log(`Levels: effects ${loud(sfxL, sfxR, sr, fxG).toFixed(1)} dB, music ${loud(mus.L, mus.R, sr, volume).toFixed(1)} dB`);
   const att = 1 - Math.exp(-1 / (0.004 * sr)), rel = 1 - Math.exp(-1 / (0.18 * sr));
-  let env = 0;
+  const dA = 1 - Math.exp(-1 / (0.18 * sr)), dR = 1 - Math.exp(-1 / (0.6 * sr)), dLow = Math.pow(10, dipDb / 20), D = dips ? dips.slice().sort((a, b) => a[0] - b[0]) : [];
+  let env = 0, dip = 1, di = 0;
   for (let i = 0; i < n; i++) {
     const a = Math.max(Math.abs(sfxL[i]), Math.abs(sfxR[i])) * fxG;
     env += (a - env) * (a > env ? att : rel);
-    const g = volume * (1 - duck * Math.min(1, env * 2));
-    L[i] = Math.tanh(sfxL[i] * fxG + (mus.L[i] || 0) * g) * 0.98;
-    R[i] = Math.tanh(sfxR[i] * fxG + (mus.R[i] || 0) * g) * 0.98;
+    let g = volume * (1 - duck * Math.min(1, env * 2));
+    if (D.length) {
+      const t = i / sr; while (di < D.length && D[di][1] + 0.15 < t) di++;
+      const aim = di < D.length && t >= D[di][0] - 0.12 ? dLow : 1;
+      dip += (aim - dip) * (aim < dip ? dA : dR); g *= dip;
+    }
+    const vl = voice ? (voice.L[i] || 0) * fxG : 0, vr = voice ? (voice.R[i] || 0) * fxG : 0;
+    L[i] = Math.tanh(sfxL[i] * fxG + vl + (mus.L[i] || 0) * g) * 0.98;
+    R[i] = Math.tanh(sfxR[i] * fxG + vr + (mus.R[i] || 0) * g) * 0.98;
   }
   return { L, R };
 }

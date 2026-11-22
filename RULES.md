@@ -372,3 +372,15 @@ How loud the effects and the music are, in dB (Rellz, 2026-11-16: the same level
 - Looks: `weather`, `weatherChance` 0.4, `dusk`, `duskChance` 0.3, `replay`, `replaySecs` 0.8, `mvp`.
 - Sound: `commentator`, `maxCalls` 8, `callGap` 6 s, `voice` 0.62, `crowd`, `crowdBed` 0.075, `mapMusic`.
 New looks dice: Army and Tower weather `seed ^ 0x5EA7E2` (dusk with it), particles `^ 0x5EA7E3`, `^ 0x5EA7E4`; commentator lines `^ 0xC0AA7E`; Tower troops in waves `^ 0x91C4A5`; Territory picks `^ 0x91C4A6` (Territory's weather and dusk use hashes of the seed).
+
+## realism (Rellz 2026-11-21)
+`on`, `gun` (bullet damage ×), `rapid` (how much of that a machine gun keeps), `arrow`, `close`/`far` (point-blank and full-range shots), `blast` (deadlier middle of an explosion), `limp`/`limpK` (under this share of health, move at this speed), `hole` (a black hole's core erases), `titanHole` (share of a titan's health per second in a core). Battle logic, no dice; `on: false` plays old seeds exactly as before.
+
+## mapsFresh
+`on`, `until` (a date), `every`: until that date every `every`-th video is on a map marked `"fresh": true` in `maps` (the fun-park maps: rainbow, pyramid, cloud, candy, jungle, airship, galaxy).
+
+## picks.general
+The war general commentator: `on`, `voice` (level), `fade` [in, out] seconds, `wet` (hall), `onBeat`, `dipDb` (how far the music sinks under him). Lines made by `sfx/make_general.py`.
+
+## music.human
+Humanised playing, real plucked strings and each map's theme sets the mode and tempo (`music.js` THEMES, MAP_THEME).

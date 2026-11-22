@@ -657,6 +657,89 @@
         "mixed",
         "wild"
       ]
+    },
+    {
+      "name": "rainbow",
+      "eras": [
+        "modern",
+        "scifi",
+        "fantasy",
+        "mixed",
+        "wild"
+      ],
+      "fresh": true
+    },
+    {
+      "name": "pyramid",
+      "eras": [
+        "medieval",
+        "fantasy",
+        "pirate",
+        "mixed",
+        "wild",
+        "modern",
+        "samurai"
+      ],
+      "fresh": true
+    },
+    {
+      "name": "cloud",
+      "eras": [
+        "fantasy",
+        "medieval",
+        "samurai",
+        "scifi",
+        "mixed",
+        "wild"
+      ],
+      "fresh": true
+    },
+    {
+      "name": "candy",
+      "eras": [
+        "fantasy",
+        "mixed",
+        "wild",
+        "horror"
+      ],
+      "fresh": true
+    },
+    {
+      "name": "jungle",
+      "eras": [
+        "medieval",
+        "fantasy",
+        "pirate",
+        "samurai",
+        "modern",
+        "mixed",
+        "wild"
+      ],
+      "fresh": true
+    },
+    {
+      "name": "airship",
+      "eras": [
+        "pirate",
+        "medieval",
+        "fantasy",
+        "scifi",
+        "modern",
+        "mixed",
+        "wild"
+      ],
+      "fresh": true
+    },
+    {
+      "name": "galaxy",
+      "eras": [
+        "scifi",
+        "fantasy",
+        "modern",
+        "mixed",
+        "wild"
+      ],
+      "fresh": true
     }
   ],
   "matchups": [
@@ -2246,7 +2329,8 @@
     "levels": {
       "effects": -14,
       "music": -19
-    }
+    },
+    "human": true
   },
   "quality": {
     "audition": 0,
@@ -2309,6 +2393,35 @@
     "voice": 0.62,
     "crowd": true,
     "crowdBed": 0.075,
-    "mapMusic": true
+    "mapMusic": true,
+    "general": {
+      "on": true,
+      "voice": 0.7,
+      "fade": [
+        0.04,
+        0.25
+      ],
+      "wet": 0.22,
+      "onBeat": true,
+      "dipDb": -6
+    }
+  },
+  "mapsFresh": {
+    "on": true,
+    "until": "2026-12-06",
+    "every": 2
+  },
+  "realism": {
+    "on": true,
+    "gun": 2.6,
+    "rapid": 0.55,
+    "arrow": 1.3,
+    "close": 1.2,
+    "far": 0.85,
+    "blast": true,
+    "limp": 0.35,
+    "limpK": 0.8,
+    "hole": true,
+    "titanHole": 0.35
   }
 }
