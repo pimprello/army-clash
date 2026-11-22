@@ -155,6 +155,8 @@ function makeTitle(f) {
   if (f.mode === 'heroes') facts.push(f.heroes === w ? `${f.start[f.heroes]} HEROES Held the Line 🛡️` : 'The Last Stand FELL 💀');
   if (f.mode === 'hill' && x.hill >= 3) facts.push(`The HILL Changed Hands ${x.hill} TIMES 🚩`);
   else if (f.mode === 'hill' && x.hillTeam === w) facts.push('They Took the HILL and Won 🚩');
+  // (2026-11-21, the cliffhanger ending) the Short doesn't show who wins, so no title may tell
+  if (f.cliff) for (let q = facts.length - 1; q >= 0; q--) if (/\bWins?\b|\bWon\b|REVENGE|FELL|Held the Line|LOST the Duel/i.test(facts[q])) facts.splice(q, 1);
   if (f.clickbait) return { title: pick(facts.some(t => !(f.recent || []).includes(t)) ? facts : ['Wait for the ENDING... 😳', 'I Did NOT Expect This 😳', 'This Got WAY Too Intense 🔥', 'Nobody Saw This Coming 🤯', 'Watch Till the END 👀']), kind: 'clickbait' };
 
   // 2. the match-up itself, written to be specific and short

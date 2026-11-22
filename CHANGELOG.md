@@ -2,6 +2,13 @@
 
 Newest first. Each entry says what changed in the videos and why.
 
+## 2026-11-21 (Rellz, for all three games, asked in the Tower Clash chat): the cliffhanger ending
+
+Rellz: "instead of fully ending and saying game over just end at the cliff hanger and say subscribe instead of game over or the end or whatever it says currently" (all three channels; long-form videos come later, once their format is worked out).
+
+- New `cliffhanger.js` (the same file in Army Clash, Tower Clash and Territory Clash; `rules.cliffhanger`). A Short no longer shows who wins: just before the end (half a second of battle time before the final blow when it ends on a kill, 1.5 s before the bell when it ends on time; the finale already knows when) the picture freezes with a flash and a jolt, drains of colour and darkens while it slowly pushes in; WHO WINS?! (WHO SURVIVES?! in a three-way) slams in, SUBSCRIBE / TO SEE THE ENDING comes up under it, a red SUBSCRIBE button pulses until a hand taps it and it turns into SUBSCRIBED with a ringing bell. 3.4 s, then the video ends; the sound fades out over the last 0.9 s.
+- The battle is then played on to its end without drawing, so the titles, description and `videos.jsonl` still know what happened (kept for the long-form videos); titles that would give the result away ("... Still Won", "FIRST Ever Win ...", "REVENGE", "... FELL", "Held the Line") are left out of a cliffhanger Short (`titles.js`, `f.cliff`).
+
 ## 2026-11-16 (Rellz's request, all three games): the same sound levels everywhere
 
 Rellz: "make the sfx and music all same levels in all 3 tower army and territory clash the music should be a bit louder but not louder than sfx, tower clash did it quite nice".
