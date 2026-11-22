@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-22: Franchise consistency + invisible-overlay fix
+
+- **Franchise subscribe CTA** (all 3 channels): every description now ends with "New battle every day on Army Clash · Tower Clash · Territory Clash — subscribe and hit the bell!" so viewers discover the other two channels.
+- **Franchise tags**: added `clash game` and `clash universe` tags on every video and `#clashuniverse` to the hashtag line for cross-channel YouTube search.
+- **Invisible-overlay fix** (`render.js`): added `ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over'` after the main draw call in every game's render loop. Any `globalCompositeOperation` or `globalAlpha` leaked by an internal draw function is now reset before overlays paint — so roster cards, the cliffhanger pill and the subscribe CTA are always visible.
+
 Newest first. Each entry says what changed in the videos and why.
 
 ## 2026-11-22: fixed the description's army names
