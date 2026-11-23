@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 586 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 587 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -75,8 +75,8 @@ Records from 586 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - STAR EATER SLAYER: 15
 - TANK SLAYER: 17
 - SIEGE GOLEM SLAYER: 19
-- HYDRA SLAYER: 20
-- COLOSSUS SLAYER: 21
+- HYDRA SLAYER: 21
+- COLOSSUS SLAYER: 22
 - STORM COLOSSUS SLAYER: 22
 - ACID LEVIATHAN SLAYER: 23
 - IRONHORN SLAYER: 23
@@ -84,7 +84,7 @@ Records from 586 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - DRAGON SLAYER: 26
 - SPIDER QUEEN SLAYER: 30
 - ELEPHANT SLAYER: 31
-- MAMMOTH SLAYER: 37
+- MAMMOTH SLAYER: 38
 - GOLEM SLAYER: 42
 - TITAN SLAYER: 42
 - GIANT SLAYER: 43
@@ -97,7 +97,7 @@ Records from 586 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - venom: 94
 - swift: 96
 - spikes: 114
-- regen: 121
+- regen: 122
 
 ## Big moments
 
@@ -185,6 +185,7 @@ Records from 586 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-23 12:30: The Stonewall Company Take the Titan's Bones (streak ended · 8th win · 57 kills)
 - 2026-11-23 07:40: The Hollowbark Kin Take the Battlefield (14th win · 72 kills)
 - 2026-11-23 04:16: The House of the Jade Serpent Take the Canyon Pass (2nd win · 79 kills)
 - 2026-11-22 18:50: The Crew of the Sea Wolf Take the Battlefield (4th win · 55 kills)
@@ -194,4 +195,3 @@ Records from 586 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-20 22:56: The Starweave Circle Take the Sky-temple Relic (revenge! · 12th win · 68 kills)
 - 2026-11-20 19:12: The Black Candle Take the Bombed City (revenge! · 7th win · 25 kills)
 - 2026-11-20 15:11: The Prism Cohort Take the Reactor (2nd win · 41 kills)
-- 2026-11-20 10:56: The Granite Battalion Take the Canyon Pass (5th win · 57 kills)
