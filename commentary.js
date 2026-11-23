@@ -109,8 +109,18 @@ function hall(L, R, wet, sr) {
   const vl = run(L, 0), vr = run(R, 23);
   for (let s = 0; s < len; s++) { L[s] += vl[s] * wet; R[s] += vr[s] * wet; }
 }
+function band(L, R, sr, lo, hi) {
+  const h = Math.exp(-2 * Math.PI * lo / sr), l = 1 - Math.exp(-2 * Math.PI * hi / sr);
+  for (const X of [L, R]) {
+    let hx = 0, hy = 0, ly = 0, ly2 = 0;
+    for (let i = 0; i < X.length; i++) {
+      const x = X[i], y = h * (hy + x - hx); hx = x; hy = y;          // high-pass
+      ly += (y - ly) * l; ly2 += (ly - ly2) * l; X[i] = ly2;           // two gentle low-pass steps
+    }
+  }
+}
 function mix(L, R, { sr, cues = [], crowd = [], dir = path.join(__dirname, 'sfx'), seed = 1, startAt = 0, endAt, voice = 0.62, bed = 0.075, max = 8, gap = 6,
-  swell = { kill: 3, big: 6, attack: 0.2, release: 1.5 }, lines: set = 'default', bus = null, fade = null, wet = 0, beat = 0, dips = null } = {}) {
+  swell = { kill: 3, big: 6, attack: 0.2, release: 1.5 }, lines: set = 'default', bus = null, fade = null, wet = 0, beat = 0, dips = null, soft = false } = {}) {
   const len = L.length, end = endAt ?? len / sr, said = [], S = SETS[set] || SETS.default, VL = bus ? bus.L : L, VR = bus ? bus.R : R;
   const lines = plan(cues, { max, gap, startAt, endAt: end, seed, lines: S.lines });
   for (const l of lines) {
@@ -127,6 +137,10 @@ function mix(L, R, { sr, cues = [], crowd = [], dir = path.join(__dirname, 'sfx'
     if (dips) dips.push([t0, t0 + n / sr]);
     said.push(`${l.t.toFixed(1)}s ${l.line}`);
   }
+  // (all three games, Rellz 2026-11-23: "blended into the music not a main part ... add some reverb") `soft` rounds the voice
+  // off before the hall: the rumble and the hiss are taken out (a gentle band of about 140 Hz to 5 kHz), so it sounds like a
+  // voice far off in the same hall as the music, not one right at the microphone
+  if (bus && soft && said.length) band(VL, VR, sr, 140, 5200);
   if (bus && wet > 0 && said.length) hall(VL, VR, wet, sr);
   // the crowd: a murmuring bed under the fight that swells (in dB, attack and release in seconds) on kills and big moments
   if (bed > 0) {

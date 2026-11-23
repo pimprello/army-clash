@@ -646,7 +646,7 @@ async function main() {
   if (PK && (PK.commentator !== false || PK.crowd !== false)) {
     const said = Commentary.mix(synth.L, synth.R, { sr: SR, cues: PK.commentator !== false ? pkCalls : [], crowd: pkCrowd, seed, startAt: OFF + 1, endAt: Math.min(DUR, (pkEndAt ?? DUR) + 2.5),
       bed: PK.crowd !== false ? (PK.crowdBed ?? 0.075) : 0, voice: GEN ? (GEN.voice ?? 0.7) : PK.voice ?? 0.62, max: PK.maxCalls ?? 8, gap: PK.callGap ?? 6,
-      ...(GEN ? { lines: 'general', bus: vBus, fade: GEN.fade || [0.04, 0.25], wet: GEN.wet ?? 0.22, beat: mp && GEN.onBeat !== false ? mp.beat : 0, dips: vDips } : {}) });
+      ...(GEN ? { lines: 'general', bus: vBus, fade: GEN.fade || [0.04, 0.25], wet: GEN.wet ?? 0.22, soft: !!GEN.soft, beat: mp && GEN.onBeat !== false ? mp.beat : 0, dips: vDips } : {}) });
     console.log(`Commentator: ${said.length ? said.join(', ') : 'quiet'}; crowd ${PK.crowd !== false ? `on, ${pkCrowd.length} swells` : 'off'}`);
   }
   const L = new Float32Array(frames), R = new Float32Array(frames);
