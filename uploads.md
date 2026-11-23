@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-23 07:40 | Can Vampires Survive DEMONS? 😈 | Cyan wins | https://youtube.com/shorts/DqT3hJhjvxk |
 | 2026-11-23 04:16 | GOLDEN DRONES vs Solar Doctors vs Turbo Monks 🔥 | Brazil wins | https://youtube.com/shorts/lUOxLqVhkXQ |
 | 2026-11-22 18:50 | Royal Hooks vs Shadow Pirates ⚔️ | Teal wins | https://youtube.com/shorts/L68_qRUo2ys |
 | 2026-11-21 21:26 | A SANDWORM Burst Out 🪱 | Purple wins | https://youtube.com/shorts/zQEVZlj8ICs |

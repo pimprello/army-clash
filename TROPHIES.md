@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 585 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 586 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -67,12 +67,12 @@ Records from 585 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - STORM EMPEROR SLAYER: 8
 - UNMAKER SLAYER: 9
 - MAGMA COLOSSUS SLAYER: 10
-- GLACIER BEHEMOTH SLAYER: 10
 - FORTRESS SLAYER: 11
+- GLACIER BEHEMOTH SLAYER: 11
 - MECH SLAYER: 12
 - CANNON SLAYER: 14
 - PLAYER SLAYER: 14
-- STAR EATER SLAYER: 14
+- STAR EATER SLAYER: 15
 - TANK SLAYER: 17
 - SIEGE GOLEM SLAYER: 19
 - HYDRA SLAYER: 20
@@ -94,7 +94,7 @@ Records from 585 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - vampiric: 11
 - wings: 43
 - spellward: 50
-- venom: 93
+- venom: 94
 - swift: 96
 - spikes: 114
 - regen: 121
@@ -137,7 +137,7 @@ Records from 585 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: cyclops: 9
 - portal: golem: 10
 - fusion: 11
-- portal: wolfrider: 11
+- portal: wolfrider: 12
 - sudden: boss: 17
 - sudden: ring: 19
 - portal: demon: 20
@@ -154,9 +154,9 @@ Records from 585 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Mossback Tribe | 29 | 18 | 11 | 1125 | 1 lost | 7 |
 | Red Hawk Company | 29 | 17 | 12 | 1133 | 1 lost | 5 |
 | Frostwhisper Tribe | 28 | 14 | 14 | 1296 | 3 lost | 4 |
+| Hollowbark Kin | 32 | 14 | 18 | 1154 | 1 won | 3 |
+| Thornheart Circle | 17 | 14 | 3 | 901 | 4 won | 6 |
 | Silverbough Circle | 34 | 13 | 21 | 1604 | 1 lost | 3 |
-| Hollowbark Kin | 31 | 13 | 18 | 1082 | 1 lost | 3 |
-| Thornheart Circle | 16 | 13 | 3 | 897 | 3 won | 6 |
 | Oakshield Clan | 21 | 13 | 8 | 804 | 1 won | 6 |
 | Starweave Circle | 29 | 12 | 17 | 1146 | 2 won | 5 |
 | Wildbrook Clan | 30 | 12 | 18 | 1015 | 1 won | 2 |
@@ -185,6 +185,7 @@ Records from 585 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-23 07:40: The Hollowbark Kin Take the Battlefield (14th win · 72 kills)
 - 2026-11-23 04:16: The House of the Jade Serpent Take the Canyon Pass (2nd win · 79 kills)
 - 2026-11-22 18:50: The Crew of the Sea Wolf Take the Battlefield (4th win · 55 kills)
 - 2026-11-21 21:26: The Ion Legion Take the World Furnace (revenge! · first ever win · 24 kills)
@@ -194,4 +195,3 @@ Records from 585 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-20 19:12: The Black Candle Take the Bombed City (revenge! · 7th win · 25 kills)
 - 2026-11-20 15:11: The Prism Cohort Take the Reactor (2nd win · 41 kills)
 - 2026-11-20 10:56: The Granite Battalion Take the Canyon Pass (5th win · 57 kills)
-- 2026-11-19 23:04: The Wormwood Coven Take the Frozen End (streak ended · 3rd win · 36 kills)
