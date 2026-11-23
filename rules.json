@@ -2203,8 +2203,9 @@
   },
   "schedule": {
     "hours": [
-      12,
-      18
+      13,
+      17,
+      21
     ],
     "timeZone": "Europe/London",
     "windowMinutes": 110

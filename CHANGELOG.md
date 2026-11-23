@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-23: 3 Shorts a day, same times on all three
+
+- Rellz, 2026-11-23: "make all 3 channels post at the same time, it should be 3 times a day". Every channel posts at 13:00, 17:00 and 21:00 London time (`rules.schedule.hours`); the workflow wakes 12:00-14:59, 16:00-18:59 and 20:00-22:59 UTC (summer time covered). One extra post each was started by hand at 11:50 the same day, as he asked.
+
 ## 2026-11-23: Distinct, more clickable thumbnails; actions v5
 
 - **Thumbnail: a war poster** (Army Clash's own look, 2026-11-23): the two colours strong on a hard split, speed lines bursting from the VS, a halftone print texture darker towards the edges; "WHO WINS?" big on top with ARMY CLASH as a small gold stencil plate above it (was the logo on top and the question at the bottom, where YouTube lays the video's title in the feed). Nothing that matters below y 1500.
