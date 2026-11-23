@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-11-23: Distinct, more clickable thumbnails; actions v5
+
+- **Thumbnail: a war poster** (Army Clash's own look, 2026-11-23): the two colours strong on a hard split, speed lines bursting from the VS, a halftone print texture darker towards the edges; "WHO WINS?" big on top with ARMY CLASH as a small gold stencil plate above it (was the logo on top and the question at the bottom, where YouTube lays the video's title in the feed). Nothing that matters below y 1500.
+- GitHub Actions moved to v5 (`checkout`, `setup-node`, `upload-artifact`): the "Node.js 20 is deprecated" warning on every run is gone before GitHub turns Node 20 off.
+
 ## 2026-11-23 (Rellz: "cinematic zoom in should be slow mo ... stop speeding it up ... it doesn't strictly have to end when there's no troops left ... make the match focus on the most interesting parts"; "fix the invisible line thing ... it is an overlay issue"): Calm camera
 
 - **Close-ups in slow motion** (`rules.video.calmCam`, `slow` 0.5): every zoomed-in shot (spots, kill cams, heroes, blasts, grabs) plays at half speed, eased in and out, and slow-motion moments are always allowed.

@@ -13714,7 +13714,8 @@ const RVB = (() => {
       const cols = sides.map(s => TEAMS[s.team]);
       if (N === 2) {
         const top = W * 0.6, bot = W * 0.4;
-        ctx.save(); ctx.globalAlpha = 0.42;
+        // (2026-11-23, war-poster look) the two colours strong, so the clash reads from across the feed
+        ctx.save(); ctx.globalAlpha = 0.7;
         ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(top, 0); ctx.lineTo(bot, H); ctx.lineTo(0, H); ctx.closePath(); ctx.fillStyle = cols[0].d; ctx.fill();
         ctx.beginPath(); ctx.moveTo(top, 0); ctx.lineTo(W, 0); ctx.lineTo(W, H); ctx.lineTo(bot, H); ctx.closePath(); ctx.fillStyle = cols[1].d; ctx.fill();
         ctx.restore();
@@ -13724,7 +13725,21 @@ const RVB = (() => {
       } else {
         const g = ctx.createLinearGradient(0, 0, W, 0);
         cols.forEach((c, i) => { g.addColorStop(i / (N - 1) * 0.9 + 0.05, c.d); });
-        ctx.save(); ctx.globalAlpha = 0.42; ctx.fillStyle = g; ctx.fillRect(0, 0, W, H); ctx.restore();
+        ctx.save(); ctx.globalAlpha = 0.66; ctx.fillStyle = g; ctx.fillRect(0, 0, W, H); ctx.restore();
+      }
+      // (2026-11-23, Army Clash's own thumbnail look: a war poster) speed lines bursting from the clash and a halftone print
+      // texture, darker towards the edges, so it looks printed and loud next to Tower Clash's siege and Territory Clash's map
+      {
+        const cx0 = W / 2, cy0 = N === 2 ? 915 : 1095;
+        ctx.save(); ctx.globalAlpha = 0.1; ctx.fillStyle = '#FFFFFF';
+        for (let k = 0; k < 36; k++) { const a = k / 36 * TAU + 0.04, w0 = (k % 3 ? 0.016 : 0.03); ctx.beginPath(); ctx.moveTo(cx0, cy0); ctx.lineTo(cx0 + Math.cos(a - w0) * 2400, cy0 + Math.sin(a - w0) * 2400); ctx.lineTo(cx0 + Math.cos(a + w0) * 2400, cy0 + Math.sin(a + w0) * 2400); ctx.closePath(); ctx.fill(); }
+        ctx.restore();
+        ctx.save(); ctx.fillStyle = 'rgba(5,7,13,0.32)';
+        for (let y = 12; y < H; y += 24) for (let x = (y / 24) % 2 ? 12 : 0; x < W; x += 24) {
+          const d = Math.hypot((x - cx0) / W, (y - cy0) / H), r = clamp((d - 0.22) * 15, 0, 9.5);
+          if (r > 0.6) { ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.fill(); }
+        }
+        ctx.restore();
       }
       // vignette so the middle pops
       const v = ctx.createRadialGradient(W / 2, H * 0.47, W * 0.3, W / 2, H * 0.47, H * 0.62);
@@ -13770,20 +13785,28 @@ const RVB = (() => {
         big('VS', x, y + r * 0.04, r * 1.2, r * 0.95, COL.white, r * 0.16, -0.12);
       };
 
-      // 3) the logo (everything is kept between y 200 and 1720: YouTube's Shorts shelf shows the picture cut to about 1080x1560)
-      big('ARMY CLASH', W / 2, 300, W - 160, 132, COL.white, 18, -0.035);
-      ctx.save(); ctx.translate(W / 2, 384); ctx.rotate(-0.035);
-      roundRect(ctx, -300, -9, 600, 18, 9); ctx.fillStyle = COL.gold; ctx.fill(); ctx.lineWidth = 5; ctx.strokeStyle = ink; ctx.stroke();
+      // 3) (2026-11-23) the question on top, where the eye lands first, and the logo as a small stencil above it; nothing that
+      // matters below y 1500, where YouTube lays the video's title over the picture in the feed
+      ctx.save(); ctx.font = font(58, 800, false); const lw0 = ctx.measureText('ARMY CLASH').width + 30 * 9;
+      ctx.translate(W / 2, 218); ctx.rotate(-0.035);
+      roundRect(ctx, -lw0 / 2 - 30, -40, lw0 + 60, 80, 12); ctx.fillStyle = ink; ctx.fill(); ctx.lineWidth = 5; ctx.strokeStyle = COL.gold; ctx.stroke();
+      ctx.restore();
+      ctx.save(); ctx.translate(W / 2, 218); ctx.rotate(-0.035); ctx.font = font(58, 800, false); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      if ('letterSpacing' in ctx) ctx.letterSpacing = '12px'; ctx.fillStyle = COL.gold; ctx.fillText('ARMY CLASH', 6, 2); if ('letterSpacing' in ctx) ctx.letterSpacing = '0px';
+      ctx.restore();
+      big('WHO WINS?', W / 2, 352, W - 110, 178, COL.white, 24, -0.05);
+      ctx.save(); ctx.translate(W / 2, 438); ctx.rotate(-0.05);
+      roundRect(ctx, -330, -9, 660, 18, 9); ctx.fillStyle = COL.gold; ctx.fill(); ctx.lineWidth = 5; ctx.strokeStyle = ink; ctx.stroke();
       ctx.restore();
       // the mode, if there is one (always in the same ribbon)
       if (o.tag) {
         ctx.font = font(52, 800, true); const tw = Math.min(W - 200, ctx.measureText(o.tag).width + 70);
-        roundRect(ctx, W / 2 - tw / 2, 420, tw, 74, 16); ctx.fillStyle = '#0A0E19'; ctx.fill(); ctx.lineWidth = 6; ctx.strokeStyle = COL.gold; ctx.stroke();
-        big(o.tag, W / 2, 458, tw - 50, 50, COL.gold, 8);
+        roundRect(ctx, W / 2 - tw / 2, 470, tw, 74, 16); ctx.fillStyle = '#0A0E19'; ctx.fill(); ctx.lineWidth = 6; ctx.strokeStyle = COL.gold; ctx.stroke();
+        big(o.tag, W / 2, 508, tw - 50, 50, COL.gold, 8);
       }
 
       // 4) the armies
-      const two = N === 2, cy = two ? 905 : 920, R = two ? 222 : 150, xs = two ? [282, W - 282] : [186, W / 2, W - 186];
+      const two = N === 2, cy = two ? 935 : 950, R = two ? 222 : 150, xs = two ? [282, W - 282] : [186, W / 2, W - 186];
       sides.forEach((s, i) => {
         const p = this.thumbPicks(s.list), x = xs[i], flip = two ? i === 1 : x > W / 2 + 1, back = p.rest;
         const br = two ? 98 : 70, off = two ? [[-128, -262], [118, -282]] : [[-72, -190], [72, -200]];
@@ -13803,8 +13826,7 @@ const RVB = (() => {
         if (s.count) big(`×${s.count}`, x, py + ph / 2 + 44, pw - 40, two ? 56 : 46, COL.gold, 10);
       });
 
-      // 5) the question (never the answer)
-      big('WHO WINS?', W / 2, 1545, W - 140, 176, COL.gold, 22, -0.05);
+      // (the question is on top now: see 3)
       ctx.restore();
     },
   };
