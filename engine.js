@@ -454,6 +454,8 @@ const RVB = (() => {
       }
       // (rules.ui.shine) directional camera kicks: a quick jolt the way a heavy blow travelled, springing back
       if (this.shKicks && this.shKicks.length) for (const k of this.shKicks) { const e = Math.exp(-k.t * 15) * Math.cos(k.t * 32); this.shakeX += k.x * e; this.shakeY += k.y * e; }
+      // (rules.ui.tidy, Rellz 2026-11-23: "all ui moves everywhere") a gentle shake: the frame, cards and names stay nearly still
+      if (this.opts.tidy) { this.shakeX *= 0.3; this.shakeY *= 0.3; }
       if (this.phase === 'fight') {
         if (this.freeze > 0) {
           this.freeze -= dt;
@@ -3009,7 +3011,16 @@ const RVB = (() => {
         for (const sg of [-1, 1]) { ctx.beginPath(); ctx.ellipse(x + sg * b * 0.32, y - b * 0.3, b * 0.34, b * 0.2, sg * 0.6, 0, TAU); ctx.stroke(); }
         return;
       }
-      roundRect(ctx, x - b, y - b, b * 2, b * 2, 3); ctx.fillStyle = C.box; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = INK; ctx.stroke();
+      if (this.opts.tidy && kind !== 'squad') {
+        // (rules.ui.tidy, Rellz 2026-11-23: "weird invisible square thing") a plain coloured square read as a glitch, so every crate is a
+        // real wooden crate with a shadow, planks and a round coloured badge showing what's inside
+        ctx.fillStyle = 'rgba(4,6,11,0.35)'; ctx.beginPath(); ctx.ellipse(x + 3, y + b + 3, b * 1.05, b * 0.32, 0, 0, TAU); ctx.fill();
+        roundRect(ctx, x - b, y - b, b * 2, b * 2, 4); ctx.fillStyle = '#9A6A3A'; ctx.fill();
+        ctx.lineWidth = 2; ctx.strokeStyle = '#6E4A22'; ctx.beginPath(); ctx.moveTo(x - b, y - b * 0.33); ctx.lineTo(x + b, y - b * 0.33); ctx.moveTo(x - b, y + b * 0.33); ctx.lineTo(x + b, y + b * 0.33); ctx.stroke();
+        ctx.lineWidth = 3; ctx.strokeStyle = INK; roundRect(ctx, x - b, y - b, b * 2, b * 2, 4); ctx.stroke();
+        ctx.beginPath(); ctx.arc(x, y, b * 0.72, 0, TAU); ctx.fillStyle = C.box; ctx.fill(); ctx.lineWidth = 2.5; ctx.stroke();
+        b *= 0.62;
+      } else { roundRect(ctx, x - b, y - b, b * 2, b * 2, 3); ctx.fillStyle = C.box; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = INK; ctx.stroke(); }
       if (kind === 'squad') {
         ctx.lineWidth = 2; ctx.strokeStyle = '#6E4A22'; ctx.beginPath(); ctx.moveTo(x - b, y - b * 0.33); ctx.lineTo(x + b, y - b * 0.33); ctx.moveTo(x - b, y + b * 0.33); ctx.lineTo(x + b, y + b * 0.33); ctx.stroke();
         ctx.fillStyle = COL.gold; ctx.fillRect(x - b * 0.25, y - b, b * 0.5, b * 2); ctx.lineWidth = 1.5; ctx.strokeStyle = INK; ctx.strokeRect(x - b * 0.25, y - b, b * 0.5, b * 2);
@@ -5074,7 +5085,7 @@ const RVB = (() => {
       if (!sh && g.opts.clean && g.phase === 'fight') { const f = this.fitAll(); tx = f.x; ty = f.y; tz = f.z; spd = 1.6; zspd = 1.2;
         // (rules.video.calmCam, Rellz 2026-11-23: "make the match focus on the most interesting parts") leaning towards where the
         // fighting is thickest, a little closer, once the armies have met (camera only)
-        if (g.opts.calmCam && g.fightT > 4) { const h = this.hotspot(); tx = f.x * 0.35 + h.x * 0.65; ty = f.y * 0.35 + h.y * 0.65; tz = Math.max(f.z, 1.3); spd = 1.2; zspd = 0.9; } }
+        if (g.opts.calmCam && g.opts.calmCam.focus && g.fightT > 4) { const h = this.hotspot(); tx = f.x * 0.35 + h.x * 0.65; ty = f.y * 0.35 + h.y * 0.65; tz = Math.max(f.z, 1.3); spd = 1.2; zspd = 0.9; } }
       if (sh) {
         const age = this.t - sh.t0;
         if (sh.kind === 'outro') {
@@ -5937,8 +5948,9 @@ const RVB = (() => {
       }
       if (this.freezeFx > T) { ctx.fillStyle = `rgba(160,220,255,${0.12 * Math.min(1, (this.freezeFx - T) / 0.5)})`; ctx.fillRect(AR.x, AR.y, AR.w, AR.h); }
       if (this.weather === 'fog') {
-        ctx.fillStyle = 'rgba(205,214,224,0.16)'; ctx.fillRect(AR.x, AR.y, AR.w, AR.h);
-        for (let i = 0; i < 6; i++) { const x = AR.x + ((i * 211 + t * 18) % (AR.w + 300)) - 150, y = AR.y + 120 + i * 140; ell(ctx, x, y, 220, 90, 0, 'rgba(225,232,240,0.13)', 0); }
+        // (rules.ui.tidy) no milky sheet over the whole field (it read as a see-through square over the battle): only drifting wisps
+        if (!this.opts.tidy) { ctx.fillStyle = 'rgba(205,214,224,0.16)'; ctx.fillRect(AR.x, AR.y, AR.w, AR.h); }
+        if (!this.opts.tidy) for (let i = 0; i < 6; i++) { const x = AR.x + ((i * 211 + t * 18) % (AR.w + 300)) - 150, y = AR.y + 120 + i * 140; ell(ctx, x, y, 220, 90, 0, 'rgba(225,232,240,0.13)', 0); }
       } else if (this.weather === 'rain') {
         ctx.fillStyle = 'rgba(20,30,60,0.14)'; ctx.fillRect(AR.x, AR.y, AR.w, AR.h);
         ctx.beginPath(); for (let i = 0; i < 80; i++) { const x = AR.x + ((i * 97.3 + t * 140) % AR.w), y = AR.y + ((i * 53.1 + t * 900) % AR.h); ctx.moveTo(x, y); ctx.lineTo(x - 6, y - 22); }
@@ -14444,8 +14456,10 @@ const RVB = (() => {
         const p = (t - g.t0) / g.life; if (p < 0) continue;
         const e = 1 - Math.pow(1 - p, 2.2), r = g.r0 + (g.r1 - g.r0) * e;
         ctx.beginPath(); ctx.arc(g.x, g.y, Math.max(1, r), 0, TAU);
-        ctx.lineWidth = g.w * (1 - p) + 1; ctx.strokeStyle = rgba(g.col, 0.85 * (1 - p)); ctx.stroke();
-        ctx.lineWidth = g.w * 2.6 * (1 - p) + 1; ctx.strokeStyle = rgba(g.col, 0.18 * (1 - p)); ctx.stroke();
+        // (rules.ui.tidy, Rellz 2026-11-23: "its not clean") smaller, fainter shockwave rings, without the wide glow
+        const tk = this.opts.tidy ? 0.45 : 1;
+        ctx.lineWidth = g.w * (1 - p) * (this.opts.tidy ? 0.6 : 1) + 1; ctx.strokeStyle = rgba(g.col, 0.85 * (1 - p) * tk); ctx.stroke();
+        if (!this.opts.tidy) { ctx.lineWidth = g.w * 2.6 * (1 - p) + 1; ctx.strokeStyle = rgba(g.col, 0.18 * (1 - p)); ctx.stroke(); }
       }
       this.shBolts = this.shBolts.filter(b => t - b.t0 < b.life);
       for (const b of this.shBolts) {
@@ -17026,8 +17040,8 @@ const RVB = (() => {
         // splashes where drops land
         for (let i = 0; i < 14; i++) { const p = P[i], ph = (t * 2.2 + p.p) % 1, x = AR.x + p.x * AR.w, y = AR.y + ((p.y + Math.floor(t * 2.2 + p.p) * 0.37) % 1) * AR.h; ctx.beginPath(); ctx.ellipse(x, y, 3 + ph * 9, (3 + ph * 9) * 0.4, 0, 0, TAU); ctx.lineWidth = 1.2; ctx.strokeStyle = `rgba(210,228,255,${0.5 * (1 - ph)})`; ctx.stroke(); }
       } else if (W === 'fog') {
-        ctx.fillStyle = 'rgba(214,222,232,0.1)'; ctx.fillRect(AR.x, AR.y, AR.w, AR.h);
-        for (let i = 0; i < 7; i++) { const p = P[i], x = AR.x + ((p.x * (AR.w + 500) + t * 16 * p.s) % (AR.w + 500)) - 250, y = AR.y + p.y * AR.h; ell(ctx, x, y, 260, 100, 0, 'rgba(230,236,244,0.12)', 0); }
+        if (!this.opts.tidy) { ctx.fillStyle = 'rgba(214,222,232,0.1)'; ctx.fillRect(AR.x, AR.y, AR.w, AR.h); }
+        if (!this.opts.tidy) for (let i = 0; i < 7; i++) { const p = P[i], x = AR.x + ((p.x * (AR.w + 500) + t * 16 * p.s) % (AR.w + 500)) - 250, y = AR.y + p.y * AR.h; ell(ctx, x, y, 260, 100, 0, 'rgba(230,236,244,0.12)', 0); }
       } else if (W === 'snow') {
         ctx.fillStyle = 'rgba(235,244,255,0.05)'; ctx.fillRect(AR.x, AR.y, AR.w, AR.h);
         for (const p of P) { const x = AR.x + ((p.x * AR.w + Math.sin(t * 0.9 + p.p) * 24 + t * 18) % AR.w + AR.w) % AR.w, y = AR.y + ((p.y * AR.h + t * 70 * p.s) % AR.h); disc(ctx, x, y, 1.6 + 1.8 * p.s, 'rgba(255,255,255,0.8)', 0); }

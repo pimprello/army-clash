@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-11-23 (Rellz: "the graphics are horrible it has weird invisible square thing and its so buggy ... all ui moves everywhere and its not clean fix it"): Clean-up
+
+Looks only (`rules.ui.tidy`, `rules.ui.shine.screen` 0, `rules.video.calmCam.focus` false, `rules.world.list`):
+- **The squares:** power-up crates were flat coloured squares that read as glitches; they are now wooden crates with a shadow and a round coloured badge. Fog no longer lays a milky see-through sheet and big pale blobs over the whole field.
+- **Nothing jumping about:** the camera no longer drifts towards the busiest fighting (it moved the whole picture all the time); screen shake is 30% of what it was, so the frame, cards and names stay nearly still; the glitch, flip and mirror world events are gone (time stop, blood moon and supersize stay).
+- **No washed-out screen:** the white flashes, colour split and screen tints from the shine layer are off (`shine.screen` 0); shockwave rings are thinner and fainter without their wide glow.
+- Checked by re-rendering the 21:00 video before and after. Already-posted videos don't change.
+
 ## 2026-11-23: Manual runs no longer post extra videos
 
 - (Rellz, Tower Clash chat: "tower clash accidentally uploads two, fix that, only upload one") manual runs (Run workflow) were posting a video every time they were started (three were started on 23 Nov, besides the scheduled ones). Now every run, manual or scheduled, posts only into an upload slot that is still empty, and checks again just before uploading; a manual run posts regardless only with the new "force" box ticked. Same in all three channels.

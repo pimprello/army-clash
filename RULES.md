@@ -401,3 +401,7 @@ No film bars: the director's cinematic moments get a vignette, a warm/cool grade
 ## ui.inside
 
 - `true`: the camera never goes past the arena's edge (no cut-off troops or mirrored floor at the edge). Camera only.
+
+## ui.tidy
+
+- `true`: looks only. Wooden power-up crates with badges, no fog sheet or fog blobs, gentle screen shake (30%), thin faint shockwave rings.

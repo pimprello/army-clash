@@ -2220,7 +2220,7 @@
       "gloss": 1,
       "rim": 1,
       "damage": true,
-      "screen": 1,
+      "screen": 0,
       "density": 1.6
     },
     "clean": true,
@@ -2241,7 +2241,8 @@
       "floats": 2,
       "live": 3
     },
-    "inside": true
+    "inside": true,
+    "tidy": true
   },
   "world": {
     "on": true,
@@ -2249,14 +2250,9 @@
     "chance": 0.7,
     "second": 0.3,
     "list": [
-      "glitch",
-      "flip",
-      "mirror",
-      "blackout",
       "freeze",
       "bloodmoon",
-      "supersize",
-      "rave"
+      "supersize"
     ]
   },
   "video": {
@@ -2268,7 +2264,8 @@
     "scale": 2,
     "calmCam": {
       "on": true,
-      "slow": 0.5
+      "slow": 0.5,
+      "focus": false
     }
   },
   "thumbnail": {
