@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-11-23: The yellow mode tag no longer covers the team names
+
+- (Rellz: "the yellow text that says siege or whatever shouldn't cover the team names/colour", all three channels) in the face-off, the yellow tag (SIEGE, RARE GOLDEN BOSS...) sat at the top on top of the first side's name and colour line. With two sides it now sits in the empty corner of the top band, beside the top ring and above its count; with three it stays at the top where there was room. `faceoff.js`.
+- (Rellz, the siege crate) in a siege, fighters outside the castle now go for the wall in their way: the gate first (big troops can't squeeze through the gaps beside it), else the nearest piece of wall, and anyone of the castle's army already outside; shooters still shoot over it (`siegeTarget` in `engine.js`). On test sieges the gate fell 8 to 19 s sooner and far less of the wall was left standing pointlessly.
+
 ## 2026-11-23 (Rellz: "small army vs small army and then they buy troops ... less troops and cleaner kills ... variety of armies ... keep the blood ... dont let too many ui text things happen at the same time"): Buy-in battles
 
 - **Small armies that buy troops** (`rules.combat.buyIn`): each army starts with only its first 4 of every 20 troops (titans and characters still start); the rest arrive as squads of 3 bought through the fight (spread from 6% to 74% of the battle), and an army that falls behind (under 70% of the leader's strength) buys its next squad straight away, at most every 2.5 s. A comeback buy gets a banner (one every 6 s at most); the rest are a line in the feed and a coin chime. No dice: the order comes from the line-up.

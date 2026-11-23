@@ -361,6 +361,7 @@ async function main() {
     if (coldHeat) { coldHeat.endT = pre.fightT; coldHeat.winner = pre.winner; }
     console.log(`Finale: the battle ends at ${pre.fightT.toFixed(2)} s by ${kill ? `the final blow on a ${d.type}${d.byType ? ` by a ${d.byType}` : ''}` : 'time'} (found in ${((Date.now() - tf) / 1000).toFixed(0)} s)`);
   }
+  if (process.env.DUMP_OPTS) { fs.writeFileSync(process.env.DUMP_OPTS, JSON.stringify({ bseed, opts: optsFor(wildMul) })); process.exit(0); }
   const game = new RVB.Army(bseed, optsFor(wildMul));
   // every troop type in this battle (saved in videos.jsonl, so freshness can pick the troops seen least)
   const unitsAtStart = [...new Set(game.units.filter(u => !RVB.UNIT[u.type].uncounted).map(u => u.type).concat(...(game.waves || []).flat().map(w => w.list || [])))];

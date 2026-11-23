@@ -6817,6 +6817,31 @@ const RVB = (() => {
     },
     rangeMod(u, U) { let k = 1; if (this.dark && u.team !== this.dark.team) k *= 1 - 0.35 * this.dark.k; if (this.weather === 'fog') k *= 0.65; if (this.mod === 'night') k *= 0.75; if (this.iceK) k *= 0.85; return k; },
     pickTarget(u, U) {
+      // (Rellz 2026-11-23: "they couldn't reach each other because they couldn't break the crate, fix that") in a siege, a fighter
+      // still outside the castle goes for the wall in its way: the gate first (big troops can't squeeze through the gaps beside
+      // it), else the nearest piece of wall; once a way is open it fights whoever is inside as usual. Shooters shoot over it.
+      const sg = this.siege && !(u.confT > this.fightT) ? this.siegeTarget(u, U) : null;
+      if (sg) return sg;
+      return this.pickTarget0(u, U);
+    },
+    siegeTarget(u, U) {
+      const S = this.siege; if (u.team === S.team || u.team > 2 || U.ranged || U.healer || u.flying || UNIT[u.type].wall) return null;
+      const out = S.team === 0 ? u.y > S.y + 6 : u.y < S.y - 6; if (!out) return null;
+      if (!S.pieces) S.pieces = this.units.filter(o => UNIT[o.type].wall && o.team === S.team);
+      let gate = null, best = null, bd = Infinity;
+      for (const o of S.pieces) { if (o.dead) continue; if (UNIT[o.type].gate) gate = o; const d = (o.x - u.x) ** 2 + (o.y - u.y) ** 2; if (d < bd) { bd = d; best = o; } }
+      if (!best) return null;
+      // a way in: the gate is down, or (small enough to slip through) a gap is close by
+      const holeOpen = !gate || S.pieces.some(o => o.dead && Math.abs(o.x - u.x) < 120);
+      if (holeOpen && u.r < 15) return null;
+      // anyone of the castle's army already outside the wall is fought first, if near
+      let foe = null, fd = 160 * 160;
+      for (const o of this.near(u.x, u.y, 160)) { if (o.dead || o.team !== S.team || UNIT[o.type].wall || o.phased) continue; const inside = S.team === 0 ? o.y < S.y - 6 : o.y > S.y + 6; if (inside) continue; const d = (o.x - u.x) ** 2 + (o.y - u.y) ** 2; if (d < fd) { fd = d; foe = o; } }
+      if (foe) return foe;
+      if (gate && (gate.x - u.x) ** 2 + (gate.y - u.y) ** 2 < bd * 2.2 + 40000) return gate;
+      return best;
+    },
+    pickTarget0(u, U) {
       const T = this.fightT, conf = u.confT > T, hunter = U.hunter, hunts = u.hunts;
       let best = null, bd = Infinity;
       // minds (rules.minds): a troop with a score to settle (vengeance, a grudge, a duel, a friend to protect) goes after that enemy
