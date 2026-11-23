@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 584 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 585 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -77,12 +77,12 @@ Records from 584 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - SIEGE GOLEM SLAYER: 19
 - HYDRA SLAYER: 20
 - COLOSSUS SLAYER: 21
-- STORM COLOSSUS SLAYER: 21
+- STORM COLOSSUS SLAYER: 22
 - ACID LEVIATHAN SLAYER: 23
 - IRONHORN SLAYER: 23
 - CYCLOPS SLAYER: 25
 - DRAGON SLAYER: 26
-- SPIDER QUEEN SLAYER: 29
+- SPIDER QUEEN SLAYER: 30
 - ELEPHANT SLAYER: 31
 - MAMMOTH SLAYER: 37
 - GOLEM SLAYER: 42
@@ -185,6 +185,7 @@ Records from 584 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-23 04:16: The House of the Jade Serpent Take the Canyon Pass (2nd win · 79 kills)
 - 2026-11-22 18:50: The Crew of the Sea Wolf Take the Battlefield (4th win · 55 kills)
 - 2026-11-21 21:26: The Ion Legion Take the World Furnace (revenge! · first ever win · 24 kills)
 - 2026-11-21 14:57: The Coven of Ash Take the Ruined Fort (3 wins in a row · 40 kills)
@@ -194,4 +195,3 @@ Records from 584 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-20 15:11: The Prism Cohort Take the Reactor (2nd win · 41 kills)
 - 2026-11-20 10:56: The Granite Battalion Take the Canyon Pass (5th win · 57 kills)
 - 2026-11-19 23:04: The Wormwood Coven Take the Frozen End (streak ended · 3rd win · 36 kills)
-- 2026-11-19 18:53: The Nightshade Coven Take the Trench Line (4th win · 42 kills)
