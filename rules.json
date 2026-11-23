@@ -2215,7 +2215,8 @@
       "stay": 0.6
     },
     "notch": 190,
-    "cineLook": true
+    "cineLook": true,
+    "noRings": true
   },
   "world": {
     "on": true,

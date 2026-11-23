@@ -256,7 +256,7 @@ async function main() {
     // blood first: splatter, pools and spattered fighters instead of sparks and smoke (rules.ui.blood; looks only)
     ...(rules.ui && rules.ui.blood && rules.ui.blood.on ? { blood: rules.ui.blood } : {}),
     // little people instead of circles and triangles (rules.ui.humans; looks only)
-    ...(rules.ui && rules.ui.humans ? { humans: true } : {}), ...(rules.ui && rules.ui.cineClean ? { cineClean: true } : {}), ...(NOTCH ? { notch: true } : {}), ...(rules.ui && rules.ui.cineLook ? { cineLook: true } : {}),
+    ...(rules.ui && rules.ui.humans ? { humans: true } : {}), ...(rules.ui && rules.ui.cineClean ? { cineClean: true } : {}), ...(NOTCH ? { notch: true } : {}), ...(rules.ui && rules.ui.cineLook ? { cineLook: true } : {}), ...(rules.ui && rules.ui.noRings ? { noRings: true } : {}),
     // the picks, with the holiday (Christmas snow) and which side defends a siege or is the boss (the mode's own dice)
     ...(PK ? { picks: Object.assign({}, PK, { on: true, holiday: HOL ? HOL.key : null }), pkSide: sideRoll < 0.5 ? 0 : 1 } : {}),
     // real-life damage (rules.realism, Rellz 2026-11-21): deadly guns, black holes that erase, limping wounded (battle logic, no dice)
