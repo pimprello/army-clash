@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-11-23 (Rellz: "They didn't render they're invisible"): troops no longer turn see-through
+
+- A troop hit by several kinds of damage at once (acid, burns, frost, blood, lightning scorch, soaking) had every one of their marks painted over its body on the shine layer, so big troops especially (titans, golems) read as faint, see-through blobs inside their rings. Now only a troop's two strongest damage looks are painted, at half strength, and the damage washes (acid, frost, char, red-hot, wet, gore, smears) are lighter; the body always shows. Checked on a still frame against the same frame with no damage marks. Looks only: battles are unchanged.
+- Tower Clash shares this drawing code and may show the same thing; the fix goes there from the Tower Clash or Clash Auto Pilot chat.
+
 ## 2026-11-23 (Rellz, Army Clash chat): no black bars, 20% fewer troops, everyone easier to kill
 
 Rellz: "Remove black bars make cinematic effects like tower clash, also make there 20% less troops on screen I want the screen to be clearer so we can actually focus and appreciate matches fix the realistic update where everyone has lesss health that way if ur shot it's easy for u to die".
