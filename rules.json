@@ -2122,8 +2122,8 @@
   },
   "combat": {
     "on": true,
-    "armySize": 0.64,
-    "hp": 0.85,
+    "armySize": 0.5,
+    "hp": 0.7,
     "moves": true,
     "fewerBullets": true,
     "roster": true,
@@ -2133,7 +2133,24 @@
     "balanceSpread": 2.5,
     "balanceRounds3": 4,
     "balanceSeconds": 100,
-    "smart": true
+    "smart": true,
+    "buyIn": {
+      "on": true,
+      "start": 4,
+      "squad": 3,
+      "mercs": true,
+      "from": 0.06,
+      "to": 0.74,
+      "behind": 0.7,
+      "gap": 2.5,
+      "note": 6
+    },
+    "duelStart": {
+      "on": true,
+      "hp": 2,
+      "secs": 6,
+      "cap": 10
+    }
   },
   "modes": {
     "shares": {
@@ -2211,13 +2228,18 @@
     "cineClean": true,
     "blood": {
       "on": true,
-      "drops": 1.5,
+      "drops": 1.8,
       "sparks": 0.4,
-      "stay": 0.6
+      "stay": 0.8
     },
     "notch": 190,
     "cineLook": true,
-    "noRings": true
+    "noRings": true,
+    "calm": {
+      "on": true,
+      "floats": 2,
+      "live": 3
+    }
   },
   "world": {
     "on": true,

@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-11-23 (Rellz: "small army vs small army and then they buy troops ... less troops and cleaner kills ... variety of armies ... keep the blood ... dont let too many ui text things happen at the same time"): Buy-in battles
+
+- **Small armies that buy troops** (`rules.combat.buyIn`): each army starts with only its first 4 of every 20 troops (titans and characters still start); the rest arrive as squads of 3 bought through the fight (spread from 6% to 74% of the battle), and an army that falls behind (under 70% of the leader's strength) buys its next squad straight away, at most every 2.5 s. A comeback buy gets a banner (one every 6 s at most); the rest are a line in the feed and a coin chime. No dice: the order comes from the line-up.
+- **Variety:** every third squad is a band of sellswords: troops from another army's ranks for the same price (`buyIn.mercs`), so line-ups mix more.
+- **Fewer, squishier troops:** `combat.armySize` 0.64 → 0.5, `combat.hp` 0.85 → 0.7, so kills are quicker and cleaner and the screen is clearer.
+- **Invisible thing fixed:** a troop swallowed by a black hole used to stretch into a flat team-coloured blob next to the dark hole (it looked like a broken, invisible troop). Now it vanishes in three white and team-coloured streaks spiralling into the hole, with a white flash.
+- **Blood kept and stronger:** `ui.blood.drops` 1.5 → 1.8, `stay` 0.6 → 0.8; acid, frost and char marks stay on (with the see-through fix).
+- **Calmer text** (`rules.ui.calm`): at most 2 floating labels a second, 3 on screen at once, and one troop callout a second.
+- **Every battle opens with the champions' duel** (`rules.combat.duelStart`; Rellz: "always start a battle with the 1v1 fight before the other troops can move then they all attack no matter what gamemode it is"): in every mode (and in 3-way battles, between the first two armies) each army's best fighter steps into the middle and the armies hold their lines and watch; when one champion falls (or after 10 s) everyone attacks. The opening duel is quicker than the Champion Duel mode's (champions ×2 health, about 6 s). Champion Duel mode itself is unchanged.
+- **No black bands in the intro:** with the film look, the scoreboard and cards no longer fade out during the stand-off, the charge and the director's big moments (that left empty black bands above and below the battle).
+- Battles still end close to 60 s (checked). Already-posted videos don't change.
+
 ## 2026-11-23: 2 Shorts a day
 
 - Rellz, 2026-11-23: "make all upload 2 a day". Every channel now posts at 12:00 and 18:00 London time (`rules.schedule.hours` [12, 18]); the workflow also wakes from 10:00 to 13:59 UTC for the new slot (summer time covered). One extra post each was started by hand the same night, as he asked.

@@ -50,7 +50,9 @@ Every new video reads `rules.json` when it is made, so a change here applies to 
   - `livingWeapons`: weapons nobody picked up can come alive later in the battle as flying living blades that attack everyone (at most four a battle).
   - `powerups`: ten more supply-drop kinds (each crate shows its own icon), **clone ray** (copies six of that side's troops) and **ghost army** (the last 10 fallen troops come back as ghosts for 14 s), plus: **time freeze** (every enemy frozen for 3 s), **portal** (a squad steps out behind the enemy lines), **phoenix heart** (the last 8 fallen troops come back at half health), **chain lightning** (a bolt jumps between 10 enemies), **chaos dice** (giant size, tiny enemies, speed, confusion, full heal or a shockwave), **evolution crystal** (the best troop jumps to ELITE with a mutation), **pocket singularity** (pulls enemies together, then blows them apart) and **king's crown** (the strongest troop leads: troops near it hit 30% harder for 10 s).
 - **`combat`**: intelligent combat, so the beauty of the fighting is easy to follow (`"on": false` switches all of it off and battles play exactly as before it existed).
-  - `armySize` (0.8): both armies are 20% smaller.
+  - `armySize` (0.5): both armies are half size.
+  - `buyIn` (`on`, `start` 4, `squad` 3, `mercs` true, `from` 0.06, `to` 0.74, `behind` 0.7, `gap` 2.5, `note` 6): armies start small (the first `start` of every 20 troops) and buy the rest in squads of `squad` between `from` and `to` of the battle; an army below `behind` of the leader's strength buys early (every `gap` s at most). `mercs`: every third squad is sellswords from another army. `note`: seconds between buy banners.
+  - `duelStart` (`on`, `hp` 2, `secs` 6, `cap` 10): every battle opens with the champions' duel while both armies hold; champions get `hp` × health, the duel is tuned to last about `secs` and ends by `cap` s of the battle at the latest.
   - `hp` (1.3): every troop is 30% tougher, so fights last long enough to see the moves (smaller armies with deadlier moves otherwise end too soon).
   - `moves`: melee troops fight with visible moves that depend on their weapon, each with a short trail and a callout (at most three on screen a second): blades **PARRY** a frontal blow and **RIPOSTE**; shields **BLOCK** most of a hit and every third swing is a **SHIELD BASH** (knock back); axes and clubs **CLEAVE** everyone in an arc; spears, pikes and lances **PIERCE** through to the troop behind; maces and hammers can **STUN** (stars over the head); agile troops (ninjas, duelists, assassins, elves) **DODGE**. Basic soldiers and skeletons carry different weapons (sword, sword and shield, axe, spear, mace), knights carry a war hammer and giants a club, so you can tell troops apart at a glance.
   - `fewerBullets`: rapid-fire guns (machine guns and the like) fire half as many rounds, each doing double damage: the same firepower, far fewer bullets on screen.
@@ -387,3 +389,7 @@ Humanised playing, real plucked strings and each map's theme sets the mode and t
 
 ## ui.cineLook
 No film bars: the director's cinematic moments get a vignette, a warm/cool grade, a light leak and grain instead (like Tower Clash). Off brings the black bars back.
+
+## ui.calm
+
+- `on`, `floats` (2): floating labels a second at most; `live` (3): labels on screen at once. Troop callouts drop to one a second. Looks only.

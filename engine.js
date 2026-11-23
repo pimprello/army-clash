@@ -383,7 +383,9 @@ const RVB = (() => {
       // (logic) a word that would land on a tribe's tactic tag goes just above the tag instead of across it
       if (this.clean && this.tacLabels) for (const L of this.tacLabels) if (L.py !== undefined && L.px !== undefined && this.t - L.t0 < 1.8 && Math.abs(L.px - x) < (L.w + String(text).length * size * 0.55) / 2 && Math.abs(L.py - y) < 38) y = L.py - 40;
       if (this.clean) for (const f of this.floats) if (f.age < 0.7 && Math.abs(f.x - x) < (String(f.text).length + String(text).length) * 6 + 20 && Math.abs(f.y - y) < 36) return;
-      if (this.opts.ui >= 2) { if (this.t >= (this.flW || 0)) { this.flW = this.t + 1; this.flN = 0; } if (this.flN >= (this.story && this.t < 4.3 ? 2 : 4)) return; this.flN++; }
+      if (this.opts.ui >= 2) { if (this.t >= (this.flW || 0)) { this.flW = this.t + 1; this.flN = 0; } if (this.flN >= (this.story && this.t < 4.3 ? 2 : this.opts.calm ? this.opts.calm.floats : 4)) return; this.flN++; }
+      // (rules.ui.calm, Rellz 2026-11-23: "dont let too many ui text things happen at the same time") a cap on labels on screen at once
+      if (this.opts.calm && this.floats.filter(f => f.age < f.life * 0.8).length >= this.opts.calm.live) return;
       this.floats.push({ x, y, text, color, size, life: Math.max(life, 0.95), age: 0 });
     }
     banner(text, color, life = 1.6) {
@@ -2196,6 +2198,7 @@ const RVB = (() => {
       // fixedLength: the whole video runs exactly this long (fight + outro), with four reinforcement waves.
       this.fixed = this.opts.fixedLength || 0;
       const F = this.fixed;
+      this.buyIn = F && this.opts.combat && this.opts.combat.buyIn && this.opts.combat.buyIn.on ? Object.assign({ start: 4, squad: 3, mercs: true, from: 0.06, to: 0.74, behind: 0.7, gap: 2.5, note: 6 }, this.opts.combat.buyIn) : null;
       const budget = (F ? R.range(this.opts.budgetLo || 190, this.opts.budgetHi || 215) : R.range(120, 140)) * ((this.opts.combat && this.opts.combat.armySize) || 1);
       this.units = [];
       this.arrows = [];
@@ -2210,7 +2213,7 @@ const RVB = (() => {
       if (F) {
         this.hpScale = this.opts.hpScale || 1.3;
         waveAt = [0.18, 0.36, 0.53, 0.69].map(f => f * F * R.range(0.97, 1.03));
-        waveOf = i => { const m = (i - 1) % 20; return m < 8 ? 0 : 1 + Math.floor((m - 8) / 3); };
+        waveOf = this.buyIn ? (i => ((i - 1) % 20 < this.buyIn.start ? 0 : 1)) : (i => { const m = (i - 1) % 20; return m < 8 ? 0 : 1 + Math.floor((m - 8) / 3); });
         this.cap = F - 3;
         // with pacing (rules.video.pace) the battle is held back until near the end, so the final pushes come later too
         this.pushAt = this.opts.pace ? [this.cap - 6, this.cap - 3, this.cap - 1.5] : [0.8 * F, 0.89 * F, 0.93 * F];
@@ -2266,6 +2269,28 @@ const RVB = (() => {
         this.deploy(team, parts[0], 'front');
         // (rules.titans.hp: with two or three titans an army, each is a little lighter, so battles still end with a final blow)
         if (this.titansOn) for (const u of this.units) if (u.team === team && !u.t5hp && isTitan(u.type)) { u.t5hp = 1; u.max *= this.opts.titans.hp ?? 0.8; u.hp = u.max; }
+        if (this.buyIn) {
+          // (rules.combat.buyIn, Rellz 2026-11-23: "a small army vs small army and then they buy troops ... at any point") the four big
+          // waves become many small purchases: a few troops of one kind each, spread over the fight; an army that falls behind buys
+          // its next squad straight away (buyTick). No dice: the order comes from the line-up.
+          const rest = [].concat(...parts.slice(1)), B = this.buyIn, sq = [];
+          // (variety) every third squad is a band of sellswords: troops from another army's ranks, bought for the same price
+          if (B.mercs) {
+            const mine = new Set(rest), opts = MERC_POOL().filter(k => !mine.has(k)), cost = q => q.reduce((a, k) => a + UNIT[k].cost, 0);
+            for (let i = 2; opts.length; i += 3) {
+              const at = i * B.squad; if (at >= rest.length) break;
+              const q = rest.slice(at, at + B.squad), m = opts[((this.seed >>> 0) + team * 7 + i * 13) % opts.length];
+              const n = clamp(Math.round(cost(q) / UNIT[m].cost), 1, B.squad + 1);
+              rest.splice(at, q.length, ...Array(n).fill(m));
+            }
+          }
+          const byK = {}; for (const k of rest) (byK[k] || (byK[k] = [])).push(k);
+          for (const k of Object.keys(byK)) for (let i = 0; i < byK[k].length; i += B.squad) sq.push(byK[k].slice(i, i + B.squad));
+          // interleave kinds so purchases vary (round-robin over the kinds' squads)
+          const lanes = Object.keys(byK).map(k => sq.filter(q => q[0] === k)), order = [];
+          for (let i = 0; order.length < sq.length; i++) for (const l of lanes) if (l[i]) order.push(l[i]);
+          order.forEach((q, i) => { this.waves[team].push({ at: F * (B.from + (B.to - B.from) * (i + 0.5 * team / this.N) / Math.max(1, order.length)), list: q, buy: true }); this.reserve[team] += q.length; });
+        } else
         for (let w = 1; w < parts.length; w++) if (parts[w].length) { this.waves[team].push({ at: waveAt[w - 1], list: parts[w] }); this.reserve[team] += parts[w].length; }
       }
       this.lastTen = Array(this.N).fill(false);
@@ -2286,7 +2311,10 @@ const RVB = (() => {
         for (let i = 0; i < 26; i++) this.sparkles.push({ x: AR.x + S.range(20, AR.w - 20), y: AR.y + S.range(20, AR.h - 20), r: S.range(4, 8), sp: S.range(1.5, 3.5), ph: S.range(0, TAU), c: S.chance(0.5) ? '#E9D5FF' : '#A5F3FC' });
       }
       this.liveDecor = this.decor.some(d => d.kind === 'fire') || !!this.sparkles;
-      if (this.mode) this.initModes();
+      // (rules.combat.duelStart, Rellz 2026-11-23: "always start a battle with the 1v1 fight before the other troops can move then they
+      // all attack no matter what gamemode it is") every battle opens with the champions' duel, whatever its mode
+      this.duelAll = this.opts.combat && this.opts.combat.duelStart && this.opts.combat.duelStart.on ? this.opts.combat.duelStart : null;
+      if (this.mode || this.duelAll) this.initModes();
       if (this.trb) this.initTribes();
       if (this.trb && this.trb.evolve && this.trb.evolve.on !== false && this.tribes && this.tribes.length) this.initEvolve();
       if (this.opts.nav && this.opts.nav.on) this.initNav();
@@ -3610,6 +3638,18 @@ const RVB = (() => {
       for (let tm = 0; tm < this.N; tm++) {
         for (const wv of this.waves[tm]) {
           if (wv.done) continue;
+          if (wv.buy) {
+            // a purchase: on its time, or early when this army is behind and hasn't bought for a moment
+            const B = this.buyIn, tot = tots[tm], best = Math.max(...tots.filter((_, j) => j !== tm && j < this.N));
+            const early = tot < best * B.behind && this.fightT - (this.lastBuy ? this.lastBuy[tm] : -9) > B.gap;
+            if (this.fightT >= wv.at || this.alive[tm] === 0 || early) {
+              this.reinforce(tm, wv); (this.lastBuy || (this.lastBuy = Array(this.N).fill(-9)))[tm] = this.fightT;
+              const n = wv.list.length, txt = `${TEAMS[tm].name} BUY +${n} ${n > 1 ? 'TROOPS' : 'TROOP'}!`;
+              // a comeback buy gets the big banner; the ordinary ones a quiet line in the feed, so the screen stays clean
+              if (early && this.fightT < wv.at && this.fightT - (this.buyNote ?? -9) > B.note) { this.buyNote = this.fightT; this.banner(txt, TEAMS[tm].c, 1.2); } else this.say(txt, tm); this.snd('coin', { team: tm });
+            }
+            break;
+          }
           if (this.fightT >= wv.at || this.alive[tm] === 0) { this.reinforce(tm, wv); arrived = true; break; }
         }
       }
@@ -3980,7 +4020,8 @@ const RVB = (() => {
     draw(ctx) {
       this.drawBG(ctx);
       const U2 = this.ui2 = this.opts.ui >= 2;
-      { const b = this.opts.cineClean && this.cine && this.phase !== 'outro' ? clamp(this.cine.bars, 0, 1) : 0; this.uiK = 1 - b * b * (3 - 2 * b); }
+      // (cineLook, Rellz 2026-11-23: "remove the black bars from the intro": the scoreboard and cards fading out left empty black bands above and below the battle, so with the film look they stay)
+      { const b = this.opts.cineClean && !this.opts.cineLook && this.cine && this.phase !== 'outro' ? clamp(this.cine.bars, 0, 1) : 0; this.uiK = 1 - b * b * (3 - 2 * b); }
       if (this.noUi) this.uiK = 0;   // (the cold open, coldopen.js: the battle and nothing else)
       if (this.uiK < 0.999) { const k0 = this.uiK; this.uiLayer(ctx, c => { this.uiK = 1; if (U2) { if (this.N === 3) this.drawHUD3v2(c); else this.drawHUD2(c); } else if (this.N === 3) this.drawHUD3(c); else this.drawHUD(c, {
         title: this.title, hook: this.hook, lv: String(this.alive[0] + this.reserve[0]), rv: String(this.alive[1] + this.reserve[1]),
@@ -9068,7 +9109,7 @@ const RVB = (() => {
       if (!this.cmb || T < (u.coAt || 0)) return;
       if (this.ui2 && this.story && this.t < 4.3) return; // UI 2.0: quiet while the opening story card is up
       if (T >= (this.coWin || 0)) { this.coWin = T + 1; this.coN = 0; }
-      if (this.coN >= (this.opts.ui >= 2 ? 2 : 3) || T < ((this.coTxt || (this.coTxt = {}))[text] || 0)) return;
+      if (this.coN >= (this.opts.calm ? 1 : this.opts.ui >= 2 ? 2 : 3) || T < ((this.coTxt || (this.coTxt = {}))[text] || 0)) return;
       this.coN++; u.coAt = T + 1.5; this.coTxt[text] = T + 0.7;
       this.float(u.x, u.y - this.headR(u) - 10, text, col, 22, 0.7);
     },
@@ -9088,7 +9129,8 @@ const RVB = (() => {
         }
         this.bannerQ.push({ at: 1.3, text: 'KILL THE KING TO WIN!', col: COL.gold });
       }
-      if (this.mode === 'duel' && this.N === 2) {
+      if ((this.mode === 'duel' && this.N === 2) || (this.duelAll && this.N >= 2)) {
+        const DA = this.mode !== 'duel' && this.duelAll; // (the opening duel of other modes is a quicker one)
         // each army's best fighter steps forward and they duel in the middle while both armies watch
         const champ = team => {
           let best = null, bv = -1;
@@ -9103,11 +9145,11 @@ const RVB = (() => {
         const a = champ(0), b = champ(1);
         if (a && b) {
           const mid = AR.y + AR.h / 2;
-          for (const [u, y] of [[a, mid - 60], [b, mid + 60]]) { u.x = cx; u.y = y; u.px = u.x; u.py = u.y; u.max *= 3; u.hp = u.max; u.r += 2; u.m = u.r * u.r; u.duelist = true; u.title = 'CHAMPION'; }
+          for (const [u, y] of [[a, mid - 60], [b, mid + 60]]) { u.x = cx; u.y = y; u.px = u.x; u.py = u.y; u.max *= DA ? DA.hp ?? 2 : 3; u.hp = u.max; u.r += 2; u.m = u.r * u.r; u.duelist = true; u.title = 'CHAMPION'; }
           a.face = Math.PI / 2; b.face = -Math.PI / 2;
           // duel damage is scaled so the stronger champion would win in about nine seconds of fighting (no endless stand-offs)
           const ttk = (x, o) => o.max / Math.max(0.05, UNIT[x.type].dmg * (x.dmgK || 1) * (UNIT[o.type].armor ?? 1) / Math.max(0.2, UNIT[x.type].cd || 1));
-          this.duel = { a, b, end: 14, k: clamp(Math.min(ttk(a, b), ttk(b, a)) / 9, 1, 25) };
+          this.duel = DA ? { a, b, end: DA.cap ?? 10, k: clamp(Math.min(ttk(a, b), ttk(b, a)) / (DA.secs ?? 6), 1, 25) } : { a, b, end: 14, k: clamp(Math.min(ttk(a, b), ttk(b, a)) / 9, 1, 25) };
           this.bannerQ.push({ at: 1.2, text: `${labelOf(a.type)} VS ${labelOf(b.type)}`, col: COL.gold });
         }
       }
@@ -13306,6 +13348,10 @@ const RVB = (() => {
   const BARRAGE = { modern: ['MISSILE STRIKE', 'shell'], scifi: ['ORBITAL STRIKE', 'lightning'] };
   const SUMMON = { modern: ['DRONE SWARM', 'drone', 4], scifi: ['ROBOT SQUAD', 'robot', 4], samurai: ['SHADOW CLAN', 'ninja', 5], pirate: ['GHOST CREW', 'skeleton', 7] };
   const WARE_PRICE = { evolve: 24, spell: 18, barrage: 20, summon: 20 };
+  // sellswords for rules.combat.buyIn.mercs: every troop that some army fields, after the roster swap, small to mid-size, no bosses
+  let _merc = null;
+  const MERC_POOL = () => _merc || (_merc = [...new Set([].concat(...ALL_DOCTRINES().map(d => Object.keys(rosterDoc(d).mix || {}))))]
+    .filter(k => UNIT[k] && UNIT[k].rank && !UNIT[k].boss && !UNIT[k].uncounted && UNIT[k].cost >= 1 && UNIT[k].cost <= 8 && !isTitan(k)).sort());
   const ARMY_MARKET2 = {
     wareName(tb, k) {
       if (k === 'evolve') return this.itemName(tb, 'evolve');
@@ -17263,10 +17309,17 @@ const RVB = (() => {
       if (this.sucked && this.sucked.length) {
         // spaghettified: stretched towards the hole, thinner and darker, then gone
         for (const s of this.sucked) {
-          const k = clamp((T - s.t0) / SPAG, 0, 1), x = s.x + (s.hx - s.x) * k * k, y = s.y + (s.hy - s.y) * k * k, ang = Math.atan2(s.hy - s.y, s.hx - s.x);
-          ctx.save(); ctx.translate(x, y); ctx.rotate(ang); ctx.globalAlpha = 1 - k * 0.6;
-          ctx.beginPath(); ctx.ellipse(0, 0, s.r * (1 + 2.2 * k), s.r * (1 - 0.85 * k), 0, 0, TAU); ctx.fillStyle = s.c; ctx.fill();
-          ctx.fillStyle = `rgba(20,8,40,${0.7 * k})`; ctx.fill(); ctx.restore(); ctx.globalAlpha = 1;
+          // (2026-11-23: the old stretched blob read as a broken, invisible troop) now a clean effect: streaks of the troop's colour
+          // spiralling into the hole and gone, with a white spark at the start
+          const k = clamp((T - s.t0) / SPAG, 0, 1), d0 = Math.hypot(s.x - s.hx, s.y - s.hy) || 1, a0 = Math.atan2(s.y - s.hy, s.x - s.hx);
+          ctx.save(); ctx.lineCap = 'round';
+          for (let j = 0; j < 3; j++) {
+            ctx.beginPath();
+            for (let q = 0; q <= 8; q++) { const f = k + (1 - k) * q / 8 * 0.5, rr = d0 * (1 - f), an = a0 + j * 2.1 + f * 4; const px = s.hx + Math.cos(an) * rr, py = s.hy + Math.sin(an) * rr; q ? ctx.lineTo(px, py) : ctx.moveTo(px, py); }
+            ctx.globalAlpha = 0.9 * (1 - k); ctx.lineWidth = 3.5 * (1 - k) + 0.5; ctx.strokeStyle = j === 0 ? '#FFFFFF' : s.c; ctx.stroke();
+          }
+          if (k < 0.3) { ctx.globalAlpha = 1 - k / 0.3; ctx.beginPath(); ctx.arc(s.x, s.y, s.r * (0.6 + k * 2), 0, TAU); ctx.fillStyle = '#FFFFFF'; ctx.fill(); }
+          ctx.restore(); ctx.globalAlpha = 1;
         }
         if (this.sucked.some(s => T - s.t0 >= SPAG)) this.sucked = this.sucked.filter(s => T - s.t0 < SPAG);
       }
