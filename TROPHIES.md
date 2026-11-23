@@ -1,19 +1,19 @@
 # Trophy room
 
-Records from 587 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 588 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
 - **112 kills**: GIANT · 2026-11-03 05:30 · [🇧🇪 Belgium vs Netherlands 🇳🇱](https://youtube.com/shorts/NeMPZ0JTCf8)
 - **94 kills**: GIANT · 2026-11-12 18:36 · [⚔️ CHAMPION DUEL: Sweden vs Denmark](https://youtube.com/shorts/4n7NhLLWHfI)
 - **86 kills**: STAR EATER · 2026-11-04 21:57 · [The Weapons Came ALIVE 🗡️](https://youtube.com/shorts/3bawEZ4_K_c)
+- **77 kills**: MAGMA COLOSSUS · 2026-11-23 13:46 · [The War Mammoth Went DOWN 💀](https://youtube.com/shorts/XnSm3RmEXyA)
 - **68 kills**: LIVING FORTRESS · 2026-11-18 15:05 · [🪞 MIRROR KING vs Pirates](https://youtube.com/shorts/o2I5Uhp_v6Y)
 - **60 kills**: GIANT · 2026-11-05 15:34 · [They Were OUTNUMBERED... 😳](https://youtube.com/shorts/YMOvFZK6LgE)
 - **53 kills**: STAR EATER · 2026-11-05 22:26 · [🇪🇸 Spain Mega Bones vs Portugal Void Rifles](https://youtube.com/shorts/7BYW3nD6pho)
 - **51 kills**: LIVING FORTRESS · 2026-11-04 13:13 · [🇩🇰 Denmark vs Sweden 🇸🇪](https://youtube.com/shorts/EEo4SfZqAyI)
 - **51 kills**: GIANT · 2026-11-16 19:30 · [Netherlands vs Belgium, But Champions DUEL First ⚔️](https://youtube.com/shorts/nZhfGcdTZ1I)
 - **49 kills**: TANK · 2026-11-03 22:12 · [They Were LOSING Until This 😳](https://youtube.com/shorts/-hvpvz0i7TA)
-- **49 kills**: STORM EMPEROR · 2026-11-14 23:46 · [The GROUND Split Open 💥](https://youtube.com/shorts/MnSsrL1rbeM)
 
 ## Fastest wipe-outs
 
@@ -84,20 +84,20 @@ Records from 587 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - DRAGON SLAYER: 26
 - SPIDER QUEEN SLAYER: 30
 - ELEPHANT SLAYER: 31
-- MAMMOTH SLAYER: 38
+- MAMMOTH SLAYER: 40
 - GOLEM SLAYER: 42
 - TITAN SLAYER: 42
-- GIANT SLAYER: 43
+- GIANT SLAYER: 44
 
 ## Mutations (rarest first)
 
 - vampiric: 11
 - wings: 43
-- spellward: 50
+- spellward: 51
 - venom: 94
 - swift: 96
 - spikes: 114
-- regen: 122
+- regen: 123
 
 ## Big moments
 
@@ -136,7 +136,7 @@ Records from 587 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - possess: treant: 5
 - portal: cyclops: 9
 - portal: golem: 10
-- fusion: 11
+- fusion: 12
 - portal: wolfrider: 12
 - sudden: boss: 17
 - sudden: ring: 19
@@ -185,6 +185,7 @@ Records from 587 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-23 13:46: The Sunspire Kin Take the Battlefield (9th win · 184 kills)
 - 2026-11-23 12:30: The Stonewall Company Take the Titan's Bones (streak ended · 8th win · 57 kills)
 - 2026-11-23 07:40: The Hollowbark Kin Take the Battlefield (14th win · 72 kills)
 - 2026-11-23 04:16: The House of the Jade Serpent Take the Canyon Pass (2nd win · 79 kills)
@@ -194,4 +195,3 @@ Records from 587 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-21 10:54: The Raven Hill Clan Take the Open Plains (3 wins in a row · 65 kills)
 - 2026-11-20 22:56: The Starweave Circle Take the Sky-temple Relic (revenge! · 12th win · 68 kills)
 - 2026-11-20 19:12: The Black Candle Take the Bombed City (revenge! · 7th win · 25 kills)
-- 2026-11-20 15:11: The Prism Cohort Take the Reactor (2nd win · 41 kills)
