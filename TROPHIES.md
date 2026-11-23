@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 589 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 590 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -84,7 +84,7 @@ Records from 589 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - DRAGON SLAYER: 26
 - SPIDER QUEEN SLAYER: 30
 - ELEPHANT SLAYER: 32
-- MAMMOTH SLAYER: 40
+- MAMMOTH SLAYER: 41
 - GOLEM SLAYER: 42
 - TITAN SLAYER: 43
 - GIANT SLAYER: 45
@@ -137,7 +137,7 @@ Records from 589 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: cyclops: 9
 - portal: golem: 10
 - fusion: 12
-- portal: wolfrider: 12
+- portal: wolfrider: 13
 - sudden: boss: 17
 - sudden: ring: 19
 - portal: demon: 20
@@ -185,6 +185,7 @@ Records from 589 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-23 22:16: The Mountain Wind School Take the Battlefield (5th win · 30 kills)
 - 2026-11-23 18:23: The Stormhorn Tribe Take the Open Plains (3 wins in a row · 23 kills)
 - 2026-11-23 13:46: The Sunspire Kin Take the Battlefield (9th win · 184 kills)
 - 2026-11-23 12:30: The Stonewall Company Take the Titan's Bones (streak ended · 8th win · 57 kills)
@@ -194,4 +195,3 @@ Records from 589 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-21 21:26: The Ion Legion Take the World Furnace (revenge! · first ever win · 24 kills)
 - 2026-11-21 14:57: The Coven of Ash Take the Ruined Fort (3 wins in a row · 40 kills)
 - 2026-11-21 10:54: The Raven Hill Clan Take the Open Plains (3 wins in a row · 65 kills)
-- 2026-11-20 22:56: The Starweave Circle Take the Sky-temple Relic (revenge! · 12th win · 68 kills)
