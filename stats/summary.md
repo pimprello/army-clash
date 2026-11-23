@@ -1,8 +1,8 @@
 # View stats
 
-Updated 2026-11-22 19:02 UTC. 1 videos, 0 at least a day old (used below). Groups need 3+ videos.
+Updated 2026-11-23 18:35 UTC. 3 videos, 0 at least a day old (used below). Groups need 3+ videos.
 
-Total views: 2. Median views per video: 0.
+Total views: 5. Median views per video: 0.
 
 ### By upload hour (UK time)
 
@@ -103,4 +103,6 @@ Total views: 2. Median views per video: 0.
 
 | Views | Likes | Title |
 | --- | --- | --- |
-| 2 | 0 | Royal Hooks vs Shadow Pirates ⚔️ |
+| 4 | 0 | The War Mammoth Went DOWN 💀 |
+| 1 | 0 | Neon Traitors vs GHOST RATS 🔥 |
+| 0 | 0 | SYLVAN vs Infernal vs Dwarves 🔥 |
