@@ -2239,7 +2239,8 @@
       "on": true,
       "floats": 2,
       "live": 3
-    }
+    },
+    "inside": true
   },
   "world": {
     "on": true,
@@ -2263,7 +2264,11 @@
     "pace": true,
     "finale": true,
     "smooth": true,
-    "scale": 2
+    "scale": 2,
+    "calmCam": {
+      "on": true,
+      "slow": 0.5
+    }
   },
   "thumbnail": {
     "on": true

@@ -239,7 +239,9 @@ async function main() {
   const tribesOn = rules.tribes && rules.tribes.on;
   const trbOpts = tribesOn ? { tribes: Object.assign({}, rules.tribes, { history: chronicle.history(pastVideos) }) } : {};
   const cmbOpts = combat ? { combat: { armySize: combat.armySize ?? 0.8, hp: combat.hp ?? 1, moves: combat.moves !== false, fewerBullets: combat.fewerBullets !== false, roster: combat.roster !== false, smart: !!combat.smart, buyIn: combat.buyIn, duelStart: combat.duelStart }, mode: mode || undefined, skins, heroes: mode === 'heroes' ? heroTeam : undefined } : {};
-  const pacing = Object.assign(OUTRO ? { outroSecs: OUTRO, pace: VID.pace !== false } : {}, VID.smooth ? { smooth: true } : {});
+  // (rules.video.calmCam, Rellz 2026-11-23) close-ups in slow motion, no fast-forward, the camera on the busiest fighting (camera and pace only)
+  const CALM = VID.calmCam && VID.calmCam.on ? { slow: VID.calmCam.slow ?? 0.5 } : null;
+  const pacing = Object.assign(OUTRO ? { outroSecs: OUTRO, pace: VID.pace !== false } : {}, VID.smooth ? { smooth: true } : {}, CALM ? { calmCam: CALM } : {}, (JSON.parse(fs.readFileSync(path.join(__dirname, 'rules.json'), 'utf8')).ui || {}).inside ? { inside: true } : {});
   const UIL = (rules.ui && rules.ui.layout) || 1; // 2 = the Shorts-safe layout (scoreboard on top, tribes strip above YouTube's title)
   const optsFor = mul => ({ ...(CHARGE && rules.cinematic !== false && process.env.CINEMATIC !== '0' ? { charge: true } : {}), target: SECS, fixedLength: SECS, weaponSfx: !!(rules.sound && rules.sound.weapons), ...pacing, swordsmen, crossbowmen, map, doctrines, budgetMul: three ? mul : [bm[0], bm[1] * mul], swordsmenByTeam, extras, extrasByTeam, era, formations, events,
     teams: three ? 3 : 2, dream: !!(wild || custom || three), ...systems, ...cmbOpts, ...trbOpts, ...(UIL >= 2 ? { ui: UIL } : {}), ...(rules.ui && rules.ui.art >= 2 ? { art: rules.ui.art } : {}), ...(rules.ui && rules.ui.anim ? { anim: true } : {}), ...(rules.ui && rules.ui.shine && rules.ui.shine.on ? { shine: rules.ui.shine } : {}), ...(rules.world && rules.world.on ? { world: rules.world } : {}),
@@ -609,7 +611,9 @@ async function main() {
     // finale already knows when), the picture freezes and the Short ends on WHO WINS?! and SUBSCRIBE TO SEE THE ENDING. The
     // battle is then played on to its end without drawing, so the titles, description and records still know what happened. -----
     const CLR = rules.cliffhanger || {};
-    if (CLR.on !== false && finale && game.phase === 'fight' && game.fightT >= finale.t - (finale.how === 'kill' ? (CLR.lead ?? 0.5) : (CLR.leadTime ?? 1.5))) {
+    // (rules.video.calmCam: no fast-forward, so the Short may run out before the battle does; then it ends on the cliffhanger right there)
+    const outOfTime = CALM && director && game.phase === 'fight' && director.t >= FIGHT_S;
+    if (CLR.on !== false && game.phase === 'fight' && (outOfTime || (finale && game.fightT >= finale.t - (finale.how === 'kill' ? (CLR.lead ?? 0.5) : (CLR.leadTime ?? 1.5))))) {
       const still = createCanvas(W * RS, H * RS); still.getContext('2d').drawImage(canvas, 0, 0);
       const C = new Cliff({ W, H, RS, fps: FPS, seed: bseed, seconds: CLR.seconds || 3.4, question: game.N === 3 ? 'WHO SURVIVES?!' : 'WHO WINS?!', cta: ['SUBSCRIBE', 'TO SEE THE ENDING'] });
       C.sounds(synth, (i + 1) / FPS + OFF);

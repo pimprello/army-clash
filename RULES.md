@@ -393,3 +393,11 @@ No film bars: the director's cinematic moments get a vignette, a warm/cool grade
 ## ui.calm
 
 - `on`, `floats` (2): floating labels a second at most; `live` (3): labels on screen at once. Troop callouts drop to one a second. Looks only.
+
+## video.calmCam
+
+- `on`, `slow` (0.5): close-ups play at this speed; no fast-forward catch-up; the camera leans to the busiest fighting between shots; if the video reaches `fightSeconds` of battle before the end, it cuts to the cliffhanger. Camera and pace only.
+
+## ui.inside
+
+- `true`: the camera never goes past the arena's edge (no cut-off troops or mirrored floor at the edge). Camera only.

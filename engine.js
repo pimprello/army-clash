@@ -4906,8 +4906,12 @@ const RVB = (() => {
     finUnit(uid) { if (!uid) return null; for (const u of this.g.units) if (u.uid === uid && !u.dead) return u; return null; }
     // the busiest fighting: the 160 px cell where both teams are most mixed, averaged with its neighbours
     hotspot() {
-      const g = this.g, N = 6, cs = AR.w / N, c = [new Float32Array(N * N), new Float32Array(N * N), new Float32Array(N * N)];
-      for (const u of g.units) { if (u.team > 2) continue; const i = clamp((u.x - AR.x) / cs | 0, 0, N - 1), j = clamp((u.y - AR.y) / cs | 0, 0, N - 1); c[u.team][j * N + i]++; }
+      if (this.g.opts.calmCam && this.hotT !== undefined && this.t - this.hotT < 0.2) return this.hotV;
+      const v = Director.prototype.hotspot0.call(this); this.hotT = this.t; this.hotV = v; return v;
+    }
+    hotspot0() {
+      const g = this.g, N = 6, calm = g.opts.calmCam, cs = AR.w / N, c = [new Float32Array(N * N), new Float32Array(N * N), new Float32Array(N * N)];
+      for (const u of g.units) { if (u.team > 2 || (calm && u.dead)) continue; const i = clamp((u.x - AR.x) / cs | 0, 0, N - 1), j = clamp((u.y - AR.y) / cs | 0, 0, N - 1); c[u.team][j * N + i]++; }
       let best = -1, bk = 0;
       for (let k = 0; k < N * N; k++) {
         const v = [c[0][k], c[1][k], c[2][k]].sort((a, b) => b - a);
@@ -4916,7 +4920,7 @@ const RVB = (() => {
       }
       const bi = bk % N, bj = bk / N | 0;
       let sx = 0, sy = 0, n = 0;
-      for (const u of g.units) { const i = (u.x - AR.x) / cs | 0, j = (u.y - AR.y) / cs | 0; if (Math.abs(i - bi) <= 1 && Math.abs(j - bj) <= 1) { sx += u.x; sy += u.y; n++; } }
+      for (const u of g.units) { if (calm && (u.dead || u.team > 2)) continue; const i = (u.x - AR.x) / cs | 0, j = (u.y - AR.y) / cs | 0; if (Math.abs(i - bi) <= 1 && Math.abs(j - bj) <= 1) { sx += u.x; sy += u.y; n++; } }
       return n ? { x: sx / n, y: sy / n } : { x: this.cx, y: this.cy };
     }
     centroid(team) {
@@ -4927,6 +4931,7 @@ const RVB = (() => {
     // can we afford a slow-motion moment that adds `cost` seconds of delay, and still catch up before the time limit?
     canSlow(cost) {
       const g = this.g, left = g.cap - g.fightT, d = this.debt + cost;
+      if (g.opts.calmCam) return g.phase === 'fight';
       return g.phase === 'fight' && d < 4.2 && left > 3 + d / 0.3;
     }
     start(kind, o) {
@@ -5066,7 +5071,10 @@ const RVB = (() => {
       let tx = this.cx, ty = this.cy, tz = 1, tts = 1, bars = 0, vig = 0, spd = 2.2, zspd = 1.8, tsRate = 3;
       // (rules.ui.clean) between shots the camera frames where the troops actually are, a little closer when they're bunched up,
       // instead of always showing the whole field (camera only)
-      if (!sh && g.opts.clean && g.phase === 'fight') { const f = this.fitAll(); tx = f.x; ty = f.y; tz = f.z; spd = 1.6; zspd = 1.2; }
+      if (!sh && g.opts.clean && g.phase === 'fight') { const f = this.fitAll(); tx = f.x; ty = f.y; tz = f.z; spd = 1.6; zspd = 1.2;
+        // (rules.video.calmCam, Rellz 2026-11-23: "make the match focus on the most interesting parts") leaning towards where the
+        // fighting is thickest, a little closer, once the armies have met (camera only)
+        if (g.opts.calmCam && g.fightT > 4) { const h = this.hotspot(); tx = f.x * 0.35 + h.x * 0.65; ty = f.y * 0.35 + h.y * 0.65; tz = Math.max(f.z, 1.3); spd = 1.2; zspd = 0.9; } }
       if (sh) {
         const age = this.t - sh.t0;
         if (sh.kind === 'outro') {
@@ -5100,9 +5108,14 @@ const RVB = (() => {
           // slow motion for the first part of the shot, then ramp back up
           const slowLeft = sh.died !== undefined ? (sh.kind === 'killcam' ? 0.9 : 0.7) - (this.t - sh.died) : (sh.slowFor || 0) - age;
           if (sh.ts < 1 && slowLeft > 0 && age >= (sh.slowFrom || 0)) { tts = sh.ts; tsRate = 14; } else { tts = 1; tsRate = 3.5; }
+          // (calmCam, Rellz 2026-11-23: "cinematic zoom in should be slow mo") every close-up plays in slow motion, eased in and out
+          if (g.opts.calmCam && sh.kind !== 'open' && (sh.z || 1) >= 1.55 && g.phase === 'fight') { tts = Math.min(tts, g.opts.calmCam.slow); tsRate = Math.min(tsRate === 14 ? 14 : 5, 14); }
         }
       }
-      if (!sh || sh.kind === 'battle' || sh.kind === 'push') {
+      if (g.opts.calmCam) {
+        // (calmCam, Rellz 2026-11-23: "stop speeding it up") no fast-forward to win back slow-motion time: the Short ends on the cliffhanger
+        // wherever the battle has got to
+      } else if (!sh || sh.kind === 'battle' || sh.kind === 'push') {
         // catch up on time spent in slow motion, gently, while the view is wide or drifting
         if (this.debt > 0.02 && g.phase === 'fight') tts = 1 + Math.min(0.32, this.debt * 0.5);
       } else if (tts === 1 && g.phase === 'fight' && g.fixed && this.debt > 0.02 && g.fixed - this.t < 6 + this.debt * 3) {
@@ -5132,7 +5145,9 @@ const RVB = (() => {
       const hv = AR.w / 2 / cam.z, k = 1 - Math.exp(-spd * (sh && sh.kind === 'finale' ? 3.4 : 2.2) * dt);
       // (during the finale the view may go nearly all the way past the arena's edge, where the floor carries on, so the final
       // blow is centred even at the edge; afterwards that allowance eases back to nothing, so the camera glides back in instead of jumping)
-      const ovT = sh && sh.kind === 'finale' && g.endHow !== 'time' ? 0.95 : 0;
+      const ovT = sh && sh.kind === 'finale' && g.endHow !== 'time' && !g.opts.inside ? 0.95 : 0;
+      // (rules.ui.inside, Rellz 2026-11-23: "fix the invisible line thing ... it looks horrible": past the edge, a big troop standing on
+      // it was cut off in a hard vertical line and the mirrored floor didn't match, so the view now always stays inside the arena)
       this.ovr = (this.ovr || 0) + (ovT - (this.ovr || 0)) * (1 - Math.exp(-(ovT > (this.ovr || 0) ? 6 : 2.5) * dt));
       const hm = hv * (1 - this.ovr);
       tx = clamp(tx, AR.x + hm, AR.x + AR.w - hm); ty = clamp(ty, AR.y + hm, AR.y + AR.h - hm);

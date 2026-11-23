@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-11-23 (Rellz: "cinematic zoom in should be slow mo ... stop speeding it up ... it doesn't strictly have to end when there's no troops left ... make the match focus on the most interesting parts"; "fix the invisible line thing ... it is an overlay issue"): Calm camera
+
+- **Close-ups in slow motion** (`rules.video.calmCam`, `slow` 0.5): every zoomed-in shot (spots, kill cams, heroes, blasts, grabs) plays at half speed, eased in and out, and slow-motion moments are always allowed.
+- **No fast-forward:** the director no longer speeds the battle up to win back slow-motion time. If the Short runs out first, it ends on the cliffhanger right there (WHO WINS?! / SUBSCRIBE TO SEE THE ENDING) after 60 s of battle; the battle is still played out off-screen so the title and records know who won.
+- **Focus on the fighting:** between shots the camera leans towards where the fighting is thickest (live troops only) and sits a little closer (zoom at least 1.3).
+- **The line at the edge fixed** (`rules.ui.inside`): in the finale the camera could go past the arena's edge, where a big troop standing on the edge was cut off in a hard vertical line next to a mirrored floor that didn't match. The view now always stays inside the arena.
+- Camera and pace only: the battle plays out the same. Already-posted videos don't change.
+
 ## 2026-11-23: The yellow mode tag no longer covers the team names
 
 - (Rellz: "the yellow text that says siege or whatever shouldn't cover the team names/colour", all three channels) in the face-off, the yellow tag (SIEGE, RARE GOLDEN BOSS...) sat at the top on top of the first side's name and colour line. With two sides it now sits in the empty corner of the top band, beside the top ring and above its count; with three it stays at the top where there was room. `faceoff.js`.
