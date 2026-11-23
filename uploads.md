@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-23 18:23 | SYLVAN vs Infernal vs Dwarves 🔥 | Pink wins | https://youtube.com/shorts/kcTnBOTgj20 |
 | 2026-11-23 13:46 | The War Mammoth Went DOWN 💀 | Sweden wins | https://youtube.com/shorts/XnSm3RmEXyA |
 | 2026-11-23 12:30 | Neon Traitors vs GHOST RATS 🔥 | Gold wins | https://youtube.com/shorts/Bu4H8vL-XGU |
 | 2026-11-23 07:40 | Can Vampires Survive DEMONS? 😈 | Cyan wins | https://youtube.com/shorts/DqT3hJhjvxk |
