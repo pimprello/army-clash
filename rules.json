@@ -2186,6 +2186,7 @@
   },
   "schedule": {
     "hours": [
+      12,
       18
     ],
     "timeZone": "Europe/London",
