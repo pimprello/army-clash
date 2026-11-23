@@ -2122,8 +2122,8 @@
   },
   "combat": {
     "on": true,
-    "armySize": 0.8,
-    "hp": 1.3,
+    "armySize": 0.64,
+    "hp": 0.85,
     "moves": true,
     "fewerBullets": true,
     "roster": true,
@@ -2214,7 +2214,8 @@
       "sparks": 0.4,
       "stay": 0.6
     },
-    "notch": 190
+    "notch": 190,
+    "cineLook": true
   },
   "world": {
     "on": true,

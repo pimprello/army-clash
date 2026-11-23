@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-11-23 (Rellz, Army Clash chat): no black bars, 20% fewer troops, everyone easier to kill
+
+Rellz: "Remove black bars make cinematic effects like tower clash, also make there 20% less troops on screen I want the screen to be clearer so we can actually focus and appreciate matches fix the realistic update where everyone has lesss health that way if ur shot it's easy for u to die".
+- **No black bars** (`rules.ui.cineLook`, `drawCine` in `engine.js`): the director's big moments (the charge, slow motion, the finale) now get Tower Clash's film look instead: a deeper vignette, a warm-top/cool-bottom colour grade, a soft light leak drifting across and a faint film grain. The UI still fades away during those moments (cineClean). The replay's bars are gone too.
+- **20% fewer troops** (`rules.combat.armySize` 0.8 → 0.64): each army is built from a fifth smaller budget, so the screen is clearer (test battles: 33 to 93 troops a side) and still end close to 60 s.
+- **Everyone has less health** (`rules.combat.hp` 1.3 → 0.85, about a third less): with the deadly bullets (`rules.realism`), two rifle shots drop a soldier, a blade or a blast kills quickly, and titans and giants fall sooner too.
+- First on the 18:00 post on 23 November. Already-posted videos don't change.
+
 ## 2026-11-22: uploads can't be refused over a tag any more
 
 - Tower Clash's 18:00 post on 22 November was refused by YouTube ("invalid video keywords"): the tags added up to more than YouTube's 500 characters once it counts the quotes it puts round every tag with a space. `upload.js` (the same fix in all three games) now cleans the tags before uploading: no < > " , # or emoji, at most 30 characters each, no empties or repeats, under 450 characters in all counting those quotes; the title and description lose < and > too.

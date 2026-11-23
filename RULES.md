@@ -384,3 +384,6 @@ The war general commentator: `on`, `voice` (level), `fade` [in, out] seconds, `w
 
 ## music.human
 Humanised playing, real plucked strings and each map's theme sets the mode and tempo (`music.js` THEMES, MAP_THEME).
+
+## ui.cineLook
+No film bars: the director's cinematic moments get a vignette, a warm/cool grade, a light leak and grain instead (like Tower Clash). Off brings the black bars back.

@@ -3813,7 +3813,25 @@ const RVB = (() => {
         }
         ctx.globalAlpha = clamp(c.vig, 0, 1); ctx.drawImage(vignetteImg, AR.x, AR.y); ctx.globalAlpha = 1;
       }
-      if (c.bars > 0.01) {
+      // (rules.ui.cineLook, Rellz 2026-11-23: "remove black bars make cinematic effects like tower clash") no film bars: on the
+      // director's big moments the picture gets Tower Clash's film look instead: a deeper vignette, a warm-top/cool-bottom grade,
+      // a soft light leak drifting across and a faint grain. Looks only; c.bars still times it (and the UI still fades under it).
+      if (c.bars > 0.01 && this.opts.cineLook) {
+        const b = clamp(c.bars, 0, 1), k = b * b * (3 - 2 * b), t = this.t, cx = AR.x + AR.w / 2, cy = AR.y + AR.h / 2;
+        ctx.save(); ctx.beginPath(); ctx.rect(AR.x, AR.y, AR.w, AR.h); ctx.clip();
+        const vg = ctx.createRadialGradient(cx, cy, AR.w * 0.3, cx, cy, AR.w * 0.78); vg.addColorStop(0, 'rgba(0,0,0,0)'); vg.addColorStop(1, `rgba(0,0,0,${0.5 * k})`);
+        ctx.fillStyle = vg; ctx.fillRect(AR.x, AR.y, AR.w, AR.h);
+        ctx.globalCompositeOperation = 'soft-light';
+        const gr = ctx.createLinearGradient(0, AR.y, 0, AR.y + AR.h); gr.addColorStop(0, `rgba(255,170,90,${0.5 * k})`); gr.addColorStop(1, `rgba(40,120,170,${0.5 * k})`);
+        ctx.fillStyle = gr; ctx.fillRect(AR.x, AR.y, AR.w, AR.h);
+        ctx.globalCompositeOperation = 'screen';
+        const lx = AR.x + AR.w * (0.15 + 0.7 * (0.5 + 0.5 * Math.sin(t * 0.35))), ly = AR.y + AR.h * 0.22, lg = ctx.createRadialGradient(lx, ly, 0, lx, ly, AR.w * 0.45);
+        lg.addColorStop(0, `rgba(255,190,120,${0.16 * k})`); lg.addColorStop(1, 'rgba(255,190,120,0)'); ctx.fillStyle = lg; ctx.fillRect(AR.x, AR.y, AR.w, AR.h);
+        ctx.globalCompositeOperation = 'source-over';
+        const fr = Math.floor(t * 24); ctx.fillStyle = `rgba(255,255,255,${0.07 * k})`;
+        for (let i = 0; i < 140; i++) ctx.fillRect(AR.x + hash01(fr, i * 2) * AR.w, AR.y + hash01(fr, i * 2 + 1) * AR.h, 2, 2);
+        ctx.restore();
+      } else if (c.bars > 0.01) {
         const b = clamp(c.bars, 0, 1), h = 122 * (b * b * (3 - 2 * b));
         ctx.fillStyle = '#000'; ctx.fillRect(AR.x, AR.y, AR.w, h); ctx.fillRect(AR.x, AR.y + AR.h - h, AR.w, h);
       }

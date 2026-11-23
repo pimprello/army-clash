@@ -256,7 +256,7 @@ async function main() {
     // blood first: splatter, pools and spattered fighters instead of sparks and smoke (rules.ui.blood; looks only)
     ...(rules.ui && rules.ui.blood && rules.ui.blood.on ? { blood: rules.ui.blood } : {}),
     // little people instead of circles and triangles (rules.ui.humans; looks only)
-    ...(rules.ui && rules.ui.humans ? { humans: true } : {}), ...(rules.ui && rules.ui.cineClean ? { cineClean: true } : {}), ...(NOTCH ? { notch: true } : {}),
+    ...(rules.ui && rules.ui.humans ? { humans: true } : {}), ...(rules.ui && rules.ui.cineClean ? { cineClean: true } : {}), ...(NOTCH ? { notch: true } : {}), ...(rules.ui && rules.ui.cineLook ? { cineLook: true } : {}),
     // the picks, with the holiday (Christmas snow) and which side defends a siege or is the boss (the mode's own dice)
     ...(PK ? { picks: Object.assign({}, PK, { on: true, holiday: HOL ? HOL.key : null }), pkSide: sideRoll < 0.5 ? 0 : 1 } : {}),
     // real-life damage (rules.realism, Rellz 2026-11-21): deadly guns, black holes that erase, limping wounded (battle logic, no dice)
@@ -589,7 +589,7 @@ async function main() {
           ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = a;
           ctx.drawImage(f, (W * RS - W * RS * z) / 2, (H * RS - H * RS * z) / 2, W * RS * z, H * RS * z);
           ctx.fillStyle = 'rgba(40,20,10,0.14)'; ctx.fillRect(0, 0, W * RS, H * RS);
-          const bar = 120 * RS; ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W * RS, bar); ctx.fillRect(0, H * RS - bar, W * RS, bar);
+          if (!(rules.ui && rules.ui.cineLook)) { const bar = 120 * RS; ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W * RS, bar); ctx.fillRect(0, H * RS - bar, W * RS, bar); }
           ctx.setTransform(RS, 0, 0, RS, 0, 0); ctx.font = `800 54px ${RVB.FONT || 'sans-serif'}`; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
           const tx = 70, ty = 66; ctx.fillStyle = '#E11D48'; ctx.beginPath(); ctx.arc(tx, ty, 13 * (0.75 + 0.25 * Math.cos(k * 0.35)), 0, Math.PI * 2); ctx.fill();
           ctx.lineWidth = 8; ctx.strokeStyle = 'rgba(8,11,20,0.9)'; ctx.strokeText('REPLAY', tx + 30, ty); ctx.fillStyle = '#FFFFFF'; ctx.fillText('REPLAY', tx + 30, ty);
