@@ -13814,7 +13814,7 @@ const RVB = (() => {
         badge(p.hero, s.team, x, cy, R, flip, 12);
       });
       if (two) vs(W / 2, cy + 10, 108);
-      else { vs((xs[0] + xs[1]) / 2, cy + 175, 62); vs((xs[1] + xs[2]) / 2, cy + 175, 62); }
+      else { vs((xs[0] + xs[1]) / 2, cy + 112, 58); vs((xs[1] + xs[2]) / 2, cy + 112, 58); }   // (above the name plates)
       // names under each army
       sides.forEach((s, i) => {
         const tm = TEAMS[s.team], x = xs[i], pw = two ? 470 : 320, ph = two ? 168 : 132, py = cy + R + (two ? 110 : 120);
