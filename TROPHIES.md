@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 590 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 591 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -18,10 +18,10 @@ Records from 590 battles with trophies (videos from 1 November 2026 on). Rebuilt
 ## Fastest wipe-outs
 
 - **22.8 s**: indigo wins · 2026-11-03 16:17 · [I Did NOT Expect This 😳](https://youtube.com/shorts/cYrP7bJqWDE)
+- **23.3 s**: mint wins · 2026-11-24 13:31 · [Can Sky Shields Survive TURBO MORTARS? 😳](https://youtube.com/shorts/twRGTTveU6c)
 - **24.5 s**: indigo wins · 2026-11-04 07:45 · [143 Skeletons vs 84 Elves 💀](https://youtube.com/shorts/vZYnp04XqM0)
 - **26.7 s**: lime wins · 2026-11-03 17:16 · [Frost Witches vs DEMONS 😈](https://youtube.com/shorts/_XGpRydxeWo)
 - **28.1 s**: brown wins · 2026-11-04 19:56 · [🪖 SOLDIERS vs Soldiers](https://youtube.com/shorts/O62VjYQhACI)
-- **28.2 s**: pink wins · 2026-11-03 22:41 · [Helicopter Army vs SOLDIERS 🪖](https://youtube.com/shorts/bWcAhRbRdQM)
 
 ## Biggest wins (troops still standing)
 
@@ -112,7 +112,6 @@ Records from 590 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: OLIVE: 1
 - extinct: DENMARK: 1
 - extinct: ITALY: 1
-- possess: giant: 1
 - extinct: MINT: 1
 - possess: livingfortress: 1
 - extinct: BRAZIL: 1
@@ -126,6 +125,7 @@ Records from 590 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: LIME: 2
 - copied: trooper: 2
 - possess: stormemperor: 2
+- possess: giant: 2
 - portal: hydra: 3
 - extinct: RED: 3
 - extinct: BLUE: 3
@@ -185,6 +185,7 @@ Records from 590 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-24 13:31: The Silent Mile Take the Crystal Grove (5th win · 8 kills)
 - 2026-11-23 22:16: The Mountain Wind School Take the Battlefield (5th win · 30 kills)
 - 2026-11-23 18:23: The Stormhorn Tribe Take the Open Plains (3 wins in a row · 23 kills)
 - 2026-11-23 13:46: The Sunspire Kin Take the Battlefield (9th win · 184 kills)
@@ -194,4 +195,3 @@ Records from 590 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-22 18:50: The Crew of the Sea Wolf Take the Battlefield (4th win · 55 kills)
 - 2026-11-21 21:26: The Ion Legion Take the World Furnace (revenge! · first ever win · 24 kills)
 - 2026-11-21 14:57: The Coven of Ash Take the Ruined Fort (3 wins in a row · 40 kills)
-- 2026-11-21 10:54: The Raven Hill Clan Take the Open Plains (3 wins in a row · 65 kills)

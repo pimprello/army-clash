@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-24 13:31 | Can Sky Shields Survive TURBO MORTARS? 😳 | Mint wins | https://youtube.com/shorts/twRGTTveU6c |
 | 2026-11-23 22:16 | 🇬🇧 UK vs France: WHO WINS? | France wins | https://youtube.com/shorts/YfXl-zz1tgg |
 | 2026-11-23 18:23 | SYLVAN vs Infernal vs Dwarves 🔥 | Pink wins | https://youtube.com/shorts/kcTnBOTgj20 |
 | 2026-11-23 13:46 | The War Mammoth Went DOWN 💀 | Sweden wins | https://youtube.com/shorts/XnSm3RmEXyA |
