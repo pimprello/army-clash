@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-24 22:34 | The Timeline Executioner Went DOWN 💀 | Red wins | https://youtube.com/shorts/ZM7v-OPzOy8 |
 | 2026-11-24 17:30 | Kill the KING to Win 👑 Frost Witches vs Demons | Gold wins | https://youtube.com/shorts/RYgNCh8zgGM |
 | 2026-11-24 13:31 | Can Sky Shields Survive TURBO MORTARS? 😳 | Mint wins | https://youtube.com/shorts/twRGTTveU6c |
 | 2026-11-23 22:16 | 🇬🇧 UK vs France: WHO WINS? | France wins | https://youtube.com/shorts/YfXl-zz1tgg |

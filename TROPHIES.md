@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 592 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 593 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -51,6 +51,7 @@ Records from 592 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Titles earned (rarest first)
 
+- BATTERING RAM SLAYER: 1
 - THRONE WALKER SLAYER: 2
 - BALLOON BOMBER SLAYER: 2
 - CATAPULT SLAYER: 3
@@ -60,11 +61,11 @@ Records from 592 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - WORLDROOT SLAYER: 5
 - KNIGHT SLAYER: 6
 - THOUSAND-MAN SLAYER: 6
-- EXECUTIONER SLAYER: 7
 - MIRROR KING SLAYER: 8
 - IMMORTAL FRAUD SLAYER: 8
 - PHOENIX SLAYER: 8
 - STORM EMPEROR SLAYER: 8
+- EXECUTIONER SLAYER: 8
 - UNMAKER SLAYER: 9
 - MAGMA COLOSSUS SLAYER: 10
 - FORTRESS SLAYER: 11
@@ -82,12 +83,12 @@ Records from 592 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - STORM COLOSSUS SLAYER: 24
 - CYCLOPS SLAYER: 25
 - DRAGON SLAYER: 26
-- SPIDER QUEEN SLAYER: 30
+- SPIDER QUEEN SLAYER: 31
 - ELEPHANT SLAYER: 32
 - MAMMOTH SLAYER: 41
 - GOLEM SLAYER: 42
 - TITAN SLAYER: 43
-- GIANT SLAYER: 45
+- GIANT SLAYER: 46
 
 ## Mutations (rarest first)
 
@@ -185,6 +186,7 @@ Records from 592 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-24 22:34: The House of the Black Kite Take the Canyon Pass (4th win · 30 kills)
 - 2026-11-24 17:30: The Cinderclaw Kin Take the Battlefield (revenge denied · 6th win · 35 kills)
 - 2026-11-24 13:31: The Silent Mile Take the Crystal Grove (5th win · 8 kills)
 - 2026-11-23 22:16: The Mountain Wind School Take the Battlefield (5th win · 30 kills)
@@ -194,4 +196,3 @@ Records from 592 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-23 07:40: The Hollowbark Kin Take the Battlefield (14th win · 72 kills)
 - 2026-11-23 04:16: The House of the Jade Serpent Take the Canyon Pass (2nd win · 79 kills)
 - 2026-11-22 18:50: The Crew of the Sea Wolf Take the Battlefield (4th win · 55 kills)
-- 2026-11-21 21:26: The Ion Legion Take the World Furnace (revenge! · first ever win · 24 kills)
