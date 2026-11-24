@@ -1,400 +1,239 @@
 [
  {
-  "id": "kcTnBOTgj20",
-  "date": "2026-11-23 18:23",
-  "title": "SYLVAN vs Infernal vs Dwarves 🔥",
-  "seed": 1319044329,
-  "slot": 1113,
-  "era": "wild",
-  "map": "open",
+  "id": "RYgNCh8zgGM",
+  "date": "2026-11-24 17:30",
+  "title": "Kill the KING to Win 👑 Frost Witches vs Demons",
+  "seed": 2126588879,
+  "slot": 1116,
+  "era": "fantasy",
+  "map": "airship",
   "teams": [
-   "PINK",
-   "LIME",
-   "BLUE"
+   "PURPLE",
+   "GOLD"
   ],
   "armies": [
-   "SYLVAN",
-   "INFERNAL",
-   "DWARVES"
+   "FROST",
+   "INFERNAL"
   ],
   "formations": [
-   "line",
-   "columns"
+   "crescent",
+   "crescent"
   ],
   "troops": [],
-  "hook": "SYLVAN vs Infernal vs Dwarves 🔥",
-  "winner": "PINK WINS",
-  "wild": true,
-  "sides": [
-   "SYLVAN",
-   "INFERNAL",
-   "DWARVES"
-  ],
+  "hook": "Kill the KING to Win 👑 Frost Witches vs Demons",
+  "winner": "GOLD WINS",
   "cinematic": true,
-  "three": true,
   "titleKind": "title",
   "trophy": {
    "mvp": {
-    "unit": "BONE COLOSSUS",
-    "kills": 5
+    "unit": "STORM COLOSSUS",
+    "kills": 12
    },
-   "fight": 60,
-   "left": 6,
+   "fight": 49.4,
+   "wipeout": true,
+   "left": 8,
    "titles": [
-    "ELEPHANT SLAYER",
-    "CANNON SLAYER",
-    "GIANT SLAYER",
-    "COLOSSUS SLAYER",
-    "TITAN SLAYER"
-   ],
-   "mutations": [
-    "swift"
+    "STORM COLOSSUS SLAYER",
+    "STORM COLOSSUS SLAYER"
    ],
    "moments": []
   },
+  "mode": "king",
   "skins": [
    "GOLDEN",
-   "NEON",
-   "ROYAL"
+   null
   ],
   "combat": true,
-  "balance": [
-   1.229,
-   0.81,
-   0.961
-  ],
+  "balKey": "FROST|INFERNAL|king",
+  "balance": 0.508,
   "tribes": [
    {
-    "name": "STORMHORN TRIBE",
+    "name": "MOONFANG TRIBE",
     "team": 0,
-    "kills": 23,
+    "kills": 2,
+    "wt": 1,
+    "at": 2
+   },
+   {
+    "name": "SILVERBOUGH CIRCLE",
+    "team": 0,
+    "kills": 7,
+    "wt": 2,
+    "at": 1
+   },
+   {
+    "name": "CINDERCLAW KIN",
+    "team": 1,
+    "kills": 35,
     "wt": 4,
     "at": 4
    },
    {
-    "name": "DUSKWING TRIBE",
+    "name": "STARWEAVE CIRCLE",
     "team": 1,
-    "kills": 31,
-    "wt": 3,
-    "at": 3
-   },
-   {
-    "name": "FROSTWHISPER TRIBE",
-    "team": 2,
-    "kills": 23,
-    "wt": 3,
+    "kills": 6,
+    "wt": 2,
     "at": 3
    }
   ],
-  "winTeam": 0,
-  "story": "stake",
+  "winTeam": 1,
+  "story": "revenge",
   "chron": [
-   "THE STORMHORN TRIBE TAKE THE OPEN PLAINS",
-   "3 WINS IN A ROW · 23 KILLS"
+   "THE CINDERCLAW KIN TAKE THE BATTLEFIELD",
+   "REVENGE DENIED · 6TH WIN · 35 KILLS"
   ],
   "economy": {
-   "forges": 17,
-   "trades": 0,
-   "merchant": "STORM CORE"
+   "forges": 14,
+   "trades": 4,
+   "merchant": "HOLY CORE"
   },
   "seconds": 72.43,
   "units": [
-   "spiderqueen",
-   "bonecolossus",
-   "elephant",
-   "swordsman",
-   "treant",
-   "demon",
-   "elf",
-   "illusionist",
-   "giant",
-   "glaciergiant",
-   "titan",
-   "hellhound",
-   "ogre",
-   "goliath",
-   "cannon",
-   "magmacolossus",
+   "mammoth",
+   "stormcolossus",
+   "golem",
    "dwarf",
-   "engineer"
+   "demon",
+   "frostwitch",
+   "crossbowman",
+   "acidwyrm",
+   "siegegolem",
+   "giant",
+   "hellhound",
+   "treant",
+   "king",
+   "spearman"
   ],
   "views": 0,
   "likes": 0,
   "comments": 0,
   "secs": 73,
-  "published": "2026-11-23T18:24:48Z"
+  "published": "2026-11-24T17:32:21Z"
  },
  {
-  "id": "XnSm3RmEXyA",
-  "date": "2026-11-23 13:46",
-  "title": "The War Mammoth Went DOWN 💀",
-  "seed": 2490640401,
-  "slot": 1112,
+  "id": "twRGTTveU6c",
+  "date": "2026-11-24 13:31",
+  "title": "Can Sky Shields Survive TURBO MORTARS? 😳",
+  "seed": 2700215752,
+  "slot": 1115,
   "era": "wild",
-  "map": "candy",
+  "map": "enchanted",
   "teams": [
-   "SWEDEN",
-   "NORWAY"
+   "ROSE",
+   "MINT"
   ],
   "armies": [
-   "SYLVAN",
-   "LEGION"
+   "TURBO MORTARS",
+   "SKY SHIELDS"
   ],
   "formations": [
-   "echelon",
-   "flanks"
+   "columns",
+   "block"
   ],
   "troops": [],
-  "hook": "The War Mammoth Went DOWN 💀",
-  "winner": "SWEDEN WINS",
-  "clickbait": true,
-  "cinematic": true,
-  "titleKind": "clickbait",
-  "trophy": {
-   "mvp": {
-    "unit": "MAGMA COLOSSUS",
-    "kills": 77
-   },
-   "fight": 51.5,
-   "wipeout": true,
-   "left": 12,
-   "titles": [
-    "MAMMOTH SLAYER",
-    "MAMMOTH SLAYER",
-    "GIANT SLAYER"
-   ],
-   "mutations": [
-    "regen",
-    "spellward"
-   ],
-   "moments": [
-    "fusion"
-   ]
-  },
-  "skins": [
-   null,
-   "ROYAL"
-  ],
-  "combat": true,
-  "balKey": "SYLVAN|LEGION|classic",
-  "balance": 2.157,
-  "tribes": [
-   {
-    "name": "SUNSPIRE KIN",
-    "team": 0,
-    "kills": 184,
-    "wt": 5,
-    "at": 4
-   },
-   {
-    "name": "GLOOMCAP CIRCLE",
-    "team": 0,
-    "kills": 18,
-    "wt": 3,
-    "at": 2
-   },
-   {
-    "name": "THE GRINNING MOON",
-    "team": 1,
-    "kills": 4,
-    "wt": 2,
-    "at": 3
-   },
-   {
-    "name": "NIGHTSHADE COVEN",
-    "team": 1,
-    "kills": 18,
-    "wt": 3,
-    "at": 3
-   }
-  ],
-  "winTeam": 0,
-  "story": "raid",
-  "chron": [
-   "THE SUNSPIRE KIN TAKE THE BATTLEFIELD",
-   "9TH WIN · 184 KILLS"
-  ],
-  "economy": {
-   "forges": 21,
-   "trades": 4,
-   "merchant": "VENOM CORE"
-  },
-  "seconds": 72.43,
-  "units": [
-   "stormcolossus",
-   "magmacolossus",
-   "siegegolem",
-   "treant",
-   "swordsman",
-   "troll",
-   "yeti",
-   "elf",
-   "illusionist",
-   "druid",
-   "mammoth",
-   "glaciergiant",
-   "giant",
-   "juggernaut",
-   "rhino",
-   "skeleton",
-   "zombie",
-   "necromancer",
-   "gargoyle",
-   "hellhound",
-   "siegegunner",
-   "builder",
-   "musketeer",
-   "valkyrie",
-   "grenadier",
-   "samurai",
-   "beekeeper",
-   "longbow",
-   "timetraveller",
-   "pyro",
-   "assassin",
-   "jetpack",
-   "stormcaller",
-   "dwarf"
-  ],
-  "views": 4,
-  "likes": 0,
-  "comments": 0,
-  "secs": 73,
-  "published": "2026-11-23T13:46:53Z"
- },
- {
-  "id": "Bu4H8vL-XGU",
-  "date": "2026-11-23 12:30",
-  "title": "Neon Traitors vs GHOST RATS 🔥",
-  "seed": 3381604170,
-  "slot": 1111,
-  "era": "wild",
-  "map": "grave",
-  "teams": [
-   "GOLD",
-   "SILVER"
-  ],
-  "armies": [
-   "NEON TRAITORS",
-   "GHOST RATS"
-  ],
-  "formations": [
-   "block",
-   "echelon"
-  ],
-  "troops": [],
-  "hook": "Neon Traitors vs GHOST RATS 🔥",
-  "winner": "GOLD WINS",
+  "hook": "Can Sky Shields Survive TURBO MORTARS? 😳",
+  "winner": "MINT WINS",
   "wild": true,
   "sides": [
    {
-    "name": "NEON TRAITORS",
+    "name": "TURBO MORTARS",
     "mix": {
-     "traitor": 0.62,
-     "jetpack": 0.38
+     "siegegunner": 0.68,
+     "illusionist": 0.32
     },
     "heavy": [],
-    "base": "jetpack"
+    "base": "illusionist"
    },
    {
-    "name": "GHOST RATS",
+    "name": "SKY SHIELDS",
     "mix": {
-     "bombrats": 0.54,
-     "siren": 0.33,
-     "healer": 0.14
+     "shieldbearer": 0.5,
+     "gorgon": 0.37,
+     "jester": 0.13
     },
-    "heavy": [],
-    "base": "bombrats"
+    "heavy": [
+     "balloon"
+    ],
+    "base": "shieldbearer"
    }
   ],
   "cinematic": true,
   "titleKind": "title",
   "trophy": {
    "mvp": {
-    "unit": "HYDRA",
-    "kills": 25
+    "unit": "ACID LEVIATHAN",
+    "kills": 3
    },
-   "fight": 40.9,
+   "fight": 23.3,
    "wipeout": true,
-   "left": 13,
-   "titles": [
-    "COLOSSUS SLAYER",
-    "HYDRA SLAYER",
-    "MAMMOTH SLAYER"
-   ],
-   "mutations": [
-    "regen"
-   ],
-   "moments": []
+   "left": 25,
+   "moments": [
+    "possess:giant"
+   ]
   },
+  "mode": "boss",
   "combat": true,
   "balance": 1,
   "tribes": [
    {
-    "name": "STONEWALL COMPANY",
+    "name": "THE GRINNING MOON",
     "team": 0,
-    "kills": 57,
-    "wt": 3,
-    "at": 3
-   },
-   {
-    "name": "IRON LOTUS SCHOOL",
-    "team": 0,
-    "kills": 30,
-    "wt": 4,
-    "at": 4
-   },
-   {
-    "name": "COVEN OF ASH",
-    "team": 1,
-    "kills": 6,
+    "kills": 0,
     "wt": 1,
-    "at": 3
+    "at": 0
    },
    {
-    "name": "NEBULA COHORT",
-    "team": 1,
+    "name": "GOLDEN LION ORDER",
+    "team": 0,
     "kills": 1,
-    "wt": 1,
+    "wt": 0,
+    "at": 0
+   },
+   {
+    "name": "THE SILENT MILE",
+    "team": 1,
+    "kills": 8,
+    "wt": 0,
     "at": 2
+   },
+   {
+    "name": "GUNPOWDER CREW",
+    "team": 1,
+    "kills": 2,
+    "wt": 1,
+    "at": 0
    }
   ],
-  "winTeam": 0,
-  "story": "streak",
+  "winTeam": 1,
+  "story": "underdog",
   "chron": [
-   "THE STONEWALL COMPANY TAKE THE TITAN'S BONES",
-   "STREAK ENDED · 8TH WIN · 57 KILLS"
+   "THE SILENT MILE TAKE THE CRYSTAL GROVE",
+   "5TH WIN · 8 KILLS"
   ],
   "economy": {
-   "forges": 18,
-   "trades": 2,
-   "merchant": "HOLY CORE"
+   "forges": 4,
+   "trades": 0
   },
-  "seconds": 72.43,
+  "seconds": 43.22,
   "units": [
-   "ironhorn",
-   "stormcolossus",
-   "acidwyrm",
-   "hydra",
-   "minotaur",
-   "ogre",
-   "traitor",
-   "jetpack",
+   "siegegunner",
+   "illusionist",
+   "balloon",
+   "magmacolossus",
    "mammoth",
-   "bonecolossus",
-   "treant",
-   "rhino",
-   "bombrat",
-   "siren",
-   "healer",
-   "wizard",
-   "bombrats",
-   "axethrower"
+   "siegegolem",
+   "acidwyrm",
+   "shieldbearer",
+   "yeti",
+   "gorgon",
+   "jester",
+   "giant",
+   "warlock"
   ],
-  "views": 1,
+  "views": 34,
   "likes": 0,
   "comments": 0,
-  "secs": 73,
-  "published": "2026-11-23T12:30:49Z"
+  "secs": 44,
+  "published": "2026-11-24T13:32:42Z"
  }
 ]

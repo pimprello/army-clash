@@ -1,8 +1,8 @@
 # View stats
 
-Updated 2026-11-23 18:35 UTC. 3 videos, 0 at least a day old (used below). Groups need 3+ videos.
+Updated 2026-11-24 17:43 UTC. 2 videos, 0 at least a day old (used below). Groups need 3+ videos.
 
-Total views: 5. Median views per video: 0.
+Total views: 34. Median views per video: 0.
 
 ### By upload hour (UK time)
 
@@ -103,6 +103,5 @@ Total views: 5. Median views per video: 0.
 
 | Views | Likes | Title |
 | --- | --- | --- |
-| 4 | 0 | The War Mammoth Went DOWN 💀 |
-| 1 | 0 | Neon Traitors vs GHOST RATS 🔥 |
-| 0 | 0 | SYLVAN vs Infernal vs Dwarves 🔥 |
+| 34 | 0 | Can Sky Shields Survive TURBO MORTARS? 😳 |
+| 0 | 0 | Kill the KING to Win 👑 Frost Witches vs Demons |
