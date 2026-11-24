@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-11-24 (Rellz: "the invisible square thing is still there ... it just cuts off things for no reason"): the hazy rectangle
+
+- Found it: the troops' rim light is worked out in horizontal bands around the troops (to keep 4K fast). See-through things on the troop layer (auras, smoke, glows, spell circles) used to leave a faint white film in the rim, and where several of them overlapped the film became a hazy box with hard straight edges along the band's edges, which looked like a see-through square cutting things off. With `rules.ui.tidy` the rim is now cut with the layer itself twice more, so only solid troops get a rim and the film is gone (from about 5% white to under 0.5%). Looks only.
+- Already-posted videos don't change.
+
 ## 2026-11-23 (Rellz: "the graphics are horrible it has weird invisible square thing and its so buggy ... all ui moves everywhere and its not clean fix it"): Clean-up
 
 Looks only (`rules.ui.tidy`, `rules.ui.shine.screen` 0, `rules.video.calmCam.focus` false, `rules.world.list`):

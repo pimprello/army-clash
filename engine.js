@@ -14419,7 +14419,13 @@ const RVB = (() => {
           // every write inside the band, so bands never overlap)
           const sx = Math.max(0, bx - pad), sy = Math.max(0, by - pad), sw = Math.min(L.width - sx, bw + 2 * pad), sh = Math.min(L.height - sy, bh + 2 * pad);
           rc.globalCompositeOperation = 'destination-in'; rc.drawImage(L, sx, sy, sw, sh, sx - o1x, sy - o1y, sw, sh);
+          // (rules.ui.tidy, Rellz 2026-11-24: "the invisible square thing ... it just cuts off things for no reason") see-through things
+          // on the troop layer (auras, smoke, glows) used to leave a faint white film in the rim, and since the rim is only worked out
+          // band by band, that film showed as a hazy rectangle with hard edges over the fight. Cutting again with the layer itself
+          // removes everything that isn't solid (the film goes from ~5% to under 0.5%) and leaves the rim on solid troops as it was.
+          if (this.opts.tidy) { rc.drawImage(L, sx, sy, sw, sh, sx - o1x, sy - o1y, sw, sh); rc.drawImage(L, sx, sy, sw, sh, sx - o1x, sy - o1y, sw, sh); }
           rc.globalCompositeOperation = 'destination-out'; rc.drawImage(L, sx, sy, sw, sh, sx - o2x, sy - o2y, sw, sh);
+          if (this.opts.tidy) rc.drawImage(L, sx, sy, sw, sh, sx - o2x, sy - o2y, sw, sh);
           rc.globalCompositeOperation = 'source-in'; rc.fillStyle = rimCol; rc.fillRect(bx, by, bw, bh);
           rc.restore();
         }
