@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 591 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 592 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -76,10 +76,10 @@ Records from 591 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - TANK SLAYER: 17
 - SIEGE GOLEM SLAYER: 19
 - HYDRA SLAYER: 21
-- STORM COLOSSUS SLAYER: 22
 - COLOSSUS SLAYER: 23
 - ACID LEVIATHAN SLAYER: 23
 - IRONHORN SLAYER: 23
+- STORM COLOSSUS SLAYER: 24
 - CYCLOPS SLAYER: 25
 - DRAGON SLAYER: 26
 - SPIDER QUEEN SLAYER: 30
@@ -156,9 +156,9 @@ Records from 591 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Frostwhisper Tribe | 29 | 14 | 15 | 1319 | 4 lost | 4 |
 | Hollowbark Kin | 32 | 14 | 18 | 1154 | 1 won | 3 |
 | Thornheart Circle | 17 | 14 | 3 | 901 | 4 won | 6 |
-| Silverbough Circle | 34 | 13 | 21 | 1604 | 1 lost | 3 |
+| Silverbough Circle | 35 | 13 | 22 | 1611 | 2 lost | 3 |
+| Starweave Circle | 30 | 13 | 17 | 1152 | 3 won | 5 |
 | Oakshield Clan | 21 | 13 | 8 | 804 | 1 won | 6 |
-| Starweave Circle | 29 | 12 | 17 | 1146 | 2 won | 5 |
 | Wildbrook Clan | 30 | 12 | 18 | 1015 | 1 won | 2 |
 | Copper Crown Company | 20 | 12 | 8 | 925 | 4 won | 4 |
 | Brightwater Tribe | 23 | 12 | 11 | 763 | 5 won | 5 |
@@ -177,14 +177,15 @@ Records from 591 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **Frostmere Clan vs Greyfang Clan**: met 7 times, last won by Greyfang Clan
 - **Greyfang Clan vs Order of the Silver Stag**: met 5 times, last won by Greyfang Clan
 - **Duskwing Tribe vs Hollowbark Kin**: met 5 times, last won by Duskwing Tribe
+- **Silverbough Circle vs Starweave Circle**: met 5 times, last won by Starweave Circle
 - **Duskwing Tribe vs Frostwhisper Tribe**: met 4 times
 - **Red Hawk Company vs Wildbrook Clan**: met 4 times, last won by Wildbrook Clan
 - **Mossback Tribe vs Stormhorn Tribe**: met 4 times, last won by Stormhorn Tribe
 - **Oakshield Clan vs Wildbrook Clan**: met 4 times, last won by Oakshield Clan
-- **Black Bear Clan vs Thornwood Company**: met 4 times, last won by Thornwood Company
 
 ### Latest from the battlefield
 
+- 2026-11-24 17:30: The Cinderclaw Kin Take the Battlefield (revenge denied · 6th win · 35 kills)
 - 2026-11-24 13:31: The Silent Mile Take the Crystal Grove (5th win · 8 kills)
 - 2026-11-23 22:16: The Mountain Wind School Take the Battlefield (5th win · 30 kills)
 - 2026-11-23 18:23: The Stormhorn Tribe Take the Open Plains (3 wins in a row · 23 kills)
@@ -194,4 +195,3 @@ Records from 591 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-23 04:16: The House of the Jade Serpent Take the Canyon Pass (2nd win · 79 kills)
 - 2026-11-22 18:50: The Crew of the Sea Wolf Take the Battlefield (4th win · 55 kills)
 - 2026-11-21 21:26: The Ion Legion Take the World Furnace (revenge! · first ever win · 24 kills)
-- 2026-11-21 14:57: The Coven of Ash Take the Ruined Fort (3 wins in a row · 40 kills)
