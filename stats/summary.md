@@ -1,8 +1,8 @@
 # View stats
 
-Updated 2026-11-24 17:43 UTC. 2 videos, 0 at least a day old (used below). Groups need 3+ videos.
+Updated 2026-11-25 14:08 UTC. 4 videos, 1 at least a day old (used below). Groups need 3+ videos.
 
-Total views: 34. Median views per video: 0.
+Total views: 135. Median views per video: 95.
 
 ### By upload hour (UK time)
 
@@ -23,6 +23,7 @@ Total views: 34. Median views per video: 0.
 
 | Day | Videos | Median views | Total views |
 | --- | --- | --- | --- |
+| 2026-11-24 | 1 | 95 | 95 |
 
 ### By era
 
@@ -103,5 +104,7 @@ Total views: 34. Median views per video: 0.
 
 | Views | Likes | Title |
 | --- | --- | --- |
-| 34 | 0 | Can Sky Shields Survive TURBO MORTARS? 😳 |
-| 0 | 0 | Kill the KING to Win 👑 Frost Witches vs Demons |
+| 95 | 0 | Can Sky Shields Survive TURBO MORTARS? 😳 |
+| 22 | 0 | Kill the KING to Win 👑 Frost Witches vs Demons |
+| 17 | 0 | The Timeline Executioner Went DOWN 💀 |
+| 1 | 0 | The Weapons Came ALIVE 🗡️ |
