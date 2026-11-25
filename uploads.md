@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-25 17:38 | Neon Rats vs GOLDEN PLAGUE 🔥 | Blue wins | https://youtube.com/shorts/xwy0Myg6hew |
 | 2026-11-25 13:55 | The Weapons Came ALIVE 🗡️ | Olive wins | https://youtube.com/shorts/GR5KDSkIe-4 |
 | 2026-11-24 22:34 | The Timeline Executioner Went DOWN 💀 | Red wins | https://youtube.com/shorts/ZM7v-OPzOy8 |
 | 2026-11-24 17:30 | Kill the KING to Win 👑 Frost Witches vs Demons | Gold wins | https://youtube.com/shorts/RYgNCh8zgGM |

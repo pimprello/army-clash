@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 594 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 595 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -79,15 +79,15 @@ Records from 594 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - HYDRA SLAYER: 21
 - COLOSSUS SLAYER: 23
 - ACID LEVIATHAN SLAYER: 23
-- IRONHORN SLAYER: 23
+- IRONHORN SLAYER: 24
 - STORM COLOSSUS SLAYER: 24
 - CYCLOPS SLAYER: 25
 - DRAGON SLAYER: 26
-- SPIDER QUEEN SLAYER: 31
 - ELEPHANT SLAYER: 32
+- SPIDER QUEEN SLAYER: 32
 - MAMMOTH SLAYER: 41
 - GOLEM SLAYER: 42
-- TITAN SLAYER: 43
+- TITAN SLAYER: 44
 - GIANT SLAYER: 46
 
 ## Mutations (rarest first)
@@ -97,7 +97,7 @@ Records from 594 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 51
 - venom: 94
 - swift: 97
-- spikes: 114
+- spikes: 115
 - regen: 123
 
 ## Big moments
@@ -117,6 +117,7 @@ Records from 594 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - possess: livingfortress: 1
 - extinct: BRAZIL: 1
 - possess: ironhorn: 1
+- possess: spiderqueen: 1
 - copied: knight: 2
 - extinct: SILVER: 2
 - possess: rhino: 2
@@ -129,10 +130,10 @@ Records from 594 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - possess: giant: 2
 - portal: hydra: 3
 - extinct: RED: 3
-- extinct: BLUE: 3
 - extinct: GREEN: 3
 - extinct: PURPLE: 3
 - extinct: ORANGE: 4
+- extinct: BLUE: 4
 - possess: cannon: 5
 - possess: treant: 5
 - portal: cyclops: 9
@@ -166,11 +167,11 @@ Records from 594 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Glimmerdeep Kin | 22 | 12 | 10 | 732 | 1 lost | 6 |
 | Order of the Silver Stag | 27 | 11 | 16 | 1157 | 1 lost | 3 |
 | Frostmere Clan | 28 | 11 | 17 | 883 | 4 lost | 3 |
+| Stormhorn Tribe | 17 | 11 | 6 | 764 | 4 won | 4 |
 | Raven Hill Clan | 19 | 11 | 8 | 734 | 3 won | 5 |
 | Nightjar Company | 15 | 11 | 4 | 552 | 5 won | 5 |
 | Duskwing Tribe | 30 | 10 | 19 | 1178 | 1 lost | 2 |
 | Greyfang Clan | 31 | 10 | 21 | 858 | 3 lost | 5 |
-| Stormhorn Tribe | 16 | 10 | 6 | 743 | 3 won | 4 |
 | Mire Witch Coven | 14 | 10 | 4 | 455 | 1 lost | 7 |
 
 ### Great rivalries
@@ -186,6 +187,7 @@ Records from 594 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-25 17:38: The Stormhorn Tribe Take the Trench Line (streak ended · 4 wins in a row · 21 kills)
 - 2026-11-25 13:55: The Mossback Tribe Take the Battlefield (revenge! · 19th win · 24 kills)
 - 2026-11-24 22:34: The House of the Black Kite Take the Canyon Pass (4th win · 30 kills)
 - 2026-11-24 17:30: The Cinderclaw Kin Take the Battlefield (revenge denied · 6th win · 35 kills)
@@ -195,4 +197,3 @@ Records from 594 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-23 13:46: The Sunspire Kin Take the Battlefield (9th win · 184 kills)
 - 2026-11-23 12:30: The Stonewall Company Take the Titan's Bones (streak ended · 8th win · 57 kills)
 - 2026-11-23 07:40: The Hollowbark Kin Take the Battlefield (14th win · 72 kills)
-- 2026-11-23 04:16: The House of the Jade Serpent Take the Canyon Pass (2nd win · 79 kills)
