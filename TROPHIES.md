@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 595 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 596 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -170,9 +170,9 @@ Records from 595 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Stormhorn Tribe | 17 | 11 | 6 | 764 | 4 won | 4 |
 | Raven Hill Clan | 19 | 11 | 8 | 734 | 3 won | 5 |
 | Nightjar Company | 15 | 11 | 4 | 552 | 5 won | 5 |
+| Thornwood Company | 17 | 11 | 6 | 462 | 1 won | 9 |
 | Duskwing Tribe | 30 | 10 | 19 | 1178 | 1 lost | 2 |
 | Greyfang Clan | 31 | 10 | 21 | 858 | 3 lost | 5 |
-| Mire Witch Coven | 14 | 10 | 4 | 455 | 1 lost | 7 |
 
 ### Great rivalries
 
@@ -187,6 +187,7 @@ Records from 595 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-25 22:31: The Black Bear Clan Take the Battlefield (3 wins in a row · 40 kills)
 - 2026-11-25 17:38: The Stormhorn Tribe Take the Trench Line (streak ended · 4 wins in a row · 21 kills)
 - 2026-11-25 13:55: The Mossback Tribe Take the Battlefield (revenge! · 19th win · 24 kills)
 - 2026-11-24 22:34: The House of the Black Kite Take the Canyon Pass (4th win · 30 kills)
@@ -196,4 +197,3 @@ Records from 595 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-23 18:23: The Stormhorn Tribe Take the Open Plains (3 wins in a row · 23 kills)
 - 2026-11-23 13:46: The Sunspire Kin Take the Battlefield (9th win · 184 kills)
 - 2026-11-23 12:30: The Stonewall Company Take the Titan's Bones (streak ended · 8th win · 57 kills)
-- 2026-11-23 07:40: The Hollowbark Kin Take the Battlefield (14th win · 72 kills)
