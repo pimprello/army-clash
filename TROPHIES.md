@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 593 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 594 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -72,8 +72,8 @@ Records from 593 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - GLACIER BEHEMOTH SLAYER: 11
 - MECH SLAYER: 12
 - PLAYER SLAYER: 14
-- CANNON SLAYER: 15
-- STAR EATER SLAYER: 15
+- CANNON SLAYER: 16
+- STAR EATER SLAYER: 16
 - TANK SLAYER: 17
 - SIEGE GOLEM SLAYER: 19
 - HYDRA SLAYER: 21
@@ -152,18 +152,18 @@ Records from 593 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 | Tribe | Battles | Wins | Losses | Kills | Streak | Best streak |
 |---|---|---|---|---|---|---|
-| Mossback Tribe | 29 | 18 | 11 | 1125 | 1 lost | 7 |
+| Mossback Tribe | 30 | 19 | 11 | 1149 | 1 won | 7 |
 | Red Hawk Company | 29 | 17 | 12 | 1133 | 1 lost | 5 |
+| Thornheart Circle | 18 | 15 | 3 | 918 | 5 won | 6 |
 | Frostwhisper Tribe | 29 | 14 | 15 | 1319 | 4 lost | 4 |
 | Hollowbark Kin | 32 | 14 | 18 | 1154 | 1 won | 3 |
-| Thornheart Circle | 17 | 14 | 3 | 901 | 4 won | 6 |
 | Silverbough Circle | 35 | 13 | 22 | 1611 | 2 lost | 3 |
 | Starweave Circle | 30 | 13 | 17 | 1152 | 3 won | 5 |
 | Oakshield Clan | 21 | 13 | 8 | 804 | 1 won | 6 |
 | Wildbrook Clan | 30 | 12 | 18 | 1015 | 1 won | 2 |
 | Copper Crown Company | 20 | 12 | 8 | 925 | 4 won | 4 |
 | Brightwater Tribe | 23 | 12 | 11 | 763 | 5 won | 5 |
-| Glimmerdeep Kin | 21 | 12 | 9 | 710 | 1 won | 6 |
+| Glimmerdeep Kin | 22 | 12 | 10 | 732 | 1 lost | 6 |
 | Order of the Silver Stag | 27 | 11 | 16 | 1157 | 1 lost | 3 |
 | Frostmere Clan | 28 | 11 | 17 | 883 | 4 lost | 3 |
 | Raven Hill Clan | 19 | 11 | 8 | 734 | 3 won | 5 |
@@ -186,6 +186,7 @@ Records from 593 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-25 13:55: The Mossback Tribe Take the Battlefield (revenge! · 19th win · 24 kills)
 - 2026-11-24 22:34: The House of the Black Kite Take the Canyon Pass (4th win · 30 kills)
 - 2026-11-24 17:30: The Cinderclaw Kin Take the Battlefield (revenge denied · 6th win · 35 kills)
 - 2026-11-24 13:31: The Silent Mile Take the Crystal Grove (5th win · 8 kills)
@@ -195,4 +196,3 @@ Records from 593 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-23 12:30: The Stonewall Company Take the Titan's Bones (streak ended · 8th win · 57 kills)
 - 2026-11-23 07:40: The Hollowbark Kin Take the Battlefield (14th win · 72 kills)
 - 2026-11-23 04:16: The House of the Jade Serpent Take the Canyon Pass (2nd win · 79 kills)
-- 2026-11-22 18:50: The Crew of the Sea Wolf Take the Battlefield (4th win · 55 kills)
