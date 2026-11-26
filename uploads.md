@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-26 22:13 | Omega Ghosts vs MECH PLAGUE 🔥 | Teal wins | https://youtube.com/shorts/fY6bd_dTPjc |
 | 2026-11-26 17:37 | A SANDWORM Burst Out 🪱 | Yellow wins | https://youtube.com/shorts/VIAFd7nwn7g |
 | 2026-11-26 13:40 | Titan vs Hydra vs Phoenix 🤯 | Usa wins | https://youtube.com/shorts/KTJYby_e_lk |
 | 2026-11-25 22:31 | ⚔️ CHAMPION DUEL: Liches vs Empire | Purple wins | https://youtube.com/shorts/CQtvtJ6zPAc |

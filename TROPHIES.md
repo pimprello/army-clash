@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 598 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 599 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -85,8 +85,8 @@ Records from 598 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - CYCLOPS SLAYER: 26
 - SPIDER QUEEN SLAYER: 32
 - ELEPHANT SLAYER: 34
-- MAMMOTH SLAYER: 41
 - GOLEM SLAYER: 42
+- MAMMOTH SLAYER: 42
 - TITAN SLAYER: 45
 - GIANT SLAYER: 46
 
@@ -159,7 +159,7 @@ Records from 598 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Frostwhisper Tribe | 29 | 14 | 15 | 1319 | 4 lost | 4 |
 | Hollowbark Kin | 32 | 14 | 18 | 1154 | 1 won | 3 |
 | Silverbough Circle | 36 | 13 | 23 | 1621 | 3 lost | 3 |
-| Starweave Circle | 30 | 13 | 17 | 1152 | 3 won | 5 |
+| Starweave Circle | 31 | 13 | 18 | 1171 | 1 lost | 5 |
 | Oakshield Clan | 21 | 13 | 8 | 804 | 1 won | 6 |
 | Wildbrook Clan | 30 | 12 | 18 | 1015 | 1 won | 2 |
 | Copper Crown Company | 21 | 12 | 9 | 928 | 1 lost | 4 |
@@ -187,6 +187,7 @@ Records from 598 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-26 22:13: The Tidebreaker Crew Take the Battlefield (2nd win · 28 kills)
 - 2026-11-26 17:37: The Raven Hill Clan Take the Battlefield (revenge! · 4 wins in a row · 32 kills)
 - 2026-11-26 13:40: The Duskwing Tribe Take the Open Plains (11th win · 23 kills)
 - 2026-11-25 22:31: The Black Bear Clan Take the Battlefield (3 wins in a row · 40 kills)
@@ -196,4 +197,3 @@ Records from 598 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-24 17:30: The Cinderclaw Kin Take the Battlefield (revenge denied · 6th win · 35 kills)
 - 2026-11-24 13:31: The Silent Mile Take the Crystal Grove (5th win · 8 kills)
 - 2026-11-23 22:16: The Mountain Wind School Take the Battlefield (5th win · 30 kills)
-- 2026-11-23 18:23: The Stormhorn Tribe Take the Open Plains (3 wins in a row · 23 kills)
