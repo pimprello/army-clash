@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-26 13:40 | Titan vs Hydra vs Phoenix 🤯 | Usa wins | https://youtube.com/shorts/KTJYby_e_lk |
 | 2026-11-25 22:31 | ⚔️ CHAMPION DUEL: Liches vs Empire | Purple wins | https://youtube.com/shorts/CQtvtJ6zPAc |
 | 2026-11-25 17:38 | Neon Rats vs GOLDEN PLAGUE 🔥 | Blue wins | https://youtube.com/shorts/xwy0Myg6hew |
 | 2026-11-25 13:55 | The Weapons Came ALIVE 🗡️ | Olive wins | https://youtube.com/shorts/GR5KDSkIe-4 |

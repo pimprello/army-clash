@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 596 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 597 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -155,23 +155,23 @@ Records from 596 battles with trophies (videos from 1 November 2026 on). Rebuilt
 |---|---|---|---|---|---|---|
 | Mossback Tribe | 30 | 19 | 11 | 1149 | 1 won | 7 |
 | Red Hawk Company | 29 | 17 | 12 | 1133 | 1 lost | 5 |
-| Thornheart Circle | 18 | 15 | 3 | 918 | 5 won | 6 |
+| Thornheart Circle | 19 | 15 | 4 | 949 | 1 lost | 6 |
 | Frostwhisper Tribe | 29 | 14 | 15 | 1319 | 4 lost | 4 |
 | Hollowbark Kin | 32 | 14 | 18 | 1154 | 1 won | 3 |
-| Silverbough Circle | 35 | 13 | 22 | 1611 | 2 lost | 3 |
+| Silverbough Circle | 36 | 13 | 23 | 1621 | 3 lost | 3 |
 | Starweave Circle | 30 | 13 | 17 | 1152 | 3 won | 5 |
 | Oakshield Clan | 21 | 13 | 8 | 804 | 1 won | 6 |
 | Wildbrook Clan | 30 | 12 | 18 | 1015 | 1 won | 2 |
 | Copper Crown Company | 20 | 12 | 8 | 925 | 4 won | 4 |
 | Brightwater Tribe | 23 | 12 | 11 | 763 | 5 won | 5 |
 | Glimmerdeep Kin | 22 | 12 | 10 | 732 | 1 lost | 6 |
+| Duskwing Tribe | 31 | 11 | 19 | 1201 | 1 won | 2 |
 | Order of the Silver Stag | 27 | 11 | 16 | 1157 | 1 lost | 3 |
 | Frostmere Clan | 28 | 11 | 17 | 883 | 4 lost | 3 |
 | Stormhorn Tribe | 17 | 11 | 6 | 764 | 4 won | 4 |
 | Raven Hill Clan | 19 | 11 | 8 | 734 | 3 won | 5 |
 | Nightjar Company | 15 | 11 | 4 | 552 | 5 won | 5 |
 | Thornwood Company | 17 | 11 | 6 | 462 | 1 won | 9 |
-| Duskwing Tribe | 30 | 10 | 19 | 1178 | 1 lost | 2 |
 | Greyfang Clan | 31 | 10 | 21 | 858 | 3 lost | 5 |
 
 ### Great rivalries
@@ -187,6 +187,7 @@ Records from 596 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-26 13:40: The Duskwing Tribe Take the Open Plains (11th win · 23 kills)
 - 2026-11-25 22:31: The Black Bear Clan Take the Battlefield (3 wins in a row · 40 kills)
 - 2026-11-25 17:38: The Stormhorn Tribe Take the Trench Line (streak ended · 4 wins in a row · 21 kills)
 - 2026-11-25 13:55: The Mossback Tribe Take the Battlefield (revenge! · 19th win · 24 kills)
@@ -196,4 +197,3 @@ Records from 596 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-23 22:16: The Mountain Wind School Take the Battlefield (5th win · 30 kills)
 - 2026-11-23 18:23: The Stormhorn Tribe Take the Open Plains (3 wins in a row · 23 kills)
 - 2026-11-23 13:46: The Sunspire Kin Take the Battlefield (9th win · 184 kills)
-- 2026-11-23 12:30: The Stonewall Company Take the Titan's Bones (streak ended · 8th win · 57 kills)
