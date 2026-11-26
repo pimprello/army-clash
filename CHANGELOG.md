@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-26 (Rellz: "some characters are invisible fix this everyone should be visible"): the cut-off troops in the opening
+
+- Found it: the cold open (the first 3 seconds) draws the battle 1.5x sharper than the video, but the troops' shine layer and the on-screen check were still sized for the video's scale. Only the top-left two-thirds of the troops made it onto the picture; the rest were cut off along a straight line, leaving just their rings and effects (this was also the "invisible square" of 24 Nov). Both now take their size from the canvas they draw onto, so every troop shows. The world event's big title no longer shows in the cold open either (it is battle only). Looks only.
+
 ## 2026-11-24 (Rellz: "the invisible square thing is still there ... it just cuts off things for no reason"): the hazy rectangle
 
 - Found it: the troops' rim light is worked out in horizontal bands around the troops (to keep 4K fast). See-through things on the troop layer (auras, smoke, glows, spell circles) used to leave a faint white film in the rim, and where several of them overlapped the film became a hazy box with hard straight edges along the band's edges, which looked like a see-through square cutting things off. With `rules.ui.tidy` the rim is now cut with the layer itself twice more, so only solid troops get a rim and the film is gone (from about 5% white to under 0.5%). Looks only.

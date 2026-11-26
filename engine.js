@@ -11039,7 +11039,7 @@ const RVB = (() => {
         } else if (e.kind === 'glitch') this.worldGlitch(ctx, k);
         // the event's title: big for its first 1.4 seconds, with a colour split
         const tt = T - e.t0;
-        if (tt < 1.5) {
+        if (tt < 1.5 && !this.noUi) { // (not in the cold open, which shows the battle and nothing else)
           const a = Math.min(1, tt / 0.12, (1.5 - tt) / 0.3), s = 1 + 0.25 * (1 - easeOutCubic(Math.min(1, tt / 0.3))), cx = AR.x + AR.w / 2, cy = AR.y + AR.h * 0.42;
           ctx.save(); ctx.globalAlpha = a; ctx.translate(cx, cy); ctx.scale(s, s); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
           ctx.font = font(96, 800); spaced(ctx, 4);
@@ -14139,8 +14139,12 @@ const RVB = (() => {
     // ---- drawing ----
     // the troops' layer: same size and camera as the screen, cleared over the battlefield
     shineBegin(m) {
-      const RS = api.RS || 1, PW = Math.round(VW * RS), PH = Math.round(VH * RS);
-      if (!this._shL || this._shL.width !== PW) { this._shL = api.makeCanvas(PW, PH); this._shR = api.makeCanvas(PW, PH); }
+      // (2026-11-26, Rellz: "some characters are invisible"; also the "invisible square" of 2026-11-24) the troops' layer is sized from
+      // the canvas it is drawn onto, not from the video's scale: the cold open draws the battle 1.5x sharper, and with a layer sized
+      // for the video only the top-left two-thirds of the troops came through (the rest were cut off along a straight line)
+      const RS = (m.canvas && m.canvas.width ? m.canvas.width / VW : 0) || api.RS || 1, PW = Math.round(VW * RS), PH = Math.round(VH * RS);
+      this._shRS = RS;
+      if (!this._shL || this._shL.width !== PW || this._shL.height !== PH) { this._shL = api.makeCanvas(PW, PH); this._shR = api.makeCanvas(PW, PH); }
       const lc = this._shL.getContext('2d');
       // (the battlefield's rectangle in screen pixels, at the render scale)
       const rx = Math.max(0, Math.floor((AR.x + this.shakeX - 3) * RS)), ry = Math.max(0, Math.floor((AR.y + (this.layDY || 0) + this.shakeY - 3) * RS));
@@ -14402,7 +14406,7 @@ const RVB = (() => {
       lc.restore();
       // the rim light: a thin band just inside each outline on the side facing the light (true to every shape, from triangles to dragons)
       // (whole-pixel offsets: a fractional one would make the copies blur, and cost four times as much)
-      const z = (this.cam && this.cam.z || 1) * (api.RS || 1), ux = this._shLx, uy = this._shLy, rimA = clamp(0.62 * S.rim, 0, 1);
+      const z = (this.cam && this.cam.z || 1) * (this._shRS || api.RS || 1), ux = this._shLx, uy = this._shLy, rimA = clamp(0.62 * S.rim, 0, 1);
       const o1x = Math.round(ux * 4 * z), o1y = Math.round(uy * 4 * z), o2x = Math.round(ux * 7.2 * z), o2y = Math.round(uy * 7.2 * z);
       // the bands to work on (the whole battlefield when the camera is rolled, or for the stampede and the kraken)
       const pad = Math.max(Math.abs(o2x), Math.abs(o2y)) + 2, rects = [];
@@ -16000,7 +16004,9 @@ const RVB = (() => {
     // how far a troop reaches above its middle (a little person's head is well above its body's circle)
     // the part of the battlefield the camera shows right now, in battlefield coordinates
     viewRect(ctx) {
-      const RS = api.RS || 1, dy = this.opts.ui >= 2 ? UI_DY : 0;
+      // (the canvas's own scale: the cold open draws 1.5x sharper than the video, and with the video's scale troops in the lower right were
+      // thought to be off screen and not drawn)
+      const RS = (ctx.canvas && ctx.canvas.width ? ctx.canvas.width / VW : 0) || api.RS || 1, dy = this.opts.ui >= 2 ? UI_DY : 0;
       try { const m = ctx.getTransform().inverse(), a = m.transformPoint({ x: AR.x * RS, y: (AR.y + dy) * RS }), b = m.transformPoint({ x: (AR.x + AR.w) * RS, y: (AR.y + AR.h + dy) * RS }); return { x0: Math.min(a.x, b.x), y0: Math.min(a.y, b.y), x1: Math.max(a.x, b.x), y1: Math.max(a.y, b.y) }; }
       catch (e) { return { x0: AR.x, y0: AR.y, x1: AR.x + AR.w, y1: AR.y + AR.h }; }
     },
