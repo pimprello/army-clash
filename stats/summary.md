@@ -1,8 +1,8 @@
 # View stats
 
-Updated 2026-11-25 14:08 UTC. 4 videos, 1 at least a day old (used below). Groups need 3+ videos.
+Updated 2026-11-26 13:52 UTC. 7 videos, 3 at least a day old (used below). Groups need 3+ videos.
 
-Total views: 135. Median views per video: 95.
+Total views: 354. Median views per video: 101.
 
 ### By upload hour (UK time)
 
@@ -13,6 +13,7 @@ Total views: 135. Median views per video: 95.
 
 | Group | Videos | Median views | Average views |
 | --- | --- | --- | --- |
+| Tue | 3 | 101 | 101 |
 
 ### By video length
 
@@ -23,7 +24,7 @@ Total views: 135. Median views per video: 95.
 
 | Day | Videos | Median views | Total views |
 | --- | --- | --- | --- |
-| 2026-11-24 | 1 | 95 | 95 |
+| 2026-11-24 | 3 | 101 | 304 |
 
 ### By era
 
@@ -39,6 +40,7 @@ Total views: 135. Median views per video: 95.
 
 | Group | Videos | Median views | Average views |
 | --- | --- | --- | --- |
+| on | 3 | 101 | 101 |
 
 ### Clickbait title
 
@@ -74,6 +76,7 @@ Total views: 135. Median views per video: 95.
 
 | Group | Videos | Median views | Average views |
 | --- | --- | --- | --- |
+| colours | 3 | 101 | 101 |
 
 ### By colour pair
 
@@ -104,7 +107,10 @@ Total views: 135. Median views per video: 95.
 
 | Views | Likes | Title |
 | --- | --- | --- |
-| 95 | 0 | Can Sky Shields Survive TURBO MORTARS? 😳 |
-| 22 | 0 | Kill the KING to Win 👑 Frost Witches vs Demons |
-| 17 | 0 | The Timeline Executioner Went DOWN 💀 |
-| 1 | 0 | The Weapons Came ALIVE 🗡️ |
+| 125 | 1 | The Timeline Executioner Went DOWN 💀 |
+| 101 | 0 | Can Sky Shields Survive TURBO MORTARS? 😳 |
+| 78 | 0 | Kill the KING to Win 👑 Frost Witches vs Demons |
+| 36 | 0 | Neon Rats vs GOLDEN PLAGUE 🔥 |
+| 9 | 0 | ⚔️ CHAMPION DUEL: Liches vs Empire |
+| 5 | 0 | The Weapons Came ALIVE 🗡️ |
+| 0 | 0 | Titan vs Hydra vs Phoenix 🤯 |
