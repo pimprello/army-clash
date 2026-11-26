@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 597 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 598 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -33,6 +33,7 @@ Records from 597 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ## Hall of champions
 
+- **MORGRA THE WALL** (SINGULARITY SAGE), 12 kills · 2026-11-26 17:37
 - **PELL STORMBORN** (YETI), 28 kills · 2026-11-22 18:50
 - **TALVO BONECRUSHER** (GENERAL), 28 kills · 2026-11-21 10:54
 - **ASHKA THE WALL** (PLAGUE ALCHEMIST), 10 kills · 2026-11-16 11:25
@@ -47,7 +48,6 @@ Records from 597 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - **NYRA THE MAD** (SINGULARITY SAGE), 13 kills · 2026-11-13 12:45
 - **MORGRA IRONHIDE** (MINOTAUR), 16 kills · 2026-11-13 05:12
 - **SIRA SKULLTAKER** (WAR RHINO), 36 kills · 2026-11-12 22:32
-- **PELL THE UNBROKEN** (GENERAL), 15 kills · 2026-11-12 14:48
 
 ## Titles earned (rarest first)
 
@@ -69,8 +69,8 @@ Records from 597 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - UNMAKER SLAYER: 9
 - MAGMA COLOSSUS SLAYER: 10
 - FORTRESS SLAYER: 11
-- GLACIER BEHEMOTH SLAYER: 11
 - MECH SLAYER: 12
+- GLACIER BEHEMOTH SLAYER: 12
 - PLAYER SLAYER: 14
 - CANNON SLAYER: 16
 - STAR EATER SLAYER: 16
@@ -81,13 +81,13 @@ Records from 597 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - ACID LEVIATHAN SLAYER: 23
 - IRONHORN SLAYER: 24
 - STORM COLOSSUS SLAYER: 24
-- CYCLOPS SLAYER: 25
 - DRAGON SLAYER: 26
-- ELEPHANT SLAYER: 32
+- CYCLOPS SLAYER: 26
 - SPIDER QUEEN SLAYER: 32
+- ELEPHANT SLAYER: 34
 - MAMMOTH SLAYER: 41
 - GOLEM SLAYER: 42
-- TITAN SLAYER: 44
+- TITAN SLAYER: 45
 - GIANT SLAYER: 46
 
 ## Mutations (rarest first)
@@ -97,7 +97,7 @@ Records from 597 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 51
 - venom: 94
 - swift: 97
-- spikes: 115
+- spikes: 116
 - regen: 123
 
 ## Big moments
@@ -105,7 +105,6 @@ Records from 597 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - extinct: AUSTRALIA: 1
 - extinct: PINK: 1
 - extinct: SWEDEN: 1
-- extinct: YELLOW: 1
 - extinct: CANADA: 1
 - possess: hourglass: 1
 - extinct: WHITE: 1
@@ -125,6 +124,7 @@ Records from 597 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - copied: giant: 2
 - possess: phoenix: 2
 - extinct: LIME: 2
+- extinct: YELLOW: 2
 - copied: trooper: 2
 - possess: stormemperor: 2
 - possess: giant: 2
@@ -162,14 +162,14 @@ Records from 597 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Starweave Circle | 30 | 13 | 17 | 1152 | 3 won | 5 |
 | Oakshield Clan | 21 | 13 | 8 | 804 | 1 won | 6 |
 | Wildbrook Clan | 30 | 12 | 18 | 1015 | 1 won | 2 |
-| Copper Crown Company | 20 | 12 | 8 | 925 | 4 won | 4 |
+| Copper Crown Company | 21 | 12 | 9 | 928 | 1 lost | 4 |
+| Raven Hill Clan | 20 | 12 | 8 | 766 | 4 won | 5 |
 | Brightwater Tribe | 23 | 12 | 11 | 763 | 5 won | 5 |
 | Glimmerdeep Kin | 22 | 12 | 10 | 732 | 1 lost | 6 |
 | Duskwing Tribe | 31 | 11 | 19 | 1201 | 1 won | 2 |
 | Order of the Silver Stag | 27 | 11 | 16 | 1157 | 1 lost | 3 |
 | Frostmere Clan | 28 | 11 | 17 | 883 | 4 lost | 3 |
 | Stormhorn Tribe | 17 | 11 | 6 | 764 | 4 won | 4 |
-| Raven Hill Clan | 19 | 11 | 8 | 734 | 3 won | 5 |
 | Nightjar Company | 15 | 11 | 4 | 552 | 5 won | 5 |
 | Thornwood Company | 17 | 11 | 6 | 462 | 1 won | 9 |
 | Greyfang Clan | 31 | 10 | 21 | 858 | 3 lost | 5 |
@@ -187,6 +187,7 @@ Records from 597 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-26 17:37: The Raven Hill Clan Take the Battlefield (revenge! · 4 wins in a row · 32 kills)
 - 2026-11-26 13:40: The Duskwing Tribe Take the Open Plains (11th win · 23 kills)
 - 2026-11-25 22:31: The Black Bear Clan Take the Battlefield (3 wins in a row · 40 kills)
 - 2026-11-25 17:38: The Stormhorn Tribe Take the Trench Line (streak ended · 4 wins in a row · 21 kills)
@@ -196,4 +197,3 @@ Records from 597 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-24 13:31: The Silent Mile Take the Crystal Grove (5th win · 8 kills)
 - 2026-11-23 22:16: The Mountain Wind School Take the Battlefield (5th win · 30 kills)
 - 2026-11-23 18:23: The Stormhorn Tribe Take the Open Plains (3 wins in a row · 23 kills)
-- 2026-11-23 13:46: The Sunspire Kin Take the Battlefield (9th win · 184 kills)
