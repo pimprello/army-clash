@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 600 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 601 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -78,7 +78,7 @@ Records from 600 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - SIEGE GOLEM SLAYER: 19
 - HYDRA SLAYER: 21
 - COLOSSUS SLAYER: 23
-- ACID LEVIATHAN SLAYER: 23
+- ACID LEVIATHAN SLAYER: 24
 - IRONHORN SLAYER: 24
 - STORM COLOSSUS SLAYER: 24
 - DRAGON SLAYER: 26
@@ -97,7 +97,7 @@ Records from 600 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - spellward: 51
 - venom: 94
 - swift: 97
-- spikes: 116
+- spikes: 117
 - regen: 123
 
 ## Big moments
@@ -187,6 +187,7 @@ Records from 600 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-27 22:31: The Viper Company Take the Canyon Pass (3 wins in a row · 18 kills)
 - 2026-11-27 13:41: The Gloomcap Circle Take the Battlefield (revenge denied · 6th win · 44 kills)
 - 2026-11-26 22:13: The Tidebreaker Crew Take the Battlefield (2nd win · 28 kills)
 - 2026-11-26 17:37: The Raven Hill Clan Take the Battlefield (revenge! · 4 wins in a row · 32 kills)
@@ -196,4 +197,3 @@ Records from 600 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-25 13:55: The Mossback Tribe Take the Battlefield (revenge! · 19th win · 24 kills)
 - 2026-11-24 22:34: The House of the Black Kite Take the Canyon Pass (4th win · 30 kills)
 - 2026-11-24 17:30: The Cinderclaw Kin Take the Battlefield (revenge denied · 6th win · 35 kills)
-- 2026-11-24 13:31: The Silent Mile Take the Crystal Grove (5th win · 8 kills)

@@ -2,6 +2,7 @@
 
 | Date (UTC) | Title | Result | Link |
 | --- | --- | --- | --- |
+| 2026-11-27 22:31 | Frost Hollows vs Golden Guard vs Mega Goblins 🤯 | Teal wins | https://youtube.com/shorts/XnMJ7qsgf7Q |
 | 2026-11-27 13:41 | A BLOOD MOON Rose 🩸 | Orange wins | https://youtube.com/shorts/148377vUtSw |
 | 2026-11-26 22:13 | Omega Ghosts vs MECH PLAGUE 🔥 | Teal wins | https://youtube.com/shorts/fY6bd_dTPjc |
 | 2026-11-26 17:37 | A SANDWORM Burst Out 🪱 | Yellow wins | https://youtube.com/shorts/VIAFd7nwn7g |
