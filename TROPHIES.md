@@ -1,6 +1,6 @@
 # Trophy room
 
-Records from 599 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
+Records from 600 battles with trophies (videos from 1 November 2026 on). Rebuilt after every upload.
 
 ## Most kills by one troop
 
@@ -70,7 +70,7 @@ Records from 599 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - MAGMA COLOSSUS SLAYER: 10
 - FORTRESS SLAYER: 11
 - MECH SLAYER: 12
-- GLACIER BEHEMOTH SLAYER: 12
+- GLACIER BEHEMOTH SLAYER: 13
 - PLAYER SLAYER: 14
 - CANNON SLAYER: 16
 - STAR EATER SLAYER: 16
@@ -83,8 +83,8 @@ Records from 599 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - STORM COLOSSUS SLAYER: 24
 - DRAGON SLAYER: 26
 - CYCLOPS SLAYER: 26
-- SPIDER QUEEN SLAYER: 32
-- ELEPHANT SLAYER: 34
+- SPIDER QUEEN SLAYER: 33
+- ELEPHANT SLAYER: 35
 - GOLEM SLAYER: 42
 - MAMMOTH SLAYER: 42
 - TITAN SLAYER: 45
@@ -145,7 +145,7 @@ Records from 599 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - portal: demon: 20
 - portal: troll: 21
 - sudden: meteors: 26
-- sudden: lava: 28
+- sudden: lava: 29
 
 ## The tribes' chronicle
 
@@ -156,9 +156,9 @@ Records from 599 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Mossback Tribe | 30 | 19 | 11 | 1149 | 1 won | 7 |
 | Red Hawk Company | 29 | 17 | 12 | 1133 | 1 lost | 5 |
 | Thornheart Circle | 19 | 15 | 4 | 949 | 1 lost | 6 |
-| Frostwhisper Tribe | 29 | 14 | 15 | 1319 | 4 lost | 4 |
+| Frostwhisper Tribe | 30 | 14 | 16 | 1328 | 5 lost | 4 |
 | Hollowbark Kin | 32 | 14 | 18 | 1154 | 1 won | 3 |
-| Silverbough Circle | 36 | 13 | 23 | 1621 | 3 lost | 3 |
+| Silverbough Circle | 37 | 13 | 24 | 1671 | 4 lost | 3 |
 | Starweave Circle | 31 | 13 | 18 | 1171 | 1 lost | 5 |
 | Oakshield Clan | 21 | 13 | 8 | 804 | 1 won | 6 |
 | Wildbrook Clan | 30 | 12 | 18 | 1015 | 1 won | 2 |
@@ -172,7 +172,7 @@ Records from 599 battles with trophies (videos from 1 November 2026 on). Rebuilt
 | Stormhorn Tribe | 17 | 11 | 6 | 764 | 4 won | 4 |
 | Nightjar Company | 15 | 11 | 4 | 552 | 5 won | 5 |
 | Thornwood Company | 17 | 11 | 6 | 462 | 1 won | 9 |
-| Greyfang Clan | 31 | 10 | 21 | 858 | 3 lost | 5 |
+| Sunspire Kin | 22 | 10 | 12 | 977 | 1 won | 2 |
 
 ### Great rivalries
 
@@ -187,6 +187,7 @@ Records from 599 battles with trophies (videos from 1 November 2026 on). Rebuilt
 
 ### Latest from the battlefield
 
+- 2026-11-27 13:41: The Gloomcap Circle Take the Battlefield (revenge denied · 6th win · 44 kills)
 - 2026-11-26 22:13: The Tidebreaker Crew Take the Battlefield (2nd win · 28 kills)
 - 2026-11-26 17:37: The Raven Hill Clan Take the Battlefield (revenge! · 4 wins in a row · 32 kills)
 - 2026-11-26 13:40: The Duskwing Tribe Take the Open Plains (11th win · 23 kills)
@@ -196,4 +197,3 @@ Records from 599 battles with trophies (videos from 1 November 2026 on). Rebuilt
 - 2026-11-24 22:34: The House of the Black Kite Take the Canyon Pass (4th win · 30 kills)
 - 2026-11-24 17:30: The Cinderclaw Kin Take the Battlefield (revenge denied · 6th win · 35 kills)
 - 2026-11-24 13:31: The Silent Mile Take the Crystal Grove (5th win · 8 kills)
-- 2026-11-23 22:16: The Mountain Wind School Take the Battlefield (5th win · 30 kills)
