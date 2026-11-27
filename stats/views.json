@@ -1,5 +1,374 @@
 [
  {
+  "id": "148377vUtSw",
+  "date": "2026-11-27 13:41",
+  "title": "A BLOOD MOON Rose 🩸",
+  "seed": 351303459,
+  "slot": 1124,
+  "era": "fantasy",
+  "map": "cloud",
+  "teams": [
+   "PURPLE",
+   "ORANGE"
+  ],
+  "armies": [
+   "SPIRITS",
+   "WARBAND"
+  ],
+  "formations": [
+   "flanks",
+   "wedge"
+  ],
+  "troops": [],
+  "hook": "A BLOOD MOON Rose 🩸",
+  "winner": "ORANGE WINS",
+  "cinematic": true,
+  "titleKind": "title",
+  "trophy": {
+   "mvp": {
+    "unit": "ILLUSIONIST",
+    "kills": 5
+   },
+   "fight": 58.4,
+   "wipeout": true,
+   "left": 11,
+   "titles": [
+    "ELEPHANT SLAYER",
+    "SPIDER QUEEN SLAYER",
+    "GLACIER BEHEMOTH SLAYER"
+   ],
+   "moments": [
+    "sudden:lava"
+   ]
+  },
+  "mode": "siege",
+  "skins": [
+   "FROST",
+   null
+  ],
+  "combat": true,
+  "balKey": "SPIRITS|WARBAND|siege",
+  "balance": 1.272,
+  "tribes": [
+   {
+    "name": "SILVERBOUGH CIRCLE",
+    "team": 0,
+    "kills": 50,
+    "wt": 4,
+    "at": 4
+   },
+   {
+    "name": "FROSTWHISPER TRIBE",
+    "team": 0,
+    "kills": 9,
+    "wt": 1,
+    "at": 2
+   },
+   {
+    "name": "GLOOMCAP CIRCLE",
+    "team": 1,
+    "kills": 44,
+    "wt": 3,
+    "at": 3
+   },
+   {
+    "name": "SUNSPIRE KIN",
+    "team": 1,
+    "kills": 9,
+    "wt": 3,
+    "at": 1
+   }
+  ],
+  "winTeam": 1,
+  "story": "revenge",
+  "chron": [
+   "THE GLOOMCAP CIRCLE TAKE THE BATTLEFIELD",
+   "REVENGE DENIED · 6TH WIN · 44 KILLS"
+  ],
+  "economy": {
+   "forges": 16,
+   "trades": 5,
+   "merchant": "VENOM CORE"
+  },
+  "seconds": 72.43,
+  "units": [
+   "spiderqueen",
+   "elephant",
+   "golem",
+   "treant",
+   "goliath",
+   "wisp",
+   "druid",
+   "elf",
+   "stormcolossus",
+   "glaciergiant",
+   "orc",
+   "berserker",
+   "boarrider",
+   "troll",
+   "wolfrider",
+   "rhino",
+   "bard",
+   "illusionist",
+   "soldier"
+  ],
+  "views": 0,
+  "likes": 0,
+  "comments": 0,
+  "secs": 73,
+  "published": "2026-11-27T13:43:06Z"
+ },
+ {
+  "id": "fY6bd_dTPjc",
+  "date": "2026-11-26 22:13",
+  "title": "Omega Ghosts vs MECH PLAGUE 🔥",
+  "seed": 2413031654,
+  "slot": 1123,
+  "era": "wild",
+  "map": "galaxy",
+  "teams": [
+   "TEAL",
+   "CORAL"
+  ],
+  "armies": [
+   "OMEGA GHOSTS",
+   "MECH PLAGUE"
+  ],
+  "formations": [
+   "crescent",
+   "crescent"
+  ],
+  "troops": [],
+  "hook": "Omega Ghosts vs MECH PLAGUE 🔥",
+  "winner": "TEAL WINS",
+  "wild": true,
+  "sides": [
+   {
+    "name": "OMEGA GHOSTS",
+    "mix": {
+     "ghostknight": 0.55,
+     "plaguedoctor": 0.36,
+     "drummer": 0.09
+    },
+    "heavy": [],
+    "base": "plaguedoctor"
+   },
+   {
+    "name": "MECH PLAGUE",
+    "mix": {
+     "werewolf": 0.57,
+     "alchemist": 0.31,
+     "warmaster": 0.12
+    },
+    "heavy": [
+     "mech"
+    ],
+    "base": "alchemist"
+   }
+  ],
+  "cinematic": true,
+  "titleKind": "title",
+  "trophy": {
+   "mvp": {
+    "unit": "GLACIER BEHEMOTH",
+    "kills": 12
+   },
+   "fight": 60,
+   "left": 2,
+   "titles": [
+    "MAMMOTH SLAYER"
+   ],
+   "moments": []
+  },
+  "combat": true,
+  "balance": 1,
+  "tribes": [
+   {
+    "name": "TIDEBREAKER CREW",
+    "team": 0,
+    "kills": 28,
+    "wt": 3,
+    "at": 3
+   },
+   {
+    "name": "CREW OF THE GOLDEN PARROT",
+    "team": 0,
+    "kills": 3,
+    "wt": 1,
+    "at": 2
+   },
+   {
+    "name": "HOUSE OF THE MOON FOX",
+    "team": 1,
+    "kills": 11,
+    "wt": 3,
+    "at": 3
+   },
+   {
+    "name": "STARWEAVE CIRCLE",
+    "team": 1,
+    "kills": 19,
+    "wt": 3,
+    "at": 3
+   }
+  ],
+  "winTeam": 0,
+  "story": "revenge",
+  "chron": [
+   "THE TIDEBREAKER CREW TAKE THE BATTLEFIELD",
+   "2ND WIN · 28 KILLS"
+  ],
+  "economy": {
+   "forges": 21,
+   "trades": 3
+  },
+  "seconds": 72.43,
+  "units": [
+   "mammoth",
+   "stareater",
+   "glaciergiant",
+   "ironhorn",
+   "ghostknight",
+   "minotaur",
+   "ogre",
+   "plaguedoctor",
+   "mech",
+   "spiderqueen",
+   "cyclops",
+   "werewolf",
+   "rhino",
+   "troll",
+   "soldier",
+   "trapmaster"
+  ],
+  "views": 4,
+  "likes": 0,
+  "comments": 0,
+  "secs": 73,
+  "published": "2026-11-26T22:15:28Z"
+ },
+ {
+  "id": "VIAFd7nwn7g",
+  "date": "2026-11-26 17:37",
+  "title": "A SANDWORM Burst Out 🪱",
+  "seed": 1821011789,
+  "slot": 1122,
+  "era": "medieval",
+  "map": "cloud",
+  "teams": [
+   "YELLOW",
+   "PINK"
+  ],
+  "armies": [
+   "VIKINGS",
+   "VIKINGS"
+  ],
+  "formations": [
+   "columns",
+   "block"
+  ],
+  "troops": [],
+  "hook": "A SANDWORM Burst Out 🪱",
+  "winner": "YELLOW WINS",
+  "clickbait": true,
+  "cinematic": true,
+  "titleKind": "clickbait",
+  "trophy": {
+   "mvp": {
+    "unit": "SINGULARITY SAGE",
+    "kills": 12,
+    "name": "MORGRA THE WALL",
+    "title": "ELEPHANT SLAYER"
+   },
+   "fight": 50.9,
+   "wipeout": true,
+   "left": 19,
+   "titles": [
+    "ELEPHANT SLAYER",
+    "ELEPHANT SLAYER",
+    "GLACIER BEHEMOTH SLAYER",
+    "CYCLOPS SLAYER",
+    "TITAN SLAYER"
+   ],
+   "mutations": [
+    "spikes"
+   ],
+   "moments": [
+    "extinct:YELLOW"
+   ]
+  },
+  "mode": "mirror",
+  "skins": [
+   "GOLDEN",
+   "GHOST"
+  ],
+  "combat": true,
+  "balKey": "VIKINGS|VIKINGS|mirror",
+  "balance": 1,
+  "tribes": [
+   {
+    "name": "RAVEN HILL CLAN",
+    "team": 0,
+    "kills": 32,
+    "wt": 4,
+    "at": 4
+   },
+   {
+    "name": "GOLDEN LION ORDER",
+    "team": 0,
+    "kills": 9,
+    "wt": 3,
+    "at": 2
+   },
+   {
+    "name": "IRON BOAR CLAN",
+    "team": 1,
+    "kills": 13,
+    "wt": 3,
+    "at": 3
+   },
+   {
+    "name": "COPPER CROWN COMPANY",
+    "team": 1,
+    "kills": 3,
+    "wt": 1,
+    "at": 1
+   }
+  ],
+  "winTeam": 0,
+  "story": "revenge",
+  "chron": [
+   "THE RAVEN HILL CLAN TAKE THE BATTLEFIELD",
+   "REVENGE! · 4 WINS IN A ROW · 32 KILLS"
+  ],
+  "economy": {
+   "forges": 17,
+   "trades": 3,
+   "merchant": "STORM CORE"
+  },
+  "seconds": 72.43,
+  "units": [
+   "glaciergiant",
+   "elephant",
+   "cyclops",
+   "shieldbearer",
+   "berserker",
+   "rhino",
+   "juggernaut",
+   "troll",
+   "singularity",
+   "crystalqueen",
+   "sumo",
+   "engineer",
+   "phasereaper"
+  ],
+  "views": 8,
+  "likes": 0,
+  "comments": 0,
+  "secs": 73,
+  "published": "2026-11-26T17:38:45Z"
+ },
+ {
   "id": "KTJYby_e_lk",
   "date": "2026-11-26 13:40",
   "title": "Titan vs Hydra vs Phoenix 🤯",
@@ -107,7 +476,7 @@
    "imp",
    "rhino"
   ],
-  "views": 0,
+  "views": 8,
   "likes": 0,
   "comments": 0,
   "secs": 73,
@@ -219,7 +588,7 @@
    "pulsar",
    "archer"
   ],
-  "views": 9,
+  "views": 10,
   "likes": 0,
   "comments": 0,
   "secs": 73,
@@ -363,7 +732,7 @@
    "wolfrider",
    "hookman"
   ],
-  "views": 36,
+  "views": 37,
   "likes": 0,
   "comments": 0,
   "secs": 73,
@@ -624,7 +993,7 @@
    "wisp",
    "berserker"
   ],
-  "views": 125,
+  "views": 137,
   "likes": 1,
   "comments": 0,
   "secs": 73,
@@ -735,7 +1104,7 @@
    "king",
    "spearman"
   ],
-  "views": 78,
+  "views": 90,
   "likes": 0,
   "comments": 0,
   "secs": 73,
